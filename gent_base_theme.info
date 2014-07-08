@@ -1,0 +1,23 @@
+name = Gent Base Theme
+description = Drupal's Gent base theme.
+core = 7.x
+
+stylesheets[all][] = css/styles.css
+
+regions[header]         = Header
+regions[navigation]     = Navigation bar
+regions[highlighted]    = Highlighted
+regions[help]           = Help
+regions[content]        = Content
+regions[sidebar_first]  = First sidebar
+regions[sidebar_second] = Second sidebar
+regions[footer]         = Footer
+regions[bottom]         = Page bottom
+regions[page_top]       = Page top
+regions[page_bottom]    = Page bottom
+
+features[] = logo
+features[] = name
+features[] = slogan
+features[] = main_menu
+features[] = secondary_menu
