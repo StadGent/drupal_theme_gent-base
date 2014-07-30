@@ -1,0 +1,57 @@
+/**, *:before, *:after {
+  @include border-box;
+}*/
+
+html {
+  -webkit-overflow-scrolling: touch;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+
+  // background-color: $gamma-ui-color;
+  font: $alpha-font-weight $alpha-font-size/16*100%/#{$alpha-line-height} $alpha-font-family ;
+
+  @include mq($bp5) {
+    font-size: $alpha-font-size/16*112.5%;
+  }
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  text-rendering : optimizelegibility;
+  color: $beta-text-color;
+}
+
+::-moz-selection {
+  text-shadow: none;
+  background-color: $alpha-text-color;
+  color: lighten($alpha-text-color, 65%);
+}
+
+::selection {
+  text-shadow: none;
+  background-color: $alpha-text-color;
+  color: lighten($alpha-text-color, 65%);
+}
+
+hr {
+  border: 1px solid darken($gamma-ui-color,0);
+  border-width: 1px 0 0;
+  clear: both;
+  margin-top: 0;
+  width: 100%;
+  float: left;
+  @include margin-tb(0,1);
+
+  @include mq($bp3) {
+    @include margin-tb(1,2);
+  }
+}
+
+.meta {
+  color: $gamma-text-color;
+}
+
+.caption {
+  font-style: italic;
+}

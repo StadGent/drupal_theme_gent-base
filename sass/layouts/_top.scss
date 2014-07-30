@@ -1,0 +1,14 @@
+.top-holder {
+  @extend %clearfix;
+  z-index: 100;
+  background-color: $alpha-text-color;
+
+  @include mq($bp3) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    @include background-opacity($alpha-text-color,.5);
+  }
+}

@@ -1,0 +1,25 @@
+$saturation: 5 !default;
+$lightness: 5 !default;
+$darkness: 5 !default;
+
+$base-color: #0091bd;
+
+$alpha-ui-color: $base-color !default; // Blue hsl(194, 100.0000%, 37.2549%)
+$beta-ui-color: #f39200 !default; // #344047 Dark grey blue
+$gamma-ui-color: hsl(hue($beta-ui-color), $saturation, 95); // Light grey
+$delta-ui-color: #fff;
+
+$alpha-text-color: hsl(hue($alpha-ui-color), $saturation, 15);
+$beta-text-color: hsl(hue($alpha-ui-color), $saturation, 30);
+$gamma-text-color: hsl(hue($alpha-ui-color), $saturation, 45);
+$delta-text-color: hsl(hue($alpha-ui-color), $saturation, 75);
+
+$error-color: #d62300;
+$status-color: #93d600;
+$warning-color: $beta-ui-color;
+
+$alpha-link-color: lighten($alpha-ui-color,$lightness);
+$alpha-link-color-hover: $alpha-ui-color;
+$alpha-link-color-focus: $alpha-ui-color;
+$alpha-link-color-active: $alpha-ui-color;
+$alpha-link-color-visited: darken($alpha-ui-color,$darkness);

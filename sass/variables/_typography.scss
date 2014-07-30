@@ -1,0 +1,19 @@
+$alpha-font-family: "Source Sans Pro", arial, sans-serif;
+$beta-font-family:  "interstateregular", "Interstate", "Source Sans Pro", sans-serif;
+
+$alpha-font-size: 18; // pixel-value
+$alpha-line-height: 1.4; // em-value
+$alpha-baseline-grid: 8; // pixel-value
+$alpha-leading: .8; // multiplier
+
+$alpha-font-weight: 400;
+$beta-font-weight: 700;
+$gamma-font-weight : 300;
+$delta-font-weight : 600;
+$yota-font-weight: 200;
+
+// Modular scale settings.
+$ratio: 1.1;
+$importantnumber: 36;
+$leading: 1;
+$base-size: $alpha-font-size/16 * 1em;

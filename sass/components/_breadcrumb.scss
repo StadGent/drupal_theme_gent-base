@@ -1,0 +1,31 @@
+.site-breadcrumb {
+  ul.breadcrumb {
+    @extend %clearfix;
+    @include list-nav;
+    @include horizontal-nav;
+    @include text-dimensions(-2, 1, 0, 0, 1);
+    margin-bottom: 0;
+    border-bottom: 1px solid darken($gamma-ui-color, 0);
+    font-weight: bold;
+    color: $alpha-text-color;
+  }
+
+  li {
+    @include rem-padding-lr(0, .5);
+    &:first-of-type {
+      padding-left: 0;
+    }
+  }
+
+  .icon {
+    font-size: 85%;
+  }
+
+  a {
+    font-weight: normal;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

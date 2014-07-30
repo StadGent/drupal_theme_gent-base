@@ -1,0 +1,7 @@
+.view-content > ul {
+  @extend %reset-list;
+}
+
+.view-content > ul > li.style-grid {
+  @include margin-bottom(1);
+}

@@ -1,0 +1,21 @@
+.top.intro-holder {
+  @include mq($bp3) {
+    @include padding-tb(4.25,1);
+  }
+}
+
+.site-logo {
+  padding-left: 1em;
+}
+
+.site-name {
+  @include text-dimensions(8, 2);
+  padding-left: 0.5em;
+  margin-bottom: 0;
+
+  color: #fff !important;
+  font-weight: bold;
+  font-family: $beta-font-family;
+
+  text-shadow: 0 1px 1px rgba($alpha-text-color, .50);
+}

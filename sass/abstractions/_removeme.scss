@@ -1,0 +1,94 @@
+/*
+	User Interface Elements
+*/
+
+
+
+// Pre- & postfix mixins
+
+/*@mixin postfix {
+	border-radius: 0 $radius $radius 0;
+	border-left: 0;
+}
+
+@mixin prefix {
+	border-radius: $radius 0 0 $radius;
+	border-right: 0;
+}*/
+
+// Alerts
+
+/*%alert {
+	border-width: $border;
+	border-style: solid;
+	margin-bottom: #{$alpha-line-height}em;
+	position: relative;
+	padding: em($alpha-baseline-grid*2) em($alpha-baseline-grid*3);
+
+	a:hover,
+	a:active,
+	a:focus {
+		text-decoration: none;
+	}
+
+	.close {
+		position: absolute;
+		top: #{$alpha-line-height/2}em;
+		right: #{$alpha-line-height/2}em;
+		display: block;
+		line-height: 1;
+		text-decoration: none;
+	}
+
+	p {
+		@include baseline-dimensions(0,1,1);
+	}
+}
+
+@mixin alert {
+	@extend %alert;
+	border-radius: $radius;
+	cursor: pointer;
+	border-color: darken($gamma-ui-color,20%);
+	background-color: $gamma-ui-color;
+	@include text-color($gamma-ui-color);
+
+	a {
+		@include text-color($gamma-ui-color);
+		text-decoration: underline;
+	}
+}
+
+@mixin alert-error {
+	@extend %alert;
+	border-color: darken($error-color,10);
+	background-color: $error-color;
+	@include text-color($error-color);
+
+	a {
+		@include text-color($error-color);
+	}
+}
+
+@mixin alert-success {
+	@extend %alert;
+	border-color: darken($success-color,10);
+	background-color: $success-color;
+	@include text-color($success-color);
+
+	a {
+		@include text-color($success-color);
+	}
+}
+
+@mixin alert-notice {
+	@extend %alert;
+	border-color: darken($notice-color,20);
+	background-color: $notice-color;
+	@include text-color($notice-color);
+
+	a {
+		@include text-color($notice-color);
+	}
+}*/
+

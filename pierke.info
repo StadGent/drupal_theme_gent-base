@@ -1,0 +1,13 @@
+name = Pierke
+description = HTML5 base theme for Ghent websites, based on a stripped down Omega 4 theme.
+screenshot = screenshot.png
+engine = phptemplate
+core = 7.x
+
+; Regions
+regions[highlighted]    = Highlighted
+regions[help]           = Help
+regions[content]        = Content
+regions[sidebar_first]  = First Sidebar
+regions[sidebar_second] = Second Sidebar
+regions[footer]         = Footer

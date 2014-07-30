@@ -1,0 +1,17 @@
+// Hide the toolbar or admin menu on small screens.
+@media all and (max-width: $bp1) {
+  #toolbar, #admin-menu {
+    display: none;
+  }
+
+  html {
+    body.toolbar, body.admin-menu {
+      padding-top: 0 !important;
+      margin-top: 0 !important;
+    }
+  }
+}
+
+#toolbar, #admin-menu-wrapper ul {
+  font-size: $alpha-font-size * 0.75px;
+}

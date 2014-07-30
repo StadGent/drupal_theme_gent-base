@@ -1,0 +1,87 @@
+.btn,
+a.btn {
+  @extend %btn;
+}
+
+.large.btn {
+  @include btn-l;
+}
+
+.medium.btn {
+  @include btn-m;
+}
+
+.inline.btn {
+  @include btn-inlineblock
+}
+
+.alpha.btn {
+  color: #fff;
+  background-color: $alpha-link-color;
+
+  &:hover {
+    color: #fff;
+    background-color: lighten($alpha-link-color, 5);
+  }
+
+  &:focus,
+  &:active {
+    background-color: $alpha-link-color;
+  }
+}
+
+.beta.btn {
+  color: #fff;
+  background-color: $beta-ui-color;
+
+  &:hover {
+    color: #fff;
+    background-color: lighten($beta-ui-color, 5);
+  }
+
+  &:focus,
+  &:active {
+    background-color: darken($beta-ui-color, 2.5);
+  }
+}
+
+.delta.btn {
+  color: #fff;
+  background-color: $alpha-text-color;
+
+  &:hover {
+    background-color: lighten($alpha-text-color, 5);
+  }
+
+  &:focus,
+  &:active {
+    background-color: $alpha-text-color;
+  }
+}
+
+.gamma.btn {
+  color: #fff;
+  background-color: $gamma-text-color;
+
+  &:hover {
+    background-color: lighten($beta-text-color, 5);
+  }
+
+  &:focus,
+  &:active {
+    background-color: $beta-text-color;
+  }
+}
+
+.warning.btn {
+  border: 1px solid $warning-color;
+  box-shadow: none;
+
+  font-size: 70%;
+  font-weight: normal;
+
+  color: hsl(hue($warning-color),75,40);
+  background-color: hsl(hue($warning-color),100,95);
+
+  cursor: default;
+}
