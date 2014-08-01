@@ -21,6 +21,8 @@
   <!-- Custom modernizr build: http://modernizr.com — load other JavaScript at the end of document -->
   <script src="<?php print base_path() . path_to_theme(); ?>/js/modernizr.custom.js"></script>
 
+  <!-- Webtype -->
+  <link href="//cloud.webtype.com/css/5860be9a-41ce-496c-b44c-3542da280739.css" rel="stylesheet" type="text/css" />
   <!-- Google webfonts -->
   <!--
     <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,400italic" rel="stylesheet" type="text/css" />

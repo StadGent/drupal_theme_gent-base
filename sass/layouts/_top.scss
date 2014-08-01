@@ -12,3 +12,100 @@
     @include background-opacity($alpha-text-color,.5);
   }
 }
+
+.intro-holder {
+	@extend %clearfix;
+	position: relative;
+	background-color: $gamma-text-color;
+	@include padding-tb(1,1);
+	@include mq($bp3) {
+		@include rem-padding-lr(1,1);
+		min-height: 18em;
+		background: transparent url(../img/schapestal.jpg) bottom no-repeat;
+		-webkit-background-size: cover;
+		background-size: cover;
+		box-shadow: inset 0 0 5px rgba($alpha-text-color,.15);
+
+		&:before {
+			content: "";
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			@include background-opacity($alpha-text-color,.35);
+		}
+	}
+}
+
+.top-row {
+	max-width: none;
+}
+
+.top-search {
+	@extend %clearfix;
+	margin-bottom: 0;
+	float: left;
+	width: 100%;
+	border-top: 1px solid $beta-text-color;
+	@include rem-padding-lr(.5,.5);
+	@include padding-tb(.5,.5);
+
+	@include mq($bp3) {
+		width: 50%;
+		border: none;
+	}
+
+	@include mq($bp5) {
+		width: 40%;
+	}
+
+	.form-text {
+		@include rem-padding-lr(.75,.75);
+		@include input-dimensions(-3,$dimensions);
+	}
+
+	.form-submit {
+		@include input-dimensions(-2,$dimensions);
+	}
+
+}
+
+.intro-logo {
+	display: none;
+
+	@include mq($bp3) {
+		display: block;
+		width: 13.75em;
+		margin-bottom: 0;
+		@include rem-padding-lr(1,1);
+	}
+
+}
+
+.intro {
+	color: #fff;
+	@include box-(12,1,1);
+
+	@include mq($bp3) {
+		@include padding-tb(3.7,0);
+		display: block;
+		bottom: -1.5em;
+		position: relative;
+	}
+
+}
+
+.intro-text {
+	text-shadow: 0 1px 1px rgba($alpha-text-color,.50);
+}
+
+.intro-title {
+	color: #fff !important;
+	font-weight: bold;
+	font-family: $beta-font-family;
+	margin-bottom: 0;
+	@include text-dimensions(8, 2);
+}
+

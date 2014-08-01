@@ -1,0 +1,49 @@
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/base\.hacks\.scss}line{font-family:\000031}}
+.tabs-top {
+  position: fixed;
+  top: 30px;
+  display: block;
+  width: 100%;
+  height: 40px;
+  margin: 0 auto;
+  overflow: visible;
+  background-color: #0091BD;
+  z-index: 998; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/base\.hacks\.scss}line{font-family:\0000313}}
+.tabs-top ul {
+  border-bottom: 0; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/base\.hacks\.scss}line{font-family:\0000317}}
+.tabs-top ul li > a {
+  display: inline-block;
+  background-color: #0091BD;
+  color: #FFF;
+  font-size: 14px;
+  border: none; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/base\.hacks\.scss}line{font-family:\0000325}}
+.tabs-top ul li:first-child {
+  padding-left: 55px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/base\.hacks\.scss}line{font-family:\0000329}}
+.tabs-top ul li {
+  margin-right: 5px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/base\.hacks\.scss}line{font-family:\0000333}}
+.tabs-top ul li {
+  margin-right: 5px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/base\.hacks\.scss}line{font-family:\0000336}}
+.tabs-top ul li.active a {
+  border: none;
+  background: transparent; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/base\.hacks\.scss}line{font-family:\0000341}}
+.tabs-top ul {
+  margin-bottom: 0; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/base\.hacks\.scss}line{font-family:\0000346}}
+body.admin-menu .top-holder-wrapper-extratabs {
+  position: relative;
+  margin-top: 41px; }

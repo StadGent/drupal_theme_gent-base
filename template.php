@@ -1,9 +1,13 @@
 <?php
 
 // TODO consider refactor to omega's auto-discover files.
+require_once dirname(__FILE__) . '/preprocess/html.preprocess.inc';
+require_once dirname(__FILE__) . '/preprocess/page.preprocess.inc';
 require_once dirname(__FILE__) . '/preprocess/views.preprocess.inc';
+require_once dirname(__FILE__) . '/preprocess/block.preprocess.inc';
 require_once dirname(__FILE__) . '/process/block.process.inc';
 require_once dirname(__FILE__) . '/process/views.process.inc';
+require_once dirname(__FILE__) . '/process/page.process.inc';
 
 /**
  * @file

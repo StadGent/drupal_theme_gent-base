@@ -35,6 +35,15 @@
   width: 100%;
 }
 
+@media (min-width: $bp4) {
+
+  .row {
+    max-width: 63.25em;
+    margin: 0 auto;
+  }
+
+}
+
 // Generate medium classes.
 @if $generate-x-small == true {
   @media (min-width: $bp1) {

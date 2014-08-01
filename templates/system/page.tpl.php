@@ -1,80 +1,113 @@
-<div class="l-page">
-
-  <div class="top-holder">
-    <ul class="top-nav">
-      <?php if ($user->uid == 0): ?>
-        <li><?php print l(t('Log in'), 'user/login'); ?></li>
-      <?php else: ?>
-        <li><?php print l(t('Log out'), 'user/logout'); ?></li>
-      <?php endif; ?>
-    </ul>
-    <div class="top-search site-search">
-      <?php print render($page['search']); ?>
+<?php if (render($tabs) && $user->uid != 0) : ?>
+  <div class="tabs-top">
+    <?php print render($tabs); ?>
+  </div>
+<?php endif; ?>
+<!--[if lt IE 7]>
+<div class="alert-box">
+  <p>You are using an <strong>outdated</strong> browser. Please <a
+    href="http://browsehappy.com/">upgrade your browser</a> or <a
+    href="http://www.google.com/chromeframe/?redirect=true">activate
+    Google Chrome Frame</a> to improve your experience.</p>
+</div>
+<![endif]-->
+<div<?php print $attributes; ?> <?php if (render($tabs)) : ?> class="top-holder-wrapper-extratabs"<?php endif; ?>>
+  <div class="top-holder<?php if (render($tabs)) : ?> top-holder-admin-extratabs<?php endif; ?>">
+    <div class="row top-row">
+      <a href="/" class="top-index">
+        <span class="top-index-logo"></span>
+        <strong class="top-index-p"><?php print $site_name; ?></strong>
+      </a>
+      <ul class="top-nav">
+        <?php if ($user->uid == 0) { ?>
+          <li><a href="/user/login">Aanmelden</a></li>
+          <?php
+        }
+        else {
+          ?>
+          <li><a href="/user/logout">Afmelden</a></li>
+        <?php } ?>
+      </ul>
+      <div class="top-search site-search">
+        <?php print render($page['search']); ?>
+      </div>
     </div>
   </div>
 
-  <div class="top holder intro-holder">
 
-    <header class="l-header" role="banner">
-      <div class="row top-row">
-        <a href="<?php print $front_page; ?>" class="top-index">
-          <?php if ($logo): ?>
-            <span class="top-index-logo">
-              <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" class="site-logo"><img
-                  src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>"/></a>
-            </span>
-          <?php endif; ?>
-          <?php if ($site_name): ?>
-            <h1 class="site-name">
-              <?php print $site_name; ?>
-            </h1>
-          <?php endif; ?>
-        </a>
+  <main class="site-content-holder">
+    <div class="top intro-holder" <?php print !empty($inner_styles['intro-holder']) ? $inner_styles['intro-holder'] : ''; ?>>
+      <header class="row intro-row">
+        <p class="intro-logo logo">
+          <a href="/"><img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" /></a>
+        </p>
+        <div class="intro">
+          <h1 class="intro-title intro-text"><?php print $deelsite_title; ?></h1>
+        </div>
+      </header>
+    </div>
+    <nav class="holder site-breadcrumb-holder">
+      <div class="row site-breadcrumb-row">
+        <div class="site-breadcrumb col">
+          <?php print $breadcrumb; ?>
+        </div>
       </div>
-    </header>
-  </div>
-
-  <div class="holder main-holder">
-    <div class="l-main">
-      <div class="l-content" role="main">
-        <?php print render($page['highlighted']); ?>
-
-        <?php if ($breadcrumb): ?>
-          <nav class="holder site-breadcrumb-holder">
-            <div class="site-breadcrumb">
-              <?php print $breadcrumb; ?>
+    </nav>
+    <div class="holder main-holder">
+      <div class="row main-row">
+        <div class="col system-info">
+          <?php print $messages; ?>
+          <?php print render($page['help']); ?>
+          <?php if ($user->uid == 0 && render($tabs)): ?>
+            <div class="tabitems">
+              <?php print render($tabs); ?>
             </div>
-          </nav>
-        <?php endif; ?>
-
-        <div class="row main-row">
-          <div class="col">
-            <a id="main-content"></a>
-            <?php print render($tabs); ?>
-            <?php print render($title_prefix); ?>
-            <?php if ($title): ?>
-              <h1><?php print $title; ?></h1>
+          <?php endif; ?>
+          <?php if ($action_links): ?>
+            <ul class="action-links"><?php print render($action_links); ?></ul>
+          <?php endif; ?>
+        </div>
+      </div>
+      <div class="row main-row">
+        <div class="col">
+          <?php if ($title && !drupal_is_front_page()): ?>
+            <h1 id="page-title"><?php print $title; ?></h1>
+          <?php endif; ?>
+          <?php if (!empty($page['highlighted'])) : ?>
+            <?php print render($page['highlighted']); ?>
+          <?php endif; ?>
+          <?php print render($page['sidebar_first']); ?>
+          <?php print render($page['sidebar_second']); ?>
+          <?php print render($page['content']); ?>
+          <?php print $feed_icons; ?>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="holder footer-holder">
+    <div class="row footer-row">
+      <div class="footer col">
+        <div class="row">
+          <div class="medium-4 large-3 col">
+            <?php if (!empty($page['footer_first'])): ?>
+              <?php print render($page['footer_first']); ?>
             <?php endif; ?>
-            <?php print render($title_suffix); ?>
-            <?php print $messages; ?>
-            <?php print render($page['help']); ?>
-            <?php if ($action_links): ?>
-              <ul class="action-links"><?php print render($action_links); ?></ul>
+          </div>
+          <div class="medium-4 large-3 col">
+            <?php if (!empty($page['footer_second'])): ?>
+              <?php print render($page['footer_second']); ?>
             <?php endif; ?>
-            <?php print render($page['content']); ?>
-            <?php print $feed_icons; ?>
+          </div>
+          <div class="medium-3 col last-col">
+            <?php if (!empty($page['footer_third'])): ?>
+              <?php print render($page['footer_third']); ?>
+            <?php endif; ?>
           </div>
         </div>
       </div>
     </div>
-
-    <?php print render($page['sidebar_first']); ?>
-    <?php print render($page['sidebar_second']); ?>
-  </div>
-
-  <div class="holder footer-holder">
-    <footer class="l-footer" role="contentinfo">
-      <?php print render($page['footer']); ?>
-    </footer>
-  </div>
+  </footer>
 </div>
+<!-- Make responsive website responsive in IE7 & 8 -->
+<!--[if IE 8 | IE 7]>
+<script src="bower_components/respond/dest/respond.min.js"></script><![endif]-->

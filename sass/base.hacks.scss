@@ -1,0 +1,49 @@
+.tabs-top {
+  position: fixed;
+  top: 30px;
+  display:block;
+  width: 100%;
+  height: 40px;
+  margin: 0 auto;
+  overflow: visible;
+  background-color: #0091BD;
+  z-index: 998;
+}
+
+.tabs-top ul {
+  border-bottom: 0;
+}
+
+.tabs-top ul li > a {
+  display: inline-block;
+  background-color: #0091BD;
+  color: #FFF;
+  font-size: 14px;
+  border: none;
+}
+
+.tabs-top ul li:first-child {
+  padding-left: 55px;
+}
+
+.tabs-top ul li {
+  margin-right: 5px;
+}
+
+.tabs-top ul li {
+  margin-right: 5px;
+}
+.tabs-top ul li.active a {
+  border: none;
+  background: transparent;
+}
+
+.tabs-top ul {
+  margin-bottom: 0;
+}
+
+
+body.admin-menu .top-holder-wrapper-extratabs {
+  position:relative;
+  margin-top:41px;
+}

@@ -4,10 +4,31 @@ screenshot = screenshot.png
 engine = phptemplate
 core = 7.x
 
+; ========================================
+; Stylesheets
+; ========================================
+stylesheets[all][] = css/base.normalize.css
+stylesheets[all][] = css/base.styles.css
+stylesheets[all][] = css/base.hacks.css
+stylesheets[all][] = css/base.no-query.css
+
+;FOAD css. don't load these core/contrib styles.
+stylesheets[all][] = views.css
+stylesheets[all][] = system.messages.theme.css
+
+; ========================================
 ; Regions
-regions[highlighted]    = Highlighted
-regions[help]           = Help
-regions[content]        = Content
-regions[sidebar_first]  = First Sidebar
+; ========================================
+regions[search] = Search
+regions[branding] = Branding
+regions[top_menu] = Top menu
+regions[header] = Header
+regions[navigation] = Navigation
+regions[highlighted] = Highlighted
+regions[help] = Help
+regions[content] = Content
+regions[sidebar_first] = First Sidebar
 regions[sidebar_second] = Second Sidebar
-regions[footer]         = Footer
+regions[footer_first] = Footer first
+regions[footer_second] = Footer second
+regions[footer_third] = Footer third
