@@ -43,6 +43,25 @@
 	max-width: none;
 }
 
+a.top-index {
+	@extend %clearfix;
+	display: block;
+	float: left;
+	text-decoration: none;
+	font-weight: $beta-font-weight;
+	color: $beta-text-color !important;
+	@include rem-padding-lr(.5,0);
+
+	&:hover {
+		color: $alpha-link-color !important;
+	}
+
+	@include mq($bp3) {
+		display: none;
+	}
+
+}
+
 .top-search {
 	@extend %clearfix;
 	margin-bottom: 0;

@@ -1,24 +1,24 @@
 @media -sass-debug-info{filename{font-family:file\:\/\/\/var\/lib\/gems\/1\.9\.1\/gems\/singularitygs-1\.1\.2\/stylesheets\/singularitygs\/helpers\/_clearfix\.scss}line{font-family:\0000365}}
-.row:after, .site-breadcrumb ul.breadcrumb:after, .option-group:after, .media:after, .site-search:after, .search-filter:after, .search-filter ul:after, .search-filter li:after, .facetapi-facet-type li:after, .tabs:after, .top-holder:after, .intro-holder:after, .top-search:after {
+.row:after, .site-breadcrumb ul.breadcrumb:after, .option-group:after, .media:after, .site-search:after, .search-filter:after, .search-filter ul:after, .search-filter li:after, .facetapi-facet-type li:after, .tabs:after, body:after, .top-holder:after, .intro-holder:after, a.top-index:after, .top-search:after {
   content: "";
   display: table;
   clear: both; }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/var\/lib\/gems\/1\.9\.1\/gems\/toolkit-1\.3\.8\/stylesheets\/toolkit\/_clearfix\.scss}line{font-family:\0000365}}
-.row:after, .site-breadcrumb ul.breadcrumb:after, .option-group:after, .media:after, .site-search:after, .search-filter:after, .search-filter ul:after, .search-filter li:after, .facetapi-facet-type li:after, .tabs:after, .top-holder:after, .intro-holder:after, .top-search:after {
+.row:after, .site-breadcrumb ul.breadcrumb:after, .option-group:after, .media:after, .site-search:after, .search-filter:after, .search-filter ul:after, .search-filter li:after, .facetapi-facet-type li:after, .tabs:after, body:after, .top-holder:after, .intro-holder:after, a.top-index:after, .top-search:after {
   content: "";
   display: table;
   clear: both; }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/abstractions\/_base\.scss}line{font-family:\000034}}
-.row, .site-breadcrumb ul.breadcrumb, .option-group, .media, .site-search, .search-filter, .search-filter ul, .search-filter li, .facetapi-facet-type li, .tabs, .top-holder, .intro-holder, .top-search {
+.row, .site-breadcrumb ul.breadcrumb, .option-group, .media, .site-search, .search-filter, .search-filter ul, .search-filter li, .facetapi-facet-type li, .tabs, body, .top-holder, .intro-holder, a.top-index, .top-search {
   *zoom: 1; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/abstractions\/_base\.scss}line{font-family:\000038}}
-  .row:before, .site-breadcrumb ul.breadcrumb:before, .option-group:before, .media:before, .site-search:before, .search-filter:before, .search-filter ul:before, .search-filter li:before, .facetapi-facet-type li:before, .tabs:before, .top-holder:before, .intro-holder:before, .top-search:before, .row:after, .site-breadcrumb ul.breadcrumb:after, .option-group:after, .media:after, .site-search:after, .search-filter:after, .search-filter ul:after, .search-filter li:after, .facetapi-facet-type li:after, .tabs:after, .top-holder:after, .intro-holder:after, .top-search:after {
+  .row:before, .site-breadcrumb ul.breadcrumb:before, .option-group:before, .media:before, .site-search:before, .search-filter:before, .search-filter ul:before, .search-filter li:before, .facetapi-facet-type li:before, .tabs:before, body:before, .top-holder:before, .intro-holder:before, a.top-index:before, .top-search:before, .row:after, .site-breadcrumb ul.breadcrumb:after, .option-group:after, .media:after, .site-search:after, .search-filter:after, .search-filter ul:after, .search-filter li:after, .facetapi-facet-type li:after, .tabs:after, body:after, .top-holder:after, .intro-holder:after, a.top-index:after, .top-search:after {
     display: table;
     content: ""; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/abstractions\/_base\.scss}line{font-family:\0000313}}
-  .row:after, .site-breadcrumb ul.breadcrumb:after, .option-group:after, .media:after, .site-search:after, .search-filter:after, .search-filter ul:after, .search-filter li:after, .facetapi-facet-type li:after, .tabs:after, .top-holder:after, .intro-holder:after, .top-search:after {
+  .row:after, .site-breadcrumb ul.breadcrumb:after, .option-group:after, .media:after, .site-search:after, .search-filter:after, .search-filter ul:after, .search-filter li:after, .facetapi-facet-type li:after, .tabs:after, body:after, .top-holder:after, .intro-holder:after, a.top-index:after, .top-search:after {
     clear: both; }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/abstractions\/_base\.scss}line{font-family:\0000321}}
@@ -2065,17 +2065,17 @@ a.media-more {
   margin-bottom: 1rem; }
 
 @media (min-width: 60em) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/layouts\/_base\.scss}line{font-family:\000032}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/layouts\/_base\.scss}line{font-family:\000036}}
   .l-main, .l-header {
     max-width: 63.25em;
     margin: 0 auto; } }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/layouts\/_base\.scss}line{font-family:\000038}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/layouts\/_base\.scss}line{font-family:\0000312}}
 .holder {
   position: relative;
   padding-top: 18px;
   padding-top: 1rem; }
   @media screen and (min-width: 42.5em) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/layouts\/_base\.scss}line{font-family:\000038}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/layouts\/_base\.scss}line{font-family:\0000312}}
     .holder {
       padding-left: 18px;
       padding-left: 1rem;
@@ -2086,18 +2086,18 @@ a.media-more {
       padding-bottom: 18px;
       padding-bottom: 1rem; } }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/layouts\/_base\.scss}line{font-family:\0000318}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/layouts\/_base\.scss}line{font-family:\0000322}}
 .site-breadcrumb-holder {
   border-top: 1px solid #fff;
   z-index: 20; }
   @media screen and (min-width: 42.5em) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/layouts\/_base\.scss}line{font-family:\0000318}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/layouts\/_base\.scss}line{font-family:\0000322}}
     .site-breadcrumb-holder {
       padding-top: 18px;
       padding-top: 1rem;
       padding-bottom: 0; } }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/layouts\/_base\.scss}line{font-family:\0000328}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/layouts\/_base\.scss}line{font-family:\0000332}}
 .intro-holder {
   padding-left: 18px;
   padding-left: 1rem;
@@ -2105,7 +2105,7 @@ a.media-more {
   padding-right: 1rem;
   background: url("/sites/all/themes/custom/pierke/images/schapestal.jpg") no-repeat scroll center bottom/cover transparent;
   min-height: 18em; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/layouts\/_base\.scss}line{font-family:\0000334}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/layouts\/_base\.scss}line{font-family:\0000338}}
   .intro-holder:before {
     display: block;
     position: absolute;
@@ -2118,16 +2118,16 @@ a.media-more {
     background-color: rgba(36, 39, 40, 0.35);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#59242728,endColorstr=#59242728);
     zoom: 1; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/layouts\/_base\.scss}line{font-family:\0000345}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/layouts\/_base\.scss}line{font-family:\0000349}}
   .intro-holder .site-logo {
     display: block; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/layouts\/_base\.scss}line{font-family:\0000349}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/layouts\/_base\.scss}line{font-family:\0000353}}
   .intro-holder .site-name {
     position: absolute;
     bottom: -0.5em;
     left: 0; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/layouts\/_base\.scss}line{font-family:\0000356}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/layouts\/_base\.scss}line{font-family:\0000360}}
 .l-header .top-row {
   height: 15em; }
 
@@ -2186,6 +2186,23 @@ a.media-more {
   max-width: none; }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/layouts\/_top\.scss}line{font-family:\0000346}}
+a.top-index {
+  display: block;
+  float: left;
+  text-decoration: none;
+  font-weight: 700;
+  color: #494f50 !important;
+  padding-left: 9px;
+  padding-left: 0.5rem; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/layouts\/_top\.scss}line{font-family:\0000355}}
+  a.top-index:hover {
+    color: #00a5d7 !important; }
+  @media screen and (min-width: 42.5em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/layouts\/_top\.scss}line{font-family:\0000346}}
+    a.top-index {
+      display: none; } }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/layouts\/_top\.scss}line{font-family:\0000365}}
 .top-search {
   margin-bottom: 0;
   float: left;
@@ -2200,15 +2217,15 @@ a.media-more {
   padding-bottom: 9px;
   padding-bottom: 0.5rem; }
   @media screen and (min-width: 42.5em) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/layouts\/_top\.scss}line{font-family:\0000346}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/layouts\/_top\.scss}line{font-family:\0000365}}
     .top-search {
       width: 50%;
       border: none; } }
   @media screen and (min-width: 70em) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/layouts\/_top\.scss}line{font-family:\0000346}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/layouts\/_top\.scss}line{font-family:\0000365}}
     .top-search {
       width: 40%; } }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/layouts\/_top\.scss}line{font-family:\0000364}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/layouts\/_top\.scss}line{font-family:\0000383}}
   .top-search .form-text {
     padding-left: 13.5px;
     padding-left: 0.75rem;
@@ -2218,18 +2235,18 @@ a.media-more {
     font-size: 0.75131rem;
     line-height: 2.7951em;
     height: 2.7951em; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/layouts\/_top\.scss}line{font-family:\0000369}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/layouts\/_top\.scss}line{font-family:\0000388}}
   .top-search .form-submit {
     font-size: 14.87603px;
     font-size: 0.82645rem;
     line-height: 2.541em;
     height: 2.541em; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/layouts\/_top\.scss}line{font-family:\0000375}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/layouts\/_top\.scss}line{font-family:\0000394}}
 .intro-logo {
   display: none; }
   @media screen and (min-width: 42.5em) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/layouts\/_top\.scss}line{font-family:\0000375}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/layouts\/_top\.scss}line{font-family:\0000394}}
     .intro-logo {
       display: block;
       width: 13.75em;
@@ -2239,7 +2256,7 @@ a.media-more {
       padding-right: 18px;
       padding-right: 1rem; } }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/layouts\/_top\.scss}line{font-family:\0000387}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/layouts\/_top\.scss}line{font-family:\00003106}}
 .intro {
   color: #fff;
   width: 100.0%;
@@ -2250,7 +2267,7 @@ a.media-more {
   padding-right: 18px;
   padding-right: 1rem; }
   @media screen and (min-width: 42.5em) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/layouts\/_top\.scss}line{font-family:\0000387}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/layouts\/_top\.scss}line{font-family:\00003106}}
     .intro {
       padding-top: 66.6px;
       padding-top: 3.7rem;
@@ -2258,11 +2275,11 @@ a.media-more {
       bottom: -1.5em;
       position: relative; } }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/layouts\/_top\.scss}line{font-family:\00003100}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/layouts\/_top\.scss}line{font-family:\00003119}}
 .intro-text {
   text-shadow: 0 1px 1px rgba(36, 39, 40, 0.5); }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/layouts\/_top\.scss}line{font-family:\00003104}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/layouts\/_top\.scss}line{font-family:\00003123}}
 .intro-title {
   color: #fff !important;
   font-weight: bold;

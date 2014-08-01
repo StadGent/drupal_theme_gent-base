@@ -1,3 +1,7 @@
+body {
+  @extend %clearfix;
+}
+
 @media (min-width: $bp4) {
   .l-main, .l-header {
     max-width: 63.25em;
