@@ -1,13 +1,31 @@
 <?php
 
+
+/**
+ * @file
+ * Template overrides and (pre-)process hooks for the Omega base theme.
+ */
+
+require_once dirname(__FILE__) . '/includes/pierke.inc';
+require_once dirname(__FILE__) . '/includes/scripts.inc';
+
+
 // TODO consider refactor to omega's auto-discover files.
-require_once dirname(__FILE__) . '/preprocess/html.preprocess.inc';
-require_once dirname(__FILE__) . '/preprocess/page.preprocess.inc';
-require_once dirname(__FILE__) . '/preprocess/views.preprocess.inc';
-require_once dirname(__FILE__) . '/preprocess/block.preprocess.inc';
-require_once dirname(__FILE__) . '/process/block.process.inc';
-require_once dirname(__FILE__) . '/process/views.process.inc';
-require_once dirname(__FILE__) . '/process/page.process.inc';
+//require_once dirname(__FILE__) . '/preprocess/html.preprocess.inc';
+//require_once dirname(__FILE__) . '/preprocess/page.preprocess.inc';
+//require_once dirname(__FILE__) . '/preprocess/views.preprocess.inc';
+//require_once dirname(__FILE__) . '/preprocess/block.preprocess.inc';
+//require_once dirname(__FILE__) . '/process/block.process.inc';
+//require_once dirname(__FILE__) . '/process/views.process.inc';
+//require_once dirname(__FILE__) . '/process/page.process.inc';
+
+// Include the main extension file for every enabled extension.
+foreach (pierke_extensions() as $extension => $info) {
+  if (pierke_extension_enabled($extension) && ($file = $info['path'] . '/' . $extension . '.inc') && is_file($file)) {
+    require_once $file;
+  }
+}
+
 
 /**
  * @file
@@ -17,19 +35,19 @@ require_once dirname(__FILE__) . '/process/page.process.inc';
 /**
  * Implements hook_element_info_alter().
  */
-/*function omega_element_info_alter(&$elements) {
+function pierke_element_info_alter(&$elements) {
   $elements['scripts'] = array(
     '#items' => array(),
-    '#pre_render' => array('omega_pre_render_scripts'),
-    '#group_callback' => 'omega_group_js',
-    '#aggregate_callback' => 'omega_aggregate_js',
+    '#pre_render' => array('pierke_pre_render_scripts'),
+    '#group_callback' => 'pierke_group_js',
+    '#aggregate_callback' => 'pierke_aggregate_js',
   );
-}*/
+}
 
 /**
  * Implements hook_css_alter().
  */
-/*function pierke_css_alter(&$css) {
+function pierke_css_alter(&$css) {
   $pierke = drupal_get_path('theme', 'pierke');
 
   // The CSS_SYSTEM aggregation group doesn't make any sense. Therefore, we are
@@ -231,7 +249,7 @@ require_once dirname(__FILE__) . '/process/page.process.inc';
   $types = strpos($path, 'admin/structure/block/demo') === 0 ? array_merge($types, array('demo')) : $types;
 
   // Override module provided CSS with clean and modern alternatives provided
-  // by Omega.
+  // by Pierke.
   foreach ($overrides as $module => $files) {
     // We gathered the CSS files with paths relative to the providing module.
     $path = drupal_get_path('module', $module);
@@ -243,7 +261,7 @@ require_once dirname(__FILE__) . '/process/page.process.inc';
         $original = $css[$path . '/' . $file];
         unset($css[$path . '/' . $file]);
 
-        // Omega 4.x tries to follow the pattern described in
+        // Pierke 4.x tries to follow the pattern described in
         // http://drupal.org/node/1089868 for declaring CSS files. Therefore, it
         // may take more than a single file to override a .css file added by
         // core. This gives us better granularity when overriding .css files
@@ -260,13 +278,13 @@ require_once dirname(__FILE__) . '/process/page.process.inc';
   }
 
   // Exclude CSS files as declared in the theme settings.
-  if (omega_extension_enabled('assets')) {
-    omega_css_js_alter($css, 'css');
+  if (pierke_extension_enabled('assets')) {
+    pierke_css_js_alter($css, 'css');
   }
 
   // Allow themes to specify no-query fallback CSS files.
   require_once "$pierke/includes/assets.inc";
-  $mapping = omega_assets_generate_mapping($css);
+  $mapping = pierke_assets_generate_mapping($css);
   foreach (preg_grep('/\.no-query(-rtl)?\.css$/', $mapping) as $key => $fallback) {
     // Don't modify browser settings if they have already been modified.
     if ($css[$key]['browsers']['IE'] === TRUE && $css[$key]['browsers']['!IE'] === TRUE) {
@@ -280,23 +298,23 @@ require_once dirname(__FILE__) . '/process/page.process.inc';
     }
   }
 
-  // When using omega_livereload force CSS to be added with link tags, rather
+  // When using pierke_livereload force CSS to be added with link tags, rather
   // than @import. This prevents Chrome from crashing when using the inspector
   // while livereload is enabled.
-  if (omega_extension_enabled('development') && omega_theme_get_setting('omega_livereload', TRUE)) {
+  if (pierke_extension_enabled('development') && pierke_theme_get_setting('pierke_livereload', TRUE)) {
     foreach ($css as $key => $value) {
       $css[$key]['preprocess'] = FALSE;
     }
   }
-}*/
+}
 
 /**
  * Implements hook_js_alter().
  */
-/*function omega_js_alter(&$js) {
+function pierke_js_alter(&$js) {
   // In some cases the element info array might get built before the theme
-  // system is fully bootstrapped. In this case, omega_element_info_alter() will
-  // never get called causing custom Omega pre-rendering of scripts to be
+  // system is fully bootstrapped. In this case, pierke_element_info_alter() will
+  // never get called causing custom Pierke pre-rendering of scripts to be
   // skipped which results in no JavaScript being output.
   if (!element_info('scripts')) {
     drupal_static_reset('element_info');
@@ -316,52 +334,52 @@ require_once dirname(__FILE__) . '/process/page.process.inc';
     }
   }
 
-  if (!omega_extension_enabled('assets')) {
+  if (!pierke_extension_enabled('assets')) {
     return;
   }
 
-  omega_css_js_alter($js, 'js');
+  pierke_css_js_alter($js, 'js');
 
   // Move the specified JavaScript files to the footer.
-  if (($footer = omega_theme_get_setting('omega_js_footer')) && is_array($footer)) {
-    require_once drupal_get_path('theme', 'omega') . '/includes/assets.inc';
-    if (!$cache = cache_get("omega:{$GLOBALS['theme_key']}:footer")) {
+  if (($footer = pierke_theme_get_setting('pierke_js_footer')) && is_array($footer)) {
+    require_once drupal_get_path('theme', 'pierke') . '/includes/assets.inc';
+    if (!$cache = cache_get("pierke:{$GLOBALS['theme_key']}:footer")) {
       // Explode and trim the values for the footer rules.
-      $steps = omega_assets_regex_steps($footer);
+      $steps = pierke_assets_regex_steps($footer);
 
-      cache_set("omega:{$GLOBALS['theme_key']}:footer", $steps, 'cache', CACHE_TEMPORARY);
+      cache_set("pierke:{$GLOBALS['theme_key']}:footer", $steps, 'cache', CACHE_TEMPORARY);
     }
     else {
       $steps = $cache->data;
     }
 
-    $mapping = omega_assets_generate_mapping($js);
-    foreach (omega_assets_regex_execute($mapping, $steps) as $key => $match) {
+    $mapping = pierke_assets_generate_mapping($js);
+    foreach (pierke_assets_regex_execute($mapping, $steps) as $key => $match) {
       $js[$key]['scope'] = 'footer';
     }
   }
-}*/
+}
 
 /**
  * Implements hook_form_alter().
  */
-/*function omega_form_alter(&$form, &$form_state, $form_id) {
+function pierke_form_alter(&$form, &$form_state, $form_id) {
   // Duplicate the form ID as a class so we can reduce specificity in our CSS.
   $form['#attributes']['class'][] = drupal_clean_css_identifier($form['#id']);
-}*/
+}
 
 /**
  * Implements hook_form_FORM_ID_alter().
  */
-/*function omega_form_field_ui_display_overview_form_alter(&$form, &$form_state, $form_id) {
+function pierke_form_field_ui_display_overview_form_alter(&$form, &$form_state, $form_id) {
   // Add a class to use as a styling hook, instead of the ID attribute.
   $form['fields']['#attributes']['class'][] = 'field-display-overview';
-}*/
+}
 
 /**
  * Implements hook_theme().
  */
-/*function omega_theme($cache, &$type, $theme, $path) {
+function pierke_theme($cache, &$type, $theme, $path) {
   // This is actually totally evil but it's the only way to force Drupal into
   // looking up (pre-)process hooks as if this was a module. In all seriousness
   // this is actually fixing something that I consider a Drupal core bug as it
@@ -369,26 +387,26 @@ require_once dirname(__FILE__) . '/process/page.process.inc';
   // theme hook as they are not allowed to provide (pre-)process hooks for it.
   $type = 'module';
 
-  $info['omega_chrome'] = array(
+  $info['pierke_chrome'] = array(
     'render element' => 'element',
   );
 
-  $info['omega_page_layout'] = array(
+  $info['pierke_page_layout'] = array(
     'base hook' => 'page',
   );
 
-  $info = array_merge($info, _omega_theme_layouts());
+  $info = array_merge($info, _pierke_theme_layouts());
 
   return $info;
-}*/
+}
 
 /**
- * Helper function for registering theme hooks for Omega layouts.
+ * Helper function for registering theme hooks for Pierke layouts.
  */
-/*function _omega_theme_layouts() {
+function _pierke_theme_layouts() {
   $info = array();
 
-  foreach (omega_layouts_info() as $layout) {
+  foreach (pierke_layouts_info() as $layout) {
     $hook = str_replace('-', '_', $layout['template']);
     $info[$hook] = array(
       'template' => $layout['template'],
@@ -397,14 +415,14 @@ require_once dirname(__FILE__) . '/process/page.process.inc';
   }
 
   return $info;
-}*/
+}
 
 /**
  * Implements hook_theme_registry_alter().
  */
-/*function omega_theme_registry_alter(&$registry) {
+function pierke_theme_registry_alter(&$registry) {
   require_once dirname(__FILE__) . '/includes/registry.inc';
-
+  
   // Fix for integration with the theme developer module.
   if (module_exists('devel_themer')) {
     foreach ($registry as $hook => $data) {
@@ -415,19 +433,19 @@ require_once dirname(__FILE__) . '/process/page.process.inc';
   }
 
   // For maintainability reasons, some of this code lives in a class.
-  $handler = new OmegaThemeRegistryHandler($registry, $GLOBALS['theme']);
+  $handler = new PierkeThemeRegistryHandler($registry, $GLOBALS['theme']);
 
   // Allows themers to split preprocess / process / theme code across separate
   // files to keep the main template.php file clean. This is really fast because
   // it uses the theme registry to cache the paths to the files that it finds.
-  $trail = omega_theme_trail($GLOBALS['theme']);
+  $trail = pierke_theme_trail($GLOBALS['theme']);
   foreach ($trail as $theme => $name) {
     $handler->registerHooks($theme);
     $handler->registerThemeFunctions($theme, $trail);
   }
 
   // Override the default 'template_process_html' hook implementation.
-  $handler->overrideHook('html', 'template_process_html', 'omega_template_process_html_override');
+  $handler->overrideHook('html', 'template_process_html', 'pierke_template_process_html_override');
 
   // We prefer the attributes array instead of the plain classes array used by
   // many core and contrib modules. In Drupal 8, we are going to convert all
@@ -437,25 +455,25 @@ require_once dirname(__FILE__) . '/process/page.process.inc';
   foreach ($registry as $hook => $item) {
     if (empty($item['base hook']) && empty($item['function'])) {
       if (($index = array_search('template_preprocess', $registry[$hook]['preprocess functions'], TRUE)) !== FALSE) {
-        // Make sure that omega_initialize_attributes() is invoked first.
-        array_unshift($registry[$hook]['process functions'], 'omega_cleanup_attributes');
-        // Add omega_cleanup_attributes() right after template_preprocess().
-        array_splice($registry[$hook]['preprocess functions'], $index + 1, 0, 'omega_initialize_attributes');
+        // Make sure that pierke_initialize_attributes() is invoked first.
+        array_unshift($registry[$hook]['process functions'], 'pierke_cleanup_attributes');
+        // Add pierke_cleanup_attributes() right after template_preprocess().
+        array_splice($registry[$hook]['preprocess functions'], $index + 1, 0, 'pierke_initialize_attributes');
       }
     }
   }
 
   // Add a preprocessor for initializing default variables to every layout.
-  foreach (array_keys(_omega_theme_layouts()) as $hook) {
+  foreach (array_keys(_pierke_theme_layouts()) as $hook) {
     $registry[$hook]['preprocess functions'] = array_diff($registry[$hook]['preprocess functions'], array('template_preprocess'));
 
-    array_unshift($registry[$hook]['process functions'], '_omega_preprocess_default_layout_variables');
+    array_unshift($registry[$hook]['process functions'], '_pierke_preprocess_default_layout_variables');
   }
 
   // Allow extensions to register hooks in the theme registry.
-  foreach (omega_extensions() as $extension => $info) {
+  foreach (pierke_extensions() as $extension => $info) {
     // Invoke the according hooks for every enabled extension.
-    if (omega_extension_enabled($extension)) {
+    if (pierke_extension_enabled($extension)) {
       // Give every enabled extension a chance to alter the theme registry.
       $hook = $info['theme'] . '_extension_' . $extension . '_theme_registry_alter';
 
@@ -469,22 +487,26 @@ require_once dirname(__FILE__) . '/process/page.process.inc';
   if (module_exists('devel_themer') && function_exists('devel_themer_theme_registry_alter')) {
     devel_themer_theme_registry_alter($registry);
   }
-}*/
+}
+
+
 
 /**
  * Initializes the attributes array from the classes array.
  */
-/*function omega_initialize_attributes(&$variables) {
+function pierke_initialize_attributes(&$variables) {
+//  dpm($variables['attributes_array']['class'], 'init');
   if (!empty($variables['attributes_array']['class'])) {
     $variables['classes_array'] = array_unique(array_merge($variables['classes_array'], $variables['attributes_array']['class']));
   }
   $variables['attributes_array']['class'] = &$variables['classes_array'];
-}*/
+}
 
 /**
  * Processes the attributes and classes array.
  */
-/*function omega_cleanup_attributes(&$variables, $hook) {
+function pierke_cleanup_attributes(&$variables, $hook) {
+//  dpm($variables['attributes_array']['class'], 'cleanup');
   // Break the reference between the classes array and the attributes array.
   $classes = !empty($variables['classes_array']) ? $variables['classes_array'] : array();
   unset($variables['attributes_array']['class'], $variables['classes_array']);
@@ -498,36 +520,36 @@ require_once dirname(__FILE__) . '/process/page.process.inc';
     // Only write the 'class' attribute if it's not empty.
     $variables['attributes_array']['class'] = $classes;
   }
-}*/
+}
 
 /**
  * Overrides template_process_html().
  */
-/*function omega_template_process_html_override(&$variables) {
+function pierke_template_process_html_override(&$variables) {
   // Render page_top and page_bottom into top level variables.
   $variables['page_top'] = drupal_render($variables['page']['page_top']);
   $variables['page_bottom'] = drupal_render($variables['page']['page_bottom']);
   // Place the rendered HTML for the page body into a top level variable.
   $variables['page'] = $variables['page']['#children'];
-  $variables['page_bottom'] .= omega_get_js('footer');
+  $variables['page_bottom'] .= pierke_get_js('footer');
 
   $variables['head'] = drupal_get_html_head();
   $variables['css'] = drupal_add_css();
   $variables['styles']  = drupal_get_css();
-  $variables['scripts'] = omega_get_js();
-}*/
+  $variables['scripts'] = pierke_get_js();
+}
 
 /**
  * Implements hook_block_list_alter().
  */
-/*function omega_block_list_alter(&$blocks) {
-  if (omega_extension_enabled('layouts') && $layout = omega_layout()) {
+function pierke_block_list_alter(&$blocks) {
+  if (pierke_extension_enabled('layouts') && $layout = pierke_layout()) {
     $callers = debug_backtrace();
 
     // Check if drupal_alter() was invoked from _block_load_blocks(). This is
     // required as we do not want to interfere with contrib modules like ctools.
     if ($callers['2']['function'] === '_block_load_blocks') {
-      // In case we are currently serving a Omega layout we have to make sure
+      // In case we are currently serving a Pierke layout we have to make sure
       // that we don't process blocks that will never be shown because the
       // active layout does not even have a region for them.
       foreach ($blocks as $id => $block) {
@@ -540,7 +562,7 @@ require_once dirname(__FILE__) . '/process/page.process.inc';
 
   // Hide the main content block on the front page if the theme settings are
   // configured that way.
-  if (!omega_theme_get_setting('omega_toggle_front_page_content', TRUE) && drupal_is_front_page()) {
+  if (!pierke_theme_get_setting('pierke_toggle_front_page_content', TRUE) && drupal_is_front_page()) {
     foreach ($blocks as $key => $block) {
       if ($block->module == 'system' && $block->delta == 'main') {
         unset($blocks[$key]);
@@ -549,16 +571,16 @@ require_once dirname(__FILE__) . '/process/page.process.inc';
 
     drupal_set_page_content();
   }
-}*/
+}
 
 /**
  * Implements hook_page_delivery_callback_alter().
  */
-/*function omega_page_delivery_callback_alter(&$callback) {
+function pierke_page_delivery_callback_alter(&$callback) {
   if (module_exists('overlay') && overlay_display_empty_page()) {
-    $callback = 'omega_override_overlay_deliver_empty_page';
+    $callback = 'pierke_override_overlay_deliver_empty_page';
   }
-}*/
+}
 
 /**
  * Delivery callback to display an empty page.
@@ -566,25 +588,25 @@ require_once dirname(__FILE__) . '/process/page.process.inc';
  * This function is used to print out a bare minimum empty page which still has
  * the scripts and styles necessary in order to trigger the overlay to close.
  */
-/*function omega_override_overlay_deliver_empty_page() {
-  $empty_page = '<html><head><title></title>' . drupal_get_css() . omega_get_js() . '</head><body class="overlay"></body></html>';
+function pierke_override_overlay_deliver_empty_page() {
+  $empty_page = '<html><head><title></title>' . drupal_get_css() . pierke_get_js() . '</head><body class="overlay"></body></html>';
   print $empty_page;
   drupal_exit();
-}*/
+}
 
 /**
  * Implements hook_page_alter().
  */
-/*function omega_page_alter(&$page) {
+function pierke_page_alter(&$page) {
   // Place dummy blocks in each region if the 'demo regions' setting is active
   // to force regions to be rendered.
-  if (omega_extension_enabled('development') && omega_theme_get_setting('omega_demo_regions', TRUE) && user_access('administer site configuration')) {
+  if (pierke_extension_enabled('development') && pierke_theme_get_setting('pierke_demo_regions', TRUE) && user_access('administer site configuration')) {
     $item = menu_get_item();
 
     // Don't interfere with the 'Demonstrate block regions' page.
     if (strpos('admin/structure/block/demo/', $item['path']) !== 0) {
       $regions = system_region_list($GLOBALS['theme_key'], REGIONS_VISIBLE);
-      $configured = omega_theme_get_setting('omega_demo_regions_list', array_keys($regions));
+      $configured = pierke_theme_get_setting('pierke_demo_regions_list', array_keys($regions));
 
       // We don't explicitly load possible layout regions and instead really
       // just show demo regions for those regions that we can actually place
@@ -602,11 +624,11 @@ require_once dirname(__FILE__) . '/process/page.process.inc';
     }
   }
 
-  if (omega_extension_enabled('compatibility') && omega_theme_get_setting('omega_chrome_edge', TRUE) && omega_theme_get_setting('omega_chrome_notice', TRUE)) {
-    $supported = omega_theme_get_setting('omega_internet_explorer_support', FALSE);
+  if (pierke_extension_enabled('compatibility') && pierke_theme_get_setting('pierke_chrome_edge', TRUE) && pierke_theme_get_setting('pierke_chrome_notice', TRUE)) {
+    $supported = pierke_theme_get_setting('pierke_internet_explorer_support', FALSE);
 
-    $page['page_top']['omega_chrome'] = array(
-      '#theme' => 'omega_chrome',
+    $page['page_top']['pierke_chrome'] = array(
+      '#theme' => 'pierke_chrome',
       '#pre_render' => array('drupal_pre_render_conditional_comments'),
       '#browsers' => array(
         'IE' => !$supported ? TRUE : 'lte IE ' . $supported,
@@ -614,22 +636,22 @@ require_once dirname(__FILE__) . '/process/page.process.inc';
       ),
     );
   }
-}*/
+}
 
 /**
  * Implements hook_html_head_alter().
  */
-/*function omega_html_head_alter(&$head) {
+function pierke_html_head_alter(&$head) {
   // Simplify the meta tag for character encoding.
   $head['system_meta_content_type']['#attributes'] = array(
     'charset' => str_replace('text/html; charset=', '', $head['system_meta_content_type']['#attributes']['content']),
   );
-}*/
+}
 
 /**
- * Implements hook_omega_theme_libraries_info().
+ * Implements hook_pierke_theme_libraries_info().
  */
-/*function omega_omega_theme_libraries_info() {
+function pierke_pierke_theme_libraries_info() {
   $libraries['selectivizr'] = array(
     'name' => t('Selectivizr'),
     'description' => t('Selectivizr is a JavaScript utility that emulates CSS3 pseudo-classes and attribute selectors in Internet Explorer 6-8. Simply include the script in your pages and selectivizr will do the rest.'),
@@ -668,7 +690,7 @@ require_once dirname(__FILE__) . '/process/page.process.inc';
     'vendor' => 'Scott Jehl',
     'vendor url' => 'http://scottjehl.com/',
     'package' => t('Polyfills'),
-    'callbacks' => array('omega_extension_assets_requirements_css_aggregation'),
+    'callbacks' => array('pierke_extension_assets_requirements_css_aggregation'),
     'files' => array(
       'js' => array(
         'respond.min.js' => array(
@@ -700,9 +722,9 @@ require_once dirname(__FILE__) . '/process/page.process.inc';
     'description' => t('PIE makes Internet Explorer 6-9 capable of rendering several of the most useful CSS3 decoration features.'),
     'vendor' => 'Keith Clark',
     'vendor url' => 'http://css3pie.com/',
-    'options form' => 'omega_library_pie_options_form',
+    'options form' => 'pierke_library_pie_options_form',
     'package' => t('Polyfills'),
-    'callbacks' => array('omega_extension_assets_load_pie_selectors'),
+    'callbacks' => array('pierke_extension_assets_load_pie_selectors'),
     'files' => array(),
     'variants' => array(
       'js' => array(
@@ -763,18 +785,18 @@ require_once dirname(__FILE__) . '/process/page.process.inc';
   );
 
   return $libraries;
-}*/
+}
 
 /**
- * Omega layout preprocessor for initializing default variables.
+ * Pierke layout preprocessor for initializing default variables.
  */
-/*function _omega_preprocess_default_layout_variables(&$variables, $hook) {
+function _pierke_preprocess_default_layout_variables(&$variables, $hook) {
   // Invoke template_preprocess() manually but don't override the classes.
   $classes = isset($variables['classes_array']) ? $variables['classes_array'] : array();
   template_preprocess($variables, $hook);
   $variables['classes_array'] = $classes;
 
-  $layout = $variables['omega_layout'];
+  $layout = $variables['pierke_layout'];
   $variables['attributes_array']['class'][] = 'l-page';
 
   // Add information about the rendered sidebars, but only if the layout
@@ -797,27 +819,27 @@ require_once dirname(__FILE__) . '/process/page.process.inc';
       }
     }
   }
-}*/
+}
 
 /**
- * Theme callback for rendering an Omega layout.
+ * Theme callback for rendering an Pierke layout.
  */
-/*function theme_omega_page_layout($variables) {
+function theme_pierke_page_layout($variables) {
   // Clean up the theme hook suggestion so we don't end up in an infinite loop.
   unset($variables['theme_hook_suggestion'], $variables['theme_hook_suggestions']);
 
-  $layout = $variables['omega_layout'];
+  $layout = $variables['pierke_layout'];
   drupal_process_attached(array('#attached' => $layout['attached']));
-  omega_layout_load_theme_assets($layout['name']);
+  pierke_layout_load_theme_assets($layout['name']);
 
-  $hook = str_replace('-', '_', $variables['omega_layout']['template']);
+  $hook = str_replace('-', '_', $variables['pierke_layout']['template']);
   return theme($hook, $variables);
-}*/
+}
 
 /**
  * Shows a notice when Google Chrome Frame is not installed.
  */
-/*function theme_omega_chrome($variables) {
+function theme_pierke_chrome($variables) {
   $message = t('You are using an outdated browser! <a href="!upgrade">Upgrade your browser today</a> or <a href="!install">install Google Chrome Frame</a> to better experience this site.', array(
     '!upgrade' => url('http://browsehappy.com'),
     '!install' => url('http://www.google.com/chromeframe', array(
@@ -826,7 +848,7 @@ require_once dirname(__FILE__) . '/process/page.process.inc';
   ));
 
   return '<p class="chromeframe">' . $message . '</p>';
-}*/
+}
 
 /**
  * Implements theme_breadcrumb().

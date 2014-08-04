@@ -5,10 +5,11 @@
 
 .media-image {
   @extend %rounded;
+	position: relative;
+	height: 0;
+	padding-bottom: $vignet-ratio;
+	overflow: hidden;
   @include margin-bottom(.75);
-  position: relative;
-  height: 0;
-  overflow: hidden;
 
   a {
     display: block;
