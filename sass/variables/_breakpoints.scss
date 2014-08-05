@@ -1,3 +1,5 @@
+//On a regular screen, 1em = 16px;
+//These breakpoints should be replaced with the proper named ones below.
 $bp1: 320/16 * 1em;
 $bp2: 480/16 * 1em;
 $bp3: 680/16 * 1em;
@@ -5,3 +7,23 @@ $bp4: 960/16 * 1em;
 $bp5: 1120/16 * 1em;
 $bp6: 1340/16 * 1em;
 $bp7: 1480/16 * 1em;
+
+//Breakpoints
+$bp-phone-s: 320/16 * 1em;
+$bp-phone-m: 480/16 * 1em;
+$bp-tablet-s: 680/16 * 1em;
+$bp-tablet-m: 960/16 * 1em;
+$bp-tablet-l: 1120/16 * 1em;
+$bp-desktop-s: 1340/16 * 1em;
+$bp-desktop-m: 1480/16 * 1em;
+
+$screen: "only screen" !default;
+
+//media queries. Can be extended to check for specific ranges min < x < max
+$phone-s-up: $screen !default; //any size
+$phone-m-up: "#{$screen} and (min-width: #{$bp-phone-m})" !default; //480px and larger
+$tablet-s-up: "#{$screen} and (min-width: #{$bp-tablet-s})" !default; //680px and larger
+$tablet-m-up: "#{$screen} and (min-width: #{$bp-tablet-m})" !default; //960px and larger
+$tablet-l-up: "#{$screen} and (min-width: #{$bp-tablet-l})" !default; //1120px and larger
+$desktop-s-up: "#{$screen} and (min-width: #{$bp-desktop-s})" !default; //1340px and larger
+$desktop-m-up: "#{$screen} and (min-width: #{$bp-desktop-m})" !default; //1480px and larger

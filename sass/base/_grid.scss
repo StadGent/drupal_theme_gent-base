@@ -133,7 +133,7 @@
   }
 }*/
 
-
+/*
 $grids: 12;
 $gutters: 20px;
 .views-responsive-grid {
@@ -150,4 +150,66 @@ $gutters: 20px;
 
 .views-responsive-grid .row:nth-child(3n+3) {
   @include grid-span(4,9);
+}
+*/
+
+.threeColumns {
+  $grids: 3;
+  $gutters: 1em;
+  @include clearfix;
+
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  li {
+    @include grid-span(3,1);
+    clear: both;
+  }
+}
+
+@media #{$phone-m-up} {
+  .threeColumns {
+    $grids: 2;
+    $gutters: 1em;
+    @include clearfix;
+
+    ul {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+    li:nth-child(2n+1) {
+      @include grid-span(1,1);
+      clear: both;
+    }
+    li:nth-child(2n+2) {
+      @include grid-span(1,2);
+    }
+  }
+}
+
+@media #{$tablet-m-up} {
+  .threeColumns {
+    $grids: 3;
+    $gutters: 1em;
+    @include clearfix;
+
+    ul {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+    li:nth-child(3n+1) {
+      @include grid-span(1,1);
+      clear: both;
+    }
+    li:nth-child(3n+2) {
+      @include grid-span(1,2);
+    }
+    li:nth-child(3n+3) {
+      @include grid-span(1,3);
+    }
+  }
 }

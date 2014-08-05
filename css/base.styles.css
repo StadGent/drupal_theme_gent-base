@@ -431,38 +431,103 @@ article, aside, figure, footer, header, hgroup, nav, section, main {
   .contentWidth {
     max-width: 63.25em;
     margin: 0 auto; } }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/base\/_grid\.scss}line{font-family:\00003139}}
+/*
+$grids: 12;
+$gutters: 20px;
 .views-responsive-grid {
-  overflow: hidden; }
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/base\/_grid\.scss}line{font-family:\00003142}}
+  @include clearfix;
+}
 .views-responsive-grid .row:nth-child(3n+1) {
-  width: 33.33333%;
-  float: left;
-  margin-right: -100%;
-  margin-left: 0%;
-  clear: none;
-  padding-right: 20px;
-  clear: left; }
+  @include grid-span(4,1);
+  clear: left;
+}
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/base\/_grid\.scss}line{font-family:\00003147}}
 .views-responsive-grid .row:nth-child(3n+2) {
-  width: 33.33333%;
-  float: left;
-  margin-right: -100%;
-  margin-left: 33.33333%;
-  clear: none;
-  padding-right: 20px; }
+  @include grid-span(4,5);
+}
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/base\/_grid\.scss}line{font-family:\00003151}}
 .views-responsive-grid .row:nth-child(3n+3) {
-  width: 33.33333%;
-  float: right;
-  margin-left: 0;
-  margin-right: 0;
-  clear: none;
-  padding-right: 20px; }
+  @include grid-span(4,9);
+}
+*/
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/base\/_grid\.scss}line{font-family:\00003156}}
+.threeColumns {
+  overflow: hidden; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/base\/_grid\.scss}line{font-family:\00003161}}
+  .threeColumns ul {
+    padding: 0;
+    margin: 0;
+    list-style: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/base\/_grid\.scss}line{font-family:\00003166}}
+  .threeColumns li {
+    width: 100%;
+    float: right;
+    margin-left: 0;
+    margin-right: 0;
+    clear: none;
+    padding-right: 1em;
+    clear: both; }
 
+@media only screen and (min-width: 30em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/base\/_grid\.scss}line{font-family:\00003173}}
+  .threeColumns {
+    overflow: hidden; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/base\/_grid\.scss}line{font-family:\00003178}}
+    .threeColumns ul {
+      padding: 0;
+      margin: 0;
+      list-style: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/base\/_grid\.scss}line{font-family:\00003183}}
+    .threeColumns li:nth-child(2n+1) {
+      width: 50%;
+      float: left;
+      margin-right: -100%;
+      margin-left: 0%;
+      clear: none;
+      padding-right: 1em;
+      clear: both; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/base\/_grid\.scss}line{font-family:\00003187}}
+    .threeColumns li:nth-child(2n+2) {
+      width: 50%;
+      float: right;
+      margin-left: 0;
+      margin-right: 0;
+      clear: none;
+      padding-right: 1em; } }
+@media only screen and (min-width: 60em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/base\/_grid\.scss}line{font-family:\00003194}}
+  .threeColumns {
+    overflow: hidden; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/base\/_grid\.scss}line{font-family:\00003199}}
+    .threeColumns ul {
+      padding: 0;
+      margin: 0;
+      list-style: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/base\/_grid\.scss}line{font-family:\00003204}}
+    .threeColumns li:nth-child(3n+1) {
+      width: 33.33333%;
+      float: left;
+      margin-right: -100%;
+      margin-left: 0%;
+      clear: none;
+      padding-right: 1em;
+      clear: both; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/base\/_grid\.scss}line{font-family:\00003208}}
+    .threeColumns li:nth-child(3n+2) {
+      width: 33.33333%;
+      float: left;
+      margin-right: -100%;
+      margin-left: 33.33333%;
+      clear: none;
+      padding-right: 1em; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/base\/_grid\.scss}line{font-family:\00003211}}
+    .threeColumns li:nth-child(3n+3) {
+      width: 33.33333%;
+      float: right;
+      margin-left: 0;
+      margin-right: 0;
+      clear: none;
+      padding-right: 1em; } }
 /**, *:before, *:after {
   @include border-box;
 }*/
@@ -1886,18 +1951,19 @@ a.media-more {
   margin-bottom: 18px;
   margin-bottom: 1rem; }
 
-@media (min-width: 60em) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/layouts\/_base\.scss}line{font-family:\000036}}
+/*@media (min-width: $bp4) {
   .l-main, .l-header {
     max-width: 63.25em;
-    margin: 0 auto; } }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/layouts\/_base\.scss}line{font-family:\0000312}}
+    margin: 0 auto;
+  }
+}*/
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/layouts\/_base\.scss}line{font-family:\0000313}}
 .holder {
   position: relative;
   padding-top: 18px;
   padding-top: 1rem; }
   @media screen and (min-width: 42.5em) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/layouts\/_base\.scss}line{font-family:\0000312}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/layouts\/_base\.scss}line{font-family:\0000313}}
     .holder {
       padding-left: 18px;
       padding-left: 1rem;
@@ -1908,18 +1974,18 @@ a.media-more {
       padding-bottom: 18px;
       padding-bottom: 1rem; } }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/layouts\/_base\.scss}line{font-family:\0000322}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/layouts\/_base\.scss}line{font-family:\0000323}}
 .site-breadcrumb-holder {
   border-top: 1px solid #fff;
   z-index: 20; }
   @media screen and (min-width: 42.5em) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/layouts\/_base\.scss}line{font-family:\0000322}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/layouts\/_base\.scss}line{font-family:\0000323}}
     .site-breadcrumb-holder {
       padding-top: 18px;
       padding-top: 1rem;
       padding-bottom: 0; } }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/layouts\/_base\.scss}line{font-family:\0000332}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/layouts\/_base\.scss}line{font-family:\0000333}}
 .intro-holder {
   padding-left: 18px;
   padding-left: 1rem;
@@ -1927,7 +1993,7 @@ a.media-more {
   padding-right: 1rem;
   background: url("/sites/all/themes/custom/pierke/images/schapestal.jpg") no-repeat scroll center bottom/cover transparent;
   min-height: 18em; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/layouts\/_base\.scss}line{font-family:\0000338}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/layouts\/_base\.scss}line{font-family:\0000339}}
   .intro-holder:before {
     display: block;
     position: absolute;
@@ -1940,16 +2006,16 @@ a.media-more {
     background-color: rgba(36, 39, 40, 0.35);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#59242728,endColorstr=#59242728);
     zoom: 1; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/layouts\/_base\.scss}line{font-family:\0000349}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/layouts\/_base\.scss}line{font-family:\0000350}}
   .intro-holder .site-logo {
     display: block; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/layouts\/_base\.scss}line{font-family:\0000353}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/layouts\/_base\.scss}line{font-family:\0000354}}
   .intro-holder .site-name {
     position: absolute;
     bottom: -0.5em;
     left: 0; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/layouts\/_base\.scss}line{font-family:\0000360}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/www\/prototype_gent_be\/sites\/all\/themes\/custom\/gent-base-theme\/sass\/layouts\/_base\.scss}line{font-family:\0000361}}
 .l-header .top-row {
   height: 15em; }
 
