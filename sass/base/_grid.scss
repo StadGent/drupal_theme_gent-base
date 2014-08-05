@@ -13,7 +13,7 @@
 */
 
 // Calculate grid classes.
-@function grid-calc($colNumber){
+/*@function grid-calc($colNumber){
   @return percentage(($colNumber / $grid-columns));
 }
 
@@ -34,16 +34,16 @@
   position: relative;
   width: 100%;
 }
-
+*/
 @media (min-width: $bp4) {
 
-  .row {
+  .contentWidth {
     max-width: 63.25em;
     margin: 0 auto;
   }
 
 }
-
+/*
 // Generate medium classes.
 @if $generate-x-small == true {
   @media (min-width: $bp1) {
@@ -131,4 +131,23 @@
     }
 
   }
+}*/
+
+
+$grids: 12;
+$gutters: 20px;
+.views-responsive-grid {
+  @include clearfix;
+}
+.views-responsive-grid .row:nth-child(3n+1) {
+  @include grid-span(4,1);
+  clear: left;
+}
+
+.views-responsive-grid .row:nth-child(3n+2) {
+  @include grid-span(4,5);
+}
+
+.views-responsive-grid .row:nth-child(3n+3) {
+  @include grid-span(4,9);
 }

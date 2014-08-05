@@ -13,7 +13,7 @@
 <![endif]-->
 <div<?php print $attributes; ?> <?php if (render($tabs)) : ?> class="top-holder-wrapper-extratabs"<?php endif; ?>>
   <div class="top-holder<?php if (render($tabs)) : ?> top-holder-admin-extratabs<?php endif; ?>">
-    <div class="row top-row">
+    <div class="contentWidth top-row">
       <a href="/" class="top-index">
         <span class="top-index-logo"></span>
         <strong class="top-index-p"><?php print $site_name; ?></strong>
@@ -37,7 +37,7 @@
 
   <main class="site-content-holder">
     <div class="top intro-holder" <?php print !empty($inner_styles['intro-holder']) ? $inner_styles['intro-holder'] : ''; ?>>
-      <header class="row intro-row">
+      <header class="contentWidth intro-row">
         <p class="intro-logo logo">
           <a href="/"><img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" /></a>
         </p>
@@ -47,14 +47,14 @@
       </header>
     </div>
     <nav class="holder site-breadcrumb-holder">
-      <div class="row site-breadcrumb-row">
+      <div class="contentWidth site-breadcrumb-row">
         <div class="site-breadcrumb col">
           <?php print $breadcrumb; ?>
         </div>
       </div>
     </nav>
     <div class="holder main-holder">
-      <div class="row main-row">
+      <div class="contentWidth main-row">
         <div class="col system-info">
           <?php print $messages; ?>
           <?php print render($page['help']); ?>
@@ -68,7 +68,7 @@
           <?php endif; ?>
         </div>
       </div>
-      <div class="row main-row">
+      <div class="contentWidth main-row">
         <div class="col">
           <?php if ($title && !drupal_is_front_page()): ?>
             <h1 id="page-title"><?php print $title; ?></h1>
@@ -85,9 +85,9 @@
     </div>
   </main>
   <footer class="holder footer-holder">
-    <div class="row footer-row">
+    <div class="contentWidth footer-row">
       <div class="footer col">
-        <div class="row">
+        <div class="contentWidth">
           <div class="medium-4 large-3 col">
             <?php if (!empty($page['footer_first'])): ?>
               <?php print render($page['footer_first']); ?>
