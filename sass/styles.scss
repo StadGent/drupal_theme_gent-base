@@ -5,8 +5,9 @@
 // Plugins/frameworks
 
 	@import "compass";
-	@import "../bower_components/breakpoint-sass/stylesheets/_breakpoint";
-	@import "../bower_components/singularity/stylesheets/_singularitygs";
+	@import "singularitygs";
+	@import "breakpoint";
+	@import "toolkit";
 
 // Fonts
 
@@ -41,9 +42,9 @@
 
 // Layout
 
-	@import "layout/grid";
-	@import "layout/spacing";
-	@import "layout/salvatorre";
+	@import "layouts/grid";
+	@import "layouts/spacing";
+	@import "layouts/salvatorre";
 
 // Components
 

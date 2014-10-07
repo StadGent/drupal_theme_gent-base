@@ -1,5 +1,5 @@
 name = Gent Base
-description = Ghent base theme, based on a stripped down Omega 4 theme. This abstract theme should never be used but always be extended.
+description = Ghent base theme. This abstract theme should never be used but always be extended.
 screenshot = screenshot.png
 engine = phptemplate
 core = 7.x
@@ -14,3 +14,4 @@ regions[top_content] = Top Content
 regions[content] = Content
 regions[bottom_content] = Bottom Content
 regions[footer] = Footer
+
