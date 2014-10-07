@@ -5,6 +5,7 @@ node_modules
 .sass-cache
 bower_components/
 styleguide
+css
 
 .DS_Store
 .project
