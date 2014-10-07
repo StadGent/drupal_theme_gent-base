@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.0.4 (8053) - http://www.bohemiancoding.com/sketch -->
+    <title>carret</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="carret" sketch:type="MSArtboardGroup" fill="#595F60">
+            <path d="M6.91164266,3.5 C6.95045089,3.5 6.99249251,3.51733085 7.03776878,3.55199307 L11.0544006,7.8570189 C11.1384851,7.94714066 11.1384851,8.03726108 11.0544006,8.12738284 L7.03776878,12.4324087 C6.95368428,12.5225304 6.86960104,12.5225304 6.78551654,12.4324087 L5.56306338,11.1221834 C5.47897887,11.0320617 5.47897887,10.9419412 5.56306338,10.8518195 L8.23111592,7.99220087 L5.56306338,5.13258226 C5.47897887,5.0424605 5.47897887,4.95234008 5.56306338,4.86221832 L6.78551654,3.55199307 C6.83079281,3.51733085 6.87283443,3.5 6.91164266,3.5 L6.91164266,3.5 Z" id="toggle--right" sketch:type="MSShapeGroup"></path>
+        </g>
+    </g>
+</svg>
