@@ -130,7 +130,13 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'uglify:dist',
     'compass:dist',
+    'kss',
     'jshint',
+  ]);
+
+  grunt.registerTask('compile', [
+    'compass:dev',
+    'kss',
   ]);
 
   grunt.registerTask('styleguide', [
