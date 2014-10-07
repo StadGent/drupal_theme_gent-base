@@ -6,7 +6,7 @@
  * Template overrides and (pre-)process hooks for the Omega base theme.
  */
 
-require_once dirname(__FILE__) . '/includes/pierke.inc';
+require_once dirname(__FILE__) . '/includes/gent_base.inc';
 require_once dirname(__FILE__) . '/includes/scripts.inc';
 
 
@@ -20,8 +20,8 @@ require_once dirname(__FILE__) . '/includes/scripts.inc';
 //require_once dirname(__FILE__) . '/process/page.process.inc';
 
 // Include the main extension file for every enabled extension.
-foreach (pierke_extensions() as $extension => $info) {
-  if (pierke_extension_enabled($extension) && ($file = $info['path'] . '/' . $extension . '.inc') && is_file($file)) {
+foreach (gent_base_extensions() as $extension => $info) {
+  if (gent_base_extension_enabled($extension) && ($file = $info['path'] . '/' . $extension . '.inc') && is_file($file)) {
     require_once $file;
   }
 }
@@ -29,26 +29,26 @@ foreach (pierke_extensions() as $extension => $info) {
 
 /**
  * @file
- * Template file for the Pierke base theme.
+ * Template file for the gent_base base theme.
  */
 
 /**
  * Implements hook_element_info_alter().
  */
-function pierke_element_info_alter(&$elements) {
+function gent_base_element_info_alter(&$elements) {
   $elements['scripts'] = array(
     '#items' => array(),
-    '#pre_render' => array('pierke_pre_render_scripts'),
-    '#group_callback' => 'pierke_group_js',
-    '#aggregate_callback' => 'pierke_aggregate_js',
+    '#pre_render' => array('gent_base_pre_render_scripts'),
+    '#group_callback' => 'gent_base_group_js',
+    '#aggregate_callback' => 'gent_base_aggregate_js',
   );
 }
 
 /**
  * Implements hook_css_alter().
  */
-function pierke_css_alter(&$css) {
-  $pierke = drupal_get_path('theme', 'pierke');
+function gent_base_css_alter(&$css) {
+  $gent_base = drupal_get_path('theme', 'gent_base');
 
   // The CSS_SYSTEM aggregation group doesn't make any sense. Therefore, we are
   // pre-pending it to the CSS_DEFAULT group. This has the same effect as giving
@@ -249,7 +249,7 @@ function pierke_css_alter(&$css) {
   $types = strpos($path, 'admin/structure/block/demo') === 0 ? array_merge($types, array('demo')) : $types;
 
   // Override module provided CSS with clean and modern alternatives provided
-  // by Pierke.
+  // by gent_base.
   foreach ($overrides as $module => $files) {
     // We gathered the CSS files with paths relative to the providing module.
     $path = drupal_get_path('module', $module);
@@ -261,15 +261,15 @@ function pierke_css_alter(&$css) {
         $original = $css[$path . '/' . $file];
         unset($css[$path . '/' . $file]);
 
-        // Pierke 4.x tries to follow the pattern described in
+        // gent_base 4.x tries to follow the pattern described in
         // http://drupal.org/node/1089868 for declaring CSS files. Therefore, it
         // may take more than a single file to override a .css file added by
         // core. This gives us better granularity when overriding .css files
         // in a sub-theme.
         foreach ($types as $type) {
           if (isset($items[$type])) {
-            $css[$pierke . '/css/modules/' . $module . '/' . $items[$type]] = array(
-              'data' => $pierke . '/css/modules/' . $module . '/' . $items[$type],
+            $css[$gent_base . '/css/modules/' . $module . '/' . $items[$type]] = array(
+              'data' => $gent_base . '/css/modules/' . $module . '/' . $items[$type],
             ) + $original;
           }
         }
@@ -278,13 +278,13 @@ function pierke_css_alter(&$css) {
   }
 
   // Exclude CSS files as declared in the theme settings.
-  if (pierke_extension_enabled('assets')) {
-    pierke_css_js_alter($css, 'css');
+  if (gent_base_extension_enabled('assets')) {
+    gent_base_css_js_alter($css, 'css');
   }
 
   // Allow themes to specify no-query fallback CSS files.
-  require_once "$pierke/includes/assets.inc";
-  $mapping = pierke_assets_generate_mapping($css);
+  require_once "$gent_base/includes/assets.inc";
+  $mapping = gent_base_assets_generate_mapping($css);
   foreach (preg_grep('/\.no-query(-rtl)?\.css$/', $mapping) as $key => $fallback) {
     // Don't modify browser settings if they have already been modified.
     if ($css[$key]['browsers']['IE'] === TRUE && $css[$key]['browsers']['!IE'] === TRUE) {
@@ -298,10 +298,10 @@ function pierke_css_alter(&$css) {
     }
   }
 
-  // When using pierke_livereload force CSS to be added with link tags, rather
+  // When using gent_base_livereload force CSS to be added with link tags, rather
   // than @import. This prevents Chrome from crashing when using the inspector
   // while livereload is enabled.
-  if (pierke_extension_enabled('development') && pierke_theme_get_setting('pierke_livereload', TRUE)) {
+  if (gent_base_extension_enabled('development') && gent_base_theme_get_setting('gent_base_livereload', TRUE)) {
     foreach ($css as $key => $value) {
       $css[$key]['preprocess'] = FALSE;
     }
@@ -311,10 +311,10 @@ function pierke_css_alter(&$css) {
 /**
  * Implements hook_js_alter().
  */
-function pierke_js_alter(&$js) {
+function gent_base_js_alter(&$js) {
   // In some cases the element info array might get built before the theme
-  // system is fully bootstrapped. In this case, pierke_element_info_alter() will
-  // never get called causing custom Pierke pre-rendering of scripts to be
+  // system is fully bootstrapped. In this case, gent_base_element_info_alter() will
+  // never get called causing custom gent_base pre-rendering of scripts to be
   // skipped which results in no JavaScript being output.
   if (!element_info('scripts')) {
     drupal_static_reset('element_info');
@@ -334,27 +334,27 @@ function pierke_js_alter(&$js) {
     }
   }
 
-  if (!pierke_extension_enabled('assets')) {
+  if (!gent_base_extension_enabled('assets')) {
     return;
   }
 
-  pierke_css_js_alter($js, 'js');
+  gent_base_css_js_alter($js, 'js');
 
   // Move the specified JavaScript files to the footer.
-  if (($footer = pierke_theme_get_setting('pierke_js_footer')) && is_array($footer)) {
-    require_once drupal_get_path('theme', 'pierke') . '/includes/assets.inc';
-    if (!$cache = cache_get("pierke:{$GLOBALS['theme_key']}:footer")) {
+  if (($footer = gent_base_theme_get_setting('gent_base_js_footer')) && is_array($footer)) {
+    require_once drupal_get_path('theme', 'gent_base') . '/includes/assets.inc';
+    if (!$cache = cache_get("gent_base:{$GLOBALS['theme_key']}:footer")) {
       // Explode and trim the values for the footer rules.
-      $steps = pierke_assets_regex_steps($footer);
+      $steps = gent_base_assets_regex_steps($footer);
 
-      cache_set("pierke:{$GLOBALS['theme_key']}:footer", $steps, 'cache', CACHE_TEMPORARY);
+      cache_set("gent_base:{$GLOBALS['theme_key']}:footer", $steps, 'cache', CACHE_TEMPORARY);
     }
     else {
       $steps = $cache->data;
     }
 
-    $mapping = pierke_assets_generate_mapping($js);
-    foreach (pierke_assets_regex_execute($mapping, $steps) as $key => $match) {
+    $mapping = gent_base_assets_generate_mapping($js);
+    foreach (gent_base_assets_regex_execute($mapping, $steps) as $key => $match) {
       $js[$key]['scope'] = 'footer';
     }
   }
@@ -363,7 +363,7 @@ function pierke_js_alter(&$js) {
 /**
  * Implements hook_form_alter().
  */
-function pierke_form_alter(&$form, &$form_state, $form_id) {
+function gent_base_form_alter(&$form, &$form_state, $form_id) {
   // Duplicate the form ID as a class so we can reduce specificity in our CSS.
   $form['#attributes']['class'][] = drupal_clean_css_identifier($form['#id']);
 }
@@ -371,7 +371,7 @@ function pierke_form_alter(&$form, &$form_state, $form_id) {
 /**
  * Implements hook_form_FORM_ID_alter().
  */
-function pierke_form_field_ui_display_overview_form_alter(&$form, &$form_state, $form_id) {
+function gent_base_form_field_ui_display_overview_form_alter(&$form, &$form_state, $form_id) {
   // Add a class to use as a styling hook, instead of the ID attribute.
   $form['fields']['#attributes']['class'][] = 'field-display-overview';
 }
@@ -379,7 +379,7 @@ function pierke_form_field_ui_display_overview_form_alter(&$form, &$form_state, 
 /**
  * Implements hook_theme().
  */
-function pierke_theme($cache, &$type, $theme, $path) {
+function gent_base_theme($cache, &$type, $theme, $path) {
   // This is actually totally evil but it's the only way to force Drupal into
   // looking up (pre-)process hooks as if this was a module. In all seriousness
   // this is actually fixing something that I consider a Drupal core bug as it
@@ -387,26 +387,26 @@ function pierke_theme($cache, &$type, $theme, $path) {
   // theme hook as they are not allowed to provide (pre-)process hooks for it.
   $type = 'module';
 
-  $info['pierke_chrome'] = array(
+  $info['gent_base_chrome'] = array(
     'render element' => 'element',
   );
 
-  $info['pierke_page_layout'] = array(
+  $info['gent_base_page_layout'] = array(
     'base hook' => 'page',
   );
 
-  $info = array_merge($info, _pierke_theme_layouts());
+  $info = array_merge($info, _gent_base_theme_layouts());
 
   return $info;
 }
 
 /**
- * Helper function for registering theme hooks for Pierke layouts.
+ * Helper function for registering theme hooks for gent_base layouts.
  */
-function _pierke_theme_layouts() {
+function _gent_base_theme_layouts() {
   $info = array();
 
-  foreach (pierke_layouts_info() as $layout) {
+  foreach (gent_base_layouts_info() as $layout) {
     $hook = str_replace('-', '_', $layout['template']);
     $info[$hook] = array(
       'template' => $layout['template'],
@@ -420,7 +420,7 @@ function _pierke_theme_layouts() {
 /**
  * Implements hook_theme_registry_alter().
  */
-function pierke_theme_registry_alter(&$registry) {
+function gent_base_theme_registry_alter(&$registry) {
   require_once dirname(__FILE__) . '/includes/registry.inc';
   
   // Fix for integration with the theme developer module.
@@ -433,19 +433,19 @@ function pierke_theme_registry_alter(&$registry) {
   }
 
   // For maintainability reasons, some of this code lives in a class.
-  $handler = new PierkeThemeRegistryHandler($registry, $GLOBALS['theme']);
+  $handler = new GentBaseThemeRegistryHandler($registry, $GLOBALS['theme']);
 
   // Allows themers to split preprocess / process / theme code across separate
   // files to keep the main template.php file clean. This is really fast because
   // it uses the theme registry to cache the paths to the files that it finds.
-  $trail = pierke_theme_trail($GLOBALS['theme']);
+  $trail = gent_base_theme_trail($GLOBALS['theme']);
   foreach ($trail as $theme => $name) {
     $handler->registerHooks($theme);
     $handler->registerThemeFunctions($theme, $trail);
   }
 
   // Override the default 'template_process_html' hook implementation.
-  $handler->overrideHook('html', 'template_process_html', 'pierke_template_process_html_override');
+  $handler->overrideHook('html', 'template_process_html', 'gent_base_template_process_html_override');
 
   // We prefer the attributes array instead of the plain classes array used by
   // many core and contrib modules. In Drupal 8, we are going to convert all
@@ -455,25 +455,25 @@ function pierke_theme_registry_alter(&$registry) {
   foreach ($registry as $hook => $item) {
     if (empty($item['base hook']) && empty($item['function'])) {
       if (($index = array_search('template_preprocess', $registry[$hook]['preprocess functions'], TRUE)) !== FALSE) {
-        // Make sure that pierke_initialize_attributes() is invoked first.
-        array_unshift($registry[$hook]['process functions'], 'pierke_cleanup_attributes');
-        // Add pierke_cleanup_attributes() right after template_preprocess().
-        array_splice($registry[$hook]['preprocess functions'], $index + 1, 0, 'pierke_initialize_attributes');
+        // Make sure that gent_base_initialize_attributes() is invoked first.
+        array_unshift($registry[$hook]['process functions'], 'gent_base_cleanup_attributes');
+        // Add gent_base_cleanup_attributes() right after template_preprocess().
+        array_splice($registry[$hook]['preprocess functions'], $index + 1, 0, 'gent_base_initialize_attributes');
       }
     }
   }
 
   // Add a preprocessor for initializing default variables to every layout.
-  foreach (array_keys(_pierke_theme_layouts()) as $hook) {
+  foreach (array_keys(_gent_base_theme_layouts()) as $hook) {
     $registry[$hook]['preprocess functions'] = array_diff($registry[$hook]['preprocess functions'], array('template_preprocess'));
 
-    array_unshift($registry[$hook]['process functions'], '_pierke_preprocess_default_layout_variables');
+    array_unshift($registry[$hook]['process functions'], '_gent_base_preprocess_default_layout_variables');
   }
 
   // Allow extensions to register hooks in the theme registry.
-  foreach (pierke_extensions() as $extension => $info) {
+  foreach (gent_base_extensions() as $extension => $info) {
     // Invoke the according hooks for every enabled extension.
-    if (pierke_extension_enabled($extension)) {
+    if (gent_base_extension_enabled($extension)) {
       // Give every enabled extension a chance to alter the theme registry.
       $hook = $info['theme'] . '_extension_' . $extension . '_theme_registry_alter';
 
@@ -494,7 +494,7 @@ function pierke_theme_registry_alter(&$registry) {
 /**
  * Initializes the attributes array from the classes array.
  */
-function pierke_initialize_attributes(&$variables) {
+function gent_base_initialize_attributes(&$variables) {
 //  dpm($variables['attributes_array']['class'], 'init');
   if (!empty($variables['attributes_array']['class'])) {
     $variables['classes_array'] = array_unique(array_merge($variables['classes_array'], $variables['attributes_array']['class']));
@@ -505,7 +505,7 @@ function pierke_initialize_attributes(&$variables) {
 /**
  * Processes the attributes and classes array.
  */
-function pierke_cleanup_attributes(&$variables, $hook) {
+function gent_base_cleanup_attributes(&$variables, $hook) {
 //  dpm($variables['attributes_array']['class'], 'cleanup');
   // Break the reference between the classes array and the attributes array.
   $classes = !empty($variables['classes_array']) ? $variables['classes_array'] : array();
@@ -525,31 +525,31 @@ function pierke_cleanup_attributes(&$variables, $hook) {
 /**
  * Overrides template_process_html().
  */
-function pierke_template_process_html_override(&$variables) {
+function gent_base_template_process_html_override(&$variables) {
   // Render page_top and page_bottom into top level variables.
   $variables['page_top'] = drupal_render($variables['page']['page_top']);
   $variables['page_bottom'] = drupal_render($variables['page']['page_bottom']);
   // Place the rendered HTML for the page body into a top level variable.
   $variables['page'] = $variables['page']['#children'];
-  $variables['page_bottom'] .= pierke_get_js('footer');
+  $variables['page_bottom'] .= gent_base_get_js('footer');
 
   $variables['head'] = drupal_get_html_head();
   $variables['css'] = drupal_add_css();
   $variables['styles']  = drupal_get_css();
-  $variables['scripts'] = pierke_get_js();
+  $variables['scripts'] = gent_base_get_js();
 }
 
 /**
  * Implements hook_block_list_alter().
  */
-function pierke_block_list_alter(&$blocks) {
-  if (pierke_extension_enabled('layouts') && $layout = pierke_layout()) {
+function gent_base_block_list_alter(&$blocks) {
+  if (gent_base_extension_enabled('layouts') && $layout = gent_base_layout()) {
     $callers = debug_backtrace();
 
     // Check if drupal_alter() was invoked from _block_load_blocks(). This is
     // required as we do not want to interfere with contrib modules like ctools.
     if ($callers['2']['function'] === '_block_load_blocks') {
-      // In case we are currently serving a Pierke layout we have to make sure
+      // In case we are currently serving a gent_base layout we have to make sure
       // that we don't process blocks that will never be shown because the
       // active layout does not even have a region for them.
       foreach ($blocks as $id => $block) {
@@ -562,7 +562,7 @@ function pierke_block_list_alter(&$blocks) {
 
   // Hide the main content block on the front page if the theme settings are
   // configured that way.
-  if (!pierke_theme_get_setting('pierke_toggle_front_page_content', TRUE) && drupal_is_front_page()) {
+  if (!gent_base_theme_get_setting('gent_base_toggle_front_page_content', TRUE) && drupal_is_front_page()) {
     foreach ($blocks as $key => $block) {
       if ($block->module == 'system' && $block->delta == 'main') {
         unset($blocks[$key]);
@@ -576,9 +576,9 @@ function pierke_block_list_alter(&$blocks) {
 /**
  * Implements hook_page_delivery_callback_alter().
  */
-function pierke_page_delivery_callback_alter(&$callback) {
+function gent_base_page_delivery_callback_alter(&$callback) {
   if (module_exists('overlay') && overlay_display_empty_page()) {
-    $callback = 'pierke_override_overlay_deliver_empty_page';
+    $callback = 'gent_base_override_overlay_deliver_empty_page';
   }
 }
 
@@ -588,8 +588,8 @@ function pierke_page_delivery_callback_alter(&$callback) {
  * This function is used to print out a bare minimum empty page which still has
  * the scripts and styles necessary in order to trigger the overlay to close.
  */
-function pierke_override_overlay_deliver_empty_page() {
-  $empty_page = '<html><head><title></title>' . drupal_get_css() . pierke_get_js() . '</head><body class="overlay"></body></html>';
+function gent_base_override_overlay_deliver_empty_page() {
+  $empty_page = '<html><head><title></title>' . drupal_get_css() . gent_base_get_js() . '</head><body class="overlay"></body></html>';
   print $empty_page;
   drupal_exit();
 }
@@ -597,16 +597,16 @@ function pierke_override_overlay_deliver_empty_page() {
 /**
  * Implements hook_page_alter().
  */
-function pierke_page_alter(&$page) {
+function gent_base_page_alter(&$page) {
   // Place dummy blocks in each region if the 'demo regions' setting is active
   // to force regions to be rendered.
-  if (pierke_extension_enabled('development') && pierke_theme_get_setting('pierke_demo_regions', TRUE) && user_access('administer site configuration')) {
+  if (gent_base_extension_enabled('development') && gent_base_theme_get_setting('gent_base_demo_regions', TRUE) && user_access('administer site configuration')) {
     $item = menu_get_item();
 
     // Don't interfere with the 'Demonstrate block regions' page.
     if (strpos('admin/structure/block/demo/', $item['path']) !== 0) {
       $regions = system_region_list($GLOBALS['theme_key'], REGIONS_VISIBLE);
-      $configured = pierke_theme_get_setting('pierke_demo_regions_list', array_keys($regions));
+      $configured = gent_base_theme_get_setting('gent_base_demo_regions_list', array_keys($regions));
 
       // We don't explicitly load possible layout regions and instead really
       // just show demo regions for those regions that we can actually place
@@ -624,11 +624,11 @@ function pierke_page_alter(&$page) {
     }
   }
 
-  if (pierke_extension_enabled('compatibility') && pierke_theme_get_setting('pierke_chrome_edge', TRUE) && pierke_theme_get_setting('pierke_chrome_notice', TRUE)) {
-    $supported = pierke_theme_get_setting('pierke_internet_explorer_support', FALSE);
+  if (gent_base_extension_enabled('compatibility') && gent_base_theme_get_setting('gent_base_chrome_edge', TRUE) && gent_base_theme_get_setting('gent_base_chrome_notice', TRUE)) {
+    $supported = gent_base_theme_get_setting('gent_base_internet_explorer_support', FALSE);
 
-    $page['page_top']['pierke_chrome'] = array(
-      '#theme' => 'pierke_chrome',
+    $page['page_top']['gent_base_chrome'] = array(
+      '#theme' => 'gent_base_chrome',
       '#pre_render' => array('drupal_pre_render_conditional_comments'),
       '#browsers' => array(
         'IE' => !$supported ? TRUE : 'lte IE ' . $supported,
@@ -641,7 +641,7 @@ function pierke_page_alter(&$page) {
 /**
  * Implements hook_html_head_alter().
  */
-function pierke_html_head_alter(&$head) {
+function gent_base_html_head_alter(&$head) {
   // Simplify the meta tag for character encoding.
   $head['system_meta_content_type']['#attributes'] = array(
     'charset' => str_replace('text/html; charset=', '', $head['system_meta_content_type']['#attributes']['content']),
@@ -649,9 +649,9 @@ function pierke_html_head_alter(&$head) {
 }
 
 /**
- * Implements hook_pierke_theme_libraries_info().
+ * Implements hook_gent_base_theme_libraries_info().
  */
-function pierke_pierke_theme_libraries_info() {
+function gent_base_gent_base_theme_libraries_info() {
   $libraries['selectivizr'] = array(
     'name' => t('Selectivizr'),
     'description' => t('Selectivizr is a JavaScript utility that emulates CSS3 pseudo-classes and attribute selectors in Internet Explorer 6-8. Simply include the script in your pages and selectivizr will do the rest.'),
@@ -690,7 +690,7 @@ function pierke_pierke_theme_libraries_info() {
     'vendor' => 'Scott Jehl',
     'vendor url' => 'http://scottjehl.com/',
     'package' => t('Polyfills'),
-    'callbacks' => array('pierke_extension_assets_requirements_css_aggregation'),
+    'callbacks' => array('gent_base_extension_assets_requirements_css_aggregation'),
     'files' => array(
       'js' => array(
         'respond.min.js' => array(
@@ -722,9 +722,9 @@ function pierke_pierke_theme_libraries_info() {
     'description' => t('PIE makes Internet Explorer 6-9 capable of rendering several of the most useful CSS3 decoration features.'),
     'vendor' => 'Keith Clark',
     'vendor url' => 'http://css3pie.com/',
-    'options form' => 'pierke_library_pie_options_form',
+    'options form' => 'gent_base_library_pie_options_form',
     'package' => t('Polyfills'),
-    'callbacks' => array('pierke_extension_assets_load_pie_selectors'),
+    'callbacks' => array('gent_base_extension_assets_load_pie_selectors'),
     'files' => array(),
     'variants' => array(
       'js' => array(
@@ -788,15 +788,15 @@ function pierke_pierke_theme_libraries_info() {
 }
 
 /**
- * Pierke layout preprocessor for initializing default variables.
+ * gent_base layout preprocessor for initializing default variables.
  */
-function _pierke_preprocess_default_layout_variables(&$variables, $hook) {
+function _gent_base_preprocess_default_layout_variables(&$variables, $hook) {
   // Invoke template_preprocess() manually but don't override the classes.
   $classes = isset($variables['classes_array']) ? $variables['classes_array'] : array();
   template_preprocess($variables, $hook);
   $variables['classes_array'] = $classes;
 
-  $layout = $variables['pierke_layout'];
+  $layout = $variables['gent_base_layout'];
   $variables['attributes_array']['class'][] = 'l-page';
 
   // Add information about the rendered sidebars, but only if the layout
@@ -822,24 +822,24 @@ function _pierke_preprocess_default_layout_variables(&$variables, $hook) {
 }
 
 /**
- * Theme callback for rendering an Pierke layout.
+ * Theme callback for rendering an gent_base layout.
  */
-function theme_pierke_page_layout($variables) {
+function theme_gent_base_page_layout($variables) {
   // Clean up the theme hook suggestion so we don't end up in an infinite loop.
   unset($variables['theme_hook_suggestion'], $variables['theme_hook_suggestions']);
 
-  $layout = $variables['pierke_layout'];
+  $layout = $variables['gent_base_layout'];
   drupal_process_attached(array('#attached' => $layout['attached']));
-  pierke_layout_load_theme_assets($layout['name']);
+  gent_base_layout_load_theme_assets($layout['name']);
 
-  $hook = str_replace('-', '_', $variables['pierke_layout']['template']);
+  $hook = str_replace('-', '_', $variables['gent_base_layout']['template']);
   return theme($hook, $variables);
 }
 
 /**
  * Shows a notice when Google Chrome Frame is not installed.
  */
-function theme_pierke_chrome($variables) {
+function theme_gent_base_chrome($variables) {
   $message = t('You are using an outdated browser! <a href="!upgrade">Upgrade your browser today</a> or <a href="!install">install Google Chrome Frame</a> to better experience this site.', array(
     '!upgrade' => url('http://browsehappy.com'),
     '!install' => url('http://www.google.com/chromeframe', array(
@@ -853,7 +853,7 @@ function theme_pierke_chrome($variables) {
 /**
  * Implements theme_breadcrumb().
  */
-function pierke_breadcrumb($variables) {
+function gent_base_breadcrumb($variables) {
   $breadcrumb = $variables['breadcrumb'];
   if (!empty($breadcrumb)) {
     $breadcrumb[0] = l(t('Gent.be'), '<front>');

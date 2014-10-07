@@ -8,7 +8,7 @@
 /**
  * Implements hook_preprocess_block().
  */
-function pierke_preprocess_block(&$variables) {
+function gent_base_preprocess_block(&$variables) {
   // Add BEM style classes to blocks.
   if (!empty($variables['block_html_id'])) {
     $variables['attributes_array']['id'] = $variables['block_html_id'];

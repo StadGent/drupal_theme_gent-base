@@ -3,7 +3,7 @@
 /**
  * Implements hook_process_page().
  */
-function pierke_process_page(&$variables) {
+function gent_base_process_page(&$variables) {
   // Collect inner_styles per region
   if (!empty($variables['inner_styles'])) {
     foreach ($variables['inner_styles'] as $region => $styles) {

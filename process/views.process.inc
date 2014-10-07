@@ -7,7 +7,7 @@
 /**
  * Implements hook_process_views_view_grid().
  */
-function pierke_process_views_view_grid(&$variables) {
+function gent_base_process_views_view_grid(&$variables) {
   $options = $variables['view']->style_plugin->options;
   $columns = $options['columns'];
   foreach ($variables['rows'] as $delta => $row) {
@@ -24,7 +24,7 @@ function pierke_process_views_view_grid(&$variables) {
 /**
  * Implements hook_process_views_view_list().
  */
-function pierke_process_views_view_list(&$variables) {
+function gent_base_process_views_view_list(&$variables) {
   foreach ($variables['rows'] as $delta => $item) {
     // Convert the previously set row attributes arrays into strings.
     $variables['row_attributes'][$delta] = !empty($variables['row_attributes_array'][$delta]) ? drupal_attributes($variables['row_attributes_array'][$delta]) : '';
@@ -34,7 +34,7 @@ function pierke_process_views_view_list(&$variables) {
 /**
  * Implements hook_process_views_view_table().
  */
-function pierke_process_views_view_table(&$variables) {
+function gent_base_process_views_view_table(&$variables) {
   foreach ($variables['rows'] as $delta => $row) {
     // Convert the previously set row attributes arrays into strings.
     $variables['row_attributes'][$delta] = !empty($variables['row_attributes_array'][$delta]) ? drupal_attributes($variables['row_attributes_array'][$delta]) : '';
@@ -54,7 +54,7 @@ function pierke_process_views_view_table(&$variables) {
 /**
  * Implements hook_process_views_view_unformatted().
  */
-function pierke_process_views_view_unformatted(&$variables) {
+function gent_base_process_views_view_unformatted(&$variables) {
   foreach ($variables['rows'] as $delta => $item) {
     // Convert the previously set row attributes arrays into strings.
     $variables['row_attributes'][$delta] = !empty($variables['row_attributes_array'][$delta]) ? drupal_attributes($variables['row_attributes_array'][$delta]) : '';

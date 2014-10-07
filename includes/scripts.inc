@@ -36,7 +36,7 @@
  *
  * @see drupal_pre_render_scripts()
  */
-function pierke_group_js($javascript) {
+function gent_base_group_js($javascript) {
   $groups = array();
   // If a group can contain multiple items, we track the information that must
   // be the same for each item in the group, so that when we iterate the next
@@ -129,7 +129,7 @@ function pierke_group_js($javascript) {
  * @see locale_js_alter()
  * @see drupal_js_defaults()
  */
-function pierke_get_js($scope = 'header', $javascript = NULL, $skip_alter = FALSE) {
+function gent_base_get_js($scope = 'header', $javascript = NULL, $skip_alter = FALSE) {
   if (!isset($javascript)) {
     $javascript = drupal_add_js();
   }
@@ -219,7 +219,7 @@ function pierke_get_js($scope = 'header', $javascript = NULL, $skip_alter = FALS
  *
  * @see drupal_get_js()
  */
-function pierke_pre_render_scripts($elements) {
+function gent_base_pre_render_scripts($elements) {
   // Group and aggregate the items.
   if (isset($elements['#group_callback'])) {
     $elements['#groups'] = $elements['#group_callback']($elements['#items']);
@@ -329,13 +329,13 @@ function pierke_pre_render_scripts($elements) {
  * @see drupal_group_js()
  * @see drupal_pre_render_scripts()
  */
-function pierke_aggregate_js(&$js_groups) {
+function gent_base_aggregate_js(&$js_groups) {
   // Only aggregate when the site is configured to do so, and not during an
   // update.
   if (variable_get('preprocess_js', FALSE) && (!defined('MAINTENANCE_MODE') || MAINTENANCE_MODE != 'update')) {
     foreach ($js_groups as $key => $group) {
       if ($group['type'] == 'file' && $group['preprocess']) {
-        $js_groups[$key]['data'] = pierke_build_js_cache($group['items']);
+        $js_groups[$key]['data'] = gent_base_build_js_cache($group['items']);
       }
     }
   }
@@ -365,7 +365,7 @@ function pierke_aggregate_js(&$js_groups) {
  * @return string|bool
  *   The URI of the cache file, or FALSE if the file could not be saved.
  */
-function pierke_build_js_cache($files) {
+function gent_base_build_js_cache($files) {
   $contents = '';
   $uri = '';
   $map = variable_get('drupal_js_cache_files', array());

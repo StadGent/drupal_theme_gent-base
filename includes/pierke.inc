@@ -32,7 +32,7 @@
  *
  * @see theme_get_setting()
  */
-function pierke_theme_get_setting($setting_name, $default = NULL, $theme = NULL) {
+function gent_base_theme_get_setting($setting_name, $default = NULL, $theme = NULL) {
   $cache = &drupal_static('theme_get_setting', array());
 
   // If no key is given, use the current theme if we can determine it.
@@ -68,7 +68,7 @@ function pierke_theme_get_setting($setting_name, $default = NULL, $theme = NULL)
  * @return array
  *   An array of all themes in the trail, keyed by theme key.
  */
-function pierke_theme_trail($theme = NULL) {
+function gent_base_theme_trail($theme = NULL) {
   $theme = isset($theme) ? $theme : $GLOBALS['theme_key'];
 
   if (($cache = &drupal_static(__FUNCTION__)) && isset($cache[$theme])) {
@@ -101,24 +101,24 @@ function pierke_theme_trail($theme = NULL) {
  *   (Optional) Either 'css' or 'js' depending on the file array. Defaults to
  *   'css'.
  */
-function pierke_css_js_alter(&$data, $type = 'css') {
-  if (!$excludes = pierke_theme_get_setting("pierke_{$type}_exclude")) {
+function gent_base_css_js_alter(&$data, $type = 'css') {
+  if (!$excludes = gent_base_theme_get_setting("gent_base_{$type}_exclude")) {
     return;
   }
 
-  require_once drupal_get_path('theme', 'pierke') . '/includes/assets.inc';
-  if (!$cache = cache_get("pierke:{$GLOBALS['theme_key']}:excludes:$type")) {
+  require_once drupal_get_path('theme', 'gent_base') . '/includes/assets.inc';
+  if (!$cache = cache_get("gent_base:{$GLOBALS['theme_key']}:excludes:$type")) {
     // Explode and trim the values for the exclusion rules.
-    $steps = pierke_assets_regex_steps($excludes);
+    $steps = gent_base_assets_regex_steps($excludes);
 
-    cache_set("pierke:{$GLOBALS['theme_key']}:excludes:$type", $steps, CACHE_TEMPORARY);
+    cache_set("gent_base:{$GLOBALS['theme_key']}:excludes:$type", $steps, CACHE_TEMPORARY);
   }
   else {
     $steps = $cache->data;
   }
 
-  $mapping = pierke_assets_generate_mapping($data);
-  $data = array_diff_key($data, pierke_assets_regex_execute($mapping, $steps));
+  $mapping = gent_base_assets_generate_mapping($data);
+  $data = array_diff_key($data, gent_base_assets_regex_execute($mapping, $steps));
 }
 
 /**
@@ -145,10 +145,10 @@ function pierke_css_js_alter(&$data, $type = 'css') {
  *   The theme info array of the passed or current theme.
  *
  * @see _system_default_theme_features()
- * @see pierke_extension_development_theme_settings_form_alter()
- * @see pierke_extension_development_theme_registry_alter()
+ * @see gent_base_extension_development_theme_settings_form_alter()
+ * @see gent_base_extension_development_theme_registry_alter()
  */
-function pierke_extensions($theme = NULL, $reset = FALSE) {
+function gent_base_extensions($theme = NULL, $reset = FALSE) {
   $theme = isset($theme) ? $theme : $GLOBALS['theme_key'];
 
   if (!$reset) {
@@ -156,21 +156,21 @@ function pierke_extensions($theme = NULL, $reset = FALSE) {
       return $extensions[$theme];
     }
 
-    if (($cache = cache_get('pierke:' . $theme . ':extensions')) !== FALSE) {
+    if (($cache = cache_get('gent_base:' . $theme . ':extensions')) !== FALSE) {
       return $extensions[$theme] = $cache->data;
     }
   }
 
   // Extensions can't be hidden.
-  $extensions[$theme] = pierke_discovery('extension', $theme);
+  $extensions[$theme] = gent_base_discovery('extension', $theme);
 
   foreach ($extensions[$theme] as $extension => &$info) {
     // Make sure that the theme variable is never altered.
     $context = $theme;
-    drupal_alter('pierke_extension_info', $info, $context);
+    drupal_alter('gent_base_extension_info', $info, $context);
 
     // Determine if the extension is enabled.
-    $info['enabled'] = pierke_theme_get_setting('pierke_toggle_extension_' . $extension, !empty($info['info']['enabled']));
+    $info['enabled'] = gent_base_theme_get_setting('gent_base_toggle_extension_' . $extension, !empty($info['info']['enabled']));
 
     // Check if all dependencies are met.
     $info['errors'] = FALSE;
@@ -178,7 +178,7 @@ function pierke_extensions($theme = NULL, $reset = FALSE) {
       foreach ($info['info']['dependencies'] as $dependency) {
         $dependency = drupal_parse_dependency($dependency);
 
-        if ((!$module = system_get_info('module', $dependency['name'])) || pierke_check_incompatibility($dependency, $module['version'])) {
+        if ((!$module = system_get_info('module', $dependency['name'])) || gent_base_check_incompatibility($dependency, $module['version'])) {
           $info['errors'] = TRUE;
         }
       }
@@ -186,7 +186,7 @@ function pierke_extensions($theme = NULL, $reset = FALSE) {
   }
 
   // Write to the cache.
-  cache_set('pierke:' . $theme . ':extensions', $extensions[$theme]);
+  cache_set('gent_base:' . $theme . ':extensions', $extensions[$theme]);
 
   return $extensions[$theme];
 }
@@ -203,10 +203,10 @@ function pierke_extensions($theme = NULL, $reset = FALSE) {
  * @return bool
  *   TRUE if the extension is enabled, FALSE otherwise.
  */
-function pierke_extension_enabled($extension, $theme = NULL) {
+function gent_base_extension_enabled($extension, $theme = NULL) {
   $theme = isset($theme) ? $theme : $GLOBALS['theme_key'];
-  if (($extensions = pierke_extensions($theme)) && isset($extensions[$extension])) {
-    return empty($extensions[$extension]['errors']) && !empty($extensions[$extension]['enabled']) && variable_get('pierke_toggle_extension_' . $extension, TRUE);
+  if (($extensions = gent_base_extensions($theme)) && isset($extensions[$extension])) {
+    return empty($extensions[$extension]['errors']) && !empty($extensions[$extension]['enabled']) && variable_get('gent_base_toggle_extension_' . $extension, TRUE);
   }
 }
 
@@ -220,7 +220,7 @@ function pierke_extension_enabled($extension, $theme = NULL) {
  * @return array
  *   The theme info array of the passed or current theme.
  */
-function pierke_theme_info($theme = NULL) {
+function gent_base_theme_info($theme = NULL) {
   $theme = isset($theme) ? $theme : $GLOBALS['theme_key'];
 
   // If this is the current theme, just load the theme info from the globals.
@@ -251,7 +251,7 @@ function pierke_theme_info($theme = NULL) {
  *
  * @see module_invoke_all()
  */
-function pierke_invoke_all($hook, $theme = NULL) {
+function gent_base_invoke_all($hook, $theme = NULL) {
   $theme = isset($theme) ? $theme : $GLOBALS['theme_key'];
 
   $args = func_get_args();
@@ -259,7 +259,7 @@ function pierke_invoke_all($hook, $theme = NULL) {
   unset($args[0], $args[1]);
 
   $return = array();
-  foreach (pierke_theme_trail($theme) as $key => $name) {
+  foreach (gent_base_theme_trail($theme) as $key => $name) {
     $function = $key . '_' . $hook;
 
     if (function_exists($function)) {
@@ -301,7 +301,7 @@ function pierke_invoke_all($hook, $theme = NULL) {
  *
  * @see drupal_array_get_nested_value()
  */
-function pierke_get_nested_value(&$object, array $parents, &$key_exists = NULL) {
+function gent_base_get_nested_value(&$object, array $parents, &$key_exists = NULL) {
   $ref = &$object;
   foreach ($parents as $parent) {
     if (is_array($ref) && array_key_exists($parent, $ref)) {
@@ -325,18 +325,18 @@ function pierke_get_nested_value(&$object, array $parents, &$key_exists = NULL) 
  * @return array
  *   An array of available layouts for the given theme.
  */
-function pierke_layouts_info() {
+function gent_base_layouts_info() {
   if (($layouts = &drupal_static(__FUNCTION__)) !== NULL) {
     return $layouts;
   }
 
   // Try to retrieve the layouts definitions from cache.
-  if (($cache = cache_get('pierke:layouts')) !== FALSE) {
+  if (($cache = cache_get('gent_base:layouts')) !== FALSE) {
     return $layouts = $cache->data;
   }
 
   // Layouts do not have a specific theme scope.
-  $layouts = pierke_discovery('layout', FALSE);
+  $layouts = gent_base_discovery('layout', FALSE);
   foreach ($layouts as $layout => &$info) {
     $info['attached'] = array();
     $info['template'] = isset($info['info']['template']) ? $info['info']['template'] : $layout;
@@ -394,10 +394,10 @@ function pierke_layouts_info() {
   }
 
   // Give modules and themes a chance to alter the layout info array.
-  drupal_alter('pierke_layouts_info', $layouts);
+  drupal_alter('gent_base_layouts_info', $layouts);
 
   // Cache the layout definitions in the database.
-  cache_set('pierke:layouts', $layouts);
+  cache_set('gent_base:layouts', $layouts);
 
   return $layouts;
 }
@@ -409,20 +409,20 @@ function pierke_layouts_info() {
  *   The info array for the active layout or FALSE if the current page does not
  *   use an alternative page layout.
  */
-function pierke_layout() {
+function gent_base_layout() {
   if (($cache = &drupal_static(__FUNCTION__)) !== NULL) {
     return $cache;
   }
 
   // Load the default layout from the theme settings.
-  $layout = pierke_extension_enabled('layouts') ? pierke_theme_get_setting('pierke_layout', 'simple') : NULL;
-  drupal_alter('pierke_layout', $layout);
+  $layout = gent_base_extension_enabled('layouts') ? gent_base_theme_get_setting('gent_base_layout', 'simple') : NULL;
+  drupal_alter('gent_base_layout', $layout);
 
   if (empty($layout)) {
     $cache = NULL;
   }
   else {
-    $layouts = pierke_layouts_info();
+    $layouts = gent_base_layouts_info();
     $cache = isset($layouts[$layout]) ? $layouts[$layout] : NULL;
   }
 
@@ -435,13 +435,13 @@ function pierke_layout() {
  * @param string $layout
  *   The layout for which to load the assets.
  */
-function pierke_layout_load_theme_assets($layout) {
+function gent_base_layout_load_theme_assets($layout) {
   $stylesheets = array();
   $scripts = array();
 
-  foreach (pierke_theme_trail() as $key => $name) {
+  foreach (gent_base_theme_trail() as $key => $name) {
     $path = drupal_get_path('theme', $key);
-    $info = pierke_theme_info($key);
+    $info = gent_base_theme_info($key);
     if (!isset($info['layout'][$layout])) {
       continue;
     }
@@ -486,7 +486,7 @@ function pierke_layout_load_theme_assets($layout) {
  *   An array of libraries defined by themes in the theme trail of the given
  *   theme.
  */
-function pierke_theme_libraries_info($theme = NULL) {
+function gent_base_theme_libraries_info($theme = NULL) {
   $theme = isset($theme) ? $theme : $GLOBALS['theme_key'];
 
   // Check if the libraries have already been statically cached.
@@ -495,22 +495,22 @@ function pierke_theme_libraries_info($theme = NULL) {
   };
 
   // Try to retrieve the library definitions from cache.
-  if (($cache = cache_get("pierke:$theme:libraries")) !== FALSE) {
+  if (($cache = cache_get("gent_base:$theme:libraries")) !== FALSE) {
     return $libraries[$theme] = $cache->data;
   }
 
   // Retrieve the libraries by invoking the hook.
-  $libraries[$theme] = pierke_invoke_all('pierke_theme_libraries_info');
+  $libraries[$theme] = gent_base_invoke_all('gent_base_theme_libraries_info');
   foreach ($libraries[$theme] as $key => &$library) {
-    $library['path'] = pierke_library_path($key);
+    $library['path'] = gent_base_library_path($key);
   }
 
   $context = $theme;
   // Give modules and themes a chance to alter the libraries info array.
-  drupal_alter('pierke_theme_libraries_info', $libraries[$theme], $context);
+  drupal_alter('gent_base_theme_libraries_info', $libraries[$theme], $context);
 
   // Cache the layout definitions in the database.
-  cache_set("pierke:$theme:libraries", $libraries[$theme]);
+  cache_set("gent_base:$theme:libraries", $libraries[$theme]);
 
   return $libraries[$theme];
 }
@@ -527,7 +527,7 @@ function pierke_theme_libraries_info($theme = NULL) {
  * @return array
  *   An array containing the discovered definitions.
  */
-function pierke_discovery($type, $theme = NULL) {
+function gent_base_discovery($type, $theme = NULL) {
   $theme = isset($theme) ? $theme : $GLOBALS['theme_key'];
 
   if (($discovery = &drupal_static(__FUNCTION__, array())) && isset($discovery[$theme][$type])) {
@@ -537,7 +537,7 @@ function pierke_discovery($type, $theme = NULL) {
   $discovery[$theme][$type] = array();
 
   // Retrieve all themes from the theme trail of the given theme.
-  $themes = $theme === FALSE ? list_themes() : pierke_theme_trail($theme);
+  $themes = $theme === FALSE ? list_themes() : gent_base_theme_trail($theme);
 
   // Collect paths to all sub-themes grouped by base themes. These will be
   // used for filtering. This allows base themes to have sub-themes in its
@@ -606,7 +606,7 @@ function pierke_discovery($type, $theme = NULL) {
  * @see drupal_check_incompatibility()
  * @see drupal_parse_dependency()
  */
-function pierke_check_incompatibility($dependency, $current) {
+function gent_base_check_incompatibility($dependency, $current) {
   // Remove the core version from the version string.
   $current = preg_replace('/^' . DRUPAL_CORE_COMPATIBILITY . '-/', '', $current);
   // Remove any potential development version suffixes from the string.
@@ -630,13 +630,13 @@ function pierke_check_incompatibility($dependency, $current) {
  *   directly. This ensures that the code that uses this function does not break
  *   if a file does not exist anywhere.
  */
-function pierke_theme_trail_file($file, $theme = NULL) {
+function gent_base_theme_trail_file($file, $theme = NULL) {
   $theme = isset($theme) ? $theme : $GLOBALS['theme_key'];
 
   // Iterate over all themes in the theme trail (starting with the active theme)
   // and return the first match.
   $current = NULL;
-  foreach (array_reverse(pierke_theme_trail($theme)) as $name => $info) {
+  foreach (array_reverse(gent_base_theme_trail($theme)) as $name => $info) {
     $current = drupal_get_path('theme', $name) . '/' . $file;
     if (file_exists($current)) {
       return $current;
@@ -660,8 +660,8 @@ function pierke_theme_trail_file($file, $theme = NULL) {
  * @return string|null
  *   The path to the specified library or NULL if the library wasn't found.
  */
-function pierke_library_path($name, $theme = NULL) {
-  if (($path = pierke_theme_trail_file("libraries/$name", $theme)) && is_dir($path)) {
+function gent_base_library_path($name, $theme = NULL) {
+  if (($path = gent_base_theme_trail_file("libraries/$name", $theme)) && is_dir($path)) {
     return $path;
   }
 

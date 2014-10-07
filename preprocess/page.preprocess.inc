@@ -3,7 +3,7 @@
 /**
  * Implements hook_preprocess_page().
  */
-function pierke_preprocess_page(&$variables) {
+function gent_base_preprocess_page(&$variables) {
   //indien geen deelsite bekend, toon gewoon 'Gent.be'.
   $variables['deelsite_title'] = 'Gent.be';
 

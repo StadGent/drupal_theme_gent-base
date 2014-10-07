@@ -3,7 +3,7 @@
 /**
  * Implements theme_preprocess_HOOK().
  */
-function pierke_preprocess_html(&$variables) {
+function gent_base_preprocess_html(&$variables) {
   if (!empty($variables['page']['sidebar_first']) && !empty($variables['page']['sidebar_second'])) {
     $variables['attributes_array']['class'][] = 'has-two-sidebars has-sidebar-first has-sidebar-second has-sidebar';
   }

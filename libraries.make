@@ -1,13 +1,13 @@
 ; ##############################################################################
 ;
 ; This is a Drush make file that will automatically download the front-end
-; libraries used by Pierke. Alternatively, you can use Bower (http://bower.io) to
+; libraries used by gent_base. Alternatively, you can use Bower (http://bower.io) to
 ; accomplish this.
 ;
-; To run this file with 'drush make' you first have to navigate into the Pierke
+; To run this file with 'drush make' you first have to navigate into the gent_base
 ; theme directory.
 ;
-; $ cd sites/all/themes/pierke
+; $ cd sites/all/themes/gent_base
 ;
 ; Now you can invoke 'drush make' using the following command:
 ;

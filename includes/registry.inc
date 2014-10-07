@@ -2,13 +2,13 @@
 
 /**
  * @file
- * Contains PierkeThemeRegistryHandler.
+ * Contains GentBaseThemeRegistryHandler.
  */
 
 /**
  * Utility class for managing the theme registry.
  */
-class PierkeThemeRegistryHandler {
+class GentBaseThemeRegistryHandler {
 
   /**
    * The theme registry.
@@ -25,7 +25,7 @@ class PierkeThemeRegistryHandler {
   protected $theme;
 
   /**
-   * Constructs a PierkeThemeRegistryHandler object.
+   * Constructs a GentBaseThemeRegistryHandler object.
    *
    * @param array &$registry
    *   The theme registry.
@@ -34,7 +34,7 @@ class PierkeThemeRegistryHandler {
    */
   public function __construct(&$registry, $theme) {
     $this->theme = $theme;
-    $this->trail = pierke_theme_trail($theme);
+    $this->trail = gent_base_theme_trail($theme);
     $this->registry = &$registry;
   }
 

@@ -7,7 +7,7 @@
 /**
  * Implements hook_preprocess_views_view_grid().
  */
-function pierke_preprocess_views_view_grid(&$variables) {
+function gent_base_preprocess_views_view_grid(&$variables) {
   // For some reason views puts row classes into the classes array. Instead of
   // classes arrays we should always use proper attributes arrays and never
   // abuse the default versions of those for row classes. Instead, we should use
@@ -35,7 +35,7 @@ function pierke_preprocess_views_view_grid(&$variables) {
 /**
  * Implements hook_preprocess_views_view_list().
  */
-function pierke_preprocess_views_view_list(&$variables) {
+function gent_base_preprocess_views_view_list(&$variables) {
   // For some reason views puts row classes into the classes array. Instead of
   // classes arrays we should always use proper attributes arrays and never
   // abuse the default versions of those for row classes. Instead, we should use
@@ -52,7 +52,7 @@ function pierke_preprocess_views_view_list(&$variables) {
 /**
  * Implements hook_preprocess_views_view_table().
  */
-function pierke_preprocess_views_view_table(&$variables) {
+function gent_base_preprocess_views_view_table(&$variables) {
   // For some reason views puts row classes into the classes array. Instead of
   // classes arrays we should always use proper attributes arrays and never
   // abuse the default versions of those for row classes. Instead, we should use
@@ -87,7 +87,7 @@ function pierke_preprocess_views_view_table(&$variables) {
 /**
  * Implements hook_preprocess_views_view_unformatted().
  */
-function pierke_preprocess_views_view_unformatted(&$variables) {
+function gent_base_preprocess_views_view_unformatted(&$variables) {
   // For some reason views puts row classes into the classes array. Instead of
   // classes arrays we should always use proper attributes arrays and never
   // abuse the default versions of those for row classes. Instead, we should use
