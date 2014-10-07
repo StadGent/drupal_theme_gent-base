@@ -1,277 +1,310 @@
-// search form
-
 .site-search {
-	@extend %clearfix;
+  @extend %clearfix;
 
-	.form-item {
-		margin: 0;
-	}
+  .form-item {
+    margin: 0;
+  }
 
-	.form-text {
-		border-radius: $radius-1 0 0 $radius-1;
-		margin-bottom: 0;
-		float: left;
-		width: 80%;
-		border: 0;
-		padding-top: 0;
-		padding-bottom: 0;
-		@include rem-padding-lr(.75,.75);
-		@include input-dimensions(-3,$dimensions);
+  .form-text {
+    border-radius: $radius-1 0 0 $radius-1;
+    margin-bottom: 0;
+    float: left;
+    width: 80%;
+    border: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    @include rem-padding-lr(.75, .75);
+    @include input-dimensions(-3, $dimensions);
 
-		&:active,
-		&:focus {
-			outline: none;
-		}
+    &:active,
+    &:focus {
+      outline: none;
+    }
 
-		::-webkit-input-placeholder {
-			color: $gamma-text-color;
-		}
+    ::-webkit-input-placeholder {
+      color: $gamma-text-color;
+    }
 
-		:-moz-placeholder {
-			color: $gamma-text-color;
-		}
+    :-moz-placeholder {
+      color: $gamma-text-color;
+    }
 
-		::-moz-placeholder {
-			color: $gamma-text-color;
-		}
+    ::-moz-placeholder {
+      color: $gamma-text-color;
+    }
 
-		:-ms-input-placeholder {
-			color: $gamma-text-color;
-		}
-	}
+    :-ms-input-placeholder {
+      color: $gamma-text-color;
+    }
+  }
 
-	.form-submit {
-		border-radius: 0 $radius-1 $radius-1 0;
-		// box-shadow: none;
-		box-shadow: inset 0 1px 0 rgba(white, .1);
-		float: left;
-		width: 20%;
-		background-color: $alpha-ui-color;
-		color: #fff;
-		padding: 0;
-		// padding-top: 0;
-		// padding-bottom: 0;
-		@include input-dimensions(-2,$dimensions);
+  .form-submit {
+    border-radius: 0 $radius-1 $radius-1 0;
+    // box-shadow: none;
+    box-shadow: inset 0 1px 0 rgba(white, .1);
+    float: left;
+    width: 20%;
+    background-color: $alpha-ui-color;
+    color: #fff;
+    padding: 0;
+    // padding-top: 0;
+    // padding-bottom: 0;
+    @include input-dimensions(-2, $dimensions);
 
-		&:hover {
-			background-color: $alpha-link-color;
-		}
+    &:hover {
+      background-color: $alpha-link-color;
+    }
 
-	}
+  }
 }
 
 // results
 
 .search-filter {
-	@extend %clearfix;
-	@include padding-tb(1,0);
-	ul {
-		@extend %clearfix;
-		@include list-nav;
-	}	
+  @extend %clearfix;
+  @include padding-tb(1, 0);
+  ul {
+    @extend %clearfix;
+    @include list-nav;
+  }
 
-	li {
-		@include text-dimensions(-1,1,0);
-		@extend %clearfix;
-		@include padding-tb(0.25,0.25);
-	}
+  li {
+    @include text-dimensions(-1, 1, 0);
+    @extend %clearfix;
+    @include padding-tb(0.25, 0.25);
+  }
 
-	> div {display: none;}
+  > div {
+    display: none;
+  }
 
-	@include mq($bp3) {
-		border-radius: $radius;
-		background-color: #EDF5F7;
-		border-radius: 5px;
-		box-shadow: 0 -1px 1px 0 #D2E6EC inset;
-		padding-left: 1em;
-		padding-right: 1em;
+  @include mq($bp3) {
+    border-radius: $radius;
+    background-color: #EDF5F7;
+    border-radius: 5px;
+    box-shadow: 0 -1px 1px 0 #D2E6EC inset;
+    padding-left: 1em;
+    padding-right: 1em;
 
-		> div {display: block;}
+    > div {
+      display: block;
+    }
 
-		li {padding-top: 0; padding-bottom: 0;}
-	}
+    li {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
 
-	.media {position: relative;}
+  .media {
+    position: relative;
+  }
 }
 
 // Hide toggle btn to show/hide filters (only on mobile)
 a.search-filter-toggle-btn {
-	@include mq($bp3) {display: none;}
+  @include mq($bp3) {
+    display: none;
+  }
 }
 
 .search-filter-title {
-	@include text-dimensions(0,0.5,1,0,0,.6);
-		a,
-		a:link,
-		a:visited {
-			color: $alpha-text-color;
-			@include mq($bp3) {color: $alpha-link-color;}
-		}
+  @include text-dimensions(0, 0.5, 1, 0, 0, .6);
+  a,
+  a:link,
+  a:visited {
+    color: $alpha-text-color;
+    @include mq($bp3) {
+      color: $alpha-link-color;
+    }
+  }
 
-	@include padding-top(1);
-	a,
-	a:link,
-	a:visited {
-		color: $alpha-text-color;
-		@include mq($bp3) {color: $alpha-link-color;}
-	}
-	@include mq($bp3) {
-		@include text-dimensions(-1,1,0);
-		@include padding-top(0);
-		float: left;
-	}
+  @include padding-top(1);
+  a,
+  a:link,
+  a:visited {
+    color: $alpha-text-color;
+    @include mq($bp3) {
+      color: $alpha-link-color;
+    }
+  }
+  @include mq($bp3) {
+    @include text-dimensions(-1, 1, 0);
+    @include padding-top(0);
+    float: left;
+  }
 
 }
 
 .search-filter-amount {
-	@include text-dimensions(-7,1,0,0,0,0);
-	display: inline;
-	font-weight: $alpha-font-weight;
-	letter-spacing: 0.05em;
-	margin-left: 5px;
-	position: relative;
-	top: -4px;
-		&:before {content: "(";}
-		&:after {content: ")";}
+  @include text-dimensions(-7, 1, 0, 0, 0, 0);
+  display: inline;
+  font-weight: $alpha-font-weight;
+  letter-spacing: 0.05em;
+  margin-left: 5px;
+  position: relative;
+  top: -4px;
+  &:before {
+    content: "(";
+  }
+  &:after {
+    content: ")";
+  }
 }
 
 // SEARCH FILTER TYPES
 
 .facetapi-facet-type {
-	a {
-		color: $alpha-link-color;
-		text-decoration: none;
-	}
+  a {
+    color: $alpha-link-color;
+    text-decoration: none;
+  }
 
-	li {
-		@extend %clearfix;
-		border-right: 1px solid lighten($alpha-text-color,70);
-		padding-right: 0.5em;
-		&:last-child {
-			border-right: none;
-			padding-right: 0;
-		}
-		&.active {
-			a {
-				@include text-dimensions(1,1.1,0,0,0,0);
-				font-weight: $beta-font-weight;
-				font-size: 120%;
-				text-decoration: underline;
-			}
-		}
-	}
+  li {
+    @extend %clearfix;
+    border-right: 1px solid lighten($alpha-text-color, 70);
+    padding-right: 0.5em;
+    &:last-child {
+      border-right: none;
+      padding-right: 0;
+    }
+    &.active {
+      a {
+        @include text-dimensions(1, 1.1, 0, 0, 0, 0);
+        font-weight: $beta-font-weight;
+        font-size: 120%;
+        text-decoration: underline;
+      }
+    }
+  }
 
-	@include mq($bp3) {
-		float: left;
-		@include horizontal-nav;
+  @include mq($bp3) {
+    float: left;
+    @include horizontal-nav;
 
-		li {
-			@include rem-margin-lr(0,1);
-			@include text-dimensions(-3,1,0,0,0,0);
-		}
+    li {
+      @include rem-margin-lr(0, 1);
+      @include text-dimensions(-3, 1, 0, 0, 0, 0);
+    }
 
-		.search-filter-type-title { display: none; }
+    .search-filter-type-title {
+      display: none;
+    }
 
-	}
+  }
 
 }
 
 // SEARCH FILTER THEMES
 
 .facetapi-facet-theme {
-	position: relative;
-	a {
-		background: #fff;
-		color: $alpha-link-color;
-		text-decoration: none;
-	}
-	span.icon {
-		display: none;
-		color: $alpha-text-color;
-		padding-left: 10px;
-	}
-	@include mq($bp3) {
-		@include text-dimensions(-2,0.1);
-		float: left;
-		padding-left: 2em;
-		a {
-			color: $alpha-link-color;
-		}
-		span.icon {display: inline;}
-		ul {
-			@include block(#fff, 0.5, 1, 0.5, 1);
-			border-radius: $radius;
-			border: 1px solid darken($gamma-ui-color, 10);
-			box-shadow: 0 0 5px 1px rgba($alpha-text-color,.15);
-			display: none;
-			max-width: 400px;
-			min-width: 300px;
-			position: absolute;
-			top: 2.2em;
-			z-index: 100;
-			li {
-				@include text-dimensions(-4,1,0,0.2,0.2,0);
-				border-bottom: 1px $gamma-ui-color solid;
-				&:last-child {border-bottom: none;}
-			}
-		}
-	}
+  position: relative;
+  a {
+    background: #fff;
+    color: $alpha-link-color;
+    text-decoration: none;
+  }
+  span.icon {
+    display: none;
+    color: $alpha-text-color;
+    padding-left: 10px;
+  }
+  @include mq($bp3) {
+    @include text-dimensions(-2, 0.1);
+    float: left;
+    padding-left: 2em;
+    a {
+      color: $alpha-link-color;
+    }
+    span.icon {
+      display: inline;
+    }
+    ul {
+      @include block(#fff, 0.5, 1, 0.5, 1);
+      border-radius: $radius;
+      border: 1px solid darken($gamma-ui-color, 10);
+      box-shadow: 0 0 5px 1px rgba($alpha-text-color, .15);
+      display: none;
+      max-width: 400px;
+      min-width: 300px;
+      position: absolute;
+      top: 2.2em;
+      z-index: 100;
+      li {
+        @include text-dimensions(-4, 1, 0, 0.2, 0.2, 0);
+        border-bottom: 1px $gamma-ui-color solid;
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+    }
+  }
 }
 
 .search-filter-theme-title {
-	@include text-dimensions(-1,0.8,0,0,0,0);
-	margin: 0;
-	@include mq($bp3) {
-		a {
-			border-radius: $radius-1;
-			display: block;
-			padding: 0.2em 0.7em;
-			text-align: center;
-			.search-filter-theme-active {
-				@include text-dimensions(-2,0,0);
-				color: $gamma-text-color;
-			}
-			&:hover {
-				background: $alpha-ui-color;
-				color: #fff;
-				[class^=" icon"], [class*=" icon"] {color: $alpha-text-color;}
-				.search-filter-theme-active {color: $alpha-text-color;}
-			}
-			
-		}
-	}
+  @include text-dimensions(-1, 0.8, 0, 0, 0, 0);
+  margin: 0;
+  @include mq($bp3) {
+    a {
+      border-radius: $radius-1;
+      display: block;
+      padding: 0.2em 0.7em;
+      text-align: center;
+      .search-filter-theme-active {
+        @include text-dimensions(-2, 0, 0);
+        color: $gamma-text-color;
+      }
+      &:hover {
+        background: $alpha-ui-color;
+        color: #fff;
+        [class^=" icon"], [class*=" icon"] {
+          color: $alpha-text-color;
+        }
+        .search-filter-theme-active {
+          color: $alpha-text-color;
+        }
+      }
+
+    }
+  }
 }
 
 // SEARCH QUERY
 
-	.search-query-title {
-		@include text-dimensions(2,1,0.5,0,0,0);
-		em {
-			color: $alpha-ui-color;
-			font-style: normal;
-			font-weight: $beta-font-weight;
-		}
-		.search-filter-amount {color: $gamma-text-color; top: -8px;}
-	}
+.search-query-title {
+  @include text-dimensions(2, 1, 0.5, 0, 0, 0);
+  em {
+    color: $alpha-ui-color;
+    font-style: normal;
+    font-weight: $beta-font-weight;
+  }
+  .search-filter-amount {
+    color: $gamma-text-color;
+    top: -8px;
+  }
+}
 
 .search-results {
-	@include padding-top(2);
-	@include mq($bp3) {@include margin-top(0);}
-	.list-media {
-		border-bottom: 1px solid darken($gamma-ui-color,$darkness);
-		position: relative;
-		margin-left: 1rem;
-		@include mq($bp3) {}
-		[class^="icon-"], [class*=" icon-"] {
-			@include text-dimensions(-1,1);
-			color: $gamma-text-color;
-			display: block;
-			left: -1.3em;
-			margin: 0 0.5em 0 0;
-			position: absolute;
-		}
-		p.media-intro {
-			@include text-dimensions(1,1,1,0,0,0)
-		}
-	}
+  @include padding-top(2);
+  @include mq($bp3) {
+    @include margin-top(0);
+  }
+  .list-media {
+    border-bottom: 1px solid darken($gamma-ui-color, $darkness);
+    position: relative;
+    margin-left: 1rem;
+    @include mq($bp3) {
+    }
+    [class^="icon-"], [class*=" icon-"] {
+      @include text-dimensions(-1, 1);
+      color: $gamma-text-color;
+      display: block;
+      left: -1.3em;
+      margin: 0 0.5em 0 0;
+      position: absolute;
+    }
+    p.media-intro {
+      @include text-dimensions(1, 1, 1, 0, 0, 0)
+    }
+  }
 }

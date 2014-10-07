@@ -2,14 +2,6 @@ body {
   @extend %clearfix;
 }
 
-//these classes are not used
-/*@media (min-width: $bp4) {
-  .l-main, .l-header {
-    max-width: 63.25em;
-    margin: 0 auto;
-  }
-}*/
-
 .holder {
   position: relative;
   @include padding-tb(1, 0);
