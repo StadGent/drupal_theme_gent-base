@@ -647,16 +647,6 @@ function gent_base_html_head_alter(&$head) {
     'charset' => 'utf-8',
   );
 
-  // Optimize mobile viewport.
-  $head_elements['mobile_viewport'] = array(
-    '#type' => 'html_tag',
-    '#tag' => 'meta',
-    '#attributes' => array(
-      'name' => 'viewport',
-      'content' => 'width=device-width',
-    ),
-  );
-
   // Remove image toolbar in IE.
   $head_elements['ie_image_toolbar'] = array(
     '#type' => 'html_tag',
