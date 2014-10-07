@@ -1,0 +1,247 @@
+//
+// Forms
+// ---
+// Default markup for the form elements, based on the settings file.
+//
+
+form {
+	@extend %clearfix;
+
+	.description {
+		color: $gamma-text-color;
+		@include text-dimensions(-1,1,0,.25);
+	}
+}
+
+fieldset {
+	@include margin-tb(0,1);
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.form-item,
+.form-actions {
+	@include margin-bottom(1);
+}
+
+legend,
+label,
+.label {
+	@include text-dimensions(-1,1,0,0,.25);
+	color: $beta-text-color;
+	display: block;
+	width: 100%;
+	cursor: pointer;
+}
+
+.label {
+	cursor: auto;
+	padding-bottom: 0;
+}
+
+// Input elements
+
+input[type="input"],
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="url"],
+input[type="number"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[name="field_country_code"],
+input[name="field_city_code"],
+input[name="field_phone_int"],
+select[multiple],
+textarea {
+	@include border-box;
+	@include input-m;
+	display: block;
+	-webkit-appearance: none;
+	-webkit-font-smoothing: antialiased;
+	font-smoothing: antialiased;
+	margin: 0;
+	width: 100%;
+	line-height: 1;
+	color: $gamma-text-color;
+	border: 1px solid lighten($gamma-text-color,10);
+	border-radius: $alpha-radius;
+
+	&:hover {
+		border-color: lighten($gamma-text-color,5);
+	}
+
+	&:focus {
+		outline: none;
+		color: $alpha-text-color;
+		border-color: $gamma-text-color;
+	}
+}
+
+select {
+	@include border-box;
+	@include input-dimensions(-2,1,0,.45,.45,0);
+	@include px-padding-lr(1,1);
+	display: block;
+	margin: 0;
+	width: 100%;
+	height: 2.6em;
+	color: $beta-text-color;
+	background-color: lighten($gamma-text-color,32);
+	border: 1px solid lighten($gamma-text-color,10);
+	border-radius: $alpha-radius;
+
+	&:hover {
+		border-color: lighten($gamma-text-color,5);
+	}
+
+	&:focus {
+		outline: none;
+		color: $alpha-text-color;
+		border-color: $gamma-text-color;
+	}
+
+}
+
+textarea {
+	display: block;
+	resize: none;
+	overflow: auto;
+}
+
+.small.input-textarea {
+	height: 5em;
+}
+
+.medium.input-textarea {
+	height: 7.5em;
+}
+
+.large.input-textarea {
+	height: 10em;
+}
+
+.xlarge.input-textarea {
+	height: 20em;
+}
+
+
+.option-group {
+	@extend %clearfix;
+	@include list-nav;
+
+	label {
+		padding-bottom: 0;
+		margin-bottom: 0;
+	}
+
+}
+
+.input-option {
+	padding: 0;
+	margin: 0 .5em 0 0;
+	position: relative;
+	cursor: pointer;
+	width: 13px;
+	height: 13px;
+	vertical-align: middle;
+	position: relative;
+	top: -2px;
+	*overflow: hidden;
+}
+
+.label-option {
+	cursor: pointer;
+	vertical-align: middle;
+}
+
+// Placeholders
+
+::-webkit-input-placeholder {
+	@include padding-tb(.1,0);
+	-webkit-font-smoothing: antialiased;
+	font-smoothing: antialiased;
+	color: $gamma-text-color;
+}
+
+:-moz-placeholder {
+	font-smoothing: antialiased;
+	color: $gamma-text-color;
+}
+
+::-moz-placeholder {
+	font-smoothing: antialiased;
+	color: $gamma-text-color;
+}
+
+:-ms-input-placeholder {
+	font-smoothing: antialiased;
+	color: $gamma-text-color;
+}
+
+// Buttons
+
+input[type="submit"],
+button {
+	@extend %btn;
+}
+
+
+// Prefix and postfix
+.prefix--medium.prefix--medium {
+	@include grid-span(7);
+
+	@include mq($bp3) {
+		@include grid-span(8);
+	}
+}
+
+.postfix--medium.postfix--medium {
+	@include grid-span(5,8);
+
+	@include mq($bp3) {
+		@include grid-span(4,9);
+	}
+}
+
+.prefix--large.prefix--large {
+	@include grid-span(9);
+
+	@include mq($bp3) {
+		@include grid-span(10);
+	}
+}
+
+.postfix--small.postfix--small {
+	@include grid-span(3,10);
+
+	@include mq($bp3) {
+		@include grid-span(2,11);
+	}
+}
+
+.prefix--email.prefix--email {
+	@include add-gutter(0);
+	@include grid-span(9);
+
+	@include mq($bp3) {
+		@include grid-span(8);
+	}
+}
+
+.postfix--email-submit.postfix--email-submit {
+	@include add-gutter(0);
+	@include grid-span(3,10);
+
+	@include mq($bp3) {
+		@include grid-span(4,9);
+	}
+}

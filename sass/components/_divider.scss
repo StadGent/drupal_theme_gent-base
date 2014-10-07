@@ -1,0 +1,11 @@
+.divider-top {
+	border-top: 1px solid desaturate(darken($gamma-ui-color,10),20);
+}
+
+.border-top {
+	border-top: 1px solid desaturate(darken($gamma-ui-color,10),20);
+}
+
+.border-bottom {
+	border-bottom: 1px solid desaturate(darken($gamma-ui-color,10),20);
+}

@@ -1,8 +1,8 @@
-name = Default starterkit
-description = Default starterkit for Gent base theme.
+name = Gent starterkit
+description = Gent default starterkit for Gent base theme.
 base theme = gent_base
 core = 7.x
-screenshot = screenshot.jpg
+screenshot = screenshot.png
 
 ; Styles
 stylesheets[all][] = css/default_starterkit.normalize.css

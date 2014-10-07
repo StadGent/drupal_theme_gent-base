@@ -1,33 +1,33 @@
-%pagination {
-  @extend %clearfix;
-  @include horizontal-nav;
+// Pagination
 
-  width: 100%;
-  overflow: hidden;
+.pagination {
 
-  a, span {
-    display: block;
-    float: left;
-  }
+	a,
+	span {
+		padding: 0 10px;
+		border: 1px solid $gamma-ui-color;
+		margin-left: -1px;
+	}
 
+	span {
+		color: $beta-text-color;
+	}
+
+	@include pagination;
 }
 
-@mixin pagination {
-  @extend %pagination;
-}
+.pagination-centered {
 
-@mixin pagination-centered {
-  @extend %pagination;
+	a,
+	span {
+		padding: 0 10px;
+		border: 1px solid $gamma-ui-color;
+		margin-left: -1px;
+	}
 
-  .inner {
-    float: left;
-    position: relative;
-    left: 50%;
-  }
+	span {
+		color: $beta-text-color;
+	}
 
-  ul {
-    overflow: hidden;
-    position: relative;
-    left: -50%;
-  }
+	@include pagination-centered;
 }

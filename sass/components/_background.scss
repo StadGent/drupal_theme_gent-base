@@ -1,0 +1,16 @@
+.background--alpha {
+	background-color: $gamma-ui-color;
+}
+
+.background--beta {
+	background-color: $beta-ui-color;
+}
+
+.background--gamma {
+	background-color: $alpha-ui-color;
+}
+
+.background--delta {
+	background-image: url('../img/png/map-background.png');
+	background-position: center;
+}

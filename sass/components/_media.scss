@@ -1,112 +1,46 @@
+//
+// Media object
+// ---
+// http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/
+//
+// The media object is an image to the left, with descriptive content to the right.
+// Use a grid class to determine the size of the image. The content will take the remaining space.
+//
+// Example usage:
+// <article class="media">
+//   <div class="media__img grid-4">
+//     <img src="http://placekitten.com/200/300" alt="placekitten" />
+//   </div>
+//   <div class="media__body">
+//     The media object is an image to the left, with descriptive content to the right.
+//   </div>
+// </article>
+
 .media {
-  @extend %clearfix;
-  @include margin-bottom(1);
+	@extend %clearfix;
+	display: block;
+
+	@include margin-tb(0, 1);
 }
 
-.media-image {
-  @extend %rounded;
-  position: relative;
-  height: 0;
-  padding-bottom: $vignet-ratio;
-  overflow: hidden;
-  @include margin-bottom(.75);
+	.media__img,
+	.media__img--rev {
+		@include margin-bottom(1);
 
-  a {
-    display: block;
-  }
+		@include mq($bp3) {
+			@include margin-bottom(0);
+		}
+	}
 
-  img {
-    @extend %rounded;
-    position: relative;
-    max-width: 120%;
-    width: auto;
-    height: auto;
-    transition: all 0.5s ease 0s;
+	.media__img {
+		float: left;
+	}
 
-    &:hover {
-      transform: scale(1.06);
-    }
-  }
+	.media__img--rev {
+		float: right;
+	}
 
-  .site-label {
-    @include rem-margin-lr(.5, .5);
-    position: absolute;
-    bottom: 0;
-    left: 0;
-  }
-}
-
-.media-movie-image {
-  $icon-width: 4.2;
-  $icon-height: 3;
-
-  .icon {
-    @extend %rounded;
-
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: #{$icon-width}em;
-    padding: 0 0 0 0;
-    margin: $icon-height/2 * -1em 0 0 $icon-width/2 * -1em;
-
-    line-height: #{$icon-height}em;
-
-    text-align: center;
-    text-decoration: none;
-    transition: all .1s ease-in-out;
-    color: #fff;
-  }
-}
-
-.media-header {
-  @include margin-bottom(.5);
-}
-
-.media-footer {
-  .site-label {
-    @include margin-top(.5);
-  }
-}
-
-p.media-footer-more {
-  margin-bottom: 0;
-}
-
-a.media-more {
-  @include text-dimensions(-1, 1, 0, 0);
-  display: inline-block;
-}
-
-.media-title {
-  @include text-dimensions(1, 1, 0);
-  margin-bottom: 0;
-  padding-top: 0;
-  font-family: $beta-font-family;
-
-  a {
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-}
-
-.media-meta {
-  @extend .meta;
-  @include text-dimensions(-2, .75, .5, .25);
-  margin-bottom: 0;
-}
-
-.media-intro {
-  margin-bottom: 0;
-}
-
-// grid
-
-.media-list-image {
-  @include mq($bp3) {
-    margin-bottom: 0;
-  }
-}
+	.media__body {
+		overflow: hidden;
+		@include em-padding-lr(1, 1);
+	}

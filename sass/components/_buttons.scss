@@ -1,87 +1,165 @@
+// Buttons
+
 .btn,
 a.btn {
-  @extend %btn;
+	@extend %btn;
 }
 
-.large.btn {
-  @include btn-l;
-}
+	// Button sizes
+	.small.btn,
+	.btn--small,
+	a.btn--small,
+	input[type="submit"].btn--small {
+		@include btn-s;
+	}
 
-.medium.btn {
-  @include btn-m;
-}
+	.medium.btn,
+	.btn--medium,
+	a.btn--medium,
+	input[type="submit"].btn--medium {
+		@include btn-m;
+	}
 
-.inline.btn {
-  @include btn-inlineblock
-}
+	.large.btn,
+	.btn--large,
+	a.btn--large,
+	input[type="submit"].btn--large {
+		@include btn-l;
+	}
 
-.alpha.btn {
-  color: #fff;
-  background-color: $alpha-link-color;
+	.inline.btn,
+	.btn--inline,
+	a.btn--inline,
+	input[type="submit"].btn--inline {
+		@include btn-inlineblock
+	}
 
-  &:hover {
-    color: #fff;
-    background-color: lighten($alpha-link-color, 5);
-  }
+	// Button variations
+	.btn--alpha,
+	a.btn--alpha {
+		color: $white-color;
+		background-color: $alpha-link-color;
 
-  &:focus,
-  &:active {
-    background-color: $alpha-link-color;
-  }
-}
+		&:hover {
+			background-color: lighten($alpha-link-color,5);
+		}
 
-.beta.btn {
-  color: #fff;
-  background-color: $beta-ui-color;
+		&:focus,
+		&:active {
+			background-color: $alpha-link-color;
+		}
+	}
 
-  &:hover {
-    color: #fff;
-    background-color: lighten($beta-ui-color, 5);
-  }
+	.btn--beta,
+	a.btn--beta {
+		color: #fff;
+		background-color: $beta-ui-color;
 
-  &:focus,
-  &:active {
-    background-color: darken($beta-ui-color, 2.5);
-  }
-}
+		&:hover {
+			color: #fff;
+			background-color: lighten($beta-ui-color,5);
+		}
 
-.delta.btn {
-  color: #fff;
-  background-color: $alpha-text-color;
+		&:focus,
+		&:active {
+			background-color: darken($beta-ui-color,2.5);
+		}
 
-  &:hover {
-    background-color: lighten($alpha-text-color, 5);
-  }
+	}
 
-  &:focus,
-  &:active {
-    background-color: $alpha-text-color;
-  }
-}
+	.btn--beta--alt,
+	a.btn--beta--alt {
+		color: $beta-ui-color;
+		background-color: lighten($beta-ui-color,50);
+		box-shadow: 0 -1px 0 0 darken($beta-ui-color,5) inset;
 
-.gamma.btn {
-  color: #fff;
-  background-color: $gamma-text-color;
+		&:hover {
+			background-color: #fff;
+		}
 
-  &:hover {
-    background-color: lighten($beta-text-color, 5);
-  }
+		&:focus,
+		&:active {
+			color: $beta-ui-color;
+			background-color: lighten($beta-ui-color,50);
+			box-shadow: 0 1px 0 0 darken($beta-ui-color,5) inset;
+		}
+	}
 
-  &:focus,
-  &:active {
-    background-color: $beta-text-color;
-  }
-}
+	.btn--gamma,
+	a.btn--gamma {
+		font-weight: $alpha-font-weight;
+		color: $alpha-ui-color;
+		background-color: $gamma-ui-color;
+		border: 1px solid darken($gamma-ui-color,10);
 
-.warning.btn {
-  border: 1px solid $warning-color;
-  box-shadow: none;
+		&:visited {
+			color: $alpha-ui-color;
+		}
 
-  font-size: 70%;
-  font-weight: normal;
+		&:hover {
+			color: $alpha-ui-color;
+			background-color: $white-color;
+		}
 
-  color: hsl(hue($warning-color),75,40);
-  background-color: hsl(hue($warning-color),100,95);
+		&:focus,
+		&:active {
+			color: $alpha-ui-color;
+			background-color: $white-color;
+		}
+	}
 
-  cursor: default;
-}
+	.btn--delta,
+	a.btn--delta {
+		@include margin-tb(1,0);
+		color: $beta-ui-color;
+		background-color: $white-color;
+
+		&:visited {
+			color: $beta-ui-color;
+		}
+
+		&:hover {
+			color: $beta-ui-color;
+			background-color: $white-color;
+		}
+
+		&:focus,
+		&:active {
+			color: $beta-ui-color;
+			background-color: $white-color;
+		}
+	}
+
+	.btn--epsilon,
+	a.btn--epsilon {
+		color: $white-color;
+		background-color: $delta-ui-color;
+
+		&:visited {
+			background-color: $delta-ui-color;
+		}
+
+		&:hover {
+			background-color: darken($delta-ui-color,3);
+		}
+
+		&:focus,
+		&:active {
+			background-color: darken($delta-ui-color,3);
+		}
+	}
+
+
+	.btn--option-link {
+		@include text-dimensions(-4,0.5);
+		background: $gamma-ui-color;
+		color: $alpha-text-color;
+		display: block;
+		font-weight: $alpha-font-weight;
+		text-align: center;
+		text-decoration: none;
+
+		&:hover {
+			background: lighten($gamma-ui-color, 5);
+		}
+	}

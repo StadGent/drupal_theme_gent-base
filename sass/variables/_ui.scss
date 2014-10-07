@@ -1,11 +1,25 @@
-$radius: 10px;
-$radius-1: 5px;
-$radius-2: 20px;
-$radius-3: 30px;
+// UI
 
-$border: 1px;
+$radius						: 5px;
+$border-width				: 1px;
+$border-style				: solid;
+$depth						: 0%; // Range: 0-100%
+$contrast					: 91%; // Range: 0-100%
+$shadow						: 21%; // Range: 0-100%
+$highlight					: 0%; // Range: 0-100%
 
-$depth: 0%; // Range: 0-100%
-$contrast: 91%; // Range: 0-100%
-$shadow: 21%; // Range: 0-100%
-$highlight: 0%; // Range: 0-100%
+
+// UI
+
+$alpha-radius		: 8px;
+$beta-radius		: 10px;
+$gamma-radius		: 18px;
+$delta-radius		: 30px;
+$border				: 1px;
+$depth				: 0%; // Range: 0-100%
+$contrast			: 91%; // Range: 0-100%
+$shadow				: 21%; // Range: 0-100%
+$highlight			: 0%; // Range: 0-100%
+
+$logo-ratio			: 35.714285714%;
+$vignet-ratio 		: 71.428571429%;
