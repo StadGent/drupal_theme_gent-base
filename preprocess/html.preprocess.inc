@@ -17,6 +17,6 @@ function gent_base_preprocess_html(&$variables) {
     $variables['attributes_array']['class'][] = 'no-sidebars';
   }
 
-  // Setup IE meta tag to force IE rendering mode
+  // Setup IE meta tag to force IE rendering mode.
   drupal_add_http_header('X-UA-Compatible', 'IE=edge,chrome=1');
 }

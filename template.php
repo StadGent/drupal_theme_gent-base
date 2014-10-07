@@ -644,7 +644,37 @@ function gent_base_page_alter(&$page) {
 function gent_base_html_head_alter(&$head) {
   // Simplify the meta tag for character encoding.
   $head['system_meta_content_type']['#attributes'] = array(
-    'charset' => str_replace('text/html; charset=', '', $head['system_meta_content_type']['#attributes']['content']),
+    'charset' => 'utf-8',
+  );
+
+  // Optimize mobile viewport.
+  $head_elements['mobile_viewport'] = array(
+    '#type' => 'html_tag',
+    '#tag' => 'meta',
+    '#attributes' => array(
+      'name' => 'viewport',
+      'content' => 'width=device-width',
+    ),
+  );
+
+  // Remove image toolbar in IE.
+  $head_elements['ie_image_toolbar'] = array(
+    '#type' => 'html_tag',
+    '#tag' => 'meta',
+    '#attributes' => array(
+      'http-equiv' => 'ImageToolbar',
+      'content' => 'false',
+    ),
+  );
+
+  // Allow full screen on mobile.
+  $head_elements['apple_mobile_web_app_capable'] = array(
+    '#type' => 'html_tag',
+    '#tag' => 'meta',
+    '#attributes' => array(
+      'name' => 'apple-mobile-web-app-capable',
+      'content' => 'yes',
+    ),
   );
 }
 
