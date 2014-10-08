@@ -21,7 +21,6 @@
   <!--[if lt IE 9  & (!IEMobile)]><script src="<?php print base_path() . path_to_theme(); ?>/js/html5shiv.js"></script><![endif]-->
 
 <body<?php print $attributes;?>>
-  <a href="#main-content" class="element-invisible element-focusable"><?php print t('Skip to main content'); ?></a>
 
   <?php print $page_top; ?>
   <?php print $page; ?>

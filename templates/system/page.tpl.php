@@ -1,4 +1,4 @@
-<?php if ($tabs && $logged_in) : ?>
+<?php if ($tabs && $logged_in): ?>
 <div class="tabs--top">
   <?php print render($tabs); ?>
 </div>
@@ -13,10 +13,11 @@
 </div>
 <![endif]-->
 
-<nav class="holder holder--alpha padding <?php if ($tabs): ?>admin-extratabs<?php endif;?>">
+<nav class="holder holder--alpha padding <?php if ($tabs && $logged_in): ?>is-tabs-enabled<?php endif;?>">
 	<div class="l-row">
 		<ul class="login-widget nav nav--login">
 			<li><?php print $logged_in ? l(t('Logout'), 'user/logout') : l(t('Login'), 'user/login') ?></li>
+			<li><?php print l(t('Mijn Gent'), 'todo') ?></li>
 		</ul>
 
 		<form class="search-widget">
@@ -29,19 +30,19 @@
 	</div>
 </nav>
 
-<div class="brand">
+<div class="brand <?php if ($tabs && $logged_in): ?>is-tabs-enabled<?php endif;?>">
 	<div class="l-row padding--big">
 		<div class="brand__logo">
 			<div class="brand__logo__inner">
 				<span>
-					Stad Gent
+					<?php print $site_name ?>
 				</span>
 			</div>
 		</div>
 		<div class="brand__tagline">
 			<div class="brand__tagline__inner">
 				<span>
-					Stad Gent
+					<?php print $site_name ?>
 				</span>
 			</div>
 		</div>

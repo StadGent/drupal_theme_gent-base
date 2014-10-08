@@ -1,31 +1,37 @@
 .tabs--top {
-  position: fixed;
-  top: 30px;
-  display: block;
+  @extend %clearfix;
+
+  position: fixed; 
+  top: 29px;
+  height:30px;
   width: 100%;
-  height: 40px;
-  margin: 0 auto;
-  overflow: visible;
-  background-color: #0091BD;
-  z-index: 998;
-
-  li > a {
-    display: inline-block;
-    background-color: #0091BD;
-    color: #FFF;
-    font-size: 14px;
+  overflow:hidden;
+  background-color: $alpha-ui-color;
+  z-index: 998; 
+  
+  li > a { 
+    color: $white-color;
+    @include text-dimensions(-2, 0);
+    text-decoration:none;
   }
-
+  
   li:first-child {
-    padding-left: 55px;
+    @include px-padding-lr(4.7,0);
+    border:0;
   }
-
+  
   li {
-    margin-right: 5px;
+    @include px-padding-lr(1.5,0);
+    @include padding-tb(.2,.2);
+    float:left;
   }
-
+  
   ul {
-    margin-bottom: 0;
-    border-bottom: 0;
+    display:block;
+    list-style: none;
   }
+}
+
+.is-tabs-enabled {
+  margin-top:59px;
 }
