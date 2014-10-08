@@ -1,0 +1,30 @@
+.tabs--top {
+  position: fixed;
+  top: 30px;
+  display: block;
+  width: 100%;
+  height: 40px;
+  margin: 0 auto;
+  overflow: visible;
+  background-color: #0091BD;
+  z-index: 998; 
+  
+  li > a { display : inline-block;
+    background-color: #0091BD;
+    color: #FFF;
+    font-size: 14px;
+  }
+  
+  li:first-child {
+    padding-left: 55px;
+  }
+  
+  li {
+    margin-right: 5px;
+  }
+  
+  ul {
+    margin-bottom: 0;
+    border-bottom: 0;
+  }
+}
