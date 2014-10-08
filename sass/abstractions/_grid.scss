@@ -1,22 +1,3 @@
-/*
-	Grid
-*/
-
-$grid-gutter: 20;
-$grid-column: 60;
-$grid-columns: 12;
-
-// calculations
-
-$grid-margin: $grid-gutter / 2;
-$grid-width: ($grid-gutter + $grid-column) * $grid-columns;
-
-// Responsive design formula for fully percentual columns & gutters
-
-$fluid-grid-column: $grid-column / $grid-width * 100;
-$fluid-grid-gutter: ($grid-gutter / $grid-width) * 100;
-$fluid-grid-margin: ($grid-margin / $grid-width) * 100;
-
 // mixins
 
 // horizontal padding based on the context grid gutter in em
