@@ -1,14 +1,8 @@
 <?php
-
-
 /**
  * @file
- * Template overrides and (pre-)process hooks for the Omega base theme.
+ * Template file for the gent_base base theme.
  */
-
-require_once dirname(__FILE__) . '/includes/gent_base.inc';
-require_once dirname(__FILE__) . '/includes/scripts.inc';
-
 
 // TODO consider refactor to omega's auto-discover files.
 //require_once dirname(__FILE__) . '/preprocess/html.preprocess.inc';
@@ -18,19 +12,6 @@ require_once dirname(__FILE__) . '/includes/scripts.inc';
 //require_once dirname(__FILE__) . '/process/block.process.inc';
 //require_once dirname(__FILE__) . '/process/views.process.inc';
 //require_once dirname(__FILE__) . '/process/page.process.inc';
-
-// Include the main extension file for every enabled extension.
-foreach (gent_base_extensions() as $extension => $info) {
-  if (gent_base_extension_enabled($extension) && ($file = $info['path'] . '/' . $extension . '.inc') && is_file($file)) {
-    require_once $file;
-  }
-}
-
-
-/**
- * @file
- * Template file for the gent_base base theme.
- */
 
 /**
  * Implements hook_element_info_alter().
