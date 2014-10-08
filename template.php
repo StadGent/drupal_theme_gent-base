@@ -8,10 +8,15 @@
  * Implements hook_css_alter().
  */
 function gent_base_css_alter(&$css) {
-  unset($css['modules/system/system.menus.css']);
-  unset($css['modules/system/system.base.css']);
-  unset($css['modules/system/system.messages.css']);
-  unset($css['modules/system/system.theme.css']);
+  // Remove all css files from core modules.
+  foreach ($css as $key => $data) {
+    if ($data['type'] == 'file') {
+      $is_core = (strpos($data['data'], 'modules/') === 0);
+      if ($is_core) {
+        unset($css[$key]);
+      }
+    }
+  }
 }
 
 
