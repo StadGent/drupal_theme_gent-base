@@ -1,95 +1,95 @@
 .nav {
-	@extend %clearfix;
-	@include horizontal-nav;
-	margin: 0;
-	padding: 0;
+  @extend %clearfix;
+  @include horizontal-nav;
+  margin: 0;
+  padding: 0;
 }
 
-	.nav--login {
-		@include text-dimensions(-3,1,0,.35,.35);
+.nav--login {
+  @include text-dimensions(-3, 1, 0, .35, .35);
 
-		li {
-			float: right;
-		}
+  li {
+    float: right;
+  }
 
-		a {
-			@include px-padding-lr(1,1);
-			font-weight: $beta-font-weight;
-			color: $delta-ui-color;
-			text-decoration: none;
+  a {
+    @include px-padding-lr(1, 1);
+    font-weight: $beta-font-weight;
+    color: $delta-ui-color;
+    text-decoration: none;
 
-			&:visited {
-				color: $delta-ui-color;
-			}
+    &:visited {
+      color: $delta-ui-color;
+    }
 
-			&:hover,
-			&:focus {
-				color: lighten($delta-ui-color,10);
-			}
-		}
-	}
+    &:hover,
+    &:focus {
+      color: lighten($delta-ui-color, 10);
+    }
+  }
+}
 
-	.nav--breadcrumb {
-		@include text-dimensions(-2,1,0,.5,1);
+.nav--breadcrumb {
+  @include text-dimensions(-2, 1, 0, .5, 1);
 
-		a {
-			@extend .btn;
-			@extend .btn--gamma;
-			@extend .btn--small;
-			@include padding-tb(.1,.2);
-		}
+  a {
+    @extend .btn;
+    @extend .btn--gamma;
+    @extend .btn--small;
+    @include padding-tb(.1, .2);
+  }
 
-		li {
-			@include padding-tb(.1,.1);
-			@include px-margin-lr(0,1.5);
-			position: relative;
+  li {
+    @include padding-tb(.1, .1);
+    @include px-margin-lr(0, 1.5);
+    position: relative;
 
-			&:after {
-				content: "";
-				width: 16px;
-				height: 16px;
-				background-image: url('../img/png/carret.png');
-				position: absolute;
-				top: .7em;
-				right: -16px;
+    &:after {
+      content: "";
+      width: 16px;
+      height: 16px;
+      background-image: url('../img/png/carret.png');
+      position: absolute;
+      top: .7em;
+      right: -16px;
 
-				.svg & {
-					background-image: url('../img/svg/carret.svg');
-				}
-			}
+      .svg & {
+        background-image: url('../img/svg/carret.svg');
+      }
+    }
 
-			&:last-child:after {
-				display: none;
-			}
-		}
+    &:last-child:after {
+      display: none;
+    }
+  }
 
-		span {
-			@include text-dimensions(-2,1,0,.1,.2);
-			@include px-padding-lr(1,1);
-			border-radius: $alpha-radius;
-			position: relative;
-			display: block;
-			width: 100%;
-			text-align: center;
-			overflow: hidden;
-			font-family: $alpha-font-family;
-			font-weight: $beta-font-weight;
-			text-decoration: none;
-			border: 1px solid darken($gamma-ui-color,5);
-		}
+  span {
+    @include text-dimensions(-2, 1, 0, .1, .2);
+    @include px-padding-lr(1, 1);
+    border-radius: $alpha-radius;
+    position: relative;
+    display: block;
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+    font-family: $alpha-font-family;
+    font-weight: $beta-font-weight;
+    text-decoration: none;
+    border: 1px solid darken($gamma-ui-color, 5);
+  }
 
-		@include mq($bp3) {
-			li {
-				@include px-margin-lr(0,2);
+  @include mq($bp3) {
+    li {
+      @include px-margin-lr(0, 2);
 
-				&:after {
-					right: -18px;
-				}
-			}
+      &:after {
+        right: -18px;
+      }
+    }
 
-			span {
-				padding-left: 0;
-				border: 1px solid transparent;
-			}
-		}
-	}
+    span {
+      padding-left: 0;
+      border: 1px solid transparent;
+    }
+  }
+}

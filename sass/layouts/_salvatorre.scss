@@ -1,21 +1,21 @@
 // Masonry effect: http://salvattore.com/
 
-@media screen and (max-width: 480px){
-	.multi-column[data-columns]::before {
-		content: '1 .column.size-1of1';
-	}
+@media screen and (max-width: 480px) {
+  .multi-column[data-columns]::before {
+    content: '1 .column.size-1of1';
+  }
 }
 
 @media screen and (min-width: 481px) and (max-width: 1024px) {
-	.multi-column[data-columns]::before {
-		content: '2 .column.size-1of2';
-	}
+  .multi-column[data-columns]::before {
+    content: '2 .column.size-1of2';
+  }
 }
 
 @media screen and (min-width: 1024px) {
-	.multi-column[data-columns]::before {
-		content: '3 .column.size-1of3';
-	}
+  .multi-column[data-columns]::before {
+    content: '3 .column.size-1of3';
+  }
 }
 
 // Salvatorre classes
@@ -24,22 +24,22 @@
 }
 
 .size-1of1 {
-	@include add-gutter(1/3);
-	@include float-span(24);
+  @include add-gutter(1/3);
+  @include float-span(24);
 }
 
 .size-1of2 {
-	@include add-gutter(1/3);
-	@include float-span(12);
+  @include add-gutter(1/3);
+  @include float-span(12);
 }
 
 .size-1of3 {
-	@include add-gutter(1/3);
-	@include float-span(8);
+  @include add-gutter(1/3);
+  @include float-span(8);
 }
 
 // Salvatorre IE8 fallback
 .lt-ie9 .island {
-	@include add-gutter(1/3);
-	@include float-span(8);
+  @include add-gutter(1/3);
+  @include float-span(8);
 }

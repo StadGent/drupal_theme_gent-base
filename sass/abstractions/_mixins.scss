@@ -6,33 +6,33 @@
 // @extend %clearfix;
 
 %clearfix {
-	*zoom : 1;
+  *zoom: 1;
 
-	&:before,
-	&:after {
-		display: table;
-		content : "";
-	}
+  &:before,
+  &:after {
+    display: table;
+    content: "";
+  }
 
-	&:after {
-		clear : both;
-	}
+  &:after {
+    clear: both;
+  }
 }
 
 %rounded {
-	border-radius: $alpha-radius;
+  border-radius: $alpha-radius;
 }
 
 %rounded-1 {
-	border-radius: $beta-radius;
+  border-radius: $beta-radius;
 }
 
 %rounded-2 {
-	border-radius: $gamma-radius;
+  border-radius: $gamma-radius;
 }
 
 %rounded-3 {
-	border-radius:$delta-radius;
+  border-radius: $delta-radius;
 }
 
 // Horizontal responsive navigation.
@@ -40,81 +40,81 @@
 // @include horizontal-nav on <ul> or <ol>;
 
 %reset-list {
-	list-style: none;
-	margin-left: 0;
-	padding-left: 0;
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
 }
 
 @mixin list-nav {
-	list-style: none;
-	margin-left: 0;
-	padding: 0;
+  list-style: none;
+  margin-left: 0;
+  padding: 0;
 }
 
 @mixin horizontal-nav {
-	li, a {
-		display: block;
-		float: left;
-		zoom: 1;
-	}
+  li, a {
+    display: block;
+    float: left;
+    zoom: 1;
+  }
 }
 
 // Calculate text-color based on background-color
 
 @mixin text-color($c1) {
-	// Calculations based on https://vimeo.com/60224584
-	@if (.2126*red($c1) + .7152*green($c1) + .0722*blue($c1))/255 <= .5 {
-		color: #FFF;
-	} @else {
-		color: #000;
-	}
+  // Calculations based on https://vimeo.com/60224584
+  @if (.2126*red($c1) + .7152*green($c1) + .0722*blue($c1))/255 <= .5 {
+    color: #FFF;
+  } @else {
+    color: #000;
+  }
 }
 
 // Prevent Long URL’s From Breaking Out of Container.
 // http://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container
 
 %word-break {
-	-ms-word-break: break-all;
-	word-break: break-all;
+  -ms-word-break: break-all;
+  word-break: break-all;
 
-	// Non standard for webkit
-	word-break: break-word;
+  // Non standard for webkit
+  word-break: break-word;
 
-	-webkit-hyphens: auto;
-	-moz-hyphens: auto;
-	hyphens: auto;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
 }
 
 // UI mixins.
 
-@mixin block($color, $top: 1.5, $right: 1, $bottom: 1.5, $left: 1){
-	background-color: $color;
-	padding: #{$alpha-line-height * 1em * $top} #{$grid-margin * $right * 1px} #{$alpha-line-height * 1em * $bottom} #{$grid-margin * $left * 1px};
+@mixin block($color, $top: 1.5, $right: 1, $bottom: 1.5, $left: 1) {
+  background-color: $color;
+  padding: #{$alpha-line-height * 1em * $top} #{$grid-margin * $right * 1px} #{$alpha-line-height * 1em * $bottom} #{$grid-margin * $left * 1px};
 }
 
 // Cross browser background opacity.
 
 @mixin background-opacity($color, $alpha) {
-	$rgba: rgba($color, $alpha);
-	$ie-hex-str: ie-hex-str($rgba);
-	background-color: $color;
-	background-color: $rgba;
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#{$ie-hex-str},endColorstr=#{$ie-hex-str});
-	zoom: 1;
+  $rgba: rgba($color, $alpha);
+  $ie-hex-str: ie-hex-str($rgba);
+  background-color: $color;
+  background-color: $rgba;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#{$ie-hex-str}, endColorstr=#{$ie-hex-str});
+  zoom: 1;
 }
 
 // overlay mixin
 
 @mixin overlay($opacity) {
-	@include background-opacity(hsl(hue($beta-ui-color),$saturation,20),$opacity);
-	// @include background-opacity(hsl(hue($beta-ui-color),50,15),$opacity);
-	// @include background-opacity(hsl(hue($alpha-ui-color),50,15),$opacity);
-	// @include background-image(radial-gradient(75% 50%, circle cover, rgba(hsl(hue($alpha-text-color),5,12.5),.35), rgba(hsl(hue($alpha-text-color),5,12.5),.9)));
-	// @include background-image(radial-gradient(45px 45px, cyan 10px, dodgerblue 30px));
+  @include background-opacity(hsl(hue($beta-ui-color), $saturation, 20), $opacity);
+  // @include background-opacity(hsl(hue($beta-ui-color),50,15),$opacity);
+  // @include background-opacity(hsl(hue($alpha-ui-color),50,15),$opacity);
+  // @include background-image(radial-gradient(75% 50%, circle cover, rgba(hsl(hue($alpha-text-color),5,12.5),.35), rgba(hsl(hue($alpha-text-color),5,12.5),.9)));
+  // @include background-image(radial-gradient(45px 45px, cyan 10px, dodgerblue 30px));
 }
 
 %overlay {
-	@include overlay(.70);
+  @include overlay(.70);
 }
 
 // Baseline mixins
@@ -123,106 +123,113 @@
 // @include padding-tb(#top, #bottom);
 
 @mixin padding-tb($pt: 1, $pb: 0) {
-	// padding-top: $alpha-line-height * 1em * $top;
-	// padding-bottom: $alpha-line-height * 1em * $bottom;
-	@if $pt > 0 {
-		// padding-top: #{($baseline-unit / $alpha-font-size) * $pt}em;
-		padding-top: $pt * $alpha-font-size * 1px;
-		padding-top: $pt * 1rem;
-	}
+  // padding-top: $alpha-line-height * 1em * $top;
+  // padding-bottom: $alpha-line-height * 1em * $bottom;
+  @if $pt > 0 {
+    // padding-top: #{($baseline-unit / $alpha-font-size) * $pt}em;
+    padding-top: $pt * $alpha-font-size * 1px;
+    padding-top: $pt * 1rem;
+  }
 
-	@if $pb > 0 {
-		// padding-bottom: #{($baseline-unit / $alpha-font-size) * $pb}em;
-		padding-bottom: $pb * $alpha-font-size * 1px;
-		padding-bottom: $pb * 1rem;
-	}
+  @if $pb > 0 {
+    // padding-bottom: #{($baseline-unit / $alpha-font-size) * $pb}em;
+    padding-bottom: $pb * $alpha-font-size * 1px;
+    padding-bottom: $pb * 1rem;
+  }
 }
 
 // Padding-bottom based on the base line-height
 // @include padding-bottom(#bottom),
 
 @mixin padding-bottom($pb: 1) {
-	// padding-bottom: #{($baseline-unit / $alpha-font-size) * $pb}em;
-	padding-bottom: $pb * $alpha-font-size * 1px;
-	padding-bottom: $pb * 1rem;
+  // padding-bottom: #{($baseline-unit / $alpha-font-size) * $pb}em;
+  padding-bottom: $pb * $alpha-font-size * 1px;
+  padding-bottom: $pb * 1rem;
 }
 
 // Padding-top based on the base line-height
 // @include padding-top(#top);
 
 @mixin padding-top($pt: 1) {
-	// padding-top: $alpha-baseline-grid/$alpha-font-size*$pt*1em;
-	// padding-top: #{($baseline-unit / $alpha-font-size) * $pt}em;
-	padding-top: $pt * $alpha-font-size * 1px;
-	padding-top: $pt * 1rem;
+  // padding-top: $alpha-baseline-grid/$alpha-font-size*$pt*1em;
+  // padding-top: #{($baseline-unit / $alpha-font-size) * $pt}em;
+  padding-top: $pt * $alpha-font-size * 1px;
+  padding-top: $pt * 1rem;
 }
 
 // Vertical margin based on the base line-height
 // @include margin-tb(#top, #bottom)
 
 @mixin margin-tb($mt: 1, $mb: 0) {
-	@if $mt > 0 {
-		// margin-top: #{($baseline-unit / $alpha-font-size) * $mt}em;
-		margin-top: $mt * $alpha-font-size * 1px;
-		margin-top: $mt * 1rem;
-	}
+  @if $mt > 0 {
+    // margin-top: #{($baseline-unit / $alpha-font-size) * $mt}em;
+    margin-top: $mt * $alpha-font-size * 1px;
+    margin-top: $mt * 1rem;
+  }
 
-	@if $mb > 0 {
-		// margin-bottom: #{($baseline-unit / $alpha-font-size) * $mb}em;
-		margin-bottom: $mb * $alpha-font-size * 1px;
-		margin-bottom: $mb * 1rem;
-	}
+  @if $mb > 0 {
+    // margin-bottom: #{($baseline-unit / $alpha-font-size) * $mb}em;
+    margin-bottom: $mb * $alpha-font-size * 1px;
+    margin-bottom: $mb * 1rem;
+  }
 }
 
 // Margin-bottom based on the base line-height
 // @include margin-bottom(#bottom);
 
 @mixin margin-bottom($mb: 1) {
-	// margin-bottom: $alpha-baseline-grid/$alpha-font-size*$mb*1em;
-	// margin-bottom: #{($baseline-unit / $alpha-font-size) * $mb}em;
-	margin-bottom: $mb * $alpha-font-size * 1px;
-	margin-bottom: $mb * 1rem;
+  // margin-bottom: $alpha-baseline-grid/$alpha-font-size*$mb*1em;
+  // margin-bottom: #{($baseline-unit / $alpha-font-size) * $mb}em;
+  margin-bottom: $mb * $alpha-font-size * 1px;
+  margin-bottom: $mb * 1rem;
 }
 
 @mixin margin-top($mt: 1) {
-	// margin-top: $alpha-baseline-grid/$alpha-font-size*$mt*1em;
-	// margin-top: #{($baseline-unit / $alpha-font-size) * $mt}em;
-	margin-top: $mt * $alpha-font-size * 1px;
-	margin-top: $mt * 1rem;
+  // margin-top: $alpha-baseline-grid/$alpha-font-size*$mt*1em;
+  // margin-top: #{($baseline-unit / $alpha-font-size) * $mt}em;
+  margin-top: $mt * $alpha-font-size * 1px;
+  margin-top: $mt * 1rem;
 }
 
 // Border-box polyfill helper.
 // @include border-box;
 
 @mixin border-box {
-	-webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 // Progressive svg backgrounds with png fallback.
 // Requires modernizr class .svg.
 // @include svg-bg("path/file", ".extension", $delta-ui-color, 0 50%, no-repeat);
 
-@mixin mdrn-svg { .svg & { @content } }
+@mixin mdrn-svg {
+  .svg & {
+    @content
+  }
+}
 
 @mixin svg-bg($filename, $extension: '.png', $bg-color: transparent, $position: 0 0, $repeat: no-repeat, $size: auto) {
-    background: $bg-color url($filename + $extension) $position $repeat;
+  background: $bg-color url($filename + $extension) $position $repeat;
+  background-size: $size;
+  @include mdrn-svg {
+    background: $bg-color url($filename + '.svg') $position $repeat;
     background-size: $size;
-    @include mdrn-svg { background: $bg-color url($filename + '.svg') $position $repeat; background-size: $size; }
+  }
 }
 
 // Media query mixin.
 // @include mq(#point, #query1, #query2);
 @mixin mq($point, $query1: min, $query2: width) {
-	@media screen and (#{$query1}-#{$query2}: $point) {
-		@content;
-	}
+  @media screen and (#{$query1}-#{$query2}: $point) {
+    @content;
+  }
 }
 
 // Hide text: http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/
 %hide-text {
-	text-indent: 100%;
-	white-space: nowrap;
-	overflow: hidden;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
 }

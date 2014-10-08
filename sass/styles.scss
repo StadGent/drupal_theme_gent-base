@@ -1,74 +1,59 @@
 //
 // Comment or uncomment whatever you need in this file.
 //
-
 // Plugins/frameworks
-
-	@import "compass";
-	@import "singularitygs";
-	@import "breakpoint";
-	@import "toolkit"; 
-
+@import "compass";
+@import "singularitygs";
+@import "breakpoint";
+@import "toolkit";
 // Fonts
-
-	@import "base/fonts";
-	@import "base/icons";
-
+@import "base/fonts";
+@import "base/icons";
 // Variables
-
-	@import "variables/settings";
-	@import "variables/typography";
-	@import "variables/breakpoints";
-	@import "variables/ui";
-	@import "variables/colors";
-	@import "variables/z-index";
-
+@import "variables/settings";
+@import "variables/typography";
+@import "variables/breakpoints";
+@import "variables/ui";
+@import "variables/colors";
+@import "variables/z-index";
 // Abstractions
-
-	@import "abstractions/functions";
-	@import "abstractions/extends";
-	@import "abstractions/mixins";
-	@import "abstractions/grid";
-	@import "abstractions/typography";
-	@import "abstractions/ui";
-
+@import "abstractions/functions";
+@import "abstractions/extends";
+@import "abstractions/mixins";
+@import "abstractions/grid";
+@import "abstractions/typography";
+@import "abstractions/ui";
 // Base
-
-	@import "base/reset";
-	@import "base/base";
-	@import "base/typography";
-	@import "base/forms";
-	@import "base/debug";
-
+@import "base/reset";
+@import "base/base";
+@import "base/typography";
+@import "base/forms";
+@import "base/debug";
 // Layout
-
-	@import "layouts/grid";
-	@import "layouts/spacing";
-	@import "layouts/salvatorre";
-
+@import "layouts/grid";
+@import "layouts/spacing";
+@import "layouts/salvatorre";
 // Components
-
-	@import "components/buttons";
-	@import "components/forms";
-	@import "components/alerts";
-	@import "components/pagination";
-	@import "components/helpers";
-	@import "components/media";
-	@import "components/tables";
-
-	@import "components/holder";
-	@import "components/background";
-	@import "components/divider";
-	@import "components/island";
-	@import "components/mask";
-	@import "components/list";
-	@import "components/cta";
-
-	@import "components/brand";
-	@import "components/navigation";
-	@import "components/header";
-
+@import "components/buttons";
+@import "components/forms";
+@import "components/alerts";
+@import "components/pagination";
+@import "components/helpers";
+@import "components/media";
+@import "components/tables";
+@import "components/holder";
+@import "components/background";
+@import "components/divider";
+@import "components/island";
+@import "components/mask";
+@import "components/list";
+@import "components/cta";
+@import "components/brand";
+@import "components/navigation";
+@import "components/header";
 
 // Print
 
-	@media print {@import "base/print";}
+@media print {
+  @import "base/print";
+}

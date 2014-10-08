@@ -1,29 +1,39 @@
-$saturation 	: 5 !default;
-$lightness 		: 5 !default;
-$darkness 		: 5 !default;
+$saturation: 5 !default;
+$lightness: 5 !default;
+$darkness: 5 !default;
 
 // Colors
 
-$alpha-ui-color				: #007db3; // Blue
-$beta-ui-color				: #2c3f48; // Dark blue
-$gamma-ui-color				: #ecf5f7; // Blue tint
-$delta-ui-color 			: #f39200; // Orange
+$alpha-ui-color: #007db3;
+// Blue
+$beta-ui-color: #2c3f48;
+// Dark blue
+$gamma-ui-color: #ecf5f7;
+// Blue tint
+$delta-ui-color: #f39200;
+// Orange
 
-$alpha-text-color			: #595f60; // Grey
-$beta-text-color			: #6c7678; // Lighter grey
-$gamma-text-color			: #9da8af; // Lightest grey
+$alpha-text-color: #595f60;
+// Grey
+$beta-text-color: #6c7678;
+// Lighter grey
+$gamma-text-color: #9da8af;
+// Lightest grey
 
-$error-color 				: #d62300; // Red
-$success-color 				: #93d600; // Green
-$notice-color 				: #f39200; // Orange
+$error-color: #d62300;
+// Red
+$success-color: #93d600;
+// Green
+$notice-color: #f39200;
+// Orange
 
-$white-color				: #ffffff;
-$dark-color					: darken(#595f60,20);
+$white-color: #ffffff;
+$dark-color: darken(#595f60, 20);
 
 // Links
 
-$alpha-link-color			: $alpha-ui-color;
-$alpha-link-colorhover		: darken($alpha-ui-color,10);
-$alpha-link-colorfocus		: darken($alpha-ui-color,10);
-$alpha-link-coloractive		: $alpha-ui-color;
-$alpha-link-colorvisited	: $alpha-ui-color;
+$alpha-link-color: $alpha-ui-color;
+$alpha-link-colorhover: darken($alpha-ui-color, 10);
+$alpha-link-colorfocus: darken($alpha-ui-color, 10);
+$alpha-link-coloractive: $alpha-ui-color;
+$alpha-link-colorvisited: $alpha-ui-color;

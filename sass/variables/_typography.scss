@@ -1,19 +1,23 @@
 // Typography
 
-$alpha-font-family			: "Source Sans Pro", arial, sans-serif;
-$alpha-font-weight			: 400;
-$alpha-font-size			: 18; // pixel-value
-$alpha-line-height			: 1.4; // em-value
-$alpha-baseline-grid		: 8; // pixel-value
-$alpha-leading				: .8; // multiplier
+$alpha-font-family: "Source Sans Pro", arial, sans-serif;
+$alpha-font-weight: 400;
+$alpha-font-size: 18;
+// pixel-value
+$alpha-line-height: 1.4;
+// em-value
+$alpha-baseline-grid: 8;
+// pixel-value
+$alpha-leading: .8;
+// multiplier
 
-$beta-font-family			: 'expresswayextrabold', sans-serif;
-$beta-font-weight			: 700;
+$beta-font-family: 'expresswayextrabold', sans-serif;
+$beta-font-weight: 700;
 
 // Modular scale settings
-$ratio				: 1.1;
-$importantnumber	: 36;
-$leading			: 1;
-$base-size			: $alpha-font-size/16*1em;
+$ratio: 1.1;
+$importantnumber: 36;
+$leading: 1;
+$base-size: $alpha-font-size/16*1em;
 
 

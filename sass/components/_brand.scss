@@ -1,147 +1,147 @@
 .brand {
-	@include add-grid(24);
-	@include add-gutter(0);
+  @include add-grid(24);
+  @include add-gutter(0);
 
-	position: absolute;
-	left: 0;
-	top: -.4em;
+  position: absolute;
+  left: 0;
+  top: -.4em;
 
-	background-color: transparent;
-	width: 100%;
-	z-index: $z-gamma;
+  background-color: transparent;
+  width: 100%;
+  z-index: $z-gamma;
 
-	@include mq($bp3) {
-		top: 3em;
-	}
+  @include mq($bp3) {
+    top: 3em;
+  }
 }
 
-	.brand__logo {
-		@include grid-span(7);
+.brand__logo {
+  @include grid-span(7);
 
-		@include mq($bp2) {
-			@include grid-span(5);
-		}
+  @include mq($bp2) {
+    @include grid-span(5);
+  }
 
-		@include mq($bp4) {
-			@include grid-span(3);
-		}
-	}
+  @include mq($bp4) {
+    @include grid-span(3);
+  }
+}
 
-	.brand__tagline {
-		display: none;
+.brand__tagline {
+  display: none;
 
-		@include mq($bp3) {
-			@include grid-span(5,6);
-			display: block;
-		}
+  @include mq($bp3) {
+    @include grid-span(5, 6);
+    display: block;
+  }
 
-		@include mq($bp4) {
-			@include grid-span(3,4);
-		}
-	}
+  @include mq($bp4) {
+    @include grid-span(3, 4);
+  }
+}
 
-	.brand__logo__inner,
-	.brand__tagline__inner {
-		position: absolute;
-		top: 0;
-		width: 100%;
-		transition: 0;
-	}
+.brand__logo__inner,
+.brand__tagline__inner {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  transition: 0;
+}
 
-	.brand__logo__inner {
-		@extend %hide-text;
-		background-color: $alpha-ui-color;
+.brand__logo__inner {
+  @extend %hide-text;
+  background-color: $alpha-ui-color;
 
-		display: block;
-		position: relative;
-		overflow: hidden;
+  display: block;
+  position: relative;
+  overflow: hidden;
 
-		height: 40px;
-		width: 40px;
-		border-radius: $alpha-radius;
+  height: 40px;
+  width: 40px;
+  border-radius: $alpha-radius;
 
-		background-image: url('../img/png/logo--small.png');
-		background-repeat: no-repeat;
-		background-position: top left;
-		background-size: 100%;
+  background-image: url('../img/png/logo--small.png');
+  background-repeat: no-repeat;
+  background-position: top left;
+  background-size: 100%;
 
-		.svg & {
-			background-image: url('../img/svg/logo--small.svg');
-		}
+  .svg & {
+    background-image: url('../img/svg/logo--small.svg');
+  }
 
-		@include mq($bp3) {
-			border-radius: $beta-radius;
-			padding-top: 72%;
-			width: 100%;
-			background-image: url('../img/png/logo--part1.png');
+  @include mq($bp3) {
+    border-radius: $beta-radius;
+    padding-top: 72%;
+    width: 100%;
+    background-image: url('../img/png/logo--part1.png');
 
-			.svg & {
-				background-image: url('../img/svg/logo--part1.svg');
-			}
-		}
-	}
+    .svg & {
+      background-image: url('../img/svg/logo--part1.svg');
+    }
+  }
+}
 
-	.brand__tagline__inner {
-		@extend %hide-text;
-		background-color: $white-color;
+.brand__tagline__inner {
+  @extend %hide-text;
+  background-color: $white-color;
 
-		display: block;
-		position: relative;
-		overflow: hidden;
+  display: block;
+  position: relative;
+  overflow: hidden;
 
-		height: 40px;
-		width: 40px;
-		border-radius: $alpha-radius;
+  height: 40px;
+  width: 40px;
+  border-radius: $alpha-radius;
 
-		background-image: url('../img/png/logo--part2.png');
-		background-repeat: no-repeat;
-		background-position: top left;
-		background-size: 100%;
+  background-image: url('../img/png/logo--part2.png');
+  background-repeat: no-repeat;
+  background-position: top left;
+  background-size: 100%;
 
-		.svg & {
-			background-image: url('../img/svg/logo--part2.svg');
-		}
+  .svg & {
+    background-image: url('../img/svg/logo--part2.svg');
+  }
 
-		@include mq($bp3) {
-			background-color: $white-color;
+  @include mq($bp3) {
+    background-color: $white-color;
 
-			padding-top: 72%;
-			width: 100%;
-			border-radius: $beta-radius;
-		}
-	}
+    padding-top: 72%;
+    width: 100%;
+    border-radius: $beta-radius;
+  }
+}
 
-	.brand__footer {
-		@extend %hide-text;
-		width: 100%;
-		height: 100px;
+.brand__footer {
+  @extend %hide-text;
+  width: 100%;
+  height: 100px;
 
-		border-radius: $beta-radius;
+  border-radius: $beta-radius;
 
-		background-image: url('../img/png/logo--footer.png');
-		background-repeat: no-repeat;
-		background-position: center top;
+  background-image: url('../img/png/logo--footer.png');
+  background-repeat: no-repeat;
+  background-position: center top;
 
-		.svg & {
-			background-image: url('../img/svg/logo--footer.svg');
-		}
+  .svg & {
+    background-image: url('../img/svg/logo--footer.svg');
+  }
 
-		@include mq($bp4) {
-			position: absolute;
-			bottom: 2.3em;
-			width: 140px;
-		}
-	}
+  @include mq($bp4) {
+    position: absolute;
+    bottom: 2.3em;
+    width: 140px;
+  }
+}
 
-	.brand__district {
-		@extend %hide-text;
-		@include margin-tb(0,1);
-		width: 177px;
-		height: 87px;
+.brand__district {
+  @extend %hide-text;
+  @include margin-tb(0, 1);
+  width: 177px;
+  height: 87px;
 
-		border-radius: $beta-radius;
+  border-radius: $beta-radius;
 
-		background-image: url('../img/png/logo--wijkvandemaand.png');
-		background-repeat: no-repeat;
-		background-position: center top;
-	}
+  background-image: url('../img/png/logo--wijkvandemaand.png');
+  background-repeat: no-repeat;
+  background-position: center top;
+}

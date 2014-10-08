@@ -3,55 +3,55 @@
 // ---
 
 .mask {
-	position: relative;
-	overflow: hidden;
+  position: relative;
+  overflow: hidden;
 }
 
 .mask img {
-	position: absolute;
-	top: 0;
-	width: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
 }
 
 .mask a img {
-	&:hover,
-	&:focus {
-		opacity: .7;
-	}
+  &:hover,
+  &:focus {
+    opacity: .7;
+  }
 }
 
-	// Sets the height of the header
-	.ratio--header {
-		@include mq($bp3) {
-			padding-top: 30%; // 9/16 * 100
-		}
-	}
+// Sets the height of the header
+.ratio--header {
+  @include mq($bp3) {
+    padding-top: 30%; // 9/16 * 100
+  }
+}
 
-	// Sets the height of the homepage header
-	.ratio--home {
-		@include mq($bp3) {
-			padding-top: 50%; // 9/16 * 100
-		}
+// Sets the height of the homepage header
+.ratio--home {
+  @include mq($bp3) {
+    padding-top: 50%; // 9/16 * 100
+  }
 
-		@include mq($bp5) {
-			padding-top: 40%; // 9/16 * 100
-		}
-	}
+  @include mq($bp5) {
+    padding-top: 40%; // 9/16 * 100
+  }
+}
 
-	// Thumbnails
-	.ratio--big-thumb {
-		padding-top: 65%; // 9/16 * 100
-		border-radius: $gamma-radius;
-	}
+// Thumbnails
+.ratio--big-thumb {
+  padding-top: 65%; // 9/16 * 100
+  border-radius: $gamma-radius;
+}
 
-	// Thumbnails
-	.ratio--thumb {
-		padding-top: 65%; // 9/16 * 100
-		border-radius: $beta-radius;
-	}
+// Thumbnails
+.ratio--thumb {
+  padding-top: 65%; // 9/16 * 100
+  border-radius: $beta-radius;
+}
 
-	// Social footer image
-	.ratio--footer {
-		padding-top: 40%; // 9/16 * 100
-		border-radius: $beta-radius;
-	}
+// Social footer image
+.ratio--footer {
+  padding-top: 40%; // 9/16 * 100
+  border-radius: $beta-radius;
+}
