@@ -1,62 +1,12 @@
 // Import the variables and settings first. These can contain settings for used plugins (f.e. normalize etc)
-@import "variables/settings";
-@import "variables/typography";
-@import "variables/breakpoints";
-@import "variables/ui";
-@import "variables/colors";
-@import "variables/z-index";
-
-// Plugins/frameworks
-@import "plugins/default";
-
-// Fonts
-@import "base/fonts";
-@import "base/icons";
-
-// Abstractions
-@import "abstractions/functions";
-@import "abstractions/extends";
-@import "abstractions/mixins";
-@import "abstractions/grid";
-@import "abstractions/typography";
-@import "abstractions/ui";
-
-// Base
-@import "base/reset";
-@import "base/base";
-@import "base/typography";
-@import "base/forms";
-@import "base/debug";
-
-// Layout
-@import "layouts/grid";
-@import "layouts/spacing";
-@import "layouts/salvatorre";
-
-// Components
-@import "components/admin_menu";
-@import "components/buttons";
-@import "components/forms";
-@import "components/alerts";
-@import "components/pagination";
-@import "components/helpers";
-@import "components/media";
-@import "components/tables";
-/* @import "components/holder"; */
-@import "components/background";
-@import "components/divider";
-@import "components/island";
-@import "components/mask";
-@import "components/list";
-@import "components/cta";
-@import "components/brand";
-@import "components/navigation";
-@import "components/header";
-@import "components/tabs";
-@import "components/invisible";
-
-// Print
+@import "loader/variables";
+@import "loader/plugins";
+@import "loader/abstractions";
+@import "loader/base";
+@import "loader/layouts";
+@import "loader/components";
 
 @media print {
   @import "print";
 }
+ 

@@ -35,7 +35,7 @@
 	<div class="l-row padding--big">
 		<div class="brand__logo">
 			<div class="brand__logo__inner">
-				<span>
+<!-- 				<span> -->
 					<?php print $site_name ?>
 				</span>
 			</div>
@@ -48,14 +48,6 @@
 			</div>
 		</div>
 	</div>
-
-	<ul class="service-links">
-  <?php if ($readspeaker): ?>
-    <li class="service-link readspeaker">
-      <?php print render($readspeaker); ?>
-    </li>
-  <?php endif; ?>
-  </ul>
 </div>
 
 <header class="holder site__header">
@@ -70,13 +62,94 @@
 			</div>
 		</div>
 	</div>
+
+	<ul class="service-links">
+  <?php if ($readspeaker): ?>
+    <li class="service-link readspeaker">
+      <?php print render($readspeaker); ?>
+    </li>
+  <?php endif; ?>
+  </ul>
 </header>
 
 
+	<section class="holder padding--big background--alpha border-bottom">
+	<div class="l-row">
+	 <?php print render($page['content_top']); ?>
+
+	 <!--
+		<div class="l-third island island--alpha js-height">
+	<h2 class="h1 hT">Openingsuren</h2>
+	<ul class="link-list">
+		<li>
+			<a href="#">Bibliotheek</a>
+		</li>
+		<li>
+			<a href="#">Bioscopen</a>
+		</li>
+		<li>
+			<a href="#">Musea</a>
+		</li>
+		<li>
+			<a href="#">Sporthal</a>
+		</li>
+		<li>
+			<a href="#">Theater jeugdtoneel</a>
+		</li>
+		<li>
+			<a href="#">Vrije Tijd</a>
+		</li>
+		<li class="link-list__more">
+			<a href="#">Alle openingsuren</a>
+		</li>
+	</ul>
+</div>
+-->
 
 
+	<!--
+		<div class="l-third island island--alpha js-height">
+	<h2 class="h1 hT">Diensten en info</h2>
+	<ul class="link-list">
+		<li>
+			<a href="#">Wat wil het stadsbestuur de komende jaren doen en met welke financiering</a>
+		</li>
+		<li>
+			<a href="#">Meerjarenplan en budget_NA</a>
+		</li>
+		<li>
+			<a href="#">Meerjarenplan en budget_VOOR</a>
+		</li>
+		<li>
+			<a href="#">Beleidsplan gezondheid</a>
+		</li>
+		<li>
+			<a href="#">Nieuw stadsmagazine online</a>
+		</li>
+	</ul>
+</div>
+-->
 
+	<!--
+		<div class="l-third island island--epsilon js-height">
+	<h2 class="h1 hT">Gentinfo</h2>
+	<p>Sed molestie augue sit amet leo consequat posuere. Vestibulum ante ipsum primis in faucibus orci luctus.</p>
+	<ul class="no-bullet-list">
+		<li>
+			<a href="tel:092101010" itemprop="telephone"><i class="icon-phone"></i>09 210 10 10</a>
+		</li>
+		<li>
+			<a href="mailto:gentinfo@gent.be"><i class="icon-email"></i>gentinfo@gent.be</a>
+		</li>
+		<li>
+			<a href="#" class="btn btn--medium btn--delta"><i class="icon-bubble"></i>Online chat</a>
+		</li>
+	</ul>
+</div>
+-->
 
+	</div>
+</section>
 
 
 

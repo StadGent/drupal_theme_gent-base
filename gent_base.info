@@ -10,8 +10,8 @@ core = 7.x
 regions[top_menu] = Top menu
 regions[header] = Header
 regions[navigation] = Navigation
-regions[top_content] = Top Content
+regions[content_top] = Top Content
 regions[content] = Content
-regions[bottom_content] = Bottom Content
+regions[content_bottom] = Bottom Content
 regions[footer] = Footer
 
