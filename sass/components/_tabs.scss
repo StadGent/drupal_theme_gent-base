@@ -2,8 +2,8 @@
   @extend %clearfix;
 
   position: fixed; 
-  top: 29px;
-  height:30px;
+  top: 36px;
+  height:40px;
   width: 100%;
   overflow:hidden;
   background-color: $alpha-ui-color;
@@ -16,13 +16,13 @@
   }
   
   li:first-child {
-    @include px-padding-lr(4.7,0);
+    @include px-padding-lr(3.4,0);
     border:0;
   }
   
   li {
     @include px-padding-lr(1.5,0);
-    @include padding-tb(.2,.2);
+    @include padding-tb(.4,.4);
     float:left;
   }
   
@@ -33,5 +33,5 @@
 }
 
 .is-tabs-enabled {
-  margin-top:59px;
+  margin-top:76px;
 }

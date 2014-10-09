@@ -17,15 +17,16 @@
 	<div class="l-row">
 		<ul class="login-widget nav nav--login">
 			<li><?php print $logged_in ? l(t('Logout'), 'user/logout') : l(t('Login'), 'user/login') ?></li>
-			<li><?php print l(t('Mijn Gent'), 'todo') ?></li>
+			<li><?php print l(t('Mijn Gent'), '') ?></li>
 		</ul>
 
-		<form class="search-widget">
-		<!--
+		<div class="search-widget">
+		  <?php print render($page['search']); ?>
+
+		  <!--
 			<input type="search" placeholder="Wat wil je vinden?" />
 			<input type="submit" value="Zoek" class="btn btn--medium btn--alpha" />
-    -->
-			<?php print render($page['search']); ?>
+			-->
 		</form>
 	</div>
 </nav>
@@ -59,11 +60,13 @@
 
 <header class="holder site__header">
 	<div class="mask ratio--header">
-		<img src="img/jpg/schapestal.jpg">
+  	<?php if ($header_image): ?>
+  		<?php print $header_image; ?>
+  	<?php endif; ?>
 		<span class="site__header__image__gradient"></span>
 		<div class="site__header__image__title">
 			<div class="l-row">
-				<h1><?php print $deelsite_title;?></h1>
+				<h1><?php print $site_title;?></h1>
 			</div>
 		</div>
 	</div>

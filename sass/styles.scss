@@ -34,6 +34,7 @@
 @import "layouts/salvatorre";
 
 // Components
+@import "components/admin_menu";
 @import "components/buttons";
 @import "components/forms";
 @import "components/alerts";
@@ -41,7 +42,7 @@
 @import "components/helpers";
 @import "components/media";
 @import "components/tables";
-@import "components/holder";
+/* @import "components/holder"; */
 @import "components/background";
 @import "components/divider";
 @import "components/island";
@@ -52,6 +53,7 @@
 @import "components/navigation";
 @import "components/header";
 @import "components/tabs";
+@import "components/invisible";
 
 // Print
 

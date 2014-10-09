@@ -4,6 +4,15 @@
  * Template file for the gent_base base theme.
  */
 
+// @TODO store this in the theme registry like omega does with OmegaThemeRegistryHandler
+include_once 'preprocess/block.preprocess.inc';
+include_once 'preprocess/field.preprocess.inc';
+include_once 'preprocess/html.preprocess.inc';
+include_once 'preprocess/page.preprocess.inc';
+include_once 'preprocess/views.preprocess.inc';
+include_once 'preprocess/entity-property.preprocess.inc';
+
+
 /**
  * Implements hook_css_alter().
  */
@@ -17,16 +26,6 @@ function gent_base_css_alter(&$css) {
       }
     }
   }
-}
-
-
-/**
- * Implements theme_preprocess_HOOK().
- */
-function gent_base_preprocess_html(&$variables) {
-
-  // Setup IE meta tag to force IE rendering mode
-  drupal_add_http_header('X-UA-Compatible', 'IE=edge,chrome=1');
 }
 
 /**
@@ -84,9 +83,9 @@ function gent_base_file_link($variables) {
   // Set options as per anchor format described at
   // http://microformats.org/wiki/file-format-examples
   $options = array(
-  'attributes' => array(
-  'type' => $file->filemime . '; length=' . $file->filesize,
-  ),
+    'attributes' => array(
+    'type' => $file->filemime . '; length=' . $file->filesize,
+    ),
   );
 
   // Use the description as the link text if available.
@@ -100,3 +99,4 @@ function gent_base_file_link($variables) {
 
   return l($link_text, $url, $options) . ' <span class="file-type">' . $extension . '</span>';
 }
+

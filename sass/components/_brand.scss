@@ -60,23 +60,23 @@
   width: 40px;
   border-radius: $alpha-radius;
 
-  background-image: url('../img/png/logo--small.png');
+  background-image: url('#{$base-theme-path}/img/png/logo--small.png');
   background-repeat: no-repeat;
   background-position: top left;
   background-size: 100%;
 
   .svg & {
-    background-image: url('../img/svg/logo--small.svg');
+    background-image: url('#{$base-theme-path}/img/svg/logo--small.svg');
   }
 
   @include mq($bp3) {
     border-radius: $beta-radius;
     padding-top: 72%;
     width: 100%;
-    background-image: url('../img/png/logo--part1.png');
+    background-image: url('#{$base-theme-path}/img/png/logo--part1.png');
 
     .svg & {
-      background-image: url('../img/svg/logo--part1.svg');
+      background-image: url('#{$base-theme-path}/img/svg/logo--part1.svg');
     }
   }
 }
@@ -93,13 +93,13 @@
   width: 40px;
   border-radius: $alpha-radius;
 
-  background-image: url('../img/png/logo--part2.png');
+  background-image: url('#{$base-theme-path}/img/png/logo--part2.png');
   background-repeat: no-repeat;
   background-position: top left;
   background-size: 100%;
 
   .svg & {
-    background-image: url('../img/svg/logo--part2.svg');
+    background-image: url('#{$base-theme-path}/img/svg/logo--part2.svg');
   }
 
   @include mq($bp3) {
@@ -118,12 +118,12 @@
 
   border-radius: $beta-radius;
 
-  background-image: url('../img/png/logo--footer.png');
+  background-image: url('#{$base-theme-path}/img/png/logo--footer.png');
   background-repeat: no-repeat;
   background-position: center top;
 
   .svg & {
-    background-image: url('../img/svg/logo--footer.svg');
+    background-image: url('#{$base-theme-path}/img/svg/logo--footer.svg');
   }
 
   @include mq($bp4) {
@@ -141,7 +141,7 @@
 
   border-radius: $beta-radius;
 
-  background-image: url('../img/png/logo--wijkvandemaand.png');
+  background-image: url('#{$base-theme-path}/img/png/logo--wijkvandemaand.png');
   background-repeat: no-repeat;
   background-position: center top;
 }

@@ -48,13 +48,13 @@
       content: "";
       width: 16px;
       height: 16px;
-      background-image: url('../img/png/carret.png');
+      background-image: url('#{$base-theme-path}/img/png/carret.png');
       position: absolute;
       top: .7em;
       right: -16px;
 
       .svg & {
-        background-image: url('../img/svg/carret.svg');
+        background-image: url('#{$base-theme-path}/img/svg/carret.svg');
       }
     }
 

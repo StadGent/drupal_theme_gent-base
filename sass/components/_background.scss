@@ -11,6 +11,6 @@
 }
 
 .background--delta {
-  background-image: url('../img/png/map-background.png');
+  background-image: url('#{$base-theme-path}/img/png/map-background.png');
   background-position: center;
 }

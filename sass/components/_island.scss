@@ -389,10 +389,10 @@
 
   @include mq($bp2) {
     @include padding-tb(1.5, 1.5);
-    background-image: url('../img/png/corner-top-middle.png'),
-    url('../img/png/corner-bottom-middle.png'),
-    url('../img/png/corner-left-middle.png'),
-    url('../img/png/corner-right-middle.png');
+    background-image: url('#{$base-theme-path}/img/png/corner-top-middle.png'),
+    url('#{$base-theme-path}/img/png/corner-bottom-middle.png'),
+    url('#{$base-theme-path}/img/png/corner-left-middle.png'),
+    url('#{$base-theme-path}/img/png/corner-right-middle.png');
     background-position: top center,
     bottom center,
     center left,
@@ -402,20 +402,20 @@
   @include mq($bp4) {
     @include px-padding-lr(2.5, 2.5);
     @include padding-tb(1, 1);
-    background-image: url('../img/png/corner-top-middle.png'),
-    url('../img/png/corner-bottom-middle.png'),
-    url('../img/png/corner-left-middle.png'),
-    url('../img/png/corner-right-middle.png');
+    background-image: url('#{$base-theme-path}/img/png/corner-top-middle.png'),
+    url('#{$base-theme-path}/img/png/corner-bottom-middle.png'),
+    url('#{$base-theme-path}/img/png/corner-left-middle.png'),
+    url('#{$base-theme-path}/img/png/corner-right-middle.png');
     background-position: top center,
     bottom center,
     center left,
     center right;
 
     .svg & {
-      background-image: url('../img/svg/corner-top-middle.svg'),
-      url('../img/svg/corner-bottom-middle.svg'),
-      url('../img/svg/corner-left-middle.svg'),
-      url('../img/svg/corner-right-middle.svg');
+      background-image: url('#{$base-theme-path}/img/svg/corner-top-middle.svg'),
+      url('#{$base-theme-path}/img/svg/corner-bottom-middle.svg'),
+      url('#{$base-theme-path}/img/svg/corner-left-middle.svg'),
+      url('#{$base-theme-path}/img/svg/corner-right-middle.svg');
     }
   }
 }
