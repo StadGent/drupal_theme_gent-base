@@ -1,4 +1,13 @@
 // Alerts
+//
+// .alerts.status - Status alert.
+// .alerts.warning - Warning alert.
+// .alerts.error - Error alert.
+//
+// Markup:
+// <div class="{$modifiers}">This is the alert message.</div>
+//
+// Styleguide 6.4.1
 
 .alert-box {
   @include alert;
@@ -25,7 +34,7 @@
 // Markup:
 // <div class="{$modifiers}">This is the message.</div>
 //
-// Styleguide 10.1
+// Styleguide 6.4.2
 .messages {
   &.status {
     @include alert-success;
