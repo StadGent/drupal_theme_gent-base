@@ -10,7 +10,7 @@
   width: 100%;
   z-index: $z-gamma;
 
-  @include mq($bp3) {
+  @include mq($bp-tablet-s) {
     top: 3em;
   }
 }
@@ -18,11 +18,11 @@
 .brand__logo {
   @include grid-span(7);
 
-  @include mq($bp2) {
+  @include mq($bp-phone-m) {
     @include grid-span(5);
   }
 
-  @include mq($bp4) {
+  @include mq($bp-tablet-m) {
     @include grid-span(3);
   }
 }
@@ -30,12 +30,12 @@
 .brand__tagline {
   display: none;
 
-  @include mq($bp3) {
+  @include mq($bp-tablet-s) {
     @include grid-span(5, 6);
     display: block;
   }
 
-  @include mq($bp4) {
+  @include mq($bp-tablet-m) {
     @include grid-span(3, 4);
   }
 }
@@ -69,7 +69,7 @@
     background-image: url('#{$base-theme-path}/img/svg/logo--small.svg');
   }
 
-  @include mq($bp3) {
+  @include mq($bp-tablet-s) {
     border-radius: $beta-radius;
     padding-top: 72%;
     width: 100%;
@@ -102,7 +102,7 @@
     background-image: url('#{$base-theme-path}/img/svg/logo--part2.svg');
   }
 
-  @include mq($bp3) {
+  @include mq($bp-tablet-s) {
     background-color: $white-color;
 
     padding-top: 72%;
@@ -126,7 +126,7 @@
     background-image: url('#{$base-theme-path}/img/svg/logo--footer.svg');
   }
 
-  @include mq($bp4) {
+  @include mq($bp-tablet-m) {
     position: absolute;
     bottom: 2.3em;
     width: 140px;

@@ -121,11 +121,11 @@
     }
   }
 
-  @include mq($bp2) {
+  @include mq($bp-phone-m) {
     @include px-padding-lr(1, 1);
   }
 
-  @include mq($bp4) {
+  @include mq($bp-tablet-m) {
     @include px-padding-lr(2, 2);
     @include padding-tb(.9, .7);
   }
@@ -276,7 +276,7 @@
     padding-bottom: 0;
   }
 
-  @include mq($bp3) {
+  @include mq($bp-tablet-s) {
     @include px-padding-lr(0, 2);
     @include padding-tb(0, .5);
   }
@@ -354,7 +354,7 @@
     color: $white-color;
   }
 
-  @include mq($bp2) {
+  @include mq($bp-phone-m) {
     .island__top {
       float: right;
       width: 50%;
@@ -366,7 +366,7 @@
     }
   }
 
-  @include mq($bp4) {
+  @include mq($bp-tablet-m) {
     .island__top {
       float: left;
       width: 100%;
@@ -399,7 +399,7 @@
     line-height: 1.4em;
   }
 
-  @include mq($bp2) {
+  @include mq($bp-phone-m) {
     @include padding-tb(1.5, 1.5);
     background-image: url('#{$base-theme-path}/img/png/corner-top-middle.png'),
     url('#{$base-theme-path}/img/png/corner-bottom-middle.png'),
@@ -411,7 +411,7 @@
     center right;
   }
 
-  @include mq($bp4) {
+  @include mq($bp-tablet-m) {
     @include px-padding-lr(2.5, 2.5);
     @include padding-tb(1, 1);
     background-image: url('#{$base-theme-path}/img/png/corner-top-middle.png'),

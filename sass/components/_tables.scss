@@ -32,7 +32,7 @@ td {
   }
 }
 
-@include mq($bp2) {
+@include mq($bp-phone-m) {
   thead {
     display: table-header-group;
   }

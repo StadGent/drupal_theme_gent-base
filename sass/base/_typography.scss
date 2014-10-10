@@ -69,7 +69,7 @@ h1, .h1 {
   font-family: $beta-font-family;
   font-weight: $beta-font-weight;
 
-  @include mq($bp6) {
+  @include mq($bp-desktop-s) {
     @include text-dimensions(8, 1.75, 1);
   }
 
@@ -157,7 +157,7 @@ table {
   border-collapse: collapse;
   position: relative;
 
-  @include mq($bp3, max) {
+  @include mq($bp-tablet-s, max) {
     table {
       thead,
       tbody,

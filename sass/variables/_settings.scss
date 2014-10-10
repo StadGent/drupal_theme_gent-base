@@ -1,6 +1,13 @@
 // Debug
-
 $debug-mode: false;
-// toggles the debug mode
 
+// $base-theme-path
+//
+// This variable should always be defined in the subtheme. In order to make all basetheme variables overridable by the
+// subtheme, the subtheme needs to render all sass files and compile them to css. Basically this means that the basetheme
+// will never add any css file.
+//
+// $base-theme-path: "../../gent_base";
+//
+// Styleguide 1.1.1
 $base-theme-path: "./";

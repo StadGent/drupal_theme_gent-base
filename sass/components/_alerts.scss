@@ -15,3 +15,27 @@
 .alert-box.notice {
   @include alert-notice;
 }
+
+// Messages
+//
+// .messages.status - Status message.
+// .messages.warning - Warning message.
+// .messages.error - Error message.
+//
+// Markup:
+// <div class="{$modifiers}">This is the message.</div>
+//
+// Styleguide 10.1
+.messages {
+  &.status {
+    @include alert-success;
+  }
+
+  &.warning {
+    @include alert-notice;
+  }
+
+  &.error {
+    @include alert-error;
+  }
+}

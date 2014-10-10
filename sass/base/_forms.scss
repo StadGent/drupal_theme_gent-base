@@ -197,7 +197,7 @@ button {
 .prefix--medium.prefix--medium {
   @include grid-span(7);
 
-  @include mq($bp3) {
+  @include mq($bp-tablet-s) {
     @include grid-span(8);
   }
 }
@@ -205,7 +205,7 @@ button {
 .postfix--medium.postfix--medium {
   @include grid-span(5, 8);
 
-  @include mq($bp3) {
+  @include mq($bp-tablet-s) {
     @include grid-span(4, 9);
   }
 }
@@ -213,7 +213,7 @@ button {
 .prefix--large.prefix--large {
   @include grid-span(9);
 
-  @include mq($bp3) {
+  @include mq($bp-tablet-s) {
     @include grid-span(10);
   }
 }
@@ -221,7 +221,7 @@ button {
 .postfix--small.postfix--small {
   @include grid-span(3, 10);
 
-  @include mq($bp3) {
+  @include mq($bp-tablet-s) {
     @include grid-span(2, 11);
   }
 }
@@ -230,7 +230,7 @@ button {
   @include add-gutter(0);
   @include grid-span(9);
 
-  @include mq($bp3) {
+  @include mq($bp-tablet-s) {
     @include grid-span(8);
   }
 }
@@ -239,7 +239,7 @@ button {
   @include add-gutter(0);
   @include grid-span(3, 10);
 
-  @include mq($bp3) {
+  @include mq($bp-tablet-s) {
     @include grid-span(4, 9);
   }
 }

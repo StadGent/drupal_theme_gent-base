@@ -22,18 +22,18 @@
 
 // Sets the height of the header
 .ratio--header {
-  @include mq($bp3) {
+  @include mq($bp-tablet-s) {
     padding-top: 30%; // 9/16 * 100
   }
 }
 
 // Sets the height of the homepage header
 .ratio--home {
-  @include mq($bp3) {
+  @include mq($bp-tablet-s) {
     padding-top: 50%; // 9/16 * 100
   }
 
-  @include mq($bp5) {
+  @include mq($bp-tablet-l) {
     padding-top: 40%; // 9/16 * 100
   }
 }

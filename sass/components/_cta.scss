@@ -29,7 +29,7 @@
     margin-bottom: 0;
   }
 
-  @include mq($bp3) {
+  @include mq($bp-tablet-s) {
     @include float-span(12);
   }
 }
@@ -44,7 +44,7 @@
   background-color: $alpha-ui-color;
   border-radius: $beta-radius;
 
-  @include mq($bp3) {
+  @include mq($bp-tablet-s) {
     @include float-span(2);
   }
 }
