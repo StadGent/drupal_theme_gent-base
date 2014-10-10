@@ -16,9 +16,19 @@ include_once 'preprocess/entity-property.preprocess.inc';
  * Implements hook_css_alter().
  */
 function gent_base_css_alter(&$css) {
-  // Remove all css files from core modules.
+  $whitelist = array(
+    'modules/contextual/contextual.css',
+  );
+  $whitelist = array_combine($whitelist, $whitelist);
+  drupal_alter('gent_base_css_whitelist', $whitelist);
+
   foreach ($css as $key => $data) {
     if ($data['type'] == 'file') {
+      // Skip css files in whitelist.
+      if (in_array($data['data'], $whitelist)) {
+        continue;
+      }
+      // Remove css files from core modules.
       $is_core = (strpos($data['data'], 'modules/') === 0);
       if ($is_core) {
         unset($css[$key]);
