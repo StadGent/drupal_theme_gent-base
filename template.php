@@ -28,7 +28,7 @@ function gent_base_css_alter(&$css) {
 }
 
 /**
- * Implements hook_menu_local_tasks().
+ * Implements theme_menu_local_tasks().
  *
  * @ingroup themeable
  */
@@ -51,7 +51,7 @@ function gent_base_menu_local_tasks(&$variables) {
 
 
 /**
- * Implements hook_file_formatter_table().
+ * Implements theme_file_formatter_table().
  *
  * @ingroup themeable
  */
@@ -72,7 +72,7 @@ function gent_base_file_formatter_table($variables) {
 }
 
 /**
- * Implements hook_file_link().
+ * Implements theme_file_link().
  *
  * @ingroup themeable
  */
