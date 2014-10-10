@@ -16,17 +16,20 @@
 }
 
 li.link-list__more {
-  a {
-    text-decoration: none;
-    font-weight: $beta-font-weight;
-  }
+  @extend %link-list__more;
+}
 
-  a:before {
-    content: "\e60e";
-    font-size: .5em;
-    top: .9em;
+.readmore-list-wrapper {
+  @include padding-tb(.6, 0);
+  
+  ul {
+    @extend %link-list;
+    li {
+      @extend %link-list__more;
+    } 
   }
 }
+
 
 .list__divider {
   @include margin-top(1);

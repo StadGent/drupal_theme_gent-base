@@ -6,19 +6,13 @@
   <?php print $styles; ?>
   <?php print $scripts; ?>
 
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta http-equiv="cleartype" content="on">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta http-equiv="cleartype" content="on" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Mobile settings http://t.co/dKP3o1e -->
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Custom modernizr build: http://modernizr.com — load other JavaScript at the end of document -->
-  <script src="<?php print base_path() . path_to_theme(); ?>/js/modernizr.custom.js"></script>
-
-  <!-- Enable HTML5 in IE<9 -->
-  <!--[if lt IE 9  & (!IEMobile)]><script src="<?php print base_path() . path_to_theme(); ?>/js/html5shiv.js"></script><![endif]-->
+	<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,400italic" rel="stylesheet" type="text/css" />
 
 <body<?php print $attributes;?>>
 

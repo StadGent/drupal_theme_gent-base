@@ -15,3 +15,4 @@ regions[content] = Content
 regions[content_bottom] = Bottom Content
 regions[footer] = Footer
 
+scripts[] = js/modernizr.custom.js
