@@ -121,28 +121,34 @@
 	</div>
 </section>
 
+<?php if ($page['content_bottom']): ?>
+<section class="holder padding--big background--alpha border-top border-bottom">
+	<div class="l-row">
+	 <?php print render($page['content_bottom']); ?>
+	</div>
+</section>
+<?php endif; ?>
 
-<footer class="holder footer-holder">
-  <div class="row footer-row">
-    <div class="footer col">
-      <div class="row">
-        <div class="fmedium-4 large-3 col">
-          <?php if (!empty($page['footer_first'])): ?>
-            <?php print render($page['footer_first']); ?>
-          <?php endif;?>
-        </div>
-        <div class="medium-4 large-3 col">
-          <?php if (!empty($page['footer_second'])): ?>
-            <?php print render($page['footer_second']); ?>
-          <?php endif;?>
-        </div>
-        <div class="medium-3 col last-col">
-          <?php if (!empty($page['footer_third'])): ?>
-            <?php print render($page['footer_third']); ?>
-          <?php endif;?>
-        </div>
-      </div>
-    </div>
-  </div>
+<?php if ($page['footer_top']): ?>
+<section class="holder padding--huge">
+	<div class="l-row">
+	  <?php print render($page['footer_top']); ?>
+	</div>
+</section>
+<?php endif; ?>
+
+<?php if ($page['footer']): ?>
+<section class="holder padding--huge background--gamma">
+	<div class="l-row">
+    <?php print render($page['footer']); ?>
+	</div>
+</section>
+<?php endif; ?>
+
+<?php if ($page['footer_bottom']): ?>
+<footer class="holder site__footer background--beta">
+	<div class="l-row padding--big">
+		<?php print render($page['footer_bottom']); ?>
+	</div>
 </footer>
-</div>
+<?php endif; ?>

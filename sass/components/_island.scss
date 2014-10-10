@@ -288,6 +288,10 @@
   h3 {
     color: $alpha-ui-color;
     transition: color .3s ease-in-out;
+    
+    a {
+      text-decoration:none; 
+    }
   }
 
   p {

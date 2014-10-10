@@ -22,5 +22,6 @@
   <?php print $page_bottom; ?>
 
   <?php print $scripts; ?>
+  <?php print $closure; ?>
 </body>
 </html>

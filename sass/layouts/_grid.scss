@@ -55,6 +55,9 @@
 }
 
 .l-third {
+  @include mq($bp3) {
+    @include float-span(12);
+  }
   @include mq($bp4) {
     @include float-span(8);
   }
