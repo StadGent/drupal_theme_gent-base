@@ -18,6 +18,10 @@
 
   h3 {
     @include padding-tb(0, .5);
+    
+    a {
+      text-decoration:none;
+    }
   }
 
   p {
@@ -51,6 +55,10 @@
     @include padding-tb(0, .5);
     @include margin-tb(0, .5);
     border-bottom: 1px solid desaturate(darken($gamma-ui-color, 5), 10);
+    
+    a {
+      text-decoration:none;
+    }
   }
 
   i {
@@ -243,6 +251,10 @@
     padding-top: 0;
     color: $alpha-ui-color;
     transition: color .3s ease-in-out;
+    
+    a {
+      text-decoration:none; 
+    }
   }
 
   p {

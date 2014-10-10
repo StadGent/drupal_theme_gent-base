@@ -45,13 +45,11 @@ function gent_base_css_alter(&$css) {
 function gent_base_menu_local_tasks(&$variables) {
   $output = '';
   if (!empty($variables['primary'])) {
-    //$variables['primary']['#prefix'] = '<h2 class="element-invisible">' . t('Primary tabs') . '</h2>';
     $variables['primary']['#prefix'] .= '<ul class="tabs primary tabs--primary links--inline">';
     $variables['primary']['#suffix'] = '</ul>';
     $output .= drupal_render($variables['primary']);
   }
   if (!empty($variables['secondary'])) {
-    //$variables['secondary']['#prefix'] = '<h2 class="element-invisible">' . t('Secondary tabs') . '</h2>';
     $variables['secondary']['#prefix'] .= '<ul class="tabs secondary tabs--secondary links--inline">';
     $variables['secondary']['#suffix'] = '</ul>';
     $output .= drupal_render($variables['secondary']);
@@ -97,7 +95,7 @@ function gent_base_file_link($variables) {
   // http://microformats.org/wiki/file-format-examples
   $options = array(
     'attributes' => array(
-    'type' => $file->filemime . '; length=' . $file->filesize,
+      'type' => $file->filemime . '; length=' . $file->filesize,
     ),
   );
 
@@ -111,4 +109,25 @@ function gent_base_file_link($variables) {
   }
 
   return l($link_text, $url, $options) . ' <span class="file-type">' . $extension . '</span>';
+}
+
+
+/**
+ * Implements theme_breadcrumb().
+ */
+function gent_base_breadcrumb($variables) {
+  /*
+  $breadcrumb = $variables['breadcrumb'];
+
+  // Provide a navigational heading to give context for breadcrumb links to
+  // screen-reader users. Make the heading invisible with .element-invisible.
+  $output = '<h2 class="element-invisible">' . t('You are here') . '</h2>';
+  $nr_parts = count($breadcrumb);
+  if ($nr_parts > 1) {
+    $breadcrumb[$nr_parts - 1] = '<span>' . $breadcrumb[$nr_parts - 1] . '</span>';
+    $output .= '<ul class="nav nav--breadcrumb"><li>' . implode('</li><li>', $breadcrumb) . '</li></ul>';
+    return $output;
+  }
+  return FALSE;
+  */
 }
