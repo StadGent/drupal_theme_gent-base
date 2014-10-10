@@ -12,7 +12,6 @@ include_once 'preprocess/page.preprocess.inc';
 include_once 'preprocess/views.preprocess.inc';
 include_once 'preprocess/entity-property.preprocess.inc';
 
-
 /**
  * Implements hook_css_alter().
  */
@@ -29,7 +28,7 @@ function gent_base_css_alter(&$css) {
 }
 
 /**
- * Returns HTML for primary and secondary local tasks.
+ * Implements hook_menu_local_tasks().
  *
  * @ingroup themeable
  */
@@ -52,7 +51,9 @@ function gent_base_menu_local_tasks(&$variables) {
 
 
 /**
- * Returns a themed table for a file field
+ * Implements hook_file_formatter_table().
+ *
+ * @ingroup themeable
  */
 function gent_base_file_formatter_table($variables) {
   $rows = array();
@@ -71,7 +72,9 @@ function gent_base_file_formatter_table($variables) {
 }
 
 /**
- * Returns a themed file link
+ * Implements hook_file_link().
+ *
+ * @ingroup themeable
  */
 function gent_base_file_link($variables) {
   $file = $variables['file'];
@@ -99,4 +102,3 @@ function gent_base_file_link($variables) {
 
   return l($link_text, $url, $options) . ' <span class="file-type">' . $extension . '</span>';
 }
-
