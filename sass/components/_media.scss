@@ -27,7 +27,7 @@
 .media__img--rev {
   @include margin-bottom(1);
 
-  @include mq($bp3) {
+  @include mq($bp-tablet-s) {
     @include margin-bottom(0);
   }
 }

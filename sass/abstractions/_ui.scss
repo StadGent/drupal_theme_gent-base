@@ -37,7 +37,7 @@
   @include px-padding-lr(2, 2);
   @include text-dimensions(0, 1, 0, .6, .8);
 
-  @include mq($bp5) {
+  @include mq($bp-tablet-l) {
     @include text-dimensions(0, 1, 0, .7, .8);
   }
 }
@@ -46,7 +46,7 @@
   @include px-padding-lr(1.5, 1.5);
   @include text-dimensions(-1, 1, 0, .3, .4);
 
-  @include mq($bp5) {
+  @include mq($bp-tablet-l) {
     @include text-dimensions(-1, 1, 0, .4, .4);
   }
 }
@@ -55,7 +55,7 @@
   @include em-padding-lr(.5, .5);
   @include text-dimensions(-2, 1, 0, .1, .2);
 
-  @include mq($bp5) {
+  @include mq($bp-tablet-l) {
     @include text-dimensions(-2, 1, 0, .15, .2);
   }
 }

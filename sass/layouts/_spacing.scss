@@ -5,7 +5,7 @@
 .padding--big {
   @include padding-tb(1, 1);
 
-  @include mq($bp3) {
+  @include mq($bp-tablet-s) {
     @include padding-tb(1.5, 1.5);
   }
 }
@@ -13,7 +13,7 @@
 .padding-top--big {
   @include padding-tb(1, 0);
 
-  @include mq($bp3) {
+  @include mq($bp-tablet-s) {
     @include padding-tb(1.5, 0);
   }
 }
@@ -21,7 +21,7 @@
 .padding--huge {
   @include padding-tb(1.5, 1.5);
 
-  @include mq($bp3) {
+  @include mq($bp-tablet-s) {
     @include padding-tb(2, 2);
   }
 }

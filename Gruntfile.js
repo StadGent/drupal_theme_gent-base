@@ -110,14 +110,14 @@ module.exports = function (grunt) {
       options: {
         includeType: 'sass',
         includePath: './sass',
-        template: './template_styleguide',
+        template: './template_styleguide'
       },
       dist: {
         files: {
-          './styleguide': ['./sass'],
+          './styleguide': ['./sass']
         }
       }
-    },
+    }
   });
 
   grunt.loadNpmTasks('grunt-contrib-watch');

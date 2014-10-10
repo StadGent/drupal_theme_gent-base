@@ -16,7 +16,7 @@ html {
   -ms-text-size-adjust: 100%;
   background-color: $beta-ui-color;
 
-  @include mq($bp5) {
+  @include mq($bp-tablet-l) {
     font-size: $alpha-font-size/16*112.5%;
   }
 }

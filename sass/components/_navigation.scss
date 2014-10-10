@@ -78,7 +78,7 @@
     border: 1px solid darken($gamma-ui-color, 5);
   }
 
-  @include mq($bp3) {
+  @include mq($bp-tablet-s) {
     li {
       @include px-margin-lr(0, 2);
 

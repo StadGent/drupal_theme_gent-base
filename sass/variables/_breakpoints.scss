@@ -1,9 +1,48 @@
-// Breakpoints calculated in em's, always based on 16px base-value
+// Phone small
+//
+// Use $bp-phone-s for this breakpoint. Default breaks at 320px;
+//
+// Styleguide 1.4.1
+$bp-phone-s: 320/16 * 1em; // Not used...
 
-$bp1: 320/16*1em;
-$bp2: 480/16*1em;
-$bp3: 680/16*1em;
-$bp4: 960/16*1em;
-$bp5: 1120/16*1em;
-$bp6: 1340/16*1em;
-$bp7: 1480/16*1em;
+// Phone medium
+//
+// Use $bp-phone-m for this breakpoint. Default breaks at 480px;
+//
+// Styleguide 1.4.2
+$bp-phone-m: 480/16 * 1em;
+
+// Tablet small
+//
+// Use $bp-tablet-s for this breakpoint. Default breaks at 680px;
+//
+// Styleguide 1.4.3
+$bp-tablet-s: 680/16 * 1em;
+
+// Tablet medium
+//
+// Use $bp-tablet-m for this breakpoint. Default breaks at 960px;
+//
+// Styleguide 1.4.4
+$bp-tablet-m: 960/16 * 1em;
+
+// Tablet large
+//
+// Use $bp-tablet-l for this breakpoint. Default breaks at 1120px;
+//
+// Styleguide 1.4.5
+$bp-tablet-l: 1120/16 * 1em;
+
+// Desktop small
+//
+// Use $bp-desktop-s for this breakpoint. Default breaks at 1340px;
+//
+// Styleguide 1.4.6
+$bp-desktop-s: 1340/16 * 1em;
+
+// Desktop medium
+//
+// Use $bp-desktop-m for this breakpoint. Default breaks at 1480px;
+//
+// Styleguide 1.4.7
+$bp-desktop-m: 1480/16 * 1em;
