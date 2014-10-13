@@ -147,6 +147,11 @@
   <footer class="holder site__footer background--beta">
     <div class="l-row padding--big">
       <?php print render($page['footer_bottom']); ?>
+
+      <?php // @TODO Make me dynamic in gent_base_tools ?>
+      <div class="l-fourth">
+			  <p class="brand__footer">Stad Gent</p>
+		  </div>
     </div>
   </footer>
 <?php endif; ?>
