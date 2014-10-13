@@ -5,17 +5,22 @@
  */
 ?>
 
+<ul class="no-bullet-list">
 <?php if ($settings['phone']): ?>
-  <div class="phone"><?php print t('Telephone')?> : <?php print check_plain($settings['phone']) ?></div>
+	<li>
+		<a href="tel:<?php print preg_replace("/[^0-9]/", '', $settings['phone']); ?>" itemprop="telephone"><i class="icon-phone"></i><?php print check_plain($settings['phone']) ?></a>
+	</li>
 <?php endif; ?>
 
 <?php if ($settings['email']): ?>
-  <div class="email"><?php print t('Email')?> : <?php print l($settings['email'], 'mailto:' . $settings['email'], array('absolute' => TRUE));?></div>
+	<li>
+		<a href="<?php print url('mailto:' . $settings['email'], array('absolute' => TRUE));?>"><i class="icon-email"></i><?php print $settings['email'] ?></a>
+	</li>
 <?php endif; ?>
 
 <?php if ($settings['button_enabled']): ?>
-  <div class="button">
-    <a href="<?php print url($settings['button_link']) ?>""><?php print check_plain($settings['button_text']) ?></a>
-  </div>
+	<li>
+		<a href="<?php print url($settings['button_link']) ?>" class="btn btn--medium btn--delta"><i class="icon-bubble"></i><?php print check_plain($settings['button_label']) ?></a>
+	</li>
 <?php endif; ?>
-
+</ul>
