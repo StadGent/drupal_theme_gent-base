@@ -1,12 +1,19 @@
 // Pagination
 
-.pagination {
+.pager {
 
   a,
   span {
     padding: 0 10px;
     border: 1px solid $gamma-ui-color;
     margin-left: -1px;
+  }
+
+  li:first-child {
+    a,
+    span {
+      margin-left: 0px;
+    }
   }
 
   span {
@@ -16,13 +23,20 @@
   @include pagination;
 }
 
-.pagination-centered {
+.pager--centered {
 
   a,
   span {
     padding: 0 10px;
     border: 1px solid $gamma-ui-color;
     margin-left: -1px;
+  }
+
+  li:first-child {
+    a,
+    span {
+      margin-left: 0px;
+    }
   }
 
   span {

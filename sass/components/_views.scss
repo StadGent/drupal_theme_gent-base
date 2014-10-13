@@ -1,0 +1,6 @@
+.view {
+  .pager {
+    @extend %reset-list;
+    margin-top: 1em;
+  }
+}
