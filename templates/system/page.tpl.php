@@ -20,15 +20,10 @@
       <li><?php print l(t('Mijn Gent'), '') ?></li>
     </ul>
 
-    <div class="search-widget">
+    <?php if ($page['search']): ?>
       <?php print render($page['search']); ?>
-
-      <!--
-      <input type="search" placeholder="Wat wil je vinden?" />
-      <input type="submit" value="Zoek" class="btn btn--medium btn--alpha" />
-      -->
-      </form>
-    </div>
+    <?php endif; ?>
+  </div>
 </nav>
 
 <div class="brand <?php if ($tabs && $logged_in): ?>is-tabs-enabled<?php endif; ?>">
@@ -63,7 +58,11 @@
 
     <div class="site__header__image__title">
       <div class="l-row">
-        <h1><?php print $site_name; ?></h1>
+        <?php if ($page['site_name']): ?>
+          <?php print render($page['site_name']); ?>
+        <?php else: ?>
+          <h1><?php print $site_name; ?></h1>
+        <?php endif; ?>
       </div>
     </div>
   </div>
@@ -93,19 +92,17 @@
   </section>
 <?php endif; ?>
 
-<section class="holder padding--huge">
+<section class="holder <?php print $is_front ? 'padding--huge' : 'padding--big' ?>">
   <div class="l-row">
 
     <?php print $messages; ?>
 
-    <header class="l-full">
-      <h2 class="h1 hT">
-        <?php if ($title && !$is_front): ?>
-          <!-- RSPEAK_START -->
-          <h1 id="page-title"><?php print $title; ?></h1>
-          <!-- RSPEAK_STOP -->
-        <?php endif; ?>
-      </h2>
+    <header <?php if ($is_front): ?>class="l-full"<?php endif; ?>>
+      <?php if ($title && !$is_front): ?>
+        <!-- RSPEAK_START -->
+        <h2 class="h1 hT"><?php print $title; ?></h2>
+        <!-- RSPEAK_STOP -->
+      <?php endif; ?>
     </header>
 
     <?php if (!$logged_in && $tabs): ?>
