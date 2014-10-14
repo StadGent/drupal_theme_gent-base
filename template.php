@@ -16,10 +16,13 @@ include_once 'preprocess/entity-property.preprocess.inc';
  * Implements hook_css_alter().
  */
 function gent_base_css_alter(&$css) {
+
+  // Whitelist core CSS here. The rest can be allowed via the alter hook
   $whitelist = array(
     'modules/contextual/contextual.css',
   );
   $whitelist = array_combine($whitelist, $whitelist);
+
   drupal_alter('gent_base_css_whitelist', $whitelist);
 
   foreach ($css as $key => $data) {
