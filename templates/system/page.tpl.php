@@ -100,7 +100,11 @@
     <header <?php if ($is_front): ?>class="l-full"<?php endif; ?>>
       <?php if ($title && !$is_front): ?>
         <!-- RSPEAK_START -->
+        <?php if ($is_front): ?>
         <h2 class="h1 hT"><?php print $title; ?></h2>
+        <?php else: ?>
+        <h1><?php print $title; ?></h1>
+        <?php endif; ?>
         <!-- RSPEAK_STOP -->
       <?php endif; ?>
     </header>

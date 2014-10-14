@@ -1,0 +1,69 @@
+// share
+$twitter-color: #33CCFF;
+$facebook-color: #3B5998;
+$linkedin-color: #4875B4;
+$googleplus-color: #C63D2D;
+
+.share-links {
+  @extend %clearfix;
+  @include padding-tb(0,1);
+  @include margin-bottom(1);
+  
+  border-bottom: 1px solid $gamma-ui-color;
+}
+
+.share-links__title {
+  color: $alpha-text-color;
+  display: block;
+  float: left;
+  @include rem-margin-lr(0,1);
+  @include text-dimensions(-1,1,0,.15,.2);
+}
+
+.share-links__btn {
+  @extend %btn;
+  
+  float: left;
+  width: auto;
+  color: $white-color;
+  background-color: $gamma-ui-color; // Default, needs to be customized
+  @include rem-margin-lr(0,1);
+  @include btn-s;
+
+ &:after {
+    display: none;
+  }
+
+  &.fc {
+    background-color: $facebook-color;
+    &:hover {
+      background-color: lighten($facebook-color,5);
+    }
+    &:focus,
+    &:active {
+      background-color: darken($facebook-color,5);
+    }
+  }
+  
+  &.tw {
+    background-color: $twitter-color;
+    &:hover {
+      background-color: lighten($twitter-color,5);
+    }
+    &:focus,
+    &:active {
+      background-color: darken($twitter-color,5);
+    }
+  }
+  
+  &.li {
+    background-color: $linkedin-color;
+    &:hover {
+      background-color: lighten($linkedin-color,5);
+    }
+    &:focus,
+    &:active {
+      background-color: darken($linkedin-color,5);
+    }
+  }
+}
