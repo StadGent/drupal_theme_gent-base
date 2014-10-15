@@ -4,6 +4,10 @@
  * Template file for the gent_base base theme.
  */
 
+define('GENT_BASE_TOP_MENU_RENDER_METHOD_EMPTY', '');
+define('GENT_BASE_TOP_MENU_RENDER_METHOD_REGION', 'region');
+define('GENT_BASE_TOP_MENU_RENDER_METHOD_USER_LINKS', 'user_links');
+
 // @TODO store this in the theme registry like omega does with OmegaThemeRegistryHandler
 include_once 'preprocess/block.preprocess.inc';
 include_once 'preprocess/field.preprocess.inc';

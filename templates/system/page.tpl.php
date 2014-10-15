@@ -4,7 +4,7 @@
   </div>
 <?php endif; ?>
 
-<!--[if lt IE 7]>
+<!--[if lt IE 9]>
 <div class="alert-box">
   <p>You are using an <strong>outdated</strong> browser. Please <a
     href="http://browsehappy.com/">upgrade your browser</a> or <a
@@ -15,10 +15,20 @@
 
 <nav class="holder holder--alpha padding <?php if ($tabs && $logged_in): ?>is-tabs-enabled<?php endif; ?>">
   <div class="l-row">
-    <ul class="login-widget nav nav--login">
-      <li><?php print $logged_in ? l(t('Logout'), 'user/logout') : l(t('Login'), 'user/login') ?></li>
-      <li><?php print l(t('Mijn Gent'), '') ?></li>
-    </ul>
+    <?php if ($top_menu_render_method == GENT_BASE_TOP_MENU_RENDER_METHOD_REGION): ?>
+      <?php if ($page['top_menu']): ?>
+        <div class="login-widget nav nav--login">
+          <?php render($page['top_menu']); ?>
+        </div>
+      <?php endif; ?>
+    <?php elseif ($top_menu_render_method == GENT_BASE_TOP_MENU_RENDER_METHOD_USER_LINKS): ?>
+      <ul class="login-widget nav nav--login">
+        <li><?php print $logged_in ? l(t('Logout'), 'user/logout') : l(t('Login'), 'user/login') ?></li>
+        <li><?php print l(t('Mijn Gent'), '') ?></li>
+      </ul>
+    <?php elseif ($top_menu_render_method == GENT_BASE_TOP_MENU_RENDER_METHOD_EMPTY): ?>
+      <?php // Do nothing... ?>
+    <?php endif; ?>
 
     <?php if ($page['search']): ?>
       <?php print render($page['search']); ?>
