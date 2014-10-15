@@ -9,7 +9,7 @@
 }
 
 html {
-  box-sizing: border-box;
+  @include border-box;
   font: $alpha-font-weight $alpha-font-size/16*100%/#{$alpha-line-height} $alpha-font-family;
   -webkit-overflow-scrolling: touch;
   -webkit-text-size-adjust: 100%;
