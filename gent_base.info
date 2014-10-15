@@ -19,7 +19,6 @@ regions[footer_top] = Top footer
 regions[footer] = Footer
 regions[footer_bottom] = Footer bottom
 
-
 ;scripts[] = libraries/matchmedia/matchmedia.polyfill.js
 
 ; Jquery matchHeight
@@ -28,3 +27,6 @@ scripts[] = libraries/salvattore/salvattore-orig.js
 
 ; Our theme js
 scripts[] = js/theme.js
+
+; Default settings.
+settings[top_menu_render_method] = user_links
