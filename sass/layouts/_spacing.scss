@@ -10,6 +10,14 @@
   }
 }
 
+.padding-top {
+  @include padding-tb(.5, 0);
+
+  @include mq($bp-tablet-s) {
+    @include padding-tb(1, 0);
+  }
+}
+
 .padding-top--big {
   @include padding-tb(1, 0);
 
