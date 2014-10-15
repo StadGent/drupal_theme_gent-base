@@ -333,6 +333,10 @@
       color: $alpha-link-colorhover;
     }
   }
+  
+  figcaption {
+    display:none;
+  }
 }
 
 .island--theta {

@@ -64,22 +64,18 @@ function gent_base_menu_local_tasks(&$variables) {
 /**
  * Implements theme_file_formatter_table().
  *
+ * Use a list instead of table to display links.
  * @ingroup themeable
  */
 function gent_base_file_formatter_table($variables) {
   $rows = array();
   foreach ($variables['items'] as $delta => $item) {
-    $formatted_filesize = array(
-      'data' => format_size($item['filesize']),
-      'class' => array('align-right')
-    );
-    $rows[] = array(
+    $rows['items'][] = array(
       theme('file_link', array('file' => (object) $item)),
-      $formatted_filesize,
     );
   }
-
-  return empty($rows) ? '' : theme('table', array('rows' => $rows));
+  $rows['attributes']['class'] = 'link-list';
+  return empty($rows) ? '' : theme('item_list', $rows);
 }
 
 /**
@@ -111,7 +107,10 @@ function gent_base_file_link($variables) {
     $options['attributes']['title'] = check_plain($file->filename);
   }
 
-  return l($link_text, $url, $options) . ' <span class="file-type">' . $extension . '</span>';
+  if (empty($extension)) {
+    $extension = $file->filemime;
+  }
+  return l($link_text, $url, $options) . '<span class="filetype">' . format_size($file->filesize) . '</span> <span class="filetype">' . strtoupper($extension) . '</span>';
 }
 
 /**
