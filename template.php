@@ -42,6 +42,14 @@ function gent_base_css_alter(&$css) {
       }
     }
   }
+
+  // The base theme overrides css of module 'gent_readspeaker'.
+  if (module_exists('gent_readspeaker')) {
+    $path = drupal_get_path('module', 'gent_readspeaker') . '/css/readspeaker.css';
+    if (isset($css[$path])) {
+      unset($css[$path]);
+    }
+  }
 }
 
 /**

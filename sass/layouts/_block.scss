@@ -1,0 +1,4 @@
+// All views blocks should be cleared.
+.block-views {
+  @extend %clearfix;
+}
