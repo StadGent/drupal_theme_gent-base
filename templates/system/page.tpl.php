@@ -75,15 +75,13 @@
         <?php endif; ?>
       </div>
     </div>
-  </div>
 
-  <ul class="service-links">
     <?php if ($readspeaker): ?>
-      <li class="service-link readspeaker">
+      <div class="readspeaker">
         <?php print render($readspeaker); ?>
-      </li>
+      </div>
     <?php endif; ?>
-  </ul>
+  </div>
 </header>
 
 <?php if ($breadcrumb): ?>
