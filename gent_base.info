@@ -23,7 +23,7 @@ regions[footer_bottom] = Footer bottom
 
 ; Jquery matchHeight
 scripts[] = libraries/matchheight/jquery.matchHeight-min.js
-scripts[] = libraries/salvattore/salvattore-orig.js
+scripts[] = libraries/salvattore/salvattore.js
 
 ; Our theme js
 scripts[] = js/theme.js
