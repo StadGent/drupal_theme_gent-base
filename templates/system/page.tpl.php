@@ -136,7 +136,9 @@
 <?php if ($page['content_bottom']): ?>
   <section class="holder padding--big background--alpha border-top border-bottom">
     <div class="l-row">
+      <!-- RSPEAK_START -->
       <?php print render($page['content_bottom']); ?>
+      <!-- RSPEAK_STOP -->
     </div>
   </section>
 <?php endif; ?>

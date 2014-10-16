@@ -265,6 +265,11 @@
     margin-bottom: 0;
   }
 
+  ul {
+    font-size: 95%;
+    line-height: 1.4em;
+  }
+  
   &:hover,
   &:focus {
     h3 {
@@ -291,6 +296,7 @@
     
     a {
       text-decoration:none; 
+      color: $alpha-ui-color;
     }
   }
 
@@ -337,6 +343,14 @@
   figcaption {
     display:none;
   }
+}
+
+// Overwrite zeta when used in another region
+.region-content .island--zeta {
+  .island__body {
+    background-color:$gamma-ui-color;
+  }
+  
 }
 
 .island--theta {

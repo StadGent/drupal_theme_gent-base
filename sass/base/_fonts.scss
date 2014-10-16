@@ -1,3 +1,16 @@
+/*
+// When testing without network connection 
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url('#{$base-theme-path}/fonts/SourceSansPro-Regular.eot');
+  src: url('#{$base-theme-path}/fonts/SourceSansPro-Regular.eot?#iefix') format('embedded-opentype'),
+  url('#{$base-theme-path}/fonts/SourceSansPro-Regular') format('woff'),
+  url('#{$base-theme-path}/fonts/SourceSansPro-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+*/
+
 @font-face {
   font-family: 'expresswayextrabold';
   src: url('#{$base-theme-path}/fonts/expressway_xb-webfont.eot');

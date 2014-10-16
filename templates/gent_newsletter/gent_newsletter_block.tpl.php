@@ -8,7 +8,7 @@
 	  <?php if ($sfeerbeeld): ?>
 			 <?php print render($sfeerbeeld);?>
 	  <?php else: ?>
-	     <img src="<?php print path_to_theme() . '/' ?>img/jpg/flowers-small.jpg">
+	     <img src="<?php print path_to_theme() ?>/img/jpg/flowers-small.jpg">
 	  <?php endif; ?>
 	</div>
 	<?php if ($caption): ?>
@@ -22,7 +22,7 @@
 		<h3>
 			<?php print $title ?>
 		</h3>
-    <?php print $description;?>
+    <?php print $description; ?>
 
 		<?php print render($form) ?>
 </div>
