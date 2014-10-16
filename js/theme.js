@@ -12,7 +12,7 @@
 			jsTheme.accordion.init();
 			//jsTheme.sportLocationMap.init(); // Move me to subtheme?
 			jsTheme.shoppingCart.init();
-			jsTheme.blockLinks.init();
+			//jsTheme.blockLinks.init();
 			$('.js-height').matchHeight();
 			$('.js-equal').matchHeight(false);
 		}
@@ -150,7 +150,8 @@
 			});
 		}
 	}
-
+	/*
+	// Disabled for now, see if we need this. If so rewrite to behavior
 	jsTheme.blockLinks =
 	{
 		init: function() {
@@ -159,8 +160,13 @@
 			var noLink = $('.js-no-link');
 
 			block.on('click', function(e) {
-				var link = $(this).find(blockLink).attr('href');
-				window.location = link;
+				var link = $(this).find(blockLink);
+				if (!link.length) {
+					link = $(this).find('a');
+				}
+				if (link.length) {
+					window.location = link..attr('href');;
+				}
 			});
 
 			noLink.on('click', function(e) {
@@ -168,7 +174,7 @@
 			});
 		}
 	};
-
+	*/
 	$(jsTheme.init);
 
 })(jQuery);
