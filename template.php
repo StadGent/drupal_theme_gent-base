@@ -60,11 +60,17 @@ function gent_base_css_alter(&$css) {
 function gent_base_menu_local_tasks(&$variables) {
   $output = '';
   if (!empty($variables['primary'])) {
+    if (!isset($variables['primary']['#prefix'])) {
+      $variables['primary']['#prefix'] = '';
+    }
     $variables['primary']['#prefix'] .= '<ul class="tabs primary tabs--primary links--inline">';
     $variables['primary']['#suffix'] = '</ul>';
     $output .= drupal_render($variables['primary']);
   }
   if (!empty($variables['secondary'])) {
+    if (!isset($variables['secondary']['#prefix'])) {
+      $variables['secondary']['#prefix'] = '';
+    }
     $variables['secondary']['#prefix'] .= '<ul class="tabs secondary tabs--secondary links--inline">';
     $variables['secondary']['#suffix'] = '</ul>';
     $output .= drupal_render($variables['secondary']);

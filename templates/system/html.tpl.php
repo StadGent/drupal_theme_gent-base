@@ -5,7 +5,9 @@
   <?php print $head; ?>
   <?php print $styles; ?>
 
-  <?php print $head_scripts; ?>
+  <?php if (isset($head_scripts)): ?>
+    <?php print $head_scripts; ?>
+  <?php endif; ?>
 
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta http-equiv="cleartype" content="on" />
@@ -22,6 +24,9 @@
   <?php print $page_bottom; ?>
 
   <?php print $scripts; ?>
-  <?php print $closure; ?>
+
+  <?php if (isset($closure)): ?>
+    <?php print $closure; ?>
+  <?php endif; ?>
 </body>
 </html>

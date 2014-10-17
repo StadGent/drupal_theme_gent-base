@@ -6,7 +6,7 @@
 ?>
 
 <?php if ($settings['intro']): ?>
-  <p><?php print filter_xss($settings['intro'], 'p strong a li ul')?></p>
+  <p><?php print filter_xss($settings['intro'], array('p', 'strong', 'a', 'li', 'ul'))?></p>
 <?php endif; ?>
 
 <ul class="no-bullet-list">

@@ -300,6 +300,11 @@ a {
   }
 }
 
+#block-system-main .node.view-mode-full div.body p a:not([class]) {
+  @extend .textlink;
+  white-space: pre;
+}
+
 .morelink {
   @include px-padding-lr(1.5, 0);
   font-weight: $beta-font-weight;
