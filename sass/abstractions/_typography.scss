@@ -42,10 +42,9 @@ $basefontpercent: $alpha-font-size/16 * 100;
   // use this for rems
   font-size: #{ms($fs)}px;
   font-size: ms($fs)/$alpha-font-size*1rem;
-  // font-size: ms($fs)/$alpha-font-size*1em;
-  line-height: #{($baseline-unit / ms($fs)) * $lh}em;
-  height: #{($baseline-unit / ms($fs)) * $lh}em;
-  // margin-bottom: #{($baseline-unit / ms($fs)) * $mb}em;
+  /* "/ 1.54 * 2.6" is fix for firefox input elements */
+  line-height: #{($baseline-unit / ms($fs)) * $lh / 1.54 * 2.6}em;
+  height: #{($baseline-unit / ms($fs)) * $lh / 1.54 * 2.6}em;
 
   @if $mb > 0 {
     margin-bottom: $mb * $alpha-font-size * 1px;
@@ -58,14 +57,14 @@ $basefontpercent: $alpha-font-size/16 * 100;
   }
 
   @if $pt > 0 {
-    // padding-top: #{($baseline-unit / ms($fs)) * $pt}em;
-    padding-top: $pt * $alpha-font-size * 1px;
-    padding-top: $pt * 1rem;
+    /* "* 0.45" is fix for firefox input elements */
+    padding-top: $pt * $alpha-font-size * 0.45 * 1px;
+    padding-top: $pt * 0.45 * 1rem;
   }
   @if $pb > 0 {
-    // padding-bottom: #{($baseline-unit / ms($fs)) * $pb}em;
-    padding-bottom: $pb * $alpha-font-size * 1px;
-    padding-bottom: $pb * 1rem;
+    /* "* 0.45" is fix for firefox input elements */
+    padding-bottom: $pb * $alpha-font-size * 0.45 * 1px;
+    padding-bottom: $pb * 0.45 * 1rem;
   }
 }
 
