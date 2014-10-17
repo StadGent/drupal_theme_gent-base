@@ -60,7 +60,7 @@
 </div>
 
 <header class="holder site__header">
-  <div class="mask ratio--header">
+  <div class="mask <?php print $is_front ? 'ratio--home' : 'ratio--header'; ?>">
     <?php if ($header_image): ?>
       <?php print $header_image; ?>
     <?php endif; ?>
