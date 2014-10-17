@@ -202,6 +202,14 @@
   box-sizing: border-box;
 }
 
+// @include border-content;
+
+@mixin border-content {
+  -webkit-box-sizing: border-content;
+  -moz-box-sizing: border-content;
+  box-sizing: border-content;
+}
+
 // Progressive svg backgrounds with png fallback.
 // Requires modernizr class .svg.
 // @include svg-bg("path/file", ".extension", $delta-ui-color, 0 50%, no-repeat);
