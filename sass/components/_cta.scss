@@ -48,3 +48,33 @@
     @include float-span(2);
   }
 }
+
+
+// Legacy support for existing content
+// We should migrate this after we have an input filter
+.article-content-action {
+  @extend .cta;
+  
+  @include add-grid(14);
+  @include add-gutter(0);
+}
+
+.article-content-action-document {
+  display:block;
+  
+  @extend .cta__inner;
+}
+.article-content-action-title {
+  @extend h3;
+  
+  display:inline;
+}
+
+.article-content-action .icon {
+  display:block;
+  float:right;
+  
+  @extend .cta__icon;
+  
+
+}

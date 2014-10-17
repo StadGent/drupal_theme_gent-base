@@ -67,6 +67,11 @@
   }
 }
 
+.region-content-bottom .island--beta:first-of-type {
+  padding-top:0;
+  margin-top:0;
+}
+
 .island--gamma {
   @include padding-tb(0, .7);
   color: $white-color;
@@ -453,3 +458,5 @@
     }
   }
 }
+
+

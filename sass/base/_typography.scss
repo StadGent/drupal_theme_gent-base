@@ -196,7 +196,7 @@ table {
 }
 
 .node,
-.revisioning-revisions-summary {
+#revisioning-revisions-summary {
   table {
     @include text-dimensions(-1, 1, 0, 0);
   }

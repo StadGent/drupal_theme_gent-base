@@ -5,7 +5,6 @@
 		// init, something like a constructor
 		init: function()
 		{
-			jsTheme.setLayout.init();
 			jsTheme.forms.init();
 			jsTheme.searchThemes.init();
 			jsTheme.equalColumns.init();
@@ -19,14 +18,6 @@
 		}
 	};
 
-	jsTheme.setLayout =
-	{
-		init: function()
-		{
-			$('.region-content-bottom .island').first().addClass('hN');
-		}
-	};
-	
 	jsTheme.forms =
 	{
 		init: function()
@@ -173,7 +164,7 @@
 					link = $(this).find('a');
 				}
 				if (link.length) {
-					window.location = link..attr('href');;
+					window.location = link.attr('href');;
 				}
 			});
 
