@@ -1,3 +1,13 @@
+// Visually hide the readspeaker icon until the header image comes in.
+@include mq($bp-tablet-s, 'max') {
+  .readspeaker {
+    position: absolute !important;
+    clip: rect(1px, 1px, 1px, 1px);
+    overflow: hidden;
+    height: 1px;
+  }
+}
+
 .readspeaker {
   @include padding-tb(0.5, 0.5);
   @include rem-padding-lr(1, 1);
