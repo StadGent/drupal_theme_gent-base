@@ -96,6 +96,10 @@ textarea {
   }
 }
 
+textarea {
+  height: auto;
+}
+
 select {
   @include border-box;
   @include input-dimensions(-2, 1, 0, .45, .45, 0);
