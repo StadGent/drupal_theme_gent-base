@@ -208,6 +208,9 @@ button.form-submit {
   @extend %btn;
   @include btn-m;
   @extend .btn--alpha;
+  @include mq($bp-tablet-s) {
+    @include btn-inlineblock;
+  }
 }
 
 .form-actions {
@@ -219,7 +222,6 @@ button.form-submit {
     }
     // Put buttons as inline blocks next to each other on larger screens.
     @include mq($bp-tablet-s) {
-      @include btn-inlineblock;
       @include rem-margin-lr(0, 1);
       margin-bottom: 0;
     }
