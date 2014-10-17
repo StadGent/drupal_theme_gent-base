@@ -42,9 +42,9 @@ $basefontpercent: $alpha-font-size/16 * 100;
   // use this for rems
   font-size: #{ms($fs)}px;
   font-size: ms($fs)/$alpha-font-size*1rem;
-  /* "/ 1.54 * 2.6" is fix for firefox input elements */
-  line-height: #{($baseline-unit / ms($fs)) * $lh / 1.54 * 2.6}em;
-  height: #{($baseline-unit / ms($fs)) * $lh / 1.54 * 2.6}em;
+  /* "/ 1.5 * 2.6" is fix for firefox input elements */
+  line-height: #{($baseline-unit / ms($fs)) * $lh / 1.65 * 2.6}em;
+  height: #{($baseline-unit / ms($fs)) * $lh / 1.65 * 2.6}em;
 
   @if $mb > 0 {
     margin-bottom: $mb * $alpha-font-size * 1px;
