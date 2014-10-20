@@ -19,6 +19,9 @@ regions[footer_top] = Top footer
 regions[footer] = Footer
 regions[footer_bottom] = Footer bottom
 
+; Modernizr
+scripts[] = libraries/modernizr/modernizr.custom.js
+
 ;scripts[] = libraries/matchmedia/matchmedia.polyfill.js
 
 ; Jquery matchHeight
