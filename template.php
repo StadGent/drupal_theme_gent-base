@@ -277,6 +277,7 @@ function gent_base_item_list($variables) {
   $type = $variables['type'];
   $attributes = $variables['attributes'];
   $hide_wrapper = !empty($variables['hide_wrapper']);
+  $output = '';
 
   // Only output the list container and title, if there are any list items.
   // Check to see whether the block title exists before adding a header.

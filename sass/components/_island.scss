@@ -46,8 +46,8 @@
 .island--beta {
   @include padding-tb(.7, 1.4);
 
-  * {
-    font-size: 95%;
+  a, p, li, span {
+    font-size: 0.9rem;
     line-height: 1.4em;
   }
 

@@ -1,8 +1,33 @@
-.field-label-inline {
+.field-label-inline .field-label {
   float:left; /*LTR*/
+}
+
+.field-label {
+  font-weight:bold;  
+}
+
+.label-inline {
+  float:left;
+  display:block;
+  font-weight:bold;
+}
+
+.regular .label-inline {
+  font-weight:normal;
+}
+
+.milli .label-inline {
+  font-weight:normal;
+}
+.label-above {
+  @include padding-tb(1, 0);
 }
 
 p.date {
   font-size: 80%;
   color: $beta-text-color;
+}
+
+.l-secondary .field-type-image img {
+  border-radius: $gamma-radius;
 }

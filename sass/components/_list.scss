@@ -11,10 +11,6 @@
   @extend %link-list;
 }
 
-.item-list ul {
-  @extend %link-list;
-}
-
 li.link-list__more {
   @extend %link-list__more;
 }
@@ -77,4 +73,9 @@ li.link-list__more {
   .svg & {
     background-image: url('#{$base-theme-path}/img/svg/instagram.svg');
   }
+}
+
+ul.no-padding li {
+  @extend .hN;
+  margin-bottom:0;
 }

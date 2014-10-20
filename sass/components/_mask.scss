@@ -11,6 +11,7 @@
   position: absolute;
   top: 0;
   width: 100%;
+  height:100%;
 }
 
 .mask a img {
@@ -54,4 +55,7 @@
 .ratio--footer {
   padding-top: 40%; // 9/16 * 100
   border-radius: $beta-radius;
+}
+.rounded {
+  border-radius: $gamma-radius;
 }

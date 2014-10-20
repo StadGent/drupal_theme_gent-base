@@ -2,7 +2,7 @@
 <div id="field-slideshow-wrapper" class="field-slideshow-wrapper">
   <?php if ($item_count > 0): ?>
     <?php $item = array_shift($items); ?>
-    <div class="l-full">
+    <div class="l-full <?php if (!$item['title']): ?>padding-bottom<?php endif;?>">
       <div class="mask ratio--big-thumb">
         <a rel="gallery-1" href="<?php print $item['image_full'];?>" class="swipebox" title="<?php echo $item['title'];?>">
          <img src="<?php print $item['image_medium'];?>" alt="<?php echo $item['alt'];?>"/>
