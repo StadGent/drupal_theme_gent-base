@@ -36,5 +36,16 @@ function gent_base_preprocess_html(&$variables) {
     'weight' => -1,
     'preprocess' => FALSE
   ));
+
+  // Merge classes array into attributes array.
+  if (!empty($variables['classes_array'])) {
+    if (!empty($variables['attributes_array']['class'])) {
+      $variables['attributes_array']['class'] = array_merge($variables['attributes_array']['class'], $variables['classes_array']);
+      $variables['attributes_array']['class'] = array_unique($variables['attributes_array']['class']);
+    }
+    else {
+      $variables['attributes_array']['class'] = $variables['classes_array'];
+    }
+  }
 }
 
