@@ -14,4 +14,13 @@ function gent_base_preprocess_page(&$variables) {
   if (empty($variables['tabs']['#primary']) && empty($variables['tabs']['#secondary'])) {
     $variables['tabs'] = NULL;
   }
+
+  // Header image.
+  $variables['header_image'] = NULL;
+  if ($fid = variable_get('default_headerimage_fid')) {
+    $file = file_load($fid);
+    if ($file) {
+      $variables['header_image'] = image_style_url('headerbanner', $file->uri);
+    }
+  }
 }
