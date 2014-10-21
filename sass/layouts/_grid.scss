@@ -64,7 +64,13 @@
 }
 
 .l-fourth {
+  @include mq($bp-tablet-s) {
+    @include float-span(12);
+  }
   @include mq($bp-tablet-m) {
+    @include float-span(8);
+  }
+  @include mq($bp-desktop-s) {
     @include float-span(6);
   }
 }
