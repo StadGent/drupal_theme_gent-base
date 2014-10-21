@@ -1,6 +1,6 @@
 .site__header {
   position: relative;
-  background-color: $gamma-text-color;
+  background-color: $beta-ui-color;
 
   img {
     display: none;
@@ -9,6 +9,69 @@
   @include mq($bp-tablet-s) {
     img {
       display: block;
+    }
+  }
+}
+
+.ratio--home,
+.ratio--header {
+  padding-top: 0;
+}
+
+.header__background {
+  width: 100%;
+  background-size: 100% auto;
+  background-position: left center;
+  background-repeat: no-repeat;
+
+  position:relative;
+  margin:0 auto;
+}
+
+/* Different header heights for all pages (except homepage). */
+.site__header {
+  @include mq($bp-tablet-s) {
+    height: 260px;
+    .header__background {
+      height: 260px;
+    }
+  }
+
+  @include mq($bp-tablet-m) {
+    height: 325px;
+    .header__background {
+      height: 325px;
+    }
+  }
+
+  @include mq($bp-tablet-l) {
+    height: 365px;
+    .header__background {
+      height: 365px;
+    }
+  }
+}
+
+/* Different header heights for homepage only. */
+.front .site__header {
+  @include mq($bp-tablet-s) {
+    height: 350px;
+    .header__background {
+      height: 350px;
+    }
+  }
+
+  @include mq($bp-tablet-m) {
+    height: 440px;
+    .header__background {
+      height: 440px;
+    }
+  }
+
+  @include mq($bp-tablet-l) {
+    height: 490px;
+    .header__background {
+      height: 490px;
     }
   }
 }
