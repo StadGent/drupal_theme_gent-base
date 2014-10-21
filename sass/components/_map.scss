@@ -1,0 +1,35 @@
+#openlayers-map-external-panel {
+  padding:0;
+  color: $alpha-ui-color;
+  @include text-dimensions(-1,0.7,0,.15,.2);
+  font-family: expresswayextrabold,Verdana,Arial,sans-serif;
+
+  background-color:$gamma-ui-color;
+  
+  a {
+    color: $alpha-ui-color;
+    transition: all .11s ease-in-out;
+    
+    &:hover {
+      color: $alpha-link-colorhover;
+    }
+    
+    &:visited {
+      color: $alpha-link-colorvisited;
+    }
+  }
+  
+  .ui-widget-header {
+    background-image:none;
+    background-color:$gamma-ui-color;
+    
+    .ui-state-default {
+      background-image:none;
+      background-color:darken($gamma-ui-color, 10);
+    }
+  }
+}
+#openlayers-map-search-address {
+  background-color:$gamma-ui-color;
+  border-radius: $beta-radius;
+}

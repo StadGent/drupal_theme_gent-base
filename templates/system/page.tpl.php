@@ -18,7 +18,7 @@
     <?php if ($top_menu_render_method == GENT_BASE_TOP_MENU_RENDER_METHOD_REGION): ?>
       <?php if ($page['top_menu']): ?>
         <div class="login-widget nav nav--login">
-          <?php render($page['top_menu']); ?>
+          <?php print render($page['top_menu']); ?>
         </div>
       <?php endif; ?>
     <?php elseif ($top_menu_render_method == GENT_BASE_TOP_MENU_RENDER_METHOD_USER_LINKS): ?>

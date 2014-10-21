@@ -79,8 +79,10 @@
 }
 
 .article-content-action-document {
+
   @include padding-tb(0, .5);
   display:inline-block;
+  
 }
 
 .article-content-action-title {
@@ -107,7 +109,22 @@
   position: relative;
   background-color: $alpha-ui-color;
   border-radius: $beta-radius;
+  
+  font-family: 'gent-icons';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
 
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.article-content-action .icon-document:before {
+  content: "\63";
 }
 
 .article-content-action-document-size {
