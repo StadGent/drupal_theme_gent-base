@@ -77,7 +77,7 @@
         </div>
      </div>
 
-      <?php if ($readspeaker): ?>
+      <?php if (!empty($readspeaker)): ?>
         <div class="readspeaker">
           <?php print render($readspeaker); ?>
         </div>
