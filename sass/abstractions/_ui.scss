@@ -170,6 +170,10 @@
 %alert {
   border-width: $border;
   border-style: solid;
+  border-radius: $alpha-radius; 
+  @include mq($bp-tablet-s) {
+    border-radius: $beta-radius;
+  }
   margin-bottom: #{$alpha-line-height}em;
   position: relative;
   padding: em($alpha-baseline-grid*2) em($alpha-baseline-grid*3);
@@ -192,6 +196,11 @@
   p {
     @include baseline-dimensions(0, 1, 1);
   }
+  
+  ul {
+    margin-top:0;
+    margin-bottom:0; 
+  }
 }
 
 @mixin alert {
@@ -211,33 +220,33 @@
 @mixin alert-error {
   @extend %alert;
   border-color: darken($error-color, 10);
-  background-color: $error-color;
-  @include text-color($error-color);
+  background-color: lighten($error-color, 30);
+  @include text-color(lighten($error-color, 30));
 
   a {
-    @include text-color($error-color);
+    @include text-color(lighten($error-color, 30));
   }
 }
 
 @mixin alert-success {
   @extend %alert;
   border-color: darken($success-color, 10);
-  background-color: $success-color;
-  @include text-color($success-color);
+  background-color: lighten($success-color, 40);
+  @include text-color(lighten($success-color, 40));
 
   a {
-    @include text-color($success-color);
+    @include text-color(lighten($success-color, 40));
   }
 }
 
 @mixin alert-notice {
   @extend %alert;
-  border-color: darken($notice-color, 20);
-  background-color: $notice-color;
-  @include text-color($notice-color);
+  border-color: darken($notice-color, 10);
+  background-color: lighten($notice-color, 30);
+  @include text-color(lighten($notice-color, 30));
 
   a {
-    @include text-color($notice-color);
+    @include text-color(lighten($notice-color, 30));
   }
 }
 
