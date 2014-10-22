@@ -8,8 +8,6 @@ $googleplus-color: #C63D2D;
   @extend %clearfix;
   @include padding-tb(0,1);
   @include margin-bottom(1);
-  
-  border-bottom: 1px solid $gamma-ui-color;
 }
 
 .share-links__title {

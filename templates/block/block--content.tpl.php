@@ -2,7 +2,9 @@
 
 <?php print render($title_prefix); ?>
 <?php if ($block->subject): ?>
-  <h3><?php print $block->subject ?></h3>
+  <header>
+    <h2 class="h1 hT"><?php print $block->subject ?></h2>
+  </header>
 <?php endif;?>
   <?php print render($title_suffix); ?>
 
