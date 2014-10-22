@@ -144,7 +144,7 @@
   border-radius: $gamma-radius;
 
   h3 {
-    @include text-dimensions(7, 1, 1, 0, 0);
+    @include text-dimensions(7, 1.5, 1, 0, 0); 
     font-family: $beta-font-family;
     color: $white-color
   }
