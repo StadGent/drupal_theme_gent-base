@@ -48,3 +48,7 @@
     @include alert-error;
   }
 }
+
+.inline-messages .messages {
+  @include text-dimensions(-2, .8, .3, .3, .3, .3);
+}
