@@ -22,6 +22,7 @@ html {
 }
 
 body {
+  position: relative;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizelegibility;
   color: $alpha-text-color;

@@ -36,7 +36,7 @@
   </div>
 </nav>
 
-<div class="brand <?php if ($tabs && $logged_in): ?>is-tabs-enabled<?php endif; ?>">
+<div class="brand">
   <div class="l-row padding--big">
     <div class="brand__logo">
       <a href="<?php print $front_page ?>">
