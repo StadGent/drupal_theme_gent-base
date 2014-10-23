@@ -26,10 +26,12 @@
     @include padding-tb(0, .6);
     position: relative;
 
-    a:before {
+    &:before {
+      //color: inherit;
+      color: $alpha-ui-color; // Should be inherited from the parent, but links will differ from this color.
       position: absolute;
       left: 0;
-      color: inherit;
+      
       top: .55em;
       font-size: .7em;
       line-height: 1;
