@@ -207,8 +207,7 @@ textarea {
 
 // Buttons
 
-input.form-submit,
-button.form-submit {
+.form-submit {
   @extend %btn;
   @include btn-m;
   @extend .btn--alpha;

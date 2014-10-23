@@ -27,3 +27,7 @@
 .clearfix {
   @extend %clearfix;
 }
+
+.noborder {
+  border:none;
+}

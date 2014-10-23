@@ -343,6 +343,20 @@ function gent_base_form_gent_newsletter_form_alter(&$form) {
 }
 
 /**
+ * Implement hook_form_FORM_ID_alter();
+ *
+ * Add base theme specific styling.
+ */
+function gent_base_form_gent_wijksites_select_home_form_alter(&$form, &$form_state) {
+  $form['wijksite']['#attributes']['class'][] = 'prefix--large';
+  $form['wijksite']['#title_display'] = 'invisible';
+
+  $form['submit']['#attributes']['class'] = array(
+    'btn', 'btn--medium', 'btn--epsilon', 'postfix--small'
+  );
+}
+
+/**
  * Implements theme_status_messages().
  *
  * @ingroup themeable
