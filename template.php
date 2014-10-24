@@ -88,12 +88,12 @@ function gent_base_menu_local_tasks(&$variables) {
 function gent_base_file_formatter_table($variables) {
   $rows = array();
   foreach ($variables['items'] as $delta => $item) {
-    $rows['items'][] = array(
+    $rows[] = array(
       theme('file_link', array('file' => (object) $item)),
     );
   }
-  $rows['attributes']['class'] = 'link-list';
-  return empty($rows) ? '' : theme('item_list', $rows);
+  //$rows['attributes']['class'] = 'link-list';
+  return empty($rows) ? '' : theme('item_list', array('items' => $rows, 'hide_wrapper' => TRUE, 'attributes' => array('class' => array('link-list'))));
 }
 
 /**
