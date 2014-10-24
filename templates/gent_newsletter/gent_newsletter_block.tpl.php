@@ -6,13 +6,13 @@
 <div class="l-fourth-alt island island--theta js-height">
 
   <?php if (isset($image)): ?>
-	<div class="island__top mask js-equal">
+	<div class="island__top mask js-height">
 		<?php print $image;?>
 	</div>
 	<?php endif; ?>
 
 	<?php if ($caption): ?>
-	<div class="island__bottom js-equal">
+	<div class="island__bottom js-height">
 		<h2 class="hN"><?php print $caption ?></h2>
 	</div>
 	<?php endif; ?>
