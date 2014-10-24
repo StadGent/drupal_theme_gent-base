@@ -93,6 +93,14 @@
   }
 }
 
+// Variant to l-fourth that immediately jumps to one column
+.l-fourth-to-single {
+  @include mq($bp-tablet-m) {
+    @include float-span(6);
+  } 
+}
+
+
 .l-column {
   @include mq($bp-phone-m) {
     @include float-span(12);
