@@ -79,10 +79,9 @@
 }
 
 .article-content-action-document {
-
   @include padding-tb(0, .5);
   display:inline-block;
-  
+  width:85%
 }
 
 .article-content-action-title {
@@ -92,6 +91,7 @@
   margin: 0;
   display:block;
   font-weight: bold;
+  width:85%
 }
 
 .article-content-action .icon {
@@ -129,4 +129,5 @@
 
 .article-content-action-document-size {
   @extend .filesize;
+  width:85%
 }
