@@ -2,16 +2,43 @@
 
 .pager {
 
+  span {
+    color: $beta-text-color;
+  }
+  
   a,
   span {
-    padding: 0 10px;
-    border: 1px solid $gamma-ui-color;
+    padding: 0.5em 1em;
+    border:1px solid $gamma-ui-color;
+
     margin-left: -1px;
     text-decoration: none;
+    @include text-dimensions(-2, 1);
+    font-weight:bold;
+    
+    @extend %rounded;
+    
+    color: $white-color;
+    background-color: $alpha-link-color;
+    
+    &:hover {
+      background-color: lighten($alpha-link-color, 5);
+    }
+  
+    &:focus,
+    &:active {
+      background-color: $alpha-link-color;
+    }
   }
 
   li {
     margin-left: 6px;
+  }
+  
+  li.pager-current a, li.pager-current span {
+    background-color: $gamma-ui-color;
+    border:1px solid $alpha-link-color;
+    color:$alpha-link-color;
   }
 
   li:first-child {
@@ -21,9 +48,7 @@
     }
   }
 
-  span {
-    color: $beta-text-color;
-  }
+
 
   @include pagination;
 }

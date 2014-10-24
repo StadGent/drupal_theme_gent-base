@@ -4,3 +4,20 @@
     margin-top: 1em;
   }
 }
+
+.view-grouping-header {
+  h2 {
+    @extend .h3;
+  }
+}
+
+h2.grouped {
+  color:$alpha-ui-color;
+}
+
+.block-views {
+  h2.grouped::first-of-type {
+    margin-top:0;
+    padding-top:0;
+  }
+}
