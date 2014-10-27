@@ -81,7 +81,6 @@
 .article-content-action-document {
   @include padding-tb(0, .5);
   display:inline-block;
-  width:85%
 }
 
 .article-content-action-title {
@@ -129,5 +128,4 @@
 
 .article-content-action-document-size {
   @extend .filesize;
-  width:85%
 }

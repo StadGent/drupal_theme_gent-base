@@ -392,3 +392,59 @@ function gent_base_status_messages($variables) {
   return $output;
 }
 
+
+/**
+ * Implements hook_theme().
+ */
+function gent_base_theme() {
+  return array(
+    'entity_property__sheet__gpdc__form_url' => array(
+      'base hook' => 'entity_property',
+      'file' => 'theme/entity-property--sheet--gpdc--form-url.theme.inc',
+    ),
+    'entity_property__sheet__gpdc__references' => array(
+      'base hook' => 'entity_property',
+      'file' => 'theme/entity-property--sheet--gpdc--references.theme.inc',
+    ),
+    'entity_property__sheet__gpdc__organisations' => array(
+      'base hook' => 'entity_property',
+      'file' => 'theme/entity-property--sheet--gpdc--organisations.theme.inc',
+    ),
+    /*'entity_property__sheet__gpdc__related' => array(
+     'base hook' => 'entity_property',
+      'file' => 'theme/entity-property--sheet--gpdc--related.theme.inc',
+    ),*/
+    'entity_property__sheet__gpdc__attachments' => array(
+      'base hook' => 'entity_property',
+      'file' => 'theme/entity-property--sheet--gpdc--attachments.theme.inc',
+    ),
+    'entity_property__sheet__gpdc__forms' => array(
+      'base hook' => 'entity_property',
+      'file' => 'theme/entity-property--sheet--gpdc--forms.theme.inc',
+    ),
+  );
+}
+
+/**
+ * Overrides theme_entity_property().
+ */
+function gent_base_entity_property(&$variables) {
+
+  $output = '';
+
+  // Render the label, if it's not hidden.
+  if (!$variables['label_hidden']) {
+    $output .= '<h2' . $variables['title_attributes'] . '>' . $variables['label'] . '</h2>';
+  }
+
+  // Render the content.
+  $content_suffix = '';
+  if (!$variables['label_hidden'] || $variables['content_attributes']) {
+    $output .= '<div' . $variables['content_attributes'] . '>';
+    $content_suffix = '</div>';
+  }
+  $output .= $variables['content'] . $content_suffix;
+
+  // Render the top-level DIV.
+  return '<div' . $variables['attributes'] . '>' . $output . '</div>';
+}

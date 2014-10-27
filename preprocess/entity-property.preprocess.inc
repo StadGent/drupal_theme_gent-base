@@ -7,7 +7,8 @@
 /**
  * Overrides hook_preprocesss_HOOK().
  */
-function gent_preprocess_entity_property(&$variables) {
+function gent_base_preprocess_entity_property(&$variables) {
+
   if (module_exists('sheet') && sheet_is_sheet_property($variables, 'gpdc')) {
     $element = $variables['elements'];
     $property = $element['#entity_wrapped']->{$element['#property_name']};
@@ -24,8 +25,8 @@ function gent_preprocess_entity_property(&$variables) {
 
         foreach ($property->value() as $reference) {
           $content = '<span class="icon icon-newtab"></span>' . "\n";
-          $content .= '<span class="article-content-action-title">' . t('Visit') . '</span>' . "\n";
-          $content .= '<span class="article-content-action-document">' . check_plain($reference['title']) . '</span>' . "\n";
+          $content .= '<span class="article-content-action-title">' . $reference['title'] . '</span>' . "\n";
+          $content .= '<span class="article-content-action-document">' . check_plain(_filter_url_trim($reference['url'], 50)) . '</span>' . "\n";
 
           $variables['content'][] = l($content, $reference['url'], array(
             'attributes' => array(
@@ -60,25 +61,45 @@ function gent_preprocess_entity_property(&$variables) {
         $variables['content'] = '';
         if (!empty($result['node'])) {
           $nodes = node_load_multiple(array_keys($result['node']));
-          $nodes = node_view_multiple($nodes);
-          $variables['content'] = render($nodes);
+          $rendered_nodes = array();
+          node_view_multiple($nodes);
+          foreach ($nodes as $node) {
+            $node_view = node_view($node, 'teaser');
+            $rendered_nodes[] = render($node_view);
+          }
+          $variables['content'] = theme('item_list', array('items' => $rendered_nodes, 'hide_wrapper' => TRUE, 'attributes' => array('class' => array('link-list'))));
         }
+        $variables['attributes_array']['class'] = array('island island--alpha');
 
-        $variables['attributes_array']['class'] = array('article-footer');
+        $variables['label'] = t('Contacts');
         break;
 
       case 'attachments':
         $variables['items'] = array_map('get_object_vars', $property->value());
-        $variables['attributes_array']['class'] = array('article-footer');
+        $variables['attributes_array']['class'] = array('island island--alpha');
         break;
 
       case 'forms':
         $variables['content'] = array();
 
         foreach ($property->value() as $file) {
+          switch ($file->filemime) {
+            case 'application/pdf':
+              $title = t('Complete the requisition form (PDF)');
+              break;
+
+            case 'application/msword':
+              $title = t('Complete the requisition form (Word)');
+              break;
+
+            default:
+              $title = t('Complete the requisition form');
+              break;
+          }
+
           $content = '<span class="icon icon-form_fill"></span>' . "\n";
-          $content .= '<span class="article-content-action-title">' . t('Complete the requisition form') . '</span>' . "\n";
-          $content .= '<span class="article-content-action-document">' . t('Requisition form @name', array('@name' => $file->filename)) . '</span> ';
+          $content .= '<span class="article-content-action-title">' . $title . '</span>' . "\n";
+          $content .= '<span class="article-content-action-document">' . check_plain($file->filename) . '</span> ';
           $content .= '<span class="small article-content-action-document-size">' . format_size($file->filesize) . '</span>' . "\n";
 
           $variables['content'][] = l($content, file_create_url($file->uri), array(

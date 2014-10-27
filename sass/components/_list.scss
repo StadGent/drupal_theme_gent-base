@@ -19,9 +19,10 @@ li.link-list__more {
   @include padding-tb(.6, 0);
   
   ul {
-    @extend %link-list;
+    @extend %no-bullet-list;
     li {
       @extend %link-list__more;
+      @include px-padding-lr(1.5, 0);
     } 
   }
 }
