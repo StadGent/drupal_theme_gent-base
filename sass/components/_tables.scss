@@ -6,7 +6,7 @@ table {
   font-family: $alpha-font-family;
   border-spacing: 0;
   border-collapse: collapse;
-  @include text-dimensions(14, 1, 2);
+  @include text-dimensions(1, 1, 2);
 }
 
 tr {
