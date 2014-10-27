@@ -5,6 +5,7 @@
 		// init, something like a constructor
 		init: function()
 		{
+			jsTheme.lib.init();
 			jsTheme.forms.init();
 			jsTheme.searchThemes.init();
 			jsTheme.equalColumns.init();
@@ -13,11 +14,33 @@
 			//jsTheme.sportLocationMap.init(); // Move me to subtheme?
 			jsTheme.shoppingCart.init();
 			//jsTheme.blockLinks.init();
-			$('.js-height').matchHeight();
-			$('.js-equal').matchHeight(false);
+
 		}
 	};
 
+
+	
+	jsTheme.lib =
+	{
+		init: function()
+		{
+			$('.js-height').matchHeight();
+			$('.js-equal').matchHeight(false);
+			
+			var $container = $('.multi-column-items').masonry({
+			  itemSelector: 'article',
+			  columnWidth: '.l-third',
+			  isAnimated: true,
+			  gutter: '.gutter'
+			});
+			$container.imagesLoaded( function() {
+				$container.masonry();
+			});
+
+		}
+
+	};
+	
 	jsTheme.forms =
 	{
 		init: function()

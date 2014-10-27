@@ -26,7 +26,9 @@ scripts[] = libraries/modernizr/modernizr.custom.js
 
 ; Jquery matchHeight
 scripts[] = libraries/matchheight/jquery.matchHeight-min.js
-scripts[] = libraries/salvattore/salvattore.js
+;scripts[] = libraries/salvattore/salvattore.js
+scripts[] = libraries/masonry/masonry.pkgd.min.js
+scripts[] = libraries/masonry/imagesloaded.pkgd.min.js
 
 ; Our theme js
 scripts[] = js/theme.js

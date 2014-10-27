@@ -13,14 +13,11 @@
 			<?php if ($settings['address_location']) : ?><span itemprop="addressLocality"><?php print check_plain($settings['address_location']) ?></span><?php endif; ?>
 		</a>
 	</li>
-	<?php if ($settings['terms_page']): ?>
-	<li class="milli list__divider">
-		<?php print l($settings['terms_page']['entity_label'], $settings['terms_page']['path']); ?>
-	</li>
-	<?php endif; ?>
-	<?php if ($settings['disclaimer_page']): ?>
-	<li class="milli">
-		<?php print l($settings['disclaimer_page']['entity_label'], $settings['disclaimer_page']['path']); ?>
-	</li>
-	<?php endif; ?>
+
+	<?php foreach ($settings['pages'] as $i => $page): ?>
+  <li class="milli <?php if ($i == 0): ?>list__divider<?php endif;  ?>">
+  <?php print l($page['entity_label'], $page['path']); ?>
+  </li>
+  <?php endforeach; ?>
+
 </ul>
