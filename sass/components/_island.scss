@@ -1,5 +1,9 @@
 .island {
   @include margin-tb(1, 1);
+  
+  &.island--no-border {
+    border:0;
+  }
 }
 
 .island--alpha {
