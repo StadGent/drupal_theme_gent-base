@@ -14,6 +14,7 @@ regions[site_name] = Site name
 regions[navigation] = Navigation
 regions[content_top] = Top content
 regions[content] = Content
+regions[sidebar] = Sidebar
 regions[content_bottom] = Bottom content
 regions[footer_top] = Top footer
 regions[footer] = Footer

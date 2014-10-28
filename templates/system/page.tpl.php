@@ -128,6 +128,8 @@
     <?php print render($page['content']); ?>
     <!-- RSPEAK_STOP -->
 
+    <?php print render($page['sidebar']); ?>
+
     <?php print $feed_icons; ?>
   </div>
 </section>
