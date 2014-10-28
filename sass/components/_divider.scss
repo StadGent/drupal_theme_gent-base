@@ -9,3 +9,11 @@
 .border-bottom {
   border-bottom: 1px solid desaturate(darken($gamma-ui-color, 10), 20);
 }
+
+.no-border-top {
+  border-top:none;
+}
+
+.no-border-bottom {
+  border-bottom:none;
+}

@@ -7,20 +7,55 @@
 }
 
 .label-inline {
-  float:left;
-  display:block;
-  font-weight:bold;
+  float:left;  
 }
 
+// General wrapper for fields with an inline label. 
+// Uses matcheight to give label and content the same height
+.inline-label-wrapper {
+  @include clearfix();
+  
+  .label-inline {
+    padding:0;
+    font-weight:bold;
+    @include float-span(24);
+    
+    // Default width, override per case when not enough
+    @include mq($bp-tablet-m) {
+      @include float-span(6);
+    }
+  }
+
+  // Give a width to the field items
+  .field-items {
+    @include float-span(24);
+    @include mq($bp-tablet-m) {
+      @include float-span(18);
+    }
+    list-style:none;
+    
+    margin:0;
+    padding:0;
+  }
+  
+  ul {
+    list-style:none;
+  }
+}
+
+.label-above {
+  @include padding-tb(1, 0);
+}
+
+// Reset some inline labels to not have a fixed width
 .regular .label-inline {
   font-weight:normal;
 }
 
+.small .label-inline,
 .milli .label-inline {
   font-weight:normal;
-}
-.label-above {
-  @include padding-tb(1, 0);
+  width:auto;
 }
 
 p.date {
@@ -30,4 +65,10 @@ p.date {
 
 .l-secondary .field-type-image img {
   border-radius: $gamma-radius;
+}
+
+.island--kappa {
+  .address-line2 {
+    @include margin-tb(0, 1);
+  }
 }

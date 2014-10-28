@@ -460,4 +460,28 @@
   }
 }
 
+.island--kappa {
+  
+  border-top: 1px solid desaturate(darken($gamma-ui-color, 10), 20);
+  border-bottom: 1px solid desaturate(darken($gamma-ui-color, 10), 20);
+  
+  @include padding-tb(1, 2);
+  @include margin-tb(2, 0);
+  
+  h2, h3 {
+    margin:0;
+    padding:0;
+    
+    @include margin-tb(0, .5);
+    
+    a {
+      text-decoration:none;
+    }
+  }
+
+  i {
+    @include px-padding-lr(0, .7);
+    color: $alpha-ui-color;
+  }
+}
 
