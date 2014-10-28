@@ -23,4 +23,10 @@ function gent_base_preprocess_page(&$variables) {
       $variables['header_image'] = image_style_url('headerbanner', $file->uri);
     }
   }
+
+  // Add classes to content / sidebar if sidebar is available.
+  if (!empty($variables['page']['sidebar'])) {
+    $variables['page']['content']['#sidebar'] = TRUE;
+    $variables['page']['sidebar']['#sidebar'] = TRUE;
+  }
 }

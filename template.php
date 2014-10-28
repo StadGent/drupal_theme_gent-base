@@ -14,6 +14,7 @@ include_once 'preprocess/field.preprocess.inc';
 include_once 'preprocess/html.preprocess.inc';
 include_once 'preprocess/page.preprocess.inc';
 include_once 'preprocess/views.preprocess.inc';
+include_once 'preprocess/region.preprocess.inc';
 include_once 'preprocess/entity-property.preprocess.inc';
 
 /**
