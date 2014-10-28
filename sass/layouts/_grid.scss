@@ -55,6 +55,9 @@
 }
 
 .l-third {
+  // Should not be necessary, but somethimes our container loses it's default width
+  @include float-span(24);
+  
   @include mq($bp-tablet-s) {
     @include float-span(12);
   }
