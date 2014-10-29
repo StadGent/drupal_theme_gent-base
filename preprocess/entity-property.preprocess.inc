@@ -69,14 +69,14 @@ function gent_base_preprocess_entity_property(&$variables) {
           }
           $variables['content'] = theme('item_list', array('items' => $rendered_nodes, 'hide_wrapper' => TRUE, 'attributes' => array('class' => array('link-list'))));
         }
-        $variables['attributes_array']['class'] = array('island island--alpha');
+        $variables['attributes_array']['class'] = array('island island--kappa');
 
         $variables['label'] = t('Contacts');
         break;
 
       case 'attachments':
         $variables['items'] = array_map('get_object_vars', $property->value());
-        $variables['attributes_array']['class'] = array('island island--alpha');
+        $variables['attributes_array']['class'] = array('island island--kappa');
         break;
 
       case 'forms':

@@ -464,6 +464,7 @@
   
   border-top: 1px solid desaturate(darken($gamma-ui-color, 10), 20);
   border-bottom: 1px solid desaturate(darken($gamma-ui-color, 10), 20);
+  margin-bottom:0;
   
   @include padding-tb(1, 2);
   @include margin-tb(2, 0);
@@ -480,8 +481,8 @@
   }
 
   i {
-    @include px-padding-lr(0, .7);
-    color: $alpha-ui-color;
+    @include px-padding-lr(0, .5);
+    color: $delta-ui-color;
   }
 }
 
