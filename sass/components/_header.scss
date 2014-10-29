@@ -172,8 +172,8 @@
   @include padding-tb(0, 1);
   float: left;
   width: 100%;
-
-  .site__header__image__title & h1 {
+  
+  h1 {
     @include padding-tb(0, 1);
     text-align: center;
     margin-bottom: 0;
