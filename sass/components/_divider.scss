@@ -10,10 +10,15 @@
   border-bottom: 1px solid desaturate(darken($gamma-ui-color, 10), 20);
 }
 
+// State overrides
+.no-border {
+  border:0 !important;
+}
+  
 .no-border-top {
-  border-top:none;
+  border-top:0 !important;
 }
 
 .no-border-bottom {
-  border-bottom:none;
+  border-bottom:0 !important;
 }
