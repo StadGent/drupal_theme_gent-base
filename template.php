@@ -136,7 +136,7 @@ function gent_base_file_link($variables) {
  * Implements theme_breadcrumb().
  */
 function gent_base_breadcrumb($variables) {
-  /*
+
   $breadcrumb = $variables['breadcrumb'];
 
   // Provide a navigational heading to give context for breadcrumb links to
@@ -149,7 +149,6 @@ function gent_base_breadcrumb($variables) {
     return $output;
   }
   return FALSE;
-  */
 }
 
 /**
@@ -457,6 +456,5 @@ function gent_base_use_large_header() {
   if (drupal_is_front_page()) {
     return TRUE;
   }
-  $header = drupal_get_http_header('Status');
-  return ($header == '404 Not Found' || $header == '403 Forbidden');
+  return FALSE;
 }

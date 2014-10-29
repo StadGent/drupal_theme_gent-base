@@ -29,4 +29,11 @@ function gent_base_preprocess_page(&$variables) {
     $variables['page']['content']['#sidebar'] = TRUE;
     $variables['page']['sidebar']['#sidebar'] = TRUE;
   }
+
+  // Add a breadcrumb on the error pages
+  $header = drupal_get_http_header('Status');
+  if ($header == '404 Not Found' || $header == '403 Forbidden') {
+    $front = l(t('Home'), '<front>');
+    drupal_set_breadcrumb(array($front));
+  }
 }
