@@ -11,19 +11,19 @@
   <?php print render($title_suffix['contextual_links']); ?>
   <?php endif; ?>
 
-  <<?php print $header_wrapper ?>>
+  <<?php print $header_wrapper ?> class="header l-full">
     <?php print $header; ?>
   </<?php print $header_wrapper ?>>
 
-  <<?php print $left_wrapper ?> class="l-primary">
+  <<?php print $left_wrapper ?> class="column l-primary">
     <?php print $left; ?>
   </<?php print $left_wrapper ?>>
 
-	<<?php print $right_wrapper ?> class="l-secondary">
+	<<?php print $right_wrapper ?> class="column l-secondary">
     <?php print $right; ?>
   </<?php print $right_wrapper ?>>
 
-  <<?php print $footer_wrapper ?>>
+  <<?php print $footer_wrapper ?> class="footer l-full">
     <?php print $footer; ?>
   </<?php print $footer_wrapper ?>>
 

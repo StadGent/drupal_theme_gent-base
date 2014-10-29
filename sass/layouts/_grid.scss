@@ -30,6 +30,11 @@
   @include grid-span(24);
 }
 
+// Clear full width grid spans in case we use it in the same isolation grid as others
+.l-full {
+  clear:both; 
+}
+
 .l-primary {
   @include mq($bp-tablet-s) {
     @include grid-span(14);
