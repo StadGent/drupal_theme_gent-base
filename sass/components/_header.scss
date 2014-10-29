@@ -53,7 +53,7 @@
 }
 
 /* Different header heights for homepage only. */
-.front .site__header {
+.large-header .site__header {
   @include mq($bp-tablet-s) {
     height: 350px;
     .header__background {
@@ -167,7 +167,7 @@
 }
 
 // Search widget home
-.search-widget-home {
+.large-header .search-widget {
   @extend %clearfix;
   @include padding-tb(0, 1);
   float: left;

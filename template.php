@@ -449,3 +449,14 @@ function gent_base_entity_property(&$variables) {
   // Render the top-level DIV.
   return '<div' . $variables['attributes'] . '>' . $output . '</div>';
 }
+
+/**
+ * Same as drupal_is_front_page, but added 404 & 403 pages.
+ */
+function gent_base_use_large_header() {
+  if (drupal_is_front_page()) {
+    return TRUE;
+  }
+  $header = drupal_get_http_header('Status');
+  return ($header == '404 Not Found' || $header == '403 Forbidden');
+}

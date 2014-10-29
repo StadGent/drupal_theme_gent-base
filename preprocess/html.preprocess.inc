@@ -37,6 +37,11 @@ function gent_base_preprocess_html(&$variables) {
     'preprocess' => FALSE
   ));
 
+  // Set the large banner layout on some pages.
+  if (gent_base_use_large_header()) {
+    $variables['classes_array'][] = 'large-header';
+  }
+
   // Merge classes array into attributes array.
   if (!empty($variables['classes_array'])) {
     if (!empty($variables['attributes_array']['class'])) {
@@ -48,4 +53,3 @@ function gent_base_preprocess_html(&$variables) {
     }
   }
 }
-
