@@ -31,9 +31,19 @@
 }
 
 // Clear full width grid spans in case we use it in the same isolation grid as others
-.l-full {
-  clear:both; 
+.l-header, .l-footer {
+  @extend .l-full;
+  clear:both;
 }
+
+.l-header {
+  @extend .padding-bottom--big;
+}
+
+.l-footer {
+  @extend .padding-top--big;
+}
+
 
 .l-primary {
   @include mq($bp-tablet-s) {
