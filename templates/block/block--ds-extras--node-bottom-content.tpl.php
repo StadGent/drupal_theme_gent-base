@@ -4,6 +4,8 @@
  * in the bottom content region without a title.
  */
 ?>
+<div class="l-primary">
   <?php print $content ?>
+</div>
 
 
