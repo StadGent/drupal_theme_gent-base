@@ -109,11 +109,15 @@
     <?php if ($title): ?>
     <header <?php if ($is_front): ?>class="l-full"<?php endif; ?>>
       <!-- RSPEAK_START -->
+      <?php print render($title_prefix); ?>
+
       <?php if ($is_front): ?>
-      <h2 class="h1 hT"><?php print $title; ?></h2>
+        <h2 class="h1 hT"><?php print $title; ?></h2>
       <?php else: ?>
-      <h1><?php print $title; ?></h1>
+        <h1><?php print $title; ?></h1>
       <?php endif; ?>
+
+      <?php print render($title_suffix); ?>
       <!-- RSPEAK_STOP -->
     </header>
     <?php endif; ?>
