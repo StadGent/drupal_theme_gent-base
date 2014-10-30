@@ -286,6 +286,11 @@
     padding-bottom: 0;
   }
 
+  i {
+    @include px-padding-lr(0, .5);
+    color: $delta-ui-color;
+  }
+  
   @include mq($bp-tablet-s) {
     @include px-padding-lr(0, 2);
     @include padding-tb(0, .5);

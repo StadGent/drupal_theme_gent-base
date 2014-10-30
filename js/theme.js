@@ -168,11 +168,11 @@
 
   // Register, for backwards compatibilty with Drupal's default jQuery version,
   // $.on as alias of $.live.
-  if (!$.on) {
-    jQuery.fn.extend({
-      on: jQuery.fn.live
-    });
-  }
+  //if (!$.on) {
+  //  jQuery.fn.extend({
+  //    on: jQuery.fn.live
+  //  });
+  //}
 
   // Initialize the theme.
   $(jsTheme.init);
