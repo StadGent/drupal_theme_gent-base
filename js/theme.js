@@ -16,12 +16,12 @@
 
   jsTheme.lib = {
     init: function() {
-      if ($.matchHeight) {
+      if ($.fn.matchHeight != 'undefined') {
         $('.js-height').matchHeight();
         $('.js-equal').matchHeight(false);
       }
 
-      if ($.masonry) {
+      if ($.fn.masonry != 'undefined') {
         var $container = $('.multi-column-items').masonry({
           itemSelector: 'article',
           columnWidth: '.l-third',
@@ -168,11 +168,11 @@
 
   // Register, for backwards compatibilty with Drupal's default jQuery version,
   // $.on as alias of $.live.
-  //if (!$.on) {
-  //  jQuery.fn.extend({
-  //    on: jQuery.fn.live
-  //  });
-  //}
+  if ($.fn.on == 'undefined') {
+    jQuery.fn.extend({
+      on: jQuery.fn.live
+    });
+  }
 
   // Initialize the theme.
   $(jsTheme.init);
