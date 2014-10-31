@@ -138,7 +138,7 @@
 
 .island--delta {
   @include px-padding-lr(2, 2);
-  @include padding-tb(.9, .7);
+  @include padding-tb(1, .8);
   color: $white-color;
   background-color: $alpha-ui-color;
   border-radius: $gamma-radius;
@@ -163,6 +163,7 @@
   ul {
     font-size: 95%;
     line-height: 1.4em;
+    margin:0;
   }
 
   li {
@@ -172,6 +173,12 @@
   i {
     @include px-padding-lr(0, .7);
     color: inherit;
+    
+    &.big {
+      @include px-padding-lr(0, 1.5);
+      float:left;
+      @include text-dimensions(10, 1.5, 0, 0, 0); 
+    }
   }
 
   a.btn--delta {
@@ -184,6 +191,19 @@
     &:hover,
     &:focus {
       color: $alpha-ui-color;
+    }
+  }
+  
+  .l-half {  
+    @include px-padding-lr(1, 1);
+    @include padding-tb(.5, .5);
+    
+    @include mq($bp-tablet-m) {
+      @include padding-tb(.2, .2);
+      
+      &.first {
+        border-right:1px solid $white-color;
+      }
     }
   }
 }
@@ -490,6 +510,6 @@
   }
 }
 
-.l-primary .island--kappa:first-child  {
+.l-primary .island:first-child  {
   margin-top:0;
 }

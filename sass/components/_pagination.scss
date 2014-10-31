@@ -8,26 +8,28 @@
   
   a,
   span {
-    padding: 0.5em 1em;
-    border:1px solid $gamma-ui-color;
+    @include px-padding-lr(1,1);
+    @include padding-tb(.5, .5);
+  
+    border:1px solid $white-color;
 
     margin-left: -1px;
     text-decoration: none;
     @include text-dimensions(-2, 1);
     font-weight:bold;
     
-    @extend %rounded;
+    @extend %rounded-1;
     
-    color: $white-color;
-    background-color: $alpha-link-color;
+    color: $alpha-link-color;
+    background-color: transparent;
     
     &:hover {
-      background-color: lighten($alpha-link-color, 5);
+      background-color: $gamma-ui-color;
     }
   
     &:focus,
     &:active {
-      background-color: $alpha-link-color;
+      background-color: $gamma-ui-color;
     }
   }
 
@@ -36,9 +38,9 @@
   }
   
   li.pager-current a, li.pager-current span {
-    background-color: $gamma-ui-color;
-    border:1px solid $alpha-link-color;
-    color:$alpha-link-color;
+    background-color: $delta-ui-color;
+    border:1px solid $delta-ui-color;
+    color:$white-color;
   }
 
   li:first-child {

@@ -3,7 +3,7 @@ function ds_gent_2col_stacked() {
   return array(
     'label' => t('Gent 2 columns, stacked'),
     'regions' => array(
-	  'header' => t('Header'),
+  	  'header' => t('Header'),
       'left' => t('Left'),
       'right' => t('Right'),
       'footer' => t('Footer'),

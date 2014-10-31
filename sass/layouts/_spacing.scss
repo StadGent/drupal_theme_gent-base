@@ -42,7 +42,6 @@
   }
 }
 
-
 .padding-bottom--big {
   @include padding-tb(0, 1);
 
@@ -50,6 +49,7 @@
     @include padding-tb(0, 1.5);
   }
 }
+
 
 // Reset classes
 .hN.hN {
