@@ -5,7 +5,7 @@
  */
 
 /**
- * Implements hook_preprocess_block().
+ * Implements hook_preprocess_field().
  */
 function gent_base_preprocess_field(&$variables) {
   if (module_exists('sheet') && sheet_is_sheet_property($variables, 'gpdc')) {

@@ -176,8 +176,13 @@
     
     &.big {
       @include px-padding-lr(0, 1.5);
+      @include padding-tb(0, .3);
       float:left;
       @include text-dimensions(10, 1.5, 0, 0, 0); 
+      
+      height:100%;
+      max-height:100%;
+      
     }
   }
 
@@ -363,7 +368,22 @@
     font-size: 80%;
     color: $beta-text-color;
   }
+  
+  .event {
+    display:inline-block;
+    background-color:$alpha-ui-color;
+    color:$white-color;
+    border-radius: $radius;
+    @include px-padding-lr(.5, .5);
+    @include padding-tb(.2, .2);
+    @include margin-tb(.5, .5);
 
+    span.data {
+      display:inline-block;
+      @include px-padding-lr(.8, 1);
+    }
+  }
+  
   &:hover,
   &:focus {
     h3 {
