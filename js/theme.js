@@ -3,6 +3,7 @@
   var jsTheme = {
     init: function() {
       jsTheme.lib.init();
+      jsTheme.sticky.init();
       jsTheme.forms.init();
       jsTheme.searchThemes.init();
       jsTheme.equalColumns.init();
@@ -16,12 +17,12 @@
 
   jsTheme.lib = {
     init: function() {
-      if ($.fn.matchHeight != 'undefined') {
+      if (typeof $.fn.matchHeight != 'undefined') {
         $('.js-height').matchHeight();
         $('.js-equal').matchHeight(false);
       }
 
-      if ($.fn.masonry != 'undefined') {
+      if (typeof $.fn.masonry != 'undefined') {
         var $container = $('.multi-column-items').masonry({
           itemSelector: 'article',
           columnWidth: '.l-third',
@@ -34,6 +35,79 @@
       }
     }
   };
+
+  jsTheme.sticky = {
+    init: function() {
+      var selector = 'body > .sticky, body > #admin-menu';
+
+      var callback = function() {
+        var elements = $(selector);
+        var wrapper = $('#sticky-wrapper');
+        var spacer = $('#sticky-spacer');
+        var height = 0;
+
+        if (elements.length) {
+          // Add the wrapper and spacer if missing.
+          if (!wrapper.length) {
+            $('body')
+              .prepend(
+                wrapper = $('<div>')
+                  .attr('id', 'sticky-wrapper')
+                  .css({
+                    width: '100%',
+                    position: 'fixed',
+                    top: '0px',
+                    left: '0px',
+                    'z-index': 999
+                  })
+              )
+              .prepend(
+                spacer = $('<div>')
+                  .attr('id', 'sticky-spacer')
+              );
+          }
+
+          // Move the new elements.
+          wrapper.append(
+            elements
+              .clone()
+              .css('position', 'static')
+          );
+          elements.remove();
+
+          // Resort the content.
+          wrapper.append(
+            wrapper.children().sort(function(a, b) {
+              a = a.className.match(/sticky-(\d+)/) || [0];
+              a = parseInt(a[a.length - 1]);
+
+              b = b.className.match(/sticky-(\d+)/) || [0];
+              b = parseInt(b[b.length - 1]);
+
+              return a - b;
+            })
+          );
+        }
+
+        if (!wrapper.children().length) {
+          // No wrapper children left, remove our divs.
+          wrapper.remove();
+          spacer.remove();
+        }
+        else {
+          // Calculate and set the height.
+          wrapper.children().each(function() {
+            height += $(this).outerHeight();
+          });
+
+          spacer.css('height', height + 'px');
+        }
+      };
+
+      $(selector + ', #sticky-wrapper > *').livequery(callback, callback);
+      callback();
+    }
+  }
 
   jsTheme.forms = {
     init: function() {
@@ -168,7 +242,7 @@
 
   // Register, for backwards compatibilty with Drupal's default jQuery version,
   // $.on as alias of $.live.
-  if ($.fn.on == 'undefined') {
+  if (typeof $.fn.on == 'undefined') {
     jQuery.fn.extend({
       on: jQuery.fn.live
     });

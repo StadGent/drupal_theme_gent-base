@@ -1,37 +1,31 @@
 .tabs--top {
   @extend %clearfix;
 
-  position: fixed; 
-  top: 36px;
-  height:40px;
   width: 100%;
-  overflow:hidden;
+  left: 0px;
+  z-index: 998;
   background-color: $alpha-ui-color;
-  z-index: 998; 
-  
-  li > a { 
+
+  li > a {
     color: $white-color;
     @include text-dimensions(-2, 0);
-    text-decoration:none;
+    text-decoration: none;
   }
-  
+
   li:first-child {
-    @include px-padding-lr(3.4,0);
-    border:0;
+    @include px-padding-lr(3.4, 0);
+    border: 0;
   }
-  
+
   li {
-    @include px-padding-lr(1.5,0);
-    @include padding-tb(.4,.4);
-    float:left;
+    @include px-padding-lr(1.5, 0);
+    @include padding-tb(.4, .4);
+    float: left;
   }
-  
+
   ul {
-    display:block;
+    margin-bottom: 0em;
+    display: block;
     list-style: none;
   }
-}
-
-.is-tabs-enabled {
-  margin-top:76px;
 }

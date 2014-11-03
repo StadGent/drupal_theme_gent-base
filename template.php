@@ -16,6 +16,7 @@ include_once 'preprocess/page.preprocess.inc';
 include_once 'preprocess/views.preprocess.inc';
 include_once 'preprocess/region.preprocess.inc';
 include_once 'preprocess/entity-property.preprocess.inc';
+include_once 'preprocess/gent-auth-bar.preprocess.inc';
 
 /**
  * Implements hook_css_alter().
@@ -64,7 +65,7 @@ function gent_base_menu_local_tasks(&$variables) {
     if (!isset($variables['primary']['#prefix'])) {
       $variables['primary']['#prefix'] = '';
     }
-    $variables['primary']['#prefix'] .= '<ul class="tabs primary tabs--primary links--inline">';
+    $variables['primary']['#prefix'] .= '<ul class="tabs primary tabs--primary links--inline clearfix">';
     $variables['primary']['#suffix'] = '</ul>';
     $output .= drupal_render($variables['primary']);
   }
@@ -72,13 +73,12 @@ function gent_base_menu_local_tasks(&$variables) {
     if (!isset($variables['secondary']['#prefix'])) {
       $variables['secondary']['#prefix'] = '';
     }
-    $variables['secondary']['#prefix'] .= '<ul class="tabs secondary tabs--secondary links--inline">';
+    $variables['secondary']['#prefix'] .= '<ul class="tabs secondary tabs--secondary links--inline clearfix">';
     $variables['secondary']['#suffix'] = '</ul>';
     $output .= drupal_render($variables['secondary']);
   }
   return $output;
 }
-
 
 /**
  * Implements theme_file_formatter_table().
@@ -391,7 +391,6 @@ function gent_base_status_messages($variables) {
   }
   return $output;
 }
-
 
 /**
  * Implements hook_theme().

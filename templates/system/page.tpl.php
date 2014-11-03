@@ -1,5 +1,5 @@
 <?php if ($tabs && $logged_in): ?>
-  <div class="tabs--top">
+  <div class="tabs--top sticky sticky-999">
     <?php print render($tabs); ?>
   </div>
 <?php endif; ?>

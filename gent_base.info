@@ -4,9 +4,7 @@ screenshot = screenshot.png
 engine = phptemplate
 core = 7.x
 
-; ========================================
-; Regions
-; ========================================
+; Regions.
 regions[search] = Search
 regions[top_menu] = Top menu
 regions[header] = Header
@@ -20,18 +18,14 @@ regions[footer_top] = Top footer
 regions[footer] = Footer
 regions[footer_bottom] = Footer bottom
 
-; Modernizr
+; Libraries.
 scripts[] = libraries/modernizr/modernizr.custom.js
-
-;scripts[] = libraries/matchmedia/matchmedia.polyfill.js
-
-; Jquery matchHeight
 scripts[] = libraries/matchheight/jquery.matchHeight-min.js
-;scripts[] = libraries/salvattore/salvattore.js
 scripts[] = libraries/masonry/masonry.pkgd.min.js
 scripts[] = libraries/masonry/imagesloaded.pkgd.min.js
+scripts[] = libraries/livequery/jquery.livequery.min.js
 
-; Our theme js
+; Custom js.
 scripts[] = js/theme.js
 
 ; Default settings.
