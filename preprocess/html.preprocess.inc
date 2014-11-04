@@ -1,4 +1,18 @@
 <?php
+
+/**
+ * Implements hook_html_head_alter().
+ */
+function gent_base_html_head_alter(&$elements) {
+  foreach ($elements as $name => $element) {
+    if (strpos($name, 'drupal_add_html_head_link:shortcut icon') === 0) {
+      global $base_url;
+      // Modify the default favicon to use ours.
+      $elements[$name]['#attributes']['href'] = $base_url . base_path() . path_to_theme() . '/favicon.png';
+    }
+  }
+}
+
 /**
  * Implements theme_preprocess_HOOK().
  */
@@ -6,8 +20,27 @@ function gent_base_preprocess_html(&$variables) {
   // Setup IE meta tag to force IE rendering mode.
   drupal_add_http_header('X-UA-Compatible', 'IE=edge,chrome=1');
 
-
   $base_theme = drupal_get_path('theme', 'gent_base');
+
+
+  $tile_color = array(
+    '#tag' => 'meta',
+    '#attributes' => array(
+      'name' => 'msapplication-TileColor',
+      'content' => '#007db3',
+    ),
+  );
+  drupal_add_html_head($tile_color, 'tile_color');
+
+  $tile_image = array(
+    '#tag' => 'meta',
+    '#attributes' => array(
+      'name' => 'msapplication-TileImage',
+      'content' => base_path() . $base_theme . '/mstile-144x144.png',
+    ),
+  );
+  drupal_add_html_head($tile_image, 'tile_image');
+
   // Add HTML5shiv for older IE versions
   $html5shiv = array(
     '#tag' => 'script',
