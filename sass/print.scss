@@ -59,3 +59,17 @@ thead {
 tr {
   page-break-inside: avoid;
 }
+
+@media print {
+   .multi-column article { 
+      display:inline-block !important; 
+     float:none !important; 
+     position:relative !important; 
+     left:  !important; 
+     top:auto !important;  
+     overflow:visible !important; 
+     width: 100% !important; 
+     height: 100px !important;
+     clear: both !important;
+   }        
+}
