@@ -514,6 +514,8 @@
   @include margin-tb(2, 0);
   
   h2, h3 {
+    color:$alpha-text-color;
+    
     margin:0;
     padding:0;
     
