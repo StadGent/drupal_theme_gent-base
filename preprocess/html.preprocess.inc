@@ -21,25 +21,7 @@ function gent_base_preprocess_html(&$variables) {
   drupal_add_http_header('X-UA-Compatible', 'IE=edge,chrome=1');
 
   $base_theme = drupal_get_path('theme', 'gent_base');
-
-
-  $tile_color = array(
-    '#tag' => 'meta',
-    '#attributes' => array(
-      'name' => 'msapplication-TileColor',
-      'content' => '#007db3',
-    ),
-  );
-  drupal_add_html_head($tile_color, 'tile_color');
-
-  $tile_image = array(
-    '#tag' => 'meta',
-    '#attributes' => array(
-      'name' => 'msapplication-TileImage',
-      'content' => base_path() . $base_theme . '/mstile-144x144.png',
-    ),
-  );
-  drupal_add_html_head($tile_image, 'tile_image');
+  $variables['base_theme_path'] = base_path() . $base_theme . '/';
 
   // Add HTML5shiv for older IE versions
   $html5shiv = array(

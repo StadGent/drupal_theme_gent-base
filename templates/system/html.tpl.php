@@ -15,6 +15,18 @@
   <meta name="MobileOptimized" content="320" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <meta name="msapplication-TileImage" content="<?php print $base_theme_path ?>mstile-144x144.png" />
+  <meta name="msapplication-TileColor" content="#007db3">
+  <meta name="msapplication-square310x310logo" content="<?php print $base_theme_path ?>mstile-310x310.png" />
+  <meta name="msapplication-wide310x150logo" content="<?php print $base_theme_path ?>mstile-310x150.png" />
+  <meta name="msapplication-square150x150logo" content="<?php print $base_theme_path ?>mstile-150x150.png" />
+  <meta name="msapplication-square70x70logo" content="<?php print $base_theme_path ?>mstile-70x70.png" />
+
+  <link rel="apple-touch-icon" sizes="57x57" href="<?php print $base_theme_path ?>apple-touch-icon-57x57.png" />
+  <link rel="apple-touch-icon" sizes="114x114" href="<?php print $base_theme_path ?>apple-touch-icon-114x114.png" />
+  <link rel="apple-touch-icon" sizes="72x72" href="<?php print $base_theme_path ?>apple-touch-icon-72x72.png" />
+  <link rel="apple-touch-icon" sizes="144x144" href="<?php print $base_theme_path ?>apple-touch-icon-144x144.png" />
+
 	<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,400italic" rel="stylesheet" type="text/css" />
 
 <body<?php print $attributes;?>>
