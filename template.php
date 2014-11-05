@@ -52,6 +52,20 @@ function gent_base_css_alter(&$css) {
       unset($css[$path]);
     }
   }
+
+  // The base theme overrides css of module 'digipolis_openlayers'.
+  if (module_exists('digipolis_openlayers')) {
+    $files = array(
+      'css/map.css',
+      'plugins/behaviors/openlayers_behavior_layerswitcher_plus.css',
+    );
+    foreach ($files as $file) {
+      $path = drupal_get_path('module', 'digipolis_openlayers') . '/' . $file;
+      if (isset($css[$path])) {
+        unset($css[$path]);
+      }
+    }
+  }
 }
 
 /**
@@ -446,6 +460,49 @@ function gent_base_entity_property(&$variables) {
 
   // Render the top-level DIV.
   return '<div' . $variables['attributes'] . '>' . $output . '</div>';
+}
+
+/**
+ * Overrides theme_fieldset().
+ */
+function gent_base_fieldset(&$variables) {
+  $element = $variables['element'];
+  element_set_attributes($element, array('id'));
+  _form_set_class($element, array('form-wrapper'));
+
+  $output = '<fieldset' . drupal_attributes($element['#attributes']) . '>';
+  if (!empty($element['#title'])) {
+    // Always wrap fieldset legends in a SPAN for CSS positioning.
+    $output .= '<legend><span class="fieldset-legend">';
+    $output .= $element['#title'];
+    if (!empty($variables['element']['#collapsible'])) {
+      if (!empty($variables['element']['#collapsed'])) {
+        $output .= '<span class="icon-collapsed"></span>';
+      }
+      else {
+        $output .= '<span class="icon-collapsible"></span>';
+      }
+    }
+    $output .= '</span></legend>';
+  }
+  $output .= '<div class="fieldset-wrapper">';
+  if (!empty($element['#description'])) {
+    $output .= '<div class="fieldset-description">' . $element['#description'] . '</div>';
+  }
+  $output .= $element['#children'];
+  if (isset($element['#value'])) {
+    $output .= $element['#value'];
+  }
+  $output .= '</div>';
+  $output .= "</fieldset>\n";
+  return $output;
+}
+
+/**
+ * Overrides theme_digipolis_openlayers_invisible_layer_icon().
+ */
+function gent_base_digipolis_openlayers_invisible_layer_icon(&$variables) {
+  return '<span class="icon-invisible"></span>';
 }
 
 /**

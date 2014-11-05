@@ -1,35 +1,162 @@
-#openlayers-map-external-panel {
-  padding:0;
-  color: $alpha-ui-color;
-  @include text-dimensions(-1,0.7,0,.15,.2);
-  font-family: expresswayextrabold,Verdana,Arial,sans-serif;
+.external-panel {
+  background: $gamma-ui-color none;
 
-  background-color:$gamma-ui-color;
-  
-  a {
-    color: $alpha-ui-color;
-    transition: all .11s ease-in-out;
-    
-    &:hover {
-      color: $alpha-link-colorhover;
-    }
-    
-    &:visited {
-      color: $alpha-link-colorvisited;
-    }
+  .form-title {
+    display: none;
   }
-  
-  .ui-widget-header {
-    background-image:none;
-    background-color:$gamma-ui-color;
-    
-    .ui-state-default {
-      background-image:none;
-      background-color:darken($gamma-ui-color, 10);
+
+  .ui-tabs-nav .fullscreen {
+    display: none;
+  }
+
+  fieldset {
+    border: none;
+
+    legend {
+      @include text-dimensions(1, 1, 1);
+      padding-left: 0;
+      color: $beta-ui-color;
+      font-family: $beta-font-family;
+    }
+
+    .fieldset-wrapper {
+      padding: 0;
     }
   }
 }
-#openlayers-map-search-address {
-  background-color:$gamma-ui-color;
-  border-radius: $beta-radius;
+
+.openlayers_map_fullscreen  {
+  .external-panel  {
+    .ui-tabs-nav .normal {
+      display: none;
+    }
+
+    .ui-tabs-nav .fullscreen {
+      display: block;
+    }
+  }
+}
+
+.layer-invisible-description {
+  @include text-dimensions(-1, -1, 0, 0.5, 0.5, 1);
+  @include rem-padding-lr(1, 1);
+  background-color: $beta-text-color;
+  color: $white-color;
+  border-radius: $radius;
+  display: inline-block;
+}
+
+// Layers grid.
+//
+//
+@include mq($bp-tablet-s) {
+  .layers {
+    @include add-grid(12);
+
+    .layer-wrapper {
+      @include float-span(6);
+      @include rem-padding-lr(1, 1);
+    }
+  }
+}
+
+@include mq($bp-tablet-l) {
+  .layers .layer-wrapper {
+    @include float-span(4);
+  }
+}
+
+@include mq($bp-desktop-s) {
+  .layers .layer-wrapper {
+    @include float-span(3);
+  }
+}
+
+// Layers grid borders.
+//
+//
+
+$layer-grid-border: 1px solid $gamma-text-color;
+
+@include mq($bp-tablet-s) {
+  /* 2 columns */
+  .layers .layer-wrapper {
+    &:last-child {
+      border-right: none;
+    }
+    &:nth-child(1n+0) {
+      border-right: $layer-grid-border;
+    }
+    &:nth-child(2n+0) {
+      border-right: none;
+    }
+  }
+}
+
+@include mq($bp-tablet-l) {
+  /* 3 columns */
+  .layers .layer-wrapper {
+    &:nth-child(1n+0),
+    &:nth-child(2n+0) {
+      border-right: $layer-grid-border;
+    }
+    &:nth-child(3n+0) {
+      border-right: none;
+    }
+  }
+}
+
+@include mq($bp-desktop-s) {
+  .layers .layer-wrapper {
+    &:nth-child(1n+0),
+    &:nth-child(2n+0),
+    &:nth-child(3n+0) {
+      border-right: $layer-grid-border;
+    }
+    &:nth-child(4n+0) {
+      border-right: none;
+    }
+  }
+}
+
+/* FIX: default collapse "extra layer" fieldset, fieldset js doesn't get initialised right away */
+.extra-layer-switcher {
+  .fieldset-wrapper {
+    display: none;
+  }
+}
+
+// Layers.
+//
+//
+.layer-wrapper {
+  color: $beta-ui-color;
+
+  label {
+    color: $beta-ui-color;
+  }
+
+  .icon-invisible:before {
+    @include rem-padding-lr(0.25, 0.25);
+    display: none;
+    background-color: $beta-text-color;
+    color: $white-color;
+  }
+
+  &.disabled {
+    label {
+      color: $gamma-text-color;
+    }
+
+    .icon-invisible:before {
+      display: inline-block;
+    }
+  }
+}
+
+// Search OL behavior.
+//
+//
+.openlayers-container .search-address .form-item-address label {
+  top: 10px;
 }
