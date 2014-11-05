@@ -196,8 +196,8 @@
   };
 
   jsTheme.toggleFieldset = {
-    init: function() {
-      $('fieldset.collapsible').on('collapsed', function(e) {
+    init: function () {
+      $('fieldset.collapsible').on('collapsed', function (e) {
         var $fieldset = $(this);
 
         // Remove previous icons.
