@@ -8,39 +8,44 @@
   
   a,
   span {
-    @include px-padding-lr(1,1);
-    @include padding-tb(.5, .5);
-  
-    border:1px solid $white-color;
-
-    margin-left: -1px;
-    text-decoration: none;
-    @include text-dimensions(-2, 1);
-    font-weight:bold;
-    
-    @extend %rounded-1;
-    
     color: $alpha-link-color;
     background-color: transparent;
+    text-decoration: none;
+  }
+
+  li {
+    @include px-padding-lr(1,1);
+    @include padding-tb(.5, .5);
+    @extend %rounded-1;
+    @include text-dimensions(-2, 1);
     
-    &:hover {
-      background-color: $gamma-ui-color;
-    }
-  
+    border:1px solid $white-color;
+    margin-left: 6px;
+    font-weight:bold;
+    
+    &:hover,
     &:focus,
     &:active {
       background-color: $gamma-ui-color;
     }
   }
-
-  li {
-    margin-left: 6px;
-  }
   
-  li.pager-current a, li.pager-current span {
+  li.pager-current, li.pager-current {
     background-color: $delta-ui-color;
     border:1px solid $delta-ui-color;
     color:$white-color;
+    
+    span, a {
+      color:$white-color;
+    }
+  }
+  
+  li.pager-ellipsis {
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: transparent;
+    }
   }
 
   li:first-child {
