@@ -4,6 +4,7 @@
  * Implements hook_html_head_alter().
  */
 function gent_base_html_head_alter(&$elements) {
+  unset($elements['metatag_generator']);
   foreach ($elements as $name => $element) {
     if (strpos($name, 'drupal_add_html_head_link:shortcut icon') === 0) {
       global $base_url;
