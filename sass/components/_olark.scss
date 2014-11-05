@@ -1,0 +1,111 @@
+#habla_beta_container_do_not_rely_on_div_classes_or_names {
+  font-size: #{$alpha-font-size}px !important;
+  
+  #habla_panel_div {
+    //border:1px solid $gamma-text-color !important;
+    border-top-left-radius: $gamma-radius !important;
+    border-top-right-radius: $gamma-radius !important;
+    @include box-shadow(rgba(#333333, 0.3) 0 0 10px);
+  }
+  
+  #habla_topbar_div {
+    color: $beta-ui-color !important;
+    font-weight: $beta-font-weight !important;
+    padding: .7em !important;
+    border-top-left-radius: $gamma-radius !important;
+    border-top-right-radius: $gamma-radius !important;
+  }
+  
+  #habla_conversation_div {
+    border:1px solid $gamma-text-color !important;
+    padding: .9em !important;
+    border-radius: $alpha-radius !important;
+  }
+  
+  #habla_window_div {
+    border-top-left-radius: $gamma-radius !important;
+    border-top-right-radius: $gamma-radius !important; 
+  }
+  
+  #habla_middle_div {
+    padding: .9em !important;
+    background-color: $gamma-ui-color !important;
+  }
+  
+  #habla_oplink_a {
+    text-decoration:none !important;
+  }
+  
+  #habla_oplink_a:before {
+    font-family: 'gent-icons';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    content: "\e60c";
+    font-size: 90% !important;
+    position: relative !important;
+    top: -2px !important;
+    margin-right:.5em;
+  }
+
+  a.hbl_pal_title_fg {
+    color: $white-color !important;
+  }
+  
+  .hbl_pal_main_fg {
+    color: $alpha-text-color !important;
+  }
+  
+  .hbl_pal_main_font_family {
+    font-family: $alpha-font-family !important;
+  }
+  
+  .hbl_pal_header_font_size,
+  .hbl_pal_main_font_size {
+    font-size: #{$alpha-font-size}px !important;
+  }
+  
+  .hbl_pal_input_font_size {
+    font-size: #{$alpha-font-size}px !important;
+  }
+  
+  .hbl_pal_local_fg {
+    color: $alpha-text-color !important;
+  }
+  
+  .hbl_pal_title_fg {
+    color: $white-color !important;
+    font-weight: $beta-font-weight !important;
+    font-size: 1.1em !important;
+  }
+  
+  .hbl_pal_title_bg {
+    background-color: $delta-ui-color !important;
+  }
+  
+  .hbl_txt_wrapper {
+    padding: .5em .3em !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    font-size: .9em !important;
+    border:1px solid $gamma-text-color !important;
+    color: $alpha-text-color !important;
+    border-radius: $alpha-radius !important;
+  }
+  
+  .hbl_pal_input_pre_fg {
+    font-size: .9em !important;
+    color: $alpha-text-color !important;
+  }
+  
+  .hbl_pal_input_font_size {
+    font-size: 1em !important;
+  }
+  
+  .hbl_pal_main_font_family {
+    font-family: $alpha-font-family !important;
+  }
+}

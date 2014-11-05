@@ -24,7 +24,7 @@
 
 <?php if ($settings['button_enabled']): ?>
 	<li>
-		<a href="<?php print url($settings['button_link']) ?>" class="btn btn--medium btn--delta"><i class="icon-bubble"></i><?php print check_plain($settings['button_label']) ?></a>
+		<a href="<?php print url($settings['button_link']) ?>" class="btn btn--medium btn--delta olark-toggle"><i class="icon-bubble"></i><?php print check_plain($settings['button_label']) ?></a>
 	</li>
 <?php endif; ?>
 </ul>
