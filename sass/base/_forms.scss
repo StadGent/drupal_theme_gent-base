@@ -20,6 +20,10 @@ fieldset {
   legend {
     @include rem-padding-lr(1, 1);
     width: auto;
+
+    a {
+      text-decoration: none;
+    }
   }
 
   .fieldset-wrapper {
@@ -43,6 +47,11 @@ label,
   color: $beta-text-color;
   display: block;
   width: 100%;
+}
+
+html.js fieldset.collapsible legend,
+label,
+.label {
   cursor: pointer;
 }
 

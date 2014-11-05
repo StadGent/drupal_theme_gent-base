@@ -131,3 +131,15 @@
   position: relative;
   top: -1px;
 }
+
+.icon-collapsible:before {
+  content: "\e601";
+}
+
+.icon-collapsed:before {
+  content: "\003e";
+}
+
+.icon-invisible:before {
+  content: "\e609";
+}

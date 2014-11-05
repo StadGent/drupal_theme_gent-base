@@ -9,6 +9,7 @@
       jsTheme.equalColumns.init();
       jsTheme.progressAnimator.init();
       jsTheme.accordion.init();
+      jsTheme.toggleFieldset.init();
     }
   };
 
@@ -190,6 +191,25 @@
             currentItem.find('.accordion-item-title span').toggleClass('icon-arrow-down icon-arrow-up');
           }
         });
+      });
+    }
+  };
+
+  jsTheme.toggleFieldset = {
+    init: function() {
+      $('fieldset.collapsible').on('collapsed', function(e) {
+        var $fieldset = $(this);
+
+        // Remove previous icons.
+        $('.icon-collapsed, .icon-collapsible', $fieldset).remove();
+
+        // Add new icon based on collapsed state.
+        if (e.value) {
+          $('.fieldset-legend', $fieldset).append('<span class="icon-collapsed"></span>');
+        }
+        else {
+          $('.fieldset-legend', $fieldset).append('<span class="icon-collapsible"></span>');
+        }
       });
     }
   };
