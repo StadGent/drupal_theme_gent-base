@@ -49,10 +49,9 @@
 // Layers grid.
 //
 //
-$layer-grid-border: 1px solid $gamma-text-color;
 
 /* 2 columns */
-@include mq($bp-tablet-s) {
+@include mq($bp-desktop-s) {
   .layers {
     @include add-grid(12);
 
@@ -60,46 +59,9 @@ $layer-grid-border: 1px solid $gamma-text-color;
       @include float-span(6);
       @include rem-padding-lr(1, 1);
 
-      &:last-child {
-        border-right: none;
+      &:nth-child(odd) {
+        border-right: 1px solid $gamma-text-color;
       }
-      &:nth-child(1n+0) {
-        border-right: $layer-grid-border;
-      }
-      &:nth-child(2n+0) {
-        border-right: none;
-      }
-    }
-  }
-}
-
-/* 3 columns */
-@include mq($bp-tablet-l) {
-  .layers .layer-wrapper {
-    @include float-span(4);
-
-    &:nth-child(1n+0),
-    &:nth-child(2n+0) {
-      border-right: $layer-grid-border;
-    }
-    &:nth-child(3n+0) {
-      border-right: none;
-    }
-  }
-}
-
-/* 4 columns */
-@include mq($bp-desktop-s) {
-  .layers .layer-wrapper {
-    @include float-span(3);
-
-    &:nth-child(1n+0),
-    &:nth-child(2n+0),
-    &:nth-child(3n+0) {
-      border-right: $layer-grid-border;
-    }
-    &:nth-child(4n+0) {
-      border-right: none;
     }
   }
 }
@@ -116,10 +78,7 @@ $layer-grid-border: 1px solid $gamma-text-color;
       padding-left: 0;
       padding-right: 0;
 
-      &:nth-child(1n+0),
-      &:nth-child(2n+0),
-      &:nth-child(3n+0),
-      &:nth-child(4n+0) {
+      &:nth-child(odd) {
         border-right: none;
       }
     }
