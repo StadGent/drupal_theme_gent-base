@@ -36,30 +36,30 @@
   </div>
 </nav>
 
-<div class="brand">
-  <div class="l-row padding--big">
-    <div class="brand__logo">
-      <a href="<?php print $front_page ?>">
-        <div class="brand__logo__inner">
+<header class="holder site__header">
+  <div class="brand">
+    <div class="l-row padding--big">
+      <div class="brand__logo">
+        <a href="<?php print $front_page ?>">
+          <div class="brand__logo__inner">
           <span>
             Gent.be
           </span>
-        </div>
-      </a>
-    </div>
-    <div class="brand__tagline">
-      <a href="<?php print $front_page ?>">
-        <div class="brand__tagline__inner">
+          </div>
+        </a>
+      </div>
+      <div class="brand__tagline">
+        <a href="<?php print $front_page ?>">
+          <div class="brand__tagline__inner">
           <span>
             Gent.be
           </span>
-        </div>
-      </a>
+          </div>
+        </a>
+      </div>
     </div>
   </div>
-</div>
-
-<header class="holder site__header">
+  
   <div class="mask <?php print $is_front ? 'ratio--home' : 'ratio--header'; ?>">
     <?php if ($header_image): ?>
       <div class="header__background" style="background-image:url('<?php print $header_image; ?>');"></div>

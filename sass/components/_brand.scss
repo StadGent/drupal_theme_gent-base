@@ -3,26 +3,16 @@
   @include add-gutter(0);
 
   position: absolute;
-  top: -2em;
   z-index: $z-gamma;
   background-color: transparent;
   width: 100%;
-
-  @include mq($bp-tablet-s) {
-    top: 2em;
-
-  }
 }
 
 .brand__logo {
   @include grid-span(7);
 
-  @include mq($bp-phone-m) {
-    @include grid-span(5);
-  }
-
-  @include mq($bp-tablet-m) {
-    @include grid-span(3);
+  @include mq($bp-tablet-s) {
+    width: 170px;
   }
 }
 
@@ -30,12 +20,9 @@
   display: none;
 
   @include mq($bp-tablet-s) {
-    @include grid-span(5, 6);
+    width: 170px;
+    margin-left: 170px;
     display: block;
-  }
-
-  @include mq($bp-tablet-m) {
-    @include grid-span(3, 4);
   }
 }
 
