@@ -152,6 +152,26 @@ $layer-grid-border: 1px solid $gamma-text-color;
       display: inline-block;
     }
   }
+
+  .info-left {
+    float: left;
+  }
+
+  .single-legend {
+    float: right;
+  }
+
+  .multi-legend {
+    @extend %no-bullet-list;
+
+    li {
+      display: inline;
+    }
+
+    img {
+      vertical-align: middle;
+    }
+  }
 }
 
 // Search OL behavior.
