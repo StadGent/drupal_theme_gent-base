@@ -49,6 +49,9 @@
 // Layers grid.
 //
 //
+$layer-grid-border: 1px solid $gamma-text-color;
+
+/* 2 columns */
 @include mq($bp-tablet-s) {
   .layers {
     @include add-grid(12);
@@ -56,46 +59,25 @@
     .layer-wrapper {
       @include float-span(6);
       @include rem-padding-lr(1, 1);
+
+      &:last-child {
+        border-right: none;
+      }
+      &:nth-child(1n+0) {
+        border-right: $layer-grid-border;
+      }
+      &:nth-child(2n+0) {
+        border-right: none;
+      }
     }
   }
 }
 
+/* 3 columns */
 @include mq($bp-tablet-l) {
   .layers .layer-wrapper {
     @include float-span(4);
-  }
-}
 
-@include mq($bp-desktop-s) {
-  .layers .layer-wrapper {
-    @include float-span(3);
-  }
-}
-
-// Layers grid borders.
-//
-//
-
-$layer-grid-border: 1px solid $gamma-text-color;
-
-@include mq($bp-tablet-s) {
-  /* 2 columns */
-  .layers .layer-wrapper {
-    &:last-child {
-      border-right: none;
-    }
-    &:nth-child(1n+0) {
-      border-right: $layer-grid-border;
-    }
-    &:nth-child(2n+0) {
-      border-right: none;
-    }
-  }
-}
-
-@include mq($bp-tablet-l) {
-  /* 3 columns */
-  .layers .layer-wrapper {
     &:nth-child(1n+0),
     &:nth-child(2n+0) {
       border-right: $layer-grid-border;
@@ -106,8 +88,11 @@ $layer-grid-border: 1px solid $gamma-text-color;
   }
 }
 
+/* 4 columns */
 @include mq($bp-desktop-s) {
   .layers .layer-wrapper {
+    @include float-span(3);
+
     &:nth-child(1n+0),
     &:nth-child(2n+0),
     &:nth-child(3n+0) {
@@ -115,6 +100,28 @@ $layer-grid-border: 1px solid $gamma-text-color;
     }
     &:nth-child(4n+0) {
       border-right: none;
+    }
+  }
+}
+
+/* fullscreen overrides the x-columns layout and goes back to mobile */
+.openlayers_map_fullscreen {
+  .layers {
+    display: block;
+
+    .layer-wrapper {
+      clear: none;
+      float: none;
+      width: auto;
+      padding-left: 0;
+      padding-right: 0;
+
+      &:nth-child(1n+0),
+      &:nth-child(2n+0),
+      &:nth-child(3n+0),
+      &:nth-child(4n+0) {
+        border-right: none;
+      }
     }
   }
 }
@@ -161,8 +168,10 @@ $layer-grid-border: 1px solid $gamma-text-color;
     float: right;
   }
 
-  .multi-legend {
+  .multi-legend .map-layer-items {
     @extend %no-bullet-list;
+    padding: 0;
+    margin: 0;
 
     li {
       display: inline;
@@ -179,4 +188,24 @@ $layer-grid-border: 1px solid $gamma-text-color;
 //
 .openlayers-container .search-address .form-item-address label {
   top: 10px;
+}
+
+// Fullscreen.
+//
+//
+.openlayers_map_fullscreen {
+  .external-panel {
+    overflow: auto;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 20% !important;
+    height: 100% !important;
+  }
+
+  .openlayers-map {
+    width: 80% !important;
+    left: 20%;
+  }
 }
