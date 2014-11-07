@@ -1,12 +1,16 @@
-.site__header {
+.top-section {
   position: relative;
+}
+.site__header {
   background-color: $beta-ui-color;
+  position: static; //for mobile logo position
 
   img {
     display: none;
   }
 
   @include mq($bp-tablet-s) {
+    position: relative;
     img {
       display: block;
     }

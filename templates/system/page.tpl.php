@@ -12,7 +12,7 @@
     Google Chrome Frame</a> to improve your experience.</p>
 </div>
 <![endif]-->
-
+<section class="top-section">
 <nav class="holder holder--alpha padding <?php if ($tabs && $logged_in): ?>is-tabs-enabled<?php endif; ?>">
   <div class="l-row">
     <?php if ($top_menu_render_method == GENT_BASE_TOP_MENU_RENDER_METHOD_REGION): ?>
@@ -36,7 +36,7 @@
   </div>
 </nav>
 
-<header class="holder site__header">
+<header class="site__header">
   <div class="brand">
     <div class="l-row padding--big">
       <div class="brand__logo">
@@ -84,7 +84,7 @@
       <?php endif; ?>
     </div>
 </header>
-
+</section>
 <?php if ($breadcrumb): ?>
   <section class="holder">
     <div class="l-row">
