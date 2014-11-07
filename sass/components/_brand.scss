@@ -10,8 +10,10 @@
 
 .brand__logo {
   @include grid-span(7);
-
-  width: 90px;
+  width: 60px;
+  @include mq($bp-tablet-s) {
+    width: 90px;
+  }
   @include mq($bp-tablet-m) {
     width: 135px;
   }
@@ -22,6 +24,11 @@
 
 .brand__tagline {
   display: none;
+  @include mq($bp-tablet-s) {
+    width: 90px;
+    margin-left: 90px;
+    display: block;
+  }
   @include mq($bp-tablet-m) {
     width: 135px;
     margin-left: 135px;
