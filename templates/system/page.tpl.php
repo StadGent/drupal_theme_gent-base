@@ -59,7 +59,7 @@
       </div>
     </div>
   </div>
-  
+
   <div class="mask <?php print $is_front ? 'ratio--home' : 'ratio--header'; ?>">
     <?php if ($header_image): ?>
       <div class="header__background" style="background-image:url('<?php print $header_image; ?>');"></div>
@@ -123,7 +123,7 @@
     <?php endif; ?>
 
     <?php if (!$logged_in && $tabs): ?>
-      <div class="tabitems">
+      <div class="tabitems content-tabs">
         <?php print render($tabs); ?>
       </div>
     <?php endif; ?>

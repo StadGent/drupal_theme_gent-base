@@ -95,9 +95,7 @@
 }
 
 // Drupal tabs
-
-
-ul.tabs--primary {
+.content-tabs ul.tabs--primary {
   @extend %tabs-horizontal;
   
 }
