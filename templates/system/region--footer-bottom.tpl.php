@@ -34,5 +34,9 @@
 
 <?php // @TODO Make me dynamic in gent_base_tools ?>
 <div class="l-fourth-to-single">
-  <p class="brand__footer">Stad Gent</p>
+  <div class="brand__footer__wrapper">
+    <p class="brand__footer">Stad Gent</p>
+    <p class="brand__footer__sub__text"><?php print t('In cooperation with')?></p>
+    <p class="brand__footer__sub__logo"><a href="http://www.digipolis.be">Digipolis</a></p>
+  </div>
 </div>

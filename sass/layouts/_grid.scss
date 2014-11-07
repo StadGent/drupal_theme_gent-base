@@ -142,7 +142,9 @@
 
 // Variant to l-fourth that immediately jumps to one column
 .l-fourth-to-single {
+  clear:left;
   @include mq($bp-tablet-m) {
+    clear:none;
     @include float-span(6);
   } 
 }

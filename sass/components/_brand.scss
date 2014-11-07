@@ -98,10 +98,42 @@
   }
 }
 
-.brand__footer {
-  @extend %hide-text;
+
+.brand__footer__wrapper {
+  
+  border-radius: $beta-radius;
+  
   width: 100%;
   height: 100px;
+  
+  @include mq($bp-tablet-m) {
+    position: absolute;
+    bottom: 6em;
+    width: 200px;
+  }
+  
+  p {
+    display:block;
+    margin-bottom:0;
+    color:$gamma-text-color;
+  }
+  
+  a {
+    color:$gamma-text-color;
+    text-decoration:none;
+    
+    &:hover {
+      text-decoration:underline;
+    }
+  }
+}
+
+.brand__footer {
+
+  width: 100%;
+  height: 100px;
+  
+  @extend %hide-text;
 
   border-radius: $beta-radius;
 
@@ -112,13 +144,35 @@
   .svg & {
     background-image: url('#{$base-theme-path}/img/svg/logo--footer.svg');
   }
+}
 
+.brand__footer__sub__text {
+  
+  @include text-dimensions(-2, 1);
+  text-align:center;
+  margin-bottom:0;
+  
   @include mq($bp-tablet-m) {
-    position: absolute;
-    bottom: 2.3em;
-    width: 140px;
+    width: 200px;
   }
 }
+
+.brand__footer__sub__logo {
+  @extend %clearfix;
+  @include text-dimensions(-2, 0.8);
+  @include px-padding-lr(0.7, 0);
+  
+  display:block;
+  width: 104px;
+  clear:both;
+  text-align:center;
+  margin: 0 auto;
+  
+  background-image: url('#{$base-theme-path}/img/png/logo--digipolis.png');
+  background-repeat: no-repeat;
+  background-position: left top;
+}
+
 
 .brand__district {
   @extend %hide-text;
