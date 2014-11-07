@@ -11,7 +11,12 @@
 .brand__logo {
   @include grid-span(7);
   width: 60px;
+
+  position: fixed; //move to top on small mobile devices
+  top: 5px;
   @include mq($bp-tablet-s) {
+    position: relative;
+    top: 0;
     width: 90px;
   }
   @include mq($bp-tablet-m) {
@@ -57,7 +62,6 @@
   background-size: 100%;
   display: block;
   position: relative;
-  top: 0;
   overflow: hidden;
   height: 40px;
   border-radius: $beta-radius;
