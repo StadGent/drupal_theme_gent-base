@@ -1,4 +1,5 @@
 .tabs--top {
+
   @extend %clearfix;
 
   width: 100%;
@@ -91,4 +92,12 @@
       }
     }
   }
+}
+
+// Drupal tabs
+
+
+ul.tabs--primary {
+  @extend %tabs-horizontal;
+  
 }
