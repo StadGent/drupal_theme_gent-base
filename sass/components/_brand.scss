@@ -11,15 +11,23 @@
 .brand__logo {
   @include grid-span(7);
 
-  @include mq($bp-tablet-s) {
+  width: 90px;
+  @include mq($bp-tablet-m) {
+    width: 135px;
+  }
+  @include mq($bp-tablet-l) {
     width: 170px;
   }
 }
 
 .brand__tagline {
   display: none;
-
-  @include mq($bp-tablet-s) {
+  @include mq($bp-tablet-m) {
+    width: 135px;
+    margin-left: 135px;
+    display: block;
+  }
+  @include mq($bp-tablet-l) {
     width: 170px;
     margin-left: 170px;
     display: block;
@@ -37,64 +45,42 @@
 .brand__logo__inner {
   @extend %hide-text;
   background-color: $alpha-ui-color;
-
+  background-repeat: no-repeat;
+  background-position: top left;
+  background-size: 100%;
   display: block;
   position: relative;
   top: 0;
   overflow: hidden;
-
   height: 40px;
-  width: 40px;
-  border-radius: $alpha-radius;
-
-  background-image: url('#{$base-theme-path}/img/png/logo--small.png');
-  background-repeat: no-repeat;
-  background-position: top left;
-  background-size: 100%;
+  border-radius: $beta-radius;
+  padding-top: 72%;
+  width: 100%;
+  background-image: url('#{$base-theme-path}/img/png/logo--part1.png');
 
   .svg & {
-    background-image: url('#{$base-theme-path}/img/svg/logo--small.svg');
-  }
-
-  @include mq($bp-tablet-s) {
-    border-radius: $beta-radius;
-    padding-top: 72%;
-    width: 100%;
-    background-image: url('#{$base-theme-path}/img/png/logo--part1.png');
-
-    .svg & {
-      background-image: url('#{$base-theme-path}/img/svg/logo--part1.svg');
-    }
+    background-image: url('#{$base-theme-path}/img/svg/logo--part1.svg');
   }
 }
 
 .brand__tagline__inner {
   @extend %hide-text;
-  background-color: $white-color;
-
   display: block;
   position: relative;
   overflow: hidden;
-
   height: 40px;
-  width: 40px;
   border-radius: $alpha-radius;
-
   background-image: url('#{$base-theme-path}/img/png/logo--part2.png');
   background-repeat: no-repeat;
   background-position: top left;
   background-size: 100%;
+  background-color: $white-color;
+  padding-top: 72%;
+  width: 100%;
+  border-radius: $beta-radius;
 
   .svg & {
     background-image: url('#{$base-theme-path}/img/svg/logo--part2.svg');
-  }
-
-  @include mq($bp-tablet-s) {
-    background-color: $white-color;
-
-    padding-top: 72%;
-    width: 100%;
-    border-radius: $beta-radius;
   }
 }
 
