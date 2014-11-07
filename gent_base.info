@@ -27,7 +27,7 @@ scripts[] = libraries/livequery/jquery.livequery.min.js
 
 ; Custom js.
 //scripts[] = js/theme.js
-scripts[] = js/theme.min.js
+
 
 ; Default settings.
 settings[top_menu_render_method] = user_links

@@ -99,6 +99,19 @@
   }
 }
 
+// In the region content-top, island-epsilon should span 100% when before tablet-s
+.region-content-top {
+  .island--epsilon.l-third {
+    @include mq($bp-tablet-s) {
+      @include float-span(24);
+    } 
+    @include mq($bp-tablet-m) {
+      @include float-span(8);
+    }
+  }
+}
+
+
 // When we are using masonry view (class multi-column), we do not want the float and clear behavior of 
 // our floating grid. Reset those so masonry can handle the layout.
 .multi-column {

@@ -79,3 +79,7 @@ ul.no-padding li {
   @extend .hN;
   margin-bottom:0;
 }
+
+ul.nowrap li {
+  white-space: nowrap;
+}
