@@ -10,6 +10,7 @@
     @include add-grid(24);
     top: 0px;
     width: 100%;
+    z-index: $z-gamma;
   }
 }
 
