@@ -1,4 +1,4 @@
-<?php if ($tabs && $logged_in): ?>
+<?php if ($tabs && $top_tabs_enabled): ?>
   <div class="tabs--top sticky sticky-999">
     <?php print render($tabs); ?>
   </div>
@@ -13,77 +13,77 @@
 </div>
 <![endif]-->
 <section class="top-section">
-<nav class="holder holder--alpha padding <?php if ($tabs && $logged_in): ?>is-tabs-enabled<?php endif; ?>">
-  <div class="l-row">
-    <?php if ($top_menu_render_method == GENT_BASE_TOP_MENU_RENDER_METHOD_REGION): ?>
-      <?php if ($page['top_menu']): ?>
-        <div class="login-widget nav nav--login">
-          <?php print render($page['top_menu']); ?>
-        </div>
+  <nav class="holder holder--alpha padding <?php if ($tabs && $top_tabs_enabled): ?>is-tabs-enabled<?php endif; ?>">
+    <div class="l-row">
+      <?php if ($top_menu_render_method == GENT_BASE_TOP_MENU_RENDER_METHOD_REGION): ?>
+        <?php if ($page['top_menu']): ?>
+          <div class="login-widget nav nav--login">
+            <?php print render($page['top_menu']); ?>
+          </div>
+        <?php endif; ?>
+      <?php elseif ($top_menu_render_method == GENT_BASE_TOP_MENU_RENDER_METHOD_USER_LINKS): ?>
+        <ul class="login-widget nav nav--login">
+          <li><?php print $logged_in ? l(t('Logout'), 'user/logout') : l(t('Login'), 'user/login') ?></li>
+          <li><?php print l(t('Mijn Gent'), '') ?></li>
+        </ul>
+      <?php elseif ($top_menu_render_method == GENT_BASE_TOP_MENU_RENDER_METHOD_EMPTY): ?>
+        <?php // Do nothing... ?>
       <?php endif; ?>
-    <?php elseif ($top_menu_render_method == GENT_BASE_TOP_MENU_RENDER_METHOD_USER_LINKS): ?>
-      <ul class="login-widget nav nav--login">
-        <li><?php print $logged_in ? l(t('Logout'), 'user/logout') : l(t('Login'), 'user/login') ?></li>
-        <li><?php print l(t('Mijn Gent'), '') ?></li>
-      </ul>
-    <?php elseif ($top_menu_render_method == GENT_BASE_TOP_MENU_RENDER_METHOD_EMPTY): ?>
-      <?php // Do nothing... ?>
-    <?php endif; ?>
 
-    <?php if ($page['search']): ?>
-      <?php print render($page['search']); ?>
-    <?php endif; ?>
-  </div>
-</nav>
-
-<header class="site__header">
-  <div class="brand">
-    <div class="l-row padding--big">
-      <div class="brand__logo">
-        <a href="<?php print $front_page ?>">
-          <div class="brand__logo__inner">
-          <span>
-            Gent.be
-          </span>
-          </div>
-        </a>
-      </div>
-      <div class="brand__tagline">
-        <a href="<?php print $front_page ?>">
-          <div class="brand__tagline__inner">
-          <span>
-            Gent.be
-          </span>
-          </div>
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <div class="mask <?php print $is_front ? 'ratio--home' : 'ratio--header'; ?>">
-    <?php if ($header_image): ?>
-      <div class="header__background" style="background-image:url('<?php print $header_image; ?>');"></div>
-    <?php endif; ?>
-
-    <span class="site__header__image__gradient"></span>
-
-    <div class="site__header__image__title">
-        <div class="l-row">
-          <?php if ($page['site_name']): ?>
-            <?php print render($page['site_name']); ?>
-          <?php else: ?>
-            <h1><?php print $site_name; ?></h1>
-          <?php endif; ?>
-        </div>
-     </div>
-
-      <?php if (!empty($readspeaker)): ?>
-        <div class="readspeaker">
-          <?php print render($readspeaker); ?>
-        </div>
+      <?php if ($page['search']): ?>
+        <?php print render($page['search']); ?>
       <?php endif; ?>
     </div>
-</header>
+  </nav>
+
+  <header class="site__header">
+    <div class="brand">
+      <div class="l-row padding--big">
+        <div class="brand__logo">
+          <a href="<?php print $front_page ?>">
+            <div class="brand__logo__inner">
+            <span>
+              Gent.be
+            </span>
+            </div>
+          </a>
+        </div>
+        <div class="brand__tagline">
+          <a href="<?php print $front_page ?>">
+            <div class="brand__tagline__inner">
+            <span>
+              Gent.be
+            </span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="mask <?php print $is_front ? 'ratio--home' : 'ratio--header'; ?>">
+      <?php if ($header_image): ?>
+        <div class="header__background" style="background-image:url('<?php print $header_image; ?>');"></div>
+      <?php endif; ?>
+
+      <span class="site__header__image__gradient"></span>
+
+      <div class="site__header__image__title">
+          <div class="l-row">
+            <?php if ($page['site_name']): ?>
+              <?php print render($page['site_name']); ?>
+            <?php else: ?>
+              <h1><?php print $site_name; ?></h1>
+            <?php endif; ?>
+          </div>
+       </div>
+
+        <?php if (!empty($readspeaker)): ?>
+          <div class="readspeaker">
+            <?php print render($readspeaker); ?>
+          </div>
+        <?php endif; ?>
+      </div>
+  </header>
 </section>
 <?php if ($breadcrumb): ?>
   <section class="holder">
@@ -122,7 +122,7 @@
     </header>
     <?php endif; ?>
 
-    <?php if (!$logged_in && $tabs): ?>
+    <?php if ($tabs && !$top_tabs_enabled): ?>
       <div class="tabitems content-tabs">
         <?php print render($tabs); ?>
       </div>

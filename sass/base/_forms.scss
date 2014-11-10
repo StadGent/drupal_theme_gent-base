@@ -7,7 +7,7 @@
 form {
   @extend %clearfix;
 
-  .description {
+  .description, .fieldset-description {
     color: $gamma-text-color;
     @include text-dimensions(-1, 1, 0, .25);
   }
@@ -253,8 +253,11 @@ tr.even .form-item {
   margin-bottom: 0;
   white-space: nowrap;
 }
-.form-item .description {
+.form-item .description, form .fieldset-description {
   font-size: 0.85em;
+}
+form .fieldset-description {
+  margin-bottom: 0.75rem;
 }
 label {
   display: block;

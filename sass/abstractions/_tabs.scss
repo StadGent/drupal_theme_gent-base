@@ -46,3 +46,40 @@
     color: $alpha-ui-color;
   }
 }
+
+%subtabs-horizontal {
+  @extend %no-bullet-list;
+  padding: 0;
+  @include margin-tb(0, 1);
+  
+  background-color:$gamma-ui-color;
+  
+  @include mq($bp-phone-m) {
+    border-bottom:1px solid darken($gamma-ui-color, 5);
+  }
+  
+  li {
+    @include rem-margin-lr(0, 0);
+    @include margin-tb(0, 0);
+    @include rem-padding-lr(.5, .5);
+    @include padding-tb(.5, .5);
+    
+    @include mq($bp-phone-m) {
+      float:left;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: darken($gamma-ui-color, 5);
+      transition: all .2s ease-in-out;
+    }
+    &.active a {
+      font-weight:bold;
+    }
+  }
+  
+  a {
+    text-decoration:none;
+    color: $alpha-ui-color;
+  }
+}

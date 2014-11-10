@@ -25,9 +25,5 @@ scripts[] = libraries/masonry/masonry.pkgd.min.js
 scripts[] = libraries/masonry/imagesloaded.pkgd.min.js
 scripts[] = libraries/livequery/jquery.livequery.min.js
 
-; Custom js.
-//scripts[] = js/theme.js
-
-
 ; Default settings.
 settings[top_menu_render_method] = user_links

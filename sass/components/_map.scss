@@ -50,6 +50,10 @@
 //
 //
 
+.layerswitcher-plus .fieldset-wrapper {
+  position: relative;
+}
+
 /* 2 columns */
 @include mq($bp-desktop-s) {
   .layers {
@@ -58,10 +62,6 @@
     .layer-wrapper {
       @include float-span(6);
       @include rem-padding-lr(1, 1);
-
-      &:nth-child(odd) {
-        border-right: 1px solid $gamma-text-color;
-      }
     }
   }
 }
@@ -77,10 +77,6 @@
       width: auto;
       padding-left: 0;
       padding-right: 0;
-
-      &:nth-child(odd) {
-        border-right: none;
-      }
     }
   }
 }
@@ -165,12 +161,43 @@
     z-index: 9999;
     top: 0;
     left: 0;
-    width: 20% !important;
+    width: 0% !important;
     height: 100% !important;
+    display:none;
+
+    @include mq($bp-phone-m) {
+      width: 40% !important;
+      display:block;
+    }
+
+    @include mq($bp-tablet-s) {
+      width: 30% !important;
+      display:block;
+    }
+
+    @include mq($bp-tablet-m) {
+      width: 25% !important;
+      display:block;
+    }
   }
 
   .openlayers-map {
-    width: 80% !important;
-    left: 20%;
+    width: 100% !important;
+    left: 0%;
+
+    @include mq($bp-phone-m) {
+      width: 60% !important;
+      left: 40%;
+    }
+
+    @include mq($bp-tablet-s) {
+      width: 70% !important;
+      left: 30%;
+    }
+
+    @include mq($bp-tablet-m) {
+      width: 75% !important;
+      left: 25%;
+    }
   }
 }

@@ -59,6 +59,7 @@
   .ui-tabs-panel {
     padding: 1.5 * $alpha-font-size * 1px;
     padding: 1.5 * 1rem;
+    border-radius: $beta-radius;
   }
 
   .ui-tabs-nav {
@@ -94,8 +95,18 @@
   }
 }
 
-// Drupal tabs
-.content-tabs ul.tabs--primary {
-  @extend %tabs-horizontal;
+// Drupal primary tabs
+.content-tabs {
+  .tabs--primary {
+    @extend %tabs-horizontal;
+  }
+
+  &.with-secondary .tabs--primary {
+    margin-bottom:0;
+  }
   
+  // Drupal secondary tabs
+  .tabs--secondary {
+    @extend %subtabs-horizontal;
+  }
 }

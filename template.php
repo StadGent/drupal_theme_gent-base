@@ -371,6 +371,19 @@ function gent_base_form_gent_wijksites_select_home_form_alter(&$form, &$form_sta
 }
 
 /**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function gent_base_form_digipolis_openlayers_layerswitcher_plus_behavior_form_alter(&$form, &$form_state) {
+  if (!empty($form['default_layers']['layers'])) {
+    $form['default_layers']['layers'][] = array('#markup' => '<div class="line--vertical"></div>');
+  }
+
+  if (!empty($form['extra_layers']['layers'])) {
+    $form['extra_layers']['layers'][] = array('#markup' => '<div class="line--vertical"></div>');
+  }
+}
+
+/**
  * Implements theme_status_messages().
  *
  * @ingroup themeable
