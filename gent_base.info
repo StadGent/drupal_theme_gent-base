@@ -9,7 +9,6 @@ regions[search] = Search
 regions[top_menu] = Top menu
 regions[header] = Header
 regions[site_name] = Site name
-regions[navigation] = Navigation
 regions[content_top] = Top content
 regions[content] = Content
 regions[sidebar] = Sidebar
