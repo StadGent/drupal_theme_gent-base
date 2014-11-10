@@ -94,8 +94,18 @@
   }
 }
 
-// Drupal tabs
-.content-tabs ul.tabs--primary {
-  @extend %tabs-horizontal;
+// Drupal primary tabs
+.content-tabs {
+  .tabs--primary {
+    @extend %tabs-horizontal;
+  }
+
+  &.with-secondary .tabs--primary {
+    margin-bottom:0;
+  }
   
+  // Drupal secondary tabs
+  .tabs--secondary {
+    @extend %subtabs-horizontal;
+  }
 }
