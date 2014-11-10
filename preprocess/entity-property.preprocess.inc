@@ -18,8 +18,10 @@ function gent_base_preprocess_entity_property(&$variables) {
     if (is_file($path)) {
       require_once $path;
     }
-
     switch ($element['#property_name']) {
+      case 'gent_regulations':
+        $variables['attributes_array']['id'] = 'sheet-regulatory';
+        break;
       case 'form_url':
         $variables['content'] = '<span class="icon icon-newtab"></span>' . "\n";
         $variables['content'] .= '<span class="article-content-action-title">' . t('Online requisition form') . '</span>' . "\n";

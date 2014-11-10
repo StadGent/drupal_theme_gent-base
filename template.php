@@ -470,7 +470,9 @@ function gent_base_entity_property(&$variables) {
     $content_suffix = '</div>';
   }
   $output .= $variables['content'] . $content_suffix;
-
+  if (empty($variables['content'])) {
+    return FALSE;
+  }
   // Render the top-level DIV.
   return '<div' . $variables['attributes'] . '>' . $output . '</div>';
 }
