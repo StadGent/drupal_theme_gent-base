@@ -36,4 +36,10 @@ function gent_base_preprocess_page(&$variables) {
     $front = l(t('Home'), '<front>');
     drupal_set_breadcrumb(array($front));
   }
+
+  // Any implementing subtheme should define the conditions for using top tabs instead
+  // of normal tabs. This permission is added by gent base tools.
+  $variables['top_tabs_enabled'] = user_access('use tabs in top menu');
 }
+
+
