@@ -50,6 +50,10 @@
 //
 //
 
+.layerswitcher-plus .fieldset-wrapper {
+  position: relative;
+}
+
 /* 2 columns */
 @include mq($bp-desktop-s) {
   .layers {
@@ -58,10 +62,6 @@
     .layer-wrapper {
       @include float-span(6);
       @include rem-padding-lr(1, 1);
-
-      &:nth-child(odd) {
-        border-right: 1px solid $gamma-text-color;
-      }
     }
   }
 }
@@ -77,10 +77,6 @@
       width: auto;
       padding-left: 0;
       padding-right: 0;
-
-      &:nth-child(odd) {
-        border-right: none;
-      }
     }
   }
 }

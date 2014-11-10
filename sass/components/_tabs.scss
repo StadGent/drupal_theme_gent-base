@@ -59,6 +59,7 @@
   .ui-tabs-panel {
     padding: 1.5 * $alpha-font-size * 1px;
     padding: 1.5 * 1rem;
+    border-radius: $beta-radius;
   }
 
   .ui-tabs-nav {
