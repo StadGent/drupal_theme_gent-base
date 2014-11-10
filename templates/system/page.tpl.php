@@ -13,7 +13,7 @@
 </div>
 <![endif]-->
 <section class="top-section">
-  <nav class="holder holder--alpha padding <?php if ($tabs && $top_tabs_enabled): ?>is-tabs-enabled<?php endif; ?>">
+  <nav class="holder holder--alpha padding">
     <div class="l-row">
       <?php if ($top_menu_render_method == GENT_BASE_TOP_MENU_RENDER_METHOD_REGION): ?>
         <?php if ($page['top_menu']): ?>
@@ -123,7 +123,7 @@
     <?php endif; ?>
 
     <?php if ($tabs && !$top_tabs_enabled): ?>
-      <div class="tabitems content-tabs">
+      <div class="tabitems content-tabs <?php if ($tabs['#secondary']): ?>with-secondary<?php endif; ?>">
         <?php print render($tabs); ?>
       </div>
     <?php endif; ?>
