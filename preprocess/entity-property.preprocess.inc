@@ -20,23 +20,6 @@ function gent_base_preprocess_entity_property(&$variables) {
     }
 
     switch ($element['#property_name']) {
-      case 'references':
-        $variables['content'] = array();
-
-        foreach ($property->value() as $reference) {
-          $content = '<span class="icon icon-newtab"></span>' . "\n";
-          $content .= '<span class="article-content-action-title">' . $reference['title'] . '</span>' . "\n";
-          $content .= '<span class="article-content-action-document">' . check_plain(_filter_url_trim($reference['url'], 50)) . '</span>' . "\n";
-
-          $variables['content'][] = l($content, $reference['url'], array(
-            'attributes' => array(
-              'class' => array('article-content-action'),
-            ),
-            'html' => TRUE,
-          ));
-        }
-        break;
-
       case 'form_url':
         $variables['content'] = '<span class="icon icon-newtab"></span>' . "\n";
         $variables['content'] .= '<span class="article-content-action-title">' . t('Online requisition form') . '</span>' . "\n";
