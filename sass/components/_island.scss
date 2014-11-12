@@ -326,6 +326,11 @@
 .island--zeta {
   @include margin-tb(.6, .6);
 
+  h2 {
+    padding-top:0;
+    @include padding-tb(0, .5);
+  }
+  
   h3 {
     color: $alpha-ui-color;
     transition: color .3s ease-in-out;
