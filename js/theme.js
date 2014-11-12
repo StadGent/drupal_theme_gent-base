@@ -21,15 +21,17 @@
       }
 
       if (typeof $.fn.masonry !== 'undefined') {
+
         var $container = $('.multi-column-items').masonry({
           itemSelector: 'article',
-          columnWidth: '.l-third',
+          columnWidth: '.island',
           isAnimated: true,
           gutter: '.gutter'
         });
         $container.imagesLoaded(function () {
           $container.masonry();
         });
+        
       }
     }
   };

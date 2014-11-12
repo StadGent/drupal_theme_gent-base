@@ -115,14 +115,15 @@
 // When we are using masonry view (class multi-column), we do not want the float and clear behavior of 
 // our floating grid. Reset those so masonry can handle the layout.
 .multi-column {
- .l-third {
+ .l-third, .l-fourth {
     display:block;
     margin-left:0 !important;
     margin-right:0 !important;
     clear:none !important;
     float:none !important;
   }
-  // Our element that will be used for masonry to hadnle the gutter
+  
+  // Our element that will be used for masonry to handle the gutter
   .gutter {
     width:gutter-span();
   }
