@@ -1,0 +1,26 @@
+
+.widget--reservation {
+
+  fieldset {
+    border: 0;
+
+    .fieldset-description {
+      display: none;
+    }
+
+    .fieldset-wrapper {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .form-item-reservation-reservation-date {
+      float:none;
+    }
+
+    .form-type-sport-timefield {
+      width: 50%;
+      float:left;
+    }
+  }
+
+}
