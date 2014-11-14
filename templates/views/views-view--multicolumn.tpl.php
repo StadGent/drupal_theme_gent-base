@@ -1,19 +1,28 @@
-<div class="<?php print $classes; ?>">
+<div class="masonry-wrapper">
+  <?php if ($exposed): ?>
+    <div class="view-filters">
+      <?php print $exposed; ?>
+    </div>
+  <?php endif; ?>
 
-<?php if ($rows): ?>
-<div class="multi-column-items">
-  <?php print $rows; ?>
-  <div class="gutter"></div>
-</div>
-<?php elseif ($empty): ?>
-    <?php print $empty; ?>
-<?php endif; ?>
+  <div class="<?php print $classes; ?>">
 
-<?php if ($pager): ?>
-  <?php print $pager; ?>
-<?php endif; ?>
+    <?php if ($rows): ?>
+      <div class="multi-column-items">
+      <?php print $rows; ?>
+      <div class="gutter"></div>
+    </div>
 
-<?php if ($more): ?>
-  <?php print $more; ?>
-<?php endif; ?>
+    <?php elseif ($empty): ?>
+        <?php print $empty; ?>
+    <?php endif; ?>
+
+    <?php if ($pager): ?>
+      <?php print $pager; ?>
+    <?php endif; ?>
+
+    <?php if ($more): ?>
+      <?php print $more; ?>
+    <?php endif; ?>
+  </div>
 </div>
