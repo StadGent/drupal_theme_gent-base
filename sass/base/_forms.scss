@@ -250,10 +250,9 @@ textarea {
   margin-bottom: 1em;
   margin-left:0;
   clear:left;
-  @include mq($bp-tablet-s) {
-    width:auto;
-  }
+
   @include mq($bp-tablet-m) {
+    width:auto;
     margin-top: 1.6em;
     padding-left:1em;
     clear:none;
