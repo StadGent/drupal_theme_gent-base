@@ -403,11 +403,11 @@
 }
 
 // Overwrite zeta when used in another region
-.region-content .island--zeta {
+.region-content .island--zeta,
+.region-sidebar .island--zeta {
   .island__body {
     background-color:$gamma-ui-color;
   }
-  
 }
 
 .island--theta {
