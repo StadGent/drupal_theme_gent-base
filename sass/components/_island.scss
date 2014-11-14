@@ -538,6 +538,38 @@
   }
 }
 
+.island--lambda {
+  background-color:$white-color;
+  margin-bottom:0;
+  padding:0;
+  
+  @include margin-tb(1, 0);
+  @extend %rounded-1;
+  @include text-dimensions(-4, 1);
+  
+  table {
+    margin:0;
+  }
+  tr {
+    border-bottom:1px solid $gamma-text-color;
+    
+    &:last-child {
+      border-bottom:none;
+    }
+  }
+  td {
+    @include text-dimensions(-3, 1);
+    @include px-padding-lr(1, 1);
+    @include padding-tb(.5, .5);
+    
+    &.label {
+      font-weight:bold;
+    }
+  }
+}
+
 .l-primary .island:first-child  {
   margin-top:0;
 }
+
+

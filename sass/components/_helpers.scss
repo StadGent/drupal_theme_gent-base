@@ -31,3 +31,10 @@
 .noborder {
   border:none;
 }
+
+.rounded {
+  border-radius: $gamma-radius;
+}
+.rounded-1 {
+  @extend %rounded-1;
+}
