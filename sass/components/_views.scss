@@ -24,7 +24,21 @@ h2.grouped {
 
 .views-summary {
   a {
+    @extend %rounded;
+    @include px-padding-lr(.7,.7);
+    @include padding-tb(.2, .2);
     text-decoration:none;
-    @include rem-padding-lr(.2, .2);
+    font-weight:bold;
+    
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: $alpha-ui-color;
+      color:$white-color;
+    }
+  }
+  .active {
+    background-color: $delta-ui-color;
+    color:$white-color;
   }
 }

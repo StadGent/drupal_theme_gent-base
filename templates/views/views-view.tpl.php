@@ -46,13 +46,13 @@
   <?php endif; ?>
 
   <?php if ($attachment_before): ?>
-    <div class="attachment attachment-before">
+    <div class="attachment attachment-before clearfix">
       <?php print $attachment_before; ?>
     </div>
   <?php endif; ?>
 
   <?php if ($rows): ?>
-    <div class="view-content">
+    <div class="view-content clearfix">
       <?php print $rows; ?>
     </div>
   <?php elseif ($empty): ?>
@@ -66,7 +66,7 @@
   <?php endif; ?>
 
   <?php if ($attachment_after): ?>
-    <div class="attachment attachment-after">
+    <div class="attachment attachment-after clearfix">
       <?php print $attachment_after; ?>
     </div>
   <?php endif; ?>
