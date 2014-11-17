@@ -17,21 +17,25 @@ function gent_base_preprocess_views_view(&$variables) {
   }
 }
 
+
+
 /**
  * Implements hook_preprocess_HOOK().
  */
 function gent_base_preprocess_views_view_summary_unformatted(&$variables) {
-  $url = drupal_get_path_alias($_GET['q']);
+  $url = $_GET['q'];
   $url_parts = explode('/', $url);
   $url_last = array_pop($url_parts);
-  if (!$url_parts) {
-    $url_parts = array($url_last);
-  }
-  $display_url = implode('/', $url_parts);
 
   // Prepend an All link on the first position
   $link = new StdClass();
   $link->url = 'all';
+
+  if (!$url_parts) {
+    $url_parts = array($url_last);
+    $link->url = $url_last . '/all';
+  }
+
   $link->title_truncated = $link->link = t('All');
   array_unshift($variables['rows'], $link);
 
