@@ -21,3 +21,10 @@ h2.grouped {
     padding-top:0;
   }
 }
+
+.views-summary {
+  a {
+    text-decoration:none;
+    @include rem-padding-lr(.2, .2);
+  }
+}
