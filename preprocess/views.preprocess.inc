@@ -19,17 +19,33 @@ function gent_base_preprocess_views_view(&$variables) {
 
 /**
  * Implements hook_preprocess_HOOK().
- *
- * Always use a summary list without delimiter using inline fields
  */
 function gent_base_preprocess_views_view_summary_unformatted(&$variables) {
   $url = drupal_get_path_alias($_GET['q']);
   $url_parts = explode('/', $url);
-  $url_last = end($url_parts)
-  ;
-  if (drupal_strlen($url_last) !== 1) {
-    $variables['row_classes'][0] = 'active';
-    return;
+  $url_last = array_pop($url_parts);
+  if (!$url_parts) {
+    $url_parts = array($url_last);
+  }
+  $display_url = implode('/', $url_parts);
+
+  // Prepend an All link on the first position
+  $link = new StdClass();
+  $link->url = 'all';
+  $link->title_truncated = $link->link = t('All');
+  array_unshift($variables['rows'], $link);
+
+  if (count($url_parts) > 1) {
+    $url_last = array_pop($url_parts);
+    if (drupal_strlen($url_last) !== 1) {
+      $variables['row_classes'][0] = 'active';
+      return;
+    }
+
+    if ($url_last == 'all') {
+      $variables['row_classes'][-1] = 'active';
+      return;
+    }
   }
 
   $char = mb_substr($url, -1);
