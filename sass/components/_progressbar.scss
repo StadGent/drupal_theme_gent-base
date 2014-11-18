@@ -1,10 +1,10 @@
 .progress {
   .bar {
-    border: 1px solid $color-border-ui;
+    border: 1px solid $alpha-ui-color;
     border-radius: $alpha-radius;
     padding: 5px;
     .filled {
-      background-color: $progress-bar-color;
+      background-color: $gamma-ui-color;
       height: 30px;
       width: 0px;
       border-radius: $alpha-radius;
