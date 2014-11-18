@@ -1,4 +1,4 @@
-<div id="<?php print $block_html_id; ?>" class="l-third island island--epsilon js-height <?php print $classes; ?>"<?php print $attributes; ?>>
+<div id="<?php print $block_html_id; ?>" class="l-third island island--epsilon js-height <?php print $classes; ?>">
 
 <?php if ($block->subject): ?>
   <h2 class="h1 hT"><?php print $block->subject ?></h2>
