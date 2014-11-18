@@ -3,8 +3,6 @@
     border: 1px solid $alpha-ui-color;
     border-radius: $alpha-radius;
     padding: 5px;
-    background-color: #fff;
-    
     .filled {
       background-color: $gamma-ui-color;
       height: 30px;
@@ -12,34 +10,7 @@
       border-radius: $alpha-radius;
     }
   }
-  .percentage {
-    float: right; /* LTR */
-  }
-  
-}
-.progress-disabled {
-  float: right;
-}
-
-/* Throbber */
-.ajax-progress {
-  display: inline-block;
-}
-.ajax-progress .throbber {
-  background: transparent url(#{$base-theme-path}/img/gif/throbber-active.gif) no-repeat 0px center;
-  float: left; /* LTR */
-  height: 16px;
-  margin: 5px;
-  width: 16px;
-  overflow:hidden;
-}
-.ajax-progress .message {
-  padding-left: 20px;
-  display:none;
-}
-tr .ajax-progress .throbber {
-  margin: 0 2px;
 }
 .ajax-progress-bar {
-  width: 16em;
-}
+   width: 16em;
+ }
