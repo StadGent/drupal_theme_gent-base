@@ -71,7 +71,7 @@ msgstr "Zoeken"
 
 #: templates/gent_social/gent_social_media_links_block.tpl.php:11
 msgid "Follow us on:"
-msgstr "Volg Stad Gent op:"
+msgstr "Volg ons op:"
 
 #: templates/gent_wijksites/gent-wijksites-wvdm-home.tpl.php:2
 msgid "Wijk van de maand"
