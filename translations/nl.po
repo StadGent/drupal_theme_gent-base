@@ -67,7 +67,7 @@ msgstr "Geef een zoekterm"
 
 #: templates/gent_library/library_search_block.tpl.php:6
 msgid "Search"
-msgstr "Zoek"
+msgstr "Zoeken"
 
 #: templates/gent_social/gent_social_media_links_block.tpl.php:11
 msgid "Follow us on:"
