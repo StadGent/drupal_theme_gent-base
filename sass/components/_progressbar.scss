@@ -1,0 +1,13 @@
+.progress {
+  .bar {
+    border: 1px solid $color-border-ui;
+    border-radius: $alpha-radius;
+    padding: 5px;
+    .filled {
+      background-color: $progress-bar-color;
+      height: 30px;
+      width: 0px;
+      border-radius: $alpha-radius;
+    }
+  }
+}
