@@ -57,7 +57,7 @@ function gent_base_form_system_theme_settings_alter(&$form, &$form_state, $form_
 
   $form['headerimage'] = array(
     '#type' => 'fieldset',
-    '#title' => t('Header header image'),
+    '#title' => t('Header image'),
     '#description' => t('This image will be shown as the default header image.'),
   );
 
