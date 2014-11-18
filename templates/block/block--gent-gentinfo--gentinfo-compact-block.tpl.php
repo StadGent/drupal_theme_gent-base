@@ -6,7 +6,7 @@
  * @TODO See if we can make this more configurable for future blockw with the block class module.
  */
 ?>
-<div id="<?php print $block_html_id; ?>" class="l-fourth-to-single island island--delta <?php print $classes; ?>"<?php print $attributes; ?>>
+<div id="<?php print $block_html_id; ?>" class="l-fourth-to-single island island--delta <?php print $classes; ?>">
 
   <?php if ($block->subject): ?>
     <h3><?php print $block->subject ?></h3>
