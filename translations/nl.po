@@ -63,7 +63,7 @@ msgstr "Zoek in de cataogus"
 
 #: templates/gent_library/library_search_block.tpl.php:5
 msgid "Enter a searchterm"
-msgstr "Geef een zoekterm"
+msgstr "Geef een zoekterm op"
 
 #: templates/gent_library/library_search_block.tpl.php:6
 msgid "Search"
