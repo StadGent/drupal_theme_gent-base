@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gent base theme\n"
 "POT-Creation-Date: 2014-11-18 11:12+0100\n"
-"PO-Revision-Date: 2014-11-19 13:36+0100\n"
+"PO-Revision-Date: 2014-11-19 14:43+0100\n"
 "Last-Translator: Matthijs Van Assche <matthijs.vanassche@mvaprojects.be>\n"
 "Language-Team: Digipolis <tbweb@gent.be>\n"
 "Language: nl\n"
@@ -155,7 +155,7 @@ msgstr "Vul het formulier online in"
 
 #: preprocess/entity-property.preprocess.inc:28
 msgid "Complete the online requisition form"
-msgstr "Vul het webformulier in"
+msgstr "Webformulier"
 
 #: preprocess/entity-property.preprocess.inc:59
 msgid "Contacts"
