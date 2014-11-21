@@ -18,6 +18,13 @@ $googleplus-color: #C63D2D;
   @include text-dimensions(-1,1,0,.15,.2);
 }
 
+.share-links__network {
+  display:none;
+  @include mq($bp-tablet-m) {
+    display:inline-block;
+  }
+}
+
 .share-links__btn {
   @extend %btn;
   
