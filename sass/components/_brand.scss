@@ -172,6 +172,12 @@
   background-position: left top;
 }
 
+p.brand__footer__sub__logo {
+  margin-bottom:2em;
+  @include mq($bp-tablet-m) {
+    margin-bottom:0;
+  }
+}
 
 .brand__district {
   @extend %hide-text;
