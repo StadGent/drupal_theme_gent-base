@@ -1,21 +1,2 @@
-// Import external libraries.
-@import "compass";
-@import "breakpoint";
-@import "singularitygs";
-@import "toolkit-no-css";
+@import "loader/base";
 
-// Always include base theme scss first and allow overrides/extends in sub-theme.
-@import "../../gent_base/sass/variables/**/*";
-@import "variables/**/*";
-
-@import "../../gent_base/sass/abstractions/**/*";
-@import "abstractions/**/*";
-
-@import "../../gent_base/sass/base/**/*";
-@import "base/**/*";
-
-@import "../../gent_base/sass/components/**/*";
-@import "components/**/*";
-
-@import "../../gent_base/sass/layouts/**/*";
-@import "layouts/**/*";

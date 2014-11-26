@@ -24,11 +24,24 @@ group :development do
   #    puts 'Cleared theme registry.'
   #  }
   #end
-
-  # https://github.com/guard/guard-livereload.
-  # Ignore *.normalize.scss to prevent flashing content when re-rendering.
-  guard :livereload do
+  
+  # LiveReload https://github.com/guard/guard-livereload
+  require 'find'
+  if Find.find(Dir.pwd).detect{|dir|dir=~/.+\.(css|html|js)$/}
+    guard 'livereload', :grace_period => 0.5 do
+      watch(%r{.+\.(css|html|js)$})
+    end
+  end
+  
+  guard 'livereload' do
+    # Ignore *.normalize.scss to prevent flashing content when re-rendering.
     watch(%r{^((?!\.normalize\.).)*\.(css|js)$})
+    watch(%r{app/views/.+\.(erb|haml|slim)$})
+    watch(%r{app/helpers/.+\.rb})
+    watch(%r{public/.+\.(css|js|html)})
+    watch(%r{config/locales/.+\.yml})
+    # Rails Assets Pipeline
+    watch(%r{(app|vendor)(/assets/\w+/(.+\.(css|js|html|png|jpg))).*}) { |m| "/assets/#{m[3]}" }
   end
 
 end

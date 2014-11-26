@@ -108,7 +108,6 @@ function gent_base_file_formatter_table($variables) {
       theme('file_link', array('file' => (object) $item)),
     );
   }
-  //$rows['attributes']['class'] = 'link-list';
   return empty($rows) ? '' : theme('item_list', array('items' => $rows, 'hide_wrapper' => TRUE, 'attributes' => array('class' => array('link-list'))));
 }
 

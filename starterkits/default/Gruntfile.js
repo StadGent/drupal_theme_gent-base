@@ -59,7 +59,8 @@ module.exports = function (grunt) {
 
     jshint: {
       options: {
-        jshintrc: '.jshintrc'
+        jshintrc: '.jshintrc',
+        ignores: 'libraries'
       },
       all: ['js/{,**/}*.js', '!js/{,**/}*.min.js', '../gent_base/js/{,**/}*.js', '!../gent_base/js/{,**/}*.min.js']
     },
@@ -69,14 +70,14 @@ module.exports = function (grunt) {
         options: {
           mangle: false,
           compress: false,
-          beautify: true
+          beautify: true,
         },
         files: [{
           expand: true,
           flatten: true,
           cwd: 'js',
           dest: 'js',
-          src: ['**/*.js', '!**/*.min.js'],
+          src: ['**/*.js', '!**/*.min.js', '../../gent_base/js/{,**/}*.js', '!../../gent_base/js/{,**/}*.min.js'],
           rename: function(dest, src) {
             var folder = src.substring(0, src.lastIndexOf('/'));
             var filename = src.substring(src.lastIndexOf('/'), src.length);
@@ -95,7 +96,7 @@ module.exports = function (grunt) {
           flatten: true,
           cwd: 'js',
           dest: 'js',
-          src: ['**/*.js', '!**/*.min.js'],
+          src: ['**/*.js', '!**/*.min.js', '../../gent_base/js/**/*.js', '!../../gent_base/js/**/*.min.js'],
           rename: function(dest, src) {
             var folder = src.substring(0, src.lastIndexOf('/'));
             var filename = src.substring(src.lastIndexOf('/'), src.length);
