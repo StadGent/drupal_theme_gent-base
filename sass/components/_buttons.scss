@@ -162,3 +162,20 @@ a.btn--epsilon {
     background: lighten($gamma-ui-color, 5);
   }
 }
+
+.btn--disabled,
+a.btn--disabled {
+  color: $disabled-color;
+  background-color: $disabled-ui-color;
+  border: 1px solid $disabled-color;
+  cursor: default;
+
+  &:hover {
+    background-color: $disabled-ui-color;
+  }
+
+  &:focus,
+  &:active {
+    background-color: $disabled-ui-color;
+  }
+}
