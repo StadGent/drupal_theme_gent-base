@@ -18,6 +18,13 @@ $googleplus-color: #C63D2D;
   @include text-dimensions(-1,1,0,.15,.2);
 }
 
+.share-links__network {
+  display:none;
+  @include mq($bp-tablet-m) {
+    display:inline-block;
+  }
+}
+
 .share-links__btn {
   @extend %btn;
   
@@ -28,40 +35,38 @@ $googleplus-color: #C63D2D;
   @include rem-margin-lr(0,1);
   @include btn-s;
 
- &:after {
+  &:after {
     display: none;
   }
-
+  
+  &:hover {
+    color: $white-color;
+  }
+  
   &.fc {
     background-color: $facebook-color;
-    &:hover {
-      background-color: lighten($facebook-color,5);
-    }
+    &:hover,
     &:focus,
     &:active {
-      background-color: darken($facebook-color,5);
+      background-color: darken($facebook-color,10);
     }
   }
   
   &.tw {
     background-color: $twitter-color;
-    &:hover {
-      background-color: lighten($twitter-color,5);
-    }
+    &:hover,
     &:focus,
     &:active {
-      background-color: darken($twitter-color,5);
+      background-color: darken($twitter-color,10);
     }
   }
   
   &.li {
     background-color: $linkedin-color;
-    &:hover {
-      background-color: lighten($linkedin-color,5);
-    }
+    &:hover,
     &:focus,
     &:active {
-      background-color: darken($linkedin-color,5);
+      background-color: darken($linkedin-color,10);
     }
   }
 }

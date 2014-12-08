@@ -74,6 +74,7 @@ function gent_base_preprocess_entity_property(&$variables) {
               break;
 
             case 'application/msword':
+            case 'application/vnd.openxmlformats-officedocument.wordprocessingml.document':
               $title = t('Complete the requisition form (Word)');
               break;
 

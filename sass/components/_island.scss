@@ -415,8 +415,9 @@
   margin: 0;
 
   .island__top {
+    display:none;
     border-radius: $gamma-radius;
-
+    
     img {
       border-radius: $gamma-radius;
     }
@@ -433,11 +434,13 @@
   h3 {
     color: $white-color;
   }
-
+  
   @include mq($bp-phone-m) {
     .island__top {
+      display:block;
       float: right;
       width: 50%;
+      height:100%;
     }
 
     .island__bottom {
@@ -450,11 +453,13 @@
     .island__top {
       float: left;
       width: 100%;
+      height:50%;
     }
 
     .island__bottom {
       float: left;
       width: 100%;
+      height:50%;
     }
   }
 }
@@ -479,6 +484,20 @@
     line-height: 1.4em;
   }
 
+  .btn {
+    display:block;
+    text-indent:-9999px;
+    background-image:url(#{$base-theme-path}/img/png/icon-arrow-right.png);
+    background-repeat: no-repeat;
+    background-position: 50%;
+
+    @include mq($bp-tablet-s) {
+      text-indent:0;
+      background-image:none;
+    }
+  }
+  
+  
   @include mq($bp-phone-m) {
     @include padding-tb(1.5, 1.5);
     background-image: url('#{$base-theme-path}/img/png/corner-top-middle.png'),
