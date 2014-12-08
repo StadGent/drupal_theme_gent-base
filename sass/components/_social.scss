@@ -65,3 +65,19 @@ $googleplus-color: #C63D2D;
     }
   }
 }
+
+.gent-social-large {
+  display: none;
+
+  @include mq($bp-tablet-s) {
+    display: block;
+  }
+}
+
+.gent-social-small {
+  display: block;
+
+  @include mq($bp-tablet-s) {
+    display: none;
+  }
+}
