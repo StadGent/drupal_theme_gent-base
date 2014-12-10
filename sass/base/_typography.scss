@@ -284,7 +284,7 @@ a {
   @include px-padding-lr(0, 2.2);
   position: relative;
 
-  &:before {
+  &:after {
     position: absolute;
     right: 0;
     top: .3em;
@@ -311,7 +311,7 @@ a {
   text-decoration: none;
   position: relative;
 
-  &:after {
+  &:before {
     font-family: 'gent-icons';
     speak: none;
     font-style: normal;
