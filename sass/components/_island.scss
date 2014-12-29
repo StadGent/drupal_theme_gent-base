@@ -367,6 +367,7 @@
     background-color: $white-color;
     border-radius: $gamma-radius;
     border: 1px solid desaturate(darken($gamma-ui-color, 5), 10);
+    position: relative;
   }
 
   .date,
