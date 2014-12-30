@@ -96,16 +96,19 @@
 <?php if ($page['content_top']): ?>
   <section class="holder padding--big background--alpha border-bottom">
     <div class="l-row">
+      <?php print $messages; ?>
+
       <?php print render($page['content_top']); ?>
     </div>
   </section>
+
 <?php endif; ?>
 
 <section class="holder <?php print $is_front ? 'padding--huge' : 'padding--big' ?>">
   <div class="l-row">
-
+    <?php if (!$page['content_top']): ?>
     <?php print $messages; ?>
-
+    <?php endif;?>
     <?php if ($title): ?>
     <header <?php if ($is_front): ?>class="l-full"<?php endif; ?>>
       <!-- RSPEAK_START -->
