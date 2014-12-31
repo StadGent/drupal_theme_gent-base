@@ -529,3 +529,70 @@ function gent_base_use_large_header() {
   }
   return FALSE;
 }
+
+/**
+ * Implements hook_webform_component_render_alter().
+ *
+ * Allow modules to modify a webform component that is going to be rendered in a form.
+ *
+ * @param array $element
+ *   The display element as returned by _webform_render_component().
+ * @param array $component
+ *   A Webform component array.
+ *
+ * @see _webform_render_component()
+ */
+function gent_base_webform_component_render_alter(&$element, &$component) {
+  if (!empty($element['#field_prefix'])) {
+    $element['#wrapper_attributes']['class'][] = 'with-prefix';
+  }
+  if (!empty($element['#field_suffix'])) {
+    $element['#wrapper_attributes']['class'][] = 'with-suffix';
+  }
+}
+
+/**
+ * Replacement for theme_webform_element().
+ */
+function gent_base_webform_element($variables) {
+  $element = $variables['element'];
+
+  $output = '<div ' . drupal_attributes($element['#wrapper_attributes']) . '>' . "\n";
+  $prefix = isset($element['#field_prefix']) ? '<span class="field-prefix">' . webform_filter_xss($element['#field_prefix']) . '</span> ' : '';
+  $suffix = isset($element['#field_suffix']) ? ' <span class="field-suffix">' . webform_filter_xss($element['#field_suffix']) . '</span>' : '';
+
+  // managed_file uses a different id, make sure the label points to the correct id.
+  if (isset($element['#type']) && $element['#type'] === 'managed_file') {
+    if (!empty($variables['element']['#id'])) {
+      $variables['element']['#id'] .= '-upload';
+    }
+  }
+
+  switch ($element['#title_display']) {
+    case 'inline':
+    case 'before':
+    case 'invisible':
+      $output .= ' ' . theme('form_element_label', $variables);
+      $output .= ' ' . $prefix . $suffix . '<span class="children">' . $element['#children'] . '</span>' . "\n";
+      break;
+
+    case 'after':
+      $output .= ' ' . $prefix . $element['#children'] . $suffix;
+      $output .= ' ' . theme('form_element_label', $variables) . "\n";
+      break;
+
+    case 'none':
+    case 'attribute':
+      // Output no label and no required marker, only the children.
+      $output .= ' ' . $prefix . $element['#children'] . $suffix . "\n";
+      break;
+  }
+
+  if (!empty($element['#description'])) {
+    $output .= ' <div class="description">' . $element['#description'] . "</div>\n";
+  }
+
+  $output .= "</div>\n";
+
+  return $output;
+}
