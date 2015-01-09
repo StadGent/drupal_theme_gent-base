@@ -229,7 +229,7 @@
 
   // After loading widgets, call equal heights script again.
   $(document).bind('gentbe_widget.afterLoad', function(e, parameters) {
-    jsTheme.equalColumns.init();
+    $('.js-height').matchHeight();
   });
 
 })(jQuery);
