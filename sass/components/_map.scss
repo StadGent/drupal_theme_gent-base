@@ -24,6 +24,24 @@
       padding: 0;
     }
   }
+
+  .search-address {
+    .error {
+      @include text-dimensions(1, 1);
+      padding-left: 0;
+      color: $alpha-text-color;
+      font-family: $alpha-font-family;
+      border: none;
+    }
+
+    .dym-wrapper {
+      @include text-dimensions(1, 1);
+      padding-left: 0;
+      color: $alpha-text-color;
+      font-family: $alpha-font-family;
+      border: none;
+    }
+  }
 }
 
 .openlayers_map_fullscreen  {
