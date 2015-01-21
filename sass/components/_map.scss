@@ -24,7 +24,9 @@
       padding: 0;
     }
   }
+}
 
+.openlayers-map {
   .search-address {
     .error {
       @include text-dimensions(1, 1);
@@ -32,6 +34,7 @@
       color: $alpha-text-color;
       font-family: $alpha-font-family;
       border: none;
+      font-weight:400;
     }
 
     .dym-wrapper {
