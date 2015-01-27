@@ -420,6 +420,42 @@ function gent_base_status_messages($variables) {
 }
 
 /**
+ * Implements hook_cta_email().
+ *
+ * @ingroup themeable
+ *
+ * Override the 'email' call-to-action.
+ */
+function gent_base_cta_email($variables) {
+  $output = '<p><span>';
+  $output .= '<a rel="email" href="mailto:' . $variables['email'] . '" class="article-content-action">';
+  $output .= '<span class="icon icon icon-email"></span>';
+  $output .= '<span class="article-content-action-title">' . $variables['text'] . '</span>';
+  $output .= '<span class="article-content-action-document">' . $variables['email'] . '</span>';
+  $output .= '</a>';
+  $output .= '</span></p>';
+  return $output;
+}
+
+/**
+ * Implements hook_cta_link().
+ *
+ * @ingroup themeable
+ *
+ * Override the 'link' call-to-action.
+ */
+function gent_base_cta_link($variables) {
+  $output = '<p><span>';
+  $output .= '<a href="' . $variables['url'] . '" class="article-content-action">';
+  $output .= '<span class="icon icon icon-email"></span>';
+  $output .= '<span class="article-content-action-title">' . $variables['text'] . '</span>';
+  $output .= '<span class="article-content-action-document">' . $variables['url'] . '</span>';
+  $output .= '</a>';
+  $output .= '</span></p>';
+  return $output;
+}
+
+/**
  * Implements hook_theme().
  */
 function gent_base_theme() {
