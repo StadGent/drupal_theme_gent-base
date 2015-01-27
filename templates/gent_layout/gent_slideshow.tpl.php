@@ -1,5 +1,5 @@
 <?php if ($display): ?>
-<div id="field-slideshow-wrapper" class="field-slideshow-wrapper">
+<div id="field-slideshow-wrapper" class="field-slideshow-wrapper clearfix">
   <?php if ($item_count > 0): ?>
     <?php $item = array_shift($items); ?>
     <div class="l-full <?php if (!$item['title']): ?>padding-bottom<?php endif;?>">
