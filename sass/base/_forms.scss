@@ -50,6 +50,10 @@ fieldset {
     legend:before {
       content: "\e601";
     }
+    
+    .fieldset-wrapper {
+      display:none;
+    }
   }
 
   .fieldset-wrapper {
