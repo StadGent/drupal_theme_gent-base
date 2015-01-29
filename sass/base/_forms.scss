@@ -20,7 +20,7 @@ fieldset {
 
   legend {
     font-weight: bold;
-    @include rem-padding-lr(.5, .5);
+    @include rem-padding-lr(.3, .3);
     @include padding-tb(.1, .1);
     margin-left: .5em;
     width: auto;
@@ -36,6 +36,11 @@ fieldset {
   &.collapsible {
     legend:before {
       content: "\e600";
+      margin-right:.5em;
+    }
+    
+    .fieldset-wrapper {
+      @include padding-tb(1, 1)
     }
   }
 
@@ -49,6 +54,7 @@ fieldset {
 
     legend:before {
       content: "\e601";
+      margin-right:.5em;
     }
     
     .fieldset-wrapper {
