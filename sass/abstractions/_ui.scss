@@ -169,7 +169,7 @@
 %alert {
   border-width: $border;
   border-style: solid;
-  border-radius: $alpha-radius; 
+  border-radius: $alpha-radius;
   @include mq($bp-tablet-s) {
     border-radius: $beta-radius;
   }
@@ -192,13 +192,15 @@
     text-decoration: none;
   }
 
+  h2 {
+    padding-top: 0;
+  }
   p {
     @include baseline-dimensions(0, 1, 1);
   }
-  
   ul {
-    margin-top:0;
-    margin-bottom:0; 
+    margin-top: 0;
+    margin-bottom: 0;
   }
 }
 
