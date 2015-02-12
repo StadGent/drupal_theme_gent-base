@@ -32,9 +32,25 @@ $rs-progressbar-handle-color  : #f39200;
 .icon-handle:before { content: "\f10a"; }
 .icon-pauze:before { content: "\f10b"; }
 .icon-person:before { content: "\f10c"; }
+.icon-play:before { content: "\f110"; }
 .icon-settings:before { content: "\f10d"; }
 .icon-stop:before { content: "\f10e"; }
 .icon-volume:before { content: "\f10f"; }
+
+.icon-rs {
+  display: inline-block;
+  font-family: "readspeaker";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;  
+}
 
 // Visually hide the readspeaker icon until the header image comes in.
 @include mq($bp-tablet-s, 'max') {
@@ -109,25 +125,13 @@ $rs-progressbar-handle-color  : #f39200;
   }
   
   .rsbutton:before {
+    @extend .icon-rs;
     color:$rs-btn-color;
-    display: inline-block;
-    font-family: "readspeaker";
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-decoration: inherit;
-    text-rendering: optimizeLegibility;
-    text-transform: none;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-    font-smoothing: antialiased;
+    transition: color 0.35s ease;
   }
-  
-  /**
-   * Add a subtle rollover effect to the buttons.
-   */
-  .rsbutton:hover {
-    color: lighten($rs-btn-color, 20);
+
+  .rsbutton:hover:before {
+    color:lighten($rs-btn-color, 20);
   }
   
   /**
@@ -182,11 +186,11 @@ $rs-progressbar-handle-color  : #f39200;
   }
   
   &.rsstopped .rsbutton.rsbtn_pause:before {
-    //@extend .icon-play:before; // @todo choose a play icon
+    @extend .icon-play:before; // @todo choose a play icon
   }
   
   &.rsplaying .rsbutton.rsbtn_pause:before {
-    //@extend .icon-play:before;
+    @extend .icon-play:before;
     color: $alpha-ui-color;
   }
   
@@ -213,22 +217,20 @@ $rs-progressbar-handle-color  : #f39200;
   
   /************************************************ PROGRESS DRAG HANDLE */
   .rsbtn_progress_handle.rsimg {
+    @extend .icon-rs;
+    
     position: absolute;
+    top: -17px;
+    left: -17px;
+    width: 40px;
+    height: 40px;
+    
+    background-image: url(#{$base-theme-path}/img/png/rs-handle.png);
+    background-size: contain;
+    background-repeat:none;
     background-color: transparent;
-    color: $rs-progressbar-handle-color;
-    top: -6px;
-    left: -6px;
-    width: 20px;
-    height: 20px;
-    font-size:20px;
-    line-height:20px;
-  }
-  
-  .rsbtn_progress_handle.rsimg:before {
-    @extend .icon-handle:before;
   }
 
-  
   /************************************************ PROGRESS BAR */
   .rsbtn_progress_played {
     position: absolute;
@@ -321,7 +323,7 @@ $rs-progressbar-handle-color  : #f39200;
     }
     
     .rsbutton {
-      width: 28px;
+      width: 32px;
       height: 36px;
       font-size: 18px;
       line-height: 36px;
@@ -441,5 +443,9 @@ $rs-progressbar-handle-color  : #f39200;
   }
 }
 
-
+html.svg {
+  .rsbtn_progress_handle.rsimg {
+    background-image: url(#{$base-theme-path}/img/svg/rs-handle.svg);
+  }
+}
 
