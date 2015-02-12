@@ -83,3 +83,7 @@ ul.no-padding li {
 ul.nowrap li {
   white-space: nowrap;
 }
+
+p + ul {
+  margin-top:-1em;
+}
