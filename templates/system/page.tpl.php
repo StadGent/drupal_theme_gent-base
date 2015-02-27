@@ -96,18 +96,20 @@
 <?php if ($page['content_top']): ?>
   <section class="holder padding--big background--alpha border-bottom">
     <div class="l-row">
+      <!-- RSPEAK_START -->
       <?php print $messages; ?>
-
       <?php print render($page['content_top']); ?>
+      <!-- RSPEAK_STOP -->
     </div>
   </section>
-
 <?php endif; ?>
 
 <section class="holder <?php print $is_front ? 'padding--huge' : 'padding--big' ?>">
   <div class="l-row">
     <?php if (!$page['content_top']): ?>
+    <!-- RSPEAK_START -->
     <?php print $messages; ?>
+    <!-- RSPEAK_STOP -->
     <?php endif;?>
     <?php if ($title): ?>
     <header <?php if ($is_front): ?>class="l-full"<?php endif; ?>>
@@ -135,7 +137,9 @@
     <?php print render($page['content']); ?>
     <!-- RSPEAK_STOP -->
 
+    <!-- RSPEAK_START -->
     <?php print render($page['sidebar']); ?>
+    <!-- RSPEAK_STOP -->
 
     <?php print $feed_icons; ?>
   </div>
@@ -154,7 +158,9 @@
 <?php if ($page['footer_top']): ?>
   <section class="holder padding--huge">
     <div class="l-row">
+      <!-- RSPEAK_START -->
       <?php print render($page['footer_top']); ?>
+      <!-- RSPEAK_STOP -->
     </div>
   </section>
 <?php endif; ?>
