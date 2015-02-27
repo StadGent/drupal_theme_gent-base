@@ -33,7 +33,11 @@
 
   <div id="rs_area">
   <!-- RSPEAK_STOP -->
+
+  <!-- RSPEAK_START -->
   <?php print $page_top; ?>
+  <!-- RSPEAK_STOP -->
+
   <?php print $page; ?>
   <?php print $page_bottom; ?>
   </div>

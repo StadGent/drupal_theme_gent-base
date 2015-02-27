@@ -367,6 +367,10 @@ $rs-progressbar-handle-color  : #f39200;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizelegibility;
     
+  #rslightbox_closer {
+    transition: none;
+  }
+  
   #rslightbox_logo {
     display:none;
   }
