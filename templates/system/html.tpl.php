@@ -31,9 +31,12 @@
 
 <body<?php print $attributes;?>>
 
+  <div id="rs_area">
+  <!-- RSPEAK_STOP -->
   <?php print $page_top; ?>
   <?php print $page; ?>
   <?php print $page_bottom; ?>
+  </div>
 
   <?php print $scripts; ?>
 
