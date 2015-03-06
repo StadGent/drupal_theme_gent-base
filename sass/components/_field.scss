@@ -73,4 +73,8 @@ p.date {
   .address-line2 {
     @include margin-tb(0, 1);
   }
+
+  span.note {
+    @include em-margin-lr(1);
+  }
 }
