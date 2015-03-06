@@ -6,7 +6,7 @@
 ?>
 
 <?php if ($links): ?>
-<div class="l-fourth-alt island island--theta js-height">
+<div class="l-fourth-alt island island--theta">
   <div class="island__bottom js-equal">
     <h3><?php print t('Follow us on:')?></h3>
     <ul class="social-list">
