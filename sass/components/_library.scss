@@ -1,0 +1,20 @@
+.gent-library-block {
+  p {
+    margin-bottom:1em;
+    font-color: $dark-color;
+    font-size: 1.1em;
+  }
+
+  &.library-my-library-block {
+    .island__body {
+      background-color: transparent;
+    }
+    .btn--alpha {
+      margin-bottom:1em;      
+    }
+  }
+}
+
+.topic-banners .library-search-block h2 {
+  display:block;
+}
