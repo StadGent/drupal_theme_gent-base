@@ -10,29 +10,18 @@ require_once dirname(__FILE__) . '/template.php';
  * Implements hook_form_FORM_alter().
  */
 function gent_base_form_system_theme_settings_alter(&$form, &$form_state, $form_id = NULL) {
-  // General "alters" use a form id. Settings should not be set here. The only
-  // thing useful about this is if you need to alter the form for the running
-  // theme and *not* the theme setting. @see http://drupal.org/node/943212
-  /*if (isset($form_id)) {
-    return;
-  }*/
-
-  // TODO cool if check below is validated...
-  /*$form['gent_base_enable_warning'] = array(
-    '#type' => 'checkbox',
-    '#title' => t('Show a warning when gent_base is used directly'),
-    '#description' => t('You can disable this warning message permanently, however, please be aware that gent_base is a base theme and should not be used directly. You should always create a sub-theme instead.'),
-    '#default_value' => gent_base_theme_get_setting('gent_base_enable_warning', TRUE),
-    '#weight' => -20,
-    // Only show this checkbox on the gent_base theme settings page.
-    '#access' => $GLOBALS['theme_key'] === 'gent_base',
-  );*/
-
-  // Only show these settings below for the subtheme.
-  global $theme_key;
-  if ($theme_key == 'gent_base') {
+  // Only show these settings for the subtheme.
+  if ($GLOBALS['theme_key'] == 'gent_base') {
     return;
   }
+
+  // Leave if we've been here before.
+  if (isset($form['#submit']) && in_array('gent_base_form_system_theme_settings_submit', $form['#submit'])) {
+    return;
+  }
+
+  // Make sure this file is loaded during form processing.
+  $form_state['build_info']['files']['gent_base'] = drupal_get_path('theme', 'gent_base') . '/theme-settings.php';
 
   // Top menu render method.
   $form['theme_settings']['#access'] = TRUE;
@@ -68,9 +57,7 @@ function gent_base_form_system_theme_settings_alter(&$form, &$form_state, $form_
     '#upload_validators'  => array('file_validate_extensions' => array('png gif jpg')),
   );
 
-  if (!empty($fid)) {
-    $file = file_load($fid);
-
+  if (!empty($fid) && $file = file_load($fid)) {
     $form['headerimage']['default_headerimage_fid']['preview'] = array(
       '#markup' => theme('image_style', array(
         'style_name' => 'thumbnail',
@@ -91,11 +78,6 @@ function gent_base_form_system_theme_settings_alter(&$form, &$form_state, $form_
     }
   }
 
-  // Work-around for this bug: https://drupal.org/node/1862892
-  $theme_settings_path = drupal_get_path('theme', 'gent_base') . '/theme-settings.php';
-  if (file_exists($theme_settings_path) && !in_array($theme_settings_path, $form_state['build_info']['files'])) {
-    $form_state['build_info']['files'][] = $theme_settings_path;
-  }
   $form['#submit'][] = 'gent_base_form_system_theme_settings_submit';
 }
 
@@ -108,20 +90,31 @@ function gent_base_form_system_theme_settings_alter(&$form, &$form_state, $form_
  *   The form object.
  */
 function gent_base_form_system_theme_settings_submit($form, &$form_state) {
-  // Handle header image.
-  if (!empty($form_state['values']['default_headerimage_fid'])) {
-    $file = file_load($form_state['values']['default_headerimage_fid']);
-    if ($file) {
-      $file->status = FILE_STATUS_PERMANENT;
-      file_save($file);
+  $fid_old = variable_get('default_headerimage_fid');
+  $fid_new = (!empty($form_state['values']['default_headerimage_fid']) ? $form_state['values']['default_headerimage_fid'] : NULL);
+
+  if ($fid_new != $fid_old) {
+    if ($fid_new) {
+      $file = file_load($fid_new);
+
+      if (!$file->status) {
+        $file->status = FILE_STATUS_PERMANENT;
+        file_save($file);
+      }
+
       file_usage_add($file, 'gent_base_tools', 'headerimage', 1);
       variable_set('default_headerimage_fid', $file->fid);
     }
-  }
-  elseif ($old_fid = variable_get('default_headerimage_fid')) {
-    if ($file = file_load($old_fid)) {
-      file_delete($file);
+
+    if ($fid_old) {
+      if ($file = file_load($fid_new)) {
+        file_usage_delete($file, 'gent_base_tools', 'headerimage');
+        file_delete($file);
+      }
+
+      if (!$fid_new) {
+        variable_del('default_headerimage_fid');
+      }
     }
-    variable_del('default_headerimage_fid');
   }
 }
