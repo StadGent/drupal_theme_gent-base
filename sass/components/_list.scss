@@ -31,50 +31,6 @@ li.link-list__more {
   @include margin-top(1);
 }
 
-.social-list {
-  @extend %social-list;
-}
-
-.list-facebook {
-  background-image: url('#{$base-theme-path}/img/png/facebook.png');
-
-  .svg & {
-    background-image: url('#{$base-theme-path}/img/svg/facebook.svg');
-  }
-}
-
-.list-twitter {
-  background-image: url('#{$base-theme-path}/img/png/twitter.png');
-
-  .svg & {
-    background-image: url('#{$base-theme-path}/img/svg/twitter.svg');
-  }
-}
-
-.list-linkedin {
-  background-image: url('#{$base-theme-path}/img/png/linkedin.png');
-
-  .svg & {
-    background-image: url('#{$base-theme-path}/img/svg/linkedin.svg');
-  }
-}
-
-.list-googleplus {
-  background-image: url('#{$base-theme-path}/img/png/googleplus.png');
-
-  .svg & {
-    background-image: url('#{$base-theme-path}/img/svg/googleplus.svg');
-  }
-}
-
-.list-instagram {
-  background-image: url('#{$base-theme-path}/img/png/instagram.png');
-
-  .svg & {
-    background-image: url('#{$base-theme-path}/img/svg/instagram.svg');
-  }
-}
-
 ul.no-padding li {
   @extend .hN;
   margin-bottom:0;

@@ -6,13 +6,13 @@
 ?>
 
 <?php if ($links): ?>
-<div class="l-fourth-alt island island--theta">
+<div class="l-fourth-alt island island--theta gent-social-global-links">
   <div class="island__bottom js-equal">
     <h3><?php print t('Follow us on:')?></h3>
     <ul class="social-list">
     <?php foreach ($links as $link): ?>
     <li>
-      <a class="list-<?php print drupal_html_class($link['type']) ?>" href="<?php print url($link['url'], array('absolute' => TRUE))?>"><?php print $types[$link['type']]; ?></a>
+      <a href="<?php print url($link['url'], array('absolute' => TRUE))?>"><i class="icon-<?php print drupal_html_class($link['type']) ?>"></i><span class="element-invisible"><?php print $types[$link['type']]; ?></span></a>
     </li>
     <?php endforeach; ?>
   </div>
