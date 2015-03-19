@@ -12,7 +12,7 @@
     <ul class="social-list">
     <?php foreach ($links as $link): ?>
     <li>
-      <a href="<?php print url($link['url'], array('absolute' => TRUE))?>"><i class="icon-<?php print drupal_html_class($link['type']) ?>"></i><span class="element-invisible"><?php print $types[$link['type']]; ?></span></a>
+      <a href="<?php print url($link['url'], array('absolute' => TRUE))?>" title="<?php print $types[$link['type']]; ?>"><i class="icon-<?php print drupal_html_class($link['type']) ?>"></i><span class="element-invisible"><?php print $types[$link['type']]; ?></span></a>
     </li>
     <?php endforeach; ?>
   </div>
