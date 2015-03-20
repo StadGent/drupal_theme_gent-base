@@ -33,9 +33,23 @@ fieldset {
     }
   }
 
+  legend:before {
+    font-family: 'gent-icons';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
   &.collapsible {
     legend:before {
-      content: "\e600";
+      @extend .icon-arrow-down:before;
       margin-right:.5em;
     }
     
@@ -44,8 +58,8 @@ fieldset {
     }
   }
 
-  &.collapsed {
 
+  &.collapsible.collapsed {
     background-color: hsl(hue($alpha-ui-color), 40, 95);
     border-right: 1px solid rgba(#fff, 0.1);
     box-shadow: inset 0 -1px 1px 0 rgba(hsl(hue($alpha-ui-color), 40, 87.5), 1);
@@ -53,10 +67,9 @@ fieldset {
     height:2em;
 
     legend:before {
-      content: "\e601";
-      margin-right:.5em;
+      @extend .icon-caret:before;
     }
-    
+
     .fieldset-wrapper {
       display:none;
     }
