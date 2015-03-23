@@ -23,6 +23,14 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-instagram:before {
+  content: "\e61a";
+}
+
+.icon-googleplus:before {
+  content: "\e61b";
+}
+
 .icon-critical:before {
   content: "\62";
 }
