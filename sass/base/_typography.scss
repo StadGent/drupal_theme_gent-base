@@ -287,7 +287,7 @@ a {
   &:after {
     position: absolute;
     right: 0;
-    top: .3em;
+    top: .4em;
     content: "\e604";
     font-size: 80%;
     font-family: 'gent-icons';
@@ -300,9 +300,44 @@ a {
   }
 }
 
-#block-system-main .node.view-mode-full div.body p a:not([class]) {
-  @extend .textlink;
-  white-space: pre;
+#block-system-main .node.view-mode-full div.body p {
+  a[href^="http://"]:not([class]),
+  a[href^="https://"]:not([class]),
+  a[href^="//"]:not([class]) {
+    @include px-padding-lr(0, 2.2);
+    position: relative;
+
+    &:after {
+      @extend .icon-base-css;
+      @extend .icon-newtab:before;
+
+      position: absolute;
+      right: 0;
+      top: .4em;
+
+      font-size: 80%;
+      line-height: 1;
+      white-space: pre;
+    }
+  }
+
+  a[href^="mailto:"]:not([class]) {
+    @include px-padding-lr(0, 2.2);
+    position: relative;
+
+    &:after {
+      @extend .icon-base-css;
+      @extend .icon-email:before;
+
+      position: absolute;
+      right: 0;
+      top: .3em;
+
+      font-size: 80%;
+      line-height: 1;
+      white-space: pre;
+    }
+  }
 }
 
 .morelink {

@@ -9,7 +9,8 @@
   font-style: normal;
 }
 
-[class^="icon-"], [class*=" icon-"] {
+// IMPORTANT: KEEP "icon-base-css" class. Can be used to extend, to set base gent-icons css.
+[class^="icon-"], [class*=" icon-"], .icon-base-css {
   font-family: 'gent-icons';
   speak: none;
   font-style: normal;
