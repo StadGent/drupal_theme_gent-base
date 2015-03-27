@@ -177,7 +177,7 @@
   @include padding-tb(0, 1);
   float: left;
   width: 100%;
-  
+
   h1 {
     @include padding-tb(0, 1);
     text-align: center;
@@ -239,5 +239,24 @@
 
   @include mq($bp-tablet-l) {
     @include grid-span(13, 12);
+  }
+}
+
+.not-front {
+  .search-widget {
+    &> div {
+      display: none;
+      @include mq($bp-tablet-m) {
+        display: block;
+      }
+    }
+  }
+}
+
+.not-front.page-zoeken  {
+  .search-widget {
+    &> div {
+      display: block;
+    }
   }
 }
