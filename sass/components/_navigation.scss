@@ -9,7 +9,13 @@
   z-index: 9999;
   position: absolute;
   left: 140px;
+  @include mq($bp-tablet-s){
+  left: 21px;
+  }
   margin-top: -3px;
+  @include mq($bp-tablet-m){
+  margin-top: -42px;
+  }
   display: inline-block;
   width: 43px;
   height: 43px;
