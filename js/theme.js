@@ -236,6 +236,14 @@
       $('.not-front .search-widget > div').toggle([9000]);
     });
 
+    $('.holder .l-row').rcrumbs({
+      nbUncollapsableCrumbs: 3,
+      animation: {
+        activated: true,
+        speed: 200
+      }
+    });
+
   });
 
 })(jQuery);
