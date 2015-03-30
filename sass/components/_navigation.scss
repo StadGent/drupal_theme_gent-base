@@ -99,6 +99,12 @@
     border: 1px solid darken($gamma-ui-color, 5);
   }
 
+span {
+  padding-left: 0;
+  padding-right: 0;
+  border: 1px solid transparent;
+}
+
   @include mq($bp-tablet-s) {
     li {
       @include px-margin-lr(0, 2);
@@ -106,12 +112,6 @@
       &:after {
         right: -18px;
       }
-    }
-
-    span {
-      padding-left: 0;
-      padding-right: 0;
-      border: 1px solid transparent;
     }
   }
 }
