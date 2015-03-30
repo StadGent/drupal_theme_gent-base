@@ -1,6 +1,4 @@
-
-<?php
-?><?php if ($tabs && $top_tabs_enabled): ?>
+<?php if ($tabs && $top_tabs_enabled): ?>
   <div class="tabs--top sticky sticky-999">
     <?php print render($tabs); ?>
   </div>
@@ -63,19 +61,9 @@
     </div>
 
     <div class="mask <?php print $is_front ? 'ratio--home' : 'ratio--header'; ?>">
-
-      <?php if ($is_front ){
-        if ($header_image) { ?>
-          <picture class="header__background">
-            <source media="(min-width: 30em)" srcset="<?php print $header_image; ?>" >
-            <source media="(min-width: 70em)" srcset="<?php print $header_image; ?>" >
-            <source media="(min-width: 92.5em)" srcset="<?php print $header_image; ?>" >
-            <img src="<?php print $header_image; ?>"><!-- fallback -->
-          </picture>
-          <?php }
-        } ?>
-
-
+      <?php if ($header_image): ?>
+        <div class="header__background" style="background-image:url('<?php print $header_image; ?>');"></div>
+      <?php endif; ?>
 
       <span class="site__header__image__gradient"></span>
 
