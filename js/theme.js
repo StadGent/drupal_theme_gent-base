@@ -227,23 +227,65 @@
   // Initialize the theme.
   $(jsTheme.init);
 
+  function viewport() {
+    var e = window, a = 'inner';
+    if (!('innerWidth' in window)) {
+      a = 'client';
+      e = document.documentElement || document.body;
+    }
+    return { width : e[a + 'Width'], height : e[a + 'Height'] };
+  }
+
+
+  //Print breadcrumb for mobile
+  function breadCrumb() {
+    var windowWidth = viewport().width; // This should match your media query
+    if (windowWidth < 960) {
+      $('.select-breadcrumb').remove();
+      $('.breadcrumb-wrapper').append('<select class="select-breadcrumb"><option>-- Selecteer --</option</select>');
+      $('.breadcrumb-wrapper .nav--breadcrumb li').each(function () {
+        var optionUrl = $(this).find('a').attr('href');
+        var optionText = $(this).text();
+        var option = '<option value="' + optionUrl + '">' + optionText + '</option>';
+        $('.breadcrumb-wrapper .select-breadcrumb').append(option);
+      });
+
+      $('.breadcrumb-wrapper .select-breadcrumb').change(function () {
+        var host = 'http://' + window.location.host;
+        var attr = $(this).val();
+        var url = host + $(this).val();
+        if (attr === 'undefined') {
+          url = host + '#';
+          window.location.href = url;
+        }
+        window.location.href = url;
+      });
+    } else {
+      $('.select-breadcrumb').remove();
+    }
+  }
+
   // executes after everything is loaded.
   $(document).ready(function () {
 
-    console.log('yes');
-
+    //Show and hide search form
     $('.search-icon-block').click(function () {
       $('.not-front .search-widget > div').toggle([9000]);
     });
 
-    $('.holder .l-row').rcrumbs({
-      nbUncollapsableCrumbs: 3,
-      animation: {
-        activated: true,
-        speed: 200
-      }
-    });
+    breadCrumb();
 
   });
+
+
+
+
+  $(window).resize(function () {
+
+    breadCrumb();
+
+  });
+
+
 
 })(jQuery);
