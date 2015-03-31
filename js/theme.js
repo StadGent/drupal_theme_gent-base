@@ -273,7 +273,7 @@
       $('.not-front .search-widget > div').toggle([9000]);
     });
 
-    //breadCrumb();
+    breadCrumb();
 
   });
 
