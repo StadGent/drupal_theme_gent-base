@@ -255,7 +255,7 @@
         var attr = $(this).val();
         var url = host + $(this).val();
         if (attr === 'undefined') {
-          url = host + '#';
+          url = window.location.href;
           window.location.href = url;
         }
         window.location.href = url;
