@@ -87,7 +87,7 @@
 </section>
 <?php if ($breadcrumb): ?>
   <section class="holder">
-    <div class="l-row">
+    <div class="l-row breadcrumb-wrapper">
       <?php print $breadcrumb; ?>
     </div>
   </section>

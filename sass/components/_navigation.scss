@@ -99,6 +99,12 @@
     border: 1px solid darken($gamma-ui-color, 5);
   }
 
+  span {
+    padding-left: 0;
+    padding-right: 0;
+    border: 1px solid transparent;
+  }
+
   @include mq($bp-tablet-s) {
     li {
       @include px-margin-lr(0, 2);
@@ -107,11 +113,18 @@
         right: -18px;
       }
     }
+  }
+}
 
-    span {
-      padding-left: 0;
-      padding-right: 0;
-      border: 1px solid transparent;
+.breadcrumb-wrapper {
+  .nav--breadcrumb{
+    display: none;
+    @include mq($bp-tablet-m){
+      display: block;
     }
+  }
+  .select-breadcrumb {
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
   }
 }
