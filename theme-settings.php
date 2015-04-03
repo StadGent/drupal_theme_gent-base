@@ -107,7 +107,7 @@ function gent_base_form_system_theme_settings_submit($form, &$form_state) {
     }
 
     if ($fid_old) {
-      if ($file = file_load($fid_new)) {
+      if ($file = file_load($fid_old)) {
         file_usage_delete($file, 'gent_base_tools', 'headerimage');
         file_delete($file);
       }
