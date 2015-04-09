@@ -52,7 +52,6 @@ fieldset {
       @extend .icon-arrow-down:before;
       margin-right:.5em;
     }
-    
     .fieldset-wrapper {
       @include padding-tb(1, 1)
     }
