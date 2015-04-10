@@ -201,24 +201,24 @@
     // padding-top: 0;
 
     // input[type="search"] {
-    // 	@include grid-span(10);
-    // 	border-color: $white-color;
+    //  @include grid-span(10);
+    //  border-color: $white-color;
     // }
 
     // input[type="submit"] {
-    // 	@include grid-span(3,11);
+    //  @include grid-span(3,11);
     // }
   }
 
   @include mq($bp-tablet-l) {
     @include padding-tb(0, 3);
     // input[type="search"] {
-    // 	@include grid-span(8);
-    // 	border-color: $white-color;
+    //  @include grid-span(8);
+    //  border-color: $white-color;
     // }
 
     // input[type="submit"] {
-    // 	@include grid-span(3,9);
+    //  @include grid-span(3,9);
     // }
   }
 }
@@ -246,20 +246,25 @@
   .search-widget {
     &> div {
       display: none;
-      @include mq($bp-tablet-s) {
+      @include mq($bp-phone-m) {
         border-top: 1px solid #3f5b68;
         margin-top:6px;
         padding-top: 6px;
       }
-      @include mq($bp-tablet-m) {
+      @include mq($bp-tablet-s) {
         border-top: none;
         margin-top:0;
         padding-top: 0;
       }
-      @include mq($bp-tablet-m) {
+      @include mq($bp-tablet-s) {
         display: block;
       }
     }
+  }
+  nav.holder .l-primary--offset {
+  @include mq($bp-tablet-s) {
+    @include grid-span(20);
+  }
   }
 }
 

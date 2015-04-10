@@ -229,9 +229,6 @@
 
   // executes after everything is loaded.
   $(document).ready(function () {
-
-    console.log('yes');
-
     $('.search-icon-block').click(function () {
       $('.not-front .search-widget > div').toggle([9000]);
     });
