@@ -31,7 +31,7 @@
         $container.imagesLoaded(function () {
           $container.masonry();
         });
-        
+
       }
     }
   };
@@ -226,5 +226,13 @@
 
   // Initialize the theme.
   $(jsTheme.init);
+
+  // executes after everything is loaded.
+  $(document).ready(function () {
+    $('.search-icon-block').click(function () {
+      $('.not-front .search-widget > div').toggle([9000]);
+    });
+
+  });
 
 })(jQuery);

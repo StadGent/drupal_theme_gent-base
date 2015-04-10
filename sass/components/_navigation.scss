@@ -5,6 +5,27 @@
   padding: 0;
 }
 
+.search-icon-block {
+  z-index: 9999;
+  position: absolute;
+  left: 140px;
+  @include mq($bp-tablet-s){
+  left: 21px;
+  }
+  margin-top: -3px;
+  @include mq($bp-tablet-m){
+  margin-top: -42px;
+  }
+  display: inline-block;
+  width: 43px;
+  height: 43px;
+  text-indent: -99999px;
+  background-image: url('#{$base-theme-path}/img/png/search-icon.png');
+  @include mq($bp-tablet-s){
+    display: none;
+  }
+}
+
 .nav--login {
   @include text-dimensions(-3, 1, 0, .35, .35);
 
