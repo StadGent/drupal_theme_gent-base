@@ -235,7 +235,7 @@
 
     $('.breadcrumb-wrapper').rcrumbs();
 
-    if ($('#block-gent-auth-bar-bar .picture has-profile img').length > 0) {
+    if ($('#block-gent-auth-bar-bar .picture .has-profile img').length > 0) {
       $('#block-gentbe-general-gent-auth').hide();
     }
 
