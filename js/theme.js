@@ -233,8 +233,7 @@
       $('.not-front .search-widget > div').toggle([9000]);
     });
 
-    $('.breadcrumb-wrapper').rcrumbs({
-    });
+    $('.breadcrumb-wrapper').rcrumbs();
 
     if ($('#block-gent-auth-bar-bar .picture has-profile img').length > 0) {
       $('#block-gentbe-general-gent-auth').hide();
