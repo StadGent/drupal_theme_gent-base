@@ -236,6 +236,10 @@
     $('.breadcrumb-wrapper').rcrumbs({
     });
 
+    if ($('#block-gent-auth-bar-bar').length > 0) {
+      $('#block-gentbe-general-gent-auth').hide();
+    }
+
   });
 
 
