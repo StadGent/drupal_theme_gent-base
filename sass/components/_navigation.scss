@@ -113,5 +113,9 @@
       padding-right: 0;
       border: 1px solid transparent;
     }
+    .breadcrumb-wrapper {
+      .nav--breadcrumb{
+        display: block;
+      }
+    }
   }
-}

@@ -233,6 +233,15 @@
       $('.not-front .search-widget > div').toggle([9000]);
     });
 
+    $('.breadcrumb-wrapper').rcrumbs({
+    });
+
+  });
+
+
+
+  $(window).resize(function () {
+
   });
 
 })(jQuery);
