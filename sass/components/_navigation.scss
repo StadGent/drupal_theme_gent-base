@@ -8,7 +8,7 @@
 .search-icon-block {
   z-index: 9999;
   position: absolute;
-  left: 160px;
+  left: 150px;
   @include mq($bp-tablet-s){
   left: 21px;
   }
@@ -96,7 +96,7 @@
     font-family: $alpha-font-family;
     font-weight: $beta-font-weight;
     text-decoration: none;
-    border: 1px solid darken($gamma-ui-color, 5);
+    border: 1px solid transparent;
   }
 
   @include mq($bp-tablet-s) {
@@ -119,3 +119,4 @@
       }
     }
   }
+}
