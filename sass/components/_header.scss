@@ -194,7 +194,7 @@
   }
 
   @include mq($bp-tablet-s) {
-    @include padding-tb(0, 2);
+    @include padding-tb(0, 3.5);
     // float: none;
     // width: auto;
     // border-top: 0;

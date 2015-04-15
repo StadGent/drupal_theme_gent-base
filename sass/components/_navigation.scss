@@ -49,10 +49,12 @@
     }
   }
 }
-
+.breadcrumb-wrapper{
+  white-space: nowrap;
+  overflow: hidden;
+}
 .nav--breadcrumb {
   @include text-dimensions(-2, 1, 0, .5, 1);
-
   a {
     @extend .btn;
     @extend .btn--gamma;
@@ -64,6 +66,8 @@
     @include padding-tb(.1, .1);
     @include px-margin-lr(0, 1.5);
     position: relative;
+    float: none;
+    display: inline-block;
 
     &:after {
       content: "";
@@ -81,6 +85,15 @@
 
     &:last-child:after {
       display: none;
+    }
+    &:last-child {
+      margin-right: 0;
+      span{
+        padding-right:0;
+      }
+      :after {
+        display: none;
+      }
     }
   }
 
