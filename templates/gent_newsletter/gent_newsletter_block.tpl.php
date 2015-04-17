@@ -23,4 +23,9 @@
     <?php print $description; ?>
 
 		<?php print render($form) ?>
+
+  <?php if ($more_link): ?>
+    <div class="newsletters-more"><?php print $more_link; ?></div>
+  <?php endif; ?>
+
 </div>
