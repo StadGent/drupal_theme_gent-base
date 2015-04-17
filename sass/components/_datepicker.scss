@@ -1,0 +1,119 @@
+.ui-datepicker.ui-widget-content.ui-widget {
+  border: 1px solid $color-border-ui;
+  padding: 0px;
+  
+  @include text-dimensions(-2,1); 
+  
+  .ui-widget-header, .ui-state-default, .ui-state-focus, .ui-state-hover {
+    background: none;
+    border: 0px;
+    margin-bottom:0;
+  }
+
+  .ui-widget-header {
+    border: 0;
+    margin:0;
+    
+    @include padding-tb(.5, .5);
+    
+    .ui-datepicker-title {
+      select {
+        display: block;
+        float: left;
+        border: 1px solid $color-border-ui;
+        background-color: $white-color;
+        font-weight: normal;
+        padding:0;
+        @include text-dimensions(-5,1); 
+      }
+    }
+
+    .ui-icon.ui-icon-circle-triangle-w,
+    .ui-state-focus .ui-icon.ui-icon-circle-triangle-w,
+    .ui-state-hover .ui-icon.ui-icon-circle-triangle-w {
+      background-image: none;
+      width: 0;
+      height: 0;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      border-right: 10px solid $alpha-ui-color;
+      @include margin-tb(.1, 0);
+    }
+
+    .ui-icon.ui-icon-circle-triangle-e,
+    .ui-state-focus .ui-icon.ui-icon-circle-triangle-e,
+    .ui-state-hover .ui-icon.ui-icon-circle-triangle-e {
+      background-image: none;
+      width: 0;
+      height: 0;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      border-left: 10px solid $alpha-ui-color;
+      @include margin-tb(.1, 0);
+    }
+
+  }
+
+  table.ui-datepicker-calendar {
+    margin: 0px;
+  }
+
+  th {
+    font-weight: normal;
+    text-transform: uppercase;
+    background-color: $gamma-ui-color;
+    @include text-dimensions(-2,1); 
+  }
+
+  td {
+    @include text-dimensions(-2,1); 
+    border: 1px solid $color-border-ui;
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    text-align: center;
+    color: $alpha-text-color;
+
+    &.ui-datepicker-week-col {
+      border: 0;
+      text-align: center;
+      font-weight:bold;
+    }
+
+    a, span {
+      border: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    &.ui-datepicker-today {
+      background-color: $gamma-ui-color;
+
+      .ui-state-highlight {
+        color: $alpha-ui-color;
+      }
+    }
+
+    a.ui-state-active {
+      font-weight: bold;
+    }
+
+    &.ui-datepicker-week-end a {
+      color: $gamma-text-color;
+    }
+  }
+
+  td {
+    display: table-cell;
+    &:before {
+      display: none;
+    }
+  }
+
+  tr td:last-child {
+    border-right: 0;
+  }
+  tr:last-child td {
+    border-bottom: 0;
+  }
+}
