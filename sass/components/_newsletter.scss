@@ -1,12 +1,19 @@
 .newsletter-teaser {
   .header {
-    h3 {
-      @include grid-span(8);
+    @include add-grid(12);
+
+    .title {
+      @include grid-span(8, 1);
     }
 
-    input.form-submit {
-      float: right;
+    .subscribe {
+      @include grid-span(4, 9);
       margin-top: 2px;
+      text-align: right;
     }
+  }
+
+  .messages {
+    margin: 0.5em 0;
   }
 }
