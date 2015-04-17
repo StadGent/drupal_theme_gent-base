@@ -1,0 +1,12 @@
+.newsletter-teaser {
+  .header {
+    h3 {
+      @include grid-span(8);
+    }
+
+    input.form-submit {
+      float: right;
+      margin-top: 2px;
+    }
+  }
+}
