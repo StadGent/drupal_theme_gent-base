@@ -35,3 +35,9 @@
 .error-help {
   display: block;
 }
+
+// disabled options
+option[disabled="disabled"] {
+  color: $beta-text-color;
+  font-style: italic;
+}
