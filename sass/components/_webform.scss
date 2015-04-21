@@ -603,46 +603,6 @@ form.webform-client-form {
       }
     }
   }
-
-  .webform-container-inline {
-    &.webform-component-textarea .form-textarea-wrapper {
-      width: 100%;
-    }
-    label.option {
-      margin-right: 0.25rem;
-      float: right;
-    }
-    @include mq($bp-tablet-s) {
-      overflow: hidden;
-      label {
-        padding-top: 0.45rem;
-        padding-bottom: 0.45rem;
-        width: 30%;
-        float: left;
-        margin-right: 0;
-        padding-right: 1rem;
-      }
-      & > span {
-        display: inline-block;
-        width: 70%;
-        float: left;
-      }
-      .description, .fieldset-description {
-        float: right;
-        width: 70%;
-      }
-    }
-    .form-type-radio {
-      margin-top: 0;
-      padding-top: 0.45rem;;
-      padding-bottom: 0.45rem;;
-      label {
-        padding-top: 0;
-        padding-bottom: 0;
-      }
-    }
-  }
-
 }
 
 //end of form.webform-client-form
