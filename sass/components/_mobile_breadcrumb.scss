@@ -1,0 +1,16 @@
+.nav--breadcrumb {
+  display: none;
+}
+
+.nav--mobile-breadcrumb {
+  @include margin-tb(.5, 1)
+}
+
+@include mq($bp-tablet-s) {
+  .nav--breadcrumb {
+    display: block;
+  }
+  .nav--mobile-breadcrumb {
+    display: none;
+  }
+}

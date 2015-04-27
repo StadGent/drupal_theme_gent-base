@@ -35,3 +35,15 @@
 .error-help {
   display: block;
 }
+
+// disabled buttons
+input.form-submit[disabled="disabled"],
+button[disabled="disabled"] {
+  opacity: 0.5;
+}
+
+// disabled options
+option[disabled="disabled"] {
+  color: $beta-text-color;
+  font-style: italic;
+}

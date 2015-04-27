@@ -119,16 +119,3 @@
     }
   }
 }
-
-.breadcrumb-wrapper {
-  .nav--breadcrumb{
-    display: none;
-    @include mq($bp-tablet-m){
-      display: block;
-    }
-  }
-  .select-breadcrumb {
-    margin-top: 0.5rem;
-    margin-bottom: 1rem;
-  }
-}
