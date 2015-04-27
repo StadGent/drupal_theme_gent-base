@@ -17,3 +17,31 @@
     margin: 0.5em 0;
   }
 }
+
+#gent-newsletter-og-multiple-subscription-form {
+  .is-invalid {
+    color: $error-color;
+  }
+
+  @include mq($bp-tablet-s) {
+    .form-item-email {
+      @include grid-span(6, 1);
+    }
+
+    .is-valid {
+      @include grid-span(6, 7);
+      @include input-m;
+    }
+
+    .is-invalid {
+      @include grid-span(6, 7);
+      @include input-m;
+    }
+  }
+}
+
+.block-gent-newsletter {
+  .island--iota {
+    min-height:246px;
+  }
+}
