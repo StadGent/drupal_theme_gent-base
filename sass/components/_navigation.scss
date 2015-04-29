@@ -11,8 +11,8 @@
 
 .search-icon-block {
   z-index: 9999;
-  position: absolute;
-  right: 100px;
+  float: right;
+  margin-right: 20px;
   @include mq($bp-tablet-s){
   left: 21px;
   }
