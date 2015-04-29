@@ -12,7 +12,7 @@
 .search-icon-block {
   z-index: 9999;
   position: absolute;
-  left: 160px;
+  right: 100px;
   @include mq($bp-tablet-s){
   left: 21px;
   }
