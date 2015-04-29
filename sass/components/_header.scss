@@ -230,6 +230,7 @@
   @include padding-tb(.5, .1);
   position: relative;
   z-index: $z-beta;
+  width: auto;
 
   @include mq($bp-tablet-s) {
     @include grid-span(11, 14);

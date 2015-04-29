@@ -265,6 +265,8 @@
     }
   }
 
+  $('<div class="search-icon-block"></div>').insertBefore('.top-section > nav.holder > .l-row > .l-primary--offset');
+
   // executes after everything is loaded.
   $(document).ready(function () {
 
