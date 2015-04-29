@@ -23,6 +23,7 @@ scripts[] = libraries/matchheight/jquery.matchHeight-min.js
 scripts[] = libraries/masonry/masonry.pkgd.min.js
 scripts[] = libraries/masonry/imagesloaded.pkgd.min.js
 scripts[] = libraries/livequery/jquery.livequery.min.js
+scripts[] = libraries/jquery.crumbs/jquery.crumbs.js
 
 ; Default settings.
 settings[top_menu_render_method] = user_links

@@ -6,9 +6,7 @@
 <div class="l-fourth-alt island island--theta js-height">
 
   <?php if (isset($image)): ?>
-	<div class="island__top mask js-equal">
-		<?php print $image;?>
-	</div>
+		<div class="island__top mask js-equal" style="background-image:url('<?php print $image_url; ?>');"></div>
 	<?php endif; ?>
 
 	<?php if ($caption): ?>

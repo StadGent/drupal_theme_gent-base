@@ -56,9 +56,9 @@
 
   display:block;
   @extend %clearfix;
-  
+
   position:relative;
-  
+
   @include px-padding-lr(2, 0);
   @include margin-tb(.5, .5);
   border: 1px solid desaturate(darken($gamma-ui-color, 10), 20);
@@ -66,12 +66,12 @@
   background-color: $gamma-ui-color;
   transition: background-color .2s ease-in-out;
   text-decoration:none;
-  
+
   p {
     font-size: 95%;
     margin-bottom: 0;
   }
-  
+
   &:hover,
   &:focus {
     background-color: $white-color;
@@ -79,8 +79,24 @@
 }
 
 .article-content-action-document {
+  @include mq($bp-phone-s) {
+      max-width: 65%;
+  }
+    @include mq($bp-tablet-s) {
+      max-width: 55%;
+  }
+    @include mq($bp-tablet-m) {
+      max-width: 65%;
+  }
+    @include mq($bp-desktop-m) {
+      max-width: 70%;
+  }
   @include padding-tb(0, .5);
   display:inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  float: left;
 }
 
 .article-content-action-title {
@@ -95,7 +111,7 @@
 
 .article-content-action .icon {
   @include padding-tb(1.4, 1.4);
-  
+
   width:14%;
   clear:none;
   float:right;
@@ -108,7 +124,7 @@
   position: relative;
   background-color: $alpha-ui-color;
   border-radius: $beta-radius;
-  
+
   font-family: 'gent-icons';
   speak: none;
   font-style: normal;

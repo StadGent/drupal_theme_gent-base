@@ -109,7 +109,6 @@ pre {
 .lead {
   @include text-dimensions(1, 1.2, 1.5, 1.2, 1.5);
   color: $alpha-ui-color;
-  border-top: 1px solid darken($gamma-ui-color, 5);
   border-bottom: 1px solid darken($gamma-ui-color, 5);
 }
 
@@ -132,7 +131,7 @@ pre {
 .filetype {
   @include text-dimensions(-4, .8, 0, 0, .05);
   @include px-padding-lr(.5, .5);
-  
+
   display:inline-block;
   margin-left: 0.5em;
   color: $white-color;

@@ -30,7 +30,9 @@
 }
 
 .brand__tagline {
-  display: none;
+  width: 60px;
+  margin-left: 60px;
+  display: block;
   @include mq($bp-tablet-s) {
     width: 90px;
     margin-left: 90px;
@@ -99,28 +101,28 @@
 
 
 .brand__footer__wrapper {
-  
+
   border-radius: $beta-radius;
-  
+
   width: 100%;
   height: 100px;
-  
+
   @include mq($bp-tablet-m) {
     position: absolute;
     bottom: 6em;
     width: 200px;
   }
-  
+
   p {
     display:block;
     margin-bottom:0;
     color:$gamma-text-color;
   }
-  
+
   a {
     color:$gamma-text-color;
     text-decoration:none;
-    
+
     &:hover {
       text-decoration:underline;
     }
@@ -131,7 +133,7 @@
 
   width: 100%;
   height: 100px;
-  
+
   @extend %hide-text;
 
   border-radius: $beta-radius;
@@ -146,11 +148,11 @@
 }
 
 .brand__footer__sub__text {
-  
+
   @include text-dimensions(-2, 1);
   text-align:center;
   margin-bottom:0;
-  
+
   @include mq($bp-tablet-m) {
     width: 200px;
   }
@@ -160,13 +162,13 @@
   @extend %clearfix;
   @include text-dimensions(-2, 0.8);
   @include px-padding-lr(0.7, 0);
-  
+
   display:block;
   width: 104px;
   clear:both;
   text-align:center;
   margin: 0 auto;
-  
+
   background-image: url('#{$base-theme-path}/img/png/logo--digipolis.png');
   background-repeat: no-repeat;
   background-position: left top;
