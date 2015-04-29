@@ -12,7 +12,7 @@
 .search-icon-block {
   z-index: 9999;
   position: absolute;
-  left: 140px;
+  right: 100px;
   @include mq($bp-tablet-s){
   left: 21px;
   }
@@ -25,7 +25,7 @@
   height: 43px;
   text-indent: -99999px;
   background-image: url('#{$base-theme-path}/img/png/search-icon.png');
-  @include mq($bp-tablet-m){
+  @include mq($bp-tablet-s){
     display: none;
   }
 }
