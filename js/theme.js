@@ -267,50 +267,11 @@
   $(jsTheme.init);
 
 
-  function viewport() {
-    var e = window, a = 'inner';
-    if (!('innerWidth' in window)) {
-      a = 'client';
-      e = document.documentElement || document.body;
-    }
-    return { width : e[a + 'Width'], height : e[a + 'Height'] };
-  }
-
-
-  //Print breadcrumb for mobile
-  function breadCrumb() {
-    var windowWidth = viewport().width; // This should match your media query
-    if (windowWidth < 960) {
-      $('.select-breadcrumb').remove();
-      $('.breadcrumb-wrapper').append('<select class="select-breadcrumb"><option>-- Selecteer --</option</select>');
-      $('.breadcrumb-wrapper .nav--breadcrumb li').each(function () {
-        var optionUrl = $(this).find('a').attr('href');
-        var optionText = $(this).text();
-        var option = '<option value="' + optionUrl + '">' + optionText + '</option>';
-        $('.breadcrumb-wrapper .select-breadcrumb').append(option);
-      });
-
-      $('.breadcrumb-wrapper .select-breadcrumb').change(function () {
-        var host = 'http://' + window.location.host;
-        var attr = $(this).val();
-        var url = host + $(this).val();
-        if (attr === 'undefined') {
-          url = window.location.href;
-          window.location.href = url;
-        }
-        window.location.href = url;
-      });
-    } else {
-      $('.select-breadcrumb').remove();
-    }
-  }
-
   $('<div class="search-icon-block"></div>').insertBefore('.top-section > nav.holder > .l-row > .l-primary--offset');
 
   // executes after everything is loaded.
   $(document).ready(function () {
 
-    breadCrumb();
 
     //Show and hide search form
     $('.search-icon-block').click(function () {
@@ -322,9 +283,5 @@
     }
   });
 
-  $(document).resize(function () {
-
-    breadCrumb();
-  });
 
 })(jQuery);
