@@ -1,0 +1,14 @@
+// Extra contact block.
+#block-gent-base-tools-extra-contact {
+  &.island {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  @include mq($bp-tablet-s) {
+    li {
+      float: left;
+      margin-right: 30px;
+    }
+  }
+}
