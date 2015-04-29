@@ -247,7 +247,6 @@
     &> div {
       display: none;
       @include mq($bp-phone-m) {
-        border-top: 1px solid #3f5b68;
         margin-top:6px;
         padding-top: 6px;
       }
