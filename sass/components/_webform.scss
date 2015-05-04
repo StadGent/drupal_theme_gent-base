@@ -38,15 +38,23 @@
   .webform-component-progressbar-page{
     position: relative;
     overflow: visible;
-    span {
+    .webform-component-progressbar-page-label {
       display: inline-block;
       margin-top: 20px;
       width: 100%;
       margin-left: -50%;
       text-align: center;
+      visibility: hidden;
+      @include mq($bp-tablet-m) {
+        visibility: visible;
+      }
     }
-    span {
-      &:first-child{
+    &.current{
+      .webform-component-progressbar-page-label {
+        visibility: visible;
+      }
+    }
+      .webform-component-progressbar-page-number{
         display: inline-block;
         width: 25px;
         height: 25px;
@@ -59,8 +67,8 @@
         position: absolute;
         z-index: 999;
         text-indent: -9999px;
+        display: block;
       }
-    }
     &.completed {
       span{
         color: $succes-progress;
@@ -87,6 +95,9 @@
       padding-top: 6px;
       margin-top: -6px;
       background: #fff;
+      .webform-component-progressbar-page-number{
+        margin-top: 6px;
+      }
     }
   }
 }
