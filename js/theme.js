@@ -267,7 +267,7 @@
   $(jsTheme.init);
 
 
-  $('<div class="search-icon-block"></div>').insertBefore('.top-section > nav.holder > .l-row > .l-primary--offset');
+  $('<div class="search-icon-block"><i class="icon icon-search"></i></div>').insertBefore('.top-section > nav.holder > .l-row > .l-primary--offset');
 
   // executes after everything is loaded.
   $(document).ready(function () {

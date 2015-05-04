@@ -24,7 +24,6 @@
   width: 43px;
   height: 43px;
   text-indent: -99999px;
-  background-image: url('#{$base-theme-path}/img/png/search-icon.png');
   @include mq($bp-tablet-s){
     display: none;
   }
