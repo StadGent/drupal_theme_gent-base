@@ -1,20 +1,26 @@
 .webform-component-progressbar {
   .webform-component-progressbar-wrapper {
-    height: 24px;
-    background-color: $gamma-text-color;
+    height: 6px;
+    background-color: $grey-progressbar;
+    text-indent: -9999px;
     position: relative;
+    .webform-component-progressbar-fill{
+      &:last-child {
+        background-color: #fff;
+      }
+    }
   }
 
   .webform-component-progressbar-fill {
-    height: 24px;
-    background-color: $success-color;
+    height: 6px;
+    background-color: transparent;
   }
 
   .webform-component-progressbar-divider {
     position: absolute;
     top: 0;
     z-index: 10;
-    height: 24px;
+    height: 6px;
     border-left: 1px solid $gamma-ui-color;
   }
 
@@ -29,7 +35,73 @@
       font-weight: bold;
     }
   }
+  .webform-component-progressbar-page{
+    position: relative;
+    overflow: visible;
+    .webform-component-progressbar-page-label {
+      display: inline-block;
+      margin-top: 20px;
+      width: 100%;
+      margin-left: -50%;
+      text-align: center;
+      visibility: hidden;
+      @include mq($bp-tablet-m) {
+        visibility: visible;
+      }
+    }
+    &.current{
+      .webform-component-progressbar-page-label {
+        visibility: visible;
+      }
+    }
+      .webform-component-progressbar-page-number{
+        display: inline-block;
+        width: 25px;
+        height: 25px;
+        border: none;
+        background-color: #e7e7e7;
+        border-radius: 13px;
+        top: -14px;
+        margin-left: -14px;
+        margin-top: 0;
+        position: absolute;
+        z-index: 999;
+        text-indent: -9999px;
+        display: block;
+      }
+    &.completed {
+      span{
+        color: $succes-progress;
+      }
+      span {
+        &:first-child{
+        background-color: $succes-progress;
+        background-image: url('#{$base-theme-path}/img/png/finished.png');
+        background-repeat: no-repeat;
+        background-position: center center;
+        }
+      }
+    }
+    &.current {
+      span {
+        &:first-child{
+          background-color: #fff;
+          border: 6px solid  #037db3;
+        }
+      }
+    }
+    &:last-child {
+      background-color: #fff;
+      padding-top: 6px;
+      margin-top: -6px;
+      background: #fff;
+      .webform-component-progressbar-page-number{
+        margin-top: 6px;
+      }
+    }
+  }
 }
+
 
 .webform-datepicker, .webform-container-inline {
   div.form-item {
@@ -173,7 +245,7 @@ form.webform-client-form {
   .form-actions,
   .webform-progressbar,
   #edit-submitted-bestand-ajax-wrapper {
-    @include margin-bottom(1);
+    @include margin-bottom(2);
   }
 
   .webform-progressbar {
@@ -356,6 +428,17 @@ form.webform-client-form {
     @extend .btn--alpha;
     @include mq($bp-tablet-s) {
       @include btn-inlineblock;
+    }
+  }
+  .form-submit {
+    &.webform-next {
+      float:left;
+      width: auto;
+    }
+    &.webform-previous {
+      margin-right: 1rem;
+      float:left;
+      width: auto;
     }
   }
 

@@ -263,6 +263,14 @@
     });
   }
 
+  function paddingLeftProgressbar() {
+    $('.webform-component-progressbar-wrapper').each(function () {
+      var number = $('.webform-component-progressbar .webform-component-progressbar-page').length;
+      var progressbarLeftPadding = 50 / number;
+      $('.webform-component-progressbar').css('padding-left', progressbarLeftPadding + '%');
+    });
+  }
+
   // Initialize the theme.
   $(jsTheme.init);
 
@@ -281,6 +289,13 @@
     if ($('#block-gent-auth-bar-bar .picture.has-profile img').length > 0) {
       $('#block-gentbe-general-gent-auth').hide();
     }
+
+    paddingLeftProgressbar();
+
+  });
+
+  $(document).resize(function () {
+    paddingLeftProgressbar();
   });
 
 
