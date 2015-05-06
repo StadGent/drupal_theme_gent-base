@@ -2,7 +2,13 @@
 #block-gent-base-tools-extra-contact {
   &.island {
     margin-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
     padding-bottom: 0;
+
+    h3 {
+      @include text-dimensions(5, 1.5, 0.5, 0, 0);
+    }
   }
 
   @include mq($bp-tablet-s) {
