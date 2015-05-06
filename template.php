@@ -632,3 +632,28 @@ function gent_base_webform_element($variables) {
 
   return $output;
 }
+
+/**
+ * Overrides theme_gent_base_tools_extra_contact_block().
+ */
+function gent_base_gent_base_tools_extra_contact_block(&$variables) {
+  $items = array();
+
+  if (!empty($variables['phone'])) {
+    $items[] = '<i class="icon-phone"></i>' . check_plain($variables['phone']);
+  }
+  if (!empty($variables['email'])) {
+    $items[] = '<i class="icon-email"></i>' . l($variables['email'], "mailto:{$variables['email']}");
+  }
+  if (!empty($variables['more_link'])) {
+    $items[] = '<i class="icon-link"></i>' . l($variables['more_link']['title'], $variables['more_link']['url']);
+  }
+
+  return $items ? theme('item_list', array(
+    'items' => $items,
+    'hide_wrapper' => TRUE,
+    'attributes' => array(
+      'class' => array('no-bullet-list', 'clearfix'),
+    ),
+  )) : '';
+}
