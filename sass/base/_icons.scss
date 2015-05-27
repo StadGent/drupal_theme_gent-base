@@ -121,16 +121,10 @@
 
 .icon-bubble:before {
   content: "\e60c";
-  font-size: 90%;
-  position: relative;
-  top: -2px;
 }
 
 .icon-facebook:before {
   content: "\e60d";
-  font-size: 90%;
-  position: relative;
-  top: -1px;
 }
 
 .icon-plus:before {
@@ -139,16 +133,10 @@
 
 .icon-twitter:before {
   content: "\e60f";
-  font-size: 90%;
-  position: relative;
-  top: -1px;
 }
 
 .icon-linkedin:before {
   content: "\e610";
-  font-size: 90%;
-  position: relative;
-  top: -1px;
 }
 
 .icon-capacity:before {
@@ -245,4 +233,8 @@
 
 .icon-vimeo:before {
   content: "\e61d";
+}
+
+.icon-close:before {
+  content: "\e61e";
 }
