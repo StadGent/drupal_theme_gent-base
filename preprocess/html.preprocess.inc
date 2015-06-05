@@ -9,7 +9,7 @@ function gent_base_html_head_alter(&$elements) {
     if (strpos($name, 'drupal_add_html_head_link:shortcut icon') === 0) {
       global $base_url;
       // Modify the default favicon to use ours.
-      $elements[$name]['#attributes']['href'] = $base_url . base_path() . path_to_theme() . '/favicon.png';
+      $elements[$name]['#attributes']['href'] = $base_url . '/' . path_to_theme() . '/favicon.png';
     }
   }
 }
