@@ -16,37 +16,30 @@
 
 .brand__logo {
   @include grid-span(7);
-  width: 60px;
+  width: 70px;
 
   @include mq($bp-tablet-s) {
-    width: 90px;
-  }
-  @include mq($bp-tablet-m) {
-    width: 135px;
+    // Fluid scaling of logo between min & max breakpoint.
+    width: 10%;
   }
   @include mq($bp-tablet-l) {
-    width: 170px;
+    width: 110px;
   }
 }
 
 .brand__tagline {
-  width: 60px;
-  margin-left: 60px;
+  width: 70px;
+  margin-left: 70px;
   display: block;
+
   @include mq($bp-tablet-s) {
-    width: 90px;
-    margin-left: 90px;
-    display: block;
-  }
-  @include mq($bp-tablet-m) {
-    width: 135px;
-    margin-left: 135px;
-    display: block;
+    // Fluid scaling of logo between min & max breakpoint.
+    width: 10%;
+    margin-left: 10%;
   }
   @include mq($bp-tablet-l) {
-    width: 170px;
-    margin-left: 170px;
-    display: block;
+    width: 110px;
+    margin-left: 110px;
   }
 }
 

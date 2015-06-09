@@ -46,3 +46,8 @@ $bp-desktop-s: 1340/16 * 1em;
 //
 // Styleguide 1.4.7
 $bp-desktop-m: 1480/16 * 1em;
+
+// Container breakpoint
+//
+//$bp-container: 1600/16 * 1em; // TODO why is em format not correct?
+$bp-container: 1600px;
