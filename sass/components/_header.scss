@@ -89,11 +89,13 @@
 
   input[type="search"], input[type="text"] {
     @include grid-span(18);
+    @include input-dimensions(-2, .8, 0, .1, .2);
     border-color: $white-color;
   }
 
   input[type="submit"] {
     @include grid-span(6, 19);
+    @include input-dimensions(-2, .8, 0, .1, .2);
   }
 
   @include mq($bp-tablet-s) {
@@ -166,7 +168,7 @@
 
   @include mq($bp-tablet-s) {
     @include grid-span(11, 14);
-    @include padding-tb(.4, .4);
+    @include padding-tb(.2, 0);
     margin: 0;
   }
 
