@@ -6,6 +6,14 @@
   z-index: $z-alpha;
   background-color: transparent;
   top: -12px;
+
+  @include mq($bp-desktop-s, 'max') {
+    .padding--big {
+      padding-top: #{$grid-gutter}px;
+      padding-bottom: #{$grid-gutter}px;
+    }
+  }
+
   @include mq($bp-tablet-s) {
     @include add-grid(24);
     top: 0px;
@@ -16,8 +24,11 @@
 
 .brand__logo {
   @include grid-span(7);
-  width: 70px;
+  width: 60px;
 
+  @include mq($bp-tablet-s) {
+    width: 70px;
+  }
   @include mq($bp-tablet-m) {
     width: 85px;
   }
@@ -30,10 +41,14 @@
 }
 
 .brand__tagline {
-  width: 70px;
-  margin-left: 70px;
+  width: 60px;
+  margin-left: 60px;
   display: block;
 
+  @include mq($bp-tablet-s) {
+    width: 70px;
+    margin-left: 70px;
+  }
   @include mq($bp-tablet-m) {
     width: 85px;
     margin-left: 85px;
