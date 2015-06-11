@@ -105,23 +105,24 @@
     padding-top: 0;
 
     input[type="search"] {
-      @include grid-span(10);
+      @include grid-span(9);
       border-color: $white-color;
     }
 
     input[type="submit"] {
-      @include grid-span(3, 11);
+      @include grid-span(3, 10);
     }
   }
 
   @include mq($bp-tablet-l) {
     input[type="search"] {
-      @include grid-span(8);
+      width: 335px;
       border-color: $white-color;
     }
 
     input[type="submit"] {
-      @include grid-span(3, 9);
+      width: 102px;
+      margin-left: 335px;
     }
   }
 }
