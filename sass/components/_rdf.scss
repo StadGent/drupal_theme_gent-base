@@ -1,0 +1,31 @@
+
+.milli.rdf {
+  float:left;
+  padding-top: 0.5rem;
+  padding-right: 1rem;
+}
+
+
+.rdf {
+  .btn--zeta {
+    text-decoration: none;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    border: 1px solid black;
+
+
+    a {
+      text-decoration: none;
+      color: black;
+
+      .icon-rdf {
+        color: $alpha-ui-color;
+      }
+    }
+
+
+  }
+}
+

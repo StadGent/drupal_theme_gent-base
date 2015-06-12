@@ -179,3 +179,26 @@ a.btn--disabled {
     background-color: $disabled-ui-color;
   }
 }
+
+.btn--zeta,
+a.btn--zeta {
+  @include margin-tb(1, 0);
+  color: $beta-ui-color;
+  background-color: $white-color;
+  width: 10%; /* whatever */
+
+  &:visited {
+    color: $beta-ui-color;
+  }
+
+  &:hover {
+    color: $beta-ui-color;
+    background-color: $white-color;
+  }
+
+  &:focus,
+  &:active {
+    color: $beta-ui-color;
+    background-color: $white-color;
+  }
+}
