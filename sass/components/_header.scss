@@ -14,6 +14,11 @@
     img {
       display: block;
     }
+
+    .header__background img {
+      // Horizontal center the banner image if it doesn't fill the whole area.
+      margin: 0 auto;
+    }
   }
 }
 
