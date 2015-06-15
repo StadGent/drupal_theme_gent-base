@@ -5,16 +5,15 @@
   padding-right: 1rem;
 }
 
-
 .rdf {
   .btn--zeta {
     text-decoration: none;
-    padding-left: 5px;
-    padding-right: 5px;
-    padding-top: 0.2em;
-    padding-bottom: 0.2em;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 0em;
+    padding-bottom: 0em;
     border: 1px solid black;
-
+    border-radius: 5px;
 
     a {
       text-decoration: none;
@@ -22,10 +21,8 @@
 
       .icon-rdf {
         color: $alpha-ui-color;
+        font-size: 80%;
       }
     }
-
-
   }
 }
-
