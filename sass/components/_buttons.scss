@@ -182,7 +182,7 @@ a.btn--disabled {
 
 .btn--zeta,
 a.btn--zeta {
-  @include margin-tb(1, 0);
+  @include margin-tb(0.8, 0);
   color: $beta-ui-color;
   background-color: $white-color;
   width: 10%; /* whatever */
