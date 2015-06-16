@@ -69,10 +69,11 @@ function gent_base_form_system_theme_settings_alter(&$form, &$form_state, $form_
     // @see manualcrop_default_widget_settings().
     // Add the crop tool and submit handler.
     if (module_exists('manualcrop')) {
+      $styles = drupal_map_assoc(array('headerbanner', 'headerbanner_large'));
       manualcrop_croptool_process($form, $form_state, $form['headerimage']['default_headerimage_fid'], $file, array(
         'manualcrop_styles_mode' => 'include',
-        'manualcrop_styles_list' => array('headerbanner' => 'headerbanner'),
-        'manualcrop_require_cropping' => array('headerbanner' => 'headerbanner'),
+        'manualcrop_styles_list' => $styles,
+        'manualcrop_require_cropping' => $styles,
       ));
       $form['#submit'][] = 'manualcrop_croptool_submit';
     }
