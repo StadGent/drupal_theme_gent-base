@@ -109,11 +109,8 @@
 
 
 .brand__footer__wrapper {
-
   border-radius: $beta-radius;
-
   width: 100%;
-  height: 100px;
 
   @include mq($bp-tablet-m) {
     position: absolute;
@@ -180,13 +177,6 @@
   background-image: url('#{$base-theme-path}/img/png/logo--digipolis.png');
   background-repeat: no-repeat;
   background-position: left top;
-}
-
-p.brand__footer__sub__logo {
-  margin-bottom:2em;
-  @include mq($bp-tablet-m) {
-    margin-bottom:0;
-  }
 }
 
 .brand__district {
