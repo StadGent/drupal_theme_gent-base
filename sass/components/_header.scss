@@ -116,6 +116,7 @@
 
     input[type="submit"] {
       @include grid-span(3, 10);
+      width: 102px;
     }
   }
 
@@ -126,7 +127,6 @@
     }
 
     input[type="submit"] {
-      width: 102px;
       margin-left: 335px;
     }
   }
