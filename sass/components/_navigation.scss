@@ -8,7 +8,6 @@
 .search-icon-block {
   z-index: 9999;
   float: right;
-  margin-right: 20px;
   @include mq($bp-tablet-s){
   left: 21px;
   }
@@ -17,20 +16,20 @@
   margin-top: -42px;
   }
   display: inline-block;
-  width: 43px;
-  height: 43px;
+  width: 42px;
+  height: 42px;
   @include mq($bp-tablet-s){
     display: none;
   }
   .icon-search {
     &:before {
       display: inline-block;
-      width: 43px;
-      height: 43px;
+      width: 42px;
+      height: 42px;
       color: $delta-ui-color;
       line-height: 43px;
       text-align: center;
-      font-size: 32px;
+      font-size: 22px;
     }
   }
 }
