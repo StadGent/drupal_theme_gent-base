@@ -96,6 +96,26 @@ function gent_base_preprocess_entity_property(&$variables) {
           ));
         }
         break;
+      case 'gbos_products':
+        $variables['label'] = t('Create appointment');
+        $variables['title_attributes_array']['class'] = array('h1 hT');
+        $variables['attributes_array']['class'][] = 'island';
+        $variables['attributes_array']['class'][] = 'island--epsilon';
+        $data = $property->value();
+        $provider = new GbosDrupalDataProvider();
+        $products = $provider->getProductsOptions();
+        $appointment_base_path = 'mijn-gent/appointment/create';
+        $variables['content'] = '';
+        foreach ($data as $product_id) {
+          if (isset($products[$product_id])) {
+            $variables['content'] .= l($products[$product_id], sprintf($appointment_base_path . '/%d', $product_id), array(
+              'attributes' => array(
+                'class' => array('btn', 'btn--medium', 'btn--delta'),
+              ),
+            ));
+          }
+        }
+        break;
     }
   }
 }
