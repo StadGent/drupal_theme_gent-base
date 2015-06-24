@@ -15,6 +15,7 @@
     border: 1px solid black;
     border-radius: 5px;
     margin-top: 0;
+    min-width:60px;
 
     a {
       text-decoration: none;
@@ -22,7 +23,7 @@
 
       .icon-rdf {
         color: $alpha-ui-color;
-        font-size: 80%;
+        font-size: 0.8em;
       }
     }
   }

@@ -92,10 +92,6 @@ a.btn--gamma {
   background-color: $gamma-ui-color;
   border: 1px solid darken($gamma-ui-color, 10);
 
-  &:visited {
-    color: $alpha-ui-color;
-  }
-
   &:hover {
     color: $alpha-ui-color;
     background-color: $white-color;
@@ -114,10 +110,6 @@ a.btn--delta {
   color: $beta-ui-color;
   background-color: $white-color;
 
-  &:visited {
-    color: $beta-ui-color;
-  }
-
   &:hover {
     color: $beta-ui-color;
     background-color: $white-color;
@@ -134,10 +126,6 @@ a.btn--delta {
 a.btn--epsilon {
   color: $white-color;
   background-color: $delta-ui-color;
-
-  &:visited {
-    background-color: $delta-ui-color;
-  }
 
   &:hover {
     background-color: darken($delta-ui-color, 3);
@@ -186,10 +174,6 @@ a.btn--zeta {
   color: $beta-ui-color;
   background-color: $white-color;
   width: 10%; /* whatever */
-
-  &:visited {
-    color: $beta-ui-color;
-  }
 
   &:hover {
     color: $beta-ui-color;

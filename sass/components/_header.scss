@@ -116,6 +116,7 @@
 
     input[type="submit"] {
       @include grid-span(3, 10);
+      width: 102px;
     }
   }
 
@@ -126,7 +127,6 @@
     }
 
     input[type="submit"] {
-      width: 102px;
       margin-left: 335px;
     }
   }
@@ -211,5 +211,13 @@
     & > div {
       display: block;
     }
+  }
+}
+
+// Gent auth bar.
+body.gent-auth-bar {
+  // Hide the "Mijn Gent" block when the auth bar is present (you are logged in into Mijn Gent).
+  #block-gentbe-general-gent-auth {
+    display: none;
   }
 }
