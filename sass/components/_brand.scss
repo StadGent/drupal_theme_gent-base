@@ -6,6 +6,14 @@
   z-index: $z-alpha;
   background-color: transparent;
   top: -12px;
+
+  @include mq($bp-desktop-s, 'max') {
+    .padding--big {
+      padding-top: #{$grid-gutter}px;
+      padding-bottom: #{$grid-gutter}px;
+    }
+  }
+
   @include mq($bp-tablet-s) {
     @include add-grid(24);
     top: 0px;
@@ -19,13 +27,16 @@
   width: 60px;
 
   @include mq($bp-tablet-s) {
-    width: 90px;
+    width: 70px;
   }
   @include mq($bp-tablet-m) {
-    width: 135px;
+    width: 85px;
   }
-  @include mq($bp-tablet-l) {
-    width: 170px;
+  @include mq($bp-desktop-s) {
+    width: 97px;
+  }
+  @include mq($bp-desktop-m) {
+    width: 110px;
   }
 }
 
@@ -33,20 +44,22 @@
   width: 60px;
   margin-left: 60px;
   display: block;
+
   @include mq($bp-tablet-s) {
-    width: 90px;
-    margin-left: 90px;
-    display: block;
+    width: 70px;
+    margin-left: 70px;
   }
   @include mq($bp-tablet-m) {
-    width: 135px;
-    margin-left: 135px;
-    display: block;
+    width: 85px;
+    margin-left: 85px;
   }
-  @include mq($bp-tablet-l) {
-    width: 170px;
-    margin-left: 170px;
-    display: block;
+  @include mq($bp-desktop-s) {
+    width: 97px;
+    margin-left: 97px;
+  }
+  @include mq($bp-desktop-m) {
+    width: 110px;
+    margin-left: 110px;
   }
 }
 
@@ -60,7 +73,6 @@
 
 .brand__logo__inner {
   @extend %hide-text;
-  background-color: $alpha-ui-color;
   background-repeat: no-repeat;
   background-position: top left;
   background-size: 100%;
@@ -68,7 +80,6 @@
   position: relative;
   overflow: hidden;
   height: 40px;
-  border-radius: $beta-radius;
   padding-top: 72%;
   width: 100%;
   background-image: url('#{$base-theme-path}/img/png/logo--part1.png');
@@ -84,15 +95,12 @@
   position: relative;
   overflow: hidden;
   height: 40px;
-  border-radius: $alpha-radius;
   background-image: url('#{$base-theme-path}/img/png/logo--part2.png');
   background-repeat: no-repeat;
   background-position: top left;
   background-size: 100%;
-  background-color: $white-color;
   padding-top: 72%;
   width: 100%;
-  border-radius: $beta-radius;
 
   .svg & {
     background-image: url('#{$base-theme-path}/img/svg/logo--part2.svg');

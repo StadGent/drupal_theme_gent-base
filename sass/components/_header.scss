@@ -14,6 +14,11 @@
     img {
       display: block;
     }
+
+    .header__background img {
+      // Horizontal center the banner image if it doesn't fill the whole area.
+      margin: 0 auto;
+    }
   }
 }
 
@@ -24,59 +29,13 @@
 
 .header__background {
   width: 100%;
-  background-size: 100% auto;
-  background-position: left center;
-  background-repeat: no-repeat;
-
-  position:relative;
-  margin:0 auto;
+  max-height: 365px;
+  overflow: hidden;
 }
 
-/* Different header heights for all pages (except homepage). */
-.site__header {
-  @include mq($bp-tablet-s) {
-    height: 260px;
-    .header__background {
-      height: 260px;
-    }
-  }
-
-  @include mq($bp-tablet-m) {
-    height: 325px;
-    .header__background {
-      height: 325px;
-    }
-  }
-
-  @include mq($bp-tablet-l) {
-    height: 365px;
-    .header__background {
-      height: 365px;
-    }
-  }
-}
-
-/* Different header heights for homepage only. */
-.large-header .site__header {
-  @include mq($bp-tablet-s) {
-    height: 350px;
-    .header__background {
-      height: 350px;
-    }
-  }
-
-  @include mq($bp-tablet-m) {
-    height: 440px;
-    .header__background {
-      height: 440px;
-    }
-  }
-
-  @include mq($bp-tablet-l) {
-    height: 490px;
-    .header__background {
-      height: 490px;
-    }
+.large-header {
+  .header__background {
+    max-height: 490px;
   }
 }
 
@@ -111,7 +70,6 @@
     bottom: 0;
     left: 0;
     text-shadow: 1px 1px 1px $alpha-text-color;
-    //@include single-text-shadow(1px, 1px, 1px, 1px, $alpha-text-color);
     filter: progid:DXImageTransform.Microsoft.DropShadow(offX=1,offY=1,color=#{$alpha-text-color});
     h1 {
       @include margin-tb(1.5, 1.5);
@@ -136,11 +94,13 @@
 
   input[type="search"], input[type="text"] {
     @include grid-span(18);
+    @include input-dimensions(-2, .8, 0, .1, .2);
     border-color: $white-color;
   }
 
   input[type="submit"] {
     @include grid-span(6, 19);
+    @include input-dimensions(-2, .8, 0, .1, .2);
   }
 
   @include mq($bp-tablet-s) {
@@ -150,23 +110,24 @@
     padding-top: 0;
 
     input[type="search"] {
-      @include grid-span(10);
+      @include grid-span(9);
       border-color: $white-color;
     }
 
     input[type="submit"] {
-      @include grid-span(3, 11);
+      @include grid-span(3, 10);
     }
   }
 
   @include mq($bp-tablet-l) {
     input[type="search"] {
-      @include grid-span(8);
+      width: 335px;
       border-color: $white-color;
     }
 
     input[type="submit"] {
-      @include grid-span(3, 9);
+      width: 102px;
+      margin-left: 335px;
     }
   }
 }
@@ -195,31 +156,10 @@
 
   @include mq($bp-tablet-s) {
     @include padding-tb(0, 3.5);
-    // float: none;
-    // width: auto;
-    // border-top: 0;
-    // padding-top: 0;
-
-    // input[type="search"] {
-    //  @include grid-span(10);
-    //  border-color: $white-color;
-    // }
-
-    // input[type="submit"] {
-    //  @include grid-span(3,11);
-    // }
   }
 
   @include mq($bp-tablet-l) {
     @include padding-tb(0, 3);
-    // input[type="search"] {
-    //  @include grid-span(8);
-    //  border-color: $white-color;
-    // }
-
-    // input[type="submit"] {
-    //  @include grid-span(3,9);
-    // }
   }
 }
 
@@ -234,7 +174,7 @@
 
   @include mq($bp-tablet-s) {
     @include grid-span(11, 14);
-    @include padding-tb(.4, .4);
+    @include padding-tb(.2, 0);
     margin: 0;
   }
 
@@ -255,22 +195,20 @@
         border-top: none;
         margin-top:0;
         padding-top: 0;
-      }
-      @include mq($bp-tablet-s) {
         display: block;
       }
     }
   }
   nav.holder .l-primary--offset {
-  @include mq($bp-tablet-s) {
-    @include grid-span(20);
-  }
+    @include mq($bp-tablet-s) {
+      @include grid-span(20);
+    }
   }
 }
 
 .not-front.page-zoeken  {
   .search-widget {
-    &> div {
+    & > div {
       display: block;
     }
   }
