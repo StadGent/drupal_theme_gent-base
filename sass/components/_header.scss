@@ -213,3 +213,11 @@
     }
   }
 }
+
+// Gent auth bar.
+body.gent-auth-bar {
+  // Hide the "Mijn Gent" block when the auth bar is present (you are logged in into Mijn Gent).
+  #block-gentbe-general-gent-auth {
+    display: none;
+  }
+}
