@@ -73,6 +73,7 @@ $googleplus-color: #C63D2D;
 
 .gent-social-large {
   display: none;
+  word-wrap: break-word;
 
   @include mq($bp-tablet-s) {
     display: block;
