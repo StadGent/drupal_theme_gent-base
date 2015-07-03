@@ -41,6 +41,11 @@ function gent_base_preprocess_page(&$variables) {
   // Any implementing subtheme should define the conditions for using top tabs instead
   // of normal tabs. This permission is added by gent base tools.
   $variables['top_tabs_enabled'] = user_access('use tabs in top menu');
+
+  // Load jquery.sticky library (if exists).
+  if (module_exists('libraries') && $lib = libraries_get_path('jquery.sticky')) {
+    drupal_add_js($lib . '/jquery.sticky.min.js');
+  }
 }
 
 
