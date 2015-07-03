@@ -1,9 +1,9 @@
 .ui-datepicker.ui-widget-content.ui-widget {
   border: 1px solid $color-border-ui;
   padding: 0px;
-  
-  @include text-dimensions(-2,1); 
-  
+
+  @include text-dimensions(-2,1);
+
   .ui-widget-header, .ui-state-default, .ui-state-focus, .ui-state-hover {
     background: none;
     border: 0px;
@@ -13,9 +13,9 @@
   .ui-widget-header {
     border: 0;
     margin:0;
-    
+
     @include padding-tb(.5, .5);
-    
+
     .ui-datepicker-title {
       select {
         display: block;
@@ -24,7 +24,7 @@
         background-color: $white-color;
         font-weight: normal;
         padding:0;
-        @include text-dimensions(-5,1); 
+        @include text-dimensions(-5,1);
       }
     }
 
@@ -62,11 +62,11 @@
     font-weight: normal;
     text-transform: uppercase;
     background-color: $gamma-ui-color;
-    @include text-dimensions(-2,1); 
+    @include text-dimensions(-2,1);
   }
 
   td {
-    @include text-dimensions(-2,1); 
+    @include text-dimensions(-2,1);
     border: 1px solid $color-border-ui;
     width: 30px;
     height: 30px;
