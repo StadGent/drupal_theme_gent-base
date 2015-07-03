@@ -97,10 +97,7 @@ function gent_base_preprocess_entity_property(&$variables) {
         }
         break;
       case 'gbos_products':
-        $variables['label'] = t('Create appointment');
-        $variables['title_attributes_array']['class'] = array('h1 hT');
-        $variables['attributes_array']['class'][] = 'island';
-        $variables['attributes_array']['class'][] = 'island--epsilon';
+        $variables['label'] = '';
         $data = $property->value();
         $provider = new GbosDrupalDataProvider();
         $products = $provider->getProductsOptions();

@@ -8,6 +8,11 @@
  * Overrides theme_entity_property__sheet__gpdc__forms().
  */
 function gent_base_entity_property__sheet__gpdc__forms(&$variables) {
-  require_once 'entity-property--sheet--gpdc--attachments.theme.inc';
-  return gent_base_entity_property__sheet__gpdc__attachments($variables);
+  $output = '<h2>' . t('Downloadable forms') . '</h2>';
+
+  foreach ($variables['content'] as $content) {
+    $output .= '<div' . $variables['attributes'] . '>' . $content . '</div>' . "\n";
+  }
+
+  return $output;
 }
