@@ -18,7 +18,7 @@
 
   h3 {
     @include padding-tb(0, .5);
-    
+
     a {
       text-decoration:none;
     }
@@ -55,7 +55,7 @@
     @include padding-tb(0, .5);
     @include margin-tb(0, .5);
     border-bottom: 1px solid desaturate(darken($gamma-ui-color, 5), 10);
-    
+
     a {
       text-decoration:none;
     }
@@ -136,6 +136,26 @@
   }
 }
 
+.island__gamma_ui_color {
+  font-size: 18px;
+  @include px-padding-lr(1.5, 1.5);
+  @include padding-tb(.7, .9);
+  background-color: $gamma-ui-color;
+  border-radius: $gamma-radius;
+  border: 1px solid desaturate(darken($gamma-ui-color-dark, 5), 10);
+  position: relative;
+  h2 {
+    color: $beta-ui-color;
+    @include text-dimensions(0, 1, 1);
+    font-size: 1rem;
+  }
+  a {
+    color: $alpha-ui-color;
+    font-size: 18px;
+  }
+}
+
+
 .island--delta {
   @include px-padding-lr(2, 2);
   @include padding-tb(1, .8);
@@ -144,7 +164,7 @@
   border-radius: $gamma-radius;
 
   h3 {
-    @include text-dimensions(7, 1.5, 1, 0, 0); 
+    @include text-dimensions(7, 1.5, 1, 0, 0);
     font-family: $beta-font-family;
     color: $white-color
   }
@@ -173,16 +193,16 @@
   i {
     @include px-padding-lr(0, .7);
     color: inherit;
-    
+
     &.big {
       @include px-padding-lr(0, 1.5);
       @include padding-tb(.4, .3);
       float:left;
-      @include text-dimensions(10, 1.5, 0, 0, 0); 
-      
+      @include text-dimensions(10, 1.5, 0, 0, 0);
+
       height:100%;
       max-height:100%;
-      
+
     }
   }
 
@@ -198,14 +218,14 @@
       color: $alpha-ui-color;
     }
   }
-  
-  .l-half {  
+
+  .l-half {
     @include px-padding-lr(1, 1);
     @include padding-tb(.5, .5);
-    
+
     @include mq($bp-tablet-m) {
       @include padding-tb(.2, .2);
-      
+
       &.first {
         border-right:1px solid $white-color;
       }
@@ -282,9 +302,9 @@
     padding-top: 0;
     color: $alpha-ui-color;
     transition: color .3s ease-in-out;
-    
+
     a {
-      text-decoration:none; 
+      text-decoration:none;
     }
   }
 
@@ -300,7 +320,7 @@
     font-size: 95%;
     line-height: 1.4em;
   }
-  
+
   &:hover,
   &:focus {
     h3 {
@@ -316,7 +336,7 @@
     @include px-padding-lr(0, .5);
     color: $delta-ui-color;
   }
-  
+
   @include mq($bp-tablet-s) {
     @include px-padding-lr(0, 2);
     @include padding-tb(0, .5);
@@ -330,13 +350,13 @@
     padding-top:0;
     @include padding-tb(0, .5);
   }
-  
+
   h3 {
     color: $alpha-ui-color;
     transition: color .3s ease-in-out;
     border:none;
     a {
-      text-decoration:none; 
+      text-decoration:none;
       color: $alpha-ui-color;
     }
   }
@@ -370,13 +390,14 @@
     position: relative;
   }
 
+
   .date,
   .event,
   .meta {
     font-size: 80%;
     color: $beta-text-color;
   }
-  
+
   .event {
     display:inline-block;
     background-color:$alpha-ui-color;
@@ -391,14 +412,14 @@
       @include px-padding-lr(.8, 1);
     }
   }
-  
+
   &:hover,
   &:focus {
     h3 {
       color: $alpha-link-colorhover;
     }
   }
-  
+
   figcaption {
     display:none;
   }
@@ -420,7 +441,7 @@
     background-size: cover;
     background-position: center;
     border-radius: $gamma-radius;
-    
+
     img {
       border-radius: $gamma-radius;
     }
@@ -437,7 +458,7 @@
   h3 {
     color: $white-color;
   }
-  
+
   @include mq($bp-phone-m) {
     .island__top {
       display:block;
@@ -499,8 +520,8 @@
       background-image:none;
     }
   }
-  
-  
+
+
   @include mq($bp-phone-m) {
     @include padding-tb(1.5, 1.5);
     background-image: url('#{$base-theme-path}/img/png/corner-top-middle.png'),
@@ -535,21 +556,21 @@
 }
 
 .island--kappa {
-  
+
   border-top: 1px solid desaturate(darken($gamma-ui-color, 10), 20);
   border-bottom: 1px solid desaturate(darken($gamma-ui-color, 10), 20);
-  
+
   @include padding-tb(1, 2);
   @include margin-tb(2, 0);
-  
+
   h2, h3 {
     color: $beta-ui-color;
-    
+
     margin:0;
     padding:0;
-    
+
     @include margin-tb(0, .5);
-    
+
     a {
       text-decoration:none;
     }
@@ -565,17 +586,17 @@
   background-color:$white-color;
   margin-bottom:0;
   padding:0;
-  
+
   @include margin-tb(1, 0);
   @extend %rounded-1;
   @include text-dimensions(-4, 1);
-  
+
   table {
     margin:0;
   }
   tr {
     border-bottom:1px solid $gamma-text-color;
-    
+
     &:last-child {
       border-bottom:none;
     }
@@ -584,7 +605,7 @@
     @include text-dimensions(-3, 1);
     @include px-padding-lr(1, 1);
     @include padding-tb(.5, .5);
-    
+
     &.label {
       font-weight:bold;
     }
