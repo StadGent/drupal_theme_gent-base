@@ -148,6 +148,9 @@
     color: $beta-ui-color;
     @include text-dimensions(0, 1, 1);
     font-size: 1rem;
+    i {
+      font-size: 1rem;
+    }
   }
   a {
     color: $alpha-ui-color;
