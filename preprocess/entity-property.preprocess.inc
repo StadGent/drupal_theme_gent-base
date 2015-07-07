@@ -22,17 +22,9 @@ function gent_base_preprocess_entity_property(&$variables) {
       case 'gent_regulations':
         $variables['attributes_array']['id'] = 'sheet-regulatory';
         break;
-      case 'form_url':
-        $variables['content'] = '<span class="icon icon-newtab"></span>' . "\n";
-        $variables['content'] .= '<span class="article-content-action-title">' . t('Online requisition form') . '</span>' . "\n";
-        $variables['content'] .= '<span class="article-content-action-document">' . t('Complete the online requisition form') . '</span>' . "\n";
 
-        $variables['content'] = l($variables['content'], $property->value(), array(
-          'attributes' => array(
-            'class' => array('article-content-action'),
-          ),
-          'html' => TRUE,
-        ));
+      case 'form_url':
+        $variables['content'] = l(t('Go to the webform'), $property->value());
         break;
 
       case 'organisations':
@@ -68,52 +60,33 @@ function gent_base_preprocess_entity_property(&$variables) {
         $variables['content'] = array();
 
         foreach ($property->value() as $file) {
-          switch ($file->filemime) {
-            case 'application/pdf':
-              $title = t('Complete the requisition form (PDF)');
-              break;
-
-            case 'application/msword':
-            case 'application/vnd.openxmlformats-officedocument.wordprocessingml.document':
-              $title = t('Complete the requisition form (Word)');
-              break;
-
-            default:
-              $title = t('Complete the requisition form');
-              break;
-          }
-
-          $content = '<span class="icon icon-form_fill"></span>' . "\n";
-          $content .= '<span class="article-content-action-title">' . $title . '</span>' . "\n";
-          $content .= '<span class="article-content-action-document">' . check_plain($file->filename) . '</span> ';
-          $content .= '<span class="small article-content-action-document-size">' . format_size($file->filesize) . '</span>' . "\n";
-
-          $variables['content'][] = l($content, file_create_url($file->uri), array(
-            'attributes' => array(
-              'class' => array('article-content-action'),
-            ),
-            'html' => TRUE,
-          ));
+          $content = '<span class="article-content-action-document">' . l($file->filename, file_create_url($file->uri)) . '</span> ';
+          $content .= '<span class="small article-content-action-document-size">(' . format_size($file->filesize) . ')</span>' . "\n";
+          $variables['content'][] = $content;
         }
         break;
+
       case 'gbos_products':
-        $variables['label'] = t('Create appointment');
-        $variables['title_attributes_array']['class'] = array('h1 hT');
-        $variables['attributes_array']['class'][] = 'island';
-        $variables['attributes_array']['class'][] = 'island--epsilon';
+        $variables['label'] = '';
         $data = $property->value();
-        $provider = new GbosDrupalDataProvider();
-        $products = $provider->getProductsOptions();
-        $appointment_base_path = 'mijn-gent/appointment/create';
-        $variables['content'] = '';
-        foreach ($data as $product_id) {
-          if (isset($products[$product_id])) {
-            $variables['content'] .= l($products[$product_id], sprintf($appointment_base_path . '/%d', $product_id), array(
-              'attributes' => array(
-                'class' => array('btn', 'btn--medium', 'btn--delta'),
-              ),
-            ));
+
+        try {
+          $provider = new GbosDrupalDataProvider();
+          $products = $provider->getProductsOptions();
+          $appointment_base_path = 'mijn-gent/appointment/create';
+          $variables['content'] = '';
+          foreach ($data as $product_id) {
+            if (isset($products[$product_id])) {
+              $variables['content'] .= l($products[$product_id], sprintf($appointment_base_path . '/%d', $product_id), array(
+                'attributes' => array(
+                  'class' => array('btn', 'btn--medium', 'btn--delta'),
+                ),
+              ));
+            }
           }
+        }
+        catch (Exception $e) {
+          $variables['content'] = t('Error loading appointments.');
         }
         break;
     }

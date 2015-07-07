@@ -136,6 +136,29 @@
   }
 }
 
+.island__gamma_ui_color {
+  font-size: 18px;
+  @include px-padding-lr(1.5, 1.5);
+  @include padding-tb(.7, .9);
+  background-color: $gamma-ui-color;
+  border-radius: $gamma-radius;
+  border: 1px solid desaturate(darken($gamma-ui-color-dark, 5), 10);
+  position: relative;
+  h2 {
+    color: $beta-ui-color;
+    @include text-dimensions(0, 1, 1);
+    font-size: 1rem;
+    i {
+      font-size: 1rem;
+    }
+  }
+  a {
+    color: $alpha-ui-color;
+    font-size: 18px;
+  }
+}
+
+
 .island--delta {
   @include px-padding-lr(2, 2);
   @include padding-tb(1, .8);
@@ -369,6 +392,7 @@
     border: 1px solid desaturate(darken($gamma-ui-color, 5), 10);
     position: relative;
   }
+
 
   .date,
   .event,

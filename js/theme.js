@@ -11,6 +11,7 @@
       jsTheme.accordion.init();
       jsTheme.toggleFieldset.init();
       jsTheme.addMobileBreadcrumb.init();
+      jsTheme.stickyNav.init();
     }
   };
 
@@ -160,7 +161,7 @@
       // Animate the width of progress indicators
       $('.progress-indicator').each(function () {
         var targetWidth = $(this).data('percentage');
-        var  duration = targetWidth * 30;
+        var duration = targetWidth * 30;
         $(this).animate({
           width: targetWidth + '%'
         }, duration, 'linear');
@@ -252,6 +253,19 @@
         mobile_breadcrumb.find('option:last').attr('selected', 'selected');
         breadcrumb.after(mobile_breadcrumb);
       });
+    }
+  };
+
+  /**
+   * Makes all elements with "sticky-nav" class sticky so they will be attached to the viewport top when scrolling down.
+   */
+  jsTheme.stickyNav = {
+    init: function () {
+      if ($('.sticky-nav').length > 0) {
+        $('.sticky-nav').once('sticky-nav', function () {
+          $(this).sticky({topSpacing: 20});
+        });
+      }
     }
   };
 
