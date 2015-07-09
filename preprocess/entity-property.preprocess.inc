@@ -67,21 +67,25 @@ function gent_base_preprocess_entity_property(&$variables) {
         break;
 
       case 'gbos_products':
+
         $variables['label'] = '';
+        $variables['content'] = '';
         $data = $property->value();
 
         try {
-          $provider = new GbosDrupalDataProvider();
-          $products = $provider->getProductsOptions();
-          $appointment_base_path = 'mijn-gent/appointment/create';
-          $variables['content'] = '';
-          foreach ($data as $product_id) {
-            if (isset($products[$product_id])) {
-              $variables['content'] .= l($products[$product_id], sprintf($appointment_base_path . '/%d', $product_id), array(
-                'attributes' => array(
-                  'class' => array('btn', 'btn--medium', 'btn--delta'),
-                ),
-              ));
+          if (module_exists('gent_gbos')) {
+            $provider = new GbosDrupalDataProvider();
+            $products = $provider->getProductsOptions();
+            $appointment_base_path = 'mijn-gent/afspraak/maken';
+            $variables['content'] = '';
+            foreach ($data as $product_id) {
+              if (isset($products[$product_id])) {
+                $variables['content'] .= l($products[$product_id], sprintf($appointment_base_path . '/%d', $product_id), array(
+                  'attributes' => array(
+                    'class' => array('btn', 'btn--medium', 'btn--delta'),
+                  ),
+                ));
+              }
             }
           }
         }
