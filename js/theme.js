@@ -285,6 +285,16 @@
     });
   }
 
+
+  function stikyWidth() {
+    if ($(window).width() >= 960) {
+      var oldWidth = $('#block-system-main .view-mode-full .l-secondary').width();
+      $('.field-group-accordion').width(oldWidth);
+    } else {
+      $('.field-group-accordion').width('auto');
+    }
+  }
+
   // Initialize the theme.
   $(jsTheme.init);
 
@@ -305,10 +315,12 @@
     }
 
     paddingLeftProgressbar();
+    stikyWidth();
 
   });
 
-  $(document).resize(function () {
+  $(window).resize(function () {
+    stikyWidth();
     paddingLeftProgressbar();
   });
 
