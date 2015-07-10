@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gent base theme\n"
-"POT-Creation-Date: 2015-07-10 10:33+0100\n"
-"PO-Revision-Date: 2015-07-10 12:35+0100\n"
+"POT-Creation-Date: 2015-07-10 14:38+0100\n"
+"PO-Revision-Date: 2015-07-10 14:38+0100\n"
 "Last-Translator: Filip Heymans <filip.heymans@digipolis.be>\n"
 "Language-Team: Digipolis <tbweb@gent.be>\n"
 "Language: nl\n"
@@ -202,3 +202,7 @@ msgstr "Online formulieren"
 #: theme/entity-property--sheet--gpdc--forms.theme.inc:11
 msgid "Downloadable forms"
 msgstr "Downloadbare formulieren"
+
+#: theme/entity-property--sheet--gpdc--gbos-products.theme.inc:11
+msgid "Online appointments"
+msgstr "Online afspraken"
