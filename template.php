@@ -484,6 +484,10 @@ function gent_base_theme() {
       'base hook' => 'entity_property',
       'file' => 'theme/entity-property--sheet--gpdc--forms.theme.inc',
     ),
+    'entity_property__sheet__gpdc__gbos_products' => array(
+      'base hook' => 'entity_property',
+      'file' => 'theme/entity-property--sheet--gpdc--gbos-products.theme.inc',
+    ),
   );
 }
 
