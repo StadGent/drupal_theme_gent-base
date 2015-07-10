@@ -117,18 +117,37 @@ module.exports = function (grunt) {
           './styleguide': ['./sass']
         }
       }
+    },
+    imagemin: {                          // Task
+      dist: {                         // Another target
+        options: {                       // Target options
+          optimizationLevel: 1
+        },
+        files: [
+          {
+            expand: true,
+            cwd: 'img/',
+            dest: 'img/',
+            src: ['**/*.{png,jpg,gif}']
+          },
+        ]
+      }
     }
+
   });
 
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-imagemin');
+  grunt.loadNpmTasks('grunt-newer');
   grunt.loadNpmTasks('grunt-kss');
   grunt.loadNpmTasks('grunt-shell');
 
   grunt.registerTask('build', [
-    'uglify:dist',
+    'newer:imagemin:dist',
+    'newer:uglify:dist',
     'compass:dist',
     'kss',
     'jshint',
