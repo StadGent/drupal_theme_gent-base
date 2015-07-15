@@ -344,7 +344,8 @@ label {
   font-weight: bold;
 }
 
-label.option {
+label.option,
+.label.option {
   display: inline;
   font-weight: normal;
 }
