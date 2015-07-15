@@ -285,6 +285,16 @@
     });
   }
 
+
+  function stikyWidth() {
+    if ($(window).width() >= 960) {
+      var oldWidth = $('#block-system-main .view-mode-full .l-secondary').width();
+      $('.field-group-accordion').width(oldWidth);
+    } else {
+      $('.field-group-accordion').width('auto');
+    }
+  }
+
   // Initialize the theme.
   $(jsTheme.init);
 
@@ -300,15 +310,13 @@
       $('.not-front .search-widget > div').toggle([9000]);
     });
 
-    if ($('#block-gent-auth-bar-bar .picture.has-profile img').length > 0) {
-      $('#block-gentbe-general-gent-auth').hide();
-    }
-
     paddingLeftProgressbar();
+    stikyWidth();
 
   });
 
-  $(document).resize(function () {
+  $(window).resize(function () {
+    stikyWidth();
     paddingLeftProgressbar();
   });
 
