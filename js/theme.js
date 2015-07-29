@@ -285,6 +285,12 @@
     });
   }
 
+  function inTwoCols() {
+    $('.layers--default').columnize({
+      columns: 2
+    });
+  }
+
   // Initialize the theme.
   $(jsTheme.init);
 
@@ -306,10 +312,15 @@
 
     paddingLeftProgressbar();
 
+    inTwoCols();
+
+
   });
 
   $(document).resize(function () {
+
     paddingLeftProgressbar();
+
   });
 
 
