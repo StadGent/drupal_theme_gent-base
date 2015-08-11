@@ -8,6 +8,8 @@
     "grunt-contrib-compass": "~1.0.1",
     "grunt-contrib-jshint": "~0.10.0",
     "grunt-shell": "~1.1.1",
+    "grunt-contrib-imagemin":"~0.9.4",
+    "grunt-newer":"~1.1.1",
     "grunt-kss": "~0.4.0",
     "grunt-legacy-util": "~0.2.0",
     "grunt-legacy-log": "~0.1.1",
