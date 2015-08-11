@@ -194,9 +194,9 @@ body.map-fullscreen {
 @include mq($bp-desktop-s) {
   .openlayers_map_fullscreen {
     .layers--default {
-    .column {
-      width: 100% !important;
-    }
+      .column {
+        width: 100% !important;
+      }
     }
   }
 }
@@ -303,11 +303,11 @@ body.map-fullscreen {
   bottom: 0;
 }
 
-// Openlayers map.
+// Openlayers map fullscreen (+ external panel).
 //
 //
 
-.openlayers_map_fullscreen {
+.openlayers-container.has-external-panel.openlayers_map_fullscreen {
   .openlayers-map {
     width: 100% !important;
     left: 0%;

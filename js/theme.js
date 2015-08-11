@@ -11,6 +11,7 @@
       jsTheme.accordion.init();
       jsTheme.toggleFieldset.init();
       jsTheme.addMobileBreadcrumb.init();
+      jsTheme.addMobileSearchIcon.init();
       jsTheme.stickyNav.init();
     }
   };
@@ -257,6 +258,15 @@
   };
 
   /**
+   * Adds mobile search icon.
+   */
+  jsTheme.addMobileSearchIcon = {
+    init: function () {
+      $('<div class="search-icon-block"><i class="icon icon-search"></i></div>').insertBefore('.top-section > nav.holder > .l-row > .l-primary--offset');
+    }
+  };
+
+  /**
    * Makes all elements with "sticky-nav" class sticky so they will be attached to the viewport top when scrolling down.
    */
   jsTheme.stickyNav = {
@@ -264,6 +274,23 @@
       if ($('.sticky-nav').length > 0) {
         $('.sticky-nav').once('sticky-nav', function () {
           $(this).sticky({topSpacing: 20});
+        });
+      }
+    }
+  };
+
+  /**
+   * Splits legend in 2 columns that can be read left to right.
+   */
+  jsTheme.mapColumnizeLegend = {
+    init: function () {
+      var layers = $('.layers--default');
+      if (layers.length > 0) {
+        $('.layer-wrapper').addClass('dontsplit');
+        layers.once('columnize', function () {
+          $(this).columnize({
+            columns: 2
+          });
         });
       }
     }
@@ -285,22 +312,13 @@
     });
   }
 
-  function inTwoCols() {
-    $('.layers--default').columnize({
-      columns: 2
-    });
-  }
-
   // Initialize the theme.
   $(jsTheme.init);
 
-
-  $('<div class="search-icon-block"><i class="icon icon-search"></i></div>').insertBefore('.top-section > nav.holder > .l-row > .l-primary--offset');
-
-  // executes after everything is loaded.
+  /**
+   * Document READY event.
+   */
   $(document).ready(function () {
-
-
     //Show and hide search form
     $('.search-icon-block').click(function () {
       $('.not-front .search-widget > div').toggle([9000]);
@@ -312,16 +330,14 @@
 
     paddingLeftProgressbar();
 
-    inTwoCols();
-
-
+    jsTheme.mapColumnizeLegend.init();
   });
 
+  /**
+   * Document RESIZE event.
+   */
   $(document).resize(function () {
-
     paddingLeftProgressbar();
-
   });
-
 
 })(jQuery);
