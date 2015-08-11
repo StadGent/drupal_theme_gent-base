@@ -1,20 +1,26 @@
-.external-panel {
-  background: $gamma-ui-color none;
+body.map-fullscreen {
+  overflow: hidden;
 
-  .form-title {
-    display: none;
+  a.contextual-links-trigger {
+    display: none !important;
   }
+}
 
-  .ui-tabs-nav .fullscreen {
-    display: none;
-  }
+// External panel container.
+//
+//
+
+.external-panel-container {
+  position: relative;
 
   fieldset {
     border: none;
+    background-color: transparent;
 
     legend {
-      @include text-dimensions(1, 1, 1);
-      padding-left: 0;
+      @include text-dimensions(-1, 1, 1);
+      padding: 0;
+      margin: 20px 0 16px;
       color: $beta-ui-color;
       font-family: $beta-font-family;
       border: none;
@@ -26,6 +32,104 @@
   }
 }
 
+.openlayers_map_fullscreen {
+  .external-panel-container {
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 0% !important;
+    display: none;
+    height: 100% !important;
+
+    @include mq($bp-phone-m) {
+      width: 40% !important;
+      display: block;
+    }
+
+    @include mq($bp-tablet-s) {
+      width: 30% !important;
+      display: block;
+    }
+
+    @include mq($bp-tablet-m) {
+      width: 25% !important;
+      display: block;
+    }
+  }
+}
+
+// External panel.
+//
+//
+
+.external-panel {
+  @include rem-padding-lr(1, 1);
+
+  background-color: $white-color;
+  border: 1px solid lighten($gamma-text-color, 10);
+  border-radius: $beta-radius;
+}
+
+.openlayers_map_fullscreen {
+  .external-panel {
+    display: block !important;
+    height: 100% !important;
+    overflow: auto;
+
+    border: none;
+    border-right: 1px solid lighten($gamma-text-color, 10);
+    border-radius: 0;
+  }
+}
+
+// External panel - toggle button.
+//
+//
+
+.external-panel__toggle {
+  position: absolute;
+  top: -45px;
+  height: 46px;
+  width: 50px;
+  left: 1rem;
+  border: 1px solid lighten($gamma-text-color, 10);
+  border-bottom: none;
+  border-top-left-radius: $beta-radius;
+  border-top-right-radius: $beta-radius;
+  cursor: pointer;
+
+  background: $white-color url('#{$base-theme-path}/img/png/toggle.png') no-repeat center center;
+  text-indent: -9999px;
+
+  &.collapsed {
+    background-image: url('#{$base-theme-path}/img/png/toggle-collapsed.png');
+    border-bottom: 1px solid lighten($gamma-text-color, 10);
+    border-bottom-left-radius: $beta-radius;
+    border-bottom-right-radius: $beta-radius;
+    top: -55px;
+  }
+}
+
+.openlayers_map_fullscreen {
+  .external-panel__toggle {
+    display: none;
+    border: none;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+
+    &.collapsed {
+      border-bottom: none;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+}
+
+// Form elements.
+//
+//
+
 .openlayers_map {
   .search-address {
     .error {
@@ -34,7 +138,7 @@
       color: $alpha-text-color;
       font-family: $alpha-font-family;
       border: none;
-      font-weight:400;
+      font-weight: normal;
     }
 
     .dym-wrapper {
@@ -47,18 +151,6 @@
       p, ul {
         @include text-dimensions(-1, 1);
       }
-    }
-  }
-}
-
-.openlayers_map_fullscreen  {
-  .external-panel  {
-    .ui-tabs-nav .normal {
-      display: none;
-    }
-
-    .ui-tabs-nav .fullscreen {
-      display: block;
     }
   }
 }
@@ -76,63 +168,50 @@
 //
 //
 
-.layerswitcher-plus .fieldset-wrapper {
-  position: relative;
-}
-
-.layers {
-  .line--vertical:after {
-    display: none;
+/* 1 col */
+.layers--default {
+  .column {
+    width: 100% !important;
   }
 }
-
 /* 2 columns */
 @include mq($bp-desktop-s) {
-  .layers {
-    @include add-grid(12);
-
-    .layer-wrapper {
-      @include float-span(6);
-      @include rem-padding-lr(1, 1);
+  .layers--default {
+    .column {
+      width: 50% !important;
     }
-
-    .line--vertical:after {
-      display: block;
+    &> div {
+      -webkit-column-break-inside:avoid;
+      -moz-column-break-inside:avoid;
+      -o-column-break-inside:avoid;
+      -ms-column-break-inside:avoid;
+      column-break-inside:avoid;
     }
   }
 }
 
 /* fullscreen overrides the x-columns layout and goes back to mobile */
-.openlayers_map_fullscreen {
-  .layers {
-    display: block;
-
-    .layer-wrapper {
-      clear: none;
-      float: none;
-      width: auto;
-      padding-left: 0;
-      padding-right: 0;
+@include mq($bp-desktop-s) {
+  .openlayers_map_fullscreen {
+    .layers--default {
+      .column {
+        width: 100% !important;
+      }
     }
-
-    .line--vertical:after {
-      display: none;
-    }
-  }
-}
-
-/* FIX: default collapse "extra layer" fieldset, fieldset js doesn't get initialised right away */
-.extra-layer-switcher {
-  .fieldset-wrapper {
-    display: none;
   }
 }
 
 // Layers.
 //
 //
+
 .layer-wrapper {
   color: $beta-ui-color;
+
+  label, .label {
+    @include text-dimensions(-3, 1, 0, 0, 0, 0);
+    font-weight: $beta-font-weight;
+  }
 
   label {
     color: $beta-ui-color;
@@ -155,26 +234,50 @@
     }
   }
 
-  .info-left {
-    float: left;
+  .legend-icon {
+    max-width: 24px;
+    vertical-align: middle;
   }
 
-  .single-legend {
-    float: right;
+  .legend-icon--layer-group {
+    display: inline-block;
+    background: transparent url('#{$base-theme-path}/img/png/icon-group-layer.png') no-repeat left top;
+    width: 24px;
+    height: 24px;
+    color: $white-color;
+    padding-right: 6px;
+    font-size: 12px;
+    text-align: center;
   }
 
-  .multi-legend .map-layer-items {
-    @extend %no-bullet-list;
-    padding: 0;
-    margin: 0;
+  .layer__legend__sub {
+    margin-top: 10px;
+    padding-left: 34px;
+    background: transparent url('#{$base-theme-path}/img/png/vertical-line.png') repeat-y 45px 0;
 
-    li {
-      display: inline;
+    label, .label {
+      font-weight: normal;
     }
+  }
 
-    img {
-      vertical-align: middle;
+  .layer__legend__sub__item {
+    margin: 8px 0;
+    position: relative;
+
+    &.first {
+      margin-top: 0;
     }
+    &.last {
+      margin-bottom: 0;
+    }
+  }
+}
+
+// Reset line height for group layers (because we have vertical background line).
+.layer__legend__sub {
+  line-height: 0;
+  img, .label {
+    line-height: 0;
   }
 }
 
@@ -186,46 +289,25 @@
 // Search OL behavior.
 //
 //
+
 .openlayers-container .search-address .form-item-address label {
   top: 10px;
 }
 
 // Baselayers.
+//
+//
+
 .openlayers_behavior_baselayerswitcher_plus {
   right: 0;
   bottom: 0;
 }
 
-// Fullscreen.
+// Openlayers map fullscreen (+ external panel).
 //
 //
-.openlayers_map_fullscreen {
-  .external-panel {
-    overflow: auto;
-    position: fixed;
-    z-index: 9999;
-    top: 0;
-    left: 0;
-    width: 0% !important;
-    height: 100% !important;
-    display:none;
 
-    @include mq($bp-phone-m) {
-      width: 40% !important;
-      display:block;
-    }
-
-    @include mq($bp-tablet-s) {
-      width: 30% !important;
-      display:block;
-    }
-
-    @include mq($bp-tablet-m) {
-      width: 25% !important;
-      display:block;
-    }
-  }
-
+.openlayers-container.has-external-panel.openlayers_map_fullscreen {
   .openlayers-map {
     width: 100% !important;
     left: 0%;
@@ -245,4 +327,9 @@
       left: 25%;
     }
   }
+}
+
+.olControlPanZoomBar {
+  top: 10px !important;
+  left: 10px !important;
 }
