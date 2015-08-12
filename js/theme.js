@@ -284,12 +284,29 @@
    */
   jsTheme.mapColumnizeLegend = {
     init: function () {
-      var layers = $('.layers--default');
-      if (layers.length > 0) {
-        $('.layer-wrapper').addClass('dontsplit');
-        layers.once('columnize', function () {
-          $(this).columnize({
-            columns: 2
+
+      var external_panel = $('.openlayers-container .external-panel-container');
+      if (external_panel.length > 0) {
+        $('.layers--default', external_panel).once('columnize', function () {
+          var layers = $(this);
+
+           // Prevent checkbox - label splitting.
+          $('.layer-wrapper', layers).addClass('dontsplit');
+
+          layers.columnize({
+            columns: 2,
+            doneFunc: function() {
+              // Because columnizer cannot handle display:none elements. We need to columnize the layers first.
+              // Then afterwards we should see if we need to collapsed the legend.
+
+              // IMPORTANT
+              // This will probably not work when more than 1 openlayers map (with legend) is rendered inside 1 page.
+              var toggle_button = $('.external-panel__toggle', external_panel)
+              var is_collapsed = toggle_button.hasClass('collapsed');
+              if (is_collapsed) {
+                $('.external-panel', external_panel).hide();
+              }
+            }
           });
         });
       }
@@ -405,8 +422,10 @@
     jsTheme.mapColumnizeLegend.init();
   });
 
-
-  $(window).resize(function () {
+  /**
+   * Document RESIZE event.
+   */
+  $(document).resize(function () {
     windowWidth = viewport().width;
     stikyWidth();
     paddingLeftProgressbar();
