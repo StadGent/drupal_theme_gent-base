@@ -295,13 +295,13 @@
 
           layers.columnize({
             columns: 2,
-            doneFunc: function() {
+            doneFunc: function () {
               // Because columnizer cannot handle display:none elements. We need to columnize the layers first.
               // Then afterwards we should see if we need to collapsed the legend.
 
               // IMPORTANT
               // This will probably not work when more than 1 openlayers map (with legend) is rendered inside 1 page.
-              var toggle_button = $('.external-panel__toggle', external_panel)
+              var toggle_button = $('.external-panel__toggle', external_panel);
               var is_collapsed = toggle_button.hasClass('collapsed');
               if (is_collapsed) {
                 $('.external-panel', external_panel).hide();
@@ -342,7 +342,7 @@
 
 
   function stikyWidth() {
-    if ($(window).width() >= 960) {
+    if (windowWidth >= 960) {
       var oldWidth = $('#block-system-main .view-mode-full .l-secondary').width();
       $('.field-group-accordion').width(oldWidth);
     } else {
@@ -425,7 +425,7 @@
   /**
    * Document RESIZE event.
    */
-  $(document).resize(function () {
+  $(window).resize(function () {
     windowWidth = viewport().width;
     stikyWidth();
     paddingLeftProgressbar();
