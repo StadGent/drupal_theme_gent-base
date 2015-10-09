@@ -126,10 +126,9 @@ function gent_base_file_link($variables) {
   // Set options as per anchor format described at
   // http://microformats.org/wiki/file-format-examples
   $options = array(
-    'attributes' => array_merge($variables['attributes'], array(
-      'type' => $file->filemime . '; length=' . $file->filesize,
-    )),
+    'attributes' => (!empty($variables['attributes']) ? $variables['attributes'] : array()),
   );
+  $options['attributes']['type'] = $file->filemime . '; length=' . $file->filesize;
 
   // Use the description as the link text if available.
   if (empty($file->description)) {
