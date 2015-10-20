@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'gent-icons';
-  src:url('#{$base-theme-path}/fonts/gent-icons.eot?cred2e');
-  src:url('#{$base-theme-path}/fonts/gent-icons.eot?#iefixcred2e') format('embedded-opentype'),
-  url('#{$base-theme-path}/fonts/gent-icons.woff?cred2e') format('woff'),
-  url('#{$base-theme-path}/fonts/gent-icons.ttf?cred2e') format('truetype'),
-  url('#{$base-theme-path}/fonts/gent-icons.svg?cred2e#gent-icons') format('svg');
+  src:url('#{$base-theme-path}/fonts/gent-icons.eot?b29kaj');
+  src:url('#{$base-theme-path}/fonts/gent-icons.eot?#iefixb29kaj') format('embedded-opentype'),
+  url('#{$base-theme-path}/fonts/gent-icons.woff?b29kaj') format('woff'),
+  url('#{$base-theme-path}/fonts/gent-icons.ttf?b29kaj') format('truetype'),
+  url('#{$base-theme-path}/fonts/gent-icons.svg?b29kaj#gent-icons') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -22,6 +22,13 @@
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-bulb:before {
+  content: "\e800";
+}
+.icon-megaphone:before {
+  content: "\e801";
 }
 
 .icon-follow:before {
