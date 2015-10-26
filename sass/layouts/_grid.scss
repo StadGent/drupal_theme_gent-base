@@ -59,6 +59,7 @@
   @include mq($bp-tablet-s) {
     @include grid-span(14);
   }
+  padding-left: 0;
 }
 
 .l-primary--offset {
@@ -82,7 +83,7 @@
 .l-third {
   // Should not be necessary, but somethimes our container loses it's default width
   @include float-span(24);
-  
+
   @include mq($bp-tablet-s) {
     @include float-span(12);
   }
@@ -95,7 +96,7 @@
 // From the same type in it. This is a constraint for now.
 .region-content .l-third {
   @include mq($bp-tablet-s) {
-    &:nth-of-type(2n+1) { 
+    &:nth-of-type(2n+1) {
       margin-left:0;
     }
   }
@@ -103,7 +104,7 @@
     &:nth-of-type(2n+1) {
       @include float-span(8);
     }
-    &:nth-of-type(3n+1) { 
+    &:nth-of-type(3n+1) {
       margin-left:0;
     }
   }
@@ -114,7 +115,7 @@
   .island--epsilon.l-third {
     @include mq($bp-tablet-s) {
       @include float-span(24);
-    } 
+    }
     @include mq($bp-tablet-m) {
       @include float-span(8);
     }
@@ -122,7 +123,7 @@
 }
 
 
-// When we are using masonry view (class multi-column), we do not want the float and clear behavior of 
+// When we are using masonry view (class multi-column), we do not want the float and clear behavior of
 // our floating grid. Reset those so masonry can handle the layout.
 .multi-column {
  .l-third, .l-fourth {
@@ -132,7 +133,7 @@
     clear:none !important;
     float:none !important;
   }
-  
+
   // Our element that will be used for masonry to handle the gutter
   .gutter {
     width:gutter-span();
@@ -157,7 +158,7 @@
   @include mq($bp-tablet-m) {
     clear:none;
     @include float-span(6);
-  } 
+  }
 }
 
 
