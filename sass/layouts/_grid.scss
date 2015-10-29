@@ -58,8 +58,9 @@
 .l-primary {
   @include mq($bp-tablet-s) {
     @include grid-span(14);
+    margin-left: 0;
   }
-  padding-left: 0;
+  margin-left: 0;
 }
 
 .l-primary--offset {
