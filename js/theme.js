@@ -332,13 +332,6 @@
 
   var windowWidth = viewport().width; // This should match your media query
 
-  function paddingLeftProgressbar() {
-    $('.webform-component-progressbar-wrapper').each(function () {
-      var number = $('.webform-component-progressbar .webform-component-progressbar-page').length;
-      var progressbarLeftPadding = 50 / number;
-      $('.webform-component-progressbar').css('padding-left', progressbarLeftPadding + '%');
-    });
-  }
 
 
   function stikyWidth() {
@@ -400,6 +393,17 @@
 
   }
 
+  function progressbarStickyWidth() {
+    var webformLeftWidth = $('.node-type-webform .webform-left').width();
+    if (windowWidth >= 960) {
+      $('.node-type-webform .webform-left .sticky-nav').width(webformLeftWidth);
+    } else {
+      $('.node-type-webform .webform-left .sticky-nav').width('auto');
+      $('.node-type-webform .webform-left .sticky-wrapper').height('auto');
+    }
+
+  }
+
   // Initialize the theme.
   $(jsTheme.init);
 
@@ -414,8 +418,8 @@
       $('.not-front .search-widget > div').toggle([9000]);
     });
 
-    paddingLeftProgressbar();
     stikyWidth();
+    progressbarStickyWidth();
     categorieAction();
     positionCategorieDropdown();
 
@@ -428,7 +432,7 @@
   $(window).resize(function () {
     windowWidth = viewport().width;
     stikyWidth();
-    paddingLeftProgressbar();
+    progressbarStickyWidth();
     categorieAction();
     positionCategorieDropdown();
   });
