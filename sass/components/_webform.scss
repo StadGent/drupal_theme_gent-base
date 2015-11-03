@@ -114,6 +114,17 @@
 }
 
 .node-webform {
+
+  .messages-inline {
+    border: 1px solid $dark-red-errors;
+    background-color: $red-errors;
+    border-radius: $alpha-radius;
+    margin-top: 5px;
+    color: $dark-grey;
+    padding: 20px 10px;
+    font-size: 13px;
+  }
+
   .form-actions {
     padding-left: 0;
     margin-top: 0;
