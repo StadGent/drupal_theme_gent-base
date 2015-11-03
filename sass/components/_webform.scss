@@ -802,6 +802,7 @@ form.webform-client-form {
     .description {
       min-height: 40px;
       margin-top: 1em;
+      margin-bottom: 1em;
       position: relative;
       background-color: $light-grey;
       padding: 10px 10px 10px 50px;
@@ -827,6 +828,7 @@ form.webform-client-form {
       position: relative;
       .description {
         margin-top: 0;
+        margin-bottom: 0;
         position: absolute;
         top: 33px;
         left: 100%;
