@@ -785,7 +785,9 @@ form.webform-client-form {
 .webform-left {
   text-align: center;
   @include mq($bp-tablet-m) {
-    @include grid-span(3, 1);
+    width: 25%;
+    float: left;
+    min-height: 50px;
   }
   .sticky-nav-processed {
     position: relative !important;
@@ -795,8 +797,46 @@ form.webform-client-form {
   }
 }
 .webform-right {
+  .webform-component {
+    position: relative;
+    .description {
+      min-height: 40px;
+      margin-top: 1em;
+      position: relative;
+      background-color: $light-grey;
+      padding: 10px 10px 10px 50px;
+      border-radius: $alpha-radius;
+      color: $dark-grey;
+      &:before {
+        content: '';
+        width: 30px;
+        height: 30px;
+        background-image: url('#{$base-theme-path}/img/png/info.png');
+        background-position: center center;
+        background-repeat: no-repeat;
+        position: absolute;
+        top: 5px;
+        left:10px;
+      }
+    }
+  }
   @include mq($bp-tablet-m) {
-    @include grid-span(5, 4);
+    width: 41.66667%;
+    float: left;
+    .webform-component {
+      position: relative;
+      .description {
+        margin-top: 0;
+        position: absolute;
+        top: 33px;
+        left: 100%;
+        margin-left: 4.4%;
+        &:before {
+          top: 10px;
+          left:10px;
+        }
+      }
+    }
   }
 }
 //end of form.webform-client-form

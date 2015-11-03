@@ -401,7 +401,26 @@
       $('.node-type-webform .webform-left .sticky-nav').width('auto');
       $('.node-type-webform .webform-left .sticky-wrapper').height('auto');
     }
+  }
 
+  function webformDescriptionRight() {
+    var webformRightWidth = $('.node-type-webform .webform-right').width();
+    var descriptionWidth = webformRightWidth * 0.75;
+
+    if (windowWidth >= 960) {
+      $('.node-type-webform .webform-right .webform-component .description').width(descriptionWidth);
+
+      $('.node-type-webform .webform-right .webform-component').each(function () {
+        var webformDescriptionHeight = $(this).find('.description').height();
+        var labelHeight = $(this).find('label').outerHeight();
+        var webformComponentHeight =  webformDescriptionHeight + labelHeight;
+        $(this).css('min-height', webformComponentHeight);
+      });
+
+    } else {
+      $('.node-type-webform .webform-right .webform-component .description').width('auto');
+      $('.node-type-webform .webform-right .webform-component').css('minheight', 'auto');
+    }
   }
 
   // Initialize the theme.
@@ -420,6 +439,7 @@
 
     stikyWidth();
     progressbarStickyWidth();
+    webformDescriptionRight();
     categorieAction();
     positionCategorieDropdown();
 
@@ -433,6 +453,7 @@
     windowWidth = viewport().width;
     stikyWidth();
     progressbarStickyWidth();
+    webformDescriptionRight();
     categorieAction();
     positionCategorieDropdown();
   });
