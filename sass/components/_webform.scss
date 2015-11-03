@@ -243,7 +243,7 @@ form.webform-client-form {
       @include rem-padding-lr(2, 2);
 
       &:first-child {
-        @include padding-tb(1, 0)
+        @include padding-tb(1, 0);
       }
 
       &:last-child {
@@ -261,8 +261,8 @@ form.webform-client-form {
   .form-item {
     @include margin-top (2);
     @include margin-bottom(0);
-    &:first-child(){
-      @include margin-top (0);
+    &:first-child {
+      @include margin-top(0);
     }
   }
 
