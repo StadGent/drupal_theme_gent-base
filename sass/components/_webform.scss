@@ -47,6 +47,15 @@
     &.current {
       color: $beta-text-color;
       font-weight: bold;
+      a,
+      span {
+        text-decoration: none;
+        color: $beta-text-color;
+        font-weight: bold;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
     }
   }
   .webform-component-progressbar-page{
@@ -59,6 +68,7 @@
       margin-top: 1em;
       overflow: hidden;
     }
+    a,
     .webform-component-progressbar-page-label {
       display: inline-block;
       margin-top: 20px;
@@ -73,6 +83,10 @@
         margin-top: 0;
         float: left;
         width: auto;
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline;
+        }
       }
     }
     &.current{
@@ -123,8 +137,13 @@
           text-indent: 0;
         }
       }
+      a,
       span{
         color: $succes-progress;
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline;
+        }
       }
       span {
         &:first-child{
@@ -833,10 +852,6 @@ form.webform-client-form {
         top: 33px;
         left: 100%;
         margin-left: 4.4%;
-        &:before {
-          top: 10px;
-          left:10px;
-        }
       }
     }
   }
