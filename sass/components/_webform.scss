@@ -258,6 +258,13 @@ form.webform-client-form {
   #edit-submitted-bestand-ajax-wrapper {
     @include margin-bottom(2);
   }
+  .form-item {
+    @include margin-top (2);
+    @include margin-bottom(0);
+    &:first-child(){
+      @include margin-top (0);
+    }
+  }
 
   .webform-progressbar {
     min-height: 2rem;
