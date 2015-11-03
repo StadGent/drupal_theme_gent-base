@@ -442,10 +442,6 @@ form.webform-client-form {
     }
   }
 
-  .webform-previous.form-submit {
-    display: none;
-  }
-
   .form-submit {
     &.webform-next {
       float:left;
@@ -487,6 +483,7 @@ form.webform-client-form {
     @include mq($bp-tablet-m) {
       width: auto;
       margin-top: 1.6em;
+      padding-left: 1em;
       clear: none;
     }
   }
