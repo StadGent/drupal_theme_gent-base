@@ -172,6 +172,7 @@ form.webform-client-form {
     position: relative;
     @include margin-tb(4, 1);
     padding-top: 1em;
+    padding-bottom: 2rem;
     border: none;
     border-radius: 0;
     border-top: 1px solid lighten($gamma-text-color, 10);
