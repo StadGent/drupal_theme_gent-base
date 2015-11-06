@@ -253,11 +253,15 @@ form.webform-client-form {
     }
   }
 
-  .form-item,
+  .form-item
   .form-actions,
   .webform-progressbar,
   #edit-submitted-bestand-ajax-wrapper {
-    @include margin-bottom(2);
+    @include margin-top (2);
+    @include margin-bottom(0);
+    &:first-child {
+      @include margin-top(0);
+    }
   }
 
   .webform-progressbar {
@@ -476,7 +480,7 @@ form.webform-client-form {
   .form-actions {
     width: 100%;
     display: inline-block;
-    margin-top: 0;
+    margin-top: 1.6em;
     margin-bottom: 1em;
     margin-left: 0;
     clear: left;
@@ -484,7 +488,6 @@ form.webform-client-form {
     @include mq($bp-tablet-m) {
       width: auto;
       margin-top: 1.6em;
-      padding-left: 1em;
       clear: none;
     }
   }
