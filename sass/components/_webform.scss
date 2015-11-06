@@ -115,6 +115,8 @@
 
 .node-webform {
 
+  .messages.error
+  .messages.error.file-upload-js-error
   .messages-inline {
     border: 1px solid $dark-red-errors;
     background-color: $red-errors;
