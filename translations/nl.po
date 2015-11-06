@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gent base theme\n"
-"POT-Creation-Date: 2015-07-10 14:38+0100\n"
-"PO-Revision-Date: 2015-07-10 14:38+0100\n"
+"POT-Creation-Date: 2015-11-06 09:50+0100\n"
+"PO-Revision-Date: 2015-11-06 09:51+0100\n"
 "Last-Translator: Filip Heymans <filip.heymans@digipolis.be>\n"
 "Language-Team: Digipolis <tbweb@gent.be>\n"
 "Language: nl\n"
@@ -56,6 +56,18 @@ msgstr "Foutmelding"
 #: template.php:400
 msgid "Warning message"
 msgstr "Waarschuwing"
+
+#: template.php:661
+msgid "!title !required"
+msgstr "!title !required"
+
+#: template.php:671
+msgid "This field is optional."
+msgstr "Dit veld is optioneel."
+
+#: template.php:673
+msgid "(optional)"
+msgstr "(optioneel)"
 
 #: templates/gent_library/library_my_library_block.tpl.php:3
 msgid "My library"
@@ -118,6 +130,10 @@ msgstr "Afbeelding hoofding"
 #: templates/system/region--footer-bottom.tpl.php:39
 msgid "In cooperation with"
 msgstr "In samenwerking met"
+
+#: templates/webform/webform-form.tpl.php:36
+msgid "All questions are mandatory, unless they are marked as optional."
+msgstr "Alle vragen zijn verplicht, tenzij vermeld dat ze optioneel zijn."
 
 #: templates/webform/webform-progressbar.tpl.php:53
 msgid "Page @start of @end"
