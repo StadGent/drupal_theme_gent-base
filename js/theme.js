@@ -408,7 +408,7 @@
     var descriptionWidth = webformRightWidth * 0.75;
 
     if (windowWidth >= 960) {
-      $('.node-type-webform .webform-right .webform-component .description').width(descriptionWidth);
+      $('.node-type-webform .webform-right .description').width(descriptionWidth);
 
       $('.node-type-webform .webform-right .webform-component').each(function () {
         var webformDescriptionHeight = $(this).find('.description').height();
@@ -418,7 +418,7 @@
       });
 
     } else {
-      $('.node-type-webform .webform-right .webform-component .description').width('auto');
+      $('.node-type-webform .webform-right .description').width('auto');
       $('.node-type-webform .webform-right .webform-component').css('minheight', 'auto');
     }
   }
