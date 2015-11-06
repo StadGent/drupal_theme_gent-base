@@ -666,6 +666,9 @@ form.webform-client-form {
   }
 
   .node-webform {
+    .form-submit {
+      width: auto;
+    }
     .form-actions {
       padding-left: 0;
       margin-top: 0;
