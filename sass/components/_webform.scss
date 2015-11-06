@@ -160,7 +160,20 @@
       padding-right: 8px;
     }
   }
+
+  form.webform-client-form {
+  .form-item {
+    input.error,
+    textarea.error,
+    select.error {
+    border: 1px solid $dark-red-errors;
+    }
+  }
 }
+
+}
+
+
 
 form.webform-client-form {
   @extend %clearfix;
