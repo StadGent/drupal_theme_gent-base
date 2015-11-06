@@ -122,7 +122,7 @@
     margin-top: 5px;
     color: $black-color;
     padding: 20px 10px;
-    font-size: 13px;
+    font-size: 18px;
   }
 
   .form-actions {
@@ -168,7 +168,6 @@
     select.error {
     border: 1px solid $dark-red-errors;
     color: $black-color;
-    font-size: $alpha-font-size/16*112.5%;
     }
   }
 }
