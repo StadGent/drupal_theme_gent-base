@@ -266,14 +266,10 @@ form.webform-client-form {
       }
     }
   }
-
-  .form-item,
+  .form-item
   .form-actions,
   .webform-progressbar,
   #edit-submitted-bestand-ajax-wrapper {
-    @include margin-bottom(2);
-  }
-  .form-item {
     @include margin-top (2);
     @include margin-bottom(0);
     &:first-child {
