@@ -851,6 +851,19 @@ form.webform-client-form {
         margin-left: 4.4%;
       }
     }
+    .fieldset-wrapper {
+      position: relative;
+      .description {
+        left: 111%;
+      }
+    }
+  }
+}
+
+.webform-confirmation {
+    @include mq($bp-tablet-m) {
+    width: 41.66667%;
+    margin-left: 25%;
   }
 }
 //end of form.webform-client-form
