@@ -264,6 +264,12 @@ form.webform-client-form {
     margin-bottom: 1.5rem;
   }
 
+  .messages--webform--info {
+    color: $gamma-text-color;
+    @include text-dimensions(-1, 0.7, 0, .1);
+    margin-bottom: 1.5rem;
+  }
+
   fieldset {
     @include margin-tb(0, 1);
     border: 1px solid lighten($gamma-text-color, 10);
