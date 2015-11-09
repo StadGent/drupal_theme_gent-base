@@ -351,6 +351,12 @@ form.webform-client-form {
     @include margin-bottom(2);
   }
 
+  .webform-component-file,
+  #edit-submitted-bestand-ajax-wrapper {
+    @include margin-top(0);
+    @include margin-bottom(1);
+  }
+
   .webform-component-progressbar {
     @include margin-top(1);
     @include margin-bottom(-1);
@@ -377,7 +383,7 @@ form.webform-client-form {
     padding-bottom: 0;
   }
 
-  // Input elements
+    // Input elements
 
   input[type="input"],
   input[type="text"],
@@ -397,7 +403,9 @@ form.webform-client-form {
   input[name="field_city_code"],
   input[name="field_phone_int"],
   select[multiple],
-  textarea {
+  textarea,
+  .field-prefix,
+  .field-suffix {
     @include border-box;
     @include input-m;
     display: block;
@@ -420,6 +428,12 @@ form.webform-client-form {
       color: $alpha-text-color;
       border-color: $gamma-text-color;
     }
+  }
+
+  .field-prefix,
+  .field-suffix {
+    width: auto;
+    border: none;
   }
 
   textarea {
