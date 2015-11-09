@@ -11,6 +11,7 @@
       // of this behavior to ignore them.
       $('.ajax-new-content', context).once('foo', function () {
         webformDescriptionRight();
+        webformHeight();
         // Now, we are invoking the previously declared theme function using two
         // settings as arguments.
         var $anchor = Drupal.theme('gentBaseButton', settings.myExampleLinkPath, settings.myExampleLinkTitle);
@@ -439,9 +440,26 @@
 
     } else {
       $('.node-type-webform .webform-right .description').width('auto');
-      $('.node-type-webform .webform-right .webform-component').css('minheight', 'auto');
+      $('.node-type-webform .webform-right .webform-component').css('min-height', 'auto');
     }
   }
+
+  function webformHeight() {
+    var progressbarHeight = $('.webform-component-progressbar-pages').height();
+    var progressbarSummaryHeight = $('.field-type-text-with-summary').height();
+    var webformMinHeightOne = 535 + progressbarSummaryHeight;
+    var webformMinHeightTwo = 535 + progressbarHeight + progressbarSummaryHeight;
+    if (windowWidth >= 960) {
+      if (progressbarHeight > webformMinHeightOne) {
+        $('.webform-client-form').css('min-height', webformMinHeightTwo);
+      } else {
+        $('.webform-client-form').css('min-height', webformMinHeightOne);
+      }
+    } else {
+      $('.webform-client-form').css('min-height', 'auto');
+    }
+  }
+
 
 
   // Initialize the theme.
@@ -461,6 +479,7 @@
     stikyWidth();
     progressbarStickyWidth();
     webformDescriptionRight();
+    webformHeight();
     categorieAction();
     positionCategorieDropdown();
 
@@ -475,6 +494,7 @@
     stikyWidth();
     progressbarStickyWidth();
     webformDescriptionRight();
+    webformHeight();
     categorieAction();
     positionCategorieDropdown();
   });
