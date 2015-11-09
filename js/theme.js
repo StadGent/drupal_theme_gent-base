@@ -446,15 +446,12 @@
 
   function webformHeight() {
     var progressbarHeight = $('.webform-component-progressbar-pages').height();
+    var hidderHeight = $('.header-block-wrapper').height();
     var progressbarSummaryHeight = $('.field-type-text-with-summary').height();
-    var webformMinHeightOne = 535 + progressbarSummaryHeight;
-    var webformMinHeightTwo = 535 + progressbarHeight + progressbarSummaryHeight;
+    var progressbarPageTitleHeight = $('#page-title').height();
+    var webformMinHeight = 50 + hidderHeight + progressbarPageTitleHeight + progressbarHeight + progressbarSummaryHeight;
     if (windowWidth >= 960) {
-      if (progressbarHeight > webformMinHeightOne) {
-        $('.webform-client-form').css('min-height', webformMinHeightTwo);
-      } else {
-        $('.webform-client-form').css('min-height', webformMinHeightOne);
-      }
+      $('.webform-client-form').css('min-height', webformMinHeight);
     } else {
       $('.webform-client-form').css('min-height', 'auto');
     }
