@@ -346,13 +346,11 @@ form.webform-client-form {
 
   .form-item,
   .form-actions,
-  .webform-progressbar,
-  #edit-submitted-bestand-ajax-wrapper {
+  .webform-progressbar, {
     @include margin-bottom(2);
   }
 
-  .webform-component-file,
-  #edit-submitted-bestand-ajax-wrapper {
+  .webform-component-file, {
     @include margin-top(0);
     @include margin-bottom(1);
   }
