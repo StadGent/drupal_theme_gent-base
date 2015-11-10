@@ -123,8 +123,8 @@
     border-radius: $alpha-radius;
     margin-top: 5px;
     color: $black-color;
-    padding: 20px 10px;
-    font-size: 18px;
+    padding: 15px 10px;
+    font-size: 13px;
   }
 
     #edit-submitted-bestand-upload{
@@ -133,7 +133,7 @@
 
   .messages.error.file-upload-js-error,
   .messages-inline {
-    margin-top: -0.5rem;
+    margin-top: -0.5rem !important;
     margin-bottom: 1.5rem;
   }
 
