@@ -115,8 +115,8 @@
 
 .node-webform {
 
-  .messages.error
-  .messages.error.file-upload-js-error
+  .messages.error,
+  .messages.error.file-upload-js-error,
   .messages-inline {
     border: 1px solid $dark-red-errors;
     background-color: $red-errors;
@@ -125,6 +125,16 @@
     color: $black-color;
     padding: 20px 10px;
     font-size: 18px;
+  }
+
+    #edit-submitted-bestand-upload{
+    margin-bottom: 1rem;
+  }
+
+  .messages.error.file-upload-js-error,
+  .messages-inline {
+    margin-top: -0.5rem;
+    margin-bottom: 1.5rem;
   }
 
   .form-actions {
