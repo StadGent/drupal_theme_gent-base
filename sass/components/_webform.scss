@@ -668,7 +668,9 @@ form.webform-client-form {
   .node-webform {
     form.webform-client-form {
       .form-submit {
+        display: inline-block;
         width: auto;
+
       }
     }
     .form-actions {
