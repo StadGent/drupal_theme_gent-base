@@ -878,6 +878,17 @@ form.webform-client-form {
     margin-left: 25%;
   }
 }
+
+.webform-right {
+  .webform-confirmation {
+    width: 100%;
+    margin-left: 0%;
+    @include mq($bp-tablet-m) {
+      width: 100%;
+      margin-left: 0%;
+    }
+  }
+}
 //end of form.webform-client-form
 
 body.node-type-webform {
