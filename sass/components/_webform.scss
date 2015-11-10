@@ -690,6 +690,12 @@ form.webform-client-form {
   }
 
   .node-webform {
+    .form-optional {
+      font-weight: normal;
+      color: $beta-text-color;
+      font-size: 14px;
+
+    }
     .form-actions {
       padding-left: 0;
       margin-top: 0;
