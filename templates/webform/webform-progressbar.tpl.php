@@ -40,7 +40,7 @@
         }; ?>" style="width: <?php print number_format(100 / $page_count, 2); ?>%">
           <span class="webform-component-progressbar-page-number"><?php print $n; ?></span>
           <span class="webform-component-progressbar-page-label">
-            <?php print "&nbsp;" . check_plain($page_labels[$n - 1]); ?>
+            <?php print ". " . check_plain($page_labels[$n - 1]); ?>
           </span>
         </div>
       <?php endfor; ?>
