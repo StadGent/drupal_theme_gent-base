@@ -286,6 +286,7 @@
 
 
 form.webform-client-form {
+  color: $alpha-text-color;
   @extend %clearfix;
 
   /* Reset pointer cursor on form labels. */
@@ -308,23 +309,34 @@ form.webform-client-form {
   }
 
   fieldset {
-    @include margin-tb(0, 1);
-    border: 1px solid lighten($gamma-text-color, 10);
-    border-radius: $alpha-radius;
-    background-color: hsl(hue($alpha-ui-color), 40, 95);
+    position: relative;
+    @include margin-tb(4, 1);
+    padding-top: 1em;
+    padding-bottom: 2rem;
+    border: none;
+    border-radius: 0;
+    border-top: 1px solid lighten($gamma-text-color, 10);
+    background-color: $grey-progressbar;
 
     legend {
+      position: absolute;
+      top: -2.5em;
       font-weight: bold;
       @include rem-padding-lr(.3, .3);
       @include padding-tb(.1, .1);
-      margin-left: .5em;
+      padding-left: 0;
+      margin-left: 0;
       width: auto;
-      background-color: $white-color;
-      border: 1px solid lighten($gamma-text-color, 10);
-      border-radius: $alpha-radius;
+      border: none;
+      background-color: transparent;
 
       a {
         text-decoration: none;
+      }
+    }
+    .form-item {
+      label {
+        font-weight: normal;
       }
     }
 
@@ -380,6 +392,7 @@ form.webform-client-form {
       }
     }
   }
+
   .form-item
   .form-actions,
   .webform-progressbar {
@@ -389,7 +402,6 @@ form.webform-client-form {
       @include margin-top(0);
     }
   }
-
   .webform-progressbar {
     @include margin-bottom(2);
   }
@@ -415,7 +427,7 @@ form.webform-client-form {
   label,
   .label {
     @include text-dimensions(-1, 1, 0, 0, .25);
-    color: $beta-text-color;
+    color: $beta-ui-color;
     display: block;
     width: 100%;
   }
@@ -458,7 +470,7 @@ form.webform-client-form {
     width: 100%;
     line-height: 1;
     color: $gamma-text-color;
-    border: 1px solid lighten($gamma-text-color, 10);
+    border: 1px solid $grey-progressbar;
     border-radius: $alpha-radius;
 
     &:hover {
@@ -597,6 +609,7 @@ form.webform-client-form {
       @include btn-inlineblock;
     }
   }
+
   .form-submit {
     &.webform-next {
       float:left;
@@ -630,7 +643,7 @@ form.webform-client-form {
   .form-actions {
     width: 100%;
     display: inline-block;
-    margin-top: 0;
+    margin-top: 1.6em;
     margin-bottom: 1em;
     margin-left: 0;
     clear: left;
@@ -638,7 +651,6 @@ form.webform-client-form {
     @include mq($bp-tablet-m) {
       width: auto;
       margin-top: 1.6em;
-      padding-left: 1em;
       clear: none;
     }
   }
@@ -821,7 +833,11 @@ form.webform-client-form {
       font-weight: normal;
       color: $beta-text-color;
       font-size: 14px;
-
+    }
+    form.webform-client-form {
+      .form-submit {
+        width: auto;
+      }
     }
     .form-actions {
       padding-left: 0;

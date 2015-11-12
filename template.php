@@ -598,28 +598,29 @@ function gent_base_webform_element($variables) {
     }
   }
 
+  $description = '';
+  if (!empty($element['#description'])) {
+    $description = ' <div class="description">' . $element['#description'] . "</div>\n";
+  }
+
   switch ($element['#title_display']) {
     case 'inline':
     case 'before':
     case 'invisible':
       $output .= ' ' . theme('gent_base_webform_element_label', $variables);
-      $output .= ' ' . $prefix . '<span class="children">' . $element['#children'] . '</span>' . $suffix . "\n";
+      $output .= ' ' . $description . $prefix . '<span class="children">' . $element['#children'] . '</span>' . $suffix . "\n";
       break;
 
     case 'after':
-      $output .= ' ' . $prefix . $element['#children'] . $suffix;
+      $output .= ' ' . $description . $prefix . $element['#children'] . $suffix;
       $output .= ' ' . theme('gent_base_webform_element_label', $variables) . "\n";
       break;
 
     case 'none':
     case 'attribute':
       // Output no label and no required marker, only the children.
-      $output .= ' ' . $prefix . $element['#children'] . $suffix . "\n";
+      $output .= ' ' . $description . $prefix . $element['#children'] . $suffix . "\n";
       break;
-  }
-
-  if (!empty($element['#description'])) {
-    $output .= ' <div class="description">' . $element['#description'] . "</div>\n";
   }
 
   $output .= "</div>\n";
