@@ -603,7 +603,7 @@ function gent_base_webform_element($variables) {
     case 'before':
     case 'invisible':
       $output .= ' ' . theme('gent_base_webform_element_label', $variables);
-      $output .= ' ' . $prefix . $suffix . '<span class="children">' . $element['#children'] . '</span>' . "\n";
+      $output .= ' ' . $prefix . '<span class="children">' . $element['#children'] . '</span>' . $suffix . "\n";
       break;
 
     case 'after':
