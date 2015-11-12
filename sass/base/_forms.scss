@@ -91,9 +91,8 @@ fieldset {
 
 .form-item,
 .form-actions,
-.webform-progressbar,
-#edit-submitted-bestand-ajax-wrapper {
-  @include margin-bottom(1);
+.webform-progressbar {
+  @include margin-bottom(1.5);
 }
 
 .webform-progressbar {

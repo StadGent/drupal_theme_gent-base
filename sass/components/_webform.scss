@@ -212,14 +212,26 @@
 
 .node-webform {
 
+  .messages.error,
+  .messages.error.file-upload-js-error,
   .messages-inline {
     border: 1px solid $dark-red-errors;
     background-color: $red-errors;
     border-radius: $alpha-radius;
     margin-top: 5px;
     color: $black-color;
-    padding: 20px 10px;
+    padding: 12px 10px;
     font-size: 13px;
+  }
+
+    .webform-component-file .input[type="file"] {
+    margin-bottom: 1rem;
+  }
+
+  .messages.error.file-upload-js-error,
+  .messages-inline {
+    margin-top: -1rem !important;
+    margin-bottom: 2rem;
   }
 
   .form-actions {
@@ -265,7 +277,6 @@
     select.error {
     border: 1px solid $dark-red-errors;
     color: $black-color;
-    font-size: $alpha-font-size/16*112.5%;
     }
   }
 }
@@ -369,18 +380,18 @@ form.webform-client-form {
       }
     }
   }
-
-  .form-item,
+  .form-item
   .form-actions,
-  .webform-progressbar, {
-    @include margin-bottom(2);
-  }
-  .form-item {
+  .webform-progressbar {
     @include margin-top (2);
     @include margin-bottom(0);
     &:first-child {
       @include margin-top(0);
     }
+  }
+
+  .webform-progressbar {
+    @include margin-bottom(2);
   }
 
   .webform-component-file, {
