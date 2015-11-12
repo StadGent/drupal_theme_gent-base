@@ -290,13 +290,13 @@
   /**
    * Makes all elements with "sticky-nav" class sticky so they will be attached to the viewport top when scrolling down.
    */
-  jsTheme.stickyNav = {
-    init: function () {
-      if ($('.sticky-nav').length > 0) {
-        $('.sticky-nav').once('sticky-nav', function () {
-          $(this).sticky({topSpacing: 20});
-        });
-      }
+  jsTheme.stickyNav = {};
+  jsTheme.stickyNav.defaults = { topSpacing: 20 };
+  jsTheme.stickyNav.init = function() {
+    if ($('.sticky-nav').length > 0) {
+      $('.sticky-nav').once('sticky-nav', function () {
+        $(this).sticky(jsTheme.stickyNav.defaults);
+      });
     }
   };
 
@@ -418,9 +418,16 @@
     var webformLeftWidth = $('.node-type-webform .webform-left').width();
     if (windowWidth >= 960) {
       $('.node-type-webform .webform-left .sticky-nav').width(webformLeftWidth);
+
+      // Disable the stickiness.
+      $('.webform-client-form .sticky-nav').once('sticky-nav').sticky(jsTheme.stickyNav.defaults);
+
     } else {
       $('.node-type-webform .webform-left .sticky-nav').width('auto');
       $('.node-type-webform .webform-left .sticky-wrapper').height('auto');
+
+      // Re-enable the stickiness.
+      $('.webform-client-form .sticky-nav').removeClass('sticky-nav-processed').unstick();
     }
   }
 
