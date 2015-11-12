@@ -1,5 +1,26 @@
 (function ($) {
 
+
+  Drupal.behaviors.gentBaseBehavior = {
+    attach: function (context, settings) {
+      // By using the 'context' variable we make sure that our code only runs on
+      // the relevant HTML. Furthermore, by using jQuery.once() we make sure that
+      // we don't run the same piece of code for an HTML snippet that we already
+      // processed previously. By using .once('foo') all processed elements will
+      // get tagged with a 'foo-processed' class, causing all future invocations
+      // of this behavior to ignore them.
+      $('.ajax-new-content', context).once('foo', function () {
+        webformDescriptionRight();
+        webformHeight();
+        // Now, we are invoking the previously declared theme function using two
+        // settings as arguments.
+        var $anchor = Drupal.theme('gentBaseButton', settings.myExampleLinkPath, settings.myExampleLinkTitle);
+
+        // The anchor is then appended to the current element.
+        $anchor.appendTo(this);
+      });
+    }
+  };
   var jsTheme = {
     init: function () {
       jsTheme.lib.init();
@@ -269,13 +290,13 @@
   /**
    * Makes all elements with "sticky-nav" class sticky so they will be attached to the viewport top when scrolling down.
    */
-  jsTheme.stickyNav = {
-    init: function () {
-      if ($('.sticky-nav').length > 0) {
-        $('.sticky-nav').once('sticky-nav', function () {
-          $(this).sticky({topSpacing: 20});
-        });
-      }
+  jsTheme.stickyNav = {};
+  jsTheme.stickyNav.defaults = { topSpacing: 20 };
+  jsTheme.stickyNav.init = function() {
+    if ($('.sticky-nav').length > 0) {
+      $('.sticky-nav').once('sticky-nav', function () {
+        $(this).sticky(jsTheme.stickyNav.defaults);
+      });
     }
   };
 
@@ -332,13 +353,6 @@
 
   var windowWidth = viewport().width; // This should match your media query
 
-  function paddingLeftProgressbar() {
-    $('.webform-component-progressbar-wrapper').each(function () {
-      var number = $('.webform-component-progressbar .webform-component-progressbar-page').length;
-      var progressbarLeftPadding = 50 / number;
-      $('.webform-component-progressbar').css('padding-left', progressbarLeftPadding + '%');
-    });
-  }
 
 
   function stikyWidth() {
@@ -400,6 +414,58 @@
 
   }
 
+  function progressbarStickyWidth() {
+    var webformLeftWidth = $('.node-type-webform .webform-left').width();
+    if (windowWidth >= 960) {
+      $('.node-type-webform .webform-left .sticky-nav').width(webformLeftWidth);
+
+      // Disable the stickiness.
+      $('.webform-client-form .sticky-nav').once('sticky-nav').sticky(jsTheme.stickyNav.defaults);
+
+    } else {
+      $('.node-type-webform .webform-left .sticky-nav').width('auto');
+      $('.node-type-webform .webform-left .sticky-wrapper').height('auto');
+
+      // Re-enable the stickiness.
+      $('.webform-client-form .sticky-nav').removeClass('sticky-nav-processed').unstick();
+    }
+  }
+
+  function webformDescriptionRight() {
+    var webformRightWidth = $('.node-type-webform .webform-right').width();
+    var descriptionWidth = webformRightWidth * 0.75;
+
+    if (windowWidth >= 960) {
+      $('.node-type-webform .webform-right .description').width(descriptionWidth);
+
+      $('.node-type-webform .webform-right .webform-component').each(function () {
+        var webformDescriptionHeight = $(this).find('.description').height();
+        var labelHeight = $(this).find('label').outerHeight();
+        var webformComponentHeight =  webformDescriptionHeight + labelHeight;
+        $(this).css('min-height', webformComponentHeight);
+      });
+
+    } else {
+      $('.node-type-webform .webform-right .description').width('auto');
+      $('.node-type-webform .webform-right .webform-component').css('min-height', 'auto');
+    }
+  }
+
+  function webformHeight() {
+    var progressbarHeight = $('.webform-component-progressbar-pages').height();
+    var hidderHeight = $('.header-block-wrapper').height();
+    var progressbarSummaryHeight = $('.field-type-text-with-summary').height();
+    var progressbarPageTitleHeight = $('#page-title').height();
+    var webformMinHeight = 50 + hidderHeight + progressbarPageTitleHeight + progressbarHeight + progressbarSummaryHeight;
+    if (windowWidth >= 960) {
+      $('.webform-client-form').css('min-height', webformMinHeight);
+    } else {
+      $('.webform-client-form').css('min-height', 'auto');
+    }
+  }
+
+
+
   // Initialize the theme.
   $(jsTheme.init);
 
@@ -414,8 +480,10 @@
       $('.not-front .search-widget > div').toggle([9000]);
     });
 
-    paddingLeftProgressbar();
     stikyWidth();
+    progressbarStickyWidth();
+    webformDescriptionRight();
+    webformHeight();
     categorieAction();
     positionCategorieDropdown();
 
@@ -428,7 +496,9 @@
   $(window).resize(function () {
     windowWidth = viewport().width;
     stikyWidth();
-    paddingLeftProgressbar();
+    progressbarStickyWidth();
+    webformDescriptionRight();
+    webformHeight();
     categorieAction();
     positionCategorieDropdown();
   });
