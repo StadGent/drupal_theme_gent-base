@@ -33,10 +33,13 @@
 <?php
   // Print out the preview message if on the preview page.
   if (isset($form['preview_message'])) {
-    print '<div class="messages warning">';
+    print '<div class="messages messages--warning">';
     print drupal_render($form['preview_message']);
     print '</div>';
   }
+
+  // Notify the visitors about the required/optional field construction.
+  print '<div class="messages messages--webform--info">' .  t('All questions are mandatory, unless they are marked as optional.') . '</div>';
 
   // Print out the main part of the form.
   // Feel free to break this up and move the pieces within the array.
