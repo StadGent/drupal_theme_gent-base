@@ -292,7 +292,7 @@
    */
   jsTheme.stickyNav = {};
   jsTheme.stickyNav.defaults = { topSpacing: 20 };
-  jsTheme.stickyNav.init = function() {
+  jsTheme.stickyNav.init = function () {
     if ($('.sticky-nav').length > 0) {
       $('.sticky-nav').once('sticky-nav', function () {
         $(this).sticky(jsTheme.stickyNav.defaults);
