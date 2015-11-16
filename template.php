@@ -607,18 +607,18 @@ function gent_base_webform_element($variables) {
     case 'before':
     case 'invisible':
       $output .= ' ' . theme('gent_base_webform_element_label', $variables);
-      $output .= ' ' . $description . $prefix . '<span class="children">' . $element['#children'] . '</span>' . $suffix . "\n";
+      $output .= ' ' . $description . $prefix . $suffix . '<span class="children">' . $element['#children'] . '</span>' . "\n";
       break;
 
     case 'after':
-      $output .= ' ' . $description . $prefix . $element['#children'] . $suffix;
+      $output .= ' ' . $description . $prefix . $suffix . $element['#children'];
       $output .= ' ' . theme('gent_base_webform_element_label', $variables) . "\n";
       break;
 
     case 'none':
     case 'attribute':
       // Output no label and no required marker, only the children.
-      $output .= ' ' . $description . $prefix . $element['#children'] . $suffix . "\n";
+      $output .= ' ' . $description . $prefix . $suffix . $element['#children'] . "\n";
       break;
   }
 
