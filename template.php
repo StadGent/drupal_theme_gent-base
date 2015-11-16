@@ -623,10 +623,6 @@ function gent_base_webform_element($variables) {
       break;
   }
 
-  if (!empty($element['#description'])) {
-    $output .= ' <div class="description">' . $element['#description'] . "</div>\n";
-  }
-
   $output .= "</div>\n";
 
   return $output;
