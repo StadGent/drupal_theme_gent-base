@@ -1,6 +1,7 @@
 .webform-component-progressbar {
   @include margin-top(1);
   @include margin-bottom(-1);
+  @include font-size(-1);
   display: inline-block;
   clear: both;
   @include mq($bp-tablet-m) {
@@ -220,7 +221,7 @@
     margin-top: 5px;
     color: $black-color;
     padding: 12px 10px;
-    font-size: 13px;
+    @include font-size(-4);
   }
 
   .webform-component-file .input[type="file"] {
@@ -659,7 +660,7 @@ form.webform-client-form {
     white-space: nowrap;
   }
   .form-item .description, form .fieldset-description {
-    font-size: 0.7em;
+    @include font-size(-4);
   }
 
   form .fieldset-description {
