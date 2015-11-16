@@ -486,6 +486,7 @@ function gent_base_theme() {
  */
 function gent_base_entity_property(&$variables) {
 
+  $output = '';
 
   // Render the label, if it's not hidden.
   if (!$variables['label_hidden']) {
