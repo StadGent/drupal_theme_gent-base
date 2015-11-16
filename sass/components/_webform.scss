@@ -3,18 +3,18 @@
   @include margin-bottom(-1);
   display: inline-block;
   clear: both;
-  @include mq($bp-tablet-m){
+  @include mq($bp-tablet-m) {
     display: block;
   }
   .webform-component-progressbar-wrapper {
     height: 6px;
     background-color: $grey-progressbar;
-    @include mq($bp-tablet-m){
+    @include mq($bp-tablet-m) {
       background-color: transparent;
     }
     text-indent: -9999px;
     position: relative;
-    .webform-component-progressbar-fill{
+    .webform-component-progressbar-fill {
       &:last-child {
         //background-color: $white-color;
       }
@@ -55,7 +55,7 @@
       }
     }
   }
-  .webform-component-progressbar-page{
+  .webform-component-progressbar-page {
     position: relative;
     overflow: visible;
     @include mq($bp-tablet-m) {
@@ -83,73 +83,73 @@
         text-decoration: none;
       }
     }
-    &.current{
+    &.current {
       .webform-component-progressbar-page-number {
       }
     }
-      .webform-component-progressbar-page-number {
-        display: inline-block;
-        width: 25px;
-        height: 25px;
-        border: none;
-        background-color: #e7e7e7;
-        border-radius: 13px;
-        top: -14px;
-        margin-left: -14px;
-        margin-top: 0;
-        position: absolute;
-        z-index: 1;
-        text-align: center;
-        @include mq($bp-tablet-m){
+    .webform-component-progressbar-page-number {
+      display: inline-block;
+      width: 25px;
+      height: 25px;
+      border: none;
+      background-color: #e7e7e7;
+      border-radius: 13px;
+      top: -14px;
+      margin-left: -14px;
+      margin-top: 0;
+      position: absolute;
+      z-index: 1;
+      text-align: center;
+      @include mq($bp-tablet-m) {
+        top: 0;
+        position: relative;
+        margin-left: 0;
+        float: left;
+        background-color: transparent;
+        border-radius: 0;
+        width: auto;
+        padding-left: 45px;
+        position: relative;
+        &:before {
+          position: absolute;
           top: 0;
-          position: relative;
-          margin-left: 0;
-          float: left;
-          background-color: transparent;
-          border-radius: 0;
-          width: auto;
-          padding-left: 45px;
-          position: relative;
-          &:before {
-            position: absolute;
-            top: 0;
-            left: 0;
-            content:'';
-            display: inline-block;
-            width: 25px;
-            height: 25px;
-            background-color: #e7e7e7;
-            border-radius: 13px;
-          }
+          left: 0;
+          content: '';
+          display: inline-block;
+          width: 25px;
+          height: 25px;
+          background-color: #e7e7e7;
+          border-radius: 13px;
         }
-        display: block;
       }
+      display: block;
+    }
     &.completed {
       .webform-component-progressbar-page-number {
         text-indent: -9999px;
-        @include mq($bp-tablet-m){
+        @include mq($bp-tablet-m) {
           text-indent: 0;
         }
       }
       a,
-      span{
+      span {
         color: $succes-progress;
         text-decoration: none;
       }
       span {
-        &:first-child{
+        &:first-child {
           background-color: $succes-progress;
           background-image: url('#{$base-theme-path}/img/png/finished.png');
           background-repeat: no-repeat;
           background-position: center center;
-          @include mq($bp-tablet-m){
+          @include mq($bp-tablet-m) {
             background-color: transparent;
             background-image: none;
             &:before {
-            background-color: $succes-progress;
-            background-image: url('#{$base-theme-path}/img/png/finished.png');
-            background-repeat: no-repeat;
-            background-position: center center;
+              background-color: $succes-progress;
+              background-image: url('#{$base-theme-path}/img/png/finished.png');
+              background-repeat: no-repeat;
+              background-position: center center;
             }
           }
         }
@@ -157,12 +157,12 @@
     }
     &.current {
       span {
-        &:first-child{
+        &:first-child {
           background-color: $white-color;
-          border: 6px solid  $alpha-ui-color;
+          border: 6px solid $alpha-ui-color;
           color: $white-color;
           text-indent: -9999px;
-          @include mq($bp-tablet-m){
+          @include mq($bp-tablet-m) {
             text-indent: 0;
             border: none;
             background-color: transparent;
@@ -175,7 +175,7 @@
         }
       }
       .webform-component-progressbar-page-label {
-        @include mq($bp-tablet-m){
+        @include mq($bp-tablet-m) {
           color: $alpha-ui-color
         }
       }
@@ -185,20 +185,19 @@
       padding-top: 6px;
       margin-top: -6px;
       background: $white-color;
-      @include mq($bp-tablet-m){
+      @include mq($bp-tablet-m) {
         margin-top: 1em;
         padding-top: 0;
       }
-      .webform-component-progressbar-page-number{
+      .webform-component-progressbar-page-number {
         margin-top: 6px;
-        @include mq($bp-tablet-m){
+        @include mq($bp-tablet-m) {
           margin-top: 0;
         }
       }
     }
   }
 }
-
 
 .webform-datepicker, .webform-container-inline {
   div.form-item {
@@ -224,7 +223,7 @@
     font-size: 13px;
   }
 
-    .webform-component-file .input[type="file"] {
+  .webform-component-file .input[type="file"] {
     margin-bottom: 1rem;
   }
 
@@ -271,19 +270,17 @@
   }
 
   form.webform-client-form {
-  .form-item {
-    input.error,
-    textarea.error,
-    select.error {
-    border: 1px solid $dark-red-errors;
-    color: $black-color;
+    .form-item {
+      input.error,
+      textarea.error,
+      select.error {
+        border: 1px solid $dark-red-errors;
+        color: $black-color;
+      }
     }
   }
-}
 
 }
-
-
 
 form.webform-client-form {
   color: $alpha-text-color;
@@ -396,7 +393,7 @@ form.webform-client-form {
   .form-item
   .form-actions,
   .webform-progressbar {
-    @include margin-top (2);
+    @include margin-top(2);
     @include margin-bottom(0);
     &:first-child {
       @include margin-top(0);
@@ -414,7 +411,7 @@ form.webform-client-form {
   .webform-component-progressbar {
     @include margin-top(1);
     @include margin-bottom(-1);
-    @include mq($bp-tablet-m){
+    @include mq($bp-tablet-m) {
       @include margin-top(0);
     }
   }
@@ -437,7 +434,7 @@ form.webform-client-form {
     padding-bottom: 0;
   }
 
-    // Input elements
+  // Input elements
 
   input[type="input"],
   input[type="text"],
@@ -612,12 +609,12 @@ form.webform-client-form {
 
   .form-submit {
     &.webform-next {
-      float:left;
+      float: left;
       width: auto;
     }
     &.webform-previous {
       margin-right: 1rem;
-      float:left;
+      float: left;
       width: auto;
     }
   }
@@ -828,54 +825,51 @@ form.webform-client-form {
     }
   }
 
-  .node-webform {
-    .form-optional {
-      font-weight: normal;
-      color: $beta-text-color;
-      font-size: 14px;
+  .form-optional {
+    font-weight: normal;
+    color: $beta-text-color;
+    font-size: 14px;
+  }
+  .form-submit {
+    width: auto;
+  }
+  .form-actions {
+    padding-left: 0;
+    margin-top: 0;
+  }
+  .form-file {
+    @include text-dimensions(-1, 1, 0, 0, .25);
+  }
+  .webform-component-file .form-submit {
+    margin-left: 0;
+    @include mq($bp-tablet-s) {
+      margin-left: 1em;
     }
-    form.webform-client-form {
-      .form-submit {
-        width: auto;
+  }
+
+  div.with-suffix, div.with-prefix {
+    .children {
+      overflow: hidden;
+      display: block;
+
+      input {
+        width: 100%;
       }
     }
-    .form-actions {
-      padding-left: 0;
-      margin-top: 0;
-    }
-    .form-file {
-      @include text-dimensions(-1, 1, 0, 0, .25);
-    }
-    .webform-component-file .form-submit {
-      margin-left: 0;
-      @include mq($bp-tablet-s) {
-        margin-left: 1em;
-      }
+    .field-suffix {
+      float: right;
+      display: block;
+      padding-left: 8px;
     }
 
-    div.with-suffix, div.with-prefix {
-      .children {
-        overflow: hidden;
-        display: block;
-
-        input {
-          width: 100%;
-        }
-      }
-      .field-suffix {
-        float: right;
-        display: block;
-        padding-left: 8px;
-      }
-
-      .field-prefix {
-        float: left;
-        display: block;
-        padding-right: 8px;
-      }
+    .field-prefix {
+      float: left;
+      display: block;
+      padding-right: 8px;
     }
   }
 }
+
 .webform-left {
   text-align: center;
   @include mq($bp-tablet-m) {
@@ -884,6 +878,7 @@ form.webform-client-form {
     min-height: 50px;
   }
 }
+
 .webform-right {
   .webform-component {
     position: relative;
@@ -905,7 +900,7 @@ form.webform-client-form {
         background-repeat: no-repeat;
         position: absolute;
         top: 5px;
-        left:10px;
+        left: 10px;
       }
     }
   }
@@ -933,7 +928,7 @@ form.webform-client-form {
 }
 
 .webform-confirmation {
-    @include mq($bp-tablet-m) {
+  @include mq($bp-tablet-m) {
     width: 41.66667%;
     margin-left: 25%;
   }
@@ -949,7 +944,6 @@ form.webform-client-form {
     }
   }
 }
-//end of form.webform-client-form
 
 body.node-type-webform {
   .l-primary {
