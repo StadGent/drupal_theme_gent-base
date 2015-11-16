@@ -19,25 +19,22 @@
  */
 ?>
 
-<div class="webform-left">
-  <div class="sticky-nav">
-<?php
-  // Print out the progress bar at the top of the page
-  print drupal_render($form['progressbar']);
-?>
+  <div class="webform-left">
+    <div class="sticky-nav">
+      <?php print $progressbar; ?>
+    </div>
   </div>
-</div>
-<div class="webform-right">
-  <div class="webform-confirmation">
-    <?php if ($confirmation_message): ?>
-      <?php print $confirmation_message ?>
-    <?php else: ?>
-      <p><?php print t('Thank you, your submission has been received.'); ?></p>
-    <?php endif; ?>
-  </div>
+  <div class="webform-right">
+    <div class="webform-confirmation">
+      <?php if ($confirmation_message): ?>
+        <?php print $confirmation_message ?>
+      <?php else: ?>
+        <p><?php print t('Thank you, your submission has been received.'); ?></p>
+      <?php endif; ?>
+    </div>
 
-  <div class="links">
-    <a href="<?php print url('node/'. $node->nid) ?>"><?php print t('Go back to the form') ?></a>
+    <div class="links">
+      <a href="<?php print url('node/' . $node->nid) ?>"><?php print t('Go back to the form') ?></a>
+    </div>
   </div>
-</div>
 <?php
