@@ -69,19 +69,16 @@
     a,
     .webform-component-progressbar-page-label {
       display: inline-block;
-      margin-top: 20px;
       width: 45px;
-      margin-left: -50%;
-      text-align: center;
       visibility: hidden;
+      text-indent: -9999px;
       @include mq($bp-tablet-m) {
-        visibility: visible;
-        margin-left: 0;
-        text-align: left;
-        margin-top: 0;
         float: left;
         width: auto;
+        text-align: left;
+        visibility: visible;
         text-decoration: none;
+        text-indent: 0;
       }
     }
     &.current {
