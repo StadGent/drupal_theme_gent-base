@@ -74,7 +74,7 @@
       text-indent: -9999px;
       @include mq($bp-tablet-m) {
         float: left;
-        width: auto;
+        width: 70%;
         text-align: left;
         visibility: visible;
         text-decoration: none;
