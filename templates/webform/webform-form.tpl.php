@@ -21,14 +21,25 @@
  * - $form['preview']: A renderable representing the entire submission preview.
  */
 ?>
-<div class="webform-left">
-  <div class="sticky-nav">
-<?php
-  // Print out the progress bar at the top of the page
-  print drupal_render($form['progressbar']);
-?>
+<?php if ($form['progressbar']): ?>
+  <div class="webform-left">
+    <div class="sticky-nav">
+      <?php
+        // Print out the progress bar at the top of the page
+        print drupal_render($form['progressbar']);
+      ?>
+    </div>
   </div>
-</div>
+<?php else: ?>
+  <div class="webform-left webform-empty">
+    <div class="sticky-nav">
+      <?php
+        // Print out the progress bar at the top of the page
+        print drupal_render($form['progressbar']);
+      ?>
+    </div>
+  </div>
+<?php endif; ?>
 <div class="webform-right">
 <?php
   // Print out the preview message if on the preview page.

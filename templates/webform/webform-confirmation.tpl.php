@@ -19,11 +19,25 @@
  */
 ?>
 
+<?php if ($progressbar): ?>
   <div class="webform-left">
     <div class="sticky-nav">
-      <?php print $progressbar; ?>
+      <?php
+        // Print out the progress bar at the top of the page
+        print drupal_render($progressbar);
+      ?>
     </div>
   </div>
+<?php else: ?>
+  <div class="webform-left webform-empty">
+    <div class="sticky-nav">
+      <?php
+        // Print out the progress bar at the top of the page
+        print drupal_render($progressbar);
+      ?>
+    </div>
+  </div>
+<?php endif; ?>
   <div class="webform-right">
     <div class="webform-confirmation">
       <?php if ($confirmation_message): ?>

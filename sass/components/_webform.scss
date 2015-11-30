@@ -875,6 +875,12 @@ form.webform-client-form {
     float: left;
     min-height: 50px;
   }
+  &.webform-empty {
+    @include mq($bp-tablet-m) {
+      width: 0px;
+      height: 0;
+    }
+  }
 }
 
 .webform-right {
