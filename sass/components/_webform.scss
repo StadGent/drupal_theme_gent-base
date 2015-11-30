@@ -186,6 +186,8 @@
       @include mq($bp-tablet-m) {
         margin-top: 1em;
         padding-top: 0;
+        background-color: transparent;
+        background: transparent;
       }
       .webform-component-progressbar-page-number {
         margin-top: 6px;
