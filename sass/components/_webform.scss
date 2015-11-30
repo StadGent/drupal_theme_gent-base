@@ -870,7 +870,9 @@ form.webform-client-form {
 
 .webform-left {
   text-align: center;
+  margin-bottom: 1em;
   @include mq($bp-tablet-m) {
+    margin-bottom: 0;
     width: 25%;
     float: left;
     min-height: 50px;
