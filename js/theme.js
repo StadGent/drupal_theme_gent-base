@@ -454,15 +454,17 @@
   function webStickyBottom() {
 
     //Bottom of element to bottom of screen
-    var sticky = $('.webform-component-progressbar-pages');
-    var webform = $('.webform-client-form');
-    var bottomStickyToBottomScreen = $(document).height() - sticky.offset().top - sticky.height();
-    var bottomWebformToBottomScreen = $(document).height() - webform.offset().top - webform.height();
     if (windowWidth >= 960) {
       if ($('.webform-client-form').length) {
-        if (bottomStickyToBottomScreen <=  bottomWebformToBottomScreen) {
-          $('.webform-client-form .sticky-nav.sticky-nav-processed').css('bottom', bottomWebformToBottomScreen);
-          $('.webform-client-form .sticky-nav.sticky-nav-processed').css('top', 'auto');
+        if ($('.webform-client-form .sticky-nav.sticky-nav-processed').length) {
+          var sticky = $('.webform-component-progressbar-pages');
+          var webform = $('.webform-client-form');
+          var bottomStickyToBottomScreen = $(document).height() - sticky.offset().top - sticky.height();
+          var bottomWebformToBottomScreen = $(document).height() - webform.offset().top - webform.height();
+          if (bottomStickyToBottomScreen <=  bottomWebformToBottomScreen) {
+            $('.webform-client-form .sticky-nav.sticky-nav-processed').css('bottom', bottomWebformToBottomScreen);
+            $('.webform-client-form .sticky-nav.sticky-nav-processed').css('top', 'auto');
+          }
         }
       }
     }
