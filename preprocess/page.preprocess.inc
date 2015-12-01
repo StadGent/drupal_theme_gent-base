@@ -44,8 +44,11 @@ function gent_base_preprocess_page(&$variables) {
 
   // Load jquery.sticky library (if exists).
   if (module_exists('libraries') && $lib = libraries_get_path('jquery.sticky')) {
-    drupal_add_js($lib . '/jquery.sticky.min.js');
+    if (file_exists($lib . '/jquery.sticky.min.js')) {
+      drupal_add_js($lib . '/jquery.sticky.min.js');
+    }
+    else {
+      drupal_add_js($lib . '/jquery.sticky.js');
+    }
   }
 }
-
-

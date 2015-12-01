@@ -1,12 +1,23 @@
 .webform-component-progressbar {
+  @include margin-top(1);
+  @include margin-bottom(-1);
+  @include font-size(-1);
+  display: inline-block;
+  clear: both;
+  @include mq($bp-tablet-m) {
+    display: block;
+  }
   .webform-component-progressbar-wrapper {
     height: 6px;
     background-color: $grey-progressbar;
+    @include mq($bp-tablet-m) {
+      background-color: transparent;
+    }
     text-indent: -9999px;
     position: relative;
-    .webform-component-progressbar-fill{
+    .webform-component-progressbar-fill {
       &:last-child {
-        background-color: #fff;
+        //background-color: $white-color;
       }
     }
   }
@@ -21,87 +32,172 @@
     top: 0;
     z-index: 10;
     height: 6px;
-    border-left: 1px solid $gamma-ui-color;
+    border: none;
   }
 
   .webform-component-progressbar-page {
     float: left;
-    color: $disabled-color;
+    @include mq($bp-tablet-m) {
+      float: none;
+      width: 100% !important;
+    }
+    color: $alpha-text-color;
     overflow: hidden;
     text-overflow: ellipsis;
 
     &.current {
       color: $beta-text-color;
       font-weight: bold;
+      a,
+      span {
+        text-decoration: none;
+        color: $beta-text-color;
+        font-weight: bold;
+      }
     }
   }
-  .webform-component-progressbar-page{
+  .webform-component-progressbar-page {
     position: relative;
     overflow: visible;
+    @include mq($bp-tablet-m) {
+      &:first-child {
+        margin-top: 0;
+      }
+      margin-top: 1em;
+      overflow: hidden;
+    }
+    a,
     .webform-component-progressbar-page-label {
       display: inline-block;
-      margin-top: 20px;
-      width: 100%;
-      margin-left: -50%;
-      text-align: center;
+      width: 45px;
       visibility: hidden;
+      text-indent: -9999px;
       @include mq($bp-tablet-m) {
+        float: left;
+        width: 70%;
+        text-align: left;
         visibility: visible;
+        text-decoration: none;
+        text-indent: 0;
       }
     }
-    &.current{
-      .webform-component-progressbar-page-label {
-        visibility: visible;
+    &.current {
+      .webform-component-progressbar-page-number {
       }
     }
-      .webform-component-progressbar-page-number{
-        display: inline-block;
-        width: 25px;
-        height: 25px;
-        border: none;
-        background-color: #e7e7e7;
-        border-radius: 13px;
-        top: -14px;
-        margin-left: -14px;
-        margin-top: 0;
-        position: absolute;
-        z-index: 999;
-        text-indent: -9999px;
-        display: block;
+    .webform-component-progressbar-page-number {
+      display: inline-block;
+      width: 25px;
+      height: 25px;
+      border: none;
+      background-color: #e7e7e7;
+      border-radius: 13px;
+      top: -14px;
+      margin-left: -14px;
+      margin-top: 0;
+      position: absolute;
+      z-index: 1;
+      text-align: center;
+      @include mq($bp-tablet-m) {
+        top: 0;
+        position: relative;
+        margin-left: 0;
+        float: left;
+        background-color: transparent;
+        border-radius: 0;
+        width: auto;
+        padding-left: 45px;
+        position: relative;
+        &:before {
+          position: absolute;
+          top: 0;
+          left: 0;
+          content: '';
+          display: inline-block;
+          width: 25px;
+          height: 25px;
+          background-color: #e7e7e7;
+          border-radius: 13px;
+        }
       }
+      display: block;
+    }
     &.completed {
-      span{
+      .webform-component-progressbar-page-number {
+        text-indent: -9999px;
+        @include mq($bp-tablet-m) {
+          text-indent: 0;
+        }
+      }
+      a,
+      span {
         color: $succes-progress;
+        text-decoration: none;
       }
       span {
-        &:first-child{
-        background-color: $succes-progress;
-        background-image: url('#{$base-theme-path}/img/png/finished.png');
-        background-repeat: no-repeat;
-        background-position: center center;
+        &:first-child {
+          background-color: $succes-progress;
+          background-image: url('#{$base-theme-path}/img/png/finished.png');
+          background-repeat: no-repeat;
+          background-position: center center;
+          @include mq($bp-tablet-m) {
+            background-color: transparent;
+            background-image: none;
+            &:before {
+              background-color: $succes-progress;
+              background-image: url('#{$base-theme-path}/img/png/finished.png');
+              background-repeat: no-repeat;
+              background-position: center center;
+            }
+          }
         }
       }
     }
     &.current {
       span {
-        &:first-child{
-          background-color: #fff;
-          border: 6px solid  #037db3;
+        &:first-child {
+          background-color: $white-color;
+          border: 6px solid $alpha-ui-color;
+          color: $white-color;
+          text-indent: -9999px;
+          @include mq($bp-tablet-m) {
+            text-indent: 0;
+            border: none;
+            background-color: transparent;
+            color: $alpha-ui-color;
+            &:before {
+              background-color: $white-color;
+              border: 6px solid $alpha-ui-color;
+            }
+          }
+        }
+      }
+      .webform-component-progressbar-page-label {
+        @include mq($bp-tablet-m) {
+          color: $alpha-ui-color
         }
       }
     }
     &:last-child {
-      background-color: #fff;
+      background-color: $white-color;
       padding-top: 6px;
       margin-top: -6px;
-      background: #fff;
-      .webform-component-progressbar-page-number{
+      background: $white-color;
+      @include mq($bp-tablet-m) {
+        margin-top: 1em;
+        padding-top: 0;
+        background-color: transparent;
+        background: transparent;
+      }
+      .webform-component-progressbar-page-number {
         margin-top: 6px;
+        @include mq($bp-tablet-m) {
+          margin-top: 0;
+        }
       }
     }
   }
 }
-
 
 .webform-datepicker, .webform-container-inline {
   div.form-item {
@@ -114,6 +210,29 @@
 }
 
 .node-webform {
+
+  .messages.error,
+  .messages.error.file-upload-js-error,
+  .messages-inline {
+    border: 1px solid $dark-red-errors;
+    background-color: $red-errors;
+    border-radius: $alpha-radius;
+    margin-top: 5px;
+    color: $black-color;
+    padding: 12px 10px;
+    @include font-size(-4);
+  }
+
+  .webform-component-file .input[type="file"] {
+    margin-bottom: 1rem;
+  }
+
+  .messages.error.file-upload-js-error,
+  .messages-inline {
+    margin-top: -1rem !important;
+    margin-bottom: 2rem;
+  }
+
   .form-actions {
     padding-left: 0;
     margin-top: 0;
@@ -149,9 +268,22 @@
       padding-right: 8px;
     }
   }
+
+  form.webform-client-form {
+    .form-item {
+      input.error,
+      textarea.error,
+      select.error {
+        border: 1px solid $dark-red-errors;
+        color: $black-color;
+      }
+    }
+  }
+
 }
 
 form.webform-client-form {
+  color: $alpha-text-color;
   @extend %clearfix;
 
   /* Reset pointer cursor on form labels. */
@@ -167,24 +299,41 @@ form.webform-client-form {
     margin-bottom: 1.5rem;
   }
 
+  .messages--webform--info {
+    color: $gamma-text-color;
+    @include text-dimensions(-1, 0.7, 0, .1);
+    margin-bottom: 1.5rem;
+  }
+
   fieldset {
-    @include margin-tb(0, 1);
-    border: 1px solid lighten($gamma-text-color, 10);
-    border-radius: $alpha-radius;
-    background-color: hsl(hue($alpha-ui-color), 40, 95);
+    position: relative;
+    @include margin-tb(4, 1);
+    padding-top: 1em;
+    padding-bottom: 2rem;
+    border: none;
+    border-radius: 0;
+    border-top: 1px solid lighten($gamma-text-color, 10);
+    background-color: $grey-progressbar;
 
     legend {
+      position: absolute;
+      top: -2.5em;
       font-weight: bold;
       @include rem-padding-lr(.3, .3);
       @include padding-tb(.1, .1);
-      margin-left: .5em;
+      padding-left: 0;
+      margin-left: 0;
       width: auto;
-      background-color: $white-color;
-      border: 1px solid lighten($gamma-text-color, 10);
-      border-radius: $alpha-radius;
+      border: none;
+      background-color: transparent;
 
       a {
         text-decoration: none;
+      }
+    }
+    .form-item {
+      label {
+        font-weight: normal;
       }
     }
 
@@ -214,7 +363,7 @@ form.webform-client-form {
 
     &.collapsible.collapsed {
       background-color: hsl(hue($alpha-ui-color), 40, 95);
-      border-right: 1px solid rgba(#fff, 0.1);
+      border-right: 1px solid rgba($white-color, 0.1);
       box-shadow: inset 0 -1px 1px 0 rgba(hsl(hue($alpha-ui-color), 40, 87.5), 1);
       color: $alpha-ui-color;
       height: 2em;
@@ -232,7 +381,7 @@ form.webform-client-form {
       @include rem-padding-lr(2, 2);
 
       &:first-child {
-        @include padding-tb(1, 0)
+        @include padding-tb(1, 0);
       }
 
       &:last-child {
@@ -241,11 +390,30 @@ form.webform-client-form {
     }
   }
 
-  .form-item,
+  .form-item
   .form-actions,
-  .webform-progressbar,
-  #edit-submitted-bestand-ajax-wrapper {
+  .webform-progressbar {
+    @include margin-top(2);
+    @include margin-bottom(0);
+    &:first-child {
+      @include margin-top(0);
+    }
+  }
+  .webform-progressbar {
     @include margin-bottom(2);
+  }
+
+  .webform-component-file, {
+    @include margin-top(0);
+    @include margin-bottom(1.5);
+  }
+
+  .webform-component-progressbar {
+    @include margin-top(1);
+    @include margin-bottom(-1);
+    @include mq($bp-tablet-m) {
+      @include margin-top(0);
+    }
   }
 
   .webform-progressbar {
@@ -256,7 +424,7 @@ form.webform-client-form {
   label,
   .label {
     @include text-dimensions(-1, 1, 0, 0, .25);
-    color: $beta-text-color;
+    color: $beta-ui-color;
     display: block;
     width: 100%;
   }
@@ -286,7 +454,9 @@ form.webform-client-form {
   input[name="field_city_code"],
   input[name="field_phone_int"],
   select[multiple],
-  textarea {
+  textarea,
+  .field-prefix,
+  .field-suffix {
     @include border-box;
     @include input-m;
     display: block;
@@ -297,7 +467,7 @@ form.webform-client-form {
     width: 100%;
     line-height: 1;
     color: $gamma-text-color;
-    border: 1px solid lighten($gamma-text-color, 10);
+    border: 1px solid $grey-progressbar;
     border-radius: $alpha-radius;
 
     &:hover {
@@ -309,6 +479,12 @@ form.webform-client-form {
       color: $alpha-text-color;
       border-color: $gamma-text-color;
     }
+  }
+
+  .field-prefix,
+  .field-suffix {
+    width: auto;
+    border: none;
   }
 
   textarea {
@@ -430,14 +606,15 @@ form.webform-client-form {
       @include btn-inlineblock;
     }
   }
+
   .form-submit {
     &.webform-next {
-      float:left;
+      float: left;
       width: auto;
     }
     &.webform-previous {
       margin-right: 1rem;
-      float:left;
+      float: left;
       width: auto;
     }
   }
@@ -463,7 +640,7 @@ form.webform-client-form {
   .form-actions {
     width: 100%;
     display: inline-block;
-    margin-top: 0;
+    margin-top: 1.6em;
     margin-bottom: 1em;
     margin-left: 0;
     clear: left;
@@ -471,7 +648,6 @@ form.webform-client-form {
     @include mq($bp-tablet-m) {
       width: auto;
       margin-top: 1.6em;
-      padding-left: 1em;
       clear: none;
     }
   }
@@ -483,7 +659,7 @@ form.webform-client-form {
     white-space: nowrap;
   }
   .form-item .description, form .fieldset-description {
-    font-size: 0.7em;
+    @include font-size(-4);
   }
 
   form .fieldset-description {
@@ -649,43 +825,141 @@ form.webform-client-form {
     }
   }
 
-  .node-webform {
-    .form-actions {
-      padding-left: 0;
-      margin-top: 0;
+  .form-optional {
+    font-weight: normal;
+    color: $beta-text-color;
+    font-size: 14px;
+  }
+  .form-submit {
+    width: auto;
+  }
+  .form-actions {
+    padding-left: 0;
+    margin-top: 0;
+  }
+  .form-file {
+    @include text-dimensions(-1, 1, 0, 0, .25);
+  }
+  .webform-component-file .form-submit {
+    margin-left: 0;
+    @include mq($bp-tablet-s) {
+      margin-left: 1em;
     }
-    .form-file {
-      @include text-dimensions(-1, 1, 0, 0, .25);
-    }
-    .webform-component-file .form-submit {
-      margin-left: 0;
-      @include mq($bp-tablet-s) {
-        margin-left: 1em;
+  }
+
+  div.with-suffix, div.with-prefix {
+    .children {
+      overflow: hidden;
+      display: block;
+
+      input {
+        width: 100%;
       }
     }
+    .field-suffix {
+      float: right;
+      display: block;
+      padding-left: 8px;
+    }
 
-    div.with-suffix, div.with-prefix {
-      .children {
-        overflow: hidden;
-        display: block;
+    .field-prefix {
+      float: left;
+      display: block;
+      padding-right: 8px;
+    }
+  }
+}
 
-        input {
-          width: 100%;
-        }
+.webform-left {
+  text-align: center;
+  margin-bottom: 1em;
+  @include mq($bp-tablet-m) {
+    margin-bottom: 0;
+    width: 25%;
+    float: left;
+    min-height: 50px;
+  }
+  &.webform-empty {
+    @include mq($bp-tablet-m) {
+      width: 0px;
+      height: 0;
+    }
+  }
+}
+
+.webform-right {
+  .webform-component {
+    position: relative;
+    .description {
+      min-height: 40px;
+      margin-top: 1em;
+      margin-bottom: 1em;
+      position: relative;
+      background-color: $light-grey;
+      padding: 10px 10px 10px 50px;
+      border-radius: $alpha-radius;
+      color: $dark-grey;
+      &:before {
+        content: '';
+        width: 30px;
+        height: 30px;
+        background-image: url('#{$base-theme-path}/img/png/info.png');
+        background-position: center center;
+        background-repeat: no-repeat;
+        position: absolute;
+        top: 5px;
+        left: 10px;
       }
-      .field-suffix {
-        float: right;
-        display: block;
-        padding-left: 8px;
+    }
+  }
+  @include mq($bp-tablet-m) {
+    width: 41.66667%;
+    float: left;
+    .webform-component {
+      position: relative;
+      .description {
+        margin-top: 0;
+        margin-bottom: 0;
+        position: absolute;
+        top: 33px;
+        left: 100%;
+        margin-left: 4.4%;
       }
-
-      .field-prefix {
-        float: left;
-        display: block;
-        padding-right: 8px;
+    }
+    .fieldset-wrapper {
+      position: relative;
+      .description {
+        left: 111%;
       }
     }
   }
 }
 
-//end of form.webform-client-form
+.webform-confirmation {
+  @include mq($bp-tablet-m) {
+    width: 41.66667%;
+    margin-left: 25%;
+  }
+}
+
+.webform-right {
+  .webform-confirmation {
+    width: 100%;
+    margin-left: 0%;
+    @include mq($bp-tablet-m) {
+      width: 100%;
+      margin-left: 0%;
+    }
+  }
+}
+
+body.node-type-webform {
+  .l-primary {
+    width: 100%;
+  }
+}
+
+.sticky-wrapper.is-sticky{
+  z-index: 1 !important;
+}
+

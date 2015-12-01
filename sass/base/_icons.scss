@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'gent-icons';
-  src:url('#{$base-theme-path}/fonts/gent-icons.eot?d2elaa');
-  src:url('#{$base-theme-path}/fonts/gent-icons.eot?#iefixd2elaa') format('embedded-opentype'),
-  url('#{$base-theme-path}/fonts/gent-icons.woff?d2elaa') format('woff'),
-  url('#{$base-theme-path}/fonts/gent-icons.ttf?d2elaa') format('truetype'),
-  url('#{$base-theme-path}/fonts/gent-icons.svg?d2elaa#gent-icons') format('svg');
+  src:url('#{$base-theme-path}/fonts/gent-icons.eot?b29kaj');
+  src:url('#{$base-theme-path}/fonts/gent-icons.eot?#iefixb29kaj') format('embedded-opentype'),
+  url('#{$base-theme-path}/fonts/gent-icons.woff?b29kaj') format('woff'),
+  url('#{$base-theme-path}/fonts/gent-icons.ttf?b29kaj') format('truetype'),
+  url('#{$base-theme-path}/fonts/gent-icons.svg?b29kaj#gent-icons') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -24,6 +24,22 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-bulb:before {
+  content: "\e800";
+}
+.icon-megaphone:before {
+  content: "\e801";
+}
+
+.icon-follow:before {
+  content: "\e635";
+}
+.icon-unflag:before {
+  content: "\e637";
+}
+.icon-trash:before {
+  content: "\e638";
+}
 .icon-maximize:before {
   content: "\e630";
 }

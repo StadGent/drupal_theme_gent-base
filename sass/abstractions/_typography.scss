@@ -38,6 +38,11 @@ $basefontpercent: $alpha-font-size/16 * 100;
   }
 }
 
+@mixin font-size($fs: 1) {
+  font-size: #{ms($fs)}px;
+  font-size: ms($fs)/$alpha-font-size*1rem;
+}
+
 @mixin input-dimensions($fs: 1, $lh: 1, $mb: 0, $pt: 0, $pb: 0, $mt: 0) {
   // use this for rems
   font-size: #{ms($fs)}px;

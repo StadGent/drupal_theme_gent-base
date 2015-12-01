@@ -458,10 +458,6 @@ function gent_base_theme() {
       'base hook' => 'entity_property',
       'file' => 'theme/entity-property--sheet--gpdc--organisations.theme.inc',
     ),
-    /*'entity_property__sheet__gpdc__related' => array(
-     'base hook' => 'entity_property',
-      'file' => 'theme/entity-property--sheet--gpdc--related.theme.inc',
-    ),*/
     'entity_property__sheet__gpdc__attachments' => array(
       'base hook' => 'entity_property',
       'file' => 'theme/entity-property--sheet--gpdc--attachments.theme.inc',
@@ -473,6 +469,14 @@ function gent_base_theme() {
     'entity_property__sheet__gpdc__gbos_products' => array(
       'base hook' => 'entity_property',
       'file' => 'theme/entity-property--sheet--gpdc--gbos-products.theme.inc',
+    ),
+    'gent_base_webform_element_label' => array(
+      'variables' => array('element' => NULL),
+      'function' => 'theme_gent_base_webform_element_label',
+    ),
+    'gent_base_webform_optional_marker' => array(
+      'variables' => array('element' => NULL),
+      'function' => 'theme_gent_base_webform_optional_marker',
     ),
   );
 }
@@ -594,33 +598,80 @@ function gent_base_webform_element($variables) {
     }
   }
 
+  $description = '';
+  if (!empty($element['#description'])) {
+    $description = ' <div class="description">' . $element['#description'] . "</div>\n";
+  }
+
   switch ($element['#title_display']) {
     case 'inline':
     case 'before':
     case 'invisible':
-      $output .= ' ' . theme('form_element_label', $variables);
-      $output .= ' ' . $prefix . $suffix . '<span class="children">' . $element['#children'] . '</span>' . "\n";
+      $output .= ' ' . theme('gent_base_webform_element_label', $variables);
+      $output .= ' ' . $description . $prefix . $suffix . '<span class="children">' . $element['#children'] . '</span>' . "\n";
       break;
 
     case 'after':
-      $output .= ' ' . $prefix . $element['#children'] . $suffix;
-      $output .= ' ' . theme('form_element_label', $variables) . "\n";
+      $output .= ' ' . $description . $prefix . $suffix . $element['#children'];
+      $output .= ' ' . theme('gent_base_webform_element_label', $variables) . "\n";
       break;
 
     case 'none':
     case 'attribute':
       // Output no label and no required marker, only the children.
-      $output .= ' ' . $prefix . $element['#children'] . $suffix . "\n";
+      $output .= ' ' . $description . $prefix . $suffix . $element['#children'] . "\n";
       break;
-  }
-
-  if (!empty($element['#description'])) {
-    $output .= ' <div class="description">' . $element['#description'] . "</div>\n";
   }
 
   $output .= "</div>\n";
 
   return $output;
+}
+
+/**
+ * Returns HTML for a webform element label and (optional) text if not required.
+ */
+function theme_gent_base_webform_element_label($variables) {
+  $element = $variables['element'];
+
+  // If title and required marker are both empty, output no label.
+  if ((!isset($element['#title']) || $element['#title'] === '') && empty($element['#required'])) {
+    return '';
+  }
+
+  // If the element is required, a required marker is appended to the label.
+  $required = !empty($element['#required']) ?  '' : theme('gent_base_webform_optional_marker', array('element' => $element));
+
+  $title = filter_xss_admin($element['#title']);
+
+  $attributes = array();
+  // Style the label as class option to display inline with the element.
+  if ($element['#title_display'] == 'after') {
+    $attributes['class'] = 'option';
+  }
+  // Show label only to screen readers to avoid disruption in visual flows.
+  elseif ($element['#title_display'] == 'invisible') {
+    $attributes['class'] = 'element-invisible';
+  }
+
+  if (!empty($element['#id'])) {
+    $attributes['for'] = $element['#id'];
+  }
+
+  // The leading whitespace helps visually separate fields from inline labels.
+  return ' <label' . drupal_attributes($attributes) . '>' . t('!title !required', array('!title' => $title, '!required' => $required)) . "</label>\n";
+}
+
+/**
+ * Returns HTML for a webform optional marker.
+ */
+function theme_gent_base_webform_optional_marker($variables) {
+  // This is also used in the installer, pre-database setup.
+  $attributes = array(
+    'class' => 'form-optional',
+    'title' => t('This field is optional.'),
+  );
+  return '<span' . drupal_attributes($attributes) . '>' . t('(optional)') . '</span>';
 }
 
 /**
