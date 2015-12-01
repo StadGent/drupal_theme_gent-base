@@ -11,7 +11,7 @@
       // of this behavior to ignore them.
       $('.ajax-new-content', context).once('foo', function () {
         webformDescriptionRight();
-        webformHeight();
+        webStickyBottom();
         // Now, we are invoking the previously declared theme function using two
         // settings as arguments.
         var $anchor = Drupal.theme('gentBaseButton', settings.myExampleLinkPath, settings.myExampleLinkTitle);
@@ -451,17 +451,24 @@
     }
   }
 
-  function webformHeight() {
-    //var progressbarHeight = $('.webform-component-progressbar-pages').height();
-    var headderHeight = $('.header-block-wrapper').height();
-    var progressbarSummaryHeight = $('.field-type-text-with-summary').height();
-    var progressbarPageTitleHeight = $('#page-title').height();
-    var webformMinHeight = 50 + headderHeight + progressbarPageTitleHeight + progressbarSummaryHeight;
-    if (windowWidth >= 960) {
-      $('.webform-client-form').css('min-height', webformMinHeight);
-    } else {
-      $('.webform-client-form').css('min-height', 'auto');
+  function webStickyBottom() {
+
+    //Bottom of element to bottom of screen
+    var sticky = $('.webform-component-progressbar-pages');
+    var webform = $('.webform-client-form');
+    var bottomStickyToBottomScreen = $(document).height() - sticky.offset().top - sticky.height();
+    var bottomWebformToBottomScreen = $(document).height() - webform.offset().top - webform.height();
+
+    console.log(bottomStickyToBottomScreen);
+    console.log(bottomWebformToBottomScreen);
+
+    if ($('.webform-client-form').length) {
+      if (bottomStickyToBottomScreen <=  bottomWebformToBottomScreen) {
+        $('.webform-client-form .sticky-nav.sticky-nav-processed').css('bottom', bottomWebformToBottomScreen);
+        $('.webform-client-form .sticky-nav.sticky-nav-processed').css('top', 'auto');
+      }
     }
+
   }
 
 
@@ -483,11 +490,12 @@
     stikyWidth();
     progressbarStickyWidth();
     webformDescriptionRight();
-    webformHeight();
+    webStickyBottom();
     categorieAction();
     positionCategorieDropdown();
 
     jsTheme.mapColumnizeLegend.init();
+
   });
 
   /**
@@ -498,9 +506,13 @@
     stikyWidth();
     progressbarStickyWidth();
     webformDescriptionRight();
-    webformHeight();
+    webStickyBottom();
     categorieAction();
     positionCategorieDropdown();
+  });
+
+  $(window).scroll(function () {
+    webStickyBottom();
   });
 
 })(jQuery);
