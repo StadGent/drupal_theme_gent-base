@@ -458,14 +458,12 @@
     var webform = $('.webform-client-form');
     var bottomStickyToBottomScreen = $(document).height() - sticky.offset().top - sticky.height();
     var bottomWebformToBottomScreen = $(document).height() - webform.offset().top - webform.height();
-
-    console.log(bottomStickyToBottomScreen);
-    console.log(bottomWebformToBottomScreen);
-
-    if ($('.webform-client-form').length) {
-      if (bottomStickyToBottomScreen <=  bottomWebformToBottomScreen) {
-        $('.webform-client-form .sticky-nav.sticky-nav-processed').css('bottom', bottomWebformToBottomScreen);
-        $('.webform-client-form .sticky-nav.sticky-nav-processed').css('top', 'auto');
+    if (windowWidth >= 960) {
+      if ($('.webform-client-form').length) {
+        if (bottomStickyToBottomScreen <=  bottomWebformToBottomScreen) {
+          $('.webform-client-form .sticky-nav.sticky-nav-processed').css('bottom', bottomWebformToBottomScreen);
+          $('.webform-client-form .sticky-nav.sticky-nav-processed').css('top', 'auto');
+        }
       }
     }
 
@@ -512,6 +510,8 @@
   });
 
   $(window).scroll(function () {
+    windowWidth = viewport().width;
+
     webStickyBottom();
   });
 
