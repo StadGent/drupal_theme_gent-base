@@ -1,4 +1,4 @@
-# Styleguide gent.be
+# Styleguide stad.gent
 
 Deze stijlgids documenteert de huisstijl van gent.be.
 

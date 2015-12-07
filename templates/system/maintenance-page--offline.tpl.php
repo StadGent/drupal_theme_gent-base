@@ -48,7 +48,7 @@
             <a href="<?php print $front_page ?>">
               <div class="brand__logo__inner">
               <span>
-                Gent.be
+                Stad.gent
               </span>
               </div>
             </a>
@@ -57,7 +57,7 @@
             <a href="<?php print $front_page ?>">
               <div class="brand__tagline__inner">
               <span>
-                Gent.be
+                Stad.gent
               </span>
               </div>
             </a>

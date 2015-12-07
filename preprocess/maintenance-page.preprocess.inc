@@ -1,6 +1,6 @@
 <?php
 function gent_base_preprocess_maintenance_page(&$variables) {
-  $variables['site_title'] = 'Gent.be';
+  $variables['site_title'] = 'Stad.gent';
 
   if (empty($variables['tabs']['#primary']) && empty($variables['tabs']['#secondary'])) {
     $variables['tabs'] = NULL;
