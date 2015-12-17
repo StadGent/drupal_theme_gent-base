@@ -24,9 +24,22 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-medal:before {
+  content: "\e900";
+}
+
+.icon-poll:before {
+  content: "\e901";
+}
+
+.icon-tooltip:before {
+  content: "\e902";
+}
+
 .icon-bulb:before {
   content: "\e800";
 }
+
 .icon-megaphone:before {
   content: "\e801";
 }
@@ -34,27 +47,35 @@
 .icon-follow:before {
   content: "\e635";
 }
+
 .icon-unflag:before {
   content: "\e637";
 }
+
 .icon-trash:before {
   content: "\e638";
 }
+
 .icon-maximize:before {
   content: "\e630";
 }
+
 .icon-minimize:before {
   content: "\e631";
 }
+
 .icon-checklist:before {
   content: "\e632";
 }
+
 .icon-flag:before {
   content: "\e633";
 }
+
 .icon-heart:before {
   content: "\e634";
 }
+
 .icon-adventure:before {
   content: "\e61f";
 }
