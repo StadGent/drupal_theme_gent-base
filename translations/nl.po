@@ -133,7 +133,7 @@ msgstr "In samenwerking met"
 
 #: templates/webform/webform-form.tpl.php:36
 msgid "All questions are mandatory, unless they are marked as optional."
-msgstr "Alle vragen zijn verplicht, tenzij vermeld dat ze optioneel zijn."
+msgstr "Alle vragen zijn verplicht, tenzij ze markeerd zijn als optioneel."
 
 #: templates/webform/webform-progressbar.tpl.php:53
 msgid "Page @start of @end"
