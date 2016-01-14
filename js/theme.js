@@ -415,7 +415,7 @@
   }
 
   function progressbarStickyWidth() {
-    if( $('.webform-client-form').length ) {
+    if ($('.webform-client-form').length) {
       var webformLeftWidth = $('.node-type-webform .webform-left').width();
       if (windowWidth >= 960) {
         $('.node-type-webform .webform-left .sticky-nav').width(webformLeftWidth);
@@ -434,7 +434,7 @@
   }
 
   function webformDescriptionRight() {
-    if( $('.webform-client-form').length ) {
+    if ($('.webform-client-form').length) {
       var webformRightWidth = $('.node-type-webform .webform-right').width();
       var descriptionWidth = webformRightWidth * 0.75;
 
