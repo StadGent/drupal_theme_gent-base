@@ -1,3 +1,23 @@
 .ratio--header.mask {
   overflow: visible;
 }
+
+.top-section.maintenance-page{
+  @include mq($bp-tablet-s) {
+    min-height: 100px;
+  }
+  .site__header__image__title {
+    margin-top: 50px;
+    @include mq($bp-tablet-s) {
+    margin-top: 60px;
+    text-shadow: none;
+    position: relative;
+    }
+    @include mq($bp-tablet-l) {
+    margin-top: 65px;
+    }
+    @include mq($bp-desktop-s) {
+    margin-top: 95px;
+    }
+  }
+}

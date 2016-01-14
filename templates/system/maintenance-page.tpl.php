@@ -40,7 +40,7 @@
   </div>
   <![endif]-->
 
-  <section class="top-section">
+  <section class="top-section maintenance-page">
     <header class="site__header">
       <div class="brand">
         <div class="l-row padding--big">
