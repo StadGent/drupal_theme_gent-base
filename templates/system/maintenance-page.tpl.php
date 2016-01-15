@@ -40,7 +40,7 @@
   </div>
   <![endif]-->
 
-  <section class="top-section maintenance-page">
+  <section class="top-section">
     <header class="site__header">
       <div class="brand">
         <div class="l-row padding--big">
@@ -66,7 +66,9 @@
       </div>
 
       <div class="mask <?php print $is_front ? 'ratio--home' : 'ratio--header'; ?>">
-        <div class="header__background" style="background-image:url('<?php print $header_image; ?>');"></div>
+        <?php if ($header_image): ?>
+          <div class="header__background" style="background-image:url('<?php print $header_image; ?>');"></div>
+        <?php endif; ?>
 
         <span class="site__header__image__gradient"></span>
 
