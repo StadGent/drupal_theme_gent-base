@@ -608,18 +608,38 @@ function gent_base_webform_element($variables) {
     case 'before':
     case 'invisible':
       $output .= ' ' . theme('gent_base_webform_element_label', $variables);
-      $output .= ' ' . $description . $prefix . $suffix . '<span class="children">' . $element['#children'] . '</span>' . "\n";
+
+      if (isset($element['#type']) && $element['#type'] == 'markup') {
+        // Make sure the suffix comes right after the markup text with no whitespace between
+        $output .= ' ' . $description . $prefix . '<span class="children">' . $element['#children'] . '</span>' . $suffix . "\n";
+      }
+      else {
+        $output .= ' ' . $description . $prefix . $suffix . '<span class="children">' . $element['#children'] . '</span>' . "\n";
+      }
       break;
 
     case 'after':
-      $output .= ' ' . $description . $prefix . $suffix . $element['#children'];
+      if (isset($element['#type']) && $element['#type'] == 'markup') {
+        // Make sure the suffix comes right after the markup text with no whitespace between
+        $output .= ' ' . $description . $prefix . $element['#children'] . $suffix;
+      }
+      else {
+        $output .= ' ' . $description . $prefix . $suffix . $element['#children'];
+      }
+
       $output .= ' ' . theme('gent_base_webform_element_label', $variables) . "\n";
       break;
 
     case 'none':
     case 'attribute':
       // Output no label and no required marker, only the children.
-      $output .= ' ' . $description . $prefix . $suffix . $element['#children'] . "\n";
+      if (isset($element['#type']) && $element['#type'] == 'markup') {
+        // Make sure the suffix comes right after the markup text with no whitespace between
+        $output .= ' ' . $description . $prefix . $element['#children'] . $suffix  . "\n";
+      }
+      else {
+        $output .= ' ' . $description . $prefix . $suffix . $element['#children'] . "\n";
+      }
       break;
   }
 
