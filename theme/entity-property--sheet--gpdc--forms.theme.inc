@@ -8,10 +8,10 @@
  * Overrides theme_entity_property__sheet__gpdc__forms().
  */
 function gent_base_entity_property__sheet__gpdc__forms(&$variables) {
-  $output = '<h2>' . t('Downloadable forms') . '<i class="icon-form_fill"></i></h2>';
+  $output = '<h2>' . t('Fill in the downloadable form') . '<i class="icon-form_fill"></i></h2>';
 
   foreach ($variables['content'] as $content) {
-    $output .= '<div' . $variables['attributes'] . '>' . $content . '</div>' . "\n";
+    $output .= '<div' . $variables['attributes'] . '>' . $content . '</div>';
   }
 
   return $output;
