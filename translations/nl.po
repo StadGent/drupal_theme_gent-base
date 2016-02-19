@@ -1,18 +1,18 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gent base theme\n"
-"POT-Creation-Date: 2015-11-06 09:50+0100\n"
-"PO-Revision-Date: 2015-11-06 09:51+0100\n"
-"Last-Translator: Filip Heymans <filip.heymans@digipolis.be>\n"
+"POT-Creation-Date: 2016-02-19 16:20+0100\n"
+"PO-Revision-Date: 2016-02-19 16:20+0100\n"
+"Last-Translator: Lennart Van Vaerenbergh\n"
 "Language-Team: Digipolis <tbweb@gent.be>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.1\n"
+"X-Generator: Poedit 1.8.6\n"
 "X-Poedit-KeywordsList: t;format_plural:2,3;watchdog:2;$t;Drupal.t;Drupal."
 "formatPlural:2,3\n"
-"X-Poedit-Basepath: ../\n"
+"X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -21,51 +21,51 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-2: starterkits\n"
 "X-Poedit-SearchPathExcluded-3: template_styleguide\n"
 
-#: template.php:158
+#: template.php:157
 msgid "You are here"
 msgstr "U bent hier"
 
-#: template.php:207
+#: template.php:206
 msgid "« first"
 msgstr "« eerste"
 
-#: template.php:208
+#: template.php:207
 msgid "‹ previous"
 msgstr "‹ vorige"
 
-#: template.php:209
+#: template.php:208
 msgid "next ›"
 msgstr "volgende ›"
 
-#: template.php:210
+#: template.php:209
 msgid "last »"
 msgstr "laatste »"
 
-#: template.php:275
+#: template.php:274
 msgid "Pages"
 msgstr "Pagina's"
 
-#: template.php:398
+#: template.php:384
 msgid "Status message"
 msgstr "Status bericht"
 
-#: template.php:399
+#: template.php:385
 msgid "Error message"
 msgstr "Foutmelding"
 
-#: template.php:400
+#: template.php:386
 msgid "Warning message"
 msgstr "Waarschuwing"
 
-#: template.php:661
+#: template.php:662
 msgid "!title !required"
 msgstr "!title !required"
 
-#: template.php:671
+#: template.php:672
 msgid "This field is optional."
 msgstr "Dit veld is optioneel."
 
-#: template.php:673
+#: template.php:674
 msgid "(optional)"
 msgstr "(optioneel)"
 
@@ -131,7 +131,15 @@ msgstr "Afbeelding hoofding"
 msgid "In cooperation with"
 msgstr "In samenwerking met"
 
-#: templates/webform/webform-form.tpl.php:36
+#: templates/webform/webform-confirmation.tpl.php:46
+msgid "Thank you, your submission has been received."
+msgstr ""
+
+#: templates/webform/webform-confirmation.tpl.php:51
+msgid "Go back to the form"
+msgstr ""
+
+#: templates/webform/webform-form.tpl.php:53
 msgid "All questions are mandatory, unless they are marked as optional."
 msgstr "Alle vragen zijn verplicht, tenzij ze markeerd zijn als optioneel."
 
@@ -199,7 +207,7 @@ msgstr "Ga naar het webformulier"
 msgid "Contacts"
 msgstr "Contacten"
 
-#: preprocess/entity-property.preprocess.inc:93
+#: preprocess/entity-property.preprocess.inc:95
 msgid "Error loading appointments."
 msgstr "Mislukt op de online afspraken in te laden."
 
@@ -212,13 +220,22 @@ msgid "All"
 msgstr "Alles"
 
 #: theme/entity-property--sheet--gpdc--form-url.theme.inc:11
-msgid "Online forms"
-msgstr "Online formulieren"
+msgid "Make your request online"
+msgstr "Doe uw aanvraag online"
 
 #: theme/entity-property--sheet--gpdc--forms.theme.inc:11
-msgid "Downloadable forms"
-msgstr "Downloadbare formulieren"
+msgid "Fill in the downloadable form"
+msgstr "Vul het downloadbare formulier in"
 
 #: theme/entity-property--sheet--gpdc--gbos-products.theme.inc:11
-msgid "Online appointments"
-msgstr "Online afspraken"
+msgid "Make an appointment"
+msgstr "Maak een afspraak"
+
+#~ msgid "Online forms"
+#~ msgstr "Online formulieren"
+
+#~ msgid "Downloadable forms"
+#~ msgstr "Downloadbare formulieren"
+
+#~ msgid "Online appointments"
+#~ msgstr "Online afspraken"
