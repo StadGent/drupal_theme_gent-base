@@ -432,8 +432,8 @@ function gent_base_cta_email($variables) {
  */
 function gent_base_cta_link($variables) {
   $output = '<p><span>';
-  $output .= '<a href="' . $variables['url'] . '" class="article-content-action">';
-  $output .= '<span class="icon icon icon-link"></span>';
+  $output .= '<a href="' . $variables['url'] . '" class="article-content-action" target="' . $variables['target'] . '">';
+  $output .= '<span class="icon icon ' . $variables['icon'] . '"></span>';
   $output .= '<span class="article-content-action-title">' . $variables['text'] . '</span>';
   $output .= '<span class="article-content-action-document">' . isset($variables['url_title']) ? $variables['url_title'] : $variables['url'] . '</span>';
   $output .= '</a>';
