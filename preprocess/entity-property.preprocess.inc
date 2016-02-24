@@ -76,10 +76,7 @@ function gent_base_preprocess_entity_property(&$variables) {
           if (module_exists('gent_gbos')) {
             $provider = new GbosDrupalDataProvider();
             $products = $provider->getProductsOptions();
-            // DEBUG START
-            $products = array('111' => 'Item 1', '222' => 'Item 2');
-            $data = array('111', '222');
-            // DEBUG STOP
+
             $appointment_base_path = 'mijn-gent/afspraak/maken';
             $variables['content'] = array();
 
