@@ -166,10 +166,16 @@
 .l-column {
   @include mq($bp-phone-m) {
     @include float-span(12);
+    &:nth-of-type(2n+1) {
+      clear:both;
+    }
   }
 
   @include mq($bp-tablet-m) {
     @include float-span(6);
+    &:nth-of-type(1n+1) {
+      clear:right;
+    }
   }
 }
 

@@ -33,7 +33,7 @@
 <?php endif; ?>
 
 <?php // @TODO Make me dynamic in gent_base_tools ?>
-<div class="l-fourth-to-single">
+<div class="l-column">
   <div class="brand__footer__wrapper">
     <p class="brand__footer">Stad Gent</p>
     <p class="brand__footer__sub__text"><?php print t('In cooperation with')?></p>
