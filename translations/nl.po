@@ -141,7 +141,7 @@ msgstr ""
 
 #: templates/webform/webform-form.tpl.php:53
 msgid "All questions are mandatory, unless they are marked as optional."
-msgstr "Alle vragen zijn verplicht, tenzij ze markeerd zijn als optioneel."
+msgstr "Alle vragen zijn verplicht, tenzij ze aangeduid zijn als optioneel."
 
 #: templates/webform/webform-progressbar.tpl.php:53
 msgid "Page @start of @end"
