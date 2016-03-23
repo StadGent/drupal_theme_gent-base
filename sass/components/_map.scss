@@ -44,7 +44,8 @@ body .olControlMapLegend {
     }
   }
 
-  .datalayer .layerLabel {
+  .datalayer .layerLabel,
+  .legendItem .label {
     @include font-size(-2);
   }
 }
