@@ -2,6 +2,19 @@
  * olControl: MapLegend.
  */
 body .olControlMapLegend {
+
+  .title {
+    @include font-size(-1);
+    font-weight: bold;
+    margin-bottom: 20px;
+
+    &:before {
+      @extend .icon-base-css;
+      @extend .icon-checklist:before;
+      margin-right: 10px;
+    }
+  }
+
   .category {
     position: relative;
     border-color: $color-border-ui;
