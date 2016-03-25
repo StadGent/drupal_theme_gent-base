@@ -62,3 +62,23 @@ body .olControlMapLegend {
     @include font-size(-2);
   }
 }
+
+/**
+ * SmartPanel: panel_left.
+ */
+.smartPanel.panel_left {
+  z-index: 9999;
+  width: 100%;
+
+  @include mq($bp-tablet-s) {
+    width: 50%;
+  }
+
+  @include mq($bp-tablet-m) {
+    width: 310px;
+  }
+
+  &.collapsible.collapsed {
+    width: auto;
+  }
+}
