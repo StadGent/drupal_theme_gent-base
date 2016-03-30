@@ -67,7 +67,7 @@ body .olControlMapLegend {
  * SmartPanel: panel_left.
  */
 .smartPanel.panel_left {
-  z-index: 9999;
+  z-index: 9999 !important;
   width: 100%;
 
   @include mq($bp-tablet-s) {
@@ -80,5 +80,13 @@ body .olControlMapLegend {
 
   &.collapsible.collapsed {
     width: auto;
+  }
+
+  // Put minimize button inside the panel when the panel is 100% width.
+  .olCollapseHandleRight.olMinimizeDiv {
+    right: 0;
+    @include mq($bp-tablet-s) {
+      right: -25px;
+    }
   }
 }
