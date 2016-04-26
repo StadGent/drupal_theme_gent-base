@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'gent-icons';
-  src:url('#{$base-theme-path}/fonts/gent-icons.eot?b29kaj');
-  src:url('#{$base-theme-path}/fonts/gent-icons.eot?#iefixb29kaj') format('embedded-opentype'),
-  url('#{$base-theme-path}/fonts/gent-icons.woff?b29kaj') format('woff'),
-  url('#{$base-theme-path}/fonts/gent-icons.ttf?b29kaj') format('truetype'),
-  url('#{$base-theme-path}/fonts/gent-icons.svg?b29kaj#gent-icons') format('svg');
+  src:url('#{$base-theme-path}/fonts/gent-icons.eot?lennart');
+  src:url('#{$base-theme-path}/fonts/gent-icons.eot?#iefixlennart') format('embedded-opentype'),
+  url('#{$base-theme-path}/fonts/gent-icons.woff?lennart') format('woff'),
+  url('#{$base-theme-path}/fonts/gent-icons.ttf?lennart') format('truetype'),
+  url('#{$base-theme-path}/fonts/gent-icons.svg?lennart#gent-icons') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -24,6 +24,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-house:before {
+  content: "\e903";
+}
 .icon-medal:before {
   content: "\e900";
 }
