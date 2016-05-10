@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'gent-icons';
-  src:url('#{$base-theme-path}/fonts/gent-icons.eot?lennart');
-  src:url('#{$base-theme-path}/fonts/gent-icons.eot?#iefixlennart') format('embedded-opentype'),
-  url('#{$base-theme-path}/fonts/gent-icons.woff?lennart') format('woff'),
-  url('#{$base-theme-path}/fonts/gent-icons.ttf?lennart') format('truetype'),
-  url('#{$base-theme-path}/fonts/gent-icons.svg?lennart#gent-icons') format('svg');
+  src:url('#{$base-theme-path}/fonts/gent-icons.eot?Y69m6ab');
+  src:url('#{$base-theme-path}/fonts/gent-icons.eot?#iefixY69m6ab') format('embedded-opentype'),
+  url('#{$base-theme-path}/fonts/gent-icons.woff?Y69m6ab') format('woff'),
+  url('#{$base-theme-path}/fonts/gent-icons.ttf?Y69m6ab') format('truetype'),
+  url('#{$base-theme-path}/fonts/gent-icons.svg?Y69m6ab#gent-icons') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -24,9 +24,18 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-cross:before {
+  content: "\e904";
+}
+
+.icon-tick:before {
+  content: "\e905";
+}
+
 .icon-house:before {
   content: "\e903";
 }
+
 .icon-medal:before {
   content: "\e900";
 }
