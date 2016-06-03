@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gent base theme\n"
-"POT-Creation-Date: 2016-03-25 15:06+0100\n"
-"PO-Revision-Date: 2016-03-25 15:06+0100\n"
+"POT-Creation-Date: 2016-06-03 12:49+0200\n"
+"PO-Revision-Date: 2016-06-03 12:50+0200\n"
 "Last-Translator: Lennart Van Vaerenbergh\n"
 "Language-Team: Digipolis <tbweb@gent.be>\n"
 "Language: nl\n"
@@ -228,22 +228,5 @@ msgid "Fill in the downloadable form"
 msgstr "Vul het downloadbare formulier in"
 
 #: theme/entity-property--sheet--gpdc--gbos-products.theme.inc:11
-msgid ""
-"Come <a href=\"@url\">during office hours</a> or make an appointment as from "
-"16:30"
-msgstr "Kom <a href=\"@url\">overdag</a> of op afspraak vanaf 16.30 uur"
-
-#~ msgid "Come to <a href=\"@url\">the office</a> or make an appointment"
-#~ msgstr "Kom <a href=\"@url\">overdag</a> of op afspraak vanaf 16.30 uur"
-
-#~ msgid "Make an appointment"
-#~ msgstr "Maak een afspraak"
-
-#~ msgid "Online forms"
-#~ msgstr "Online formulieren"
-
-#~ msgid "Downloadable forms"
-#~ msgstr "Downloadbare formulieren"
-
-#~ msgid "Online appointments"
-#~ msgstr "Online afspraken"
+msgid "Visit <a href=\"@url\">during office hours</a> or make an appointment"
+msgstr "Kom <a href=\"@url\">overdag</a> of op afspraak"

@@ -8,7 +8,7 @@
  * Overrides theme_entity_property__sheet__gpdc__gbos_products().
  */
 function gent_base_entity_property__sheet__gpdc__gbos_products(&$variables) {
-  $title = t('Come <a href="@url">during office hours</a> or make an appointment as from 16:30', array(
+  $title = t('Visit <a href="@url">during office hours</a> or make an appointment', array(
     '@url' => url('', array('fragment' => 'sheet-organisations', 'external' => TRUE)),
   ));
 
