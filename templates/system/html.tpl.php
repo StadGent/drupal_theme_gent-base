@@ -37,9 +37,10 @@
   <!-- RSPEAK_STOP -->
   <?php print $page; ?>
   </div>
-  <?php print $page_bottom; ?>
 
   <?php print $scripts; ?>
+  
+  <?php print $page_bottom; ?>
 
   <?php if (isset($closure)): ?>
     <?php print $closure; ?>
