@@ -59,7 +59,7 @@
 }
 
 .nav--breadcrumb {
-  @include text-dimensions(-2, 1, 0, .5, .5);
+  @include text-dimensions(-2, 1, 0, .25, .25);
 
   a {
     @extend .btn;
@@ -90,27 +90,21 @@
     &:last-child:after {
       display: none;
     }
-  }
 
-  span {
-    @include text-dimensions(-2, 1, 0, .1, .2);
-    @include px-padding-lr(1, 1);
-    border-radius: $alpha-radius;
-    position: relative;
-    display: block;
-    width: 100%;
-    text-align: center;
-    overflow: hidden;
-    font-family: $alpha-font-family;
-    font-weight: $beta-font-weight;
-    text-decoration: none;
-    border: 1px solid darken($gamma-ui-color, 5);
-  }
-
-  span {
-    padding-left: 0;
-    padding-right: 0;
-    border: 1px solid transparent;
+    > span {
+      @include text-dimensions(-2, 1, 0, .1, .2);
+      @include px-padding-lr(.8, 0);
+      border-radius: $alpha-radius;
+      position: relative;
+      display: block;
+      width: 100%;
+      text-align: center;
+      overflow: hidden;
+      font-family: $alpha-font-family;
+      font-weight: $beta-font-weight;
+      text-decoration: none;
+      border: 1px solid transparent;
+    }
   }
 
   @include mq($bp-tablet-s) {
