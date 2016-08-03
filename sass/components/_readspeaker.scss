@@ -75,7 +75,6 @@ $rs-progressbar-handle-color  : #f39200;
 
   padding-left:8px;
   padding-right: 8px;
-  border-radius: $beta-radius $beta-radius 0 0;
   background: $white-color;
   
   &.rsexpanded {
@@ -120,7 +119,6 @@ $rs-progressbar-handle-color  : #f39200;
     vertical-align:middle;
     font-size: 20px;
     line-height: 58px;
-    border-radius: $beta-radius $beta-radius 0 0; 
     outline: none;
   }
   
@@ -291,12 +289,15 @@ $rs-progressbar-handle-color  : #f39200;
   .rsbutton.rsbtn_closer {
     background-color:$white-color;
     width: 64px;
-  }
-  
-  .rsbutton.rsbtn_closer:before {
-    @extend .icon-person:before;
-    margin-left:8px;
-    margin-right:16px; // Accomodate for the extra wide icon
+    border-left: 1px solid $rs-divider-color;
+    &:before {
+      @extend .icon-base-css;
+      @extend .icon-close:before;
+      font-size: 2.25rem;
+      margin-top: 3px;
+      margin-left:8px;
+      margin-right:16px; // Accomodate for the extra wide icon
+    }
   }
   
   /************************************************ POPUP BUTTON */
@@ -443,6 +444,19 @@ $rs-progressbar-handle-color  : #f39200;
     .rsform-colorlist-style-none,
     .rsform-colorlist-style-underline {
       line-height: .2rem;
+    }
+  }
+}
+
+.large-header .rsbtn_gent {
+  border-radius: $beta-radius $beta-radius 0 0;
+  .rsbutton {
+    border-radius: $beta-radius $beta-radius 0 0;
+    &.rsbtn_closer {
+      border: none;
+      &:before {
+        margin-top: 6px;
+      }
     }
   }
 }
