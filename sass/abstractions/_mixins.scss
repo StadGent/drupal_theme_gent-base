@@ -237,6 +237,14 @@
   }
 }
 
+// Media query mixin.
+// @include mq(#startpoint, #endpoint, #query);
+@mixin mqb($startpoint, $endpoint, $query: width) {
+  @media (min-#{$query}: $startpoint) and (max-#{$query}: $endpoint) {
+    @content;
+  }
+}
+
 // Hide text: http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/
 %hide-text {
   text-indent: 100%;
