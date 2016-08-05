@@ -32,7 +32,6 @@
       jsTheme.accordion.init();
       jsTheme.toggleFieldset.init();
       jsTheme.addMobileBreadcrumb.init();
-      jsTheme.addMobileSearchIcon.init();
       jsTheme.stickyNav.init();
     }
   };

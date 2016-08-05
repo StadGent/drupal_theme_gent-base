@@ -22,7 +22,7 @@
   /**
    * Initialises the search widget.
    */
-  SearchWidget.prototype.init = function() {
+  SearchWidget.prototype.init = function () {
     var widget = this;
 
     this.form = $(this.selector);
@@ -30,18 +30,18 @@
     this.button = $('.search-widget__submit', this.selector);
 
     // Prevent submitting the form twice.
-    this.button.click(function() {
+    this.button.click(function () {
       widget.button.attr('disabled', 'disabled');
       widget.form.submit();
     });
 
     this.openHandler = $('.search-widget__open_handle', this.selector);
-    this.openHandler.click(function() {
+    this.openHandler.click(function () {
       widget.open();
     });
 
     this.closeHandler = $('.search-widget__close_handle', this.selector);
-    this.closeHandler.click(function() {
+    this.closeHandler.click(function () {
       widget.close();
     });
   };
@@ -49,7 +49,7 @@
   /**
    * Opens the search widget.
    */
-  SearchWidget.prototype.open = function() {
+  SearchWidget.prototype.open = function () {
     this.form.addClass('is-open');
     this.openHandler.hide();
     this.closeHandler.show();
@@ -60,7 +60,7 @@
   /**
    * Closes the opened search widget.
    */
-  SearchWidget.prototype.close = function() {
+  SearchWidget.prototype.close = function () {
     this.form.removeClass('is-open');
     this.closeHandler.hide();
     this.input.hide();
@@ -73,7 +73,7 @@
    */
   Drupal.behaviors.GentBaseMobileSearch = {
     attach: function (context) {
-      $('.small-header .search-widget', context).once('mobile', function() {
+      $('.small-header .search-widget', context).once('mobile', function () {
         var widget = new SearchWidget(this);
         widget.init();
       });

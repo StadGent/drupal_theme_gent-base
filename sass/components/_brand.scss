@@ -1,3 +1,7 @@
+nav.holder .brand {
+  float: left;
+}
+
 .brand {
   @include add-grid(12);
   @include add-gutter(0);
