@@ -12,7 +12,6 @@ include_once 'preprocess/page.preprocess.inc';
 include_once 'preprocess/maintenance-page.preprocess.inc';
 include_once 'preprocess/views.preprocess.inc';
 include_once 'preprocess/region.preprocess.inc';
-include_once 'preprocess/form.preprocess.inc';
 include_once 'preprocess/entity-property.preprocess.inc';
 include_once 'preprocess/gent-auth-bar.preprocess.inc';
 
