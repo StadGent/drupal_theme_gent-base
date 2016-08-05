@@ -108,22 +108,6 @@
   }
 }
 
-.not-front {
-  nav.holder .l-primary--offset {
-    @include mq($bp-tablet-s) {
-      @include grid-span(20);
-    }
-  }
-}
-
-.not-front.page-zoeken  {
-  .search-widget {
-    & > div {
-      display: block;
-    }
-  }
-}
-
 // Gent auth bar.
 body.gent-auth-bar {
   // Hide the "Mijn Gent" block when the auth bar is present (you are logged in into Mijn Gent).
