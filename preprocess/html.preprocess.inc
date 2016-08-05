@@ -1,4 +1,8 @@
 <?php
+/**
+ * @file
+ * Html proprocess file for gent base.
+ */
 
 /**
  * Implements hook_html_head_alter().
@@ -58,9 +62,7 @@ function gent_base_preprocess_html(&$variables) {
   $variables['classes_array'][] = $theme_key;
 
   // Set the large banner layout on some pages.
-  if (gent_base_use_large_header()) {
-    $variables['classes_array'][] = 'large-header';
-  }
+  $variables['classes_array'][] = gent_base_use_large_header() ? 'large-header' : 'small-header';
 
   // Merge classes array into attributes array.
   if (!empty($variables['classes_array'])) {

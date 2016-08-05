@@ -25,5 +25,8 @@ scripts[] = libraries/masonry/imagesloaded.pkgd.min.js
 scripts[] = libraries/livequery/jquery.livequery.min.js
 scripts[] = libraries/jquery-columnizer/jquery.columnizer.min.js
 
+; Scripts
+scripts[] = js/search-widget.js
+
 ; Default settings.
 settings[top_menu_render_method] = user_links

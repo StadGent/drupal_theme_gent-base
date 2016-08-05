@@ -5,7 +5,7 @@
 // Clearfix.
 // @extend %clearfix;
 
-%clearfix {
+@mixin clearfix {
   *zoom: 1;
 
   &:before,
@@ -250,4 +250,25 @@
   text-indent: 100%;
   white-space: nowrap;
   overflow: hidden;
+}
+
+// Input element placeholder mixin.
+// @include placeholder {
+//   font-style:italic;
+//   color: white;
+//   font-weight:100;
+// }
+@mixin placeholder {
+  &::-webkit-input-placeholder {
+    @content;
+  }
+  &:-moz-placeholder {
+    @content;
+  }
+  &::-moz-placeholder {
+    @content;
+  }
+  &:-ms-input-placeholder {
+    @content;
+  }
 }

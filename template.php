@@ -16,6 +16,7 @@ include_once 'preprocess/page.preprocess.inc';
 include_once 'preprocess/maintenance-page.preprocess.inc';
 include_once 'preprocess/views.preprocess.inc';
 include_once 'preprocess/region.preprocess.inc';
+include_once 'preprocess/form.preprocess.inc';
 include_once 'preprocess/entity-property.preprocess.inc';
 include_once 'preprocess/gent-auth-bar.preprocess.inc';
 
@@ -445,6 +446,7 @@ function gent_base_cta_link($variables) {
  * Implements hook_theme().
  */
 function gent_base_theme() {
+  $theme_path = drupal_get_path('theme', 'gent_base');
   return array(
     'entity_property__sheet__gpdc__form_url' => array(
       'base hook' => 'entity_property',
@@ -477,6 +479,11 @@ function gent_base_theme() {
     'gent_base_webform_optional_marker' => array(
       'variables' => array('element' => NULL),
       'function' => 'theme_gent_base_webform_optional_marker',
+    ),
+    'gent_base_search_widget_form' => array(
+      'render element' => 'form',
+      'template' => 'form--gent-base-search-widget',
+      'path' => $theme_path . '/templates/form',
     ),
   );
 }
