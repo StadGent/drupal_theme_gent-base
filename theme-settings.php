@@ -23,21 +23,6 @@ function gent_base_form_system_theme_settings_alter(&$form, &$form_state, $form_
   // Make sure this file is loaded during form processing.
   $form_state['build_info']['files']['gent_base'] = drupal_get_path('theme', 'gent_base') . '/theme-settings.php';
 
-  // Top menu render method.
-  $form['theme_settings']['#access'] = TRUE;
-  $form['theme_settings']['top_menu_render_method'] = array(
-    '#type' => 'select',
-    '#title' => t('Render top menu'),
-    '#options' => array(
-      GENT_BASE_TOP_MENU_RENDER_METHOD_EMPTY => t('Leave empty'),
-      GENT_BASE_TOP_MENU_RENDER_METHOD_REGION => t('Try to render @region region', array('@region' => 'top_menu')),
-      GENT_BASE_TOP_MENU_RENDER_METHOD_USER_LINKS => t('Render custom user links'),
-    ),
-    '#default_value' => theme_get_setting('top_menu_render_method'),
-    '#access' => $GLOBALS['theme_key'] !== 'gent_base',
-  );
-
-
   // Header image.
   $fid = variable_get('default_headerimage_fid');
   if (!empty($form_state['values']['default_headerimage_fid'])) {
@@ -61,7 +46,7 @@ function gent_base_form_system_theme_settings_alter(&$form, &$form_state, $form_
     $form['headerimage']['default_headerimage_fid']['preview'] = array(
       '#markup' => theme('image_style', array(
         'style_name' => 'thumbnail',
-         'path' => $file->uri,
+        'path' => $file->uri,
         'alt' => t('Preview'),
       )),
     );

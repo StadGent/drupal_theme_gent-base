@@ -18,22 +18,8 @@
       <section class="top-section">
         <nav class="holder holder--alpha padding">
           <div class="l-row">
-            <?php if ($top_menu_render_method == GENT_BASE_TOP_MENU_RENDER_METHOD_REGION): ?>
-              <?php if ($page['top_menu']): ?>
-                <?php print render($page['top_menu']); ?>
-              <?php endif; ?>
-            <?php elseif ($top_menu_render_method == GENT_BASE_TOP_MENU_RENDER_METHOD_USER_LINKS): ?>
-              <ul class="login-widget nav nav--login">
-                <li><?php print $logged_in ? l(t('Logout'), 'user/logout') : l(t('Login'), 'user/login') ?></li>
-                <li><?php print l(t('Mijn Gent'), '') ?></li>
-              </ul>
-            <?php elseif ($top_menu_render_method == GENT_BASE_TOP_MENU_RENDER_METHOD_EMPTY): ?>
-              <?php // Do nothing... ?>
-            <?php endif; ?>
-
-            <?php if ($page['search']): ?>
-              <?php print render($page['search']); ?>
-            <?php endif; ?>
+            <?php print render($page['top_menu']); ?>
+            <?php print render($page['search']); ?>
           </div>
         </nav>
 

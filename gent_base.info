@@ -27,6 +27,3 @@ scripts[] = libraries/jquery-columnizer/jquery.columnizer.min.js
 
 ; Scripts
 scripts[] = js/search-widget.js
-
-; Default settings.
-settings[top_menu_render_method] = user_links
