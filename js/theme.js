@@ -279,15 +279,6 @@
   };
 
   /**
-   * Adds mobile search icon.
-   */
-  jsTheme.addMobileSearchIcon = {
-    init: function () {
-      $('<div class="search-icon-block"><i class="icon icon-search"></i></div>').insertBefore('.top-section > nav.holder > .l-row > .l-primary--offset');
-    }
-  };
-
-  /**
    * Makes all elements with "sticky-nav" class sticky so they will be attached to the viewport top when scrolling down.
    */
   jsTheme.stickyNav = {};
