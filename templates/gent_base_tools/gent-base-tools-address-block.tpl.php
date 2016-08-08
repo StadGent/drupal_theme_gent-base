@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Template file for the address block
+ * Template file for the address block.
  */
 ?>
 <ul class="no-bullet-list">
