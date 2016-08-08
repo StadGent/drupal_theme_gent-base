@@ -556,10 +556,7 @@ function gent_base_digipolis_openlayers_invisible_layer_icon(&$variables) {
  * Same as drupal_is_front_page, but added 404 & 403 pages.
  */
 function gent_base_use_large_header() {
-  if (drupal_is_front_page()) {
-    return TRUE;
-  }
-  return FALSE;
+  return drupal_is_front_page();
 }
 
 /**
