@@ -1,70 +1,70 @@
 @include mqb(0, $bp-tablet-s) {
   .hidden-mobile {
-    display: none;
+    display: none !important;
   }
 }
 
 @include mqb($bp-tablet-s, $bp-tablet-m) {
   .hidden-tablet {
-    display: none;
+    display: none !important;
   }
 }
 
 @include mq($bp-tablet-m) {
   .hidden-desktop {
-    display: none;
+    display: none !important;
   }
 }
 
 .visible-mobile,
 .visible-tablet,
 .visible-desktop {
-  display: none;
+  display: none !important;
 }
 @include mqb(0, $bp-tablet-s) {
   .visible-mobile {
-    display: block;
+    display: block !important;
   }
   table.visible-mobile {
-    display: table;
+    display: table !important;
   }
   tr.visible-mobile {
-    display: table-row;
+    display: table-row !important;
   }
   th.visible-mobile,
   td.visible-mobile {
-    display: table-cell;
+    display: table-cell !important;
   }
 }
 
 @include mqb($bp-tablet-s, $bp-tablet-m) {
   .visible-tablet {
-    display: block;
+    display: block !important;
   }
   table.visible-tablet {
-    display: table;
+    display: table !important;
   }
   tr.visible-tablet {
-    display: table-row;
+    display: table-row !important;
   }
   th.visible-tablet,
   td.visible-tablet {
-    display: table-cell;
+    display: table-cell !important;
   }
 }
 
 @include mq($bp-tablet-m) {
   .visible-desktop {
-    display: block;
+    display: block !important;
   }
   table.visible-desktop {
-    display: table;
+    display: table !important;
   }
   tr.visible-desktop {
-    display: table-row;
+    display: table-row !important;
   }
   th.visible-desktop,
   td.visible-desktop {
-    display: table-cell;
+    display: table-cell !important;
   }
 }

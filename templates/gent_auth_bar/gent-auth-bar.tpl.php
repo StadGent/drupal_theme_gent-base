@@ -10,14 +10,14 @@
       <div class="login element-hidden">
         <a href="<?php print $login_url; ?>" class="picture-wrapper">
           <div class="name"><?php print $login_text; ?></div>
-          <div class="picture no-profile"><img src="<?php print $default_picture_url; ?>" /></div>
+          <div class="picture no-profile hidden-mobile"><img src="<?php print $default_picture_url; ?>" /></div>
         </a>
       </div>
     <?php endif; ?>
 
     <div class="logged-in element-hidden">
       <div class="picture-wrapper">
-        <div class="name">{firstname}</div>
+        <div class="name hidden-mobile">{firstname}</div>
         <div class="picture has-profile">{picture}</div>
         <div class="picture no-profile"><img src="<?php print $default_picture_url; ?>" /></div>
       </div>
