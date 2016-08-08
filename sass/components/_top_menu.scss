@@ -1,7 +1,6 @@
 .top-menu {
   float: right;
   height: 40px;
-  overflow: hidden;
 
   .top-menu__item {
     float: left;
@@ -9,14 +8,44 @@
     padding: 0;
 
     &#block-gent-auth-bar-bar {
-      width: 50px;
 
       #gent-auth-bar {
         width: auto;
         left: inherit;
         right: 0;
         padding: 0;
+        position: inherit;
+
+        .bar-wrapper {
+          float: none;
+          margin-right: 0;
+        }
+
+        .picture-wrapper {
+          .name, .picture {
+            height: 40px;
+            line-height: 40px;
+            font-size: 14px;
+            float: left;
+            color: #fff;
+            margin-right: 10px;
+          }
+        }
+        .popup-wrapper {
+          position: absolute;
+          z-index: 9999;
+          top: 40px;
+          right: 20px;
+          .popup {
+            position: relative;
+            box-shadow:  0px 0px 5px #2C3F48;
+          }
+        }
       }
     }
   }
+}
+
+#gent-auth-bar:hover .popup-wrapper .popup {
+  padding-top: 0px;
 }
