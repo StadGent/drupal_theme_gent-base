@@ -4,14 +4,22 @@
 
   .top-menu__item {
     float: left;
-    margin-left: 30px;
+    margin-left: 10px;
     padding: 0;
+
+    @include mq($bp-tablet-s  ) {
+      margin-left: 30px;
+    }
 
     a {
       line-height: 40px;
       font-size: 14px;
       color: #fff;
       text-decoration: none;
+    }
+
+    &#block-gentbe-general-sport-shop a {
+      font-size: 20px;
     }
 
     &#block-gent-auth-bar-bar {
@@ -26,6 +34,9 @@
         .bar-wrapper {
           float: none;
           margin-right: 0;
+          .login a {
+            padding: 0;
+          }
         }
 
         .picture-wrapper {
@@ -35,12 +46,12 @@
             font-size: 14px;
             float: left;
             color: #fff;
-            margin-right: 10px;
             img {
               margin-top: 0;
             }
           }
           .name {
+            margin-right: 10px;
             text-decoration: none;
           }
         }
