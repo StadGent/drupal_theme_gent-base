@@ -6,7 +6,7 @@ nav.holder .brand {
   @include add-grid(12);
   @include add-gutter(0);
 
-  //position: absolute; //move to top on small mobile devices
+  position: absolute; //move to top on small mobile devices
   //z-index: $z-alpha;
   background-color: transparent;
   //top: -12px;
