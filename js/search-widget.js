@@ -62,10 +62,10 @@
    */
   SearchWidget.prototype.close = function () {
     this.form.removeClass('is-open');
-    this.closeHandler.hide();
-    this.input.hide();
-    this.button.hide();
-    this.openHandler.show();
+    this.closeHandler.css('display', '');
+    this.input.css('display', '');
+    this.button.css('display', '');
+    this.openHandler.css('display', '');
   };
 
   /**
