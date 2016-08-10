@@ -51,6 +51,8 @@
    */
   SearchWidget.prototype.open = function () {
     this.form.addClass('is-open');
+    $('body').addClass('search-widget--is-open');
+
     this.openHandler.hide();
     this.closeHandler.show();
     this.input.show();
@@ -62,6 +64,8 @@
    */
   SearchWidget.prototype.close = function () {
     this.form.removeClass('is-open');
+    $('body').removeClass('search-widget--is-open');
+
     this.closeHandler.css('display', '');
     this.input.css('display', '');
     this.button.css('display', '');
