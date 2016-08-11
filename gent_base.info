@@ -26,4 +26,6 @@ scripts[] = libraries/livequery/jquery.livequery.min.js
 scripts[] = libraries/jquery-columnizer/jquery.columnizer.min.js
 
 ; Scripts
-scripts[] = js/search-widget.js
+scripts[] = js/viewport.min.js
+scripts[] = js/theme.min.js
+scripts[] = js/search-widget.min.js
