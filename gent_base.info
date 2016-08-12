@@ -25,7 +25,10 @@ scripts[] = libraries/masonry/imagesloaded.pkgd.min.js
 scripts[] = libraries/livequery/jquery.livequery.min.js
 scripts[] = libraries/jquery-columnizer/jquery.columnizer.min.js
 
-; Scripts
+; Scripts.
 scripts[] = js/viewport.min.js
 scripts[] = js/theme.min.js
 scripts[] = js/search-widget.min.js
+
+; Settings.
+settings[header_image_behavior] = 2

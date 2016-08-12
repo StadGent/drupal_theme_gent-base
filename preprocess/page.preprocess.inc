@@ -1,4 +1,8 @@
 <?php
+/**
+ * @file
+ * Contains page preprocessing.
+ */
 
 /**
  * Implements hook_preprocess_page().
@@ -14,12 +18,23 @@ function gent_base_preprocess_page(&$variables) {
 
   // Header image.
   $variables['header_image'] = NULL;
-  if ($fid = variable_get('default_headerimage_fid')) {
-    $file = file_load($fid);
-    if ($file) {
-      $image_style = gent_base_use_large_header() ? 'headerbanner_large' : 'headerbanner';
-      $variables['header_image'] = image_style_url($image_style, $file->uri);
-    }
+  switch (theme_get_setting('header_image_behavior')) {
+    // Only show the header image on the front page.
+    case GENT_BASE_HEADER_IMAGE_SHOW_FRONT_PAGE:
+      if (!empty($variables['is_front'])) {
+        $variables['header_image'] = gent_base_get_header_image();
+      }
+      break;
+
+    // Always show the header image.
+    case GENT_BASE_HEADER_IMAGE_SHOW:
+      $variables['header_image'] = gent_base_get_header_image();
+      break;
+
+    // Never show the header image.
+    case GENT_BASE_HEADER_IMAGE_HIDE:
+    default:
+      // Do nothing.
   }
 
   // Add classes to content / sidebar if sidebar is available.
