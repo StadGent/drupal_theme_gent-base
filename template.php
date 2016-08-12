@@ -5,8 +5,8 @@
  */
 
 define('GENT_BASE_HEADER_IMAGE_HIDE', 0);
-define('GENT_BASE_HEADER_IMAGE_SHOW_FRONT_PAGE', 1);
-define('GENT_BASE_HEADER_IMAGE_SHOW', 2);
+define('GENT_BASE_HEADER_IMAGE_SHOW', 1);
+define('GENT_BASE_HEADER_IMAGE_SHOW_FRONT_PAGE', 2);
 
 // @TODO store this in the theme registry like omega does with OmegaThemeRegistryHandler
 include_once 'preprocess/block.preprocess.inc';
