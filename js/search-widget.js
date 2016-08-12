@@ -56,6 +56,7 @@
     this.openHandler.hide();
     this.closeHandler.show();
     this.input.show();
+    this.input.focus();
     this.button.show();
   };
 
@@ -68,6 +69,7 @@
 
     this.closeHandler.css('display', '');
     this.input.css('display', '');
+    this.input.blur();
     this.button.css('display', '');
     this.openHandler.css('display', '');
   };
