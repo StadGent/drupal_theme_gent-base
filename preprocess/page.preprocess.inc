@@ -37,6 +37,12 @@ function gent_base_preprocess_page(&$variables) {
       // Do nothing.
   }
 
+  // Header image caption (only when header image is set).
+  $variables['header_caption'] = NULL;
+  if ($variables['header_image']) {
+    $variables['header_caption'] = theme_get_setting('header_image_caption');
+  }
+
   // Add classes to content / sidebar if sidebar is available.
   if (!empty($variables['page']['sidebar'])) {
     $variables['page']['content']['#sidebar'] = TRUE;
