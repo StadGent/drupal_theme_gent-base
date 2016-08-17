@@ -1,5 +1,46 @@
-nav.holder .brand {
-  float: left;
+nav.holder {
+  padding: 5px 0;
+  height: 50px;
+  .brand {
+    .brand__logo, .brand__tagline {
+      width: 55px;
+    }
+    .brand__tagline {
+      margin-left: 55px;
+      display: block;
+      float: left;
+    }
+    .thema_title {
+      display: table;
+      height: 40px;
+      margin: 0 0 0 120px;
+      .vertical-align {
+        display: table-cell;
+        vertical-align: middle;
+
+        span {
+          color: white;
+          line-height: 20px;
+          font-weight: bold;
+          font-family: $alpha-font-family;
+          @include font-size(-1);
+          display: block;
+          position: relative;
+          &:after {
+            content: "...";
+            position: absolute;
+            top: 20px;
+            right: 0;
+            width: 33%;
+            overflow: hidden;
+            height: calc(-40px + 100%);
+            background: #2c3f48;
+            padding-left: 5px;
+          }
+        }
+      }
+    }
+  }
 }
 
 .brand {

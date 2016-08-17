@@ -68,6 +68,38 @@ $rs-progressbar-handle-color  : #f39200;
   z-index: $z-gamma;
   bottom: 0;
   box-shadow: 0px 0px 21px -21px $dark-color;
+
+
+  &.v2 {
+    top: 0;
+    right: 0;
+    box-shadow: none;
+    bottom: inherit;
+    z-index: 0;
+    padding: 0 10px;
+    background: white;
+    background: -moz-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 20px, rgba(255,255,255,1) 100%);
+    background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 20px,rgba(255,255,255,1) 100%);
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 20px,rgba(255,255,255,1) 100%);
+
+    .rsbtn_gent {
+      background: transparent;
+      border-radius: inherit;
+      padding: 0;
+      .rsbutton {
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+      }
+      .rsexpanded {
+        padding-right: 8px;
+        background: transparent;
+      }
+      .rsbtn_progress_container {
+        margin-top: 20px;
+      }
+    }
+  }
 }
 
 .rsbtn_gent {
