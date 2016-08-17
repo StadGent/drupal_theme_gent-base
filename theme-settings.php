@@ -15,6 +15,12 @@ function gent_base_form_system_theme_settings_alter(&$form, &$form_state, $form_
     return;
   }
 
+  // Based on header_image behavior: provide header image upload & caption text.
+  // Stop here if header image is never shown.
+  if (theme_get_setting('header_image_behavior') === GENT_BASE_HEADER_IMAGE_HIDE) {
+    return;
+  }
+
   // Make sure this file is loaded during form processing.
   $form_state['build_info']['files']['gent_base'] = drupal_get_path('theme', 'gent_base') . '/theme-settings.php';
 
@@ -55,8 +61,8 @@ function gent_base_form_system_theme_settings_alter(&$form, &$form_state, $form_
 
     // @see manualcrop_default_widget_settings().
     // Add the crop tool and submit handler.
-    if (module_exists('manualcrop')) {
-      $styles = drupal_map_assoc(array('headerbanner', 'headerbanner_large'));
+    if (module_exists('manualcrop') && $styles = theme_get_setting('header_image_styles')) {
+      $styles = drupal_map_assoc($styles);
       manualcrop_croptool_process($form, $form_state, $form['headerimage']['headerimage_upload'], $file, array(
         'manualcrop_styles_mode' => 'include',
         'manualcrop_styles_list' => $styles,
@@ -65,6 +71,13 @@ function gent_base_form_system_theme_settings_alter(&$form, &$form_state, $form_
       $form['#submit'][] = 'manualcrop_croptool_submit';
     }
   }
+
+  $form['headerimage']['header_image_caption'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Header image caption'),
+    '#description' => t('Provides a caption text below the header image.'),
+    '#default_value' => theme_get_setting('header_image_caption'),
+  );
 
   $form['#submit'][] = 'gent_base_form_system_theme_settings_submit';
 }
