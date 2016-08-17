@@ -5,7 +5,6 @@ engine = phptemplate
 core = 7.x
 
 ; Regions.
-regions[search] = Search
 regions[top_menu] = Top menu
 regions[header] = Header
 regions[site_name] = Site name

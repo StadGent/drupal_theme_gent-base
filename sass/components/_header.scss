@@ -2,11 +2,19 @@
   position: relative;
 }
 .site__header {
-  background-color: $beta-ui-color;
+  background-color: #ffffff;
   position: static; //for mobile logo position
 
   img {
-    display: none;
+    display: inherit;
+  }
+  .site__header__normal__title h1 {
+    @include font-size(6);
+  }
+  .caption {
+    float: right;
+    margin: 0;
+    @include padding-tb(.3, .3);
   }
 
   @include mq($bp-tablet-s) {
