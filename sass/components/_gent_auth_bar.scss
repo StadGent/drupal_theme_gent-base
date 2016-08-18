@@ -4,3 +4,11 @@
 
   font-weight: $beta-font-weight;
 }
+
+#gent-auth-bar .picture-wrapper .picture img {
+  margin-top: -9px;
+  border-radius: 4px;
+  @include mq($bp-tablet-s) {
+    margin-top: 0;
+  }
+}
