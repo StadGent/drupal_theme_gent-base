@@ -8,9 +8,7 @@
   img {
     display: inherit;
   }
-  .site__header__normal__title h1 {
-    @include font-size(6);
-  }
+
   .caption {
     float: right;
     margin: 0;
@@ -27,6 +25,14 @@
       // Horizontal center the banner image if it doesn't fill the whole area.
       margin: 0 auto;
     }
+  }
+}
+
+.top-section .site__header__normal__title h1 {
+  @include text-dimensions(5, 1.5, 0, 0, 0, 0);
+  margin-bottom: 0;
+  @include mq($bp-tablet-s) {
+    @include text-dimensions(6, 1.5, 0, 0, 0, 1.56);
   }
 }
 

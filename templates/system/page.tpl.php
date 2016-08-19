@@ -80,7 +80,7 @@
                 </div>
               </div>
             <?php else: ?>
-              <div class="site__header__normal__title">
+              <div class="site__header__normal__title hidden-mobile">
                 <div class="l-row">
                   <!-- RSPEAK_START -->
                   <h1><?php print $title; ?></h1>
@@ -96,7 +96,7 @@
           <?php endif; ?>
         </header>
 
-        <div class="holder visible-mobile site__header__normal__title">
+        <div class="holder site__header__normal__title visible-mobile">
           <div class="l-row">
             <h1><?php print $title; ?></h1>
           </div>
