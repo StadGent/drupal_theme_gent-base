@@ -1,9 +1,14 @@
 nav.holder {
-  padding: 5px 0;
-  height: 50px;
+  padding: 3px 0;
+  height: 48px;
 
-  @include mqb($bp-tablet-s, $bp-tablet-m) {
+  @include mq($bp-tablet-s) {
+    padding: 7px 0;
     height: 60px;
+  }
+
+  @include mq($bp-tablet-m) {
+    height: 54px;
   }
 
   .brand {
