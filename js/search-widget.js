@@ -3,6 +3,17 @@
  * Contains mobile-friendly search widget.
  */
 (function ($) {
+  /**
+   * Mobile breakpoint in pixels.
+   * @type {number}
+   */
+  var GENT_BASE_BP_MOBILE = 640;
+
+  /**
+   * Viewport class to extract viewport's width and/or height.
+   * @type {Viewport}
+   */
+  var viewport = new Viewport();
 
   /**
    * Mobile-friendly search widget class.
@@ -80,8 +91,17 @@
   Drupal.behaviors.GentBaseMobileSearch = {
     attach: function (context) {
       $('.small-header .search-widget', context).once('mobile', function () {
-        var widget = new SearchWidget(this);
+        var searchWidget = this;
+        var widget = new SearchWidget(searchWidget);
         widget.init();
+
+        $(window).resize(function() {
+          viewport.refresh();
+
+          if($(searchWidget).hasClass('is-open') && viewport.get('width') >= GENT_BASE_BP_MOBILE) {
+            widget.close();
+          }
+        });
       });
     }
   };
