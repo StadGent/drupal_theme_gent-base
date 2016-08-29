@@ -53,31 +53,35 @@
 
   .search-widget__input {
     float: left;
-    width: 200px;
+    width: calc(100% - 120px);
     height: 40px;
     border-radius: 4px;
+    font-size: .8rem;
     border: none;
     background-color: rgba($white-color, 0.2);
     color: $white-color;
+    padding-right: .7rem;
+    display: none; // Hide on mobile.
+
+    &::-webkit-search-cancel-button {
+      -webkit-appearance: searchfield-cancel-button;
+    }
 
     @include placeholder {
       color: $white-color;
       opacity: 1;
     }
 
-    // Hide on mobile.
-    display: none;
-    @at-root & {
-      @include mq($bp-tablet-s) {
-        display: inline-block;
-      }
+    @include mq($bp-tablet-s) {
+      width: 200px;
+      display: inline-block;
     }
   }
 
   .search-widget__button {
     float: left;
-    padding: $alpha-font-size * 0.45 * 1px;
-    font-size: $alpha-font-size * 1px;
+    padding: 10px;
+    font-size: 12px;
     height: 40px;
     border: none;
     margin: 0 0 0 10px;

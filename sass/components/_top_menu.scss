@@ -2,12 +2,16 @@
   float: right;
   height: 40px;
 
-  .top-menu__item {
+  @include mqb($bp-tablet-s, $bp-tablet-m) {
+    margin: 4px 0;
+  }
+
+    .top-menu__item {
     float: left;
     margin-left: 10px;
     padding: 0;
 
-    @include mq($bp-tablet-s  ) {
+    @include mq($bp-tablet-s) {
       margin-left: 30px;
     }
 
