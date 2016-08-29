@@ -30,9 +30,9 @@ $rs-progressbar-handle-color  : #f39200;
 .icon-back:before { content: "\f108"; }
 .icon-download:before { content: "\f109"; }
 .icon-handle:before { content: "\f10a"; }
-.icon-pauze:before { content: "\f10b"; }
+.icon-pauze:before { content: "\f110"; }
 .icon-person:before { content: "\f10c"; }
-.icon-play:before { content: "\f110"; }
+.icon-play:before { content: "\f10b"; }
 .icon-settings:before { content: "\f10d"; }
 .icon-stop:before { content: "\f10e"; }
 .icon-volume:before { content: "\f10f"; }
@@ -75,8 +75,8 @@ $rs-progressbar-handle-color  : #f39200;
     right: 0;
     box-shadow: none;
     bottom: inherit;
-    z-index: 0;
     padding: 0 10px;
+    height: 45px;
     background: white;
     background: -moz-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 20px, rgba(255,255,255,1) 100%);
     background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 20px,rgba(255,255,255,1) 100%);
@@ -86,10 +86,15 @@ $rs-progressbar-handle-color  : #f39200;
       background: transparent;
       border-radius: inherit;
       padding: 0;
+
+      .divider {
+        height: 35px;
+      }
+
       .rsbutton {
         width: 50px;
-        height: 50px;
-        line-height: 50px;
+        height: 45px;
+        line-height: 45px;
       }
       .rsexpanded {
         padding-right: 8px;
@@ -232,7 +237,7 @@ $rs-progressbar-handle-color  : #f39200;
   &.rsstopped .rsbutton.rsbtn_stop:before {
     color: lighten($rs-btn-color, 40);
   }
-  
+
   /************************************************ PROGRESS CONTAINER */
   .rsbtn_progress_container {
     border: 1px solid $rs-progressbar-color;
@@ -327,8 +332,13 @@ $rs-progressbar-handle-color  : #f39200;
       @extend .icon-close:before;
       font-size: 2.25rem;
       margin-top: 3px;
-      margin-left:8px;
-      margin-right:16px; // Accomodate for the extra wide icon
+      margin-left: 8px;
+      margin-right: 16px; // Accomodate for the extra wide icon
+
+      @at-root .rscompact#{&} {
+        font-size: 1.9rem;
+        margin: 0 0 0 3px;
+      }
     }
   }
   
