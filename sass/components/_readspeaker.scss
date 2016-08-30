@@ -71,12 +71,12 @@ $rs-progressbar-handle-color  : #f39200;
 
 
   &.v2 {
-    top: 0;
+    top: .1em;
     right: 0;
     box-shadow: none;
     bottom: inherit;
     padding: 0 10px;
-    height: 45px;
+    height: 2.25em;
     background: white;
     background: -moz-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 20px, rgba(255,255,255,1) 100%);
     background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 20px,rgba(255,255,255,1) 100%);
@@ -93,8 +93,8 @@ $rs-progressbar-handle-color  : #f39200;
 
       .rsbutton {
         width: 50px;
-        height: 45px;
-        line-height: 45px;
+        height: 2em;
+        line-height: 2.25em;
       }
       .rsexpanded {
         padding-right: 8px;

@@ -59,17 +59,8 @@
 }
 
 .nav--breadcrumb {
-  @include text-dimensions(-2, 1, 0, .25, .25);
-
-  a {
-    @extend .btn;
-    @extend .btn--gamma;
-    @extend .btn--small;
-    @include padding-tb(.1, .2);
-  }
-
+  @include padding-tb(.4, .4);
   li {
-    @include padding-tb(.1, .1);
     @include px-margin-lr(0, 1.5);
     position: relative;
 
@@ -79,7 +70,7 @@
       height: 16px;
       background-image: url('#{$base-theme-path}/img/png/carret.png');
       position: absolute;
-      top: .7em;
+      top: .5em;
       right: -16px;
 
       .svg & {
@@ -91,8 +82,15 @@
       display: none;
     }
 
+    a {
+      @extend .btn;
+      @extend .btn--gamma;
+      @extend .btn--small;
+      @include text-dimensions(-4, 1, 0, .1, .1);
+    }
+
     > span {
-      @include text-dimensions(-2, 1, 0, .1, .2);
+      @include text-dimensions(-4, 1, 0, .1, .1);
       @include px-padding-lr(.8, 0);
       border-radius: $alpha-radius;
       position: relative;
