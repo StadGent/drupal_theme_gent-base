@@ -5,7 +5,7 @@
 // Clearfix.
 // @extend %clearfix;
 
-%clearfix {
+@mixin clearfix {
   *zoom: 1;
 
   &:before,
@@ -237,9 +237,38 @@
   }
 }
 
+// Media query mixin.
+// @include mq(#startpoint, #endpoint, #query);
+@mixin mqb($startpoint, $endpoint, $query: width) {
+  @media (min-#{$query}: $startpoint) and (max-#{$query}: $endpoint) {
+    @content;
+  }
+}
+
 // Hide text: http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/
 %hide-text {
   text-indent: 100%;
   white-space: nowrap;
   overflow: hidden;
+}
+
+// Input element placeholder mixin.
+// @include placeholder {
+//   font-style:italic;
+//   color: white;
+//   font-weight:100;
+// }
+@mixin placeholder {
+  &::-webkit-input-placeholder {
+    @content;
+  }
+  &:-moz-placeholder {
+    @content;
+  }
+  &::-moz-placeholder {
+    @content;
+  }
+  &:-ms-input-placeholder {
+    @content;
+  }
 }

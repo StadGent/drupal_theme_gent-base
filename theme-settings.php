@@ -15,33 +15,19 @@ function gent_base_form_system_theme_settings_alter(&$form, &$form_state, $form_
     return;
   }
 
-  // Leave if we've been here before.
-  if (isset($form['#submit']) && in_array('gent_base_form_system_theme_settings_submit', $form['#submit'])) {
+  // Based on header_image behavior: provide header image upload & caption text.
+  // Stop here if header image is never shown.
+  if (theme_get_setting('header_image_behavior') === GENT_BASE_HEADER_IMAGE_HIDE) {
     return;
   }
 
   // Make sure this file is loaded during form processing.
   $form_state['build_info']['files']['gent_base'] = drupal_get_path('theme', 'gent_base') . '/theme-settings.php';
 
-  // Top menu render method.
-  $form['theme_settings']['#access'] = TRUE;
-  $form['theme_settings']['top_menu_render_method'] = array(
-    '#type' => 'select',
-    '#title' => t('Render top menu'),
-    '#options' => array(
-      GENT_BASE_TOP_MENU_RENDER_METHOD_EMPTY => t('Leave empty'),
-      GENT_BASE_TOP_MENU_RENDER_METHOD_REGION => t('Try to render @region region', array('@region' => 'top_menu')),
-      GENT_BASE_TOP_MENU_RENDER_METHOD_USER_LINKS => t('Render custom user links'),
-    ),
-    '#default_value' => theme_get_setting('top_menu_render_method'),
-    '#access' => $GLOBALS['theme_key'] !== 'gent_base',
-  );
-
-
   // Header image.
-  $fid = variable_get('default_headerimage_fid');
-  if (!empty($form_state['values']['default_headerimage_fid'])) {
-    $fid = $form_state['values']['default_headerimage_fid'];
+  $fid = theme_get_setting('headerimage_fid');
+  if (!empty($form_state['values']['headerimage_upload'])) {
+    $fid = $form_state['values']['headerimage_upload'];
   }
 
   $form['headerimage'] = array(
@@ -50,27 +36,34 @@ function gent_base_form_system_theme_settings_alter(&$form, &$form_state, $form_
     '#description' => t('This image will be shown as the default header image.'),
   );
 
-  $form['headerimage']['default_headerimage_fid'] = array(
+  $form['headerimage']['headerimage_upload'] = array(
     '#type' => 'managed_file',
-    '#default_value' => variable_get('default_headerimage_fid'),
+    '#title' => t('Upload header image'),
+    '#maxlength' => 40,
+    '#default_value' => theme_get_setting('headerimage_fid'),
     '#upload_location' => 'public://',
-    '#upload_validators'  => array('file_validate_extensions' => array('png gif jpg')),
+    '#upload_validators'  => array('file_validate_is_image' => array()),
+  );
+
+  $form['headerimage']['headerimage_fid'] = array(
+    '#type' => 'value',
+    '#value' => theme_get_setting('headerimage_fid'),
   );
 
   if (!empty($fid) && $file = file_load($fid)) {
-    $form['headerimage']['default_headerimage_fid']['preview'] = array(
+    $form['headerimage']['headerimage_upload']['preview'] = array(
       '#markup' => theme('image_style', array(
         'style_name' => 'thumbnail',
-         'path' => $file->uri,
+        'path' => $file->uri,
         'alt' => t('Preview'),
       )),
     );
 
     // @see manualcrop_default_widget_settings().
     // Add the crop tool and submit handler.
-    if (module_exists('manualcrop')) {
-      $styles = drupal_map_assoc(array('headerbanner', 'headerbanner_large'));
-      manualcrop_croptool_process($form, $form_state, $form['headerimage']['default_headerimage_fid'], $file, array(
+    if (module_exists('manualcrop') && $styles = theme_get_setting('header_image_styles')) {
+      $styles = drupal_map_assoc($styles);
+      manualcrop_croptool_process($form, $form_state, $form['headerimage']['headerimage_upload'], $file, array(
         'manualcrop_styles_mode' => 'include',
         'manualcrop_styles_list' => $styles,
         'manualcrop_require_cropping' => $styles,
@@ -79,42 +72,49 @@ function gent_base_form_system_theme_settings_alter(&$form, &$form_state, $form_
     }
   }
 
+  $form['headerimage']['header_image_caption'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Header image caption'),
+    '#description' => t('Provides a caption text below the header image.'),
+    '#default_value' => theme_get_setting('header_image_caption'),
+  );
+
   $form['#submit'][] = 'gent_base_form_system_theme_settings_submit';
 }
 
 /**
- * Extra system theme settings form submit handler.
+ * Form submit handler; system theme settings form.
  *
  * @param array $form
- *   The form.
+ *   The form array.
  * @param array $form_state
- *   The form object.
+ *   The form_state array.
  */
 function gent_base_form_system_theme_settings_submit($form, &$form_state) {
-  $fid_old = variable_get('default_headerimage_fid');
-  $fid_new = (!empty($form_state['values']['default_headerimage_fid']) ? $form_state['values']['default_headerimage_fid'] : NULL);
+  $fid_old = !empty($form_state['values']['headerimage_fid']) ? $form_state['values']['headerimage_fid'] : NULL;
+  $fid_new = !empty($form_state['values']['headerimage_upload']) ? $form_state['values']['headerimage_upload'] : NULL;
+
+  // We don't need to store the theme setting for headerimage upload.
+  unset($form_state['values']['headerimage_upload']);
 
   if ($fid_new != $fid_old) {
+    // Copy the headerimage upload fid over the existing headerimage fid.
+    $form_state['values']['headerimage_fid'] = $fid_new;
+
     if ($fid_new) {
       $file = file_load($fid_new);
 
-      if (!$file->status) {
+      if ($file->status != FILE_STATUS_PERMANENT) {
         $file->status = FILE_STATUS_PERMANENT;
         file_save($file);
+        file_usage_add($file, 'gent_base_tools', 'headerimage', 1);
       }
-
-      file_usage_add($file, 'gent_base_tools', 'headerimage', 1);
-      variable_set('default_headerimage_fid', $file->fid);
     }
 
     if ($fid_old) {
       if ($file = file_load($fid_old)) {
         file_usage_delete($file, 'gent_base_tools', 'headerimage');
         file_delete($file);
-      }
-
-      if (!$fid_new) {
-        variable_del('default_headerimage_fid');
       }
     }
   }

@@ -31,9 +31,3 @@ stylesheets[print][] = css/default_starterkit.print.css
 ; ========================================
 ; Uncomment if you have a minified version of the base theme's theme.js in your subtheme (grunt build will create one)
 ;scripts[] = js/theme.min.js
-
-; ========================================
-; Default Theme settings
-; ========================================
-settings[top_menu_render_method] = region
-

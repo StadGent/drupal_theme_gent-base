@@ -1,0 +1,75 @@
+.top-menu {
+  float: right;
+  height: 40px;
+
+  @include mqb($bp-tablet-s, $bp-tablet-m) {
+    margin: 4px 0;
+  }
+
+    .top-menu__item {
+    float: left;
+    margin-left: 10px;
+    padding: 0;
+
+    @include mq($bp-tablet-s) {
+      margin-left: 30px;
+    }
+
+    a {
+      line-height: 40px;
+      font-size: 14px;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    &#block-gent-auth-bar-bar {
+
+      #gent-auth-bar {
+        width: auto;
+        left: inherit;
+        right: 0;
+        padding: 0;
+        position: inherit;
+
+        .bar-wrapper {
+          float: none;
+          margin-right: 0;
+          .login a {
+            padding: 0;
+          }
+        }
+
+        .picture-wrapper {
+          .name, .picture {
+            height: 40px;
+            line-height: 40px;
+            font-size: 14px;
+            float: left;
+            color: #fff;
+            img {
+              margin-top: 0;
+            }
+          }
+          .name {
+            margin-right: 10px;
+            text-decoration: none;
+          }
+        }
+        .popup-wrapper {
+          position: absolute;
+          z-index: 9999;
+          top: 40px;
+          right: 20px;
+          .popup {
+            position: relative;
+            box-shadow:  0px 0px 5px #2C3F48;
+          }
+        }
+      }
+    }
+  }
+}
+
+#gent-auth-bar:hover .popup-wrapper .popup {
+  padding-top: 0px;
+}
