@@ -57,6 +57,14 @@
   }
 }
 
+// Hide header image on front page / mobile.
+.front .header__background {
+  display: none;
+  @include mq($bp-tablet-s) {
+    display: block;
+  }
+}
+
 .site__header__image__gradient {
   display: none;
   position: absolute;
