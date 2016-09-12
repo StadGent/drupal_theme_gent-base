@@ -59,7 +59,7 @@
 }
 
 .nav--breadcrumb {
-  @include padding-tb(.4, .4);
+  @include padding-tb(.25, .2);
   li {
     @include px-margin-lr(0, 1.5);
     position: relative;
