@@ -13,12 +13,18 @@
     float: right;
     margin: 0;
     @include padding-tb(.3, .3);
+    @include text-dimensions(-5, .8);
+
   }
 
   @include mq($bp-tablet-s) {
     position: relative;
     img {
       display: block;
+    }
+
+    .caption {
+      @include text-dimensions(-3, .8);
     }
 
     .header__background img {
@@ -99,6 +105,7 @@
     filter: progid:DXImageTransform.Microsoft.DropShadow(offX=1,offY=1,color=#{$alpha-text-color});
     h1 {
       @include margin-tb(1.5, 1.5);
+      @include text-dimensions(5, 1.3);
     }
   }
 }
