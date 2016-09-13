@@ -65,36 +65,8 @@
           </div>
         </div>
       </div>
-
-      <div class="mask <?php print $is_front ? 'ratio--home' : 'ratio--header'; ?>">
-        <?php if ($header_image): ?>
-          <div class="header__background" style="background-image:url('<?php print $header_image['#src']; ?>');"></div>
-        <?php endif; ?>
-
-        <span class="site__header__image__gradient"></span>
-
-        <div class="site__header__image__title">
-            <div class="l-row">
-                <h1><?php print $site_name; ?></h1>
-            </div>
-         </div>
-
-          <?php if (!empty($readspeaker)): ?>
-            <div class="readspeaker">
-              <?php print render($readspeaker); ?>
-            </div>
-          <?php endif; ?>
-        </div>
     </header>
   </section>
-
-  <?php if ($breadcrumb): ?>
-    <section class="holder">
-      <div class="l-row">
-        <?php print $breadcrumb; ?>
-      </div>
-    </section>
-  <?php endif; ?>
 
   <section class="holder padding--big">
     <div class="l-row">
