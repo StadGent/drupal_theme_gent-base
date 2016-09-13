@@ -91,7 +91,7 @@
           </div>
           <?php if (!empty($header_image['#title'])): ?>
             <div class="l-row">
-              <p class="caption"><?php print $header_image['#title']; ?></p>
+              <p class="caption"><?php print check_plain($header_image['#title']); ?></p>
             </div>
           <?php endif; ?>
         </header>
