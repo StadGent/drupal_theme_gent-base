@@ -68,7 +68,7 @@
 
       <div class="mask <?php print $is_front ? 'ratio--home' : 'ratio--header'; ?>">
         <?php if ($header_image): ?>
-          <div class="header__background" style="background-image:url('<?php print $header_image; ?>');"></div>
+          <div class="header__background" style="background-image:url('<?php print $header_image['#src']; ?>');"></div>
         <?php endif; ?>
 
         <span class="site__header__image__gradient"></span>
