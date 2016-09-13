@@ -33,8 +33,8 @@ function gent_base_preprocess_page(&$variables) {
   }
 
   if ($variables['header_image']) {
-    $variables['header_image']['#src'] = image_style_url($variables['header_image']['#style_name'], $variables['header_image']['#path']);
-    $variables['header_image']['#alt'] = theme_get_setting('header_image_caption');
+    $variables['header_image']['#alt'] = t('Header image');
+    $variables['header_image']['#title'] = theme_get_setting('header_image_caption');
   }
 
   // Add classes to content / sidebar if sidebar is available.
