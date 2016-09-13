@@ -58,14 +58,15 @@
     border-radius: 4px;
     font-size: .8rem;
     border: none;
-    background-color: rgba($white-color, 0.2);
     color: $white-color;
-    padding-right: .7rem;
+    padding-right: 18px; /* Use the same right padding (18) in jQ! */
     display: none; // Hide on mobile.
+    background: rgba($white-color, 0.2) url('#{$base-theme-path}/img/png/x.png') no-repeat right -16px center;
+    transition: background 0.1s;
 
-    &::-webkit-search-cancel-button {
-      -webkit-appearance: searchfield-cancel-button;
-    }
+    &.x  { background-position: right 10px center; } /* (jQ) Show icon */
+    &.onX{ cursor: pointer; }              /* (jQ) hover cursor style */
+    &::-ms-clear {display: none; width:0; height:0;} /* Remove IE default X */
 
     @include placeholder {
       color: $white-color;
@@ -75,6 +76,10 @@
     @include mq($bp-tablet-s) {
       width: 200px;
       display: inline-block;
+    }
+
+    @include mq($bp-tablet-l) {
+      font-size: .7rem;
     }
   }
 
