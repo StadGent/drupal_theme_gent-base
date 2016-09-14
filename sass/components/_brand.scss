@@ -136,7 +136,7 @@ nav.holder {
   @include mq($bp-tablet-s) {
     @include add-grid(24);
     top: 0px;
-    width: 100%;
+    width: 50%;
     z-index: $z-gamma;
   }
 }
