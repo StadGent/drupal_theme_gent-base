@@ -59,7 +59,7 @@
 }
 
 .nav--breadcrumb {
-  @include padding-tb(.25, .2);
+  @include padding-tb(.4, .4);
   li {
     @include px-margin-lr(0, 1.5);
     position: relative;
@@ -100,6 +100,7 @@
       font-family: $alpha-font-family;
       font-weight: $beta-font-weight;
       text-decoration: none;
+      color: $beta-ui-color;
       border: 1px solid transparent;
     }
   }

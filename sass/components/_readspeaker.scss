@@ -30,9 +30,9 @@ $rs-progressbar-handle-color  : #f39200;
 .icon-back:before { content: "\f108"; }
 .icon-download:before { content: "\f109"; }
 .icon-handle:before { content: "\f10a"; }
-.icon-pauze:before { content: "\f110"; }
+.icon-pauze:before { content: "\f10b"; }
 .icon-person:before { content: "\f10c"; }
-.icon-play:before { content: "\f10b"; }
+.icon-play:before { content: "\f110"; }
 .icon-settings:before { content: "\f10d"; }
 .icon-stop:before { content: "\f10e"; }
 .icon-volume:before { content: "\f10f"; }
@@ -194,7 +194,7 @@ $rs-progressbar-handle-color  : #f39200;
     margin-right: 16px; // Accomodate for the extra wide icon
   }
   
-  &.rsexpanded  .rsbutton.rsbtn_play:before {
+  &.rsexpanded .rsbutton.rsbtn_play:before {
     @extend .icon-back:before;
     margin-right: 8px; // Accomodate for the extra wide icon
     margin-left:16px;
@@ -219,14 +219,14 @@ $rs-progressbar-handle-color  : #f39200;
   .rsbutton.rsbtn_pause:before {
     @extend .icon-pauze:before;
   }
-  
+
+  &.rspaused .rsbutton.rsbtn_pause:before,
   &.rsstopped .rsbutton.rsbtn_pause:before {
-    @extend .icon-play:before; // @todo choose a play icon
+    @extend .icon-play:before;
   }
   
   &.rsplaying .rsbutton.rsbtn_pause:before {
-    @extend .icon-play:before;
-    color: $alpha-ui-color;
+    @extend .icon-pauze:before;
   }
   
   /************************************************ STOP BUTTON */
