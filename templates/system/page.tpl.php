@@ -65,7 +65,7 @@
           <div class="mask ratio--header">
             <?php if ($header_image): ?>
               <div class="header__background">
-                <img src="<?php print $header_image; ?>" alt="<?php print t('Header image'); ?>"/>
+                <?php print render($header_image); ?>
               </div>
 
               <div class="site__header__image__title hidden-mobile">
@@ -89,9 +89,9 @@
               </div>
             <?php endif; ?>
           </div>
-          <?php if ($header_caption): ?>
+          <?php if (!empty($header_image['#title'])): ?>
             <div class="l-row">
-              <p class="caption"><?php print $header_caption; ?></p>
+              <p class="caption"><?php print check_plain($header_image['#title']); ?></p>
             </div>
           <?php endif; ?>
         </header>

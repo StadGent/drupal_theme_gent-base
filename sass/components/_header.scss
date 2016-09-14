@@ -6,15 +6,16 @@
   position: static; //for mobile logo position
 
   img {
-    display: inherit;
+    display: none;
   }
 
   .caption {
-    float: right;
-    margin: 0;
     @include padding-tb(.3, .3);
     @include text-dimensions(-5, .8);
 
+    display: none;
+    float: right;
+    margin: 0;
   }
 
   @include mq($bp-tablet-s) {
@@ -25,6 +26,7 @@
 
     .caption {
       @include text-dimensions(-3, .8);
+      display: block;
     }
 
     .header__background img {
@@ -60,14 +62,6 @@
 .large-header {
   .header__background {
     max-height: 490px;
-  }
-}
-
-// Hide header image on front page / mobile.
-.front .header__background {
-  display: none;
-  @include mq($bp-tablet-s) {
-    display: block;
   }
 }
 

@@ -738,19 +738,21 @@ function gent_base_gent_base_tools_extra_contact_block(&$variables) {
 }
 
 /**
- * Retrieves the header image url configured in the theme.
+ * Get the header image as a renderable array.
  *
- * @return string|null
- *   The absolute url to the header image or NULL if no file was found.
+ * @return
+ *   The renderable array or NULL if no header image is set.
  */
 function gent_base_get_header_image() {
-  if ($fid = theme_get_setting('headerimage_fid')) {
-    if ($file = file_load($fid)) {
-      $image_style = gent_base_use_large_header() ? 'headerbanner_large' : 'headerbanner';
-      if ($url = image_style_url($image_style, $file->uri)) {
-        return $url;
-      }
-    }
+  $fid = theme_get_setting('headerimage_fid');
+
+  if ($fid && $file = file_load($fid)) {
+    return array(
+      '#theme' => 'image_style',
+      '#path' => $file->uri,
+      '#style_name' => (gent_base_use_large_header() ? 'headerbanner_large' : 'headerbanner'),
+    );
   }
+
   return NULL;
 }
