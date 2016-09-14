@@ -17,6 +17,8 @@
   @include mq($bp-tablet-s) {
     position: relative;
     img {
+      width: auto !important;
+      height: auto !important;
       display: block;
     }
 
