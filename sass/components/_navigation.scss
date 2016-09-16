@@ -89,12 +89,12 @@
       @include text-dimensions(-4, 1, 0, .1, .1);
 
       &:hover {
-        border: 0 !important;
+        border: none;
       }
 
       &.btn--gamma {
         &:hover {
-          border: 0 !important;
+          border: none;
         }
       }
     }
