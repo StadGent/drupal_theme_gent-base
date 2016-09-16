@@ -23,6 +23,7 @@
       </div>
 
       <div class="popup-wrapper">
+        <div class="arrow"></div>
         <div class="popup">
           <?php if ($links) : ?>
             <div class="middle">
