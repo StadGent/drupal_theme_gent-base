@@ -15,6 +15,7 @@ nav.holder {
     height: 32px;
     margin: 5px 0;
     overflow: hidden;
+    width: 50%;
 
     @include mq($bp-tablet-s) {
       height: 38px;
@@ -136,7 +137,7 @@ nav.holder {
   @include mq($bp-tablet-s) {
     @include add-grid(24);
     top: 0px;
-    width: 50%;
+    width: 100%;
     z-index: $z-gamma;
   }
 }
