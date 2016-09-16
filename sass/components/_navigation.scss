@@ -87,7 +87,19 @@
       @extend .btn--gamma;
       @extend .btn--small;
       @include text-dimensions(-4, 1, 0, .1, .1);
+
+      &:hover {
+        border: 0 !important;
+      }
+
+      &.btn--gamma {
+        &:hover {
+          border: 0 !important;
+        }
+      }
     }
+
+
 
     > span {
       @include text-dimensions(-4, 1, 0, .1, .1);
@@ -101,7 +113,7 @@
       font-weight: $beta-font-weight;
       text-decoration: none;
       color: $beta-ui-color;
-      border: 1px solid transparent;
+
     }
   }
 
