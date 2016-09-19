@@ -45,9 +45,12 @@
             line-height: 40px;
             font-size: 14px;
             float: left;
-            color: #fff;
-            img {
-              margin-top: 0;
+            color: $white-color;
+            &.has-profile img {
+              margin-top: 2px;
+            }
+            &.no-profile img {
+              margin-top: -1px;
             }
           }
           .name {
