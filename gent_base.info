@@ -27,6 +27,7 @@ scripts[] = libraries/jquery-columnizer/jquery.columnizer.min.js
 ; Scripts.
 scripts[] = js/viewport.min.js
 scripts[] = js/theme.min.js
+scripts[] = js/header.min.js
 scripts[] = js/search-widget.min.js
 
 ; Settings.
