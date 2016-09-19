@@ -93,6 +93,7 @@
       }
 
       &.btn--gamma {
+        transition-property: background, color;
         &:hover {
           border: none;
         }
