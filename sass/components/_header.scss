@@ -41,10 +41,6 @@
   @include mq($bp-tablet-s) {
     @include text-dimensions(5, 1.3, 0, 0, 0, 1.56);
   }
-
-  @include mq($bp-tablet-m) {
-    @include text-dimensions(6, 1.4, 0, 0, 0, 1.56);
-  }
 }
 
 .ratio--home,
