@@ -64,6 +64,12 @@ function gent_base_preprocess_html(&$variables) {
   // Set the large banner layout on some pages.
   $variables['classes_array'][] = gent_base_use_large_header() ? 'large-header' : 'small-header';
 
+  // If Readspeaker button is enabled add a class to the body so we know...
+  // eg. so it doesn't overlaps with breadcrumb.
+  if (theme_get_setting('readspeaker_enabled')) {
+    $variables['classes_array'][] = 'readspeaker--enabled';
+  }
+
   // Merge classes array into attributes array.
   if (!empty($variables['classes_array'])) {
     if (!empty($variables['attributes_array']['class'])) {

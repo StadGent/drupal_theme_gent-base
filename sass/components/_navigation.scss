@@ -129,4 +129,12 @@
       }
     }
   }
+
+  // If readspeaker is enabled, we add 50px padding so it doesn't overlap
+  // with our breadcrumb navigation. Starting from tablet.
+  @at-root body.readspeaker--enabled & {
+    @include mq($bp-tablet-s) {
+      padding-right: 50px;
+    }
+  }
 }
