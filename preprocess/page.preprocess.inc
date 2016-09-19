@@ -63,4 +63,12 @@ function gent_base_preprocess_page(&$variables) {
       drupal_add_js($lib . '/jquery.sticky.js');
     }
   }
+
+  // Remove the Readspeaker button if not explicitly enabled by theme.
+  // info file: "settings[readspeaker_enabled] = 1".
+  if (isset($variables['readspeaker'])) {
+    if (!theme_get_setting('readspeaker_enabled')) {
+      $variables['readspeaker'] = NULL;
+    }
+  }
 }

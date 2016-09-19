@@ -34,3 +34,4 @@ scripts[] = js/search-widget.min.js
 settings[header_image_behavior] = 2
 settings[header_image_styles][] = headerbanner_medium
 settings[header_image_styles][] = headerbanner_large
+settings[readspeaker_enabled] = 0
