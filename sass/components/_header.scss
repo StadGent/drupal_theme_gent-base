@@ -2,16 +2,27 @@
   position: relative;
 }
 .site__header {
-  background-color: $beta-ui-color;
+  background-color: #ffffff;
   position: static; //for mobile logo position
 
   img {
     display: none;
   }
 
+  .caption {
+    display: none;
+    float: right;
+  }
+
   @include mq($bp-tablet-s) {
     position: relative;
     img {
+      width: auto !important;
+      height: auto !important;
+      display: block;
+    }
+
+    .caption {
       display: block;
     }
 
@@ -22,14 +33,35 @@
   }
 }
 
+// Hide header image on front page / mobile.
+.front .header__background {
+  display: none;
+  @include mq($bp-tablet-s) {
+    display: block;
+  }
+}
+
+.top-section .site__header__normal__title h1 {
+  @include text-dimensions(5, 1.3, 0, 0, 0, 0.8);
+  margin-bottom: 0;
+
+  @include mq($bp-tablet-s) {
+    @include text-dimensions(5, 1.3, 0, 0, 0, 1.56);
+  }
+}
+
 .ratio--home,
 .ratio--header {
   padding-top: 0;
 }
 
+.ratio--header.mask {
+  overflow: visible;
+}
+
 .header__background {
   width: 100%;
-  max-height: 365px;
+  max-height: 420px;
   overflow: hidden;
 }
 
@@ -73,6 +105,7 @@
     filter: progid:DXImageTransform.Microsoft.DropShadow(offX=1,offY=1,color=#{$alpha-text-color});
     h1 {
       @include margin-tb(1.5, 1.5);
+      @include text-dimensions(5, 1.3);
     }
   }
 }
@@ -82,85 +115,6 @@
   top: 0;
   left: 0;
   width: 100%;
-}
-
-// Search widget
-.search-widget {
-  @extend %clearfix;
-  @include padding-tb(.5, 0);
-  float: left;
-  width: 100%;
-  border-top: 1px solid lighten($beta-ui-color, 10);
-
-  input[type="search"], input[type="text"] {
-    @include grid-span(18);
-    @include input-dimensions(-2, .8, 0, .1, .2);
-    border-color: $white-color;
-  }
-
-  input[type="submit"] {
-    @include grid-span(6, 19);
-    @include input-dimensions(-2, .8, 0, .1, .2);
-  }
-
-  @include mq($bp-tablet-s) {
-    float: none;
-    width: auto;
-    border-top: 0;
-    padding-top: 0;
-
-    input[type="search"] {
-      @include grid-span(9);
-      border-color: $white-color;
-    }
-
-    input[type="submit"] {
-      @include grid-span(3, 10);
-      width: 102px;
-    }
-  }
-
-  @include mq($bp-tablet-l) {
-    input[type="search"] {
-      width: 335px;
-      border-color: $white-color;
-    }
-
-    input[type="submit"] {
-      margin-left: 335px;
-    }
-  }
-}
-
-// Search widget home
-.large-header .search-widget {
-  @extend %clearfix;
-  @include padding-tb(0, 1);
-  float: left;
-  width: 100%;
-
-  h1 {
-    @include padding-tb(0, 1);
-    text-align: center;
-    margin-bottom: 0;
-  }
-
-  input[type="search"], input[type="text"] {
-    @include grid-span(18);
-    border-color: $white-color;
-  }
-
-  input[type="submit"] {
-    @include grid-span(6, 19);
-  }
-
-  @include mq($bp-tablet-s) {
-    @include padding-tb(0, 3.5);
-  }
-
-  @include mq($bp-tablet-l) {
-    @include padding-tb(0, 3);
-  }
 }
 
 // Login widget
@@ -180,37 +134,6 @@
 
   @include mq($bp-tablet-l) {
     @include grid-span(13, 12);
-  }
-}
-
-.not-front {
-  .search-widget {
-    &> div {
-      display: none;
-      @include mq($bp-phone-m) {
-        margin-top:6px;
-        padding-top: 6px;
-      }
-      @include mq($bp-tablet-s) {
-        border-top: none;
-        margin-top:0;
-        padding-top: 0;
-        display: block;
-      }
-    }
-  }
-  nav.holder .l-primary--offset {
-    @include mq($bp-tablet-s) {
-      @include grid-span(20);
-    }
-  }
-}
-
-.not-front.page-zoeken  {
-  .search-widget {
-    & > div {
-      display: block;
-    }
   }
 }
 

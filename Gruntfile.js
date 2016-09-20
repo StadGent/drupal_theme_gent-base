@@ -9,7 +9,7 @@ module.exports = function (grunt) {
       },
       sass: {
         files: ['sass/{,**/}*.{scss,sass}'],
-        tasks: ['compass:dev', 'styleguide'],
+        tasks: ['compass:dev'],
         options: {
           livereload: false
         }
@@ -104,62 +104,22 @@ module.exports = function (grunt) {
           }
         }]
       }
-    },
-
-    kss: {
-      options: {
-        includeType: 'sass',
-        includePath: './sass',
-        template: './template_styleguide'
-      },
-      dist: {
-        files: {
-          './styleguide': ['./sass']
-        }
-      }
-    },
-    imagemin: {                          // Task
-      dist: {                         // Another target
-        options: {                       // Target options
-          optimizationLevel: 1
-        },
-        files: [
-          {
-            expand: true,
-            cwd: 'img/',
-            dest: 'img/',
-            src: ['**/*.{png,jpg,gif}']
-          },
-        ]
-      }
     }
-
   });
 
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-imagemin');
-  grunt.loadNpmTasks('grunt-newer');
-  grunt.loadNpmTasks('grunt-kss');
   grunt.loadNpmTasks('grunt-shell');
 
   grunt.registerTask('build', [
-    'newer:imagemin:dist',
-    'newer:uglify:dist',
-    'compass:dist',
-    'kss',
-    'jshint',
+    'uglify:dist',
+    'compass:dist'
   ]);
 
   grunt.registerTask('compile', [
-    'compass:dev',
-    'kss',
-  ]);
-
-  grunt.registerTask('styleguide', [
-    'kss',
+    'compass:dev'
   ]);
 
 };

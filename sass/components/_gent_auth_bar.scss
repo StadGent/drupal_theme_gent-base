@@ -1,6 +1,0 @@
-#gent-auth-bar .bar-wrapper .login a {
-  @include text-dimensions(-3, 1, 0, .35, .35);
-  @include px-padding-lr(1, 1);
-
-  font-weight: $beta-font-weight;
-}

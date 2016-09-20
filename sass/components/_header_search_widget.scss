@@ -1,0 +1,151 @@
+// Search widget (large header).
+.large-header .search-widget {
+  @include clearfix;
+  @include padding-tb(0, 1);
+  border-top: 1px solid lighten($beta-ui-color, 10);
+  width: 100%;
+
+  h1 {
+    @include padding-tb(0, 1);
+    text-align: center;
+    margin-bottom: 0;
+  }
+
+  .search-widget__input {
+    @include grid-span(18);
+    @include input-dimensions(-2, .8, 0, .1, .2);
+    border-color: $white-color;
+  }
+
+  .search-widget__button {
+    @include grid-span(6, 19);
+    @include input-dimensions(-2, .8, 0, .1, .2);
+  }
+
+  @include mq($bp-tablet-s) {
+    @include padding-tb(0, 3.5);
+    border-top: 0;
+
+    .search-widget__input {
+      @include grid-span(18);
+      border-color: $white-color;
+    }
+
+    .search-widget__button {
+      @include grid-span(6, 19);
+    }
+  }
+
+  @include mq($bp-tablet-l) {
+    @include padding-tb(0, 3);
+
+    .search-widget__input {
+      border-color: $white-color;
+    }
+  }
+}
+
+// Search widget (small header).
+.small-header .search-widget {
+  @include clearfix;
+  color: $white-color;
+  height: 40px;
+
+  .search-widget__input {
+    float: left;
+    width: calc(100% - 120px);
+    height: 40px;
+    border-radius: 4px;
+    font-size: .8rem;
+    border: none;
+    color: $white-color;
+    padding-right: 18px; /* Use the same right padding (18) in jQ! */
+    display: none; // Hide on mobile.
+    background: rgba($white-color, 0.2) url('#{$base-theme-path}/img/png/x.png') no-repeat right -16px center;
+    transition: background 0.1s;
+
+    &.x  { background-position: right 10px center; } /* (jQ) Show icon */
+    &.onX{ cursor: pointer; }              /* (jQ) hover cursor style */
+    &::-ms-clear {display: none; width:0; height:0;} /* Remove IE default X */
+
+    @include placeholder {
+      color: $white-color;
+      opacity: 1;
+    }
+
+    @include mq($bp-tablet-s) {
+      width: 200px;
+      display: inline-block;
+    }
+
+    @include mq($bp-tablet-l) {
+      font-size: .7rem;
+    }
+  }
+
+  .search-widget__button {
+    float: left;
+    padding: 10px;
+    font-size: 12px;
+    height: 40px;
+    border: none;
+    margin: 0 0 0 10px;
+    border-radius: 4px;
+    background-color: transparent;
+
+    &:hover {
+      background-color: $white-color;
+      color: $beta-ui-color;
+    }
+
+    .icon {
+      font-size: 20px;
+    }
+
+    // Hide on mobile.
+    display: none;
+    @at-root & {
+      @include mq($bp-tablet-s) {
+        display: inline-block;
+      }
+    }
+
+    &.search-widget__input {
+      margin-left: 0;
+    }
+
+    &.search-widget__submit {
+      margin-left: 0;
+    }
+
+    &.search-widget__close_handle {
+      float: right;
+    }
+  }
+
+  // Always hide, will get shown in javascript.
+  .search-widget__close_handle {
+    display: none;
+  }
+
+  // Show on mobile initially.
+  .search-widget__open_handle {
+    display: inline-block;
+    @at-root & {
+      @include mq($bp-tablet-s) {
+        display: none;
+      }
+    }
+  }
+
+  &.is-open {
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    left: 10px;
+    right: 10px;
+    bottom: 0;
+    background-color: $beta-ui-color;
+  }
+}
+

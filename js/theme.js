@@ -1,26 +1,51 @@
+/**
+ * @file
+ * The Gent Base theme global javascript file.
+ */
 (function ($) {
 
+  /**
+   * Mobile breakpoint in pixels.
+   * @type {number}
+   */
+  var GENT_BASE_BP_MOBILE = 640;
 
+  /**
+   * Tablet breakpoint in pixels.
+   * @type {number}
+   */
+  var GENT_BASE_BP_TABLET = 960;
+
+  /**
+   * Viewport class to extract viewport's width and/or height.
+   * @type {Viewport}
+   */
+  var viewport = new Viewport();
+
+  // Register, for backwards compatibilty with Drupal's default jQuery version,
+  // $.on as alias of $.live.
+  if (typeof $.fn.on === 'undefined') {
+    jQuery.fn.extend({
+      on: jQuery.fn.live
+    });
+  }
+
+  /**
+   *
+   */
   Drupal.behaviors.gentBaseBehavior = {
     attach: function (context, settings) {
-      // By using the 'context' variable we make sure that our code only runs on
-      // the relevant HTML. Furthermore, by using jQuery.once() we make sure that
-      // we don't run the same piece of code for an HTML snippet that we already
-      // processed previously. By using .once('foo') all processed elements will
-      // get tagged with a 'foo-processed' class, causing all future invocations
-      // of this behavior to ignore them.
-      $('.ajax-new-content', context).once('foo', function () {
+      $('.ajax-new-content', context).once('gent-base', function () {
         webformDescriptionRight();
-        webStickyBottom();
-        // Now, we are invoking the previously declared theme function using two
-        // settings as arguments.
-        var $anchor = Drupal.theme('gentBaseButton', settings.myExampleLinkPath, settings.myExampleLinkTitle);
-
-        // The anchor is then appended to the current element.
-        $anchor.appendTo(this);
+        webformStickyBottom();
       });
     }
   };
+
+  /**
+   *
+   * @type {{init: jsTheme.init}}
+   */
   var jsTheme = {
     init: function () {
       jsTheme.lib.init();
@@ -32,11 +57,14 @@
       jsTheme.accordion.init();
       jsTheme.toggleFieldset.init();
       jsTheme.addMobileBreadcrumb.init();
-      jsTheme.addMobileSearchIcon.init();
       jsTheme.stickyNav.init();
     }
   };
 
+  /**
+   *
+   * @type {{init: jsTheme.lib.init}}
+   */
   jsTheme.lib = {
     init: function () {
       if (typeof $.fn.matchHeight !== 'undefined') {
@@ -60,6 +88,10 @@
     }
   };
 
+  /**
+   *
+   * @type {{init: jsTheme.sticky.init}}
+   */
   jsTheme.sticky = {
     init: function () {
       var selector = 'body > .sticky, body > #admin-menu';
@@ -83,15 +115,12 @@
                 'z-index': 999
               });
 
+            spacer = $('<div>')
+              .attr('id', 'sticky-spacer');
+
             $('body')
-              .prepend(wrapper = $('<div>').attr('id', 'sticky-wrapper').css({
-                width: '100%',
-                position: 'fixed',
-                top: '0px',
-                left: '0px',
-                'z-index': 999
-              }))
-              .prepend(spacer = $('<div>').attr('id', 'sticky-spacer'));
+              .prepend(wrapper)
+              .prepend(spacer);
           }
 
           // Move the new elements.
@@ -136,6 +165,10 @@
     }
   };
 
+  /**
+   *
+   * @type {{init: jsTheme.forms.init}}
+   */
   jsTheme.forms = {
     init: function () {
       $('.alert-box').on('click', function (e) {
@@ -145,6 +178,10 @@
     }
   };
 
+  /**
+   *
+   * @type {{init: jsTheme.searchThemes.init}}
+   */
   jsTheme.searchThemes = {
     init: function () {
       // Open list of themes
@@ -162,22 +199,31 @@
     }
   };
 
+  /**
+   *
+   * @type {{init: jsTheme.equalColumns.init}}
+   */
   jsTheme.equalColumns = {
     init: function () {
       // Get all columns and set them to equal height
       var tallest = 0;
       if ($(window).width() > 480) {
-        $('.equal-columns .col-equal').each(function () {
+        var columns = $('.equal-columns .col-equal');
+        columns.each(function () {
           var thisHeight = $(this).height();
           if (thisHeight > tallest) {
             tallest = thisHeight;
           }
         });
-        $('.equal-columns .col-equal').height(tallest);
+        columns.height(tallest);
       }
     }
   };
 
+  /**
+   *
+   * @type {{init: jsTheme.progressAnimator.init}}
+   */
   jsTheme.progressAnimator = {
     init: function () {
       // Animate the width of progress indicators
@@ -191,6 +237,10 @@
     }
   };
 
+  /**
+   *
+   * @type {{init: jsTheme.accordion.init}}
+   */
   jsTheme.accordion = {
     init: function () {
       // Code for simple accordion animations
@@ -221,6 +271,10 @@
     }
   };
 
+  /**
+   *
+   * @type {{init: jsTheme.toggleFieldset.init}}
+   */
   jsTheme.toggleFieldset = {
     init: function () {
       $('fieldset.collapsible').on('collapsed', function (e) {
@@ -245,6 +299,8 @@
    *   - Dashes will be added per depth level.
    *   - The last option will have current url.
    *   - Each crumb which have no link will be added as disabled option.
+   *
+   * @type {{init: jsTheme.addMobileBreadcrumb.init}}
    */
   jsTheme.addMobileBreadcrumb = {
     init: function () {
@@ -279,15 +335,6 @@
   };
 
   /**
-   * Adds mobile search icon.
-   */
-  jsTheme.addMobileSearchIcon = {
-    init: function () {
-      $('<div class="search-icon-block"><i class="icon icon-search"></i></div>').insertBefore('.top-section > nav.holder > .l-row > .l-primary--offset');
-    }
-  };
-
-  /**
    * Makes all elements with "sticky-nav" class sticky so they will be attached to the viewport top when scrolling down.
    */
   jsTheme.stickyNav = {};
@@ -301,224 +348,188 @@
   };
 
   /**
-   * Splits legend in 2 columns that can be read left to right.
+   *
    */
-  jsTheme.mapColumnizeLegend = {
-    init: function () {
-
-      var external_panel = $('.openlayers-container .external-panel-container');
-      if (external_panel.length > 0) {
-        $('.layers--default', external_panel).once('columnize', function () {
-          var layers = $(this);
-
-           // Prevent checkbox - label splitting.
-          $('.layer-wrapper', layers).addClass('dontsplit');
-
-          layers.columnize({
-            columns: 2,
-            doneFunc: function () {
-              // Because columnizer cannot handle display:none elements. We need to columnize the layers first.
-              // Then afterwards we should see if we need to collapsed the legend.
-
-              // IMPORTANT
-              // This will probably not work when more than 1 openlayers map (with legend) is rendered inside 1 page.
-              var toggle_button = $('.external-panel__toggle', external_panel);
-              var is_collapsed = toggle_button.hasClass('collapsed');
-              if (is_collapsed) {
-                $('.external-panel', external_panel).hide();
-              }
-            }
-          });
-        });
-      }
-    }
-  };
-
-  // Register, for backwards compatibilty with Drupal's default jQuery version,
-  // $.on as alias of $.live.
-  if (typeof $.fn.on === 'undefined') {
-    jQuery.fn.extend({
-      on: jQuery.fn.live
-    });
-  }
-
-  function viewport() {
-    var e = window, a = 'inner';
-    if (!('innerWidth' in window)) {
-      a = 'client';
-      e = document.documentElement || document.body;
-    }
-    return { width : e[a + 'Width'], height : e[a + 'Height'] };
-  }
-
-  var windowWidth = viewport().width; // This should match your media query
-
-
-
   function stikyWidth() {
-    if (windowWidth >= 960) {
-      var oldWidth = $('#block-system-main .view-mode-full .l-secondary').width();
-      $('.field-group-accordion').width(oldWidth);
-    } else {
+    if (viewport.get('width') >= GENT_BASE_BP_TABLET) {
+      var old_width = $('#block-system-main .view-mode-full .l-secondary').width();
+      $('.field-group-accordion').width(old_width);
+    }
+    else {
       $('.field-group-accordion').width('auto');
     }
   }
 
+  /**
+   *
+   */
   function positionCategorieDropdown() {
-    var catWidth = $('#page-title .current .selector > ul').width();
-    var leftmargin =  catWidth / 2;
-    var titlespanWidth = $('#page-title .title-span').width();
-    var pageWidth = $('#page-title').width();
-    var freeWidth = pageWidth - titlespanWidth;
-    var extraMargin = leftmargin - freeWidth;
-    var dropdownPosition = leftmargin + extraMargin;
-    if (freeWidth >= leftmargin) {
-      $('#page-title .current .selector > ul').css('margin-left', '-' + leftmargin + 'px');
-    } else {
-      $('#page-title .current .selector > ul').css('margin-left', '-' + dropdownPosition + 'px');
+    var page_title = $('#page-title');
+    var current = $('.current', page_title);
+    var selector = $('.selector', current);
+    var list = selector.children('ul');
+    var title_span = $('.title-span', page_title);
+
+    var left_margin =  list.width() / 2;
+    var free_width = page_title.width() - title_span.width();
+
+    if (free_width >= left_margin) {
+      list.css('margin-left', '-' + left_margin + 'px');
+    }
+    else {
+      var dropdown_position = (left_margin * 2) - free_width;
+      list.css('margin-left', '-' + dropdown_position + 'px');
     }
   }
 
-
-
+  /**
+   *
+   */
   function categorieAction() {
-    if (windowWidth >= 640) {
-      $('#page-title .current .selector').addClass('initial');
-      $('#page-title .current').unbind().click(function () {
-        // show or hide dropdown
-        $('#page-title .current .selector > ul').toggle();
-        if ($('#page-title .current .selector').hasClass('close')) {
-          $('#page-title .current .selector').removeClass('close');
-          $('#page-title .current .selector').addClass('open');
-        } else {
-          $('#page-title .current .selector').removeClass('open');
-          $('#page-title .current .selector').addClass('close');
+    var current = $('#page-title .current');
+    var selector = $('.selector', current);
+    var list = selector.children('ul');
+
+    if (viewport.get('width') >= GENT_BASE_BP_MOBILE) {
+      selector.addClass('initial');
+      current.unbind().click(function () {
+        selector.removeClass('initial');
+        // Show or hide dropdown.
+        list.toggle();
+        if (selector.hasClass('close')) {
+          selector.removeClass('close').addClass('open');
         }
-        $('#page-title .current .selector').removeClass('initial');
-
+        else {
+          selector.removeClass('open').addClass('close');
+        }
       });
-    } else {
-      //remove click event
-      $('#page-title .current').unbind();
-
-      $('#page-title .current .selector').removeClass('close');
-      $('#page-title .current .selector').removeClass('open');
+    }
+    // On mobile, remove click event & open/close states.
+    else {
+      current.unbind();
+      selector.removeClass('close open');
     }
 
-    if (windowWidth < 640) {
-      $('#page-title .current .selector > ul').hide();
+    if (viewport.get('width') < GENT_BASE_BP_MOBILE) {
+      list.hide();
     }
-    if (($('#page-title .current .selector').hasClass('close')) && (windowWidth >= 640)) {
-      $('#page-title .current .selector > ul').show();
+    if ((selector.hasClass('close')) && (viewport.get('width') >= GENT_BASE_BP_MOBILE)) {
+      list.show();
     }
-
   }
 
+  /**
+   *
+   */
   function progressbarStickyWidth() {
-    if ($('.webform-client-form').length) {
-      var webformLeftWidth = $('.node-type-webform .webform-left').width();
-      if (windowWidth >= 960) {
-        $('.node-type-webform .webform-left .sticky-nav').width(webformLeftWidth);
+    var webform = $('.webform-client-form');
+    if (webform.length) {
+      var webform_left = $('.node-type-webform .webform-left');
+      var sticky_nav = $('.sticky-nav', webform_left);
 
-        // Disable the stickiness.
-        $('.webform-client-form .sticky-nav').once('sticky-nav').sticky(jsTheme.stickyNav.defaults);
+      // On desktop: Disable the stickiness & set width.
+      if (viewport.get('width') >= GENT_BASE_BP_TABLET) {
+        sticky_nav.width(webform_left.width());
+        sticky_nav.once('sticky-nav').sticky(jsTheme.stickyNav.defaults);
 
-      } else {
-        $('.node-type-webform .webform-left .sticky-nav').width('auto');
+      }
+      // On mobile: Re-enable the stickiness & reset widths..
+      else {
+        sticky_nav.width('auto');
         $('.node-type-webform .webform-left .sticky-wrapper').height('auto');
 
         // Re-enable the stickiness.
-        $('.webform-client-form .sticky-nav').removeClass('sticky-nav-processed').unstick();
+        sticky_nav.removeClass('sticky-nav-processed').unstick();
       }
     }
   }
 
+  /**
+   *
+   */
   function webformDescriptionRight() {
-    if ($('.webform-client-form').length) {
-      var webformRightWidth = $('.node-type-webform .webform-right').width();
-      var descriptionWidth = webformRightWidth * 0.75;
+    var webform = $('.webform-client-form');
+    if (webform.length) {
+      var webform_right = $('.node-type-webform .webform-right');
+      var description_width = webform_right.width() * 0.75;
+      var description = $('.description', webform_right);
+      var webform_components = $('.webform-component', webform_right);
 
-      if (windowWidth >= 960) {
-        $('.node-type-webform .webform-right .description').width(descriptionWidth);
-
-        $('.node-type-webform .webform-right .webform-component').each(function () {
-          var webformDescriptionHeight = $(this).find('.description').height();
-          var labelHeight = $(this).find('label').outerHeight();
-          var webformComponentHeight =  webformDescriptionHeight + labelHeight;
-          $(this).css('min-height', webformComponentHeight);
+      // On desktop.
+      if (viewport.get('width') >= GENT_BASE_BP_TABLET) {
+        description.width(description_width);
+        webform_components.each(function () {
+          var webform_description_height = $(this).find('.description').height();
+          var label_height = $(this).find('label').outerHeight();
+          var webform_component_height =  webform_description_height + label_height;
+          $(this).css('min-height', webform_component_height);
         });
-
-      } else {
-        $('.node-type-webform .webform-right .description').width('auto');
-        $('.node-type-webform .webform-right .webform-component').css('min-height', 'auto');
+      }
+      // On mobile.
+      else {
+        description.width('auto');
+        webform_components.css('min-height', 'auto');
       }
     }
   }
 
-  function webStickyBottom() {
-
-    //Bottom of element to bottom of screen
-    if (windowWidth >= 960) {
-      if ($('.webform-client-form').length) {
-        if ($('.webform-client-form .sticky-nav.sticky-nav-processed').length) {
-          var sticky = $('.webform-component-progressbar-pages');
-          var webform = $('.webform-client-form');
-          var bottomStickyToBottomScreen = $(document).height() - sticky.offset().top - sticky.height();
-          var bottomWebformToBottomScreen = $(document).height() - webform.offset().top - webform.height();
-          if (bottomStickyToBottomScreen <=  bottomWebformToBottomScreen) {
-            $('.webform-client-form .sticky-nav.sticky-nav-processed').css('bottom', bottomWebformToBottomScreen);
-            $('.webform-client-form .sticky-nav.sticky-nav-processed').css('top', 'auto');
+  /**
+   *
+   */
+  function webformStickyBottom() {
+    if (viewport.get('width') >= GENT_BASE_BP_TABLET) {
+      var webform = $('.webform-client-form');
+      if (webform.length) {
+        var sticky_nav = $('.sticky-nav.sticky-nav-processed', webform)
+        if (sticky_nav.length) {
+          var progress_bar = $('.webform-component-progressbar-pages');
+          var document = $(document);
+          var bottom_sticky_to_bottom_screen = document.height() - progress_bar.offset().top - progress_bar.height();
+          var bottom_webform_to_bottom_screen = document.height() - webform.offset().top - webform.height();
+          if (bottom_sticky_to_bottom_screen <=  bottom_webform_to_bottom_screen) {
+            sticky_nav.css('bottom', bottom_webform_to_bottom_screen);
+            sticky_nav.css('top', 'auto');
           }
         }
       }
     }
-
   }
-
-
 
   // Initialize the theme.
   $(jsTheme.init);
 
   /**
-   * Document READY event.
+   * Add actions on ready event.
    */
   $(document).ready(function () {
-    windowWidth = viewport().width;
-
-    //Show and hide search form
-    $('.search-icon-block').click(function () {
-      $('.not-front .search-widget > div').toggle([9000]);
-    });
-
+    viewport.refresh();
     stikyWidth();
     progressbarStickyWidth();
     webformDescriptionRight();
-    webStickyBottom();
+    webformStickyBottom();
     categorieAction();
     positionCategorieDropdown();
-
-    jsTheme.mapColumnizeLegend.init();
-
   });
 
   /**
-   * Document RESIZE event.
+   * Add actions on resize event.
    */
   $(window).resize(function () {
-    windowWidth = viewport().width;
+    viewport.refresh();
     stikyWidth();
     progressbarStickyWidth();
     webformDescriptionRight();
-    webStickyBottom();
+    webformStickyBottom();
     categorieAction();
     positionCategorieDropdown();
   });
 
+  /**
+   * Add actons on scroll event.
+   */
   $(window).scroll(function () {
-    windowWidth = viewport().width;
-
-    webStickyBottom();
+    viewport.refresh();
+    webformStickyBottom();
   });
 
 })(jQuery);

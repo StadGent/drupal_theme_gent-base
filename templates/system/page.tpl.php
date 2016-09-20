@@ -4,99 +4,96 @@
   </div>
 <?php endif; ?>
 
-<!--[if lt IE 9]>
-<div class="alert-box">
-  <p>You are using an <strong>outdated</strong> browser. Please <a
-    href="http://browsehappy.com/">upgrade your browser</a> or <a
-    href="http://www.google.com/chromeframe/?redirect=true">activate
-    Google Chrome Frame</a> to improve your experience.</p>
-</div>
-<![endif]-->
 <div class="wrapper">
   <div class="container-wrapper">
     <div class="header-block-wrapper">
       <section class="top-section">
         <nav class="holder holder--alpha padding">
           <div class="l-row">
-            <?php if ($top_menu_render_method == GENT_BASE_TOP_MENU_RENDER_METHOD_REGION): ?>
-              <?php if ($page['top_menu']): ?>
-                <div class="login-widget nav nav--login">
-                  <?php print render($page['top_menu']); ?>
-                </div>
-              <?php endif; ?>
-            <?php elseif ($top_menu_render_method == GENT_BASE_TOP_MENU_RENDER_METHOD_USER_LINKS): ?>
-              <ul class="login-widget nav nav--login">
-                <li><?php print $logged_in ? l(t('Logout'), 'user/logout') : l(t('Login'), 'user/login') ?></li>
-                <li><?php print l(t('Mijn Gent'), '') ?></li>
-              </ul>
-            <?php elseif ($top_menu_render_method == GENT_BASE_TOP_MENU_RENDER_METHOD_EMPTY): ?>
-              <?php // Do nothing... ?>
-            <?php endif; ?>
-
-            <?php if ($page['search']): ?>
-              <?php print render($page['search']); ?>
-            <?php endif; ?>
-          </div>
-        </nav>
-
-        <header class="site__header">
-          <div class="brand">
-            <div class="l-row padding--big">
+            <div class="brand">
               <div class="brand__logo">
-                <a href="<?php print $front_page ?>">
+                <a href="<?php print $front_page; ?>">
                   <div class="brand__logo__inner">
-            <span>
-              <?php print $site_title; ?>
-            </span>
+                      <span>
+                        <?php print $site_title; ?>
+                      </span>
                   </div>
                 </a>
               </div>
               <div class="brand__tagline">
-                <a href="<?php print $front_page ?>">
+                <a href="<?php print $front_page; ?>">
                   <div class="brand__tagline__inner">
-            <span>
-              <?php print $site_title; ?>
-            </span>
+                      <span>
+                        <?php print $site_title; ?>
+                      </span>
                   </div>
                 </a>
               </div>
+              <div class="thema_title">
+                <div class="vertical-align">
+                  <span><?php print $site_name; ?></span>
+                </div>
+              </div>
             </div>
-          </div>
 
-          <div class="mask <?php print $is_front ? 'ratio--home' : 'ratio--header'; ?>">
+            <?php print render($page['top_menu']); ?>
+          </div>
+        </nav>
+
+        <?php if ($breadcrumb): ?>
+          <section class="holder">
+            <div class="l-row breadcrumb-wrapper">
+              <?php print $breadcrumb; ?>
+              <?php if (!empty($readspeaker)): ?>
+                <div class="readspeaker v2">
+                  <?php print render($readspeaker); ?>
+                </div>
+              <?php endif; ?>
+            </div>
+          </section>
+        <?php endif; ?>
+
+        <header class="site__header">
+          <div class="mask ratio--header">
             <?php if ($header_image): ?>
               <div class="header__background">
-                <img src="<?php print $header_image; ?>" alt="<?php print t('Header image'); ?>"/>
+                <?php print render($header_image); ?>
+              </div>
+
+              <div class="site__header__image__title hidden-mobile">
+                <div class="l-row">
+                  <?php if ($page['site_name']): ?>
+                    <?php print render($page['site_name']); ?>
+                  <?php else: ?>
+                    <!-- RSPEAK_START -->
+                    <h1><?php print $title; ?></h1>
+                    <!-- RSPEAK_STOP -->
+                  <?php endif; ?>
+                </div>
+              </div>
+            <?php else: ?>
+              <div class="site__header__normal__title hidden-mobile">
+                <div class="l-row">
+                  <!-- RSPEAK_START -->
+                  <h1><?php print $title; ?></h1>
+                  <!-- RSPEAK_STOP -->
+                </div>
               </div>
             <?php endif; ?>
-
-            <span class="site__header__image__gradient"></span>
-
-            <div class="site__header__image__title">
-              <div class="l-row">
-                <?php if ($page['site_name']): ?>
-                  <?php print render($page['site_name']); ?>
-                <?php else: ?>
-                  <h1><?php print $site_name; ?></h1>
-                <?php endif; ?>
-              </div>
+          </div>
+          <?php if (!empty($header_image['#title'])): ?>
+            <div class="l-row">
+              <p class="caption"><?php print check_plain($header_image['#title']); ?></p>
             </div>
-
-            <?php if (!empty($readspeaker)): ?>
-              <div class="readspeaker">
-                <?php print render($readspeaker); ?>
-              </div>
-            <?php endif; ?>
-          </div>
+          <?php endif; ?>
         </header>
-      </section>
-      <?php if ($breadcrumb): ?>
-        <section class="holder">
-          <div class="l-row breadcrumb-wrapper">
-            <?php print $breadcrumb; ?>
+
+        <div class="holder site__header__normal__title visible-mobile">
+          <div class="l-row">
+            <h1><?php print $title; ?></h1>
           </div>
-        </section>
-      <?php endif; ?>
+        </div>
+      </section>
 
       <?php if ($page['content_top']): ?>
         <section class="holder padding--big background--alpha border-bottom">
@@ -125,8 +122,6 @@
 
             <?php if ($is_front): ?>
               <h2 class="h1 hT"><?php print $title; ?></h2>
-            <?php else: ?>
-              <h1 id="page-title"><?php print $title; ?></h1>
             <?php endif; ?>
 
             <?php print render($title_suffix); ?>

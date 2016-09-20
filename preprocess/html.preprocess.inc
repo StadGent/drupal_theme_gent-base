@@ -1,4 +1,8 @@
 <?php
+/**
+ * @file
+ * Html proprocess file for gent base.
+ */
 
 /**
  * Implements hook_html_head_alter().
@@ -24,7 +28,7 @@ function gent_base_preprocess_html(&$variables) {
   $base_theme = drupal_get_path('theme', 'gent_base');
   $variables['base_theme_path'] = base_path() . $base_theme . '/';
 
-  // Add HTML5shiv for older IE versions
+  // Add HTML5shiv for older IE versions.
   $html5shiv = array(
     '#tag' => 'script',
     '#attributes' => array(
@@ -35,7 +39,7 @@ function gent_base_preprocess_html(&$variables) {
   );
   drupal_add_html_head($html5shiv, 'html5shiv');
 
-  // Add respond.js to make add responsiveness in IE7 & 8
+  // Add respond.js to make add responsiveness in IE7 & 8.
   $respond = array(
     '#tag' => 'script',
     '#attributes' => array(
@@ -46,16 +50,24 @@ function gent_base_preprocess_html(&$variables) {
   );
   drupal_add_html_head($respond, 'respond');
 
-  // Selected scripts for the header scripts go here
+  // Selected scripts for the header scripts go here.
   drupal_add_js($base_theme . '/libraries/modernizr/modernizr.min.js', array(
     'scope' => 'head_scripts',
     'weight' => -1,
-    'preprocess' => FALSE
+    'preprocess' => FALSE,
   ));
 
+  // Include active theme as a class into the body.
+  global $theme_key;
+  $variables['classes_array'][] = $theme_key;
+
   // Set the large banner layout on some pages.
-  if (gent_base_use_large_header()) {
-    $variables['classes_array'][] = 'large-header';
+  $variables['classes_array'][] = gent_base_use_large_header() ? 'large-header' : 'small-header';
+
+  // If Readspeaker button is enabled add a class to the body so we know...
+  // eg. so it doesn't overlaps with breadcrumb.
+  if (theme_get_setting('readspeaker_enabled')) {
+    $variables['classes_array'][] = 'readspeaker--enabled';
   }
 
   // Merge classes array into attributes array.

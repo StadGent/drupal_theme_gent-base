@@ -103,7 +103,11 @@ dl,
 table,
 address,
 pre {
-  @include text-dimensions(0, 1, 1);
+  @include text-dimensions(-1, 1, 1);
+
+  @include mq($bp-tablet-s) {
+    @include text-dimensions(0, 1, 1);
+  }
 }
 
 .lead {
@@ -112,7 +116,6 @@ pre {
   border-bottom: 1px solid darken($gamma-ui-color, 5);
 }
 
-.caption,
 .small,
 .milli {
   @include text-dimensions(-3, .8, 0, .9);
@@ -121,6 +124,13 @@ pre {
 .caption {
   color: $gamma-text-color;
   font-style: italic;
+  @include text-dimensions(-5, .65);
+  @include padding-tb(.3, .3);
+  margin: 0;
+
+  @include mq($bp-tablet-s) {
+    @include text-dimensions(-3, .8);
+  }
 }
 
 .filesize {

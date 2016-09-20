@@ -4,9 +4,9 @@
  * Template file for the gent_base base theme.
  */
 
-define('GENT_BASE_TOP_MENU_RENDER_METHOD_EMPTY', '');
-define('GENT_BASE_TOP_MENU_RENDER_METHOD_REGION', 'region');
-define('GENT_BASE_TOP_MENU_RENDER_METHOD_USER_LINKS', 'user_links');
+define('GENT_BASE_HEADER_IMAGE_HIDE', 0);
+define('GENT_BASE_HEADER_IMAGE_SHOW', 1);
+define('GENT_BASE_HEADER_IMAGE_SHOW_FRONT_PAGE', 2);
 
 // @TODO store this in the theme registry like omega does with OmegaThemeRegistryHandler
 include_once 'preprocess/block.preprocess.inc';
@@ -65,6 +65,21 @@ function gent_base_css_alter(&$css) {
       if (isset($css[$path])) {
         unset($css[$path]);
       }
+    }
+  }
+}
+
+/**
+ * Implements hook_js_alter().
+ */
+function gent_base_js_alter(&$javascript) {
+  // Make sure viewport(.min).js gets added before theme(.min).js.
+  $path = drupal_get_path('theme', 'gent_base');
+  $viewport_js = $path . '/js/viewport.min.js';
+  $theme_js = $path . '/js/theme.min.js';
+  if (isset($javascript[$viewport_js]) && isset($javascript[$theme_js])) {
+    if ($javascript[$viewport_js]['weight'] == $javascript[$theme_js]['weight']) {
+      $javascript[$viewport_js]['weight'] = $javascript[$theme_js]['weight'] - 0.001;
     }
   }
 }
@@ -445,6 +460,7 @@ function gent_base_cta_link($variables) {
  * Implements hook_theme().
  */
 function gent_base_theme() {
+  $theme_path = drupal_get_path('theme', 'gent_base');
   return array(
     'entity_property__sheet__gpdc__form_url' => array(
       'base hook' => 'entity_property',
@@ -477,6 +493,11 @@ function gent_base_theme() {
     'gent_base_webform_optional_marker' => array(
       'variables' => array('element' => NULL),
       'function' => 'theme_gent_base_webform_optional_marker',
+    ),
+    'gent_base_search_widget_form' => array(
+      'render element' => 'form',
+      'template' => 'form--gent-base-search-widget',
+      'path' => $theme_path . '/templates/form',
     ),
   );
 }
@@ -554,10 +575,7 @@ function gent_base_digipolis_openlayers_invisible_layer_icon(&$variables) {
  * Same as drupal_is_front_page, but added 404 & 403 pages.
  */
 function gent_base_use_large_header() {
-  if (drupal_is_front_page()) {
-    return TRUE;
-  }
-  return FALSE;
+  return drupal_is_front_page();
 }
 
 /**
@@ -717,4 +735,24 @@ function gent_base_gent_base_tools_extra_contact_block(&$variables) {
       'class' => array('no-bullet-list', 'clearfix'),
     ),
   )) : '';
+}
+
+/**
+ * Get the header image as a renderable array.
+ *
+ * @return
+ *   The renderable array or NULL if no header image is set.
+ */
+function gent_base_get_header_image() {
+  $fid = theme_get_setting('headerimage_fid');
+
+  if ($fid && $file = file_load($fid)) {
+    return array(
+      '#theme' => 'image_style',
+      '#path' => $file->uri,
+      '#style_name' => (gent_base_use_large_header() ? 'headerbanner_large' : 'headerbanner'),
+    );
+  }
+
+  return NULL;
 }

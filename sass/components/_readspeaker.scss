@@ -68,6 +68,43 @@ $rs-progressbar-handle-color  : #f39200;
   z-index: $z-gamma;
   bottom: 0;
   box-shadow: 0px 0px 21px -21px $dark-color;
+
+
+  &.v2 {
+    top: .1em;
+    right: 0;
+    box-shadow: none;
+    bottom: inherit;
+    padding: 0 10px;
+    height: 2.25em;
+    background: white;
+    background: -moz-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 20px, rgba(255,255,255,1) 100%);
+    background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 20px,rgba(255,255,255,1) 100%);
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 20px,rgba(255,255,255,1) 100%);
+
+    .rsbtn_gent {
+      background: transparent;
+      border-radius: inherit;
+      padding: 0;
+
+      .divider {
+        height: 35px;
+      }
+
+      .rsbutton {
+        width: 50px;
+        height: 2em;
+        line-height: 2.25em;
+      }
+      .rsexpanded {
+        padding-right: 8px;
+        background: transparent;
+      }
+      .rsbtn_progress_container {
+        margin-top: 20px;
+      }
+    }
+  }
 }
 
 .rsbtn_gent {
@@ -75,7 +112,6 @@ $rs-progressbar-handle-color  : #f39200;
 
   padding-left:8px;
   padding-right: 8px;
-  border-radius: $beta-radius $beta-radius 0 0;
   background: $white-color;
   
   &.rsexpanded {
@@ -120,7 +156,6 @@ $rs-progressbar-handle-color  : #f39200;
     vertical-align:middle;
     font-size: 20px;
     line-height: 58px;
-    border-radius: $beta-radius $beta-radius 0 0; 
     outline: none;
   }
   
@@ -159,7 +194,7 @@ $rs-progressbar-handle-color  : #f39200;
     margin-right: 16px; // Accomodate for the extra wide icon
   }
   
-  &.rsexpanded  .rsbutton.rsbtn_play:before {
+  &.rsexpanded .rsbutton.rsbtn_play:before {
     @extend .icon-back:before;
     margin-right: 8px; // Accomodate for the extra wide icon
     margin-left:16px;
@@ -184,14 +219,14 @@ $rs-progressbar-handle-color  : #f39200;
   .rsbutton.rsbtn_pause:before {
     @extend .icon-pauze:before;
   }
-  
+
+  &.rspaused .rsbutton.rsbtn_pause:before,
   &.rsstopped .rsbutton.rsbtn_pause:before {
-    @extend .icon-play:before; // @todo choose a play icon
+    @extend .icon-play:before;
   }
   
   &.rsplaying .rsbutton.rsbtn_pause:before {
-    @extend .icon-play:before;
-    color: $alpha-ui-color;
+    @extend .icon-pauze:before;
   }
   
   /************************************************ STOP BUTTON */
@@ -202,7 +237,7 @@ $rs-progressbar-handle-color  : #f39200;
   &.rsstopped .rsbutton.rsbtn_stop:before {
     color: lighten($rs-btn-color, 40);
   }
-  
+
   /************************************************ PROGRESS CONTAINER */
   .rsbtn_progress_container {
     border: 1px solid $rs-progressbar-color;
@@ -291,12 +326,20 @@ $rs-progressbar-handle-color  : #f39200;
   .rsbutton.rsbtn_closer {
     background-color:$white-color;
     width: 64px;
-  }
-  
-  .rsbutton.rsbtn_closer:before {
-    @extend .icon-person:before;
-    margin-left:8px;
-    margin-right:16px; // Accomodate for the extra wide icon
+    border-left: 1px solid $rs-divider-color;
+    &:before {
+      @extend .icon-base-css;
+      @extend .icon-close:before;
+      font-size: 2.25rem;
+      margin-top: 3px;
+      margin-left: 8px;
+      margin-right: 16px; // Accomodate for the extra wide icon
+
+      @at-root .rscompact#{&} {
+        font-size: 1.9rem;
+        margin: 0 0 0 3px;
+      }
+    }
   }
   
   /************************************************ POPUP BUTTON */
@@ -443,6 +486,19 @@ $rs-progressbar-handle-color  : #f39200;
     .rsform-colorlist-style-none,
     .rsform-colorlist-style-underline {
       line-height: .2rem;
+    }
+  }
+}
+
+.large-header .rsbtn_gent {
+  border-radius: $beta-radius $beta-radius 0 0;
+  .rsbutton {
+    border-radius: $beta-radius $beta-radius 0 0;
+    &.rsbtn_closer {
+      border: none;
+      &:before {
+        margin-top: 6px;
+      }
     }
   }
 }
