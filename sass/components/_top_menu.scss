@@ -48,6 +48,9 @@
             color: $white-color;
             &.has-profile img {
               margin-top: 2px;
+              @include mq($bp-tablet-s) {
+                margin-top: 0;
+              }
             }
             &.no-profile img {
               margin-top: -1px;
