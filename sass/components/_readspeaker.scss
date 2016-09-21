@@ -351,7 +351,7 @@ $rs-progressbar-handle-color  : #f39200;
     position: absolute;
     display: none;
     border: 1px solid lighten($alpha-text-color, 40);
-    border-radius: $beta-radius;
+    border-radius: $beta-radius !important;
     background: $rs-bg-color;
     @include box-shadow(0 3px 7px -3px $dark-color);
     
@@ -382,6 +382,9 @@ $rs-progressbar-handle-color  : #f39200;
     &.rsexpanded {
       .rsbutton.rsbtn_closer {
         margin-right: 11px;
+        &:before {
+          margin-top: 0;
+        }
       }
       .rsbtn_play:before {
         margin-left: 6px;
