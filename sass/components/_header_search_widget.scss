@@ -9,6 +9,10 @@
     @include padding-tb(0, 1);
     text-align: center;
     margin-bottom: 0;
+    font-size: 1.5rem;
+    @include mq($bp-tablet-l) {
+      font-size: 2.15rem;
+    }
   }
 
   .search-widget__input {
