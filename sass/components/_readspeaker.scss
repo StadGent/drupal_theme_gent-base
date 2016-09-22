@@ -64,11 +64,14 @@ $rs-progressbar-handle-color  : #f39200;
 
 .readspeaker {
   position: absolute;
-  right: 75px;
+  right: $grid-margin * 1px;
   z-index: $z-gamma;
   bottom: 0;
   box-shadow: 0px 0px 21px -21px $dark-color;
 
+  @include mq($bp-tablet-s) {
+    right: $grid-margin * 2px;
+  }
 
   &.v2 {
     top: .1em;

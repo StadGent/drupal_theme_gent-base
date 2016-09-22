@@ -13,8 +13,12 @@
 </header>
 <?php endif; ?>
 
-<?php foreach ($rows as $id => $row): ?>
-  <div<?php if (isset($classes_array[$id]) && $classes_array[$id]) { print ' class="' . $classes_array[$id] .'"';  } ?>>
-    <?php print $row; ?>
+<?php if ($rows): ?>
+  <div class="view-content clearfix">
+  <?php foreach ($rows as $id => $row): ?>
+    <div<?php if (isset($classes_array[$id]) && $classes_array[$id]) { print ' class="' . $classes_array[$id] .'"';  } ?>>
+      <?php print $row; ?>
+    </div>
+  <?php endforeach; ?>
   </div>
-<?php endforeach; ?>
+<?php endif; ?>
