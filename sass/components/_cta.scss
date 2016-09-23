@@ -115,11 +115,12 @@
   @extend .icon-base-css;
 
   display: block;
-  clear: none;
-  float: right;
+  position: absolute;
+  right: -17%;
+  top: 0;
+  bottom: 0;
 
   width: calc(17% - 1px);
-  margin-right: -17%;
 
   text-align: center;
   color: $white-color;
