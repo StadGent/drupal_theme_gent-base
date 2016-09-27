@@ -264,9 +264,11 @@
     @include add-gutter(0);
     @include float-span(12);
 
+    /* Issue with half followed by fourth
     &:nth-of-type(2n) {
       @include float-span(12, 'last');
     }
+    */
   }
 }
 
