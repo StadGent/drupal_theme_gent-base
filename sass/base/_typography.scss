@@ -157,7 +157,28 @@ ol {
 }
 
 blockquote {
-  font-style: italic;
+  padding-left: 2rem;
+  quotes: "\201C" "\201D";
+  position: relative;
+
+  &::before {
+    color: $grey-progressbar;
+    font-size: 4rem;
+    line-height: 1;
+    content: open-quote;
+    float: left;
+    position: absolute;
+    top: -0.25rem;
+    left: 0;
+  }
+  p {
+    font-style: italic;
+  }
+  p + p:last-child {
+    margin-top: -0.5rem;
+    color: $gamma-text-color;
+    font-size: 0.7rem;
+  }
 }
 
 table {
