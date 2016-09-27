@@ -17,7 +17,11 @@
 
   .search-widget__input {
     @include grid-span(18);
-    @include input-dimensions(-2, .8, 0, .1, .2);
+
+    font-size: 14px;
+    height: 36px;
+    padding: 8px 18px 8px 10px;
+
     border-color: $white-color;
   }
 
@@ -28,10 +32,15 @@
 
   @include mq($bp-tablet-s) {
     @include padding-tb(0, 3.5);
+
+    height: 40px;
     border-top: 0;
+    margin-top: 0;
 
     .search-widget__input {
       @include grid-span(18);
+
+      height: 40px;
       border-color: $white-color;
     }
 
@@ -52,18 +61,22 @@
 // Search widget (small header).
 .small-header .search-widget {
   @include clearfix;
+
+  height: 36px;
+  margin-top: 2px;
+
   color: $white-color;
-  height: 40px;
 
   .search-widget__input {
+    font-size: 14px;
+    height: 36px;
+    padding: 8px 18px 8px 10px;  /* Use the same right padding (18) in jQ! */
+
     float: left;
     width: calc(100% - 120px);
-    height: 40px;
     border-radius: 4px;
-    font-size: .8rem;
     border: none;
     color: $white-color;
-    padding-right: 18px; /* Use the same right padding (18) in jQ! */
     display: none; // Hide on mobile.
     background: rgba($white-color, 0.2) url('#{$base-theme-path}/img/png/x.png') no-repeat right -16px center;
     transition: background 0.1s;
@@ -80,6 +93,11 @@
     @include mq($bp-tablet-s) {
       width: 200px;
       display: inline-block;
+
+      .search-widget__input {
+        height: 40px;
+        margin-top: 0;
+      }
     }
 
     @include mq($bp-tablet-l) {
