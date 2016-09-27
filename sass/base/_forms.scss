@@ -44,10 +44,6 @@ fieldset {
     font-variant: normal;
     text-transform: none;
     line-height: 1;
-
-    /* Better Font Rendering =========== */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
   }
 
   &.collapsible {
@@ -144,8 +140,6 @@ textarea {
   @include input-m;
   display: block;
   -webkit-appearance: none;
-  -webkit-font-smoothing: antialiased;
-  font-smoothing: antialiased;
   margin: 0;
   width: 100%;
   line-height: 1;
@@ -253,23 +247,18 @@ textarea {
 
 ::-webkit-input-placeholder {
   @include padding-tb(.1, 0);
-  -webkit-font-smoothing: antialiased;
-  font-smoothing: antialiased;
   color: $gamma-text-color;
 }
 
 :-moz-placeholder {
-  font-smoothing: antialiased;
   color: $gamma-text-color;
 }
 
 ::-moz-placeholder {
-  font-smoothing: antialiased;
   color: $gamma-text-color;
 }
 
 :-ms-input-placeholder {
-  font-smoothing: antialiased;
   color: $gamma-text-color;
 }
 
