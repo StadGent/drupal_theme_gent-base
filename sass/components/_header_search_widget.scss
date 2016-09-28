@@ -40,13 +40,19 @@
 
     .search-widget__input {
       @include grid-span(18);
-
-      height: 40px;
       border-color: $white-color;
     }
 
     .search-widget__button {
       @include grid-span(6, 19);
+    }
+  }
+
+  @include mq($bp-tablet-m) {
+    .search-widget__input {
+      height: 40px;
+    }
+    .search-widget__button {
       height: 40px;
     }
   }
