@@ -232,7 +232,7 @@
 // Media query mixin.
 // @include mq(#point, #query1, #query2);
 @mixin mq($point, $query1: min, $query2: width) {
-  @media screen and (#{$query1}-#{$query2}: ($point - (if($query1 == max, 1, 0)))) {
+  @media screen and (#{$query1}-#{$query2}: ($point - (if($query1 == max, 0.01, 0)))) {
     @content;
   }
 }
@@ -240,7 +240,7 @@
 // Media query mixin.
 // @include mq(#startpoint, #endpoint, #query);
 @mixin mqb($startpoint, $endpoint, $query: width) {
-  @media (min-#{$query}: $startpoint) and (max-#{$query}: ($endpoint - 1)) {
+  @media (min-#{$query}: $startpoint) and (max-#{$query}: ($endpoint - 0.01)) {
     @content;
   }
 }
