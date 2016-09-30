@@ -118,7 +118,7 @@
 .region-content-top {
   .island--epsilon.l-third {
     @include mq($bp-tablet-s, 'max') {
-      @include float-span(24);
+      @include float-span(24, 'last');
     }
   }
 }
@@ -264,11 +264,9 @@
     @include add-gutter(0);
     @include float-span(12);
 
-    /* Issue with half followed by fourth
     &:nth-of-type(2n) {
       @include float-span(12, 'last');
     }
-    */
   }
 }
 

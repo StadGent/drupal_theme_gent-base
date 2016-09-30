@@ -53,3 +53,24 @@
     min-height:246px;
   }
 }
+
+
+.gent-newsletter__block-content__image {
+  clear: right;
+  width: 100%;
+
+  @include mq($bp-tablet-m) {
+    float: left;
+    width: 25%;
+  }
+}
+
+.gent-newsletter__block-content__text {
+  clear: right;
+  width: 100%;
+
+  @include mq($bp-tablet-m) {
+    float: left;
+    width: 50%;
+  }
+}
