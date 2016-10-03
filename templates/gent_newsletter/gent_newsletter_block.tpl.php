@@ -4,7 +4,7 @@
  * Generic newsletter block template. Override me per site.
  */
 ?>
-<div class="gent-newsletter__block-content__image island island--theta js-height">
+<div class="gent-newsletter__block-content__image island island--theta js-height clearfix">
   <?php if ($image_url): ?>
     <div class="island__top mask js-equal" style="background-image:url('<?php print $image_url; ?>');"></div>
   <?php endif; ?>

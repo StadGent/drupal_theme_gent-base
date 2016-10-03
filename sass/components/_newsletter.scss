@@ -59,6 +59,13 @@
   clear: right;
   width: 100%;
 
+  // Add fixed min-height else image won't be shown or only a small part of it.
+  .island__top {
+    @include mq($bp-phone-m) {
+      min-height: 120px;
+    }
+  }
+
   @include mq($bp-tablet-m) {
     float: left;
     width: 25%;
