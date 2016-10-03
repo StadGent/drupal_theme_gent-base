@@ -37,7 +37,7 @@
 .l-fourth,
 .l-column {
   @extend %clearfix;
-  @include grid-span(24);
+  @include grid-span(24, 1, $gutter: 0);
 }
 
 // Clear full width grid spans in case we use it in the same isolation grid as others
