@@ -70,9 +70,15 @@
 .small-header .search-widget {
   @include clearfix;
 
-  margin-top: 2px;
-
   color: $white-color;
+
+  margin-top: 3px;
+  @include mq($bp-tablet-s) {
+    margin-top: 1px;
+  }
+  @include mq($bp-tablet-l) {
+    margin-top: 0;
+  }
 
   .search-widget__input {
     font-size: 14px;
@@ -100,23 +106,20 @@
     @include mq($bp-tablet-s) {
       width: 200px;
       display: inline-block;
-
-      .search-widget__input {
-        height: 40px;
-        margin-top: 0;
-      }
     }
 
     @include mq($bp-tablet-l) {
       font-size: .7rem;
+      margin-top: 0;
+      height: 40px;
     }
   }
 
   .search-widget__button {
     float: left;
-    padding: 10px;
+    padding: 8px 10px;
     font-size: 12px;
-    height: 40px;
+    height: 36px;
     border: none;
     margin: 0 0 0 10px;
     border-radius: 4px;
@@ -133,10 +136,13 @@
 
     // Hide on mobile.
     display: none;
-    @at-root & {
-      @include mq($bp-tablet-s) {
-        display: inline-block;
-      }
+    @include mq($bp-tablet-s) {
+      display: inline-block;
+    }
+
+    @include mq($bp-tablet-l) {
+      height: 40px;
+      padding: 10px;
     }
 
     &.search-widget__input {
@@ -160,10 +166,8 @@
   // Show on mobile initially.
   .search-widget__open_handle {
     display: inline-block;
-    @at-root & {
-      @include mq($bp-tablet-s) {
-        display: none;
-      }
+    @include mq($bp-tablet-s) {
+      display: none;
     }
   }
 
