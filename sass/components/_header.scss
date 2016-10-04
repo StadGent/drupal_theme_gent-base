@@ -12,6 +12,24 @@
   .caption {
     display: none;
     float: right;
+
+    &.caption--inside {
+      float: none;
+      position: absolute;
+      left: $grid-margin * 2px;;
+      bottom: 0;
+
+      background-color: $white-color;
+      opacity: 0.4;
+      border-top-left-radius: $alpha-radius;
+      border-top-right-radius: $alpha-radius;
+      padding-left: $alpha-radius;
+      padding-right: $alpha-radius;
+
+      color: $beta-ui-color;
+      font-size: 11px;
+      line-height: 11px;
+    }
   }
 
   @include mq($bp-tablet-s) {
