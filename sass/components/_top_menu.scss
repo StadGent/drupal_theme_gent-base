@@ -23,7 +23,7 @@
     }
 
     &#block-gent-auth-bar-bar {
-      padding-top: 4px;
+      margin-top: 2px;
 
       .login {
         a {
@@ -37,18 +37,22 @@
         float: left;
       }
       .name, .picture {
-        height: 32px;
+        height: 36px;
         color: $white-color;
         font-size: 14px;
-        line-height: 32px;
+        line-height: 36px;
         display: block;
         cursor: default;
       }
       .name {
         margin-right: 10px;
       }
+      .picture.has-profile img {
+        width: 36px;
+        height: 36px;
+      }
       .picture.no-profile {
-        padding: 6px 0;
+        padding: 8px 0;
 
         img {
           width: 20px;
@@ -56,6 +60,9 @@
         }
       }
       .popup-wrapper {
+        .arrow.has-profile {
+          margin: 5px 8px -2px auto;
+        }
         .arrow.no-profile {
           margin: 0 0 -2px auto;
         }
@@ -64,12 +71,20 @@
             margin-right: -10px;
           }
 
+          .links {
+            margin-top: 0;
+            border-top: none;
+
+            li.group.first {
+              padding-top: 0;
+            }
+          }
           .footer {
             margin-top: -12px;
             border-radius: 5px;
             background: #FFFFFF;
           }
-          ul + .footer {
+          .item-list + .footer {
             margin-top: 15px;
             border-radius: 0 0 5px 5px;
             background: #ECF5F7;
