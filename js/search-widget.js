@@ -54,6 +54,7 @@
     this.button = $('.search-widget__submit', this.selector);
 
     // Prevent submitting the form twice.
+    widget.button.removeAttr('disabled');
     this.button.click(function () {
       widget.button.attr('disabled', 'disabled');
       widget.form.submit();
