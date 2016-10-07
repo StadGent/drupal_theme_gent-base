@@ -236,7 +236,6 @@ nav.holder {
     position: absolute;
     bottom: 12px;
     right: 0;
-    text-align: inherit;
   }
 
   @include mq($bp-tablet-m) {
@@ -272,11 +271,8 @@ nav.holder {
   }
 }
 
-@include mq($bp-phone-m) {
-  .brand__footer__sub {
-    padding-right: 7px;
-    text-align: right;
-  }
+.brand__footer__sub {
+  padding-right: 7px;
 }
 
 .brand__footer__sub__text {
