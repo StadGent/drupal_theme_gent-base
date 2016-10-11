@@ -64,8 +64,8 @@
 }
 
 .l-primary--offset {
-  @include mq($bp-tablet-l) {
-    @include grid-span(16, 4);
+  @include mq($bp-tablet-s) {
+    @include grid-span(14, 6, $gutter: 0);
   }
 }
 
