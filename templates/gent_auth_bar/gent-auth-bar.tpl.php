@@ -9,26 +9,29 @@
     <?php if ($login_active) : ?>
       <div class="login element-hidden">
         <a href="<?php print $login_url; ?>" class="picture-wrapper">
-          <div class="name"><?php print $login_text; ?></div>
-          <div class="picture no-profile hidden-mobile"><img src="<?php print $default_picture_url; ?>" /></div>
+          <span class="name"><?php print $login_text; ?></span>
+          <span class="picture no-profile hidden-mobile"><img src="<?php print $default_picture_url; ?>" /></span>
         </a>
       </div>
     <?php endif; ?>
 
     <div class="logged-in element-hidden">
+      <div class="name-wrapper hidden-mobile">
+        <a href="<?php print $profile_url; ?>" class="name has-profile">{firstname}</a>
+        <span class="name no-profile">{firstname}</span>
+      </div>
+
       <div class="picture-wrapper">
-        <div class="name hidden-mobile">{firstname}</div>
         <div class="picture has-profile">{picture}</div>
         <div class="picture no-profile"><img src="<?php print $default_picture_url; ?>" /></div>
       </div>
 
       <div class="popup-wrapper">
-        <div class="arrow"></div>
+        <div class="arrow has-profile"></div>
+        <div class="arrow no-profile"></div>
         <div class="popup">
           <?php if ($links) : ?>
-            <div class="middle">
-              <?php print drupal_render($links); ?>
-            </div>
+            <?php print drupal_render($links); ?>
           <?php endif; ?>
 
           <div class="footer">
