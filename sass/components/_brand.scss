@@ -227,15 +227,19 @@ nav.holder {
   }
 }
 
-
 .brand__footer__wrapper {
   border-radius: $beta-radius;
   width: 100%;
+  text-align: right;
+
+  @include mq($bp-phone-m) {
+    position: absolute;
+    bottom: 12px;
+    right: 0;
+  }
 
   @include mq($bp-tablet-m) {
-    position: absolute;
-    bottom: 6em;
-    width: 200px;
+    bottom: 0;
   }
 
   p {
@@ -255,59 +259,42 @@ nav.holder {
 }
 
 .brand__footer {
+  @extend %hide-text;
 
   width: 100%;
   height: 100px;
-
-  @extend %hide-text;
-
   border-radius: $beta-radius;
-
-  background-image: url('#{$base-theme-path}/img/png/logo--footer.png');
-  background-repeat: no-repeat;
-  background-position: center top;
+  background: transparent url('#{$base-theme-path}/img/png/logo--footer.png') no-repeat right top;
 
   .svg & {
     background-image: url('#{$base-theme-path}/img/svg/logo--footer.svg');
   }
 }
 
+.brand__footer__sub {
+  padding-right: 7px;
+}
+
 .brand__footer__sub__text {
-
   @include text-dimensions(-2, 1);
-  text-align:center;
-  margin-bottom:0;
 
-  @include mq($bp-tablet-m) {
-    width: 200px;
-  }
+  margin-bottom:0;
 }
 
 .brand__footer__sub__logo {
-  @extend %clearfix;
   @include text-dimensions(-2, 0.8);
-  @include px-padding-lr(0.7, 0);
 
-  display:block;
-  width: 104px;
-  clear:both;
-  text-align:center;
-  margin: 0 auto;
-
-  background-image: url('#{$base-theme-path}/img/png/logo--digipolis.png');
-  background-repeat: no-repeat;
-  background-position: left top;
+  display: inline-block;
+  padding-left: 20px;
+  background: transparent url('#{$base-theme-path}/img/png/logo--digipolis.png') no-repeat left top;
 }
 
 .brand__district {
   @extend %hide-text;
   @include margin-tb(0, 1);
+
   width: 177px;
   height: 87px;
-
   border-radius: $beta-radius;
-
-  background-image: url('#{$base-theme-path}/img/png/logo--wijkvandemaand.png');
-  background-repeat: no-repeat;
-  background-position: center top;
+  background: transparent url('#{$base-theme-path}/img/png/logo--wijkvandemaand.png') no-repeat center top;
 }
