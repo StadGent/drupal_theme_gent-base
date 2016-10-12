@@ -17,18 +17,16 @@
       float: none;
       position: absolute;
       left: $grid-margin * 2px;;
-      bottom: 0;
+      bottom: 7px;
+      padding: 3px;
 
       background-color: $white-color;
       opacity: 0.4;
-      border-top-left-radius: $alpha-radius;
-      border-top-right-radius: $alpha-radius;
-      padding-left: $alpha-radius;
-      padding-right: $alpha-radius;
 
       color: $beta-ui-color;
       font-size: 11px;
       line-height: 11px;
+      font-style: inherit;
     }
   }
 
