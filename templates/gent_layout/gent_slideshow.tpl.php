@@ -17,6 +17,7 @@
   <?php endif; ?>
 
   <?php if ($items): ?>
+    <div class="thumbs-container">
     <?php foreach ($items as $num => $item): ?>
     <div class="l-thumb">
       <div class="mask ratio--thumb">
@@ -26,6 +27,7 @@
       </div>
     </div>
     <?php endforeach; ?>
+    </div>
   <?php endif; ?>
 </div>
 <?php endif; ?>
