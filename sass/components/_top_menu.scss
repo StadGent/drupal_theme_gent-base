@@ -25,14 +25,6 @@
     &#block-gent-auth-bar-bar {
       margin-top: 2px;
 
-      .login {
-        a {
-          padding: 0;
-        }
-        .name, .picture {
-          float: left;
-        }
-      }
       .name-wrapper, .picture-wrapper {
         float: left;
       }
@@ -46,6 +38,15 @@
       }
       .name {
         margin-right: 10px;
+      }
+      .login {
+        a {
+          padding: 0;
+        }
+        .name, .picture {
+          float: left;
+          cursor: pointer;
+        }
       }
       .picture.has-profile img {
         width: 36px;
