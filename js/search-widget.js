@@ -120,6 +120,7 @@
         var searchWidget = this;
         var widget = new SearchWidget(searchWidget);
         widget.init();
+        Drupal.gentBase.searchWidget = widget;
       });
     }
   };
@@ -130,9 +131,16 @@
     }
     var viewport = new Viewport();
     viewport.refresh();
-    var $widget = $('.small-header .search-widget');
-    if ($widget.hasClass('is-open') && viewport.get('width') >= Drupal.gentBase.GENT_BASE_BP_MOBILE) {
-      $widget.close();
+    var $searchWidget = $('.search-widget');
+    if ($searchWidget.hasClass('is-open') && viewport.get('width') >= Drupal.gentBase.GENT_BASE_BP_MOBILE) {
+      if (typeof Drupal.gentBase.searchWidget !== 'object') {
+        Drupal.gentBase.searchWidget.close();
+      }
+      else {
+        var widget = new SearchWidget($searchWidget);
+        widget.init();
+        widget.close();
+      }
     }
   });
 
