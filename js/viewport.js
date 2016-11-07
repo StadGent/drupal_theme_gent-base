@@ -17,7 +17,7 @@ function Viewport() {
  * Retrieves the viewport's width.
  * @returns {number} - The viewport's width.
  */
-Viewport.prototype.getWidth = function() {
+Viewport.prototype.getWidth = function () {
   return this.get('width');
 };
 
@@ -25,7 +25,7 @@ Viewport.prototype.getWidth = function() {
  * Retrieves the viewport's height.
  * @returns {number} - The viewport's height.
  */
-Viewport.prototype.getHeight = function() {
+Viewport.prototype.getHeight = function () {
   return this.get('height');
 };
 
@@ -35,8 +35,8 @@ Viewport.prototype.getHeight = function() {
  * @param {string} property - The viewport property to retrieve.
  * @returns {*} - The property its value.
  */
-Viewport.prototype.get = function(property) {
-  if (this[property] == null) {
+Viewport.prototype.get = function (property) {
+  if (this[property] === null) {
     this.refresh();
   }
   return this[property];
@@ -45,7 +45,7 @@ Viewport.prototype.get = function(property) {
 /**
  * Refreshes the viewport properties.
  */
-Viewport.prototype.refresh = function() {
+Viewport.prototype.refresh = function () {
   var e = window, a = 'inner';
   if (!('innerWidth' in window)) {
     a = 'client';

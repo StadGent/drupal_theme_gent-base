@@ -19,6 +19,7 @@
     "smarttabs": true,
     "predef": [
         "Drupal",
-        "Modernizr"
+        "Modernizr",
+        "Viewport"
     ]
 }
