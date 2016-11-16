@@ -365,7 +365,7 @@ function gent_base_item_list($variables) {
 /**
  * Implements hook_form_FORM_ID_ater().
  */
-function gent_base_form_gent_newsletter_form_alter(&$form) {
+function gent_base_form_dg_newsletter_mail_subscription_form_alter(&$form) {
   $form['email']['#attributes']['class'][] = 'prefix--email';
   $form['submit']['#attributes']['class'] = array('btn', 'btn--medium', 'btn--alpha', 'postfix--email-submit');
 }
