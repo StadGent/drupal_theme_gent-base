@@ -170,9 +170,14 @@ function gent_base_breadcrumb($variables) {
   // Provide a navigational heading to give context for breadcrumb links to
   // screen-reader users. Make the heading invisible with .element-invisible.
   $output = '<h2 class="element-invisible">' . t('You are here') . '</h2>';
-  $nr_parts = count($breadcrumb);
-  if ($nr_parts > 1) {
-    $breadcrumb[$nr_parts - 1] = '<span>' . $breadcrumb[$nr_parts - 1] . '</span>';
+
+  if (count($breadcrumb) > 1) {
+    foreach ($breadcrumb as &$entry) {
+      if ($entry[0] != '<') {
+        $entry = '<span>' . $entry . '</span>';
+      }
+    }
+
     $output .= '<ul class="nav nav--breadcrumb"><li>' . implode('</li><li>', $breadcrumb) . '</li></ul>';
     return $output;
   }
