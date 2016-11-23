@@ -71,10 +71,12 @@
     }
     .popup {
       padding: 0;
-      font-size: 14px;
 
       @include mq($bp-tablet-s) {
         margin-right: -10px;
+      }
+      &, .links li div.title {
+        font-size: 14px;
       }
       .links {
         margin: 0;
