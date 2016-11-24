@@ -70,25 +70,36 @@
       margin: 0 0 -2px auto;
     }
     .popup {
+      padding: 0;
+
       @include mq($bp-tablet-s) {
         margin-right: -10px;
       }
-
-      a {
+      &, .links li div.title {
         font-size: 14px;
       }
-
       .links {
-        margin-top: 0;
+        margin: 0;
+        padding-top: 5px;
         border-top: none;
 
-        li.group.first {
-          padding-top: 0;
+        li {
+          margin: 6px 10px;
         }
+        li.group {
+          margin: 10px 0 0 0;
+          padding: 10px 10px 0 10px;
+          border-top: 1px solid #D0DDE0;
 
+          &.first {
+            margin-top: 0;
+            border-top: none;
+          }
+        }
       }
       .footer {
-        margin-top: -12px;
+        margin: -5px 0 0 0;
+        padding: 10px;
         border-radius: 5px;
         background: #FFFFFF;
       }
