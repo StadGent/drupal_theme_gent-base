@@ -1,3 +1,10 @@
+<?php
+
+/**
+ * @file
+ * HTML template file for the maintenance page with offline database..
+ */
+?>
 <!DOCTYPE html>
 <html lang="<?php print $language->language; ?>" dir="<?php print $language->dir; ?>">
 <head>

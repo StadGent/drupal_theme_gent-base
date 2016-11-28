@@ -1,3 +1,10 @@
+<?php
+
+/**
+ * @file
+ * Page template file.
+ */
+?>
 <?php if ($tabs && $top_tabs_enabled): ?>
   <div class="tabs--top sticky sticky-999">
     <?php print render($tabs); ?>

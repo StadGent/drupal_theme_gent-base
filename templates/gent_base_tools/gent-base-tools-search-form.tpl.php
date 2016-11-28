@@ -1,7 +1,8 @@
 <?php
+
 /**
  * @file
- * Template for search widget from gent base tools .
+ * Template file for the search widget from Gent base tools.
  */
 ?>
 <?php if (isset($form['input'])): ?>

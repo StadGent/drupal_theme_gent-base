@@ -1,3 +1,10 @@
+<?php
+
+/**
+ * @file
+ * HTML template file for the maintenance page.
+ */
+?>
 <!DOCTYPE html>
 <html lang="<?php print $language->language; ?>" dir="<?php print $language->dir; ?>">
 <head>
@@ -88,4 +95,3 @@
 
 </body>
 </html>
-

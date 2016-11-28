@@ -1,7 +1,8 @@
 <?php
+
 /**
  * @file
- * Blocks template that are rendered in the top menu region for gent base theme.
+ * Overrides the block template in the top menu region.
  */
 ?>
 <div id="<?php print $block_html_id; ?>" class="top-menu__item">

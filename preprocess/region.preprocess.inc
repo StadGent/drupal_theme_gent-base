@@ -1,6 +1,11 @@
 <?php
 
 /**
+ * @file
+ * Preprocess functions for the region template.
+ */
+
+/**
  * Implements hook_preprocess_region().
  */
 function gent_base_preprocess_region(&$variables) {

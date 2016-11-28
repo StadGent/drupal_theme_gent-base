@@ -1,5 +1,8 @@
 <?php
+
 /**
+ * @file
+ * Gent auth bar prepprocess functions.
  */
 
 /**

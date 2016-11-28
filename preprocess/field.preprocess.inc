@@ -1,7 +1,8 @@
 <?php
+
 /**
  * @file
- * Field preprocessing.
+ * Field preprocess functions.
  */
 
 /**

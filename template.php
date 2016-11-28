@@ -1,14 +1,14 @@
 <?php
+
 /**
  * @file
- * Template file for the gent_base base theme.
+ * Template file for the gent base theme.
  */
 
 define('GENT_BASE_HEADER_IMAGE_HIDE', 0);
 define('GENT_BASE_HEADER_IMAGE_SHOW', 1);
 define('GENT_BASE_HEADER_IMAGE_SHOW_FRONT_PAGE', 2);
 
-// @TODO store this in the theme registry like omega does with OmegaThemeRegistryHandler
 include_once 'preprocess/block.preprocess.inc';
 include_once 'preprocess/field.preprocess.inc';
 include_once 'preprocess/html.preprocess.inc';
@@ -23,8 +23,7 @@ include_once 'preprocess/gent-auth-bar.preprocess.inc';
  * Implements hook_css_alter().
  */
 function gent_base_css_alter(&$css) {
-
-  // Whitelist core CSS here. The rest can be allowed via the alter hook
+  // Whitelist core CSS here. The rest can be allowed via the alter hook.
   $whitelist = array(
     'modules/contextual/contextual.css',
   );
@@ -114,6 +113,7 @@ function gent_base_menu_local_tasks(&$variables) {
  * Implements theme_file_formatter_table().
  *
  * Use a list instead of table to display links.
+ *
  * @ingroup themeable
  */
 function gent_base_file_formatter_table($variables) {
@@ -123,7 +123,13 @@ function gent_base_file_formatter_table($variables) {
       theme('file_link', array('file' => (object) $item)),
     );
   }
-  return empty($rows) ? '' : theme('item_list', array('items' => $rows, 'hide_wrapper' => TRUE, 'attributes' => array('class' => array('link-list'))));
+  return empty($rows) ? '' : theme('item_list', array(
+    'items' => $rows,
+    'hide_wrapper' => TRUE,
+    'attributes' => array(
+      'class' => array('link-list'),
+    ),
+  ));
 }
 
 /**
@@ -139,7 +145,7 @@ function gent_base_file_link($variables) {
   $extension = $pathinfo['extension'];
 
   // Set options as per anchor format described at
-  // http://microformats.org/wiki/file-format-examples
+  // http://microformats.org/wiki/file-format-examples.
   $options = array(
     'attributes' => (!empty($variables['attributes']) ? $variables['attributes'] : array()),
   );
@@ -199,15 +205,14 @@ function gent_base_pager($variables) {
   // Calculate various markers within this pager piece:
   // Middle is used to "center" pages around the current page.
   $pager_middle = ceil($quantity / 2);
-  // current is the page we are currently paged to
+  // "current" is the page we are currently paged to.
   $pager_current = $pager_page_array[$element] + 1;
-  // first is the first page listed by this pager piece (re quantity)
+  // "first" is the first page listed by this pager piece (re quantity).
   $pager_first = $pager_current - $pager_middle + 1;
-  // last is the last page listed by this pager piece (re quantity)
+  // "last" is the last page listed by this pager piece (re quantity).
   $pager_last = $pager_current + $quantity - $pager_middle;
-  // max is the maximum page number
+  // "max" is the maximum page number.
   $pager_max = $pager_total[$element];
-  // End of marker calculations.
 
   // Prepare for generation loop.
   $i = $pager_first;
@@ -221,12 +226,29 @@ function gent_base_pager($variables) {
     $pager_last = $pager_last + (1 - $i);
     $i = 1;
   }
-  // End of generation loop preparation.
 
-  $li_first = theme('pager_first', array('text' => (isset($tags[0]) ? $tags[0] : t('« first')), 'element' => $element, 'parameters' => $parameters));
-  $li_previous = theme('pager_previous', array('text' => (isset($tags[1]) ? $tags[1] : t('‹ previous')), 'element' => $element, 'interval' => 1, 'parameters' => $parameters));
-  $li_next = theme('pager_next', array('text' => (isset($tags[3]) ? $tags[3] : t('next ›')), 'element' => $element, 'interval' => 1, 'parameters' => $parameters));
-  $li_last = theme('pager_last', array('text' => (isset($tags[4]) ? $tags[4] : t('last »')), 'element' => $element, 'parameters' => $parameters));
+  $li_first = theme('pager_first', array(
+    'text' => (isset($tags[0]) ? $tags[0] : t('« first')),
+    'element' => $element,
+    'parameters' => $parameters,
+  ));
+  $li_previous = theme('pager_previous', array(
+    'text' => (isset($tags[1]) ? $tags[1] : t('‹ previous')),
+    'element' => $element,
+    'interval' => 1,
+    'parameters' => $parameters,
+  ));
+  $li_next = theme('pager_next', array(
+    'text' => (isset($tags[3]) ? $tags[3] : t('next ›')),
+    'element' => $element,
+    'interval' => 1,
+    'parameters' => $parameters,
+  ));
+  $li_last = theme('pager_last', array(
+    'text' => (isset($tags[4]) ? $tags[4] : t('last »')),
+    'element' => $element,
+    'parameters' => $parameters,
+  ));
 
   if ($pager_total[$element] > 1) {
     if ($li_first) {
@@ -255,7 +277,12 @@ function gent_base_pager($variables) {
         if ($i < $pager_current) {
           $items[] = array(
             'class' => array('pager-item'),
-            'data' => theme('pager_previous', array('text' => $i, 'element' => $element, 'interval' => ($pager_current - $i), 'parameters' => $parameters)),
+            'data' => theme('pager_previous', array(
+              'text' => $i,
+              'element' => $element,
+              'interval' => ($pager_current - $i),
+              'parameters' => $parameters,
+            )),
           );
         }
         if ($i == $pager_current) {
@@ -267,7 +294,12 @@ function gent_base_pager($variables) {
         if ($i > $pager_current) {
           $items[] = array(
             'class' => array('pager-item'),
-            'data' => theme('pager_next', array('text' => $i, 'element' => $element, 'interval' => ($i - $pager_current), 'parameters' => $parameters)),
+            'data' => theme('pager_next', array(
+              'text' => $i,
+              'element' => $element,
+              'interval' => ($i - $pager_current),
+              'parameters' => $parameters,
+            )),
           );
         }
       }
@@ -349,7 +381,12 @@ function gent_base_item_list($variables) {
       }
       if (count($children) > 0) {
         // Render nested list.
-        $data .= theme_item_list(array('items' => $children, 'title' => NULL, 'type' => $type, 'attributes' => $attributes));
+        $data .= theme_item_list(array(
+          'items' => $children,
+          'title' => NULL,
+          'type' => $type,
+          'attributes' => $attributes,
+        ));
       }
       if ($i == 1) {
         $attributes['class'][] = 'first';
@@ -372,20 +409,28 @@ function gent_base_item_list($variables) {
  */
 function gent_base_form_dg_newsletter_mail_subscription_form_alter(&$form) {
   $form['email']['#attributes']['class'][] = 'prefix--email';
-  $form['submit']['#attributes']['class'] = array('btn', 'btn--medium', 'btn--alpha', 'postfix--email-submit');
+  $form['submit']['#attributes']['class'] = array(
+    'btn',
+    'btn--medium',
+    'btn--alpha',
+    'postfix--email-submit',
+  );
 }
 
 /**
- * Implement hook_form_FORM_ID_alter();
+ * Implements hook_form_FORM_ID_alter().
  *
- * Add base theme specific styling.
+ * Add base theme specific styling for the "wijksites" dropdown.
  */
 function gent_base_form_gent_wijksites_select_home_form_alter(&$form, &$form_state) {
   $form['wijksite']['#attributes']['class'][] = 'prefix--large';
   $form['wijksite']['#title_display'] = 'invisible';
 
   $form['submit']['#attributes']['class'] = array(
-    'btn', 'btn--medium', 'btn--epsilon', 'postfix--small'
+    'btn',
+    'btn--medium',
+    'btn--epsilon',
+    'postfix--small',
   );
 }
 
@@ -428,9 +473,9 @@ function gent_base_status_messages($variables) {
 /**
  * Implements hook_cta_email().
  *
- * @ingroup themeable
- *
  * Override the 'email' call-to-action.
+ *
+ * @ingroup themeable
  */
 function gent_base_cta_email($variables) {
   $output = '<p><span>';
@@ -586,13 +631,6 @@ function gent_base_use_large_header() {
 /**
  * Implements hook_webform_component_render_alter().
  *
- * Allow modules to modify a webform component that is going to be rendered in a form.
- *
- * @param array $element
- *   The display element as returned by _webform_render_component().
- * @param array $component
- *   A Webform component array.
- *
  * @see _webform_render_component()
  */
 function gent_base_webform_component_render_alter(&$element, &$component) {
@@ -614,7 +652,8 @@ function gent_base_webform_element($variables) {
   $prefix = isset($element['#field_prefix']) ? '<span class="field-prefix">' . webform_filter_xss($element['#field_prefix']) . '</span> ' : '';
   $suffix = isset($element['#field_suffix']) ? ' <span class="field-suffix">' . webform_filter_xss($element['#field_suffix']) . '</span>' : '';
 
-  // managed_file uses a different id, make sure the label points to the correct id.
+  // "managed_file" uses a different id, make sure the label points to the
+  // correct id.
   if (isset($element['#type']) && $element['#type'] === 'managed_file') {
     if (!empty($variables['element']['#id'])) {
       $variables['element']['#id'] .= '-upload';
@@ -633,7 +672,8 @@ function gent_base_webform_element($variables) {
       $output .= ' ' . theme('gent_base_webform_element_label', $variables);
 
       if (isset($element['#type']) && $element['#type'] == 'markup') {
-        // Make sure the suffix comes right after the markup text with no whitespace between
+        // Make sure the suffix comes right after the markup with no whitespace
+        // in between.
         $output .= ' ' . $description . $prefix . '<span class="children">' . $element['#children'] . '</span>' . $suffix . "\n";
       }
       else {
@@ -643,7 +683,8 @@ function gent_base_webform_element($variables) {
 
     case 'after':
       if (isset($element['#type']) && $element['#type'] == 'markup') {
-        // Make sure the suffix comes right after the markup text with no whitespace between
+        // Make sure the suffix comes right after the markup with no whitespace
+        // in between.
         $output .= ' ' . $description . $prefix . $element['#children'] . $suffix;
       }
       else {
@@ -657,8 +698,9 @@ function gent_base_webform_element($variables) {
     case 'attribute':
       // Output no label and no required marker, only the children.
       if (isset($element['#type']) && $element['#type'] == 'markup') {
-        // Make sure the suffix comes right after the markup text with no whitespace between
-        $output .= ' ' . $description . $prefix . $element['#children'] . $suffix  . "\n";
+        // Make sure the suffix comes right after the markup text with no
+        // whitespace in between.
+        $output .= ' ' . $description . $prefix . $element['#children'] . $suffix . "\n";
       }
       else {
         $output .= ' ' . $description . $prefix . $suffix . $element['#children'] . "\n";
@@ -683,7 +725,7 @@ function theme_gent_base_webform_element_label($variables) {
   }
 
   // If the element is required, a required marker is appended to the label.
-  $required = !empty($element['#required']) ?  '' : theme('gent_base_webform_optional_marker', array('element' => $element));
+  $required = !empty($element['#required']) ? '' : theme('gent_base_webform_optional_marker', array('element' => $element));
 
   $title = filter_xss_admin($element['#title']);
 
@@ -702,7 +744,11 @@ function theme_gent_base_webform_element_label($variables) {
   }
 
   // The leading whitespace helps visually separate fields from inline labels.
-  return ' <label' . drupal_attributes($attributes) . '>' . t('!title !required', array('!title' => $title, '!required' => $required)) . "</label>\n";
+  $output = '<label' . drupal_attributes($attributes) . '>';
+  $output .= t('!title !required', array('!title' => $title, '!required' => $required));
+  $output .= "</label>\n";
+
+  return $output;
 }
 
 /**
@@ -745,12 +791,11 @@ function gent_base_gent_base_tools_extra_contact_block(&$variables) {
 /**
  * Get the header image as a renderable array.
  *
- * @return
+ * @return array
  *   The renderable array or NULL if no header image is set.
  */
 function gent_base_get_header_image() {
   $fid = theme_get_setting('headerimage_fid');
-
   if ($fid && $file = file_load($fid)) {
     return array(
       '#theme' => 'image_style',

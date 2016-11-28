@@ -1,14 +1,14 @@
 <?php
+
 /**
  * @file
- * GPDC sheet files preprocessing.
+ * Propeocess function for GPDC sheet files.
  */
 
 /**
  * Overrides hook_preprocesss_HOOK().
  */
 function gent_base_preprocess_entity_property(&$variables) {
-
   if (module_exists('sheet') && sheet_is_sheet_property($variables, 'gpdc')) {
     $element = $variables['elements'];
     $property = $element['#entity_wrapped']->{$element['#property_name']};
@@ -44,7 +44,11 @@ function gent_base_preprocess_entity_property(&$variables) {
             $node_view = node_view($node, 'teaser');
             $rendered_nodes[] = render($node_view);
           }
-          $variables['content'] = theme('item_list', array('items' => $rendered_nodes, 'hide_wrapper' => TRUE, 'attributes' => array('class' => array('link-list'))));
+          $variables['content'] = theme('item_list', array(
+            'items' => $rendered_nodes,
+            'hide_wrapper' => TRUE,
+            'attributes' => array('class' => array('link-list')),
+          ));
         }
         $variables['attributes_array']['class'] = array('island island--kappa no-border-bottom');
 

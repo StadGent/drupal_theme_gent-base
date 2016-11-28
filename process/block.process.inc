@@ -1,7 +1,8 @@
 <?php
+
 /**
  * @file
- * Contains a process hook for 'block'.
+ * Process block function.
  */
 
 /**

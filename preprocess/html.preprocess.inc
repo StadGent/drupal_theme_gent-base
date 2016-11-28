@@ -1,7 +1,8 @@
 <?php
+
 /**
  * @file
- * Html proprocess file for gent base.
+ * Html proprocess functions.
  */
 
 /**

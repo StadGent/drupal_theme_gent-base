@@ -2,6 +2,8 @@
 
 /**
  * @file
+ * Overridden Views single grouping template.
+ *
  * This template is used to print a single grouping in a view.
  *
  * It is not actually used in default Views, as this is registered as a theme
@@ -15,9 +17,11 @@
  * - $rows: The rows contained in this grouping.
  * - $title: The title of this grouping.
  * - $content: The processed content output that will normally be used.
+ *
+ * @ingroup views_templates
  */
 ?>
 <div class="view-grouping-header"><?php print $title; ?></div>
 <div class="island island--alpha view-grouping-content">
-    <?php print $content; ?>
+  <?php print $content; ?>
 </div>

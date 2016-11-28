@@ -1,14 +1,16 @@
 <?php
+
 /**
  * @file
- * Contains page preprocessing.
+ * Preprocess functions for the page template.
  */
 
 /**
  * Implements hook_preprocess_page().
  */
 function gent_base_preprocess_page(&$variables) {
-  // The default site title. This can be overwritten depending on a context (OG, ...)
+  // The default site title. This can be overwritten depending on a context
+  // (OG, ...).
   $variables['site_title'] = 'Stad.gent';
 
   // Unset tabs variable if no primary or secondary tabs are defined.
@@ -43,15 +45,15 @@ function gent_base_preprocess_page(&$variables) {
     $variables['page']['sidebar']['#sidebar'] = TRUE;
   }
 
-  // Add a breadcrumb on the error pages
+  // Add a breadcrumb on the error pages.
   $header = drupal_get_http_header('Status');
   if ($header == '404 Not Found' || $header == '403 Forbidden') {
     $front = l(t('Home'), '<front>');
     drupal_set_breadcrumb(array($front));
   }
 
-  // Any implementing subtheme should define the conditions for using top tabs instead
-  // of normal tabs. This permission is added by gent base tools.
+  // Any implementing subtheme should define the conditions for using top tabs
+  // instead of normal tabs. This permission is added by gent base tools.
   $variables['top_tabs_enabled'] = user_access('use tabs in top menu');
 
   // Load jquery.sticky library (if exists).

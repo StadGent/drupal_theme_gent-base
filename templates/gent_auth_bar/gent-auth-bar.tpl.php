@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * Default template for the authentication bar.

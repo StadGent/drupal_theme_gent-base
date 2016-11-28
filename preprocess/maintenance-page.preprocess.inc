@@ -1,7 +1,8 @@
 <?php
+
 /**
  * @file
- * Contains maintenance page preprocessing.
+ * Preprocess function for the maintenance page.
  */
 
 /**
