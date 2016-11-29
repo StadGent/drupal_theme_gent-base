@@ -37,7 +37,6 @@
   var jsTheme = {
     init: function () {
       jsTheme.lib.init();
-      jsTheme.sticky.init();
       jsTheme.forms.init();
       jsTheme.searchThemes.init();
       jsTheme.equalColumns.init();
@@ -45,7 +44,6 @@
       jsTheme.accordion.init();
       jsTheme.toggleFieldset.init();
       jsTheme.addMobileBreadcrumb.init();
-      jsTheme.stickyNav.init();
     }
   };
 
@@ -62,82 +60,6 @@
     }
   };
 
-  /**
-   *
-   * @type {{init: jsTheme.sticky.init}}
-   */
-  jsTheme.sticky = {
-    init: function () {
-      var selector = 'body > .sticky, body > #admin-menu';
-
-      var callback = function () {
-        var elements = $(selector);
-        var wrapper = $('#sticky-wrapper');
-        var spacer = $('#sticky-spacer');
-        var height = 0;
-
-        if (elements.length) {
-          // Add the wrapper and spacer if missing.
-          if (!wrapper.length) {
-            wrapper = $('<div>')
-              .attr('id', 'sticky-wrapper')
-              .css({
-                width: '100%',
-                position: 'fixed',
-                top: '0px',
-                left: '0px',
-                'z-index': 999
-              });
-
-            spacer = $('<div>')
-              .attr('id', 'sticky-spacer');
-
-            $('body')
-              .prepend(wrapper)
-              .prepend(spacer);
-          }
-
-          // Move the new elements.
-          wrapper.append(
-            elements
-              .clone()
-              .css('position', 'static')
-          );
-          elements.remove();
-
-          // Resort the content.
-          wrapper.append(
-            wrapper.children().sort(function (a, b) {
-              a = a.className.match(/sticky-(\d+)/) || [0];
-              a = parseInt(a[a.length - 1], 10);
-
-              b = b.className.match(/sticky-(\d+)/) || [0];
-              b = parseInt(b[b.length - 1], 10);
-
-              return a - b;
-            })
-          );
-        }
-
-        if (!wrapper.children().length) {
-          // No wrapper children left, remove our divs.
-          wrapper.remove();
-          spacer.remove();
-        }
-        else {
-          // Calculate and set the height.
-          wrapper.children().each(function () {
-            height += $(this).outerHeight();
-          });
-
-          spacer.css('height', height + 'px');
-        }
-      };
-
-      $(selector + ', #sticky-wrapper > *').livequery(callback, callback);
-      callback();
-    }
-  };
 
   /**
    *
@@ -304,19 +226,6 @@
 
         mobile_breadcrumb.find('option:last').attr('selected', 'selected');
         breadcrumb.after(mobile_breadcrumb);
-      });
-    }
-  };
-
-  /**
-   * Makes all elements with "sticky-nav" class sticky so they will be attached to the viewport top when scrolling down.
-   */
-  jsTheme.stickyNav = {};
-  jsTheme.stickyNav.defaults = { topSpacing: 20 };
-  jsTheme.stickyNav.init = function () {
-    if ($('.sticky-nav').length > 0) {
-      $('.sticky-nav').once('sticky-nav', function () {
-        $(this).sticky(jsTheme.stickyNav.defaults);
       });
     }
   };

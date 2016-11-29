@@ -30,6 +30,7 @@ scripts[] = js/theme.js
 scripts[] = js/header.js
 scripts[] = js/search-widget.js
 scripts[] = js/masonry.js
+scripts[] = js/sticky.js
 
 ; Settings.
 settings[header_image_behavior] = 2
