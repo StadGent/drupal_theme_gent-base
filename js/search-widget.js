@@ -2,6 +2,7 @@
  * @file
  * Contains mobile-friendly search widget.
  */
+
 (function ($) {
 
   /**
@@ -19,10 +20,16 @@
     this.closeHandler = null;
   }
 
-  // Clearable input.
+  /**
+   * A toggle-class for clearable input.
+   * @param v
+   * @returns {string}
+   */
   function tog(v) {
     return v ? 'addClass' : 'removeClass';
   }
+
+  // When the search widget is used, add a class to clear input.
   $(document).on('input', '.search-widget__input', function () {
     $(this)[tog(this.value)]('x');
   }).on('mousemove', '.x', function (e) {
@@ -103,7 +110,7 @@
 
   $(window).resize(function () {
     var $searchWidget = $('.search-widget');
-    if ($searchWidget.hasClass('is-open') && Drupal.gentBase.viewport.get('width') >= Drupal.gentBase.BREAKPOINT_MOBILE) {
+    if ($searchWidget.hasClass('is-open') && !Drupal.gentBase.isMobile()) {
       if (typeof Drupal.gentBase.searchWidget !== 'object') {
         Drupal.gentBase.searchWidget.close();
       }
