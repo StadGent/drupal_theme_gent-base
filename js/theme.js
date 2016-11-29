@@ -10,28 +10,6 @@
    */
   Drupal.gentBase = Drupal.gentBase || {};
 
-  /**
-   * Mobile breakpoint in pixels.
-   * @type {number}
-   */
-  Object.defineProperty(Drupal.gentBase, 'BREAKPOINT_MOBILE', {
-    value: 640,
-    writable: false,
-    enumerable: true,
-    configurable: true
-  });
-
-  /**
-   * Tablet breakpoint in pixels.
-   * @type {number}
-   */
-  Object.defineProperty(Drupal.gentBase, 'BREAKPOINT_TABLET', {
-    value: 960,
-    writable: false,
-    enumerable: true,
-    configurable: true
-  });
-
   // Register, for backwards compatibility with Drupal's default jQuery version,
   // $.on as alias of $.live.
   if (typeof $.fn.on === 'undefined') {
@@ -347,7 +325,7 @@
    *
    */
   function stikyWidth() {
-    if (Drupal.gentBase.viewport.get('width') >= Drupal.gentBase.BREAKPOINT_TABLET) {
+    if (Drupal.gentBase.isDesktop()) {
       var old_width = $('#block-system-main .view-mode-full .l-secondary').width();
       $('.field-group-accordion').width(old_width);
     }
@@ -386,7 +364,7 @@
     var selector = $('.selector', current);
     var list = selector.children('ul');
 
-    if (Drupal.gentBase.viewport.get('width') >= Drupal.gentBase.BREAKPOINT_MOBILE) {
+    if (!Drupal.gentBase.isMobile()) {
       selector.addClass('initial');
       current.unbind().click(function () {
         selector.removeClass('initial');
@@ -404,12 +382,10 @@
     else {
       current.unbind();
       selector.removeClass('close open');
-    }
-
-    if (Drupal.gentBase.viewport.get('width') < Drupal.gentBase.BREAKPOINT_MOBILE) {
       list.hide();
     }
-    if ((selector.hasClass('close')) && (Drupal.gentBase.viewport.get('width') >= Drupal.gentBase.BREAKPOINT_MOBILE)) {
+
+    if (selector.hasClass('close') && !Drupal.gentBase.isMobile()) {
       list.show();
     }
   }
@@ -424,7 +400,7 @@
       var sticky_nav = $('.sticky-nav', webform_left);
 
       // On desktop: Disable the stickiness & set width.
-      if (Drupal.gentBase.viewport.get('width') >= Drupal.gentBase.BREAKPOINT_TABLET) {
+      if (Drupal.gentBase.isDesktop()) {
         sticky_nav.width(webform_left.width());
         sticky_nav.once('sticky-nav').sticky(jsTheme.stickyNav.defaults);
 
@@ -452,7 +428,7 @@
       var webform_components = $('.webform-component', webform_right);
 
       // On desktop.
-      if (Drupal.gentBase.viewport.get('width') >= Drupal.gentBase.BREAKPOINT_TABLET) {
+      if (Drupal.gentBase.isDesktop()) {
         description.width(description_width);
         webform_components.each(function () {
           var webform_description_height = $(this).find('.description').height();
@@ -473,7 +449,7 @@
    *
    */
   function webformStickyBottom() {
-    if (Drupal.gentBase.viewport.get('width') >= Drupal.gentBase.BREAKPOINT_TABLET) {
+    if (Drupal.gentBase.isDesktop()) {
       var webform = $('.webform-client-form');
       if (webform.length) {
         var sticky_nav = $('.sticky-nav.sticky-nav-processed', webform);

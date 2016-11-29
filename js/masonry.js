@@ -13,7 +13,7 @@
   /**
    * Drupal behavior that applies masonry.
    *
-   * Masonry will be applied to grid using the multi-column-items class.
+   * Masonry will be applied to a grid using the multi-column-items class.
    * Individual items need to use the island class.
    */
   Drupal.behaviors.initMasonry = {

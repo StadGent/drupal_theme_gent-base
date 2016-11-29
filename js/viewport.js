@@ -32,7 +32,6 @@ Viewport.prototype.getHeight = function () {
 
 /**
  * Retrieves a viewport property. Do not use this function directly.
- *
  * @param {string} property - The viewport property to retrieve.
  * @returns {*} - The property its value.
  */
@@ -65,20 +64,74 @@ Viewport.prototype.refresh = function () {
   Drupal.gentBase = Drupal.gentBase || {};
 
   /**
+   * Mobile breakpoint in pixels.
+   * @type {number}
+   */
+  Object.defineProperty(Drupal.gentBase, 'BREAKPOINT_MOBILE', {
+    value: 640,
+    writable: false,
+    enumerable: true,
+    configurable: true
+  });
+
+  /**
+   * Tablet breakpoint in pixels.
+   * @type {number}
+   */
+  Object.defineProperty(Drupal.gentBase, 'BREAKPOINT_TABLET', {
+    value: 960,
+    writable: false,
+    enumerable: true,
+    configurable: true
+  });
+
+  /**
    * Wrapper function to refresh the viewport data.
    */
   Drupal.gentBase.refreshViewport = function() {
     if (typeof Viewport !== 'function') {
       return;
     }
-    Drupal.gentBase.viewport = new Viewport();
-    Drupal.gentBase.viewport.refresh();
+    this.viewport = new Viewport();
+    this.viewport.refresh();
   };
 
   /**
-   * Refresh the viewport on load, scroll and resize.
+   * Detect if we are in the mobile state.
+   * @returns {Boolean} Is this the mobile state?
    */
-  $(window).bind('load resize scroll', function () {
+  Drupal.gentBase.isMobile = function() {
+    return this.viewport.get('width') < this.BREAKPOINT_MOBILE;
+  };
+
+  /**
+   * Detect if we are in the tablet state.
+   * @returns {Boolean} Is this the tablet state?
+   */
+  Drupal.gentBase.isTablet = function() {
+    var width = this.viewport.get('width');
+    return width >= this.BREAKPOINT_MOBILE && width < this.BREAKPOINT_TABLET;
+  };
+
+  /**
+   * Detect if we are in the desktop state.
+   * @returns {Boolean} Is this the desktop state?
+   */
+  Drupal.gentBase.isDesktop = function() {
+    return this.viewport.get('width') >= this.BREAKPOINT_TABLET;
+  };
+
+  /**
+   * Refresh the viewport document ready/
+   */
+  $(document).ready(function () {
+    Drupal.gentBase.refreshViewport();
+  });
+
+  /**
+   * Refresh the viewport on scroll and resize.
+   */
+  $(window).bind('resize scroll', function () {
     Drupal.gentBase.refreshViewport();
   });
 
