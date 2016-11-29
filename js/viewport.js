@@ -1,11 +1,12 @@
 /**
  * @file
- *  Holds the Viewport class.
+ * Adds the viewport class and wrapper functions.
  */
 
 /**
  * Viewport class.
  *
+ * This is a native JS class that doesn't need to be in the jQuery scope.
  * @constructor
  */
 function Viewport() {
@@ -54,3 +55,31 @@ Viewport.prototype.refresh = function () {
   this.width = e[a + 'Width'];
   this.height = e[a + 'Height'];
 };
+
+
+(function ($) {
+
+  /**
+   * Make sure we have the Gent Base root namespace.
+   */
+  Drupal.gentBase = Drupal.gentBase || {};
+
+  /**
+   * Wrapper function to refresh the viewport data.
+   */
+  Drupal.gentBase.refreshViewport = function() {
+    if (typeof Viewport !== 'function') {
+      return;
+    }
+    Drupal.gentBase.viewport = new Viewport();
+    Drupal.gentBase.viewport.refresh();
+  };
+
+  /**
+   * Refresh the viewport on load, scroll and resize.
+   */
+  $(window).bind('load resize scroll', function () {
+    Drupal.gentBase.refreshViewport();
+  });
+
+}(jQuery));

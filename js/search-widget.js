@@ -4,30 +4,6 @@
  */
 (function ($) {
 
-  Drupal.gentBase = Drupal.gentBase || {};
-
-  /**
-   * Mobile breakpoint in pixels.
-   * @type {number}
-   */
-  Object.defineProperty(Drupal.gentBase, 'GENT_BASE_BP_MOBILE', {
-    value: 640,
-    writable: false,
-    enumerable: true,
-    configurable: true
-  });
-
-  /**
-   * Tablet breakpoint in pixels.
-   * @type {number}
-   */
-  Object.defineProperty(Drupal.gentBase, 'GENT_BASE_BP_TABLET', {
-    value: 960,
-    writable: false,
-    enumerable: true,
-    configurable: true
-  });
-
   /**
    * Mobile-friendly search widget class.
    *
@@ -126,13 +102,8 @@
   };
 
   $(window).resize(function () {
-    if (typeof Viewport !== 'function') {
-      return;
-    }
-    var viewport = new Viewport();
-    viewport.refresh();
     var $searchWidget = $('.search-widget');
-    if ($searchWidget.hasClass('is-open') && viewport.get('width') >= Drupal.gentBase.GENT_BASE_BP_MOBILE) {
+    if ($searchWidget.hasClass('is-open') && Drupal.gentBase.viewport.get('width') >= Drupal.gentBase.BREAKPOINT_MOBILE) {
       if (typeof Drupal.gentBase.searchWidget !== 'object') {
         Drupal.gentBase.searchWidget.close();
       }

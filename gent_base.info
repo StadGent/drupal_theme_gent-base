@@ -29,6 +29,7 @@ scripts[] = js/viewport.min.js
 scripts[] = js/theme.min.js
 scripts[] = js/header.min.js
 scripts[] = js/search-widget.min.js
+scripts[] = js/masonry.min.js
 
 ; Settings.
 settings[header_image_behavior] = 2
