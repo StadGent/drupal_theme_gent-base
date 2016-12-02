@@ -34,6 +34,7 @@ scripts[] = js/theme.js
 scripts[] = js/header.js
 scripts[] = js/search-widget.js
 scripts[] = js/masonry.js
+scripts[] = js/breadcrumb.js
 scripts[] = js/sticky.js
 
 ; Settings.

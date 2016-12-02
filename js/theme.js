@@ -155,46 +155,6 @@
   };
 
   /**
-   * Creates a mobile breadcrumb as a <select> with <option>s via javascript, based on the printed breadcrumb.
-   *   - Dashes will be added per depth level.
-   *   - The last option will have current url.
-   *   - Each crumb which have no link will be added as disabled option.
-   *
-   * @type {{init: jsTheme.addMobileBreadcrumb.init}}
-   */
-  jsTheme.addMobileBreadcrumb = {
-    init: function () {
-
-      var breadcrumb = $('ul.nav--breadcrumb');
-      breadcrumb.once('mobile-breadcrumb', function () {
-        var mobile_breadcrumb = $('<select class="nav nav--mobile-breadcrumb" onchange="window.location=this.value;" />');
-
-        var items = $('li', this);
-        $.each(items, function (index, value) {
-          var link = $('a', value).attr('href');
-          var prefix = new Array(index + 1).join('-');
-          var text = prefix ? (prefix + ' ' + $(value).text()) : $(value).text();
-
-          var last_item = (index + 1 === items.length);
-          if (typeof link === 'undefined' && last_item) {
-            link = window.location.href.replace(/^(?:\/\/|[^\/]+)*\//, '/');
-            mobile_breadcrumb.append('<option value="' + link + '">' + text + '</option>');
-          }
-          else if (typeof link === 'undefined' && !last_item) {
-            mobile_breadcrumb.append('<option disabled="disabled">' + text + '</option>');
-          }
-          else {
-            mobile_breadcrumb.append('<option value="' + link + '">' + text + '</option>');
-          }
-        });
-
-        mobile_breadcrumb.find('option:last').attr('selected', 'selected');
-        breadcrumb.after(mobile_breadcrumb);
-      });
-    }
-  };
-
-  /**
    *
    */
   function stikyWidth() {
