@@ -27,17 +27,17 @@
    */
   Drupal.gentBase.initMasonry = function () {
     if (typeof $.fn.masonry !== 'undefined') {
-      var that = this;
+      var that = $(this);
 
-      $(this).masonry({
+      that.masonry({
         itemSelector: 'article',
         columnWidth: '.island',
         isAnimated: true,
         gutter: '.gutter'
       });
 
-      $(this).imagesLoaded(function () {
-        $(that).masonry();
+      that.imagesLoaded(function () {
+        that.masonry();
       });
     }
   };
@@ -50,12 +50,12 @@
   $(window).bind('views_load_more.new_content', function () {
     $('.multi-column-items').each(function () {
       var that  = $(this);
-      $(this).imagesLoaded(function () {
+      that.imagesLoaded(function () {
         // Anything new will not be positioned by masonry and still have
         // a relative position.
         var $new_items = $('.island:not(:absolute)');
         // Let masonry know about the items and re-tile the layout
-        $(that).masonry('appended', $new_items).masonry('layout');
+        that.masonry('appended', $new_items).masonry('layout');
       });
     });
   });
