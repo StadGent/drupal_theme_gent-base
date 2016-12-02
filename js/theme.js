@@ -132,29 +132,6 @@
   };
 
   /**
-   *
-   * @type {{init: jsTheme.toggleFieldset.init}}
-   */
-  jsTheme.toggleFieldset = {
-    init: function () {
-      $('fieldset.collapsible').on('collapsed', function (e) {
-        var $fieldset = $(this);
-
-        // Remove previous icons.
-        $('.icon-collapsed, .icon-collapsible', $fieldset).remove();
-
-        // Add new icon based on collapsed state.
-        if (e.value) {
-          $('.fieldset-legend', $fieldset).append('<span class="icon-collapsed"></span>');
-        }
-        else {
-          $('.fieldset-legend', $fieldset).append('<span class="icon-collapsible"></span>');
-        }
-      });
-    }
-  };
-
-  /**
    * Creates a mobile breadcrumb as a <select> with <option>s via javascript, based on the printed breadcrumb.
    *   - Dashes will be added per depth level.
    *   - The last option will have current url.
