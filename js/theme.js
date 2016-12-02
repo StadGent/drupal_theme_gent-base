@@ -187,83 +187,6 @@
     }
   }
 
-  /**
-   *
-   */
-  function progressbarStickyWidth() {
-    var webform = $('.webform-client-form');
-    if (webform.length) {
-      var webform_left = $('.node-type-webform .webform-left');
-      var sticky_nav = $('.sticky-nav', webform_left);
-
-      // On desktop: Disable the stickiness & set width.
-      if (Drupal.gentBase.isDesktop()) {
-        sticky_nav.width(webform_left.width());
-        sticky_nav.once('sticky-nav').sticky(jsTheme.stickyNav.defaults);
-
-      }
-      // On mobile: Re-enable the stickiness & reset widths..
-      else {
-        sticky_nav.width('auto');
-        $('.node-type-webform .webform-left .sticky-wrapper').height('auto');
-
-        // Re-enable the stickiness.
-        sticky_nav.removeClass('sticky-nav-processed').unstick();
-      }
-    }
-  }
-
-  /**
-   *
-   */
-  function webformDescriptionRight() {
-    var webform = $('.webform-client-form');
-    if (webform.length) {
-      var webform_right = $('.node-type-webform .webform-right');
-      var description_width = webform_right.width() * 0.75;
-      var description = $('.description', webform_right);
-      var webform_components = $('.webform-component', webform_right);
-
-      // On desktop.
-      if (Drupal.gentBase.isDesktop()) {
-        description.width(description_width);
-        webform_components.each(function () {
-          var webform_description_height = $(this).find('.description').height();
-          var label_height = $(this).find('label').outerHeight();
-          var webform_component_height =  webform_description_height + label_height;
-          $(this).css('min-height', webform_component_height);
-        });
-      }
-      // On mobile.
-      else {
-        description.width('auto');
-        webform_components.css('min-height', 'auto');
-      }
-    }
-  }
-
-  /**
-   *
-   */
-  function webformStickyBottom() {
-    if (Drupal.gentBase.isDesktop()) {
-      var webform = $('.webform-client-form');
-      if (webform.length) {
-        var sticky_nav = $('.sticky-nav.sticky-nav-processed', webform);
-        if (sticky_nav.length) {
-          var progress_bar = $('.webform-component-progressbar-pages');
-          var document = $(document);
-          var bottom_sticky_to_bottom_screen = document.height() - progress_bar.offset().top - progress_bar.height();
-          var bottom_webform_to_bottom_screen = document.height() - webform.offset().top - webform.height();
-          if (bottom_sticky_to_bottom_screen <=  bottom_webform_to_bottom_screen) {
-            sticky_nav.css('bottom', bottom_webform_to_bottom_screen);
-            sticky_nav.css('top', 'auto');
-          }
-        }
-      }
-    }
-  }
-
   // Initialize the theme.
   $(jsTheme.init);
 
@@ -272,9 +195,6 @@
    */
   $(document).ready(function () {
     stikyWidth();
-    progressbarStickyWidth();
-    webformDescriptionRight();
-    webformStickyBottom();
     categorieAction();
     positionCategorieDropdown();
   });
@@ -284,23 +204,9 @@
    */
   $(window).resize(function () {
     stikyWidth();
-    progressbarStickyWidth();
-    webformDescriptionRight();
-    webformStickyBottom();
     categorieAction();
     positionCategorieDropdown();
   });
-
-
-
-
-  /**
-   * Add actions on scroll event.
-   */
-  $(window).scroll(function () {
-    webformStickyBottom();
-  });
-
 
   /**
    * Extends the expression selector : with a position filter.
