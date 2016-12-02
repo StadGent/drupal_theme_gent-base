@@ -35,8 +35,8 @@
     }
   };
 
-  $(window).resize(function () {
+  $(window).resize($.debounce(500, false, function () {
     Drupal.gentBase.brandAutosize(this.document);
-  });
+  }));
 
 }(jQuery));
