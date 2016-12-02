@@ -16,16 +16,16 @@
    * Masonry will be applied to a grid using the multi-column-items class.
    * Individual items need to use the island class.
    */
-  Drupal.behaviors.initMasonry = {
+  Drupal.behaviors.masonry = {
     attach: function (context) {
-      $('.multi-column-items', context).once('masonry', Drupal.gentBase.masonry);
+      $('.multi-column-items', context).once('masonry', Drupal.gentBase.initMasonry);
     }
   };
 
   /**
    * Callback function that applies masonry on the object.
    */
-  Drupal.gentBase.masonry = function () {
+  Drupal.gentBase.initMasonry = function () {
     if (typeof $.fn.masonry !== 'undefined') {
       var that = this;
 

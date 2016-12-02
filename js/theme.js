@@ -36,27 +36,12 @@
    */
   var jsTheme = {
     init: function () {
-      jsTheme.lib.init();
       jsTheme.forms.init();
       jsTheme.searchThemes.init();
-      jsTheme.equalColumns.init();
       jsTheme.progressAnimator.init();
       jsTheme.accordion.init();
       jsTheme.toggleFieldset.init();
       jsTheme.addMobileBreadcrumb.init();
-    }
-  };
-
-  /**
-   *
-   * @type {{init: jsTheme.lib.init}}
-   */
-  jsTheme.lib = {
-    init: function () {
-      if (typeof $.fn.matchHeight !== 'undefined') {
-        $('.js-height').matchHeight();
-        $('.js-equal').matchHeight(false);
-      }
     }
   };
 
@@ -92,27 +77,6 @@
         e.preventDefault();
         $('.search-filter > div').slideToggle();
       });
-    }
-  };
-
-  /**
-   *
-   * @type {{init: jsTheme.equalColumns.init}}
-   */
-  jsTheme.equalColumns = {
-    init: function () {
-      // Get all columns and set them to equal height
-      var tallest = 0;
-      if ($(window).width() > 480) {
-        var columns = $('.equal-columns .col-equal');
-        columns.each(function () {
-          var thisHeight = $(this).height();
-          if (thisHeight > tallest) {
-            tallest = thisHeight;
-          }
-        });
-        columns.height(tallest);
-      }
     }
   };
 
