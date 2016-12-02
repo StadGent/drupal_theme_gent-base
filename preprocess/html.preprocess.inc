@@ -36,6 +36,16 @@ function gent_base_preprocess_html(&$variables) {
     'preprocess' => FALSE,
   ));
 
+  // The Webform script will only be enabled when the module exists.
+  if (module_exists('webform')) {
+    if (file_exists($base_theme . '/js/webform.min.js')) {
+      drupal_add_js($base_theme . '/js/webform.min.js');
+    }
+    else {
+      drupal_add_js($base_theme . '/js/webform.js');
+    }
+  }
+
   // Include active theme as a class into the body.
   global $theme_key;
   $variables['classes_array'][] = $theme_key;
