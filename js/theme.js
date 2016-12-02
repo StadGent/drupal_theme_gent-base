@@ -1,30 +1,16 @@
 /**
  * @file
  * The Gent Base theme global javascript file.
- *
- * @todo Backport the refactoring done in PPL for theme.js here
  */
+
 (function ($) {
 
   /**
-   * Mobile breakpoint in pixels.
-   * @type {number}
+   * The Gent Base root namespace.
    */
-  var GENT_BASE_BP_MOBILE = 640;
+  Drupal.gentBase = Drupal.gentBase || {};
 
-  /**
-   * Tablet breakpoint in pixels.
-   * @type {number}
-   */
-  var GENT_BASE_BP_TABLET = 960;
-
-  /**
-   * Viewport class to extract viewport's width and/or height.
-   * @type {Viewport}
-   */
-  var viewport = new Viewport();
-
-  // Register, for backwards compatibilty with Drupal's default jQuery version,
+  // Register, for backwards compatibility with Drupal's default jQuery version,
   // $.on as alias of $.live.
   if (typeof $.fn.on === 'undefined') {
     jQuery.fn.extend({
@@ -38,8 +24,8 @@
   Drupal.behaviors.gentBaseBehavior = {
     attach: function (context) {
       $('.ajax-new-content', context).once('gent-base', function () {
-        webformDescriptionRight();
-        webformStickyBottom();
+        //webformDescriptionRight();
+        //webformStickyBottom();
       });
     }
   };
@@ -72,20 +58,6 @@
       if (typeof $.fn.matchHeight !== 'undefined') {
         $('.js-height').matchHeight();
         $('.js-equal').matchHeight(false);
-      }
-
-      if (typeof $.fn.masonry !== 'undefined') {
-
-        var $container = $('.multi-column-items').masonry({
-          itemSelector: 'article',
-          columnWidth: '.island',
-          isAnimated: true,
-          gutter: '.gutter'
-        });
-        $container.imagesLoaded(function () {
-          $container.masonry();
-        });
-
       }
     }
   };
@@ -353,7 +325,7 @@
    *
    */
   function stikyWidth() {
-    if (viewport.get('width') >= GENT_BASE_BP_TABLET) {
+    if (Drupal.gentBase.isDesktop()) {
       var old_width = $('#block-system-main .view-mode-full .l-secondary').width();
       $('.field-group-accordion').width(old_width);
     }
@@ -392,7 +364,7 @@
     var selector = $('.selector', current);
     var list = selector.children('ul');
 
-    if (viewport.get('width') >= GENT_BASE_BP_MOBILE) {
+    if (!Drupal.gentBase.isMobile()) {
       selector.addClass('initial');
       current.unbind().click(function () {
         selector.removeClass('initial');
@@ -410,12 +382,10 @@
     else {
       current.unbind();
       selector.removeClass('close open');
-    }
-
-    if (viewport.get('width') < GENT_BASE_BP_MOBILE) {
       list.hide();
     }
-    if ((selector.hasClass('close')) && (viewport.get('width') >= GENT_BASE_BP_MOBILE)) {
+
+    if (selector.hasClass('close') && !Drupal.gentBase.isMobile()) {
       list.show();
     }
   }
@@ -430,7 +400,7 @@
       var sticky_nav = $('.sticky-nav', webform_left);
 
       // On desktop: Disable the stickiness & set width.
-      if (viewport.get('width') >= GENT_BASE_BP_TABLET) {
+      if (Drupal.gentBase.isDesktop()) {
         sticky_nav.width(webform_left.width());
         sticky_nav.once('sticky-nav').sticky(jsTheme.stickyNav.defaults);
 
@@ -458,7 +428,7 @@
       var webform_components = $('.webform-component', webform_right);
 
       // On desktop.
-      if (viewport.get('width') >= GENT_BASE_BP_TABLET) {
+      if (Drupal.gentBase.isDesktop()) {
         description.width(description_width);
         webform_components.each(function () {
           var webform_description_height = $(this).find('.description').height();
@@ -479,7 +449,7 @@
    *
    */
   function webformStickyBottom() {
-    if (viewport.get('width') >= GENT_BASE_BP_TABLET) {
+    if (Drupal.gentBase.isDesktop()) {
       var webform = $('.webform-client-form');
       if (webform.length) {
         var sticky_nav = $('.sticky-nav.sticky-nav-processed', webform);
@@ -504,7 +474,6 @@
    * Add actions on ready event.
    */
   $(document).ready(function () {
-    viewport.refresh();
     stikyWidth();
     progressbarStickyWidth();
     webformDescriptionRight();
@@ -517,7 +486,6 @@
    * Add actions on resize event.
    */
   $(window).resize(function () {
-    viewport.refresh();
     stikyWidth();
     progressbarStickyWidth();
     webformDescriptionRight();
@@ -526,12 +494,33 @@
     positionCategorieDropdown();
   });
 
+
+
+
   /**
-   * Add actons on scroll event.
+   * Add actions on scroll event.
    */
   $(window).scroll(function () {
-    viewport.refresh();
     webformStickyBottom();
+  });
+
+
+  /**
+   * Extends the expression selector : with a position filter.
+   */
+  $.extend($.expr[':'], {
+    absolute: function (el) {
+      return $(el).css('position') === 'absolute';
+    },
+    relative: function (el) {
+      return $(el).css('position') === 'relative';
+    },
+    static: function (el) {
+      return $(el).css('position') === 'static';
+    },
+    fixed: function (el) {
+      return $(el).css('position') === 'fixed';
+    }
   });
 
 })(jQuery);

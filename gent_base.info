@@ -25,10 +25,11 @@ scripts[] = libraries/livequery/jquery.livequery.min.js
 scripts[] = libraries/jquery-columnizer/jquery.columnizer.min.js
 
 ; Scripts.
-scripts[] = js/viewport.min.js
-scripts[] = js/theme.min.js
-scripts[] = js/header.min.js
-scripts[] = js/search-widget.min.js
+scripts[] = js/viewport.js
+scripts[] = js/theme.js
+scripts[] = js/header.js
+scripts[] = js/search-widget.js
+scripts[] = js/masonry.js
 
 ; Settings.
 settings[header_image_behavior] = 2
