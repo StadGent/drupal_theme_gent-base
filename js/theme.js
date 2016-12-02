@@ -41,7 +41,6 @@
       jsTheme.progressAnimator.init();
       jsTheme.accordion.init();
       jsTheme.toggleFieldset.init();
-      jsTheme.addMobileBreadcrumb.init();
     }
   };
 
