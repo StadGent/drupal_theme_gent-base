@@ -29,28 +29,6 @@ function gent_base_preprocess_html(&$variables) {
   $base_theme = drupal_get_path('theme', 'gent_base');
   $variables['base_theme_path'] = base_path() . $base_theme . '/';
 
-  // Add HTML5shiv for older IE versions.
-  $html5shiv = array(
-    '#tag' => 'script',
-    '#attributes' => array(
-      'src' => $base_theme . '/libraries/html5shiv/html5shiv.js',
-    ),
-    '#prefix' => '<!--[if lt IE 9  & (!IEMobile)]>',
-    '#suffix' => '</script><![endif]-->',
-  );
-  drupal_add_html_head($html5shiv, 'html5shiv');
-
-  // Add respond.js to make add responsiveness in IE7 & 8.
-  $respond = array(
-    '#tag' => 'script',
-    '#attributes' => array(
-      'src' => $base_theme . '/libraries/respond/respond.min.js',
-    ),
-    '#prefix' => '<!--[if IE 8 | IE 7]>',
-    '#suffix' => '</script><![endif]-->',
-  );
-  drupal_add_html_head($respond, 'respond');
-
   // Selected scripts for the header scripts go here.
   drupal_add_js($base_theme . '/libraries/modernizr/modernizr.min.js', array(
     'scope' => 'head_scripts',
