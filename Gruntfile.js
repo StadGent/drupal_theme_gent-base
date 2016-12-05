@@ -125,8 +125,10 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-shell');
 
   grunt.registerTask('build', [
-    'uglify:dist',
-    'compass:dist'
+    'newer:imagemin:dist',
+    'newer:uglify:dist',
+    'compass:dist',
+    'jshint'
   ]);
 
   grunt.registerTask('compile', [
