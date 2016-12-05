@@ -103,6 +103,17 @@ module.exports = function (grunt) {
             return dest + '/' + folder + filename + '.min.js';
           }
         }]
+      },
+      // Extra uglifying for libs that don't ship with a minified version.
+      // Run after bower update.
+      libs: {
+        options: {
+          mangle: true,
+          compress: true
+        },
+        files: [
+          {'libraries/sticky/jquery.sticky.min.js': 'libraries/sticky/jquery.sticky.js'}
+        ]
       }
     }
   });
@@ -120,6 +131,10 @@ module.exports = function (grunt) {
 
   grunt.registerTask('compile', [
     'compass:dev'
+  ]);
+
+  grunt.registerTask('uglifybowerlibs', [
+    'uglify:libs'
   ]);
 
 };

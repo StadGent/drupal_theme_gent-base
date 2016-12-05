@@ -16,13 +16,17 @@ regions[footer_top] = Top footer
 regions[footer] = Footer
 regions[footer_bottom] = Footer bottom
 
-; Libraries.
-scripts[] = libraries/modernizr/modernizr.custom.js
+; Libraries
+; Custom, not handled by bower.
+scripts[] = libraries/custom/modernizr/modernizr.custom.js
+; Managed with bower.
+scripts[] = libraries/jquery-throttle-debounce/jquery.ba-throttle-debounce.min.js
+scripts[] = libraries/livequery/dist/jquery.livequery.min.js
 scripts[] = libraries/matchheight/jquery.matchHeight-min.js
-scripts[] = libraries/masonry/masonry.pkgd.min.js
-scripts[] = libraries/masonry/imagesloaded.pkgd.min.js
-scripts[] = libraries/livequery/jquery.livequery.min.js
-scripts[] = libraries/jquery-columnizer/jquery.columnizer.min.js
+scripts[] = libraries/imagesloaded/imagesloaded.pkgd.min.js
+scripts[] = libraries/masonry/dist/masonry.pkgd.min.js
+scripts[] = libraries/matchheight/dist/jquery.matchHeight-min.js
+scripts[] = libraries/sticky/jquery.sticky.min.js
 
 ; Scripts.
 scripts[] = js/viewport.js
