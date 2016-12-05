@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Process HTML function.
+ * Process functions for the Gent base theme.
  */
 
 /**
