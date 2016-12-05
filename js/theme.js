@@ -39,9 +39,7 @@
       jsTheme.forms.init();
       jsTheme.searchThemes.init();
       jsTheme.progressAnimator.init();
-      jsTheme.accordion.init();
       jsTheme.toggleFieldset.init();
-      jsTheme.addMobileBreadcrumb.init();
     }
   };
 
@@ -99,40 +97,6 @@
 
   /**
    *
-   * @type {{init: jsTheme.accordion.init}}
-   */
-  jsTheme.accordion = {
-    init: function () {
-      // Code for simple accordion animations
-      $('.accordion').each(function () {
-        // Close all contents except the first
-        $('.accordion-item-content', this).hide();
-        var activeItem = $('.accordion-item:first', this);
-        activeItem.find('.accordion-item-content').show();
-        activeItem.addClass('active').find('.accordion-item-title span').toggleClass('icon-arrow-down icon-arrow-up');
-
-        // Now toggle items on click
-        $('.accordion-item-title a', this).click(function (e) {
-          e.preventDefault();
-          var currentItem = $(this).parents('.accordion-item');
-
-          if (currentItem.hasClass('active')) {
-            currentItem.removeClass('active');
-            currentItem.find('.accordion-item-content').slideUp('slow');
-            currentItem.find('.accordion-item-title span').toggleClass('icon-arrow-up icon-arrow-down');
-          }
-          else {
-            currentItem.addClass('active');
-            currentItem.find('.accordion-item-content').slideDown('slow');
-            currentItem.find('.accordion-item-title span').toggleClass('icon-arrow-down icon-arrow-up');
-          }
-        });
-      });
-    }
-  };
-
-  /**
-   *
    * @type {{init: jsTheme.toggleFieldset.init}}
    */
   jsTheme.toggleFieldset = {
@@ -150,46 +114,6 @@
         else {
           $('.fieldset-legend', $fieldset).append('<span class="icon-collapsible"></span>');
         }
-      });
-    }
-  };
-
-  /**
-   * Creates a mobile breadcrumb as a <select> with <option>s via javascript, based on the printed breadcrumb.
-   *   - Dashes will be added per depth level.
-   *   - The last option will have current url.
-   *   - Each crumb which have no link will be added as disabled option.
-   *
-   * @type {{init: jsTheme.addMobileBreadcrumb.init}}
-   */
-  jsTheme.addMobileBreadcrumb = {
-    init: function () {
-
-      var breadcrumb = $('ul.nav--breadcrumb');
-      breadcrumb.once('mobile-breadcrumb', function () {
-        var mobile_breadcrumb = $('<select class="nav nav--mobile-breadcrumb" onchange="window.location=this.value;" />');
-
-        var items = $('li', this);
-        $.each(items, function (index, value) {
-          var link = $('a', value).attr('href');
-          var prefix = new Array(index + 1).join('-');
-          var text = prefix ? (prefix + ' ' + $(value).text()) : $(value).text();
-
-          var last_item = (index + 1 === items.length);
-          if (typeof link === 'undefined' && last_item) {
-            link = window.location.href.replace(/^(?:\/\/|[^\/]+)*\//, '/');
-            mobile_breadcrumb.append('<option value="' + link + '">' + text + '</option>');
-          }
-          else if (typeof link === 'undefined' && !last_item) {
-            mobile_breadcrumb.append('<option disabled="disabled">' + text + '</option>');
-          }
-          else {
-            mobile_breadcrumb.append('<option value="' + link + '">' + text + '</option>');
-          }
-        });
-
-        mobile_breadcrumb.find('option:last').attr('selected', 'selected');
-        breadcrumb.after(mobile_breadcrumb);
       });
     }
   };

@@ -108,7 +108,7 @@
     }
   };
 
-  $(window).resize(function () {
+  $(window).resize($.debounce(500, false, function () {
     var $searchWidget = $('.search-widget');
     if ($searchWidget.hasClass('is-open') && !Drupal.gentBase.isMobile()) {
       if (typeof Drupal.gentBase.searchWidget !== 'object') {
@@ -120,6 +120,6 @@
         widget.close();
       }
     }
-  });
+  }));
 
 }(jQuery));
