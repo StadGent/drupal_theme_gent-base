@@ -37,6 +37,7 @@ scripts[] = js/masonry.js
 scripts[] = js/breadcrumb.js
 scripts[] = js/sticky.js
 scripts[] = js/accordion.js
+scripts[] = js/toggle-fieldset.js
 
 ; Settings.
 settings[header_image_behavior] = 2
