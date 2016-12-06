@@ -5,41 +5,40 @@
   span {
     color: $beta-text-color;
   }
-  
+
   a,
   span {
     color: $alpha-link-color;
     background-color: transparent;
     text-decoration: none;
-  }
 
-  li {
     @include px-padding-lr(1,1);
     @include padding-tb(.5, .5);
     @extend %rounded-1;
     @include text-dimensions(-2, 1);
-    
+
     border:1px solid $white-color;
-    margin-left: 6px;
     font-weight:bold;
-    
+
     &:hover,
     &:focus,
     &:active {
       background-color: $gamma-ui-color;
     }
   }
-  
+
+  li {
+    margin-left: 6px;
+  }
+
   li.pager-current, li.pager-current {
-    background-color: $delta-ui-color;
-    border:1px solid $delta-ui-color;
-    color:$white-color;
-    
     span, a {
-      color:$white-color;
+      background-color: $delta-ui-color;
+      border: 1px solid $delta-ui-color;
+      color: $white-color;
     }
   }
-  
+
   li.pager-ellipsis {
     &:hover,
     &:focus,
