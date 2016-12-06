@@ -1,34 +1,41 @@
-/**
- * Autocomplete.
- *
- * @see autocomplete.js
- */
-/* Suggestion list */
+//
+// Autocomplete.
+//
+// @see autocomplete.js
+//
+// We're overriding Drupal core CSS, skip some validation.
+// sass-lint:disable no-ids
+
+// Suggestion list.
 #autocomplete {
   border: 1px solid;
   overflow: hidden;
   position: absolute;
   z-index: 100;
 }
+
 #autocomplete ul {
   list-style: none;
   list-style-image: none;
   margin: 0;
   padding: 0;
 }
+
 #autocomplete li {
   background: $white-color;
   color: $alpha-text-color;
   cursor: default;
   white-space: pre;
-  zoom: 1; /* IE7 */
+  zoom: 1;
 }
-/* Animated throbber */
+
+// Animated throbber.
 html.js input.form-autocomplete {
   background-image: url('#{$base-theme-path}/img/gif/throbber-inactive.gif');
   background-position: 100% 50%;
   background-repeat: no-repeat;
 }
+
 html.js input.throbbing {
   background-image: url('#{$base-theme-path}/img/gif/throbber-active.gif');
   background-position: 100% 50%;

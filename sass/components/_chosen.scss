@@ -1,7 +1,12 @@
+//
+// Chosen.
+//
 .chosen-container-single {
   @include border-content;
+
   .chosen-single {
     @include input-dimensions(-2, 1, 0, .45, .45, 0);
+
     height: auto;
   }
 }

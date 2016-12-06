@@ -7,9 +7,9 @@ $debug-mode: false;
 // subtheme, the subtheme needs to render all sass files and compile them to css. Basically this means that the basetheme
 // will never add any css file.
 //
-// $base-theme-path: "../../gent_base";
+// $base-theme-path: '../../gent_base';
 //
 // Styleguide 1.1.1
-$base-theme-path: "../..";
+$base-theme-path: '../..';
 
-$misc-path: "../../../../../../misc";
+$misc-path: '../../../../../../misc';

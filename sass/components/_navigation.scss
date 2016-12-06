@@ -1,3 +1,6 @@
+//
+// Navigation.
+//
 .nav {
   @extend %clearfix;
   @include horizontal-nav;
@@ -8,21 +11,20 @@
 .search-icon-block {
   z-index: 9999;
   float: right;
-  @include mq($bp-tablet-s){
-  left: 21px;
-  }
-  margin-top: -3px;
-  @include mq($bp-tablet-m){
-  margin-top: -42px;
-  }
   display: inline-block;
   width: 42px;
   height: 42px;
-  @include mq($bp-tablet-s){
+  margin-top: -3px;
+  @include mq($bp-tablet-s) {
+    left: 21px;
     display: none;
   }
+  @include mq($bp-tablet-m){
+    margin-top: -42px;
+  }
+
   .icon-search {
-    &:before {
+    &::before {
       display: inline-block;
       width: 42px;
       height: 42px;
@@ -65,7 +67,7 @@
     position: relative;
 
     &:after {
-      content: "";
+      content: '';
       width: 16px;
       height: 16px;
       background-image: url('#{$base-theme-path}/img/png/carret.png');
@@ -78,14 +80,14 @@
       }
     }
 
-    &:last-child:after {
+    &:last-child::after {
       display: none;
     }
 
     a {
-      @extend .btn;
-      @extend .btn--gamma;
-      @extend .btn--small;
+      @extend %btn;
+      @extend %btn--gamma;
+      @include btn-s;
       @include text-dimensions(-4, 1, 0, .1, .1);
 
       &:hover {
@@ -122,7 +124,7 @@
     li {
       @include px-margin-lr(0, 2);
 
-      &:after {
+      &::after {
         right: -18px;
       }
     }

@@ -1,6 +1,8 @@
-
+//
+// RDF
+//
 .milli.rdf {
-  float:left;
+  float: left;
   padding-top: 0.25rem;
   padding-right: 1rem;
 }
@@ -8,14 +10,11 @@
 .rdf {
   .btn--zeta {
     text-decoration: none;
-    padding-left: 0px;
-    padding-right: 0px;
-    padding-top: 0em;
-    padding-bottom: 0em;
+    padding: 0;
     border: 1px solid black;
     border-radius: 5px;
     margin-top: 0;
-    min-width:60px;
+    min-width: 60px;
 
     a {
       text-decoration: none;

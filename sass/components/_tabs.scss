@@ -1,15 +1,17 @@
+//
+// Tabs styling.
+//
 .tabs--top {
-
   @extend %clearfix;
 
   width: 100%;
-  left: 0px;
+  left: 0;
   z-index: 998;
   background-color: $alpha-ui-color;
 
   li > a {
-    color: $white-color;
     @include text-dimensions(-2, 0);
+    color: $white-color;
     text-decoration: none;
   }
 
@@ -25,16 +27,13 @@
   }
 
   ul {
-    margin-bottom: 0em;
+    margin-bottom: 0;
     display: block;
     list-style: none;
   }
 }
 
 // Jquery ui tabs.
-//
-//
-
 .ui-tabs {
   @include rem-padding-lr(1, 1);
   @include padding-tb(1, 1);
@@ -102,7 +101,7 @@
   }
 
   &.with-secondary .tabs--primary {
-    margin-bottom:0;
+    margin-bottom: 0;
   }
   
   // Drupal secondary tabs

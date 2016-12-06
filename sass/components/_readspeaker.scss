@@ -1,3 +1,8 @@
+//
+// Readspeaker styling.
+//
+// We're overriding Admin menu CSS, skip some validation.
+// sass-lint:disable no-important no-ids
 $rs-bg-color                  : #f6f6f6;
 $rs-btn-color                 : #2c3f48;
 $rs-divider-color             : #ddeaed;
@@ -6,46 +11,50 @@ $rs-progressbar-done-color    : #2c3f48;
 $rs-progressbar-handle-color  : #f39200;
 
 //
-// Icon Font: readspeaker
+// Icon Font: readspeaker.
 //
 
 @font-face {
-  font-family: "readspeaker";
-  src: url("#{$base-theme-path}/fonts/readspeaker.eot");
-  src: url("#{$base-theme-path}/fonts/readspeaker.eot?#iefix") format("embedded-opentype"),
-       url("#{$base-theme-path}/fonts/readspeaker.woff") format("woff"),
-       url("#{$base-theme-path}/fonts/readspeaker.ttf") format("truetype"),
-       url("#{$base-theme-path}/fonts/readspeaker.svg#readspeaker") format("svg");
+  font-family: 'readspeaker';
+  src: url('#{$base-theme-path}/fonts/readspeaker.eot');
+  src: url('#{$base-theme-path}/fonts/readspeaker.eot?#iefix') format('embedded-opentype'),
+       url('#{$base-theme-path}/fonts/readspeaker.woff') format('woff'),
+       url('#{$base-theme-path}/fonts/readspeaker.ttf') format('truetype'),
+       url('#{$base-theme-path}/fonts/readspeaker.svg#readspeaker') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
-    font-family: "readspeaker";
-    src: url("#{$base-theme-path}/fonts/readspeaker.svg#readspeaker") format("svg");
+    font-family: 'readspeaker';
+    src: url('#{$base-theme-path}/fonts/readspeaker.svg#readspeaker') format('svg');
   }
 }
 
-.icon-back:before { content: "\f108"; }
-.icon-download:before { content: "\f109"; }
-.icon-handle:before { content: "\f10a"; }
-.icon-pauze:before { content: "\f10b"; }
-.icon-person:before { content: "\f10c"; }
-.icon-play:before { content: "\f110"; }
-.icon-settings:before { content: "\f10d"; }
-.icon-stop:before { content: "\f10e"; }
-.icon-volume:before { content: "\f10f"; }
+.icon-back::before { content: '\f108'; }
+.icon-download::before { content: '\f109'; }
+.icon-handle::before { content: '\f10a'; }
+.icon-pauze::before { content: '\f10b'; }
+.icon-person::before { content: '\f10c'; }
+.icon-play::before { content: '\f110'; }
+.icon-settings::before { content: '\f10d'; }
+.icon-stop::before { content: '\f10e'; }
+.icon-volume::before { content: '\f10f'; }
 
-.icon-rs {
+%icon-rs {
   display: inline-block;
-  font-family: "readspeaker";
+  font-family: 'readspeaker';
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
   line-height: 1;
   text-decoration: inherit;
   text-transform: none;
+}
+
+.icon-rs {
+  @extend %icon-rs;
 }
 
 // Visually hide the readspeaker icon until the header image comes in.
@@ -95,10 +104,12 @@ $rs-progressbar-handle-color  : #f39200;
         height: 2em;
         line-height: 2.25em;
       }
+
       .rsexpanded {
         padding-right: 8px;
         background: transparent;
       }
+
       .rsbtn_progress_container {
         margin-top: 20px;
       }
@@ -109,7 +120,7 @@ $rs-progressbar-handle-color  : #f39200;
 .rsbtn_gent {
   @extend %clearfix;
 
-  padding-left:8px;
+  padding-left: 8px;
   padding-right: 8px;
   background: $white-color;
   
@@ -118,22 +129,22 @@ $rs-progressbar-handle-color  : #f39200;
     background: $rs-bg-color;
   }
 
-  /************************************************ GENERAL CLASSES */
-   a, span {
+  // General classes.
+  a,
+  span {
     position: relative;
     display: block;
     text-decoration: none;
   }
   
   .divider {
-    width:1px;
-    height:46px;
+    width: 1px;
+    height: 46px;
     background-color: $rs-divider-color;
-    margin-top:5px;
+    margin-top: 5px;
   }
-  /**
-   * All the player elements should float.
-   */
+
+   // All the player elements should float.
   .rspart {
     float: left;
   }
@@ -142,35 +153,31 @@ $rs-progressbar-handle-color  : #f39200;
     clear: both;
   }
   
-  /**
-   * This goes for all buttons
-   */
+  // This goes for all buttons.
   .rsbutton {
     width: 48px;
     height: 58px;
     margin: 0;
-    color:$rs-btn-color;
+    color: $rs-btn-color;
     fill: currentColor;
     text-align: center;
-    vertical-align:middle;
+    vertical-align: middle;
     font-size: 20px;
     line-height: 58px;
     outline: none;
   }
   
-  .rsbutton:before {
-    @extend .icon-rs;
-    color:$rs-btn-color;
+  .rsbutton::before {
+    @extend %icon-rs;
+    color: $rs-btn-color;
     transition: color 0.35s ease;
   }
 
   .rsbutton:hover:before {
-    color:lighten($rs-btn-color, 20);
+    color: lighten($rs-btn-color, 20);
   }
   
-  /**
-   * Hide all text labels. They will still be visible to non-CSS browsers
-   */
+  // Hide all text labels. They will still be visible to non-CSS browsers.
   .rspart .rsbtn_btnlabel {
     display: none;
     font-weight: inherit;
@@ -179,65 +186,65 @@ $rs-progressbar-handle-color  : #f39200;
     font-family: inherit;
   }
   
-  /************************************************ PLAYER BOX */
+  /// Player box
   .rsbtn_box {
   }
   
-  /************************************************ LISTEN BUTTON + ICON */
+  // Listen button + icon.
   .rsbutton.rsbtn_play {
     float: left;
   }
   
-  .rsbutton.rsbtn_play:before {
-    @extend .icon-person:before;
-    margin-right: 16px; // Accomodate for the extra wide icon
+  .rsbutton.rsbtn_play::before {
+    @extend .icon-person::before; // sass-lint:disable-line placeholder-in-extend
+    // Accommodate for the extra wide icon.
+    margin-right: 16px;
   }
   
-  &.rsexpanded .rsbutton.rsbtn_play:before {
-    @extend .icon-back:before;
-    margin-right: 8px; // Accomodate for the extra wide icon
+  &.rsexpanded .rsbutton.rsbtn_play::before {
+    @extend .icon-back::before; // sass-lint:disable-line placeholder-in-extend
+    // Accommodate for the extra wide icon.
+    margin-right: 8px;
     margin-left:16px;
   }
   
-  /************************************************ EXPANDING AREA */
+  // Expanding area.
   .rsbtn_exp.rsimg.rspart {
     background: none;
     float: left;
     display: none;
   }
   
-  /**
-   * We want the expanding area to be visible only when the player
-   * is expanded, hence the .rsexpanded class.
-   */
+  // We want the expanding area to be visible only when the player
+  // is expanded, hence the .rsexpanded class.
   &.rsexpanded .rsbtn_exp.rsimg {
     display: block;
   }
   
-  /************************************************ PLAY/PAUSE BUTTON */
-  .rsbutton.rsbtn_pause:before {
-    @extend .icon-pauze:before;
+  // Play/pauze button.
+  .rsbutton.rsbtn_pause::before {
+    @extend .icon-pauze::before; // sass-lint:disable-line placeholder-in-extend
   }
 
-  &.rspaused .rsbutton.rsbtn_pause:before,
-  &.rsstopped .rsbutton.rsbtn_pause:before {
-    @extend .icon-play:before;
+  &.rspaused .rsbutton.rsbtn_pause::before,
+  &.rsstopped .rsbutton.rsbtn_pause::before {
+    @extend .icon-play::before; // sass-lint:disable-line placeholder-in-extend
   }
   
-  &.rsplaying .rsbutton.rsbtn_pause:before {
-    @extend .icon-pauze:before;
+  &.rsplaying .rsbutton.rsbtn_pause::before {
+    @extend .icon-pauze::before; // sass-lint:disable-line placeholder-in-extend
   }
   
-  /************************************************ STOP BUTTON */
-  .rsbutton.rsbtn_stop:before {
-    @extend .icon-stop:before;
+  // Stop button.
+  .rsbutton.rsbtn_stop::before {
+    @extend .icon-stop::before; // sass-lint:disable-line placeholder-in-extend
   }
   
-  &.rsstopped .rsbutton.rsbtn_stop:before {
+  &.rsstopped .rsbutton.rsbtn_stop::before {
     color: lighten($rs-btn-color, 40);
   }
 
-  /************************************************ PROGRESS CONTAINER */
+  // Progress container.
   .rsbtn_progress_container {
     border: 1px solid $rs-progressbar-color;
     width: 110px;
@@ -245,13 +252,13 @@ $rs-progressbar-handle-color  : #f39200;
     margin-top: 24px;
     margin-left: 16px;
     margin-right: 16px;
-    background-color:$rs-progressbar-color;
+    background-color: $rs-progressbar-color;
     border-radius: 3px;
   }
   
-  /************************************************ PROGRESS DRAG HANDLE */
+  // Progress drag handle.
   .rsbtn_progress_handle.rsimg {
-    @extend .icon-rs;
+    @extend %icon-rs;
     
     position: absolute;
     top: -17px;
@@ -259,26 +266,27 @@ $rs-progressbar-handle-color  : #f39200;
     width: 40px;
     height: 40px;
     
-    background-image: url(#{$base-theme-path}/img/png/rs-handle.png);
+    background-image: url('#{$base-theme-path}/img/png/rs-handle.png');
     background-size: contain;
-    background-repeat:none;
+    background-repeat: no-repeat;
     background-color: transparent;
   }
 
-  /************************************************ PROGRESS BAR */
+  // Progress bar.
   .rsbtn_progress_played {
     position: absolute;
     height: 100%;
     background-color: $rs-progressbar-done-color;
   }
   
-  /************************************************ VOLUME BUTTON */
-  .rsbutton.rsbtn_volume:before {
-    @extend .icon-volume:before;
+  // Volume button.
+  .rsbutton.rsbtn_volume::before {
+    @extend .icon-volume::before; // sass-lint:disable-line placeholder-in-extend
   }
   
-  /************************************************ VOLUME SLIDER CONTAINER */
+  // Volume slider container.
   .rsbtn_volume_container {
+    @include box-shadow(0 3px 7px -3px $dark-color);
     position: absolute;
     display: none;
     top: 100%;
@@ -288,11 +296,10 @@ $rs-progressbar-handle-color  : #f39200;
     background-color: $rs-bg-color;
     z-index:100;
     border-radius: 0 0 $beta-radius $beta-radius; 
-    border-top:1px solid $rs-divider-color;
-    @include box-shadow(0 3px 7px -3px $dark-color);
+    border-top: 1px solid $rs-divider-color;
   }
   
-  /************************************************ VOLUME SLIDER SLIDER AREA */
+  // Volume slider area.
   .rsbtn_volume_slider {
     width: 12px;
     height: 80px;
@@ -301,7 +308,7 @@ $rs-progressbar-handle-color  : #f39200;
     border-radius: 3px;
   }
   
-  /************************************************ VOLUME SLIDER SLIDE HANDLE */
+  // Volume slide handle
   .rsbtn_volume_handle.rsimg {
     position: absolute;
     top: -6px;  
@@ -311,28 +318,29 @@ $rs-progressbar-handle-color  : #f39200;
     background-color: $rs-progressbar-handle-color;
   }
   
-  /************************************************ DOWNLOAD BUTTON */
-  .rsbutton.rsbtn_dl:before {
-    @extend .icon-download:before;
+  // Download button.
+  .rsbutton.rsbtn_dl::before {
+    @extend .icon-download::before; // sass-lint:disable-line placeholder-in-extend
   }
   
-  /************************************************ SETTINGS BUTTON */
-  .rsbutton.rsbtn_settings:before {
-    @extend .icon-settings:before;
+  // Settings button.
+  .rsbutton.rsbtn_settings::before {
+    @extend .icon-settings::before; // sass-lint:disable-line placeholder-in-extend
   }
   
-  /************************************************ CLOSE BUTTON */
+  // Close button.
   .rsbutton.rsbtn_closer {
-    background-color:$white-color;
+    background-color: $white-color;
     width: 64px;
     border-left: 1px solid $rs-divider-color;
-    &:before {
-      @extend .icon-base-css;
-      @extend .icon-close:before;
+    &::before {
+      @extend %icon-base-css;
+      @extend .icon-close::before; // sass-lint:disable-line placeholder-in-extend
       font-size: 2.25rem;
       margin-top: 3px;
       margin-left: 8px;
-      margin-right: 16px; // Accomodate for the extra wide icon
+      // Accommodate for the extra wide icon
+      margin-right: 16px;
 
       @at-root .rscompact#{&} {
         font-size: 1.9rem;
@@ -341,27 +349,25 @@ $rs-progressbar-handle-color  : #f39200;
     }
   }
   
-  /************************************************ POPUP BUTTON */
-  /**
-   * This is the style of the listen button that popups when the user
-   * makes a text selection on the page.
-   */
+  // Popup button.
+  // This is the style of the listen button that popups when the user
+  // makes a text selection on the page.
   &.rspopup {
+    @include box-shadow(0 3px 7px -3px $dark-color);
     position: absolute;
     display: none;
     border: 1px solid lighten($alpha-text-color, 40);
     border-radius: $beta-radius !important;
     background: $rs-bg-color;
-    @include box-shadow(0 3px 7px -3px $dark-color);
     
     .divider {
-      height:26px;
-      margin-top:5px;
+      height: 26px;
+      margin-top: 5px;
     }
     
     .rsbtn_progress_container {
-      margin-top:13px;
-      width:60px;
+      margin-top: 13px;
+      width: 60px;
     }
     
     .rsbutton {
@@ -371,8 +377,9 @@ $rs-progressbar-handle-color  : #f39200;
       line-height: 36px;
       
       &.rsbtn_closer {
-        background-color:inherit;
+        background-color: inherit;
       }
+
       &.rsbtn_play:before {
         margin-right: 11px;
       }
@@ -381,11 +388,12 @@ $rs-progressbar-handle-color  : #f39200;
     &.rsexpanded {
       .rsbutton.rsbtn_closer {
         margin-right: 11px;
-        &:before {
+
+        &::before {
           margin-top: 0;
         }
       }
-      .rsbtn_play:before {
+      .rsbtn_play::before {
         margin-left: 6px;
       }
     }
@@ -397,7 +405,7 @@ $rs-progressbar-handle-color  : #f39200;
   font-size: 2em !important;
 }
 
-/** Overlay styles, make it all important to override inline RS stuff */
+// Overlay styles, make it all important to override inline RS stuff.
 #rslightbox_contentcontainer { 
   @include box-shadow(0 0 21px $dark-color);
   background-color: $gamma-ui-color !important;
@@ -415,7 +423,7 @@ $rs-progressbar-handle-color  : #f39200;
   }
   
   #rslightbox_logo {
-    display:none;
+    display: none;
   }
   
   #rslightbox_buttons {
@@ -424,10 +432,13 @@ $rs-progressbar-handle-color  : #f39200;
     margin: 2px 10px;
     background-color: transparent; 
   }
-  .rsform-button, #rslightbox_buttons a.rsdialog-button {
+
+  .rsform-button,
+  #rslightbox_buttons a.rsdialog-button {
     @extend %btn;
+    @extend %btn--alpha;
     @include btn-m;
-    @extend .btn--alpha;
+
     @include mq($bp-tablet-s) {
       @include btn-inlineblock;
     }
@@ -435,20 +446,19 @@ $rs-progressbar-handle-color  : #f39200;
   }
   
   #rslightbox_content {
-    font-size:inherit; 
+    @include border-box;
+    font-size: inherit;
     top: 10px;
     background-color: $white-color !important;
-
-    @include border-box;
-
     color: $alpha-text-color;
   
     h1 {
-      @extend .h1;
+      @extend %h1;
       margin-bottom: .5rem;
     }
+
     h2 {
-      @extend .h2;
+      @extend %h2;
       padding-top: 0;
     }
     
@@ -457,32 +467,38 @@ $rs-progressbar-handle-color  : #f39200;
       margin-bottom: 0;
       background-color: transparent;
     }
+
     legend {
-      border:0;
-      font-weight:bold;
+      border: 0;
+      font-weight: bold;
       margin: 0;
       padding: 0;
       background-color: transparent;
     }
+
     .rsform-section > legend {
-      @extend .h2;
-      padding-top:.3rem;
+      @extend %h2;
+      padding-top: .3rem;
     }
+
     label {
-      font-weight:normal;
+      font-weight: normal;
     }
     
     .rsform-row {
+      @include text-dimensions(0, 1);
       border-radius: $beta-radius; 
       background-color: $gamma-ui-color;
-      @include text-dimensions(0, 1);
     }
+
     .rsform-info-container {
       @include text-dimensions(0, 1);
     }
+
     input[type=button] {
       @include text-dimensions(0, 1);
     }
+
     .rsform-colorlist-style-none,
     .rsform-colorlist-style-underline {
       line-height: .2rem;
@@ -492,10 +508,13 @@ $rs-progressbar-handle-color  : #f39200;
 
 .large-header .rsbtn_gent {
   border-radius: $beta-radius $beta-radius 0 0;
+
   .rsbutton {
     border-radius: $beta-radius $beta-radius 0 0;
+
     &.rsbtn_closer {
       border: none;
+
       &:before {
         margin-top: 6px;
       }
@@ -505,7 +524,6 @@ $rs-progressbar-handle-color  : #f39200;
 
 html.svg {
   .rsbtn_progress_handle.rsimg {
-    background-image: url(#{$base-theme-path}/img/svg/rs-handle.svg);
+    background-image: url('#{$base-theme-path}/img/svg/rs-handle.svg');
   }
 }
-

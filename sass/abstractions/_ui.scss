@@ -1,12 +1,11 @@
-/*
-	User Interface Elements
-*/
+//
+// User Interface Elements.
+//
 
-// Buttons
-
+// Buttons.
 %btn {
   text-decoration: none;
-  border: none;
+  border: 0;
   border-radius: $alpha-radius;
   position: relative;
   display: block;
@@ -18,19 +17,19 @@
   font-family: $alpha-font-family;
   font-weight: $beta-font-weight;
   cursor: pointer;
-  text-decoration: none;
-  transition: all .11s ease-in-out;
+  transition: .11s ease-in-out;
   transition-property: background, color, border;
   outline: none;
-  -webkit-appearance: none;
+
+  // Disable OS-specific button styling on IE.
+  -webkit-appearance: none; // sass-lint:disable-line no-vendor-prefixes
 
   &:hover {
     text-decoration: none;
   }
 }
 
-// Button sizes
-
+// Button sizes.
 @mixin btn-l {
   @include px-padding-lr(2, 2);
   @include text-dimensions(0, 1, 0, .6, .8);
@@ -58,40 +57,161 @@
   }
 }
 
-// Button display
+%btn--alpha {
+  color: $white-color;
+  background-color: $alpha-link-color;
 
+  &:hover {
+    background-color: lighten($alpha-link-color, 5);
+  }
+
+  &:focus,
+  &:active {
+    background-color: $alpha-link-color;
+  }
+}
+
+%btn--beta {
+  color: #fff;
+  background-color: $beta-ui-color;
+
+  &:hover {
+    color: $white-color;
+    background-color: lighten($beta-ui-color, 5);
+  }
+
+  &:focus,
+  &:active {
+    background-color: darken($beta-ui-color, 2.5);
+  }
+}
+
+%btn--beta--alt {
+  color: $beta-ui-color;
+  background-color: lighten($beta-ui-color, 50);
+  box-shadow: 0 -1px 0 0 darken($beta-ui-color, 5) inset;
+
+  &:hover {
+    background-color: $white-color;
+  }
+
+  &:focus,
+  &:active {
+    color: $beta-ui-color;
+    background-color: lighten($beta-ui-color, 50);
+    box-shadow: 0 1px 0 0 darken($beta-ui-color, 5) inset;
+  }
+}
+
+%btn--gamma {
+  font-weight: $alpha-font-weight;
+  color: $alpha-ui-color;
+  border: 1px solid transparent;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: $alpha-ui-color;
+    background-color: $gamma-ui-color;
+    border: 1px solid darken($gamma-ui-color, 10);
+  }
+}
+
+%btn--delta {
+  @include margin-tb(1, 0);
+  color: $beta-ui-color;
+  background-color: $white-color;
+
+  &:hover {
+    color: $beta-ui-color;
+    background-color: $white-color;
+  }
+
+  &:focus,
+  &:active {
+    color: $beta-ui-color;
+    background-color: $white-color;
+  }
+}
+
+%btn--epsilon {
+  color: $white-color;
+  background-color: $delta-ui-color;
+
+  &:hover {
+    background-color: darken($delta-ui-color, 3);
+  }
+
+  &:focus,
+  &:active {
+    background-color: darken($delta-ui-color, 3);
+  }
+}
+
+%btn--zeta {
+  @include margin-tb(.8, 0);
+  color: $beta-ui-color;
+  background-color: $white-color;
+  width: 10%;
+
+  &:hover {
+    color: $beta-ui-color;
+    background-color: $white-color;
+  }
+
+  &:focus,
+  &:active {
+    color: $beta-ui-color;
+    background-color: $white-color;
+  }
+}
+
+%btn--disabled {
+  color: $disabled-color;
+  background-color: $disabled-ui-color;
+  border: 1px solid $disabled-color;
+  cursor: default;
+
+  &:hover {
+    background-color: $disabled-ui-color;
+  }
+
+  &:focus,
+  &:active {
+    background-color: $disabled-ui-color;
+  }
+}
+
+// Button display.
 @mixin btn-inlineblock {
   display: inline-block;
   width: auto;
 }
 
-// Button color
+// Button color.
 // use: @mixin btn-color(color1[,color2]);
-
 @mixin btn-color($c1: $alpha-ui-color, $c2: lighten($c1, $depth)) {
-
+  @include text-color($c1);
   border: $border solid $c1;
-
   background-color: $c1;
+
   @if $depth > 0 {
     background-image: linear-gradient($c1, $c2);
   }
 
   @if $highlight {
-    box-shadow: inset 0 1px 0 rgba(#FFF, $highlight/100%);
+    box-shadow: inset 0 1px 0 rgba($white-color, $highlight / 100%); // sass-lint:disable-line no-color-literals
   }
-
-  @include text-color($c1);
 
   &:hover,
   &:focus {
-    border: $border solid lighten($c1, 100-$contrast);
-    background-color: lighten($c1, 100-$contrast);
-    @if $depth > 0 {
-      background-image: linear-gradient(lighten($c1, 100-$contrast), lighten($c2, 100-$contrast));
-    }
-    @include text-color(lighten($c1, 100-$contrast));
+    @include text-color(lighten($c1, 100 - $contrast));
+    border: $border solid lighten($c1, 100 - $contrast);
+    background-color: lighten($c1, 100 - $contrast);
 
+    @if $depth > 0 {
+      background-image: linear-gradient(lighten($c1, 100 - $contrast), lighten($c2, 100 - $contrast));
+    }
   }
 
   &:focus {
@@ -99,37 +219,34 @@
   }
 
   &:active {
-    background-color: lighten($c1, 100-$contrast);
-    @if $depth > 0 {
-      background-image: linear-gradient(lighten($c2, 100-$contrast), lighten($c1, 100-$contrast));
-    }
-
+    @include text-color(lighten($c1, 100 - $contrast));
     box-shadow: none;
-    @include text-color(lighten($c1, 100-$contrast));
+    background-color: lighten($c1, 100 - $contrast);
+
+    @if $depth > 0 {
+      background-image: linear-gradient(lighten($c2, 100 - $contrast), lighten($c1, 100 - $contrast));
+    }
   }
 }
 
-// Inputs
-
+// Inputs.
 @mixin baseline-dimensions-form($msi: 0, $pt: 0, $pb: 0, $l: $alpha-leading) {
-
   @include baseline-dimensions($msi, $pt, $pb, $l);
 
   @if $msi == 0 {
-    $line-height: ((ceil($alpha-font-size/$alpha-baseline-grid)*$alpha-baseline-grid)+($alpha-baseline-grid*$l))/$alpha-font-size;
-    $padding-top: $alpha-baseline-grid/$alpha-font-size*$pt*1em;
-    $padding-bottom: $alpha-baseline-grid/$alpha-font-size*$pb*1em;
+    $line-height: ((ceil($alpha-font-size / $alpha-baseline-grid) * $alpha-baseline-grid) + ($alpha-baseline-grid * $l)) / $alpha-font-size;
+    $padding-top: $alpha-baseline-grid / $alpha-font-size * $pt * 1em;
+    $padding-bottom: $alpha-baseline-grid / $alpha-font-size * $pb * 1em;
     $border-width: em(su($border));
     height: $line-height + $padding-top + $padding-bottom;
   }
 
   @if $msi != 0 {
-    $line-height: ((ceil(ms($msi)/$alpha-baseline-grid)*$alpha-baseline-grid)+($alpha-baseline-grid*$l))/(ms($msi));
-    $padding-top: $alpha-baseline-grid*$pt/ms($msi)*1em;
-    $padding-bottom: $alpha-baseline-grid*$pb/ms($msi)*1em;
+    $line-height: ((ceil(ms($msi) / $alpha-baseline-grid) * $alpha-baseline-grid) + ($alpha-baseline-grid * $l)) / (ms($msi));
+    $padding-top: $alpha-baseline-grid * $pt / ms($msi) * 1em;
+    $padding-bottom: $alpha-baseline-grid * $pb / ms($msi) * 1em;
     height: $line-height + $padding-top + $padding-bottom;
   }
-
 }
 
 @mixin input-l {
@@ -147,8 +264,7 @@
   @include baseline-dimensions-form(0, 1, 1, 0);
 }
 
-// Pre- & postfix mixins
-
+// Pre- & postfix mixins.
 @mixin postfix {
   border-radius: 0 $radius $radius 0;
   border-left: 0;
@@ -159,18 +275,18 @@
   border-right: 0;
 }
 
-// Alerts
-
+// Alerts.
 %alert {
   border-width: $border;
   border-style: solid;
   border-radius: $alpha-radius;
+  margin-bottom: #{$alpha-line-height}em;
+  position: relative;
+  padding: em($alpha-baseline-grid * 2) em($alpha-baseline-grid * 3);
+
   @include mq($bp-tablet-s) {
     border-radius: $beta-radius;
   }
-  margin-bottom: #{$alpha-line-height}em;
-  position: relative;
-  padding: em($alpha-baseline-grid*2) em($alpha-baseline-grid*3);
 
   a:hover,
   a:active,
@@ -180,8 +296,8 @@
 
   .close {
     position: absolute;
-    top: #{$alpha-line-height/2}em;
-    right: #{$alpha-line-height/2}em;
+    top: #{$alpha-line-height / 2}em;
+    right: #{$alpha-line-height / 2}em;
     display: block;
     line-height: 1;
     text-decoration: none;
@@ -190,9 +306,11 @@
   h2 {
     padding-top: 0;
   }
+
   p {
     @include baseline-dimensions(0, 1, 1);
   }
+
   ul {
     margin-top: 0;
     margin-bottom: 0;
@@ -201,11 +319,12 @@
 
 @mixin alert {
   @extend %alert;
+  @include text-color($gamma-ui-color);
+
   border-radius: $radius;
   cursor: pointer;
   border-color: darken($gamma-ui-color, 20%);
   background-color: $gamma-ui-color;
-  @include text-color($gamma-ui-color);
 
   a {
     @include text-color($gamma-ui-color);
@@ -215,9 +334,10 @@
 
 @mixin alert-error {
   @extend %alert;
+  @include text-color(lighten($error-color, 30));
+
   border-color: darken($error-color, 10);
   background-color: lighten($error-color, 30);
-  @include text-color(lighten($error-color, 30));
 
   a {
     @include text-color(lighten($error-color, 30));
@@ -226,9 +346,10 @@
 
 @mixin alert-success {
   @extend %alert;
+  @include text-color(lighten($success-color, 40));
+
   border-color: darken($success-color, 10);
   background-color: lighten($success-color, 40);
-  @include text-color(lighten($success-color, 40));
 
   a {
     @include text-color(lighten($success-color, 40));
@@ -237,19 +358,17 @@
 
 @mixin alert-notice {
   @extend %alert;
+  @include text-color(lighten($notice-color, 30));
+
   border-color: darken($notice-color, 10);
   background-color: lighten($notice-color, 30);
-  @include text-color(lighten($notice-color, 30));
 
   a {
     @include text-color(lighten($notice-color, 30));
   }
 }
 
-/*
-	Pagination mixin
-*/
-
+// Pagination mixin.
 %pagination {
   @extend %clearfix;
   @include horizontal-nav;

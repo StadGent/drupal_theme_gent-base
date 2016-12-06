@@ -1,3 +1,4 @@
+//
 // Alerts
 //
 // .alerts.alert-box--status - Status alert.
@@ -8,7 +9,6 @@
 // <div class="{$modifiers}">This is the alert message.</div>
 //
 // Styleguide 6.4.1
-
 .alert-box {
   @include alert;
 }
@@ -39,11 +39,11 @@
   &.messages--status {
     @include alert-success;
   }
-  
+
   &.messages--warning {
     @include alert-notice;
   }
-  
+
   &.messages--error {
     @include alert-error;
   }

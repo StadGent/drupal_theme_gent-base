@@ -1,7 +1,7 @@
+// sass-lint:disable no-important
 //
 // Print stylesheet
 //
-
 * {
   background: transparent !important;
   color: black !important;
@@ -30,25 +30,9 @@ pre, blockquote {
   page-break-inside: avoid;
 }
 
-/*
-abbr[title]:after {
-  content: " (" attr(title) ")";
-}
-*/
 a {
   text-decoration: underline;
 }
-
-/*
-a[href]:after {
-  content: " (" attr(href) ")";
-}
-
-a[href^="javascript:"]:after,
-a[href^="#"]:after {
-  content: "";
-}
-*/
 
 img {
   max-width: 100% !important;
@@ -64,57 +48,57 @@ tr {
 }
 
 .multi-column-items {
-  height:auto !important;
+  height: auto !important;
 }
 .multi-column article {
-  display:inline-block !important;
-  float:left !important;
-  position:relative !important;
+  display: inline-block !important;
+  float: left !important;
+  position: relative !important;
   left: 0 !important;
   top:auto !important;
-  overflow:visible !important;
+  overflow: visible !important;
   width: 100% !important;
   height: auto !important;
   clear: both !important;
 
   &.uig-block {
-    display:none !important;
+    display: none !important;
   }
 
 }
 .l-primary {
   width: 70%;
-  float:left;
-  margin-right:1%;
+  float: left;
+  margin-right: 1%;
 }
 .l-secondary {
-  padding-top:1em;
+  padding-top: 1em;
   width: 25%;
-  float:right;
+  float: right;
 }
 
 .site__footer {
   .island, .l-fourth-to-single {
-    float:left;
-    width:48%;
+    float: left;
+    width: 48%;
   }
 }
 
 .region-content-top .island {
-  width:48%;
-  float:left;
+  width: 48%;
+  float: left;
 }
 
 .js-height.island {
   float:left;
   &.l-third {
-    width:48%
+    width: 48%
   }
   &.l-half {
-    width:100%
+    width: 100%
   }
   &.l-fourth {
-    width:48%
+    width: 48%
   }
 }
 
@@ -126,7 +110,7 @@ nav.holder--alpha,
 .readspeaker,
 .login-widget,
 .uig-block {
-  display:none !important;
+  display: none !important;
 }
 
 #sticky-wrapper,
@@ -138,36 +122,36 @@ nav.holder--alpha,
 #block-masquerade-masquerade,
 #workflow-status,
 .scoreWrapper {
-  display:none;
+  display: none;
 }
 
 html body.admin-menu {
-  margin-top:0 !important;
+  margin-top: 0 !important;
 }
 
 // Logo's should always be visible
 // Make the non printed background-image the content of the container
 .brand {
-  position:relative;
-  top:0;
-  padding-left:1em;
+  position: relative;
+  top: 0;
+  padding-left: 1em;
 
   .padding--big {
-    padding:0;
+    padding: 0;
   }
 }
 
 .brand__logo {
-  width:40px;
-  height:40px;
-  float:left;
-  margin-right:0;
+  width: 40px;
+  height: 40px;
+  float: left;
+  margin-right: 0;
 }
 
 .brand__logo__inner {
-  background-image:none;
-  content:url('#{$base-theme-path}/img/png/logo--part1.png');
-  background-color:$beta-ui-color;
+  background-image: none;
+  content: url('#{$base-theme-path}/img/png/logo--part1.png');
+  background-color: $beta-ui-color;
 
   .svg & {
     content: url('#{$base-theme-path}/img/svg/logo--part1.svg');
@@ -176,14 +160,14 @@ html body.admin-menu {
 
 .brand__tagline {
   display: block;
-  width:40px;
-  height:40px;
-  float:left;
+  width: 40px;
+  height: 40px;
+  float: left;
 }
 .brand__tagline__inner {
-  background-image:none;
-  content:url('#{$base-theme-path}/img/png/logo--part2.png');
-  background-color:$white-color;
+  background-image: none;
+  content: url('#{$base-theme-path}/img/png/logo--part2.png');
+  background-color: $white-color;
 
   .svg & {
     content: url('#{$base-theme-path}/img/svg/logo--part2.svg');
@@ -192,7 +176,7 @@ html body.admin-menu {
 
 .brand__footer {
   background-image:none;
-  content:url('#{$base-theme-path}/img/png/logo--footer.png');
+  content: url('#{$base-theme-path}/img/png/logo--footer.png');
 
   .svg & {
     content: url('#{$base-theme-path}/img/svg/logo--footer.svg');

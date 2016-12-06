@@ -1,3 +1,6 @@
+//
+// Visibility.
+//
 @include mqb(0, $bp-tablet-s) {
   .hidden-mobile {
     display: none !important;

@@ -1,12 +1,16 @@
+//
+// Progress bar styling.
+//
 .progress {
   .bar {
     border: 1px solid $alpha-ui-color;
     border-radius: $alpha-radius;
     padding: 5px;
+
     .filled {
       background-color: $gamma-ui-color;
       height: 30px;
-      width: 0px;
+      width: 0;
       border-radius: $alpha-radius;
     }
   }

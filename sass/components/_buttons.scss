@@ -1,140 +1,83 @@
-// Buttons
-
+//
+// Buttons.
+//
 .btn,
 a.btn {
   @extend %btn;
 }
 
-// Button sizes
+// Button sizes.
 .small.btn,
 .btn--small,
 a.btn--small,
-input[type="submit"].btn--small {
+input[type='submit'].btn--small {
   @include btn-s;
 }
 
 .medium.btn,
 .btn--medium,
 a.btn--medium,
-input[type="submit"].btn--medium {
+input[type='submit'].btn--medium {
   @include btn-m;
 }
 
 .large.btn,
 .btn--large,
 a.btn--large,
-input[type="submit"].btn--large {
+input[type='submit'].btn--large {
   @include btn-l;
 }
 
 .inline.btn,
 .btn--inline,
 a.btn--inline,
-input[type="submit"].btn--inline {
+input[type='submit'].btn--inline {
   @include btn-inlineblock
 }
 
-// Button variations
+// Button variations.
 .btn--alpha,
 a.btn--alpha {
-  color: $white-color;
-  background-color: $alpha-link-color;
-
-  &:hover {
-    background-color: lighten($alpha-link-color, 5);
-  }
-
-  &:focus,
-  &:active {
-    background-color: $alpha-link-color;
-  }
+  @extend %btn--alpha;
 }
 
 .btn--beta,
 a.btn--beta {
-  color: #fff;
-  background-color: $beta-ui-color;
-
-  &:hover {
-    color: #fff;
-    background-color: lighten($beta-ui-color, 5);
-  }
-
-  &:focus,
-  &:active {
-    background-color: darken($beta-ui-color, 2.5);
-  }
-
+  @extend %btn--beta;
 }
 
 .btn--beta--alt,
 a.btn--beta--alt {
-  color: $beta-ui-color;
-  background-color: lighten($beta-ui-color, 50);
-  box-shadow: 0 -1px 0 0 darken($beta-ui-color, 5) inset;
-
-  &:hover {
-    background-color: #fff;
-  }
-
-  &:focus,
-  &:active {
-    color: $beta-ui-color;
-    background-color: lighten($beta-ui-color, 50);
-    box-shadow: 0 1px 0 0 darken($beta-ui-color, 5) inset;
-  }
-}
-
-.btn--gamma,
-a.btn--gamma {
-  font-weight: $alpha-font-weight;
-  color: $alpha-ui-color;
-  border: 1px solid transparent;
-
-  &:hover,
-  &:focus,
-  &:active {
-    color: $alpha-ui-color;
-    background-color: $gamma-ui-color;
-    border: 1px solid darken($gamma-ui-color, 10);
-  }
+  @extend %btn--beta--alt;
 }
 
 .btn--delta,
 a.btn--delta {
-  @include margin-tb(1, 0);
-  color: $beta-ui-color;
-  background-color: $white-color;
+  @extend %btn--delta;
+}
 
-  &:hover {
-    color: $beta-ui-color;
-    background-color: $white-color;
-  }
-
-  &:focus,
-  &:active {
-    color: $beta-ui-color;
-    background-color: $white-color;
-  }
+.btn--gamma,
+a.btn--gamma {
+  @extend %btn--gamma;
 }
 
 .btn--epsilon,
 a.btn--epsilon {
-  color: $white-color;
-  background-color: $delta-ui-color;
+  @extend %btn--epsilon;
+}
 
-  &:hover {
-    background-color: darken($delta-ui-color, 3);
-  }
+.btn--disabled,
+a.btn--disabled {
+  @extend %btn--disabled;
+}
 
-  &:focus,
-  &:active {
-    background-color: darken($delta-ui-color, 3);
-  }
+.btn--zeta,
+a.btn--zeta {
+  @extend %btn--zeta;
 }
 
 .btn--option-link {
-  @include text-dimensions(-4, 0.5);
+  @include text-dimensions(-4, .5);
   background: $gamma-ui-color;
   color: $alpha-text-color;
   display: block;
@@ -144,41 +87,5 @@ a.btn--epsilon {
 
   &:hover {
     background: lighten($gamma-ui-color, 5);
-  }
-}
-
-.btn--disabled,
-a.btn--disabled {
-  color: $disabled-color;
-  background-color: $disabled-ui-color;
-  border: 1px solid $disabled-color;
-  cursor: default;
-
-  &:hover {
-    background-color: $disabled-ui-color;
-  }
-
-  &:focus,
-  &:active {
-    background-color: $disabled-ui-color;
-  }
-}
-
-.btn--zeta,
-a.btn--zeta {
-  @include margin-tb(0.8, 0);
-  color: $beta-ui-color;
-  background-color: $white-color;
-  width: 10%; /* whatever */
-
-  &:hover {
-    color: $beta-ui-color;
-    background-color: $white-color;
-  }
-
-  &:focus,
-  &:active {
-    color: $beta-ui-color;
-    background-color: $white-color;
   }
 }

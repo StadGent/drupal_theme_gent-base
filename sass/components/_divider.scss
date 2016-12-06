@@ -1,3 +1,6 @@
+//
+// Dividers.
+//
 .divider-top {
   border-top: 1px solid desaturate(darken($gamma-ui-color, 10), 20);
 }
@@ -10,26 +13,24 @@
   border-bottom: 1px solid desaturate(darken($gamma-ui-color, 10), 20);
 }
 
-// State overrides
+// State overrides.
 .no-border {
-  border:0 !important;
+  border: 0 !important; // sass-lint:disable-line no-important
 }
-  
+
 .no-border-top {
-  border-top:0 !important;
+  border-top: 0 !important; // sass-lint:disable-line no-important
 }
 
 .no-border-bottom {
-  border-bottom:0 !important;
+  border-bottom: 0 !important; // sass-lint:disable-line no-important
 }
 
-// Vertical line
-//
-//
-.line--vertical:after {
+// Vertical line.
+.line--vertical::after {
   display: block;
   position: absolute;
-  content: "";
+  content: '';
   top: 0;
   bottom: 0;
   left: 50%;

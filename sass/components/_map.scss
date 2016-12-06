@@ -1,6 +1,10 @@
-/**
- * olControl: MapLegend.
- */
+//
+// Map related styling.
+//
+// We're overriding OL CSS, skip some validation.
+// sass-lint:disable class-name-format
+
+// Styling for the OpenLayers control Maplegend.
 body .olControlMapLegend {
 
   .title {
@@ -9,8 +13,8 @@ body .olControlMapLegend {
     margin-bottom: 20px;
 
     &:before {
-      @extend .icon-base-css;
-      @extend .icon-checklist:before;
+      @extend %icon-base-css;
+      @extend .icon-checklist::before; // sass-lint:disable-line placeholder-in-extend
       margin-right: 10px;
     }
   }
@@ -35,8 +39,8 @@ body .olControlMapLegend {
 
     &.collapsible {
       .categoryCount:after {
-        @extend .icon-base-css;
-        @extend .icon-arrow-down:before;
+        @extend %icon-base-css;
+        @extend .icon-arrow-down::before; // sass-lint:disable-line placeholder-in-extend
         position: absolute;
         top: 10px;
         right: 0;
@@ -51,8 +55,8 @@ body .olControlMapLegend {
     }
 
     &.collapsible.collapsed {
-      .categoryCount:after {
-        @extend .icon-caret:before;
+      .categoryCount::after {
+        @extend .icon-caret::before; // sass-lint:disable-line placeholder-in-extend
       }
     }
   }
@@ -63,9 +67,9 @@ body .olControlMapLegend {
   }
 }
 
-/**
- * SmartPanel: panel_left.
- */
+//
+// SmartPanel: panel_left.
+//
 .smartPanel.panel_left {
   z-index: 9999 !important;
   width: 100%;

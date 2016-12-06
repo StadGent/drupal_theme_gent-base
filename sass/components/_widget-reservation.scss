@@ -1,6 +1,7 @@
-
+//
+//  Reservation widget (integration with Sports site).
+//
 .widget--reservation {
-
   fieldset {
     border: 0;
 
@@ -14,13 +15,12 @@
     }
 
     .form-item-reservation-reservation-date {
-      float:none;
+      float: none;
     }
 
     .form-type-sport-timefield {
       width: 50%;
-      float:left;
+      float: left;
     }
   }
-
 }

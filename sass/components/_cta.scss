@@ -1,3 +1,6 @@
+//
+// Call to actions.
+//
 .cta {
   @extend %clearfix;
   @include padding-tb(.5, 1.5);
@@ -93,7 +96,8 @@
     max-width: 70%;
   }
   @include padding-tb(0, .5);
-  display:inline-block;
+
+  display: inline-block;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -102,17 +106,18 @@
 
 .article-content-action-title {
   @include padding-tb(.5, 0);
-  color: $beta-ui-color;
   @include text-dimensions(0, 1, 0);
+
+  color: $beta-ui-color;
   margin: 0;
-  display:block;
+  display: block;
   font-weight: bold;
-  width:85%
+  width: 85%;
 }
 
 .article-content-action .icon {
+  @extend %icon-base-css;
   @include padding-tb(1.4, 1.4);
-  @extend .icon-base-css;
 
   display: block;
   position: absolute;
@@ -129,13 +134,14 @@
   border-radius: $beta-radius;
 }
 
-.article-content-action .icon-document:before {
-  @extend .icon-clip:before;
+.article-content-action .icon-document::before {
+  @extend .icon-clip::before; // sass-lint:disable-line placeholder-in-extend
 }
 
 .article-content-action-document-size {
-  @extend .filesize;
-  &:before {
-    content: "\00a0 ";
+  @extend .filesize; // sass-lint:disable-line placeholder-in-extend
+
+  &::before {
+    content: '\00a0 ';
   }
 }

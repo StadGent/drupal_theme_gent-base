@@ -1,3 +1,6 @@
+//
+// Brand.
+//
 nav.holder {
   padding: 3px 0;
   height: 48px;
@@ -26,7 +29,8 @@ nav.holder {
       margin: 0;
     }
 
-    .brand__logo, .brand__tagline {
+    .brand__logo,
+    .brand__tagline {
       width: 32px;
       margin-top: 5px;
 
@@ -40,6 +44,7 @@ nav.holder {
         margin-top: 0;
       }
     }
+
     .brand__tagline {
       margin-left: 32px; // logo-width
       display: block;
@@ -53,7 +58,9 @@ nav.holder {
         margin-left: 55px; // logo-width
       }
     }
-    .thema_title {
+
+    // Legacy classname.
+    .thema_title { // sass-lint:disable-line class-name-format
       display: table;
       height: 100%;
       margin: 0 0 0 74px; // 0 0 0 ((logo-width * 2) + 10)
@@ -72,7 +79,7 @@ nav.holder {
 
         span {
           $line-height: 16px;
-          color: white;
+          color: $white-color;
           line-height: $line-height;
           font-size: 14px;
           font-weight: bold;
@@ -80,15 +87,15 @@ nav.holder {
           display: block;
           position: relative;
 
-          &:after {
-            content: "...";
+          &::after {
+            content: '...';
             position: absolute;
             top: $line-height; // line-height
             height: calc(100% - #{$line-height * 2}); // 100% - (line-height * 2)
             right: 0;
             width: 33%;
             overflow: hidden;
-            background: #2c3f48;
+            background: $beta-ui-color;
             padding-left: 5px;
           }
 
@@ -96,7 +103,7 @@ nav.holder {
             $line-height: 19px;
             line-height: $line-height;
 
-            &:after {
+            &::after {
               top: $line-height; // line-height
               height: calc(100% - #{$line-height * 2}); // 100% - (line-height * 2)
             }
@@ -107,7 +114,7 @@ nav.holder {
             line-height: $line-height;
             font-size: 16px;
 
-            &:after {
+            &::after {
               top: $line-height; // line-height
               height: calc(100% - #{$line-height * 2}); // 100% - (line-height * 2)
             }
@@ -122,10 +129,8 @@ nav.holder {
   @include add-grid(12);
   @include add-gutter(0);
 
-  position: absolute; //move to top on small mobile devices
-  //z-index: $z-alpha;
+  position: absolute; // Move to top on small mobile devices.
   background-color: transparent;
-  //top: -12px;
 
   @include mq($bp-desktop-s, 'max') {
     .padding--big {
@@ -136,7 +141,7 @@ nav.holder {
 
   @include mq($bp-tablet-s) {
     @include add-grid(24);
-    top: 0px;
+    top: 0;
     width: 100%;
     z-index: $z-gamma;
   }
@@ -169,14 +174,17 @@ nav.holder {
     width: 70px;
     margin-left: 70px;
   }
+
   @include mq($bp-tablet-m) {
     width: 85px;
     margin-left: 85px;
   }
+
   @include mq($bp-desktop-s) {
     width: 97px;
     margin-left: 97px;
   }
+
   @include mq($bp-desktop-m) {
     width: 110px;
     margin-left: 110px;
@@ -188,20 +196,21 @@ nav.holder {
   position: absolute;
   top: 0;
   width: 100%;
-  transition: 0;
+  transition: none;
 }
 
 .brand__logo__inner {
   @extend %hide-text;
-  background-repeat: no-repeat;
-  background-position: top left;
-  background-size: 100%;
+
   display: block;
   position: relative;
   overflow: hidden;
   height: 40px;
   padding-top: 72%;
   width: 100%;
+  background-repeat: no-repeat;
+  background-position: top left;
+  background-size: 100%;
   background-image: url('#{$base-theme-path}/img/png/logo--part1.png');
 
   .svg & {
@@ -211,16 +220,17 @@ nav.holder {
 
 .brand__tagline__inner {
   @extend %hide-text;
+
   display: block;
   position: relative;
   overflow: hidden;
   height: 40px;
+  padding-top: 72%;
+  width: 100%;
   background-image: url('#{$base-theme-path}/img/png/logo--part2.png');
   background-repeat: no-repeat;
   background-position: top left;
   background-size: 100%;
-  padding-top: 72%;
-  width: 100%;
 
   .svg & {
     background-image: url('#{$base-theme-path}/img/svg/logo--part2.svg');
@@ -243,17 +253,17 @@ nav.holder {
   }
 
   p {
-    display:block;
-    margin-bottom:0;
-    color:$gamma-text-color;
+    display: block;
+    margin-bottom: 0;
+    color: $gamma-text-color;
   }
 
   a {
-    color:$gamma-text-color;
-    text-decoration:none;
+    color: $gamma-text-color;
+    text-decoration: none;
 
     &:hover {
-      text-decoration:underline;
+      text-decoration: underline;
     }
   }
 }
@@ -278,11 +288,11 @@ nav.holder {
 .brand__footer__sub__text {
   @include text-dimensions(-2, 1);
 
-  margin-bottom:0;
+  margin-bottom: 0;
 }
 
 .brand__footer__sub__logo {
-  @include text-dimensions(-2, 0.8);
+  @include text-dimensions(-2, .8);
 
   display: inline-block;
   padding-left: 20px;

@@ -1,11 +1,10 @@
 //
-// Typography
+// Typography.
 // ---
 // Default markup for typographic elements, based on the settings file.
 //
 
 // Modular scale classes
-
 .ms-2 {
   @include text-dimensions(-2, .75, 1);
 }
@@ -54,40 +53,29 @@
   @include text-dimensions(10, 2, 1);
 }
 
-h1, .h1,
-h2, .h2,
-h3, .h3,
-h4, .h4,
-h5, .h5,
-h6, .h6 {
-  color: $beta-ui-color;
-  margin: 0;
+
+h1,
+.h1 {
+  @extend %h1;
 }
 
-h1, .h1 {
-  @include text-dimensions(5, 1.3, 1);
-  font-family: $beta-font-family;
-  font-weight: $beta-font-weight;
-
-  @include mq($bp-desktop-s) {
-    @include text-dimensions(8, 1.75, 1);
-  }
-
+h2,
+.h2 {
+  @extend %h2;
 }
 
-h2, .h2 {
-  @include text-dimensions(2, 1.15, .3, 2);
-  font-family: $beta-font-family;
+h3,
+.h3 {
+  @extend %h3;
 }
 
-h3, .h3 {
-  @include text-dimensions(0, 1, 0);
-
-}
-
-h4, .h4,
-h5, .h5,
-h6, .h6 {
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+  @extend %base-header;
   @include text-dimensions(0, 1, 0);
   font-weight: $beta-font-weight;
 }
@@ -111,7 +99,7 @@ pre {
 }
 
 .lead {
-  @include text-dimensions(1, 1.2, 1.2, 0.8, 0.8);
+  @include text-dimensions(1, 1.2, 1.2, .8, .8);
   color: $alpha-ui-color;
   border-bottom: 1px solid darken($gamma-ui-color, 5);
 }
@@ -122,10 +110,11 @@ pre {
 }
 
 .caption {
-  color: $gamma-text-color;
-  font-style: italic;
   @include text-dimensions(-5, .65);
   @include padding-tb(.3, .3);
+
+  color: $gamma-text-color;
+  font-style: italic;
   margin: 0;
 
   @include mq($bp-tablet-s) {
@@ -142,12 +131,12 @@ pre {
   @include text-dimensions(-4, .8, 0, 0, .05);
   @include px-padding-lr(.5, .5);
 
-  display:inline-block;
-  margin-left: 0.5em;
+  display: inline-block;
+  margin-left: .5em;
   color: $white-color;
   font-weight: $beta-font-weight;
   background-color: $beta-text-color;
-  border-radius: $alpha-radius/2;
+  border-radius: $alpha-radius / 2;
   line-height: 1em;
 }
 
@@ -158,7 +147,7 @@ ol {
 
 blockquote {
   padding-left: 2rem;
-  quotes: "\201C" "\201D";
+  quotes: '\201C' '\201D';
   position: relative;
 
   &::before {
@@ -168,21 +157,24 @@ blockquote {
     content: open-quote;
     float: left;
     position: absolute;
-    top: -0.25rem;
+    top: -.25rem;
     left: 0;
   }
+
   p {
     font-style: italic;
   }
+
   p + p:last-child {
-    margin-top: -0.5rem;
+    margin-top: -.5rem;
     color: $gamma-text-color;
-    font-size: 0.7rem;
+    font-size: .7rem;
   }
 }
 
 table {
   @include text-dimensions(0, 1, 1);
+
   text-align: left;
   width: 100%;
   font-family: $alpha-font-family;
@@ -207,16 +199,16 @@ table {
       }
 
       tr {
-        @include padding-tb(0, 0.5);
+        @include padding-tb(0, .5);
         @include margin-bottom(.5);
-        border: 1px solid $gamma-ui-color;
-        border-width: 0 0 1px 0;
+
+        border: 0 solid $gamma-ui-color;
+        border-bottom-width: 1px;
       }
 
       td {
         padding: 0;
-        border: none;
-        border: none;
+        border: 0;
         position: relative;
         white-space: normal;
         text-align: left;
@@ -225,8 +217,9 @@ table {
   }
 }
 
+// @todo Add a class to bot, we're duplicating a lot of code.
 .node,
-#revisioning-revisions-summary {
+#revisioning-revisions-summary { // sass-lint:disable-line no-ids
   table {
     @include text-dimensions(-1, 1, 0, 0);
   }
@@ -247,7 +240,7 @@ table {
   th {
     @include text-dimensions(-2, 1, 0, 0);
     background-color: hsl(hue($alpha-ui-color), 40, 95);
-    border-right: 1px solid rgba(#fff, 0.1);
+    border-right: 1px solid rgba($white-color, .1);
     box-shadow: inset 0 -1px 1px 0 rgba(hsl(hue($alpha-ui-color), 40, 87.5), 1);
     color: $alpha-ui-color;
     font-weight: normal;
@@ -262,13 +255,14 @@ table {
   }
 
   tr {
-    border: 1px solid $gamma-ui-color;
-    border-width: 0 0 1px 0;
+    border: 0 solid $gamma-ui-color;
+    border-bottom-width: 1px;
   }
 
   td.align-right {
     text-align: right;
   }
+
   tbody {
     tr {
       &:nth-of-type(even) {
@@ -278,16 +272,11 @@ table {
   }
 }
 
-img {
-  max-width: 100%;
-}
-
 //
-// Links
+// Links.
 //
-
 a {
-  transition: all .11s ease-in-out;
+  transition: color .11s ease-in-out;
   color: $alpha-link-color;
 
   &:visited {
@@ -314,11 +303,11 @@ a {
   @include px-padding-lr(0, 2.2);
   position: relative;
 
-  &:after {
+  &::after {
     position: absolute;
     right: 0;
     top: .4em;
-    content: "\e604";
+    content: '\e604';
     font-size: 80%;
     font-family: 'gent-icons';
     speak: none;
@@ -330,15 +319,15 @@ a {
   }
 }
 
-#block-system-main .node.view-mode-full div.body p {
-  a[href^="http://"]:not([class]),
-  a[href^="https://"]:not([class]),
-  a[href^="//"]:not([class]) {
+.node.view-mode-full div.body p {
+  a[href^='http://']:not([class]),
+  a[href^='https://']:not([class]),
+  a[href^='//']:not([class]) {
     position: relative;
 
-    &:after {
-      @extend .icon-base-css;
-      @extend .icon-newtab:before;
+    &::after {
+      @extend %icon-base-css;
+      @extend .icon-newtab::before; // sass-lint:disable-line placeholder-in-extend
 
       display: inline-block;
       position: relative;
@@ -353,12 +342,12 @@ a {
     }
   }
 
-  a[href^="mailto:"]:not([class]) {
+  a[href^='mailto:']:not([class]) {
     position: relative;
 
-    &:after {
-      @extend .icon-base-css;
-      @extend .icon-email:before;
+    &::after {
+      @extend %icon-base-css;
+      @extend .icon-email::before; // sass-lint:disable-line placeholder-in-extend
 
       display: inline-block;
       position: relative;
@@ -380,7 +369,7 @@ a {
   text-decoration: none;
   position: relative;
 
-  &:before {
+  &::before {
     font-family: 'gent-icons';
     speak: none;
     font-style: normal;
@@ -388,7 +377,7 @@ a {
     font-variant: normal;
     text-transform: none;
 
-    content: "\e60e";
+    content: '\e60e';
     font-size: .5em;
     line-height: 1;
 
@@ -399,11 +388,11 @@ a {
 }
 
 .readable-content {
-  a[href^="http"] {
+  a[href^='http'] {
     position: relative;
     padding-right: 1em;
 
-    &:after {
+    &::after {
       @include text-dimensions(-3, 1, 0, .1);
       position: absolute;
       margin-left: 5px;
@@ -414,24 +403,30 @@ a {
       font-variant: normal;
       text-transform: none;
       line-height: 1;
-      content: "\e604";
+      content: '\e604';
     }
 
   }
 
   ol {
-    margin-left: 0.5em;
+    margin-left: .5em;
     padding-left: 1em;
   }
 }
 
 .small-print {
-  p, ol, ul, dl, table, address, pre {
-    @include text-dimensions(-4, 0.75, 1);
+  p,
+  ol,
+  ul,
+  dl,
+  table,
+  address,
+  pre {
+    @include text-dimensions(-4, .75, 1);
     color: $gamma-text-color;
   }
 }
 
 .regular {
-  font-weight:normal;
+  font-weight: normal;
 }

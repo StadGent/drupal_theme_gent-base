@@ -1,3 +1,6 @@
+//
+// Spacing.
+//
 .padding {
   @include padding-tb(.5, .5);
 }
@@ -51,7 +54,7 @@
 }
 
 
-// Reset classes
+// Reset classes.
 .hN.hN {
   padding-top: 0;
   padding-bottom: 0;

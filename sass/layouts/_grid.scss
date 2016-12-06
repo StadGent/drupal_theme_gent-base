@@ -1,3 +1,6 @@
+//
+// Grid.
+//
 @include add-grid(24);
 @include add-gutter(1/3);
 @include add-gutter-style('split');
@@ -6,29 +9,29 @@
   @include mq($bp-container) {
     width: $bp-container;
     margin: 0 auto;
-    border-left: solid 1px #E2E2E2; //smaller width
-    border-right: solid 1px #E2E2E2; //smaller width
+    border-left: solid 1px $container-color;
+    border-right: solid 1px $container-color;
   }
 }
-
 
 .l-row {
   @extend %clearfix;
   @include px-padding-lr(1, 1);
+
   position: relative;
   margin: 0 auto;
   max-width: $bp-tablet-l;
 
-  .l-row {
-    padding: 0;
-  }
-
   @include mq($bp-tablet-s) {
     @include px-padding-lr(2, 2);
   }
+
+  .l-row {
+    padding: 0;
+  }
 }
 
-// Semantic grid classes
+// Semantic grid classes.
 .l-full,
 .l-primary,
 .l-primary--offset,
@@ -40,18 +43,18 @@
   @include grid-span(24, 1, $gutter: 0);
 }
 
-// Clear full width grid spans in case we use it in the same isolation grid as others
+// Clear full width grid spans in case we use it in the same isolation grid as others.
 .l-header, .l-footer {
-  @extend .l-full;
-  clear:both;
+  @extend .l-full; // sass-lint:disable-line placeholder-in-extend
+  clear: both;
 }
 
 .l-header {
-  @extend .padding-bottom--big;
+  @extend .padding-bottom--big; // sass-lint:disable-line placeholder-in-extend
 }
 
 .l-footer {
-  @extend .padding-top--big;
+  @extend .padding-top--big; // sass-lint:disable-line placeholder-in-extend
 }
 
 
@@ -84,6 +87,7 @@
 
   @include mq($bp-tablet-m) {
     @include float-span(12);
+
     &:nth-of-type(2n) {
       @include float-span(12, 'last');
     }
@@ -100,21 +104,24 @@
 
   @include mq($bp-tablet-s) {
     @include float-span(12);
+
     &:nth-of-type(2n) {
       @include float-span(12, 'last');
     }
   }
+
   @include mq($bp-tablet-m) {
     &, &:nth-of-type(2n) {
       @include float-span(8);
     }
+
     &:nth-of-type(3n) {
       @include float-span(8, 'last');
     }
   }
 }
 
-// In the region content-top, island-epsilon should span 100% when before tablet-s
+// In the region content-top, island-epsilon should span 100% when before tablet-s.
 .region-content-top {
   .island--epsilon.l-third {
     @include mq($bp-tablet-s, 'max') {
@@ -122,7 +129,6 @@
     }
   }
 }
-
 
 // When we are using masonry view (class multi-column), we do not want the float and clear behavior of
 // our floating grid. Reset those so masonry can handle the layout.
@@ -145,27 +151,31 @@
 .l-fourth {
   @include add-grid(24);
   @include add-gutter-style('opposite');
-
   @include float-span(24);
 
   @include mq($bp-tablet-s) {
     @include float-span(12);
+
     &:nth-of-type(2n) {
       @include float-span(12, 'last');
     }
   }
+
   @include mq($bp-tablet-m) {
     &, &:nth-of-type(2n) {
       @include float-span(8);
     }
+
     &:nth-of-type(3n) {
       @include float-span(8, 'last');
     }
   }
+
   @include mq($bp-tablet-l) {
     &, &:nth-of-type(2n), &:nth-of-type(3n) {
       @include float-span(6);
     }
+
     &:nth-of-type(4n) {
       @include float-span(6, 'last');
     }
@@ -177,11 +187,11 @@
 .l-fourth-to-single {
   @include add-grid(24);
   @include add-gutter-style('opposite');
-
   @include float-span(24);
 
   @include mq($bp-tablet-m) {
     @include float-span(6);
+
     &:nth-of-type(4n) {
       @include float-span(6, 'last');
     }
@@ -192,11 +202,11 @@
 .l-column {
   @include add-grid(24);
   @include add-gutter-style('opposite');
-
   @include float-span(24);
 
   @include mq($bp-phone-m) {
     @include float-span(12);
+
     &:nth-of-type(2n) {
       @include float-span(12, 'last');
     }
@@ -206,6 +216,7 @@
     &, &:nth-of-type(2n) {
       @include float-span(6);
     }
+
     &:nth-of-type(4n) {
       @include float-span(6, 'last');
     }
@@ -216,7 +227,6 @@
 .l-thumb {
   @include add-grid(24);
   @include add-gutter-style('opposite');
-
   @include float-span(12);
   @include margin-tb(.1, .1);
 
@@ -228,6 +238,7 @@
     &, &:nth-of-type(2n) {
       @include float-span(8);
     }
+
     &:nth-of-type(3n) {
       @include float-span(8, 'last');
     }
@@ -237,6 +248,7 @@
     &, &:nth-of-type(3n) {
       @include float-span(12);
     }
+
     &:nth-of-type(2n) {
       @include float-span(12, 'last');
     }
@@ -246,6 +258,7 @@
     &, &:nth-of-type(2n) {
       @include float-span(8);
     }
+
     &:nth-of-type(3n) {
       @include float-span(8, 'last');
     }
@@ -257,7 +270,6 @@
   @include add-grid(24);
   @include add-gutter-style('opposite');
   @include add-gutter(1/3);
-
   @include float-span(24);
 
   @include mq($bp-tablet-m) {
@@ -275,7 +287,6 @@
   @include add-grid(24);
   @include add-gutter-style('opposite');
   @include add-gutter(1/3);
-
   @include float-span(24);
 
   @include mq($bp-tablet-m) {
@@ -300,6 +311,3 @@
 .l-center {
   text-align: center;
 }
-
-
-

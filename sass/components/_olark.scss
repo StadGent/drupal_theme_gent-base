@@ -1,11 +1,16 @@
+//
+// Olark styling
+//
+// We're overriding Olark CSS, skip some validation.
+// sass-lint:disable no-important no-ids
 #habla_beta_container_do_not_rely_on_div_classes_or_names {
   font-size: #{$alpha-font-size}px !important;
   
   #habla_panel_div {
-    //border:1px solid $gamma-text-color !important;
+    @include box-shadow(rgba(#333333, 0.3) 0 0 10px);
+
     border-top-left-radius: $gamma-radius !important;
     border-top-right-radius: $gamma-radius !important;
-    @include box-shadow(rgba(#333333, 0.3) 0 0 10px);
   }
   
   #habla_topbar_div {
@@ -17,7 +22,7 @@
   }
   
   #habla_conversation_div {
-    border:1px solid $gamma-text-color !important;
+    border: 1px solid $gamma-text-color !important;
     padding: .9em !important;
     border-radius: $alpha-radius !important;
   }
@@ -44,11 +49,11 @@
     font-variant: normal;
     text-transform: none;
     line-height: 1;
-    content: "\e60c";
+    content: '\e60c';
     font-size: 90% !important;
     position: relative !important;
     top: -2px !important;
-    margin-right:.5em;
+    margin-right: .5em;
   }
 
   a.hbl_pal_title_fg {

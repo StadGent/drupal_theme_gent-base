@@ -64,6 +64,13 @@ module.exports = function (grunt) {
       all: ['js/{,**/}*.js', '!js/{,**/}*.min.js']
     },
 
+    sasslint: {
+      options: {
+        configFile: '.sass-lint.yml',
+      },
+      target: ['sass/**/*.s+(a|c)ss']
+    },
+
     uglify: {
       dev: {
         options: {
@@ -118,8 +125,10 @@ module.exports = function (grunt) {
     }
   });
 
+
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-compass');
+  grunt.loadNpmTasks('grunt-sass-lint');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-shell');
@@ -132,11 +141,11 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('compile', [
+    'sasslint:dev',
     'compass:dev'
   ]);
 
   grunt.registerTask('uglifybowerlibs', [
     'uglify:libs'
   ]);
-
 };
