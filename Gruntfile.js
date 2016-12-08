@@ -66,7 +66,7 @@ module.exports = function (grunt) {
 
     sasslint: {
       options: {
-        configFile: '.sass-lint.yml',
+        configFile: '.sass-lint.yml'
       },
       target: ['sass/**/*.s+(a|c)ss']
     },
@@ -136,12 +136,13 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'newer:imagemin:dist',
     'newer:uglify:dist',
+    'sasslint',
     'compass:dist',
     'jshint'
   ]);
 
   grunt.registerTask('compile', [
-    'sasslint:dev',
+    'sasslint',
     'compass:dev'
   ]);
 
