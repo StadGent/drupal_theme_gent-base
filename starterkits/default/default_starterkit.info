@@ -1,4 +1,4 @@
-name = Gent starterkit
+name = Gent base starterkit
 description = Gent default starterkit for Gent base theme.
 base theme = gent_base
 core = 7.x
@@ -7,11 +7,9 @@ screenshot = screenshot.png
 ; ========================================
 ; Regions
 ; ========================================
-regions[search] = Search
 regions[top_menu] = Top menu
 regions[header] = Header
 regions[site_name] = Site name
-regions[navigation] = Navigation
 regions[content_top] = Top content
 regions[content] = Content
 regions[sidebar] = Sidebar
@@ -20,14 +18,5 @@ regions[footer_top] = Top footer
 regions[footer] = Footer
 regions[footer_bottom] = Footer bottom
 
-; ========================================
-; Styles
-; ========================================
-stylesheets[all][] = css/default_starterkit.styles.css
-stylesheets[print][] = css/default_starterkit.print.css
-
-; ========================================
-; Scripts
-; ========================================
-; Uncomment if you have a minified version of the base theme's theme.js in your subtheme (grunt build will create one)
-;scripts[] = js/theme.min.js
+; Settings.
+settings[readspeaker_enabled] = 0
