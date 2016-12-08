@@ -51,6 +51,7 @@
     "commit": "a0154df5c8613b9829b114a411ced103647b3de0"
   },
   "_source": "https://github.com/garand/sticky.git",
-  "_target": "*",
-  "_originalSource": "garand/sticky"
+  "_target": "^1.0.3",
+  "_originalSource": "jquery-sticky",
+  "_direct": true
 }

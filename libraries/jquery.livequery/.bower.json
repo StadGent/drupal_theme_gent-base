@@ -46,6 +46,7 @@
     "commit": "d1f2aa7210064efcac2d10d1764a217332db3a97"
   },
   "_source": "https://github.com/hazzik/livequery.git",
-  "_target": "*",
-  "_originalSource": "hazzik/livequery"
+  "_target": "^1.3.6",
+  "_originalSource": "jquery.livequery",
+  "_direct": true
 }
