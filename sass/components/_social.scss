@@ -1,20 +1,21 @@
 //
 // Social& share styling
 //
-$twitter-color: #33CCFF;
-$facebook-color: #3B5998;
-$linkedin-color: #4875B4;
-$googleplus-color: #C63D2D;
+$twitter-color: #3cf;
+$facebook-color: #3b5998;
+$linkedin-color: #4875b4;
+$googleplus-color: #c63d2d;
 
 .share-links {
   @extend %clearfix;
-  @include padding-tb(0,1);
+  @include padding-tb(0, 1);
   @include margin-bottom(1);
 }
 
 .share-links__title {
-  @include rem-margin-lr(0,1);
-  @include text-dimensions(-1,1,0,.15,.2);
+  @include rem-margin-lr(0, 1);
+  @include text-dimensions(-1, 1 , 0, .15, .2);
+
   color: $alpha-text-color;
   display: block;
   float: left;
@@ -30,7 +31,8 @@ $googleplus-color: #C63D2D;
 .share-links__btn {
   @extend %btn;
   @include btn-s;
-  @include rem-margin-lr(0,1);
+  @include rem-margin-lr(0, 1);
+
   float: left;
   width: auto;
   color: $white-color;
@@ -46,28 +48,31 @@ $googleplus-color: #C63D2D;
 
   &.fc {
     background-color: $facebook-color;
+
     &:hover,
     &:focus,
     &:active {
-      background-color: darken($facebook-color,10);
+      background-color: darken($facebook-color, 10);
     }
   }
 
   &.tw {
     background-color: $twitter-color;
+
     &:hover,
     &:focus,
     &:active {
-      background-color: darken($twitter-color,10);
+      background-color: darken($twitter-color, 10);
     }
   }
 
   &.li {
     background-color: $linkedin-color;
+
     &:hover,
     &:focus,
     &:active {
-      background-color: darken($linkedin-color,10);
+      background-color: darken($linkedin-color, 10);
     }
   }
 }
@@ -78,17 +83,20 @@ $googleplus-color: #C63D2D;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+
   i {
     &::before {
       top: 2px;
       font-size: 90%;
       position: relative;
     }
-    &.icon-twitter{
+
+    &.icon-twitter {
       &::before {
         top: 1px;
       }
     }
+
     &.icon-youtube {
       &::before {
         top: 4px;
@@ -105,17 +113,20 @@ $googleplus-color: #C63D2D;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+
   i {
     &::before {
       top: 2px;
       font-size: 90%;
       position: relative;
     }
-    &.icon-twitter{
-      &:before {
+
+    &.icon-twitter {
+      &::before {
         top: 1px;
       }
     }
+
     &.icon-youtube {
       &::before {
         top: 4px;
@@ -152,13 +163,12 @@ $googleplus-color: #C63D2D;
       }
 
       a {
-        text-decoration:none;
+        text-decoration: none;
       }
 
       i {
         display: block;
         color: $white-color;
-
         width: 1.1rem;
         height: 1.1rem;
         font-size: 1.1rem;

@@ -37,7 +37,7 @@
 .ui-tabs {
   @include rem-padding-lr(1, 1);
   @include padding-tb(1, 1);
-  border: none;
+  border: 0;
 
   a {
     outline: none;
@@ -56,6 +56,7 @@
   }
 
   .ui-tabs-panel {
+    // sass-lint:disable-block no-duplicate-properties
     padding: 1.5 * $alpha-font-size * 1px;
     padding: 1.5 * 1rem;
     border-radius: $beta-radius;
@@ -63,12 +64,12 @@
 
   .ui-tabs-nav {
     padding: 0;
-    border: none;
+    border: 0;
   }
 
   .ui-tabs-nav > li {
     background: $alpha-ui-color none;
-    border: none;
+    border: 0;
     margin: 0;
 
     // Add complete border radius for tabs!
@@ -80,14 +81,16 @@
       font-family: $beta-font-family;
     }
 
-    &, a {
+    &,
+    a {
       color: $white-color;
     }
 
     &.ui-state-active {
       background: $white-color none;
 
-      &, a {
+      &,
+      a {
         color: $alpha-ui-color;
       }
     }
@@ -103,7 +106,7 @@
   &.with-secondary .tabs--primary {
     margin-bottom: 0;
   }
-  
+
   // Drupal secondary tabs
   .tabs--secondary {
     @extend %subtabs-horizontal;

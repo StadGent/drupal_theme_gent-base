@@ -1,20 +1,21 @@
-// sass-lint:disable no-important
+// sass-lint:disable no-important no-ids class-name-format
 //
 // Print stylesheet
 //
 * {
   background: transparent !important;
-  color: black !important;
+  color: $black-color !important;
   box-shadow: none !important;
   text-shadow: none !important;
   filter: none !important;
 }
 
 @page {
-  margin: 0.5cm;
+  margin: .5cm;
 }
 
-h2, h3 {
+h2,
+h3 {
   orphans: 3;
   widows: 3;
   page-break-after: avoid;
@@ -25,7 +26,8 @@ p {
   widows: 3;
 }
 
-pre, blockquote {
+pre,
+blockquote {
   border: 1px solid #ccc;
   page-break-inside: avoid;
 }
@@ -50,12 +52,13 @@ tr {
 .multi-column-items {
   height: auto !important;
 }
+
 .multi-column article {
   display: inline-block !important;
   float: left !important;
   position: relative !important;
   left: 0 !important;
-  top:auto !important;
+  top: auto !important;
   overflow: visible !important;
   width: 100% !important;
   height: auto !important;
@@ -64,13 +67,14 @@ tr {
   &.uig-block {
     display: none !important;
   }
-
 }
+
 .l-primary {
   width: 70%;
   float: left;
   margin-right: 1%;
 }
+
 .l-secondary {
   padding-top: 1em;
   width: 25%;
@@ -78,7 +82,8 @@ tr {
 }
 
 .site__footer {
-  .island, .l-fourth-to-single {
+  .island,
+  .l-fourth-to-single {
     float: left;
     width: 48%;
   }
@@ -90,15 +95,18 @@ tr {
 }
 
 .js-height.island {
-  float:left;
+  float: left;
+
   &.l-third {
-    width: 48%
+    width: 48%;
   }
+
   &.l-half {
-    width: 100%
+    width: 100%;
   }
+
   &.l-fourth {
-    width: 48%
+    width: 48%;
   }
 }
 
@@ -164,6 +172,7 @@ html body.admin-menu {
   height: 40px;
   float: left;
 }
+
 .brand__tagline__inner {
   background-image: none;
   content: url('#{$base-theme-path}/img/png/logo--part2.png');
@@ -175,7 +184,7 @@ html body.admin-menu {
 }
 
 .brand__footer {
-  background-image:none;
+  background-image: none;
   content: url('#{$base-theme-path}/img/png/logo--footer.png');
 
   .svg & {

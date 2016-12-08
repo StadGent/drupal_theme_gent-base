@@ -4,7 +4,7 @@
 .gent-library-block {
   p {
     margin-bottom: 1em;
-    font-color: $dark-color;
+    color: $dark-color;
     font-size: 1.1em;
   }
 
@@ -12,6 +12,7 @@
     .island__body {
       background-color: transparent;
     }
+
     .btn--alpha {
       margin-bottom: 1em;
     }

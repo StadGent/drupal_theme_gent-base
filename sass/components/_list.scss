@@ -19,15 +19,15 @@ li.link-list__more {
 
 .readmore-list-wrapper {
   @include padding-tb(.6, 0);
-  
+
   ul {
     @extend %link-list;
+
     li {
       @extend %link-list__more;
-    } 
+    }
   }
 }
-
 
 .list__divider {
   @include margin-top(1);

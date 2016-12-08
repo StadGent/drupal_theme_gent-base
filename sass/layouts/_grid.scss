@@ -17,14 +17,13 @@
 .l-row {
   @extend %clearfix;
   @include px-padding-lr(1, 1);
+  @include mq($bp-tablet-s) {
+    @include px-padding-lr(2, 2);
+  }
 
   position: relative;
   margin: 0 auto;
   max-width: $bp-tablet-l;
-
-  @include mq($bp-tablet-s) {
-    @include px-padding-lr(2, 2);
-  }
 
   .l-row {
     padding: 0;
@@ -44,7 +43,8 @@
 }
 
 // Clear full width grid spans in case we use it in the same isolation grid as others.
-.l-header, .l-footer {
+.l-header,
+.l-footer {
   @extend .l-full; // sass-lint:disable-line placeholder-in-extend
   clear: both;
 }
@@ -63,6 +63,7 @@
     @include grid-span(14);
     margin-left: 0;
   }
+
   margin-left: 0;
 }
 
@@ -111,7 +112,8 @@
   }
 
   @include mq($bp-tablet-m) {
-    &, &:nth-of-type(2n) {
+    &,
+    &:nth-of-type(2n) {
       @include float-span(8);
     }
 
@@ -133,7 +135,9 @@
 // When we are using masonry view (class multi-column), we do not want the float and clear behavior of
 // our floating grid. Reset those so masonry can handle the layout.
 .multi-column {
-  .l-third, .l-fourth {
+  .l-third,
+  .l-fourth {
+    // sass-lint:disable-block no-important
     display: block;
     margin-left: 0 !important;
     margin-right: 0 !important;
@@ -162,7 +166,8 @@
   }
 
   @include mq($bp-tablet-m) {
-    &, &:nth-of-type(2n) {
+    &,
+    &:nth-of-type(2n) {
       @include float-span(8);
     }
 
@@ -172,7 +177,9 @@
   }
 
   @include mq($bp-tablet-l) {
-    &, &:nth-of-type(2n), &:nth-of-type(3n) {
+    &,
+    &:nth-of-type(2n),
+    &:nth-of-type(3n) {
       @include float-span(6);
     }
 
@@ -213,7 +220,8 @@
   }
 
   @include mq($bp-tablet-m) {
-    &, &:nth-of-type(2n) {
+    &,
+    &:nth-of-type(2n) {
       @include float-span(6);
     }
 
@@ -235,7 +243,8 @@
   }
 
   @include mq($bp-phone-m) {
-    &, &:nth-of-type(2n) {
+    &,
+    &:nth-of-type(2n) {
       @include float-span(8);
     }
 
@@ -245,7 +254,8 @@
   }
 
   @include mq($bp-tablet-s) {
-    &, &:nth-of-type(3n) {
+    &,
+    &:nth-of-type(3n) {
       @include float-span(12);
     }
 
@@ -255,7 +265,8 @@
   }
 
   @include mq($bp-tablet-m) {
-    &, &:nth-of-type(2n) {
+    &,
+    &:nth-of-type(2n) {
       @include float-span(8);
     }
 

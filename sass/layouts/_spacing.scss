@@ -53,8 +53,8 @@
   }
 }
 
-
 // Reset classes.
+// sass-lint:disable class-name-format
 .hN.hN {
   padding-top: 0;
   padding-bottom: 0;
@@ -71,3 +71,4 @@
   padding-bottom: 0;
   margin-bottom: 0;
 }
+// sass-lint:enable class-name-format

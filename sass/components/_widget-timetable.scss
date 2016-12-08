@@ -2,8 +2,8 @@
 // Styling for Widget with timetable (Opening hours from the Sports site).
 //
 $timetable-grid-bg-color: $white-color;
-$timetable-grid-border-color:  darken($gamma-ui-color, 5);
-$timetable-grid-columns: 16; 
+$timetable-grid-border-color: darken($gamma-ui-color, 5);
+$timetable-grid-columns: 16;
 $timetable-grid-col-width: 100 / $timetable-grid-columns;
 
 $alpha-state-color: #2b9f78;
@@ -18,31 +18,31 @@ $current-pos-color: #dd2501;
 
 .widget--timetable {
   .island__body {
-    height:100%;
+    height: 100%;
   }
-  
+
   .header {
     @extend %clearfix;
     @include text-dimensions(-4, 1);
-    
+
     div {
       @include timetable-grid-col;
       text-align: center;
-      
+
       &:first-child {
         margin-left: $timetable-grid-col-width / 2 + 0%;
       }
     }
   }
-    
+
   .grid {
     @extend %clearfix;
     @include padding-tb(0, .5);
+
     border-radius: $alpha-radius;
     position: relative;
     background-color: $timetable-grid-bg-color;
     height: 100%;
-    
 
     .cols {
       height: 100%;
@@ -51,20 +51,21 @@ $current-pos-color: #dd2501;
       z-index: 0;
       top: 0;
       left: 0;
-      
+
       div {
         @include timetable-grid-col;
         height: 100%;
         border-right: 1px solid $timetable-grid-border-color;
-        
+
         &:last-child {
           border-right: 0;
         }
       }
     }
-    
+
     .current {
-      @include opacity(0.6);
+      @include opacity(.6);
+
       border-right: 1px solid $current-pos-color;
       height: 100%;
       position: absolute;
@@ -73,14 +74,15 @@ $current-pos-color: #dd2501;
       z-index: 3;
       background-color: $white-color;
     }
-    
+
     .content {
       position: relative;
       width: 100%;
-      
+
       .item {
-        @include padding-tb(.7, 0);
         @extend %clearfix;
+        @include padding-tb(.7, 0);
+
         width: 100%;
       }
 
@@ -92,12 +94,13 @@ $current-pos-color: #dd2501;
         position: relative;
         z-index: 10;
       }
-      
+
       .state {
         @include text-dimensions(-4, 1);
         @include px-margin-lr(1, 1);
         @include px-padding-lr(1, 1);
         @include padding-tb(.1, .1);
+
         border-radius: $alpha-radius;
         display: inline-block;
         float: right;
@@ -105,20 +108,21 @@ $current-pos-color: #dd2501;
         position: relative;
         z-index: 10;
       }
-      
+
       .bar {
         @extend %clearfix;
         @include margin-tb(.5, 0);
+
         display: inline-block;
         width: 100%;
         height: 15px;
         clear: both;
-        
+
         div {
           height: 15px;
           float: left;
           border-right: 1px solid $white-color;
-          
+
           &:last-child {
             border-right: 0;
           }
@@ -126,13 +130,15 @@ $current-pos-color: #dd2501;
       }
     }
   }
-  
+
   .state--alpha {
     background-color: $alpha-state-color;
   }
+
   .state--beta {
     background-color: $beta-state-color;
   }
+
   .state--gamma {
     background-color: $gamma-state-color;
   }

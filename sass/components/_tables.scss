@@ -14,7 +14,8 @@ tr {
   border-bottom: 1px solid lighten($gamma-ui-color, 5);
 }
 
-th, thead {
+th,
+thead {
   display: none;
 }
 
@@ -43,7 +44,7 @@ td {
   td {
     display: table-cell;
 
-    &:before {
+    &::before {
       display: none;
     }
   }

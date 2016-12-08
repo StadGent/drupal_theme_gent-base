@@ -7,7 +7,7 @@
   span {
     color: $beta-text-color;
   }
-  
+
   a,
   span {
     color: $alpha-link-color;
@@ -16,32 +16,34 @@
   }
 
   li {
-    @include px-padding-lr(1,1);
-    @include padding-tb(.5, .5);
     @extend %rounded-1;
+    @include px-padding-lr(1, 1);
+    @include padding-tb(.5, .5);
     @include text-dimensions(-2, 1);
-    
+
     border: 1px solid $white-color;
     margin-left: 6px;
-    font-weight:bold;
-    
+    font-weight: bold;
+
     &:hover,
     &:focus,
     &:active {
       background-color: $gamma-ui-color;
     }
   }
-  
-  li.pager-current, li.pager-current {
+
+  li.pager-current,
+  li.pager-current {
     background-color: $delta-ui-color;
     border: 1px solid $delta-ui-color;
     color: $white-color;
-    
-    span, a {
+
+    span,
+    a {
       color: $white-color;
     }
   }
-  
+
   li.pager-ellipsis {
     &:hover,
     &:focus,

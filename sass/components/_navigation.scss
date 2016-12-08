@@ -15,11 +15,13 @@
   width: 42px;
   height: 42px;
   margin-top: -3px;
+
   @include mq($bp-tablet-s) {
     left: 21px;
     display: none;
   }
-  @include mq($bp-tablet-m){
+
+  @include mq($bp-tablet-m) {
     margin-top: -42px;
   }
 
@@ -62,11 +64,12 @@
 
 .nav--breadcrumb {
   @include padding-tb(.4, .4);
+
   li {
     @include px-margin-lr(0, 1.5);
     position: relative;
 
-    &:after {
+    &::after {
       content: '';
       width: 16px;
       height: 16px;

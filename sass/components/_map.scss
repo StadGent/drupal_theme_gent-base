@@ -12,7 +12,7 @@ body .olControlMapLegend {
     font-weight: bold;
     margin-bottom: 20px;
 
-    &:before {
+    &::before {
       @extend %icon-base-css;
       @extend .icon-checklist::before; // sass-lint:disable-line placeholder-in-extend
       margin-right: 10px;
@@ -38,9 +38,10 @@ body .olControlMapLegend {
     }
 
     &.collapsible {
-      .categoryCount:after {
+      .categoryCount::after {
         @extend %icon-base-css;
         @extend .icon-arrow-down::before; // sass-lint:disable-line placeholder-in-extend
+
         position: absolute;
         top: 10px;
         right: 0;
@@ -71,7 +72,7 @@ body .olControlMapLegend {
 // SmartPanel: panel_left.
 //
 .smartPanel.panel_left {
-  z-index: 9999 !important;
+  z-index: 9999 !important; // sass-lint:disable-line no-important
   width: 100%;
 
   @include mq($bp-tablet-s) {
@@ -89,6 +90,7 @@ body .olControlMapLegend {
   // Put minimize button inside the panel when the panel is 100% width.
   .olCollapseHandleRight.olMinimizeDiv {
     right: 0;
+
     @include mq($bp-tablet-s) {
       right: -25px;
     }

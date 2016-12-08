@@ -3,7 +3,7 @@
 //
 .milli.rdf {
   float: left;
-  padding-top: 0.25rem;
+  padding-top: .25rem;
   padding-right: 1rem;
 }
 
@@ -11,18 +11,18 @@
   .btn--zeta {
     text-decoration: none;
     padding: 0;
-    border: 1px solid black;
+    border: 1px solid $black-color;
     border-radius: 5px;
     margin-top: 0;
     min-width: 60px;
 
     a {
       text-decoration: none;
-      color: black;
+      color: $black-color;
 
       .icon-rdf {
         color: $alpha-ui-color;
-        font-size: 0.8em;
+        font-size: .8em;
       }
     }
   }

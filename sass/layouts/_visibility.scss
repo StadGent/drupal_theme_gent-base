@@ -1,6 +1,7 @@
 //
 // Visibility.
 //
+// sass-lint:disable no-important
 @include mqb(0, $bp-tablet-s) {
   .hidden-mobile {
     display: none !important;
@@ -24,16 +25,20 @@
 .visible-desktop {
   display: none !important;
 }
+
 @include mqb(0, $bp-tablet-s) {
   .visible-mobile {
     display: block !important;
   }
+
   table.visible-mobile {
     display: table !important;
   }
+
   tr.visible-mobile {
     display: table-row !important;
   }
+
   th.visible-mobile,
   td.visible-mobile {
     display: table-cell !important;
@@ -44,12 +49,15 @@
   .visible-tablet {
     display: block !important;
   }
+
   table.visible-tablet {
     display: table !important;
   }
+
   tr.visible-tablet {
     display: table-row !important;
   }
+
   th.visible-tablet,
   td.visible-tablet {
     display: table-cell !important;
@@ -60,12 +68,15 @@
   .visible-desktop {
     display: block !important;
   }
+
   table.visible-desktop {
     display: table !important;
   }
+
   tr.visible-desktop {
     display: table-row !important;
   }
+
   th.visible-desktop,
   td.visible-desktop {
     display: table-cell !important;

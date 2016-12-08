@@ -2,30 +2,32 @@
 // Readspeaker styling.
 //
 // We're overriding Admin menu CSS, skip some validation.
-// sass-lint:disable no-important no-ids
-$rs-bg-color                  : #f6f6f6;
-$rs-btn-color                 : #2c3f48;
-$rs-divider-color             : #ddeaed;
-$rs-progressbar-color         : #919da5;
-$rs-progressbar-done-color    : #2c3f48;
-$rs-progressbar-handle-color  : #f39200;
+// sass-lint:disable no-important no-ids id-name-format class-name-format
+$rs-bg-color: #f6f6f6;
+$rs-btn-color: #2c3f48;
+$rs-divider-color: #ddeaed;
+$rs-progressbar-color: #919da5;
+$rs-progressbar-done-color: #2c3f48;
+$rs-progressbar-handle-color: #f39200;
 
 //
 // Icon Font: readspeaker.
 //
 
 @font-face {
+  // sass-lint:disable-block no-duplicate-properties
   font-family: 'readspeaker';
   src: url('#{$base-theme-path}/fonts/readspeaker.eot');
   src: url('#{$base-theme-path}/fonts/readspeaker.eot?#iefix') format('embedded-opentype'),
-       url('#{$base-theme-path}/fonts/readspeaker.woff') format('woff'),
-       url('#{$base-theme-path}/fonts/readspeaker.ttf') format('truetype'),
-       url('#{$base-theme-path}/fonts/readspeaker.svg#readspeaker') format('svg');
+  url('#{$base-theme-path}/fonts/readspeaker.woff') format('woff'),
+  url('#{$base-theme-path}/fonts/readspeaker.ttf') format('truetype'),
+  url('#{$base-theme-path}/fonts/readspeaker.svg#readspeaker') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 
-@media screen and (-webkit-min-device-pixel-ratio:0) {
+// Legacy exception. Needs documentations and condition of removal.
+@media screen and (-webkit-min-device-pixel-ratio: 0) { // sass-lint:disable-line no-vendor-prefixes
   @font-face {
     font-family: 'readspeaker';
     src: url('#{$base-theme-path}/fonts/readspeaker.svg#readspeaker') format('svg');
@@ -72,23 +74,25 @@ $rs-progressbar-handle-color  : #f39200;
   right: $grid-margin * 1px;
   z-index: $z-gamma;
   bottom: 0;
-  box-shadow: 0px 0px 21px -21px $dark-color;
+  box-shadow: 0 0 21px -21px $dark-color;
 
   @include mq($bp-tablet-s) {
     right: $grid-margin * 2px;
   }
 
   &.v2 {
+    // sass-lint:disable-block no-vendor-prefixes no-duplicate-properties
     top: .1em;
     right: 0;
     box-shadow: none;
     bottom: inherit;
     padding: 0 10px;
     height: 2.25em;
-    background: white;
-    background: -moz-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 20px, rgba(255,255,255,1) 100%);
-    background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 20px,rgba(255,255,255,1) 100%);
-    background: linear-gradient(to right, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 20px,rgba(255,255,255,1) 100%);
+    background: $white-color;
+    // Legacy, should we use compass gradient mixin?
+    background: -moz-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 20px, rgba(255, 255, 255, 1) 100%);
+    background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 20px, rgba(255, 255, 255, 1) 100%);
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 20px, rgba(255, 255, 255, 1) 100%);
 
     .rsbtn_gent {
       background: transparent;
@@ -123,7 +127,7 @@ $rs-progressbar-handle-color  : #f39200;
   padding-left: 8px;
   padding-right: 8px;
   background: $white-color;
-  
+
   &.rsexpanded {
     padding: 0;
     background: $rs-bg-color;
@@ -136,7 +140,7 @@ $rs-progressbar-handle-color  : #f39200;
     display: block;
     text-decoration: none;
   }
-  
+
   .divider {
     width: 1px;
     height: 46px;
@@ -144,15 +148,15 @@ $rs-progressbar-handle-color  : #f39200;
     margin-top: 5px;
   }
 
-   // All the player elements should float.
+  // All the player elements should float.
   .rspart {
     float: left;
   }
-  
+
   .rsdefloat {
     clear: both;
   }
-  
+
   // This goes for all buttons.
   .rsbutton {
     width: 48px;
@@ -166,17 +170,17 @@ $rs-progressbar-handle-color  : #f39200;
     line-height: 58px;
     outline: none;
   }
-  
+
   .rsbutton::before {
     @extend %icon-rs;
     color: $rs-btn-color;
-    transition: color 0.35s ease;
+    transition: color .35s ease;
   }
 
-  .rsbutton:hover:before {
+  .rsbutton:hover::before {
     color: lighten($rs-btn-color, 20);
   }
-  
+
   // Hide all text labels. They will still be visible to non-CSS browsers.
   .rspart .rsbtn_btnlabel {
     display: none;
@@ -185,42 +189,38 @@ $rs-progressbar-handle-color  : #f39200;
     font-size: 100%;
     font-family: inherit;
   }
-  
-  /// Player box
-  .rsbtn_box {
-  }
-  
+
   // Listen button + icon.
   .rsbutton.rsbtn_play {
     float: left;
   }
-  
+
   .rsbutton.rsbtn_play::before {
     @extend .icon-person::before; // sass-lint:disable-line placeholder-in-extend
     // Accommodate for the extra wide icon.
     margin-right: 16px;
   }
-  
+
   &.rsexpanded .rsbutton.rsbtn_play::before {
     @extend .icon-back::before; // sass-lint:disable-line placeholder-in-extend
     // Accommodate for the extra wide icon.
     margin-right: 8px;
-    margin-left:16px;
+    margin-left: 16px;
   }
-  
+
   // Expanding area.
   .rsbtn_exp.rsimg.rspart {
     background: none;
     float: left;
     display: none;
   }
-  
+
   // We want the expanding area to be visible only when the player
   // is expanded, hence the .rsexpanded class.
   &.rsexpanded .rsbtn_exp.rsimg {
     display: block;
   }
-  
+
   // Play/pauze button.
   .rsbutton.rsbtn_pause::before {
     @extend .icon-pauze::before; // sass-lint:disable-line placeholder-in-extend
@@ -230,16 +230,16 @@ $rs-progressbar-handle-color  : #f39200;
   &.rsstopped .rsbutton.rsbtn_pause::before {
     @extend .icon-play::before; // sass-lint:disable-line placeholder-in-extend
   }
-  
+
   &.rsplaying .rsbutton.rsbtn_pause::before {
     @extend .icon-pauze::before; // sass-lint:disable-line placeholder-in-extend
   }
-  
+
   // Stop button.
   .rsbutton.rsbtn_stop::before {
     @extend .icon-stop::before; // sass-lint:disable-line placeholder-in-extend
   }
-  
+
   &.rsstopped .rsbutton.rsbtn_stop::before {
     color: lighten($rs-btn-color, 40);
   }
@@ -255,17 +255,17 @@ $rs-progressbar-handle-color  : #f39200;
     background-color: $rs-progressbar-color;
     border-radius: 3px;
   }
-  
+
   // Progress drag handle.
   .rsbtn_progress_handle.rsimg {
     @extend %icon-rs;
-    
+
     position: absolute;
     top: -17px;
     left: -17px;
     width: 40px;
     height: 40px;
-    
+
     background-image: url('#{$base-theme-path}/img/png/rs-handle.png');
     background-size: contain;
     background-repeat: no-repeat;
@@ -278,12 +278,12 @@ $rs-progressbar-handle-color  : #f39200;
     height: 100%;
     background-color: $rs-progressbar-done-color;
   }
-  
+
   // Volume button.
   .rsbutton.rsbtn_volume::before {
     @extend .icon-volume::before; // sass-lint:disable-line placeholder-in-extend
   }
-  
+
   // Volume slider container.
   .rsbtn_volume_container {
     @include box-shadow(0 3px 7px -3px $dark-color);
@@ -294,11 +294,11 @@ $rs-progressbar-handle-color  : #f39200;
     height: 100px;
     border: 0;
     background-color: $rs-bg-color;
-    z-index:100;
-    border-radius: 0 0 $beta-radius $beta-radius; 
+    z-index: 100;
+    border-radius: 0 0 $beta-radius $beta-radius;
     border-top: 1px solid $rs-divider-color;
   }
-  
+
   // Volume slider area.
   .rsbtn_volume_slider {
     width: 12px;
@@ -307,32 +307,33 @@ $rs-progressbar-handle-color  : #f39200;
     background: $rs-progressbar-color;
     border-radius: 3px;
   }
-  
+
   // Volume slide handle
   .rsbtn_volume_handle.rsimg {
     position: absolute;
-    top: -6px;  
-    left: -10px; 
+    top: -6px;
+    left: -10px;
     width: 32px;
     height: 6px;
     background-color: $rs-progressbar-handle-color;
   }
-  
+
   // Download button.
   .rsbutton.rsbtn_dl::before {
     @extend .icon-download::before; // sass-lint:disable-line placeholder-in-extend
   }
-  
+
   // Settings button.
   .rsbutton.rsbtn_settings::before {
     @extend .icon-settings::before; // sass-lint:disable-line placeholder-in-extend
   }
-  
+
   // Close button.
   .rsbutton.rsbtn_closer {
     background-color: $white-color;
     width: 64px;
     border-left: 1px solid $rs-divider-color;
+
     &::before {
       @extend %icon-base-css;
       @extend .icon-close::before; // sass-lint:disable-line placeholder-in-extend
@@ -348,7 +349,7 @@ $rs-progressbar-handle-color  : #f39200;
       }
     }
   }
-  
+
   // Popup button.
   // This is the style of the listen button that popups when the user
   // makes a text selection on the page.
@@ -359,32 +360,32 @@ $rs-progressbar-handle-color  : #f39200;
     border: 1px solid lighten($alpha-text-color, 40);
     border-radius: $beta-radius !important;
     background: $rs-bg-color;
-    
+
     .divider {
       height: 26px;
       margin-top: 5px;
     }
-    
+
     .rsbtn_progress_container {
       margin-top: 13px;
       width: 60px;
     }
-    
+
     .rsbutton {
       width: 32px;
       height: 36px;
       font-size: 18px;
       line-height: 36px;
-      
+
       &.rsbtn_closer {
         background-color: inherit;
       }
 
-      &.rsbtn_play:before {
+      &.rsbtn_play::before {
         margin-right: 11px;
       }
     }
-    
+
     &.rsexpanded {
       .rsbutton.rsbtn_closer {
         margin-right: 11px;
@@ -393,6 +394,7 @@ $rs-progressbar-handle-color  : #f39200;
           margin-top: 0;
         }
       }
+
       .rsbtn_play::before {
         margin-left: 6px;
       }
@@ -406,31 +408,37 @@ $rs-progressbar-handle-color  : #f39200;
 }
 
 // Overlay styles, make it all important to override inline RS stuff.
-#rslightbox_contentcontainer { 
+#rslightbox_contentcontainer {
   @include box-shadow(0 0 21px $dark-color);
+
   background-color: $gamma-ui-color !important;
-  font: $alpha-font-weight $alpha-font-size/16*100%/#{$alpha-line-height} $alpha-font-family;
+  // Why not mixin text-dimensions()?
+  font: $alpha-font-weight $alpha-font-size / 16 * 100% / #{$alpha-line-height} $alpha-font-family;
+  // Legacy, needs to be documented.
+  // sass-lint:disable no-vendor-prefixes no-misspelled-properties
   -webkit-overflow-scrolling: touch;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
+  // sass-lint:enable no-vendor-prefixes
 
+  // Why not @mixin font-size?
   @include mq($bp-tablet-l) {
-    font-size: $alpha-font-size/16*112.5%;
+    font-size: $alpha-font-size / 16 * 112.5%;
   }
 
   #rslightbox_closer {
     transition: none;
   }
-  
+
   #rslightbox_logo {
     display: none;
   }
-  
+
   #rslightbox_buttons {
-    padding:0;
+    padding: 0;
     bottom: 10px;
     margin: 2px 10px;
-    background-color: transparent; 
+    background-color: transparent;
   }
 
   .rsform-button,
@@ -442,16 +450,18 @@ $rs-progressbar-handle-color  : #f39200;
     @include mq($bp-tablet-s) {
       @include btn-inlineblock;
     }
+
     background-image: none;
   }
-  
+
   #rslightbox_content {
     @include border-box;
+
     font-size: inherit;
     top: 10px;
     background-color: $white-color !important;
     color: $alpha-text-color;
-  
+
     h1 {
       @extend %h1;
       margin-bottom: .5rem;
@@ -461,7 +471,7 @@ $rs-progressbar-handle-color  : #f39200;
       @extend %h2;
       padding-top: 0;
     }
-    
+
     fieldset {
       border: 0;
       margin-bottom: 0;
@@ -484,10 +494,10 @@ $rs-progressbar-handle-color  : #f39200;
     label {
       font-weight: normal;
     }
-    
+
     .rsform-row {
       @include text-dimensions(0, 1);
-      border-radius: $beta-radius; 
+      border-radius: $beta-radius;
       background-color: $gamma-ui-color;
     }
 
@@ -495,7 +505,7 @@ $rs-progressbar-handle-color  : #f39200;
       @include text-dimensions(0, 1);
     }
 
-    input[type=button] {
+    input[type='button'] {
       @include text-dimensions(0, 1);
     }
 
@@ -513,9 +523,9 @@ $rs-progressbar-handle-color  : #f39200;
     border-radius: $beta-radius $beta-radius 0 0;
 
     &.rsbtn_closer {
-      border: none;
+      border: 0;
 
-      &:before {
+      &::before {
         margin-top: 6px;
       }
     }
