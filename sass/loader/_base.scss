@@ -2,7 +2,8 @@
 @import '../base/fonts';
 @import '../base/icons';
 @import '../base/icons_override';
-@import '../base/reset';
+// Disabled, since we already used compass-normalize.
+//@import '../base/reset';
 @import '../base/base';
 @import '../base/typography';
 @import '../base/forms';

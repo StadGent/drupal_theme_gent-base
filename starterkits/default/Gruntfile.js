@@ -8,24 +8,24 @@ module.exports = function (grunt) {
         livereload: true
       },
       sass: {
-        files: ['sass/{,**/}*.{scss,sass}'],
-        tasks: ['compass:dev'],
+        files: ['sass/{,**/}*.{scss,sass}', '../../../www/sites/all/themes/contrib/gent_base/sass/{,**/}*.{scss,sass}'],
+        tasks: ['sasslint', 'compass:dev'],
         options: {
           livereload: false
         }
       },
       registry: {
-        files: ['*.info', '{,**}/*.{php,inc}'],
+        files: ['*.info', '{,**}/*.{php,inc}', '../../../www/sites/all/themes/contrib/gent_base/*.info', '../../../sites/all/themes/contrib/gent_base/{,**}/*.{php,inc}'],
         tasks: ['shell'],
         options: {
           livereload: false
         }
       },
       images: {
-        files: ['images/**']
+        files: ['images/**', '../../../www/sites/all/themes/contrib/gent_base/images/**']
       },
       css: {
-        files: ['css/{,**/}*.css']
+        files: ['css/{,**/}*.css', '../../../www/sites/all/themes/contrib/gent_base/css/{,**/}*.css']
       },
       js: {
         files: ['js/{,**/}*.js', '!js/{,**/}*.min.js'],
@@ -59,7 +59,8 @@ module.exports = function (grunt) {
 
     jshint: {
       options: {
-        jshintrc: '.jshintrc'
+        jshintrc: '.jshintrc',
+        ignores: 'libraries'
       },
       all: ['js/{,**/}*.js', '!js/{,**/}*.min.js']
     },
@@ -111,15 +112,42 @@ module.exports = function (grunt) {
           }
         }]
       },
+      // Extra uglifying for libs that don't ship with a minified version.
+      // Run after bower update.
+      libs: {
+        options: {
+          mangle: true,
+          compress: {}
+        },
+        files: [
+        ]
+      }
+    },
+
+    imagemin: {
+      dist: {
+        options: {
+          optimizationLevel: 1
+        },
+        files: [
+          {
+            expand: true,
+            cwd: 'images/',
+            dest: 'images/',
+            src: ['**/*.{png,jpg,gif}']
+          },
+        ]
+      }
     }
   });
-
 
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-sass-lint');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-imagemin');
+  grunt.loadNpmTasks('grunt-newer');
   grunt.loadNpmTasks('grunt-shell');
 
   grunt.registerTask('build', [
@@ -134,4 +162,9 @@ module.exports = function (grunt) {
     'sasslint',
     'compass:dev'
   ]);
+
+  grunt.registerTask('uglifybowerlibs', [
+    'uglify:libs'
+  ]);
+
 };
