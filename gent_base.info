@@ -22,7 +22,7 @@ scripts[] = libraries/custom/modernizr/modernizr.custom.js
 ; Managed with bower.
 scripts[] = libraries/jquery-throttle-debounce/jquery.ba-throttle-debounce.min.js
 scripts[] = libraries/livequery/dist/jquery.livequery.min.js
-scripts[] = libraries/matchheight/dist/jquery.matchHeight-min.js
+scripts[] = libraries/matchHeight/dist/jquery.matchHeight-min.js
 scripts[] = libraries/imagesloaded/imagesloaded.pkgd.min.js
 scripts[] = libraries/masonry/dist/masonry.pkgd.min.js
 scripts[] = libraries/sticky/jquery.sticky.min.js
