@@ -1,5 +1,8 @@
+//
+// Gent base tools block.
+//
 // Extra contact block.
-#block-gent-base-tools-extra-contact {
+#block-gent-base-tools-extra-contact { // sass-lint:disable-line no-ids
   &.island {
     margin-bottom: 0;
     padding-left: 0;
@@ -7,7 +10,7 @@
     padding-bottom: 0;
 
     h3 {
-      @include text-dimensions(5, 1.5, 0.5, 0, 0);
+      @include text-dimensions(5, 1.5, .5, 0, 0);
     }
   }
 

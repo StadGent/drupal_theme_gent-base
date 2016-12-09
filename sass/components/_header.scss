@@ -1,9 +1,13 @@
+//
+// Header styling.
+//
 .top-section {
   position: relative;
 }
+
 .site__header {
-  background-color: #ffffff;
-  position: static; //for mobile logo position
+  background-color: $white-color;
+  position: static; // For mobile logo position.
 
   img {
     display: none;
@@ -21,7 +25,7 @@
       padding: 3px;
 
       background-color: $white-color;
-      opacity: 0.6;
+      opacity: .6;
 
       color: $beta-ui-color;
       font-size: 11px;
@@ -32,7 +36,9 @@
 
   @include mq($bp-tablet-s) {
     position: relative;
+
     img {
+      // sass-lint:disable-block no-important
       width: auto !important;
       height: auto !important;
       display: block;
@@ -58,7 +64,7 @@
 }
 
 .top-section .site__header__normal__title h1 {
-  @include text-dimensions(5, 1.3, 0, 0, 0, 0.8);
+  @include text-dimensions(5, 1.3, 0, 0, 0, .8);
   margin-bottom: 0;
 
   @include mq($bp-tablet-s) {
@@ -88,17 +94,17 @@
 }
 
 .site__header__image__gradient {
+  // IE gradient from compass hacks, set it first.
+  @include filter-gradient(rgba($white-color, 0), rgba($dark-color, .5), 'vertical');
+  // Normal CSS3 linear gradient.
+  @include background(linear-gradient(to bottom, rgba($white-color, 0) 0%, rgba($dark-color, .5) 100%));
+
   display: none;
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
   height: 200px;
-
-  // IE gradient from compass hacks, set it first
-  @include filter-gradient(rgba($white-color, 0), rgba($dark-color, .5), 'vertical');
-  // Normal CSS3 linear gradient
-  @include background(linear-gradient(to bottom, rgba($white-color, 0) 0%, rgba($dark-color, .5) 100%));
 
   @include mq($bp-tablet-s) {
     display: block;
@@ -119,6 +125,7 @@
     left: 0;
     text-shadow: 1px 1px 1px $alpha-text-color;
     filter: progid:DXImageTransform.Microsoft.DropShadow(offX=1,offY=1,color=#{$alpha-text-color});
+
     h1 {
       @include margin-tb(1.5, 1.5);
       @include text-dimensions(5, 1.3);
@@ -156,7 +163,7 @@
 // Gent auth bar.
 body.gent-auth-bar {
   // Hide the "Mijn Gent" block when the auth bar is present (you are logged in into Mijn Gent).
-  #block-gentbe-general-gent-auth {
+  #block-gentbe-general-gent-auth { // sass-lint:disable-line no-ids
     display: none;
   }
 }

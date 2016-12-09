@@ -1,3 +1,15 @@
+//
+// Webform Styling.
+//
+// WARNING!
+// This is HORRIBLE legacy code that has been cleaned to pass linting.
+// The generated CSS is a monster. Someone should thrash this and rewrite
+// from scratch.
+//
+// Only use when absolutely needed ...
+//
+// Don't bother fixing these
+// sass-lint:disable no-vendor-prefixes
 .webform-component-progressbar {
   @include margin-top(1);
   @include margin-bottom(-1);
@@ -7,18 +19,15 @@
   @include mq($bp-tablet-m) {
     display: block;
   }
+
   .webform-component-progressbar-wrapper {
     height: 6px;
     background-color: $grey-progressbar;
-    @include mq($bp-tablet-m) {
-      background-color: transparent;
-    }
     text-indent: -9999px;
     position: relative;
-    .webform-component-progressbar-fill {
-      &:last-child {
-        //background-color: $white-color;
-      }
+
+    @include mq($bp-tablet-m) {
+      background-color: transparent;
     }
   }
 
@@ -32,46 +41,73 @@
     top: 0;
     z-index: 10;
     height: 6px;
-    border: none;
+    border: 0;
   }
 
   .webform-component-progressbar-page {
     float: left;
+    color: $alpha-text-color;
+    text-overflow: ellipsis;
+    position: relative;
+    overflow: visible;
+
     @include mq($bp-tablet-m) {
       float: none;
-      width: 100% !important;
+      margin-top: 1em;
+      overflow: hidden;
+      width: 100% !important; // sass-lint:disable-line no-important
+
+      &:first-child {
+        margin-top: 0;
+      }
     }
-    color: $alpha-text-color;
-    overflow: hidden;
-    text-overflow: ellipsis;
 
     &.current {
       color: $beta-text-color;
       font-weight: bold;
+
       a,
       span {
         text-decoration: none;
         color: $beta-text-color;
         font-weight: bold;
       }
-    }
-  }
-  .webform-component-progressbar-page {
-    position: relative;
-    overflow: visible;
-    @include mq($bp-tablet-m) {
-      &:first-child {
-        margin-top: 0;
+
+      span {
+        &:first-child {
+          background-color: $white-color;
+          border: 6px solid $alpha-ui-color;
+          color: $white-color;
+          text-indent: -9999px;
+
+          @include mq($bp-tablet-m) {
+            text-indent: 0;
+            border: 0;
+            background-color: transparent;
+            color: $alpha-ui-color;
+
+            &::before {
+              background-color: $white-color;
+              border: 6px solid $alpha-ui-color;
+            }
+          }
+        }
       }
-      margin-top: 1em;
-      overflow: hidden;
+
+      .webform-component-progressbar-page-label {
+        @include mq($bp-tablet-m) {
+          color: $alpha-ui-color;
+        }
+      }
     }
+
     a,
     .webform-component-progressbar-page-label {
       display: inline-block;
       width: 45px;
       visibility: hidden;
       text-indent: -9999px;
+
       @include mq($bp-tablet-m) {
         float: left;
         width: 70%;
@@ -81,16 +117,13 @@
         text-indent: 0;
       }
     }
-    &.current {
-      .webform-component-progressbar-page-number {
-      }
-    }
+
     .webform-component-progressbar-page-number {
-      display: inline-block;
+      display: block;
       width: 25px;
       height: 25px;
-      border: none;
-      background-color: #e7e7e7;
+      border: 0;
+      background-color: $grey-progressbar;
       border-radius: 13px;
       top: -14px;
       margin-left: -14px;
@@ -98,6 +131,7 @@
       position: absolute;
       z-index: 1;
       text-align: center;
+
       @include mq($bp-tablet-m) {
         top: 0;
         position: relative;
@@ -107,8 +141,8 @@
         border-radius: 0;
         width: auto;
         padding-left: 45px;
-        position: relative;
-        &:before {
+
+        &::before {
           position: absolute;
           top: 0;
           left: 0;
@@ -116,34 +150,39 @@
           display: inline-block;
           width: 25px;
           height: 25px;
-          background-color: #e7e7e7;
+          background-color: $grey-progressbar;
           border-radius: 13px;
         }
       }
-      display: block;
     }
+
     &.completed {
       .webform-component-progressbar-page-number {
         text-indent: -9999px;
+
         @include mq($bp-tablet-m) {
           text-indent: 0;
         }
       }
+
       a,
       span {
         color: $succes-progress;
         text-decoration: none;
       }
+
       span {
         &:first-child {
           background-color: $succes-progress;
           background-image: url('#{$base-theme-path}/img/png/finished.png');
           background-repeat: no-repeat;
           background-position: center center;
+
           @include mq($bp-tablet-m) {
             background-color: transparent;
             background-image: none;
-            &:before {
+
+            &::before {
               background-color: $succes-progress;
               background-image: url('#{$base-theme-path}/img/png/finished.png');
               background-repeat: no-repeat;
@@ -153,44 +192,21 @@
         }
       }
     }
-    &.current {
-      span {
-        &:first-child {
-          background-color: $white-color;
-          border: 6px solid $alpha-ui-color;
-          color: $white-color;
-          text-indent: -9999px;
-          @include mq($bp-tablet-m) {
-            text-indent: 0;
-            border: none;
-            background-color: transparent;
-            color: $alpha-ui-color;
-            &:before {
-              background-color: $white-color;
-              border: 6px solid $alpha-ui-color;
-            }
-          }
-        }
-      }
-      .webform-component-progressbar-page-label {
-        @include mq($bp-tablet-m) {
-          color: $alpha-ui-color
-        }
-      }
-    }
+
     &:last-child {
       background-color: $white-color;
       padding-top: 6px;
       margin-top: -6px;
-      background: $white-color;
+
       @include mq($bp-tablet-m) {
         margin-top: 1em;
         padding-top: 0;
         background-color: transparent;
-        background: transparent;
       }
+
       .webform-component-progressbar-page-number {
         margin-top: 6px;
+
         @include mq($bp-tablet-m) {
           margin-top: 0;
         }
@@ -199,37 +215,38 @@
   }
 }
 
-.webform-datepicker, .webform-container-inline {
+.webform-datepicker,
+.webform-container-inline {
   div.form-item {
     width: inherit;
     display: inline-block;
   }
+
   .chosen-container {
-    width: inherit !important;
+    width: inherit !important; // sass-lint:disable-line no-important
   }
 }
 
 .node-webform {
-
   .messages.error,
   .messages.error.file-upload-js-error,
   .messages-inline {
+    @include font-size(-4);
     border: 1px solid $dark-red-errors;
     background-color: $red-errors;
     border-radius: $alpha-radius;
     margin-top: 5px;
     color: $black-color;
     padding: 12px 10px;
-    @include font-size(-4);
   }
 
-  .webform-component-file .input[type="file"] {
+  .webform-component-file .input[type='file'] {
     margin-bottom: 1rem;
   }
 
   .messages.error.file-upload-js-error,
   .messages-inline {
-    margin-top: -1rem !important;
+    margin-top: -1rem !important; // sass-lint:disable-line no-important
     margin-bottom: 2rem;
   }
 
@@ -237,17 +254,21 @@
     padding-left: 0;
     margin-top: 0;
   }
+
   .form-file {
     @include text-dimensions(-1, 1, 0, 0, .25);
   }
+
   .webform-component-file .form-submit {
     margin-left: 0;
+
     @include mq($bp-tablet-s) {
       margin-left: 1em;
     }
   }
 
-  div.with-suffix, div.with-prefix {
+  div.with-suffix,
+  div.with-prefix {
     .children {
       overflow: hidden;
       display: block;
@@ -256,6 +277,7 @@
         width: 100%;
       }
     }
+
     .field-suffix {
       float: right;
       display: block;
@@ -283,61 +305,67 @@
 }
 
 form.webform-client-form {
-  color: $alpha-text-color;
   @extend %clearfix;
 
-  /* Reset pointer cursor on form labels. */
+  color: $alpha-text-color;
+
+  // Reset pointer cursor on form labels.
   label,
   .label {
     cursor: default;
   }
 
-  .description, .fieldset-description {
+  .description,
+  .fieldset-description {
+    @include text-dimensions(-1, .7, 0, .1);
+
     clear: both;
     color: $gamma-text-color;
-    @include text-dimensions(-1, 0.7, 0, .1);
     margin-bottom: 1.5rem;
   }
 
   .messages--webform--info {
+    @include text-dimensions(-1, .7, 0, .1);
+
     color: $gamma-text-color;
-    @include text-dimensions(-1, 0.7, 0, .1);
     margin-bottom: 1.5rem;
   }
 
   fieldset {
-    position: relative;
     @include margin-tb(4, 1);
+
+    position: relative;
     padding-top: 1em;
     padding-bottom: 2rem;
-    border: none;
+    border: 0;
     border-radius: 0;
     border-top: 1px solid lighten($gamma-text-color, 10);
     background-color: $grey-progressbar;
 
     legend {
+      @include rem-padding-lr(.3, .3);
+      @include padding-tb(.1, .1);
       position: absolute;
       top: -2.5em;
       font-weight: bold;
-      @include rem-padding-lr(.3, .3);
-      @include padding-tb(.1, .1);
       padding-left: 0;
       margin-left: 0;
       width: auto;
-      border: none;
+      border: 0;
       background-color: transparent;
 
       a {
         text-decoration: none;
       }
     }
+
     .form-item {
       label {
         font-weight: normal;
       }
     }
 
-    legend:before {
+    legend::before {
       font-family: 'gent-icons';
       speak: none;
       font-style: normal;
@@ -348,10 +376,12 @@ form.webform-client-form {
     }
 
     &.collapsible {
-      legend:before {
-        @extend .icon-arrow-down:before;
+      legend::before {
+        @extend .icon-arrow-down::before; // sass-lint:disable-line placeholder-in-extend
+
         margin-right: .5em;
       }
+
       .fieldset-wrapper {
         @include padding-tb(1, 1)
       }
@@ -359,13 +389,13 @@ form.webform-client-form {
 
     &.collapsible.collapsed {
       background-color: hsl(hue($alpha-ui-color), 40, 95);
-      border-right: 1px solid rgba($white-color, 0.1);
+      border-right: 1px solid rgba($white-color, .1);
       box-shadow: inset 0 -1px 1px 0 rgba(hsl(hue($alpha-ui-color), 40, 87.5), 1);
       color: $alpha-ui-color;
       height: 2em;
 
-      legend:before {
-        @extend .icon-caret:before;
+      legend::before {
+        @extend .icon-caret::before; // sass-lint:disable-line placeholder-in-extend
       }
 
       .fieldset-wrapper {
@@ -391,12 +421,15 @@ form.webform-client-form {
   .webform-progressbar {
     @include margin-top(2);
     @include margin-bottom(0);
+
     &:first-child {
       @include margin-top(0);
     }
   }
+
   .webform-progressbar {
     @include margin-bottom(2);
+    min-height: 2rem;
   }
 
   .webform-component-file {
@@ -412,14 +445,11 @@ form.webform-client-form {
     }
   }
 
-  .webform-progressbar {
-    min-height: 2rem;
-  }
-
   legend,
   label,
   .label {
     @include text-dimensions(-1, 1, 0, 0, .25);
+
     color: $beta-ui-color;
     display: block;
     width: 100%;
@@ -431,30 +461,30 @@ form.webform-client-form {
   }
 
   // Input elements
-
-  input[type="input"],
-  input[type="text"],
-  input[type="email"],
-  input[type="password"],
-  input[type="search"],
-  input[type="tel"],
-  input[type="url"],
-  input[type="number"],
-  input[type="date"],
-  input[type="month"],
-  input[type="week"],
-  input[type="time"],
-  input[type="datetime"],
-  input[type="datetime-local"],
-  input[name="field_country_code"],
-  input[name="field_city_code"],
-  input[name="field_phone_int"],
+  input[type='input'],
+  input[type='text'],
+  input[type='email'],
+  input[type='password'],
+  input[type='search'],
+  input[type='tel'],
+  input[type='url'],
+  input[type='number'],
+  input[type='date'],
+  input[type='month'],
+  input[type='week'],
+  input[type='time'],
+  input[type='datetime'],
+  input[type='datetime-local'],
+  input[name='field_country_code'],
+  input[name='field_city_code'],
+  input[name='field_phone_int'],
   select[multiple],
   textarea,
   .field-prefix,
   .field-suffix {
     @include border-box;
     @include input-m;
+
     display: block;
     -webkit-appearance: none;
     margin: 0;
@@ -478,11 +508,7 @@ form.webform-client-form {
   .field-prefix,
   .field-suffix {
     width: auto;
-    border: none;
-  }
-
-  textarea {
-    height: auto;
+    border: 0;
   }
 
   select {
@@ -509,8 +535,8 @@ form.webform-client-form {
     }
 
     &[multiple] {
+      @include padding-tb(.5, .5);
       height: auto;
-      @include padding-tb(0.5, 0.5);
       padding-right: 0;
     }
   }
@@ -519,6 +545,7 @@ form.webform-client-form {
     display: block;
     resize: none;
     overflow: auto;
+    height: auto;
   }
 
   .small.input-textarea {
@@ -556,9 +583,7 @@ form.webform-client-form {
     width: 13px;
     height: 13px;
     vertical-align: middle;
-    position: relative;
     top: -2px;
-    *overflow: hidden;
   }
 
   .label-option {
@@ -567,7 +592,6 @@ form.webform-client-form {
   }
 
   // Placeholders
-
   ::-webkit-input-placeholder {
     @include padding-tb(.1, 0);
     color: $gamma-text-color;
@@ -586,21 +610,20 @@ form.webform-client-form {
   }
 
   // Buttons
-
   .form-submit {
     @extend %btn;
+    @extend %btn--alpha;
     @include btn-m;
-    @extend .btn--alpha;
     @include mq($bp-tablet-s) {
       @include btn-inlineblock;
     }
-  }
+    width: auto;
 
-  .form-submit {
     &.webform-next {
       float: left;
       width: auto;
     }
+
     &.webform-previous {
       margin-right: 1rem;
       float: left;
@@ -609,35 +632,34 @@ form.webform-client-form {
   }
 
   .form-actions {
-    input.form-submit,
-    button.form-submit {
-      @include margin-tb(0, 1);
-      &:last-child {
-        margin-bottom: 0;
-      }
-      // Put buttons as inline blocks next to each other on larger screens.
-      @include mq($bp-tablet-s) {
-        @include rem-margin-lr(0, 1);
-        margin-bottom: 0;
-      }
-    }
-  }
-
-  /**
-   * Markup generated by Form API.
-   */
-  .form-actions {
     width: 100%;
     display: inline-block;
-    margin-top: 1.6em;
     margin-bottom: 1em;
     margin-left: 0;
     clear: left;
+    padding-left: 0;
+    margin-top: 0;
 
     @include mq($bp-tablet-m) {
       width: auto;
       margin-top: 1.6em;
       clear: none;
+    }
+
+    input.form-submit,
+    button.form-submit {
+      @include margin-tb(0, 1);
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      // Put buttons as inline blocks next to each other on larger screens.
+      @include mq($bp-tablet-s) {
+        @include rem-margin-lr(0, 1);
+
+        margin-bottom: 0;
+      }
     }
   }
 
@@ -647,70 +669,82 @@ form.webform-client-form {
     margin-bottom: 0;
     white-space: nowrap;
   }
-  .form-item .description, form .fieldset-description {
+
+  .form-item .description,
+  form .fieldset-description {
     @include font-size(-4);
   }
 
   form .fieldset-description {
-    margin-bottom: 0.75rem;
+    margin-bottom: .75rem;
   }
+
   label {
     display: block;
     font-weight: bold;
   }
+
   label.option {
     display: inline;
     font-weight: normal;
-    margin-left: 0.4em;
+    margin-left: .4em;
   }
+
   .form-checkboxes .form-item,
   .form-radios .form-item {
-    margin-top: 0.4em;
-    margin-bottom: 0.4em;
+    margin-top: .4em;
+    margin-bottom: .4em;
   }
+
   .form-type-radio .description,
   .form-type-checkbox .description {
     margin-left: 2.4em;
   }
+
   input.form-checkbox,
   input.form-radio {
     vertical-align: middle;
     margin-bottom: 3px;
   }
+
   .marker,
   .form-required {
     color: $error-color;
   }
+
   .form-item input.error,
   .form-item textarea.error,
   .form-item select.error {
     border: 2px solid $error-color;
   }
 
-  /**
-   * Specific date theming.
-   */
+  // Specific date theming.
   .container-inline-date {
     clear: both;
   }
+
   .container-inline-date .form-item {
     float: none;
     margin: 0;
     padding: 0;
   }
+
   .container-inline-date > .form-item {
     display: inline-block;
-    margin-right: 0.5em; /* LTR */
+    margin-right: .5em;
     margin-bottom: 10px;
     vertical-align: top;
   }
+
   .container-inline-date .form-item .form-item {
-    float: left; /* LTR */
+    float: left;
   }
+
   .container-inline-date .form-item,
   .container-inline-date .form-item input {
     width: auto;
   }
+
   .container-inline-date .description {
     clear: both;
   }
@@ -718,11 +752,11 @@ form.webform-client-form {
   .container-inline-date .form-item input,
   .container-inline-date .form-item select,
   .container-inline-date .form-item option {
-    margin-right: 5px; /* LTR */
+    margin-right: 5px;
   }
 
   .container-inline-date .date-spacer {
-    margin-left: -5px; /* LTR */
+    margin-left: -5px;
   }
 
   .views-right-60 .container-inline-date div {
@@ -746,8 +780,9 @@ form.webform-client-form {
   }
 
   .ui-datepicker .ui-datepicker-title select {
-    font-size: 0.6 * $alpha-font-size * 1px;
-    font-size: 0.6rem;
+    // sass-lint:disable-block no-duplicate-properties
+    font-size: .6 * $alpha-font-size * 1px;
+    font-size: .6rem;
   }
 
   // Prefix and postfix
@@ -801,16 +836,16 @@ form.webform-client-form {
     }
   }
 
-  /**
-   * Specific webform theming.
-   */
-  .webform-datepicker, .webform-container-inline {
+  // Specific webform theming.
+  .webform-datepicker,
+  .webform-container-inline {
     div.form-item {
       width: inherit;
       display: inline-block;
     }
+
     .chosen-container {
-      width: inherit !important;
+      width: inherit !important; // sass-lint:disable-line no-important
     }
   }
 
@@ -819,24 +854,21 @@ form.webform-client-form {
     color: $beta-text-color;
     font-size: 14px;
   }
-  .form-submit {
-    width: auto;
-  }
-  .form-actions {
-    padding-left: 0;
-    margin-top: 0;
-  }
+
   .form-file {
     @include text-dimensions(-1, 1, 0, 0, .25);
   }
+
   .webform-component-file .form-submit {
     margin-left: 0;
+
     @include mq($bp-tablet-s) {
       margin-left: 1em;
     }
   }
 
-  div.with-suffix, div.with-prefix {
+  div.with-suffix,
+  div.with-prefix {
     .children {
       overflow: hidden;
       display: block;
@@ -845,6 +877,7 @@ form.webform-client-form {
         width: 100%;
       }
     }
+
     .field-suffix {
       float: right;
       display: block;
@@ -862,64 +895,18 @@ form.webform-client-form {
 .webform-left {
   text-align: center;
   margin-bottom: 1em;
+
   @include mq($bp-tablet-m) {
     margin-bottom: 0;
     width: 25%;
     float: left;
     min-height: 50px;
   }
+
   &.webform-empty {
     @include mq($bp-tablet-m) {
-      width: 0px;
+      width: 0;
       height: 0;
-    }
-  }
-}
-
-.webform-right {
-  .webform-component {
-    position: relative;
-    .description {
-      min-height: 40px;
-      margin-top: 1em;
-      margin-bottom: 1em;
-      position: relative;
-      background-color: $light-grey;
-      padding: 10px 10px 10px 50px;
-      border-radius: $alpha-radius;
-      color: $dark-grey;
-      &:before {
-        content: '';
-        width: 30px;
-        height: 30px;
-        background-image: url('#{$base-theme-path}/img/png/info.png');
-        background-position: center center;
-        background-repeat: no-repeat;
-        position: absolute;
-        top: 5px;
-        left: 10px;
-      }
-    }
-  }
-  @include mq($bp-tablet-m) {
-    width: 41.66667%;
-    float: left;
-    .webform-component {
-      position: relative;
-      .description {
-        margin-top: 0;
-        margin-bottom: 0;
-        position: absolute;
-        top: 33px;
-        left: 100%;
-        margin-left: 4.4%;
-      }
-    }
-    .fieldset-wrapper {
-      position: relative;
-      .description {
-        left: 111%;
-      }
     }
   }
 }
@@ -932,12 +919,66 @@ form.webform-client-form {
 }
 
 .webform-right {
+  .webform-component {
+    position: relative;
+
+    .description {
+      min-height: 40px;
+      margin-top: 1em;
+      margin-bottom: 1em;
+      position: relative;
+      background-color: $light-grey;
+      padding: 10px 10px 10px 50px;
+      border-radius: $alpha-radius;
+      color: $dark-grey;
+
+      &::before {
+        content: '';
+        width: 30px;
+        height: 30px;
+        background-image: url('#{$base-theme-path}/img/png/info.png');
+        background-position: center center;
+        background-repeat: no-repeat;
+        position: absolute;
+        top: 5px;
+        left: 10px;
+      }
+    }
+  }
+
+  @include mq($bp-tablet-m) {
+    width: 41.66667%;
+    float: left;
+
+    .webform-component {
+      position: relative;
+
+      .description {
+        margin-top: 0;
+        margin-bottom: 0;
+        position: absolute;
+        top: 33px;
+        left: 100%;
+        margin-left: 4.4%;
+      }
+    }
+
+    .fieldset-wrapper {
+      position: relative;
+
+      .description {
+        left: 111%;
+      }
+    }
+  }
+
   .webform-confirmation {
     width: 100%;
-    margin-left: 0%;
+    margin-left: 0;
+
     @include mq($bp-tablet-m) {
       width: 100%;
-      margin-left: 0%;
+      margin-left: 0;
     }
   }
 }
@@ -948,7 +989,6 @@ body.node-type-webform {
   }
 }
 
-.sticky-wrapper.is-sticky{
-  z-index: 1 !important;
+.sticky-wrapper.is-sticky {
+  z-index: 1 !important; // sass-lint:disable-line no-important
 }
-

@@ -1,4 +1,6 @@
-// lists
+//
+// Lists.
+//
 .no-bullet-list {
   @extend %no-bullet-list;
 }
@@ -17,23 +19,23 @@ li.link-list__more {
 
 .readmore-list-wrapper {
   @include padding-tb(.6, 0);
-  
+
   ul {
     @extend %link-list;
+
     li {
       @extend %link-list__more;
-    } 
+    }
   }
 }
-
 
 .list__divider {
   @include margin-top(1);
 }
 
 ul.no-padding li {
-  @extend .hN;
-  margin-bottom:0;
+  @extend .hN; // sass-lint:disable-line placeholder-in-extend
+  margin-bottom: 0;
 }
 
 ul.nowrap li {
@@ -41,5 +43,5 @@ ul.nowrap li {
 }
 
 p + ul {
-  margin-top:-1em;
+  margin-top: -1em;
 }

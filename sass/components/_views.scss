@@ -1,3 +1,6 @@
+//
+// Views
+//
 .view {
   .pager {
     @extend %reset-list;
@@ -7,7 +10,7 @@
 
 .view-grouping-header {
   h2 {
-    @extend .h3;
+    @extend %h3;
   }
 }
 
@@ -16,29 +19,30 @@ h2.grouped {
 }
 
 .block-views {
-  h2.grouped::first-of-type {
-    margin-top:0;
-    padding-top:0;
+  h2.grouped:first-of-type {
+    margin-top: 0;
+    padding-top: 0;
   }
 }
 
 .views-summary {
   a {
     @extend %rounded;
-    @include px-padding-lr(.7,.7);
+    @include px-padding-lr(.7, .7);
     @include padding-tb(.2, .2);
-    text-decoration:none;
-    font-weight:bold;
-    
+    text-decoration: none;
+    font-weight: bold;
+
     &:hover,
     &:focus,
     &:active {
       background-color: $alpha-ui-color;
-      color:$white-color;
+      color: $white-color;
     }
   }
+
   .active {
     background-color: $delta-ui-color;
-    color:$white-color;
+    color: $white-color;
   }
 }

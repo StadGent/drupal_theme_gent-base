@@ -45,7 +45,7 @@ function gent_base_preprocess_html(&$variables) {
   $variables['base_theme_path'] = base_path() . $base_theme . '/';
 
   // Selected scripts for the header scripts go here.
-  drupal_add_js($base_theme . '/libraries/modernizr/modernizr.min.js', array(
+  drupal_add_js($base_theme . '/libraries/custom/modernizr/modernizr.min.js', array(
     'scope' => 'head_scripts',
     'weight' => -1,
     'preprocess' => FALSE,

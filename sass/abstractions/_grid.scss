@@ -1,10 +1,10 @@
 // mixins
 
-// horizontal padding based on the context grid gutter in em
-// use: @include em-padding-lr(#left, #right);
+// Horizontal padding based on the context grid gutter in em
+// Use: @include em-padding-lr(#left, #right);
 
 @mixin em-padding-lr($pl: 1, $pr: 1) {
-
+  // sass-lint:disable-block no-duplicate-properties
   @if $pl > 0 {
     padding-left: $alpha-line-height * 1em * $pl;
   }
@@ -16,7 +16,7 @@
 }
 
 @mixin rem-padding-lr($pl: 1, $pr: 1) {
-
+  // sass-lint:disable-block no-duplicate-properties
   @if $pl > 0 {
     padding-left: $pl * $alpha-font-size * 1px;
     padding-left: $pl * 1rem;
@@ -30,6 +30,7 @@
 }
 
 @mixin rem-margin-lr($ml: 1, $mr: 1) {
+  // sass-lint:disable-block no-duplicate-properties
   @if $ml != 0 {
     margin-left: $ml * $alpha-font-size * 1px;
     margin-left: $ml * 1rem;
@@ -40,10 +41,10 @@
   }
 }
 
-// horizontal padding based on the context grid gutter
-// use: @include px-padding-lr(#left, #right);
-
+// Horizontal padding based on the context grid gutter
+// Use: @include px-padding-lr(#left, #right);
 @mixin px-padding-lr($left: 1, $right: 1) {
+  // sass-lint:disable-block no-duplicate-properties
   @if $left > 0 {
     padding-left: $grid-margin * $left * 1px;
   }
@@ -52,22 +53,22 @@
   }
 }
 
-// horizontal margin based on the context grid gutter in em
-// use: @include em-margin-lr(#left, #right);
-
+// Horizontal margin based on the context grid gutter in em
+// Use: @include em-margin-lr(#left, #right);
 @mixin em-margin-lr($left: 1, $right: $left) {
+  // sass-lint:disable-block no-duplicate-properties
   @if $left > 0 {
-    margin-left: $grid-margin/$alpha-font-size * $left * 1em;
+    margin-left: $grid-margin / $alpha-font-size * $left * 1em;
   }
   @if $right > 0 {
-    margin-right: $grid-margin/$alpha-font-size * $right * 1em;
+    margin-right: $grid-margin / $alpha-font-size * $right * 1em;
   }
 }
 
-// horizontal margin based on the context grid gutter
-// use: @include px-margin-lr(#left, #right);
-
+// Horizontal margin based on the context grid gutter
+// Use: @include px-margin-lr(#left, #right);
 @mixin px-margin-lr($left: 1, $right: 1) {
+  // sass-lint:disable-block no-duplicate-properties
   @if $left != 0 {
     margin-left: $grid-margin * $left * 1px;
   }
@@ -76,38 +77,33 @@
   }
 }
 
-// horizontal percentual margin
-// use: @include perc-margin-lr(#left, #right);
-
+// Horizontal percentual margin
+// Use: @include perc-margin-lr(#left, #right);
 @mixin perc-margin-lr($left: 1, $right: $left) {
   margin-left: $fluid-grid-margin * $left * 1%;
   margin-right: $fluid-grid-margin * $right * 1%;
 }
 
-// fully percentual collumns and gutters
-// use: @include perc-col-(#amount, #gutterleft, #gutterright)
-
+// Fully percentual collumns and gutters
+// Use: @include perc-col-(#amount, #gutterleft, #gutterright)
 @mixin perc-col-($amount, $pl, $pr) {
-  width: ($fluid-grid-column * $amount) + ($fluid-grid-margin * (($amount * 2) - 2)) + 0%;
   @include perc-margin-lr($pl, $pr);
-  // @include float-left;
+
   float: left;
+  width: ($fluid-grid-column * $amount) + ($fluid-grid-margin * (($amount * 2) - 2)) + 0%;
 }
 
 // border-box box sizing
-// use: @include box-(#amount, #gutterleft, #gutterright);
-
+// Use: @include box-(#amount, #gutterleft, #gutterright);
 @mixin box-($amount, $left, $right) {
-  width: ($fluid-grid-column * $amount) + ($fluid-grid-gutter * $amount) + 0%;
+  @include rem-padding-lr($left, $right); // experimental
   float: left;
   position: relative;
-  // @include px-padding-lr($left, $right);
-  @include rem-padding-lr($left, $right); // experimental
+  width: ($fluid-grid-column * $amount) + ($fluid-grid-gutter * $amount) + 0%;
 }
 
-// push #amount of columns left
-// use @include push-(#amount);
-
+// Push #amount of columns left
+// Use @include push-(#amount);
 @mixin push-left($amount) {
   left: ($fluid-grid-column * $amount) + ($fluid-grid-gutter * $amount) + 0%;
 }
@@ -122,7 +118,6 @@
 
 // last-col mixin to re-align the right edge
 // use: @extend .last-col;
-
 @mixin last-col {
   float: right;
 }

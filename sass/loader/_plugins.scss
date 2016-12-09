@@ -1,14 +1,23 @@
 // Import external libraries.
-@import "compass";
-@import "breakpoint";
-@import "singularitygs";
-@import "toolkit";
-
-// Use compass-normalize for our normalizing styles
-@import "normalize";
+@import 'compass';
+@import 'breakpoint';
+@import 'singularitygs';
+@import 'toolkit';
 
 // Use 'border-box' for the box model.
-@import "toolkit";
+@import 'toolkit';
 
 // Utilities
-@import "compass/utilities/general/hacks";
+@import 'compass/utilities/general/hacks';
+
+// @todo
+// This theme was originally created with a reset CSS. It also uses compass-normalize.
+// Normally this is not needed, but to remain compatible with all sub-themes we keep
+// both, in the original order (Normalize, then reset ... no kidding). Fix this in the next major
+// update.
+// Specific cases :
+// Normalize adds styling for button elements, but adds default margin on paragraphs.
+// Reset clears margins on paragraphs, but has no defaults for existing HTML5 elements ...
+// We need this here, before any other style is loaded.
+@import 'normalize';
+@import '../base/reset';

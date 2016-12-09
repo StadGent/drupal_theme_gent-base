@@ -1,19 +1,21 @@
+//
 // Tables
-
+//
 table {
+  @include text-dimensions(1, 1, 2);
   text-align: left;
   width: 100%;
   font-family: $alpha-font-family;
   border-spacing: 0;
   border-collapse: collapse;
-  @include text-dimensions(1, 1, 2);
 }
 
 tr {
   border-bottom: 1px solid lighten($gamma-ui-color, 5);
 }
 
-th, thead {
+th,
+thead {
   display: none;
 }
 
@@ -21,14 +23,11 @@ td {
   display: block;
   padding: .25em 1em .25em 0;
 
-  &:before {
-    content: attr(headers) ": ";
+  &::before {
+    content: attr(headers) ': ';
     font-weight: bold;
-
-    // options
-    width: 50%; // faux th width
+    width: 50%;
     display: inline-block;
-    // end options
   }
 }
 
@@ -45,7 +44,7 @@ td {
   td {
     display: table-cell;
 
-    &:before {
+    &::before {
       display: none;
     }
   }

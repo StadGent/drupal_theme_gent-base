@@ -9,7 +9,7 @@ module.exports = function (grunt) {
       },
       sass: {
         files: ['sass/{,**/}*.{scss,sass}'],
-        tasks: ['compass:dev'],
+        tasks: ['sasslint', 'compass:dev'],
         options: {
           livereload: false
         }
@@ -62,6 +62,13 @@ module.exports = function (grunt) {
         jshintrc: '.jshintrc'
       },
       all: ['js/{,**/}*.js', '!js/{,**/}*.min.js']
+    },
+
+    sasslint: {
+      options: {
+        configFile: '.sass-lint.yml'
+      },
+      target: ['sass/**/*.s+(a|c)ss']
     },
 
     uglify: {
@@ -118,8 +125,10 @@ module.exports = function (grunt) {
     }
   });
 
+
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-compass');
+  grunt.loadNpmTasks('grunt-sass-lint');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-shell');
@@ -127,16 +136,17 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'newer:imagemin:dist',
     'newer:uglify:dist',
+    'sasslint',
     'compass:dist',
     'jshint'
   ]);
 
   grunt.registerTask('compile', [
+    'sasslint',
     'compass:dev'
   ]);
 
   grunt.registerTask('uglifybowerlibs', [
     'uglify:libs'
   ]);
-
 };

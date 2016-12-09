@@ -8,7 +8,9 @@
     "grunt-contrib-jshint": "^1.0.0",
     "grunt-contrib-uglify": "^2.0.0",
     "grunt-contrib-watch": "^1.0.0",
-    "grunt-shell": "^2.0.0"
+    "grunt-sass-lint": "^0.2.2",
+    "grunt-shell": "^2.0.0",
+    "sass-lint": "^1.10.2"
   },
   "engines": {
     "node": ">=0.8.0"
