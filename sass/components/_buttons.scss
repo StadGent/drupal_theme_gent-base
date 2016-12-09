@@ -1,6 +1,133 @@
 //
 // Buttons.
 //
+%btn--alpha {
+  color: $white-color;
+  background-color: $alpha-link-color;
+
+  &:hover {
+    background-color: lighten($alpha-link-color, 5);
+  }
+
+  &:focus,
+  &:active {
+    background-color: $alpha-link-color;
+  }
+}
+
+%btn--beta {
+  color: #fff;
+  background-color: $beta-ui-color;
+
+  &:hover {
+    color: $white-color;
+    background-color: lighten($beta-ui-color, 5);
+  }
+
+  &:focus,
+  &:active {
+    background-color: darken($beta-ui-color, 2.5);
+  }
+}
+
+%btn--beta--alt {
+  color: $beta-ui-color;
+  background-color: lighten($beta-ui-color, 50);
+  box-shadow: 0 -1px 0 0 darken($beta-ui-color, 5) inset;
+
+  &:hover {
+    background-color: $white-color;
+  }
+
+  &:focus,
+  &:active {
+    color: $beta-ui-color;
+    background-color: lighten($beta-ui-color, 50);
+    box-shadow: 0 1px 0 0 darken($beta-ui-color, 5) inset;
+  }
+}
+
+%btn--gamma {
+  font-weight: $alpha-font-weight;
+  color: $alpha-ui-color;
+  border: 1px solid transparent;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: $alpha-ui-color;
+    background-color: $gamma-ui-color;
+    border: 1px solid darken($gamma-ui-color, 10);
+  }
+}
+
+%btn--delta {
+  @include margin-tb(1, 0);
+  color: $beta-ui-color;
+  background-color: $white-color;
+
+  &:hover {
+    color: $beta-ui-color;
+    background-color: $white-color;
+  }
+
+  &:focus,
+  &:active {
+    color: $beta-ui-color;
+    background-color: $white-color;
+  }
+}
+
+%btn--epsilon {
+  color: $white-color;
+  background-color: $delta-ui-color;
+
+  &:hover {
+    color: $white-color;
+    background-color: darken($delta-ui-color, 3);
+  }
+
+  &:focus,
+  &:active {
+    color: $white-color;
+    background-color: darken($delta-ui-color, 3);
+  }
+}
+
+%btn--zeta {
+  @include margin-tb(.8, 0);
+  color: $beta-ui-color;
+  background-color: $white-color;
+  width: 10%;
+
+  &:hover {
+    color: $beta-ui-color;
+    background-color: $white-color;
+  }
+
+  &:focus,
+  &:active {
+    color: $beta-ui-color;
+    background-color: $white-color;
+  }
+}
+
+%btn--disabled {
+  color: $disabled-color;
+  background-color: $disabled-ui-color;
+  border: 1px solid $disabled-color;
+  cursor: default;
+
+  &:hover {
+    background-color: $disabled-ui-color;
+  }
+
+  &:focus,
+  &:active {
+    background-color: $disabled-ui-color;
+  }
+}
+
 .btn,
 a.btn {
   @extend %btn;
