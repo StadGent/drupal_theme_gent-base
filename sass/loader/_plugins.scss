@@ -10,13 +10,14 @@
 // Utilities
 @import 'compass/utilities/general/hacks';
 
-// This theme was originally created with a reset CSS.
-// It also ships with compass-normalize, but it is disabled since
-// the switch will break some margins etc.
-// This could be done with the compass reset plugin, but for now we
-// keep what pre-existed. We need this here, before any other style
-// is loaded.
+// @todo
+// This theme was originally created with a reset CSS. It also uses compass-normalize.
+// Normally this is not needed, but to remain compatible with all sub-themes we keep
+// both, in the original order (Normalize, then reset ... no kidding). Fix this in the next major
+// update.
+// Specific cases :
+// Normalize adds styling for button elements, but adds default margin on paragraphs.
+// Reset clears margins on paragraphs, but has no defaults for existing HTML5 elements ...
+// We need this here, before any other style is loaded.
+@import 'normalize';
 @import '../base/reset';
-
-// Use compass-normalize for our normalizing styles
-//@import 'normalize';
