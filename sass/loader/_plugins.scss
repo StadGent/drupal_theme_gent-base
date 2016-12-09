@@ -4,11 +4,19 @@
 @import 'singularitygs';
 @import 'toolkit';
 
-// Use compass-normalize for our normalizing styles
-@import 'normalize';
-
 // Use 'border-box' for the box model.
 @import 'toolkit';
 
 // Utilities
 @import 'compass/utilities/general/hacks';
+
+// This theme was originally created with a reset CSS.
+// It also ships with compass-normalize, but it is disabled since
+// the switch will break some margins etc.
+// This could be done with the compass reset plugin, but for now we
+// keep what pre-existed. We need this here, before any other style
+// is loaded.
+@import '../base/reset';
+
+// Use compass-normalize for our normalizing styles
+//@import 'normalize';
