@@ -19,13 +19,13 @@
   }
 
   /**
-   *
+   * Alert box behavior.
    */
-  Drupal.behaviors.gentBaseBehavior = {
+  Drupal.behaviors.gentBaseAlertBox = {
     attach: function (context) {
-      $('.ajax-new-content', context).once('gent-base', function () {
-        //webformDescriptionRight();
-        //webformStickyBottom();
+      $('.alert-box', context).once('alertBox').on('click', function (e) {
+        e.preventDefault();
+        $(this).closest('.alert-box').fadeOut(300);
       });
     }
   };
@@ -36,26 +36,11 @@
    */
   var jsTheme = {
     init: function () {
-      jsTheme.forms.init();
       jsTheme.searchThemes.init();
       jsTheme.progressAnimator.init();
-      jsTheme.toggleFieldset.init();
     }
   };
 
-
-  /**
-   *
-   * @type {{init: jsTheme.forms.init}}
-   */
-  jsTheme.forms = {
-    init: function () {
-      $('.alert-box').on('click', function (e) {
-        e.preventDefault();
-        $(this).closest('.alert-box').fadeOut(300);
-      });
-    }
-  };
 
   /**
    *
@@ -91,29 +76,6 @@
         $(this).animate({
           width: targetWidth + '%'
         }, duration, 'linear');
-      });
-    }
-  };
-
-  /**
-   *
-   * @type {{init: jsTheme.toggleFieldset.init}}
-   */
-  jsTheme.toggleFieldset = {
-    init: function () {
-      $('fieldset.collapsible').on('collapsed', function (e) {
-        var $fieldset = $(this);
-
-        // Remove previous icons.
-        $('.icon-collapsed, .icon-collapsible', $fieldset).remove();
-
-        // Add new icon based on collapsed state.
-        if (e.value) {
-          $('.fieldset-legend', $fieldset).append('<span class="icon-collapsed"></span>');
-        }
-        else {
-          $('.fieldset-legend', $fieldset).append('<span class="icon-collapsible"></span>');
-        }
       });
     }
   };
