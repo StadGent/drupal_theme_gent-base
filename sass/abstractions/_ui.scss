@@ -139,11 +139,13 @@
   background-color: $delta-ui-color;
 
   &:hover {
+    color: $white-color;
     background-color: darken($delta-ui-color, 3);
   }
 
   &:focus,
   &:active {
+    color: $white-color;
     background-color: darken($delta-ui-color, 3);
   }
 }
