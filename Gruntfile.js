@@ -119,7 +119,7 @@ module.exports = function (grunt) {
           compress: true
         },
         files: [
-          {'libraries/sticky/jquery.sticky.min.js': 'libraries/sticky/jquery.sticky.js'}
+          {'libraries/jquery-sticky/jquery.sticky.min.js': 'libraries/jquery-sticky/jquery.sticky.js'}
         ]
       }
     }
