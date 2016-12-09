@@ -474,7 +474,6 @@ function gent_base_entity_property(&$variables) {
   return '<div' . $variables['attributes'] . '>' . $output . '</div>';
 }
 
-
 /**
  * Overrides theme_fieldset().
  */

@@ -320,3 +320,16 @@ function gent_base_preprocess_entity_property(&$variables) {
     }
   }
 }
+
+/**
+ * Implements hook_preprocess_webform_form().
+ */
+function gent_base_preprocess_webform_form(&$variables) {
+  $theme_path = path_to_theme();
+  if (file_exists($theme_path . '/js/webform.min.js')) {
+    drupal_add_js($theme_path . '/js/webform.min.js');
+  }
+  else {
+    drupal_add_js($theme_path . '/js/webform.js');
+  }
+}
