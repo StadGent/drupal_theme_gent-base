@@ -37,7 +37,7 @@ function gent_base_js_alter(&$javascript) {
   // Make sure viewport(.min).js gets added before theme(.min).js.
   $path = drupal_get_path('theme', 'gent_base');
   $viewport_js = $path . '/js/viewport.min.js';
-  $theme_js = $path . '/js/theme.min.js';
+  $theme_js = $path . '/js/base.min.js';
   if (isset($javascript[$viewport_js]) && isset($javascript[$theme_js])) {
     if ($javascript[$viewport_js]['weight'] == $javascript[$theme_js]['weight']) {
       $javascript[$viewport_js]['weight'] = $javascript[$theme_js]['weight'] - 0.001;
