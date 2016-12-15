@@ -110,25 +110,6 @@ function gent_base_form_dg_newsletter_mail_subscription_form_alter(&$form) {
 }
 
 /**
- * Implements hook_form_FORM_ID_alter().
- *
- * Add base theme specific styling for the "wijksites" dropdown.
- *
- * @todo move me to Stad.gent.
- */
-function gent_base_form_gent_wijksites_select_home_form_alter(&$form, &$form_state) {
-  $form['wijksite']['#attributes']['class'][] = 'prefix--large';
-  $form['wijksite']['#title_display'] = 'invisible';
-
-  $form['submit']['#attributes']['class'] = array(
-    'btn',
-    'btn--medium',
-    'btn--epsilon',
-    'postfix--small',
-  );
-}
-
-/**
  * Same as drupal_is_front_page, but added 404 & 403 pages.
  */
 function gent_base_use_large_header() {

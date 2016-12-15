@@ -2,7 +2,7 @@
  * @file
  * Contains webform-specific JS code.
  *
- * Note: This file was refactored from theme.js as best as possibe. It still
+ * Note: This file was refactored from theme.js as best as possible. It still
  * contains some funky stuff, I am in no way responsible for it.
  *
  * This file should only be loaded when the webform module is installed.
