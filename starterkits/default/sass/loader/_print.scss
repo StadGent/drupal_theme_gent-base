@@ -1,4 +1,4 @@
 // When sass supports dynamic imports, load the location from variables/base first.
 // Always include base theme scss first and allow overrides/extends in sub-theme.
-@import "../../../gent_base/sass/loader/variables";
-@import "../variables/*.*";
+@import '../../../gent_base/sass/loader/variables';
+@import '../variables/*.*';
