@@ -33,7 +33,7 @@
    *
    * This avoids overlap between the admin_menu bar and another sticky bar. In
    * some extending themes a blue bar with secondary links is used and
-   * positioned beneat the admin menu bar.
+   * positioned beneath the admin menu bar.
    */
   $(document).ready(function () {
     var selector = 'body > .sticky, body > #admin-menu';
