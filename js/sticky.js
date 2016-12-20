@@ -29,8 +29,11 @@
   };
 
   /**
-   * Adds a wrapper element and positions it at the top of the page.
-   * @todo Taken as is, this might be moved to Stad.Gent?
+   * Adds a sticky wrapper containing the admin bar and other elements.
+   *
+   * This avoids overlap between the admin_menu bar and another sticky bar. In
+   * some extending themes a blue bar with secondary links is used and
+   * positioned beneath the admin menu bar.
    */
   $(document).ready(function () {
     var selector = 'body > .sticky, body > #admin-menu';

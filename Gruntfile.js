@@ -22,7 +22,7 @@ module.exports = function (grunt) {
         }
       },
       images: {
-        files: ['images/**']
+        files: ['img/**']
       },
       css: {
         files: ['css/{,**/}*.css']
@@ -132,9 +132,9 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-shell');
+  grunt.loadNpmTasks('grunt-newer');
 
   grunt.registerTask('build', [
-    'newer:imagemin:dist',
     'newer:uglify:dist',
     'sasslint',
     'compass:dist',

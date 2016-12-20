@@ -22,7 +22,7 @@ module.exports = function (grunt) {
         }
       },
       images: {
-        files: ['images/**', '../../../www/sites/all/themes/contrib/gent_base/images/**']
+        files: ['img/**', '../../../www/sites/all/themes/contrib/gent_base/img/**']
       },
       css: {
         files: ['css/{,**/}*.css', '../../../www/sites/all/themes/contrib/gent_base/css/{,**/}*.css']
@@ -132,8 +132,8 @@ module.exports = function (grunt) {
         files: [
           {
             expand: true,
-            cwd: 'images/',
-            dest: 'images/',
+            cwd: 'img/',
+            dest: 'img/',
             src: ['**/*.{png,jpg,gif}']
           },
         ]

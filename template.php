@@ -37,7 +37,7 @@ function gent_base_js_alter(&$javascript) {
   // Make sure viewport(.min).js gets added before theme(.min).js.
   $path = drupal_get_path('theme', 'gent_base');
   $viewport_js = $path . '/js/viewport.min.js';
-  $theme_js = $path . '/js/theme.min.js';
+  $theme_js = $path . '/js/base.min.js';
   if (isset($javascript[$viewport_js]) && isset($javascript[$theme_js])) {
     if ($javascript[$viewport_js]['weight'] == $javascript[$theme_js]['weight']) {
       $javascript[$viewport_js]['weight'] = $javascript[$theme_js]['weight'] - 0.001;
@@ -106,25 +106,6 @@ function gent_base_form_dg_newsletter_mail_subscription_form_alter(&$form) {
     'btn--medium',
     'btn--alpha',
     'postfix--email-submit',
-  );
-}
-
-/**
- * Implements hook_form_FORM_ID_alter().
- *
- * Add base theme specific styling for the "wijksites" dropdown.
- *
- * @todo move me to Stad.gent.
- */
-function gent_base_form_gent_wijksites_select_home_form_alter(&$form, &$form_state) {
-  $form['wijksite']['#attributes']['class'][] = 'prefix--large';
-  $form['wijksite']['#title_display'] = 'invisible';
-
-  $form['submit']['#attributes']['class'] = array(
-    'btn',
-    'btn--medium',
-    'btn--epsilon',
-    'postfix--small',
   );
 }
 

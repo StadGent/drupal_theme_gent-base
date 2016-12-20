@@ -1,7 +1,6 @@
 {
   "name": "gent_base",
   "version": "1.0.0",
-  "dependencies": {},
   "devDependencies": {
     "grunt": "^1.0.0",
     "grunt-contrib-compass": "^1.0.0",
@@ -10,6 +9,7 @@
     "grunt-contrib-watch": "^1.0.0",
     "grunt-sass-lint": "^0.2.2",
     "grunt-shell": "^2.0.0",
+    "grunt-newer": "^1.2.0",
     "sass-lint": "^1.10.2"
   },
   "engines": {
