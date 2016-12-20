@@ -3,19 +3,31 @@ All Notable changes to `digipolisgent/gent_base`.
 
 ## [7.x-2.4]
 ### Changed
-This version contains mainly refactorings. This upgrade aims to be fully backwards compatible with previous version. 
+This version is mainly a refactoring of existing code. The upgrade aims to be fully backwards compatible with the 
+previous 2.x versions. 
+However, you are **strongly** encouraged to test the styling and scripts of your sub-theme after updating. 
 
 These changes include:
 * All node modules and gems are pushed to their latest stable version. The ruby version was bumped to 2.3.0.
-* Libraries are now ONLY handled by bower. The make file was removed.
-* Theme.js no longer exists. It is now rewritten for Drupal and split into separate files. 
+* Libraries are now ONLY handled by bower. The make file was removed, custom libraries have been added via Bower.
+* Theme.js no longer exists. It is now rewritten for Drupal and split into separate files. Some script have been 
+   converted into behaviors. If a sub-theme uses some custom code to extend theme.js (f.e. on AJAX calls), that code 
+   might be no longer needed. 
 * Code that did not belong in Gent base was moved to the projects that implemented them. Among others:
-  * Templates from modules not available as building block
-  * Scripts and styling for Stad Gent elements
-* New Grunt task for SASS linting
+  * Templates from modules not available as building block.
+  * Scripts and styling for Stad Gent elements.
+* New Grunt task for SASS linting. Sass lint is configured with sensible defaults to encourage using the best practises
+  for writing SASS code for components in BEM-style. If possible, avoid using sass-lint:disable-* unless necessary.
   * Included in default build and compile tasks
-  * .sass-lint.yml can be customized in a subtheme to skip certain validation (f.e. legacy code, ...)
+  * .sass-lint.yml can be customized in a sub-theme to skip certain validation (f.e. legacy code, ...).
   * All SASS code was cleaned up to pass linting.
+* (Pre-)process functions don't have their own file per hook anymore, but a general process/preprocess file.
+* The included Starterkit has been updated.
+* Changes to meet the Drupal Coding standards.
+* No-query SASS file was removed, this speeds up the build & watch tasks.
+* Code for older browsers (mainly <= IE9) was stripped (html5shiv, respond.js, css3 pie, ...). If required, they can be
+  added in your sub-theme.
+
 
 
 ## [7.x-2.1]

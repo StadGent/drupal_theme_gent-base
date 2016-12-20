@@ -11,7 +11,7 @@ should **never** be used or modified directly. Instead, you should create a subt
 the startkit default theme (gent_base/starterkits/default).
 
 To compile gent_base, use ruby, bundler and grunt.
-* Install ruby, version 2.2.5 is preferred.
+* Install ruby, version 2.3 is preferred.
 * Install bundler (http://bundler.io/) and run bundle install
 * Install node.js + npm (http://nodejs.org/)
 * Run npm install
