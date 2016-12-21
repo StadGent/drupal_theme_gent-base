@@ -1,15 +1,30 @@
 {
     "name": "gent/drupal-theme-gent",
-    "description": "Theming layer for styleguide Gent.",
-    "type": "project",
-    "license": "MIT",
+    "homepage": "https://bitbucket.org/digipolisgent/drupal_theme_gent-base",
+    "description": "Drupal theming layer for styleguide Gent.",
+    "keywords": ["gent", "drupal", "theme"],
+    "type": "drupal-theme",
+    "license": "GPL-2.0+",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "authors": [
         {
             "name": "Jeroen Goossens",
             "email": "jeroen.goossens@digipolis.gent"
         }
     ],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packagist.gentgrp.gent.be"
+        }
+    ],
     "require": {
         "gent/styleguide-gent": "*"
-    }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-8.x-1.x-dev": "8.1.x-dev"
+        }
+    },
 }
