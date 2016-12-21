@@ -20,7 +20,7 @@
         }
     ],
     "require": {
-        "gent/styleguide-gent": "*"
+        "gent-styleguide/gent": "*"
     },
     "extra": {
         "branch-alias": {
