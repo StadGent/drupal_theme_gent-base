@@ -1,5 +1,5 @@
 {
-    "name": "gent/drupal-theme-gent",
+    "name": "gent-drupal/gent",
     "homepage": "https://bitbucket.org/digipolisgent/drupal_theme_gent-base",
     "description": "Drupal theming layer for styleguide Gent.",
     "keywords": ["gent", "drupal", "theme"],
