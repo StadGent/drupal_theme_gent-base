@@ -26,5 +26,5 @@
         "branch-alias": {
             "dev-8.x-1.x-dev": "8.1.x-dev"
         }
-    },
+    }
 }
