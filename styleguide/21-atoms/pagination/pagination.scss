@@ -1,0 +1,46 @@
+// Pagination
+
+.pager {
+  ul {
+    @extend ul.no-style;
+    font-weight: bold;
+    font-size: .8rem;
+
+    li {
+      display: inline;
+      margin-left: .25rem;
+
+      a, span {
+        display: inline-block;
+        padding: .25rem .5rem;
+        border-radius: $radius-1;
+        text-decoration: none;
+
+        &:hover,
+        &:focus,
+        &:active {
+          background-color: $color-lightest-blue;
+        }
+      }
+
+      &.is-active {
+        span, a {
+          background-color: $color-blue;
+          color: $color-white;
+        }
+      }
+
+      &.pager-ellipsis {
+        &:hover,
+        &:focus,
+        &:active {
+          background-color: transparent;
+        }
+      }
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+}

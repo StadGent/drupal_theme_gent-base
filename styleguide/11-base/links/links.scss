@@ -1,0 +1,16 @@
+a {
+  transition: all .11s ease-in-out;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &:focus {
+    outline: thin dotted;
+  }
+
+  &:hover,
+  &:active {
+    outline: 0;
+  }
+}

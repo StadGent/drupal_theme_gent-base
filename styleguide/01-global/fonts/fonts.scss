@@ -1,0 +1,24 @@
+@font-face {
+  font-family: 'expresswayextrabold';
+  src: url('fonts/expressway_xb-webfont.eot');
+  src: url('fonts/expressway_xb-webfont.eot?#iefix') format('embedded-opentype'),
+  url('fonts/expressway_xb-webfont.woff2') format('woff2'),
+  url('fonts/expressway_xb-webfont.woff') format('woff'),
+  url('fonts/expressway_xb-webfont.ttf') format('truetype'),
+  url('fonts/expressway_xb-webfont.svg#expresswayextrabold') format('svg');
+  font-weight: 700;
+  font-style: normal;
+}
+
+
+$default-font-family: "Source Sans Pro", arial, sans-serif;
+$default-font-weight: 400;
+$default-font-size: 16px; //px
+$default-line-height: 1.4; //em
+
+$primary-font-family: $default-font-family;
+$primary-font-weight: $default-font-weight;
+$primary-font-size: $default-font-size; //px
+$primary-line-height: $default-line-height; //em
+
+$secondary-font-family: "expresswayextrabold",sans-serif;

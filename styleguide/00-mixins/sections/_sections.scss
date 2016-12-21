@@ -1,0 +1,30 @@
+@mixin new-section($bg-color, $text-color, $title-color: $text-color, $link-color: $text-color, $link-color-hover: $link-color, $link-color-focus: $link-color, $link-color-visited: $link-color) {
+  @include clearfix();
+  background-color: $bg-color;
+  color: $text-color;
+
+  h1, .h1,
+  h2, .h2,
+  h3, .h3,
+  h4, .h4,
+  h5, .h5,
+  h6, .h6 {
+    color: $title-color;
+  }
+
+  a {
+    color: $link-color;
+
+    &:visited {
+      color: $link-color-visited;
+    }
+
+    &:hover {
+      color: $link-color-hover;
+    }
+
+    &:focus {
+      color: $link-color-focus;
+    }
+  }
+}

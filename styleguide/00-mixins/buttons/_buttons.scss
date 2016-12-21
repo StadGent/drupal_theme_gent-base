@@ -1,0 +1,53 @@
+// Button sizes
+@mixin btn-l {
+  font-size: 1rem;
+  line-height: 1.5;
+  padding-top: .7rem;
+  padding-bottom: .7rem;
+}
+
+@mixin btn-m {
+  font-size: 1rem;
+  line-height: 1.5;
+  padding-top: .4rem;
+  padding-bottom: .4rem;
+}
+
+@mixin btn-s {
+  font-size: .8rem;
+  line-height: 1.5;
+  padding-top: .2rem;
+  padding-bottom: .2rem;
+}
+
+// Button display
+@mixin btn-inlineblock {
+  display: inline-block;
+  width: auto;
+}
+
+@mixin btn-scheme($text-color, $background-color, $border,
+                  $text-color-hover: $text-color, $background-color-hover: $background-color, $border-hover: $border,
+                  $text-color-focus: $text-color, $background-color-focus: $background-color, $border-focus: $border) {
+
+  color: $text-color;
+  background: $background-color;
+  border: $border;
+
+  &:hover {
+    color: $text-color-hover;
+    background: $background-color-hover;
+    border: $border-hover;
+  }
+
+  &:focus,
+  &:active {
+    color: $text-color-focus;
+    background: $background-color-focus;
+    border: $border-focus;
+  }
+
+  &:visited {
+    color: $text-color !important;
+  }
+}

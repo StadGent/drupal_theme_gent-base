@@ -1,0 +1,19 @@
+.section--default {
+  @include new-section($bg-color: $color-white, $text-color: $default-text-color, $title-color: $color-darkest-blue, $link-color: $color-blue, $link-color-hover: $color-dark-blue);
+}
+
+.section--inverse {
+  @include new-section($bg-color: $color-lightest-blue, $text-color: $default-text-color, $title-color: $color-darkest-blue, $link-color: $color-blue, $link-color-hover: $color-dark-blue);
+}
+
+.section--highlighted {
+  @include new-section($bg-color: $color-orange, $text-color: $color-darkest-gray, $title-color: $color-white, $link-color: $color-white);
+}
+
+.section--accent {
+  @include new-section($bg-color: $color-blue, $text-color: $color-white);
+}
+
+.section--wrapper {
+  @include new-section($bg-color: $color-darkest-blue, $text-color: $color-white);
+}

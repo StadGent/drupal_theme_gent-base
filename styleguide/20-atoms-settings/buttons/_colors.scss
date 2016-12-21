@@ -1,0 +1,16 @@
+
+// Default button color scheme
+a.btn-default,
+.btn--default {
+  @include btn-scheme($color-white, $color-blue, none, $background-color-hover: lighten($color-blue, 5));
+}
+
+a.btn--inverse,
+.btn--inverse {
+  @include btn-scheme($color-darkest-blue, $color-white, none);
+}
+
+a.btn--highlighted,
+.btn--highlighted {
+  @include btn-scheme($color-white, $color-orange, none, $background-color-hover: darken($color-orange, 5), $background-color-focus: darken($color-orange, 5));
+}

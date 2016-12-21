@@ -1,0 +1,40 @@
+ul, ol {
+  &.breadcrumb {
+    list-style: none;
+    padding: .5rem 0;
+
+    li {
+      display: inline;
+      padding: .4rem .7rem;
+      font-size: .7rem;
+      margin-left: -0.7rem;
+
+      > * {
+        padding: .4rem .7rem;
+      }
+
+      a {
+        border-radius: $radius-1;
+        text-decoration: none;
+        &:hover {
+          background-color: $bg-hover-breadcrumb;
+        }
+      }
+
+      &:after {
+        position: absolute;
+        margin: .4rem .1rem;
+        font-size: .8rem;
+        font-weight: 700;
+        @extend .icon-base-css;
+        @extend .icon-caret:before;
+      }
+      &:last-of-type {
+        font-weight: bold;
+        &:after {
+          display: none;
+        }
+      }
+    }
+  }
+}

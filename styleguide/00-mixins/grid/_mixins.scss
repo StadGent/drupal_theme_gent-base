@@ -1,0 +1,82 @@
+// Creates a wrapper for a series of columns
+@mixin make-row($gutter: $gutter-width) {
+  margin-left: -($gutter / 2);
+  margin-right: -($gutter / 2);
+
+  @include clearfix();
+}
+
+// Mixins for mobile classes
+@mixin make-mobile-column($columns, $gutter: $gutter-width) {
+  position: relative;
+  float: left;
+  width: percentage(($columns / $grid-columns));
+  min-height: 1px;
+  padding-left:  ($gutter / 2);
+  padding-right: ($gutter / 2);
+}
+@mixin make-mobile-column-offset($columns) {
+  margin-left: percentage(($columns / $grid-columns));
+}
+@mixin make-mobile-column-push($columns) {
+  left: percentage(($columns / $grid-columns));
+}
+@mixin make-mobile-column-pull($columns) {
+  right: percentage(($columns / $grid-columns));
+}
+
+// Generate the tablet columns
+@mixin make-tablet-column($columns, $gutter: $gutter-width) {
+  position: relative;
+  min-height: 1px;
+  padding-left:  ($gutter / 2);
+  padding-right: ($gutter / 2);
+
+  @media (min-width: $bp-tablet) {
+    float: left;
+    width: percentage(($columns / $grid-columns));
+  }
+}
+@mixin make-tablet-column-offset($columns) {
+  @media (min-width: $bp-tablet) {
+    margin-left: percentage(($columns / $grid-columns));
+  }
+}
+@mixin make-tablet-column-push($columns) {
+  @media (min-width: $bp-tablet) {
+    left: percentage(($columns / $grid-columns));
+  }
+}
+@mixin make-tablet-column-pull($columns) {
+  @media (min-width: $bp-tablet) {
+    right: percentage(($columns / $grid-columns));
+  }
+}
+
+// Generate the desktop columns
+@mixin make-desktop-column($columns, $gutter: $gutter-width) {
+  position: relative;
+  min-height: 1px;
+  padding-left:  ($gutter / 2);
+  padding-right: ($gutter / 2);
+
+  @media (min-width: $bp-desktop) {
+    float: left;
+    width: percentage(($columns / $grid-columns));
+  }
+}
+@mixin make-desktop-column-offset($columns) {
+  @media (min-width: $bp-desktop) {
+    margin-left: percentage(($columns / $grid-columns));
+  }
+}
+@mixin make-desktop-column-push($columns) {
+  @media (min-width: $bp-desktop) {
+    left: percentage(($columns / $grid-columns));
+  }
+}
+@mixin make-desktop-column-pull($columns) {
+  @media (min-width: $bp-desktop) {
+    right: percentage(($columns / $grid-columns));
+  }
+}

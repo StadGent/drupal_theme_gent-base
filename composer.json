@@ -1,0 +1,15 @@
+{
+    "name": "gent/drupal-theme-gent",
+    "description": "Theming layer for styleguide Gent.",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jeroen Goossens",
+            "email": "jeroen.goossens@digipolis.gent"
+        }
+    ],
+    "require": {
+        "gent/styleguide-gent": "*"
+    }
+}
