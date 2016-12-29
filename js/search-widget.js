@@ -3,17 +3,30 @@
  * Contains mobile-friendly search widget.
  */
 (function ($) {
+
+  Drupal.gentBase = Drupal.gentBase || {};
+
   /**
    * Mobile breakpoint in pixels.
    * @type {number}
    */
-  var GENT_BASE_BP_MOBILE = 640;
+  Object.defineProperty(Drupal.gentBase, 'GENT_BASE_BP_MOBILE', {
+    value: 640,
+    writable: false,
+    enumerable: true,
+    configurable: true
+  });
 
   /**
-   * Viewport class to extract viewport's width and/or height.
-   * @type {Viewport}
+   * Tablet breakpoint in pixels.
+   * @type {number}
    */
-  var viewport = new Viewport();
+  Object.defineProperty(Drupal.gentBase, 'GENT_BASE_BP_TABLET', {
+    value: 960,
+    writable: false,
+    enumerable: true,
+    configurable: true
+  });
 
   /**
    * Mobile-friendly search widget class.
@@ -30,15 +43,15 @@
     this.closeHandler = null;
   }
 
-  // Clearable input
-  function tog(v){
-    return v?'addClass':'removeClass';
+  // Clearable input.
+  function tog(v) {
+    return v ? 'addClass' : 'removeClass';
   }
-  $(document).on('input', '.search-widget__input', function(){
+  $(document).on('input', '.search-widget__input', function () {
     $(this)[tog(this.value)]('x');
-  }).on('mousemove', '.x', function( e ){
-    $(this)[tog(this.offsetWidth-18 < e.clientX-this.getBoundingClientRect().left)]('onX');
-  }).on('touchstart click', '.onX', function( ev ){
+  }).on('mousemove', '.x', function (e) {
+    $(this)[tog(this.offsetWidth - 18 < e.clientX - this.getBoundingClientRect().left)]('onX');
+  }).on('touchstart click', '.onX', function (ev) {
     ev.preventDefault();
     $(this).removeClass('x onX').val('').change();
   });
@@ -107,16 +120,28 @@
         var searchWidget = this;
         var widget = new SearchWidget(searchWidget);
         widget.init();
-
-        $(window).resize(function() {
-          viewport.refresh();
-
-          if($(searchWidget).hasClass('is-open') && viewport.get('width') >= GENT_BASE_BP_MOBILE) {
-            widget.close();
-          }
-        });
+        Drupal.gentBase.searchWidget = widget;
       });
     }
   };
+
+  $(window).resize(function () {
+    if (typeof Viewport !== 'function') {
+      return;
+    }
+    var viewport = new Viewport();
+    viewport.refresh();
+    var $searchWidget = $('.search-widget');
+    if ($searchWidget.hasClass('is-open') && viewport.get('width') >= Drupal.gentBase.GENT_BASE_BP_MOBILE) {
+      if (typeof Drupal.gentBase.searchWidget !== 'object') {
+        Drupal.gentBase.searchWidget.close();
+      }
+      else {
+        var widget = new SearchWidget($searchWidget);
+        widget.init();
+        widget.close();
+      }
+    }
+  });
 
 }(jQuery));
