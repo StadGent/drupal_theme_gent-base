@@ -167,3 +167,14 @@ body.gent-auth-bar {
     display: none;
   }
 }
+
+.maintenance-page {
+  .top-section {
+    .site__header {
+      background-color: transparent;
+      .brand {
+        position: relative;
+      }
+    }
+  }
+}

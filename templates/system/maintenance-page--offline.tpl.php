@@ -37,7 +37,7 @@
   <link rel="apple-touch-icon" sizes="144x144" href="<?php print $base_theme_path ?>apple-touch-icon-144x144.png" />
 </head>
 
-<body <?php print $attributes;?>>
+<body <?php print $attributes;?> class="<?php print $classes; ?>">
 
   <section class="top-section">
     <header class="site__header">
