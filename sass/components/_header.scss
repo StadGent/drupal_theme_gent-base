@@ -168,7 +168,9 @@ body.gent-auth-bar {
   }
 }
 
+// Maintenance page.
 .maintenance-page {
+  // Overwrite the absolute positioning of the brand logo to avoid text overlap.
   .top-section {
     .site__header {
       background-color: transparent;
