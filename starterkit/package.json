@@ -1,0 +1,40 @@
+{
+  "name": "starterkit",
+  "version": "1.0.0",
+  "description": "Starterkit theme: a subtheme of Ghent Base.",
+  "author": "Floris Walraet <floris.walraet@digipolis.gent>",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^6.6.1",
+    "breakpoint-sass": "^2.7.1",
+    "browser-sync": "^2.18.5",
+    "chroma-sass": "^1.2.6",
+    "css-mqpacker": "^5.0.1",
+    "cssnano": "^3.10.0",
+    "del": "^2.2.2",
+    "eslint": "^3.12.2",
+    "grunt": "^1.0.1",
+    "grunt-contrib-uglify": "2.0.0",
+    "grunt-contrib-watch": "~1.0.0",
+    "grunt-postcss": "^0.8.0",
+    "grunt-sass": "^2.0.0",
+    "grunt-sass-lint": "^0.2.2",
+    "gruntify-eslint": "^3.1.0",
+    "node-sass": "^4.1.1",
+    "node-sass-globbing": "0.0.23",
+    "node-sass-import-once": "^1.2.0",
+    "postcss-import": "^9.0.0",
+    "sass-lint": "^1.10.2",
+    "support-for": "^1.0.7",
+    "typey": "^1.0.3"
+  },
+  "scripts": {
+    "start": "grunt",
+    "build": "grunt build"
+  },
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "private": true,
+  "dependencies": {}
+}

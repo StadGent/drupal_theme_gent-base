@@ -1,0 +1,15 @@
+name: Starterkit Subtheme
+type: theme
+description: Example Subtheme based on Ghent Base.
+package: Gent
+core: 8.x
+libraries:
+  - starterkit/global-styling
+
+base theme: gent_base
+
+regions:
+  header: Header
+  navigation: Navigation
+  content: Content
+  footer: Footer
