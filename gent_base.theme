@@ -2,28 +2,6 @@
 
 use Drupal\Core\Template\Attribute;
 
-function gent_base_preprocess_breadcrumb(&$variables) {
-  if ($variables['breadcrumb']) {
-    $request = \Drupal::request();
-    $route_match = \Drupal::routeMatch();
-    $page_title = \Drupal::service('title_resolver')->getTitle($request, $route_match->getRouteObject());
-
-    if (theme_get_setting('prefix_breadcrumb')) {
-      array_unshift($variables['breadcrumb'], [
-        'text' => 'Stad.gent',
-        'url' => 'https://stad.gent',
-      ]);
-    }
-
-    if (!empty($page_title)) {
-      $variables['breadcrumb'][] = [
-        'text' => $page_title,
-        'attributes' => new Attribute(['class' => ['active']])
-      ];
-    }
-  }
-}
-
 function gent_base_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\FormStateInterface &$form_state, $form_id = NULL) {
   // Work-around for a core bug affecting admin themes. See issue #943212.
   if (isset($form_id)) {
@@ -35,11 +13,5 @@ function gent_base_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\Fo
     '#title' => t('Gent Base settings'),
     '#description' => t('All settings defined by the Gent Base styleguide.'),
     '#open' => TRUE,
-  ];
-
-  $form['gent_base']['prefix_breadcrumb'] = [
-    '#type'          => 'checkbox',
-    '#title'         => t('Prefix breadcrumb with Stad.gent'),
-    '#default_value' => theme_get_setting('prefix_breadcrumb'),
   ];
 }
