@@ -1,6 +1,8 @@
 /**
  * @file
  * The Gent Base theme global javascript file.
+ *
+ * @todo Backport the refactoring done in PPL for theme.js here
  */
 (function ($) {
 
@@ -34,7 +36,7 @@
    *
    */
   Drupal.behaviors.gentBaseBehavior = {
-    attach: function (context, settings) {
+    attach: function (context) {
       $('.ajax-new-content', context).once('gent-base', function () {
         webformDescriptionRight();
         webformStickyBottom();
@@ -480,7 +482,7 @@
     if (viewport.get('width') >= GENT_BASE_BP_TABLET) {
       var webform = $('.webform-client-form');
       if (webform.length) {
-        var sticky_nav = $('.sticky-nav.sticky-nav-processed', webform)
+        var sticky_nav = $('.sticky-nav.sticky-nav-processed', webform);
         if (sticky_nav.length) {
           var progress_bar = $('.webform-component-progressbar-pages');
           var document = $(document);

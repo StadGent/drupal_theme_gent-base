@@ -170,9 +170,14 @@ function gent_base_breadcrumb($variables) {
   // Provide a navigational heading to give context for breadcrumb links to
   // screen-reader users. Make the heading invisible with .element-invisible.
   $output = '<h2 class="element-invisible">' . t('You are here') . '</h2>';
-  $nr_parts = count($breadcrumb);
-  if ($nr_parts > 1) {
-    $breadcrumb[$nr_parts - 1] = '<span>' . $breadcrumb[$nr_parts - 1] . '</span>';
+
+  if (count($breadcrumb) > 1) {
+    foreach ($breadcrumb as &$entry) {
+      if ($entry[0] != '<') {
+        $entry = '<span>' . $entry . '</span>';
+      }
+    }
+
     $output .= '<ul class="nav nav--breadcrumb"><li>' . implode('</li><li>', $breadcrumb) . '</li></ul>';
     return $output;
   }
@@ -365,7 +370,7 @@ function gent_base_item_list($variables) {
 /**
  * Implements hook_form_FORM_ID_ater().
  */
-function gent_base_form_gent_newsletter_form_alter(&$form) {
+function gent_base_form_dg_newsletter_mail_subscription_form_alter(&$form) {
   $form['email']['#attributes']['class'][] = 'prefix--email';
   $form['submit']['#attributes']['class'] = array('btn', 'btn--medium', 'btn--alpha', 'postfix--email-submit');
 }
