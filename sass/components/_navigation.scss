@@ -90,8 +90,9 @@
     a {
       @extend %btn;
       @extend %btn--gamma;
-      @include btn-s;
+      // Can't use btn-s when te span element differs in font-size.
       @include text-dimensions(-4, 1, 0, .1, .1);
+      @include em-padding-lr(.5, .5);
 
       &:hover {
         border: 1px solid transparent;
