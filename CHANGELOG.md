@@ -1,7 +1,13 @@
 # Changelog
 All Notable changes to `digipolisgent/gent_base`.
 
-## [7.x-2.4]
+
+
+## [Unreleased]
+
+
+
+## [7.x-2.5]
 ### Changed
 This version is mainly a refactoring of existing code. The upgrade aims to be fully backwards compatible with the 
 previous 2.x versions. 
@@ -27,13 +33,12 @@ These changes include:
 * No-query SASS file was removed, this speeds up the build & watch tasks.
 * Code for older browsers (mainly <= IE9) was stripped (html5shiv, respond.js, css3 pie, ...). If required, they can be
   added in your sub-theme.
-
-
-
-
-## [Unreleased]
-### Changed
 * DTGB-25: Update pagination so the whole page button is clickable instead of only the word/number.
+
+
+
+## [7.x-2.4]
+* SPOSI-535: Added action links.
 
 
 
@@ -57,6 +62,8 @@ These changes include:
 
 
 [Unreleased]: https://bitbucket.org/digipolisgent/drupal_theme_gent-base/branches/compare/7.x-2.x-dev%0D7.x-2.x
+[7.x-2.5]: https://bitbucket.org/digipolisgent/drupal_theme_gent-base/branches/compare/7.x-2.5%0D7.x-7.x-2.4#diff
+[7.x-2.4]: https://bitbucket.org/digipolisgent/drupal_theme_gent-base/branches/compare/7.x-2.4%0D7.x-7.x-2.3#diff
 [7.x-2.3]: https://bitbucket.org/digipolisgent/drupal_theme_gent-base/branches/compare/7.x-2.3%0D7.x-7.x-2.2#diff
 [7.x-2.2]: https://bitbucket.org/digipolisgent/drupal_theme_gent-base/branches/compare/7.x-2.2%0D7.x-2.1#diff
 [7.x-2.1]: https://bitbucket.org/digipolisgent/drupal_theme_gent-base/commits/tag/7.x-2.1
