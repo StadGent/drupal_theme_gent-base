@@ -1,7 +1,10 @@
+//
+// Gent library block.
+//
 .gent-library-block {
   p {
-    margin-bottom:1em;
-    font-color: $dark-color;
+    margin-bottom: 1em;
+    color: $dark-color;
     font-size: 1.1em;
   }
 
@@ -9,12 +12,13 @@
     .island__body {
       background-color: transparent;
     }
+
     .btn--alpha {
-      margin-bottom:1em;      
+      margin-bottom: 1em;
     }
   }
 }
 
 .topic-banners .library-search-block h2 {
-  display:block;
+  display: block;
 }

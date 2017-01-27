@@ -1,7 +1,8 @@
 <?php
+
 /**
  * @file
- * Top menu region template for gent base theme.
+ * Overridden region template for the top menu region.
  */
 ?>
 <?php if ($content): ?>

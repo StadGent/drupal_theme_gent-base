@@ -1,11 +1,17 @@
+//
+// Admin menu.
+//
+// We're overriding Admin menu CSS, skip some validation.
+// sass-lint:disable no-important no-ids
 html body.admin-menu {
   margin-top: 42px !important;
 }
 
 #admin-menu-wrapper {
-  font-size:0.7rem !important;
+  font-size: .7rem !important;
 
-  span, a {
-    font-size:0.7rem !important;
+  span,
+  a {
+    font-size: .7rem !important;
   }
 }

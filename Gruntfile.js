@@ -9,7 +9,7 @@ module.exports = function (grunt) {
       },
       sass: {
         files: ['sass/{,**/}*.{scss,sass}'],
-        tasks: ['compass:dev'],
+        tasks: ['sasslint', 'compass:dev'],
         options: {
           livereload: false
         }
@@ -22,7 +22,7 @@ module.exports = function (grunt) {
         }
       },
       images: {
-        files: ['images/**']
+        files: ['img/**']
       },
       css: {
         files: ['css/{,**/}*.css']
@@ -64,6 +64,13 @@ module.exports = function (grunt) {
       all: ['js/{,**/}*.js', '!js/{,**/}*.min.js']
     },
 
+    sasslint: {
+      options: {
+        configFile: '.sass-lint.yml'
+      },
+      target: ['sass/**/*.s+(a|c)ss']
+    },
+
     uglify: {
       dev: {
         options: {
@@ -103,23 +110,43 @@ module.exports = function (grunt) {
             return dest + '/' + folder + filename + '.min.js';
           }
         }]
+      },
+      // Extra uglifying for libs that don't ship with a minified version.
+      // Run after bower update.
+      libs: {
+        options: {
+          mangle: true,
+          compress: true
+        },
+        files: [
+          {'libraries/jquery-sticky/jquery.sticky.min.js': 'libraries/jquery-sticky/jquery.sticky.js'}
+        ]
       }
     }
   });
 
+
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-compass');
+  grunt.loadNpmTasks('grunt-sass-lint');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-shell');
+  grunt.loadNpmTasks('grunt-newer');
 
   grunt.registerTask('build', [
-    'uglify:dist',
-    'compass:dist'
+    'newer:uglify:dist',
+    'sasslint',
+    'compass:dist',
+    'jshint'
   ]);
 
   grunt.registerTask('compile', [
+    'sasslint',
     'compass:dev'
   ]);
 
+  grunt.registerTask('uglifybowerlibs', [
+    'uglify:libs'
+  ]);
 };

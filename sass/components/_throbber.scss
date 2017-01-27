@@ -1,4 +1,6 @@
-/* Throbber */
+//
+// Throbber.
+//
 .ajax-progress {
   display: inline-block;
 
@@ -9,10 +11,12 @@
     float: left;
     background: transparent url('#{$base-theme-path}/img/gif/throbber-active.gif') no-repeat top left;
   }
+
   .message {
     padding-left: 10px;
   }
 }
+
 tr .ajax-progress .throbber {
-  margin: 0px 2px;
+  margin: 0 2px;
 }

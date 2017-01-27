@@ -1,6 +1,8 @@
+//
 // Pagination
-
+//
 .pager {
+  @include pagination;
 
   span {
     color: $beta-text-color;
@@ -8,17 +10,16 @@
 
   a,
   span {
+    @extend %rounded-1;
+    @include px-padding-lr(1, 1);
+    @include padding-tb(.5, .5);
+    @include text-dimensions(-2, 1);
+
     color: $alpha-link-color;
     background-color: transparent;
     text-decoration: none;
-
-    @include px-padding-lr(1,1);
-    @include padding-tb(.5, .5);
-    @extend %rounded-1;
-    @include text-dimensions(-2, 1);
-
-    border:1px solid $white-color;
-    font-weight:bold;
+    border: 1px solid $white-color;
+    font-weight: bold;
 
     &:hover,
     &:focus,
@@ -31,8 +32,9 @@
     margin-left: 6px;
   }
 
-  li.pager-current, li.pager-current {
-    span, a {
+  li.pager-current {
+    span,
+    a {
       background-color: $delta-ui-color;
       border: 1px solid $delta-ui-color;
       color: $white-color;
@@ -50,16 +52,13 @@
   li:first-child {
     a,
     span {
-      margin-left: 0px;
+      margin-left: 0;
     }
   }
-
-
-
-  @include pagination;
 }
 
 .pager--centered {
+  @include pagination-centered;
 
   a,
   span {
@@ -71,13 +70,11 @@
   li:first-child {
     a,
     span {
-      margin-left: 0px;
+      margin-left: 0;
     }
   }
 
   span {
     color: $beta-text-color;
   }
-
-  @include pagination-centered;
 }

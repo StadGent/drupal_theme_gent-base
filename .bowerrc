@@ -1,3 +1,11 @@
 {
-  "directory" : "libraries"
+  "directory" : "libraries",
+  "ignoredDependencies": [
+    "jquery",
+    "ev-emitter",
+    "fizzy-ui-utils",
+    "get-size",
+    "outlayer",
+    "desandro-matches-selector"
+  ]
 }

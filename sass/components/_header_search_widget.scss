@@ -1,3 +1,9 @@
+//
+// Header search widget styling.
+//
+// Legacy code, ignore class-name-format.
+// sass-lint:disable class-name-format
+
 // Search widget (large header).
 .large-header .search-widget {
   @include clearfix;
@@ -10,6 +16,7 @@
     text-align: center;
     margin-bottom: 0;
     font-size: 1.5rem;
+
     @include mq($bp-tablet-l) {
       font-size: 2.15rem;
     }
@@ -21,7 +28,6 @@
     font-size: 14px;
     height: 36px;
     padding: 8px 18px 8px 10px;
-
     border-color: $white-color;
   }
 
@@ -52,6 +58,7 @@
     .search-widget__input {
       height: 40px;
     }
+
     .search-widget__button {
       height: 40px;
     }
@@ -71,11 +78,12 @@
   @include clearfix;
 
   color: $white-color;
-
   margin-top: 3px;
+
   @include mq($bp-tablet-s) {
     margin-top: 1px;
   }
+
   @include mq($bp-tablet-l) {
     margin-top: 0;
   }
@@ -83,20 +91,33 @@
   .search-widget__input {
     font-size: 14px;
     height: 36px;
-    padding: 8px 18px 8px 10px;  /* Use the same right padding (18) in jQ! */
+    padding: 8px 18px 8px 10px;  // Use the same right padding (18) in jQ!
 
     float: left;
     width: calc(100% - 120px);
     border-radius: 4px;
-    border: none;
+    border: 0;
     color: $white-color;
     display: none; // Hide on mobile.
-    background: rgba($white-color, 0.2) url('#{$base-theme-path}/img/png/x.png') no-repeat right -16px center;
-    transition: background 0.1s;
+    background: rgba($white-color, .2) url('#{$base-theme-path}/img/png/x.png') no-repeat right -16px center;
+    transition: background .1s;
 
-    &.x  { background-position: right 10px center; } /* (jQ) Show icon */
-    &.onX{ cursor: pointer; }              /* (jQ) hover cursor style */
-    &::-ms-clear {display: none; width:0; height:0;} /* Remove IE default X */
+    // (jQ) Show icon.
+    &.x  {
+      background-position: right 10px center;
+    }
+
+    // (jQ) hover cursor style.
+    &.onX {
+      cursor: pointer;
+    }
+
+    // Remove IE default X.
+    &::-ms-clear { // sass-lint:disable-line no-vendor-prefixes
+      display: none;
+      width: 0;
+      height: 0;
+    }
 
     @include placeholder {
       color: $white-color;
@@ -120,10 +141,21 @@
     padding: 8px 10px;
     font-size: 12px;
     height: 36px;
-    border: none;
+    border: 0;
     margin: 0 0 0 10px;
     border-radius: 4px;
     background-color: transparent;
+    // Hide on mobile.
+    display: none;
+
+    @include mq($bp-tablet-s) {
+      display: inline-block;
+    }
+
+    @include mq($bp-tablet-l) {
+      height: 40px;
+      padding: 10px;
+    }
 
     &:hover {
       background-color: $white-color;
@@ -132,17 +164,6 @@
 
     .icon {
       font-size: 20px;
-    }
-
-    // Hide on mobile.
-    display: none;
-    @include mq($bp-tablet-s) {
-      display: inline-block;
-    }
-
-    @include mq($bp-tablet-l) {
-      height: 40px;
-      padding: 10px;
     }
 
     &.search-widget__input {
@@ -166,6 +187,7 @@
   // Show on mobile initially.
   .search-widget__open_handle {
     display: inline-block;
+
     @include mq($bp-tablet-s) {
       display: none;
     }
@@ -181,4 +203,3 @@
     background-color: $beta-ui-color;
   }
 }
-

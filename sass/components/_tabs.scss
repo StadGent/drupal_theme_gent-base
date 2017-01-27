@@ -1,15 +1,17 @@
+//
+// Tabs styling.
+//
 .tabs--top {
-
   @extend %clearfix;
 
   width: 100%;
-  left: 0px;
+  left: 0;
   z-index: 998;
   background-color: $alpha-ui-color;
 
   li > a {
-    color: $white-color;
     @include text-dimensions(-2, 0);
+    color: $white-color;
     text-decoration: none;
   }
 
@@ -25,20 +27,17 @@
   }
 
   ul {
-    margin-bottom: 0em;
+    margin-bottom: 0;
     display: block;
     list-style: none;
   }
 }
 
 // Jquery ui tabs.
-//
-//
-
 .ui-tabs {
   @include rem-padding-lr(1, 1);
   @include padding-tb(1, 1);
-  border: none;
+  border: 0;
 
   a {
     outline: none;
@@ -57,6 +56,7 @@
   }
 
   .ui-tabs-panel {
+    // sass-lint:disable-block no-duplicate-properties
     padding: 1.5 * $alpha-font-size * 1px;
     padding: 1.5 * 1rem;
     border-radius: $beta-radius;
@@ -64,12 +64,12 @@
 
   .ui-tabs-nav {
     padding: 0;
-    border: none;
+    border: 0;
   }
 
   .ui-tabs-nav > li {
     background: $alpha-ui-color none;
-    border: none;
+    border: 0;
     margin: 0;
 
     // Add complete border radius for tabs!
@@ -81,14 +81,16 @@
       font-family: $beta-font-family;
     }
 
-    &, a {
+    &,
+    a {
       color: $white-color;
     }
 
     &.ui-state-active {
       background: $white-color none;
 
-      &, a {
+      &,
+      a {
         color: $alpha-ui-color;
       }
     }
@@ -102,9 +104,9 @@
   }
 
   &.with-secondary .tabs--primary {
-    margin-bottom:0;
+    margin-bottom: 0;
   }
-  
+
   // Drupal secondary tabs
   .tabs--secondary {
     @extend %subtabs-horizontal;

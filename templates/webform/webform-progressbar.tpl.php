@@ -1,7 +1,8 @@
 <?php
+
 /**
  * @file
- * Display the progress bar for multipage forms
+ * Display the progress bar for multipage forms.
  *
  * Available variables:
  * - $node: The webform node.
@@ -33,14 +34,10 @@
     <?php if ($progressbar_pagebreak_labels): ?>
       <div class="webform-component-progressbar-pages clearfix">
       <?php for ($n = 1; $n <= $page_count; $n++): ?>
-        <div class="webform-component-progressbar-page<?php if ($n < $page_num) {
-          print ' completed';
-        }; ?><?php if ($n == $page_num) {
-          print ' current';
-        }; ?>" style="width: <?php print number_format(100 / $page_count, 2); ?>%">
+        <div class="webform-component-progressbar-page<?php if ($n < $page_num) {print ' completed';}; ?><?php if ($n == $page_num) {print ' current';}; ?>" style="width: <?php print number_format(100 / $page_count, 2); ?>%">
           <span class="webform-component-progressbar-page-number"><?php print $n; ?></span>
           <span class="webform-component-progressbar-page-label">
-            <?php print ". " . check_plain($page_labels[$n - 1]); ?>
+            <?php print '. ' . check_plain($page_labels[$n - 1]); ?>
           </span>
         </div>
       <?php endfor; ?>

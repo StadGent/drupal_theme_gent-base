@@ -16,19 +16,27 @@ regions[footer_top] = Top footer
 regions[footer] = Footer
 regions[footer_bottom] = Footer bottom
 
-; Libraries.
-scripts[] = libraries/modernizr/modernizr.custom.js
-scripts[] = libraries/matchheight/jquery.matchHeight-min.js
-scripts[] = libraries/masonry/masonry.pkgd.min.js
-scripts[] = libraries/masonry/imagesloaded.pkgd.min.js
-scripts[] = libraries/livequery/jquery.livequery.min.js
-scripts[] = libraries/jquery-columnizer/jquery.columnizer.min.js
+; Libraries
+; Managed with bower.
+scripts[] = libraries/jquery-throttle-debounce/jquery.ba-throttle-debounce.min.js
+scripts[] = libraries/jquery.livequery/dist/jquery.livequery.min.js
+scripts[] = libraries/matchHeight/dist/jquery.matchHeight-min.js
+scripts[] = libraries/imagesloaded/imagesloaded.pkgd.min.js
+scripts[] = libraries/masonry/dist/masonry.pkgd.min.js
+scripts[] = libraries/jquery-sticky/jquery.sticky.min.js
 
 ; Scripts.
 scripts[] = js/viewport.min.js
-scripts[] = js/theme.min.js
+scripts[] = js/base.min.js
 scripts[] = js/header.min.js
+scripts[] = js/matchheight.min.js
 scripts[] = js/search-widget.min.js
+scripts[] = js/masonry.min.js
+scripts[] = js/breadcrumb.min.js
+scripts[] = js/sticky.min.js
+scripts[] = js/accordion.min.js
+scripts[] = js/toggle-fieldset.min.js
+scripts[] = js/alerts.min.js
 
 ; Settings.
 settings[header_image_behavior] = 2

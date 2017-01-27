@@ -18,9 +18,9 @@
 
 .media {
   @extend %clearfix;
-  display: block;
-
   @include margin-tb(0, 1);
+
+  display: block;
 }
 
 .media__img,
@@ -41,6 +41,6 @@
 }
 
 .media__body {
-  overflow: hidden;
   @include em-padding-lr(1, 1);
+  overflow: hidden;
 }

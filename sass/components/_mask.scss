@@ -1,12 +1,12 @@
-// ---s
-// Mask and ratio
-// ---
+//
+// Mask and ratio.
+//
 
 .mask {
   position: relative;
 }
 
-// Sets the height of the header
+// Sets the height of the header.
 .ratio--header {
   @include mq($bp-tablet-s) {
     padding-top: 30%; // 9/16 * 100
@@ -24,21 +24,21 @@
   }
 }
 
-// Thumbnails
+// Thumbnails.
 .ratio--big-thumb {
   img {
     border-radius: $gamma-radius;
   }
 }
 
-// Thumbnails
+// Thumbnails.
 .ratio--thumb {
   img {
     border-radius: $beta-radius;
   }
 }
 
-// Social footer image
+// Social footer image.
 .ratio--footer {
   padding-top: 40%; // 9/16 * 100
   border-radius: $beta-radius;

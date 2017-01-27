@@ -2,31 +2,8 @@
  * @file
  * Contains mobile-friendly search widget.
  */
+
 (function ($) {
-
-  Drupal.gentBase = Drupal.gentBase || {};
-
-  /**
-   * Mobile breakpoint in pixels.
-   * @type {number}
-   */
-  Object.defineProperty(Drupal.gentBase, 'GENT_BASE_BP_MOBILE', {
-    value: 640,
-    writable: false,
-    enumerable: true,
-    configurable: true
-  });
-
-  /**
-   * Tablet breakpoint in pixels.
-   * @type {number}
-   */
-  Object.defineProperty(Drupal.gentBase, 'GENT_BASE_BP_TABLET', {
-    value: 960,
-    writable: false,
-    enumerable: true,
-    configurable: true
-  });
 
   /**
    * Mobile-friendly search widget class.
@@ -43,10 +20,16 @@
     this.closeHandler = null;
   }
 
-  // Clearable input.
+  /**
+   * A toggle-class for clearable input.
+   * @param v
+   * @returns {string}
+   */
   function tog(v) {
     return v ? 'addClass' : 'removeClass';
   }
+
+  // When the search widget is used, add a class to clear input.
   $(document).on('input', '.search-widget__input', function () {
     $(this)[tog(this.value)]('x');
   }).on('mousemove', '.x', function (e) {
@@ -125,14 +108,9 @@
     }
   };
 
-  $(window).resize(function () {
-    if (typeof Viewport !== 'function') {
-      return;
-    }
-    var viewport = new Viewport();
-    viewport.refresh();
+  $(window).resize($.debounce(500, false, function () {
     var $searchWidget = $('.search-widget');
-    if ($searchWidget.hasClass('is-open') && viewport.get('width') >= Drupal.gentBase.GENT_BASE_BP_MOBILE) {
+    if ($searchWidget.hasClass('is-open') && !Drupal.gentBase.isMobile()) {
       if (typeof Drupal.gentBase.searchWidget !== 'object') {
         Drupal.gentBase.searchWidget.close();
       }
@@ -142,6 +120,6 @@
         widget.close();
       }
     }
-  });
+  }));
 
 }(jQuery));

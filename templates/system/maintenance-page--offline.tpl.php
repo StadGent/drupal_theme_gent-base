@@ -1,3 +1,10 @@
+<?php
+
+/**
+ * @file
+ * HTML template file for the maintenance page with offline database..
+ */
+?>
 <!DOCTYPE html>
 <html lang="<?php print $language->language; ?>" dir="<?php print $language->dir; ?>">
 <head>
@@ -30,7 +37,7 @@
   <link rel="apple-touch-icon" sizes="144x144" href="<?php print $base_theme_path ?>apple-touch-icon-144x144.png" />
 </head>
 
-<body <?php print $attributes;?>>
+<body class="<?php print $classes; ?>">
 
   <section class="top-section">
     <header class="site__header">

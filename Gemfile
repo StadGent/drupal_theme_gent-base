@@ -15,6 +15,7 @@ group :development do
   gem 'oily_png'                # Faster Compass sprite generation.
   gem 'css_parser'              # Helps `compass stats` output statistics.
   gem 'sassy-maps'              # Styled maps
+
   # Guard
   gem 'guard'                   # Guard event handler.
   gem 'guard-compass'           # Compile on sass/scss change.

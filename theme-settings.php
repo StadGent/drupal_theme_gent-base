@@ -1,7 +1,8 @@
 <?php
+
 /**
  * @file
- * Theme settings file for the gent_base base theme.
+ * Theme settings file for the gent base theme.
  */
 
 require_once dirname(__FILE__) . '/template.php';

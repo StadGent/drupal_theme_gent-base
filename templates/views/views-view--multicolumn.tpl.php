@@ -1,3 +1,12 @@
+<?php
+
+/**
+ * @file
+ * Overridden views view template for the multicolumn masonry views.
+ *
+ * @ingroup views_templates
+ */
+?>
 <div class="masonry-wrapper">
   <?php if ($exposed): ?>
     <div class="view-filters">
@@ -6,7 +15,6 @@
   <?php endif; ?>
 
   <div class="<?php print $classes; ?>">
-
     <?php if ($rows): ?>
       <div class="multi-column-items">
       <?php print $rows; ?>

@@ -1,22 +1,22 @@
 // When sass supports dynamic imports, load the location from variables/base first.
 // Always include base theme scss first and allow overrides/extends in sub-theme.
-@import "../../../gent_base/sass/loader/variables";
-@import "../variables/*.*";
+@import '../../../gent_base/sass/loader/variables';
+@import '../variables/*.*';
 
 // Always include base theme plugins first and allow our subtheme to include others
-@import "../../../gent_base/sass/loader/plugins";
-@import "../plugins/*.*";
+@import '../../../gent_base/sass/loader/plugins';
+@import '../plugins/*.*';
 
-@import "../../../gent_base/sass/loader/abstractions";
-@import "../abstractions/*.*";
+@import '../../../gent_base/sass/loader/abstractions';
+@import '../abstractions/*.*';
 
 // Import everything from our basetheme. Since we use globbing to quickly load everything, we have to skip the print 
 // stylesheet that resets everything.
-@import "../../../gent_base/sass/loader/base";
-@import "../base/*.*";
+@import '../../../gent_base/sass/loader/base';
+@import '../base/*.*';
 
-@import "../../../gent_base/sass/loader/layouts";
-@import "../layouts/*.*";
+@import '../../../gent_base/sass/loader/layouts';
+@import '../layouts/*.*';
 
-@import "../../../gent_base/sass/loader/components";
-@import "../components/*.*";
+@import '../../../gent_base/sass/loader/components';
+@import '../components/*.*';

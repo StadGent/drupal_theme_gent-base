@@ -1,17 +1,17 @@
-/*
-	Typography
-*/
+//
+//	Typography
+//
 
-// baseline formula based on the $alpha-line-height variable
+// Baseline formula based on the $alpha-line-height variable.
 // use: @include text-dimensions(#font-size, #line-height, #margin-bottom, #padding-top)
-
 $baseline-unit: $alpha-font-size * $alpha-line-height;
-$basefontpercent: $alpha-font-size/16 * 100;
+$basefontpercent: $alpha-font-size / 16 * 100;
 
 @mixin text-dimensions($fs: 1, $lh: 1, $mb: 0, $pt: 0, $pb: 0, $mt: 0) {
-  // use this for rems
+  // sass-lint:disable-block no-duplicate-properties
+  // use this for rems.
   font-size: #{ms($fs)}px;
-  font-size: ms($fs)/$alpha-font-size*1rem;
+  font-size: ms($fs) / $alpha-font-size * 1rem;
   // font-size: ms($fs)/$alpha-font-size*1em;
   line-height: #{($baseline-unit / ms($fs)) * $lh}em;
   // margin-bottom: #{($baseline-unit / ms($fs)) * $mb}em;
@@ -39,15 +39,17 @@ $basefontpercent: $alpha-font-size/16 * 100;
 }
 
 @mixin font-size($fs: 1) {
+  // sass-lint:disable-block no-duplicate-properties
   font-size: #{ms($fs)}px;
-  font-size: ms($fs)/$alpha-font-size*1rem;
+  font-size: ms($fs) / $alpha-font-size*1rem;
 }
 
 @mixin input-dimensions($fs: 1, $lh: 1, $mb: 0, $pt: 0, $pb: 0, $mt: 0) {
-  // use this for rems
+  // sass-lint:disable-block no-duplicate-properties
+  // Use this for rems.
   font-size: #{ms($fs)}px;
-  font-size: ms($fs)/$alpha-font-size*1rem;
-  /* "/ 1.5 * 2.6" is fix for firefox input elements */
+  font-size: ms($fs) / $alpha-font-size*1rem;
+  // "/ 1.5 * 2.6" is fix for firefox input elements.
   line-height: #{($baseline-unit / ms($fs)) * $lh / 1.65 * 2.6}em;
   height: #{($baseline-unit / ms($fs)) * $lh / 1.65 * 2.6}em;
 
@@ -62,55 +64,79 @@ $basefontpercent: $alpha-font-size/16 * 100;
   }
 
   @if $pt > 0 {
-    /* "* 0.45" is fix for firefox input elements */
-    padding-top: $pt * $alpha-font-size * 0.45 * 1px;
-    padding-top: $pt * 0.45 * 1rem;
+    // "* 0.45" is fix for firefox input elements.
+    padding-top: $pt * $alpha-font-size * .45 * 1px;
+    padding-top: $pt * .45 * 1rem;
   }
   @if $pb > 0 {
-    /* "* 0.45" is fix for firefox input elements */
-    padding-bottom: $pb * $alpha-font-size * 0.45 * 1px;
-    padding-bottom: $pb * 0.45 * 1rem;
+    // "* 0.45" is fix for firefox input elements.
+    padding-bottom: $pb * $alpha-font-size * .45 * 1px;
+    padding-bottom: $pb * .45 * 1rem;
   }
 }
 
-// baseline formulas based on the $alpha-baseline-grid variable
-// use: @include baseline-dimensions(#modular-scale-increment, #padding-top, #padding-bottom, #leading)
-
+// Baseline formulas based on the $alpha-baseline-grid variable.
+// Use: @include baseline-dimensions(#modular-scale-increment, #padding-top, #padding-bottom, #leading)
 @mixin baseline-dimensions($msi: 0, $pt: 0, $mb: 0, $pb: 0, $l: $alpha-leading) {
-
+  // sass-lint:disable-block no-duplicate-properties
   @if $msi == 0 {
     font-size: 1em;
-    line-height: ((ceil($alpha-font-size/$alpha-baseline-grid)*$alpha-baseline-grid)+($alpha-baseline-grid*$l))/$alpha-font-size;
+    line-height: ((ceil($alpha-font-size / $alpha-baseline-grid) * $alpha-baseline-grid) + ($alpha-baseline-grid * $l)) / $alpha-font-size;
 
     @if $pt > 0 {
-      padding-top: $alpha-baseline-grid/$alpha-font-size*$pt*1em;
+      padding-top: $alpha-baseline-grid / $alpha-font-size * $pt * 1em;
     }
 
     @if $pb > 0 {
-      padding-bottom: $alpha-baseline-grid/$alpha-font-size*$pb*1em;
+      padding-bottom: $alpha-baseline-grid / $alpha-font-size*$pb*1em;
     }
 
     @if $mb > 0 {
-      margin-bottom: $alpha-baseline-grid/$alpha-font-size*$mb*1em;
+      margin-bottom: $alpha-baseline-grid / $alpha-font-size*$mb*1em;
     }
   }
 
   @if $msi != 0 {
-    font-size: ms($msi)/$alpha-font-size*1em;
-    line-height: ((ceil(ms($msi)/$alpha-baseline-grid)*$alpha-baseline-grid)+($alpha-baseline-grid*$l))/(ms($msi));
+    font-size: ms($msi) / $alpha-font-size * 1em;
+    line-height: ((ceil(ms($msi) / $alpha-baseline-grid) * $alpha-baseline-grid) + ($alpha-baseline-grid * $l)) / (ms($msi));
 
     @if $pt > 0 {
-      padding-top: $alpha-baseline-grid*$pt/ms($msi)*1em;
+      padding-top: $alpha-baseline-grid * $pt / ms($msi) * 1em;
     }
 
     @if $pb > 0 {
-      padding-bottom: $alpha-baseline-grid*$pb/ms($msi)*1em;
+      padding-bottom: $alpha-baseline-grid * $pb / ms($msi) * 1em;
     }
 
     @if $mb > 0 {
-      margin-bottom: $alpha-baseline-grid*$mb/ms($msi)*1em;
+      margin-bottom: $alpha-baseline-grid * $mb / ms($msi) * 1em;
     }
+  }
+}
 
+%base-header {
+  color: $beta-ui-color;
+  margin: 0;
+}
+
+%h1 {
+  @extend %base-header;
+  @include text-dimensions(5, 1.3, 1);
+  @include mq($bp-desktop-s) {
+    @include text-dimensions(8, 1.75, 1);
   }
 
+  font-family: $beta-font-family;
+  font-weight: $beta-font-weight;
+}
+
+%h2 {
+  @extend %base-header;
+  @include text-dimensions(2, 1.15, .3, 2);
+  font-family: $beta-font-family;
+}
+
+%h3 {
+  @extend %base-header;
+  @include text-dimensions(0, 1, 0);
 }

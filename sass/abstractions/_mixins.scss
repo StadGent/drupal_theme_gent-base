@@ -1,20 +1,18 @@
-/*
-	Patterns
-*/
+//
+// Patterns
+//
+// sass-lint:disable no-vendor-prefixes
 
 // Clearfix.
 // @extend %clearfix;
-
 @mixin clearfix {
-  *zoom: 1;
-
-  &:before,
-  &:after {
+  &::before,
+  &::after {
     display: table;
-    content: "";
+    content: '';
   }
 
-  &:after {
+  &::after {
     clear: both;
   }
 }
@@ -38,7 +36,6 @@
 // Horizontal responsive navigation.
 // @include list-nav on <ul> or <ol>;
 // @include horizontal-nav on <ul> or <ol>;
-
 %reset-list {
   list-style: none;
   margin-left: 0;
@@ -52,31 +49,31 @@
 }
 
 @mixin horizontal-nav {
-  li, a {
+  li,
+  a {
     display: block;
     float: left;
     zoom: 1;
   }
 }
 
-// Calculate text-color based on background-color
-
+// Calculate text-color based on background-color.
 @mixin text-color($c1) {
   // Calculations based on https://vimeo.com/60224584
-  @if (.2126*red($c1) + .7152*green($c1) + .0722*blue($c1))/255 <= .5 {
-    color: #FFF;
-  } @else {
+  @if (.2126 * red($c1) + .7152 * green($c1) + .0722 * blue($c1)) / 255 <= .5 {
+    color: #fff;
+  }
+  @else {
     color: #000;
   }
 }
 
 // Prevent Long URL’s From Breaking Out of Container.
 // http://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container
-
 %word-break {
+  // sass-lint:disable-block no-duplicate-properties
   -ms-word-break: break-all;
   word-break: break-all;
-
   // Non standard for webkit
   word-break: break-word;
 
@@ -86,15 +83,14 @@
 }
 
 // UI mixins.
-
 @mixin block($color, $top: 1.5, $right: 1, $bottom: 1.5, $left: 1) {
   background-color: $color;
   padding: #{$alpha-line-height * 1em * $top} #{$grid-margin * $right * 1px} #{$alpha-line-height * 1em * $bottom} #{$grid-margin * $left * 1px};
 }
 
 // Cross browser background opacity.
-
 @mixin background-opacity($color, $alpha) {
+  // sass-lint:disable-block no-duplicate-properties
   $rgba: rgba($color, $alpha);
   $ie-hex-str: ie-hex-str($rgba);
   background-color: $color;
@@ -103,28 +99,21 @@
   zoom: 1;
 }
 
-// overlay mixin
-
+// Overlay mixin
 @mixin overlay($opacity) {
   @include background-opacity(hsl(hue($beta-ui-color), $saturation, 20), $opacity);
-  // @include background-opacity(hsl(hue($beta-ui-color),50,15),$opacity);
-  // @include background-opacity(hsl(hue($alpha-ui-color),50,15),$opacity);
-  // @include background-image(radial-gradient(75% 50%, circle cover, rgba(hsl(hue($alpha-text-color),5,12.5),.35), rgba(hsl(hue($alpha-text-color),5,12.5),.9)));
-  // @include background-image(radial-gradient(45px 45px, cyan 10px, dodgerblue 30px));
 }
 
 %overlay {
-  @include overlay(.70);
+  @include overlay(.7);
 }
 
 // Baseline mixins
 
 // Vertical padding based on the base line-height
 // @include padding-tb(#top, #bottom);
-
 @mixin padding-tb($pt: 1, $pb: 0) {
-  // padding-top: $alpha-line-height * 1em * $top;
-  // padding-bottom: $alpha-line-height * 1em * $bottom;
+  // sass-lint:disable-block no-duplicate-properties
   @if $pt > 0 {
     // padding-top: #{($baseline-unit / $alpha-font-size) * $pt}em;
     padding-top: $pt * $alpha-font-size * 1px;
@@ -140,17 +129,16 @@
 
 // Padding-bottom based on the base line-height
 // @include padding-bottom(#bottom),
-
 @mixin padding-bottom($pb: 1) {
-  // padding-bottom: #{($baseline-unit / $alpha-font-size) * $pb}em;
+  // sass-lint:disable-block no-duplicate-properties
   padding-bottom: $pb * $alpha-font-size * 1px;
   padding-bottom: $pb * 1rem;
 }
 
 // Padding-top based on the base line-height
 // @include padding-top(#top);
-
 @mixin padding-top($pt: 1) {
+  // sass-lint:disable-block no-duplicate-properties
   // padding-top: $alpha-baseline-grid/$alpha-font-size*$pt*1em;
   // padding-top: #{($baseline-unit / $alpha-font-size) * $pt}em;
   padding-top: $pt * $alpha-font-size * 1px;
@@ -159,8 +147,8 @@
 
 // Vertical margin based on the base line-height
 // @include margin-tb(#top, #bottom)
-
 @mixin margin-tb($mt: 1, $mb: 0) {
+  // sass-lint:disable-block no-duplicate-properties
   @if $mt > 0 {
     // margin-top: #{($baseline-unit / $alpha-font-size) * $mt}em;
     margin-top: $mt * $alpha-font-size * 1px;
@@ -178,6 +166,7 @@
 // @include margin-bottom(#bottom);
 
 @mixin margin-bottom($mb: 1) {
+  // sass-lint:disable-block no-duplicate-properties
   // margin-bottom: $alpha-baseline-grid/$alpha-font-size*$mb*1em;
   // margin-bottom: #{($baseline-unit / $alpha-font-size) * $mb}em;
   margin-bottom: $mb * $alpha-font-size * 1px;
@@ -185,6 +174,7 @@
 }
 
 @mixin margin-top($mt: 1) {
+  // sass-lint:disable-block no-duplicate-properties
   // margin-top: $alpha-baseline-grid/$alpha-font-size*$mt*1em;
   // margin-top: #{($baseline-unit / $alpha-font-size) * $mt}em;
   margin-top: $mt * $alpha-font-size * 1px;
@@ -195,14 +185,11 @@
 
 // Border-box polyfill helper.
 // @include border-box;
-
 @mixin border-box {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-
-// @include border-content;
 
 @mixin border-content {
   -webkit-box-sizing: border-content;
@@ -212,19 +199,21 @@
 
 // Progressive svg backgrounds with png fallback.
 // Requires modernizr class .svg.
-// @include svg-bg("path/file", ".extension", $delta-ui-color, 0 50%, no-repeat);
-
+// @include svg-bg('path/file', '.extension', $delta-ui-color, 0 50%, no-repeat);
 @mixin mdrn-svg {
   .svg & {
-    @content
+    @content;
   }
 }
 
 @mixin svg-bg($filename, $extension: '.png', $bg-color: transparent, $position: 0 0, $repeat: no-repeat, $size: auto) {
-  background: $bg-color url($filename + $extension) $position $repeat;
+  // Intended use of mixin after properties.
+  // sass-lint:disable-block mixins-before-declarations
+  background: $bg-color url('#{$filename}#{$extension}') $position $repeat;
   background-size: $size;
+
   @include mdrn-svg {
-    background: $bg-color url($filename + '.svg') $position $repeat;
+    background: $bg-color url('#{$filename}.svg') $position $repeat;
     background-size: $size;
   }
 }
@@ -232,7 +221,7 @@
 // Media query mixin.
 // @include mq(#point, #query1, #query2);
 @mixin mq($point, $query1: min, $query2: width) {
-  @media screen and (#{$query1}-#{$query2}: ($point - (if($query1 == max, 0.01, 0)))) {
+  @media screen and (#{$query1}-#{$query2}: ($point - (if($query1 == max, .01, 0)))) {
     @content;
   }
 }
@@ -240,7 +229,7 @@
 // Media query mixin.
 // @include mq(#startpoint, #endpoint, #query);
 @mixin mqb($startpoint, $endpoint, $query: width) {
-  @media (min-#{$query}: $startpoint) and (max-#{$query}: ($endpoint - 0.01)) {
+  @media (min-#{$query}: $startpoint) and (max-#{$query}: ($endpoint - .01)) {
     @content;
   }
 }
@@ -262,12 +251,15 @@
   &::-webkit-input-placeholder {
     @content;
   }
+
   &:-moz-placeholder {
     @content;
   }
+
   &::-moz-placeholder {
     @content;
   }
+
   &:-ms-input-placeholder {
     @content;
   }
