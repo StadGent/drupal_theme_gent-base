@@ -1,3 +1,10 @@
+<?php
+
+/**
+ * @file
+ * HTML template file for the maintenance page.
+ */
+?>
 <!DOCTYPE html>
 <html lang="<?php print $language->language; ?>" dir="<?php print $language->dir; ?>">
 <head>
@@ -29,7 +36,7 @@
   <link rel="apple-touch-icon" sizes="72x72" href="<?php print $base_theme_path ?>apple-touch-icon-72x72.png" />
   <link rel="apple-touch-icon" sizes="144x144" href="<?php print $base_theme_path ?>apple-touch-icon-144x144.png" />
 
-<body<?php print $attributes;?>>
+<body class="<?php print $classes; ?>">
 
   <section class="top-section">
     <header class="site__header">
@@ -88,4 +95,3 @@
 
 </body>
 </html>
-

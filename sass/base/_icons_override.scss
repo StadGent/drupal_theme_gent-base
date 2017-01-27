@@ -1,28 +1,33 @@
-.icon-bubble:before {
+//
+// Icon overrides
+// ---
+// Override some icons in the generated SCSS.
+//
+.icon-bubble::before {
   font-size: 90%;
   position: relative;
   top: -2px;
 }
 
-.icon-facebook:before {
+.icon-facebook::before {
   font-size: 90%;
   position: relative;
   top: -1px;
 }
 
-.icon-twitter:before {
+.icon-twitter::before {
   font-size: 90%;
   position: relative;
   top: -1px;
 }
 
-.icon-linkedin:before {
+.icon-linkedin::before {
   font-size: 90%;
   position: relative;
   top: -1px;
 }
 
-.icon-email:before {
+.icon-email::before {
   font-size: 90%;
   position: relative;
   top: -1px;

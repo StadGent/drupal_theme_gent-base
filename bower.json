@@ -1,12 +1,13 @@
 {
   "name": "gent_base",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "dependencies": {
-    "respond": "fubhy/respond",
-    "selectivizr": "fubhy/selectivizr",
-    "html5shiv": "fubhy/html5shiv",
-    "matchmedia": "fubhy/matchmedia",
-    "pie": "fubhy/pie",
-    "modernizr": "fubhy/modernizr"
-  }
+    "masonry": "^4.1.1",
+    "imagesloaded": "^4.1.1",
+    "jquery-throttle-debounce": "*",
+    "jquery-sticky": "^1.0.3",
+    "jquery.livequery": "^1.3.6",
+    "matchHeight": "matchheight#^0.7.0"
+  },
+  "private": true
 }

@@ -1,3 +1,6 @@
+//
+// Islands (generic content boxes).
+//
 .island {
   @include margin-tb(1, 1);
 }
@@ -20,7 +23,7 @@
     @include padding-tb(0, .5);
 
     a {
-      text-decoration:none;
+      text-decoration: none;
     }
   }
 
@@ -46,8 +49,11 @@
 .island--beta {
   @include padding-tb(.7, 1.4);
 
-  a, p, li, span {
-    font-size: 0.9rem;
+  a,
+  p,
+  li,
+  span {
+    font-size: .9rem;
     line-height: 1.4em;
   }
 
@@ -57,7 +63,7 @@
     border-bottom: 1px solid desaturate(darken($gamma-ui-color, 5), 10);
 
     a {
-      text-decoration:none;
+      text-decoration: none;
     }
   }
 
@@ -68,8 +74,8 @@
 }
 
 .region-content-bottom .island--beta:first-of-type {
-  padding-top:0;
-  margin-top:0;
+  padding-top: 0;
+  margin-top: 0;
 }
 
 .island--gamma {
@@ -107,8 +113,8 @@
   }
 
   .milli {
-    font-size: 80%;
     @include padding-tb(.2, .2);
+    font-size: 80%;
   }
 
   .milli a {
@@ -136,22 +142,25 @@
   }
 }
 
-.island__gamma_ui_color {
-  font-size: 18px;
+.island__gamma_ui_color { // sass-lint:disable-line class-name-format
   @include px-padding-lr(1.5, 1.5);
   @include padding-tb(.7, .9);
+  font-size: 18px;
   background-color: $gamma-ui-color;
   border-radius: $gamma-radius;
   border: 1px solid desaturate(darken($gamma-ui-color-dark, 5), 10);
   position: relative;
+
   h2 {
-    color: $beta-ui-color;
     @include text-dimensions(0, 1, 1);
+    color: $beta-ui-color;
     font-size: 1rem;
+
     i {
       font-size: 1rem;
     }
   }
+
   a {
     color: $alpha-ui-color;
     font-size: 18px;
@@ -169,7 +178,7 @@
   h3 {
     @include text-dimensions(7, 1.5, 1, 0, 0);
     font-family: $beta-font-family;
-    color: $white-color
+    color: $white-color;
   }
 
   a {
@@ -186,7 +195,7 @@
   ul {
     font-size: 95%;
     line-height: 1.4em;
-    margin:0;
+    margin: 0;
   }
 
   li {
@@ -200,11 +209,10 @@
     &.big {
       @include px-padding-lr(0, 1.5);
       @include padding-tb(.4, .3);
-      float:left;
       @include text-dimensions(10, 1.5, 0, 0, 0);
-
-      height:100%;
-      max-height:100%;
+      float: left;
+      height: 100%;
+      max-height: 100%;
 
     }
   }
@@ -230,7 +238,7 @@
       @include padding-tb(.2, .2);
 
       &.first {
-        border-right:1px solid $white-color;
+        border-right: 1px solid $white-color;
       }
     }
   }
@@ -301,13 +309,13 @@
   @include padding-tb(0, 1.5);
 
   h3 {
-    @extend h2;
+    @extend %h2;
     padding-top: 0;
     color: $alpha-ui-color;
     transition: color .3s ease-in-out;
 
     a {
-      text-decoration:none;
+      text-decoration: none;
     }
   }
 
@@ -350,16 +358,17 @@
   @include margin-tb(.6, .6);
 
   h2 {
-    padding-top:0;
     @include padding-tb(0, .5);
+    padding-top: 0;
   }
 
   h3 {
     color: $alpha-ui-color;
     transition: color .3s ease-in-out;
-    border:none;
+    border: 0;
+
     a {
-      text-decoration:none;
+      text-decoration: none;
       color: $alpha-ui-color;
     }
   }
@@ -380,7 +389,7 @@
     img {
       background-color: $white-color;
       border-radius: $gamma-radius;
-      width:100%;
+      width: 100%;
     }
   }
 
@@ -393,7 +402,6 @@
     position: relative;
   }
 
-
   .date,
   .event,
   .meta {
@@ -402,17 +410,17 @@
   }
 
   .event {
-    display:inline-block;
-    background-color:$alpha-ui-color;
-    color:$white-color;
-    border-radius: $radius;
     @include px-padding-lr(.5, .5);
     @include padding-tb(.2, .2);
     @include margin-tb(.5, .5);
+    display: inline-block;
+    background-color: $alpha-ui-color;
+    color: $white-color;
+    border-radius: $radius;
 
     span.data {
-      display:inline-block;
       @include px-padding-lr(.8, 1);
+      display: inline-block;
     }
   }
 
@@ -424,15 +432,15 @@
   }
 
   figcaption {
-    display:none;
+    display: none;
   }
 }
 
-// Overwrite zeta when used in another region
+// Overwrite zeta when used in another region.
 .region-content .island--zeta,
 .region-sidebar .island--zeta {
   .island__body {
-    background-color:$gamma-ui-color;
+    background-color: $gamma-ui-color;
   }
 }
 
@@ -440,7 +448,7 @@
   margin: 0;
 
   .island__top {
-    display:none;
+    display: none;
     background-size: cover;
     background-position: center;
     border-radius: $gamma-radius;
@@ -464,10 +472,10 @@
 
   @include mq($bp-phone-m) {
     .island__top {
-      display:block;
+      display: block;
       float: right;
       width: 50%;
-      height:100%;
+      height: 100%;
     }
 
     .island__bottom {
@@ -480,13 +488,13 @@
     .island__top {
       float: left;
       width: 100%;
-      height:50%;
+      height: 50%;
     }
 
     .island__bottom {
       float: left;
       width: 100%;
-      height:50%;
+      height: 50%;
     }
   }
 }
@@ -494,8 +502,8 @@
 .island--iota {
   @include padding-tb(1, 1);
   @include px-padding-lr(2, 2);
-  margin: 0;
 
+  margin: 0;
   background-color: $white-color;
   border-radius: $gamma-radius;
   background-repeat: no-repeat;
@@ -512,18 +520,17 @@
   }
 
   .btn {
-    display:block;
-    text-indent:-9999px;
-    background-image:url(#{$base-theme-path}/img/png/icon-arrow-right.png);
+    display: block;
+    text-indent: -9999px;
+    background-image: url('#{$base-theme-path}/img/png/icon-arrow-right.png');
     background-repeat: no-repeat;
     background-position: 50%;
 
     @include mq($bp-tablet-s) {
-      text-indent:0;
-      background-image:none;
+      text-indent: 0;
+      background-image: none;
     }
   }
-
 
   @include mq($bp-phone-m) {
     @include padding-tb(1.5, 1.5);
@@ -559,23 +566,24 @@
 }
 
 .island--kappa {
+  @include padding-tb(1, 2);
+  @include margin-tb(2, 0);
 
   border-top: 1px solid desaturate(darken($gamma-ui-color, 10), 20);
   border-bottom: 1px solid desaturate(darken($gamma-ui-color, 10), 20);
 
-  @include padding-tb(1, 2);
-  @include margin-tb(2, 0);
-
-  h2, h3 {
-    color: $beta-ui-color;
-
-    margin:0;
-    padding:0;
-
+  h2,
+  h3 {
     @include margin-tb(0, .5);
 
+    color: $beta-ui-color;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    padding: 0;
+
     a {
-      text-decoration:none;
+      text-decoration: none;
     }
   }
 
@@ -586,37 +594,36 @@
 }
 
 .island--lambda {
-  background-color:$white-color;
-  margin-bottom:0;
-  padding:0;
-
-  @include margin-tb(1, 0);
   @extend %rounded-1;
+  @include margin-tb(1, 0);
   @include text-dimensions(-4, 1);
+  background-color: $white-color;
+  margin-bottom: 0;
+  padding: 0;
 
   table {
-    margin:0;
+    margin: 0;
   }
+
   tr {
-    border-bottom:1px solid $gamma-text-color;
+    border-bottom: 1px solid $gamma-text-color;
 
     &:last-child {
-      border-bottom:none;
+      border-bottom: 0;
     }
   }
+
   td {
     @include text-dimensions(-3, 1);
     @include px-padding-lr(1, 1);
     @include padding-tb(.5, .5);
 
     &.label {
-      font-weight:bold;
+      font-weight: bold;
     }
   }
 }
 
-.l-primary .island:first-child  {
-  margin-top:0;
+.l-primary .island:first-child {
+  margin-top: 0;
 }
-
-

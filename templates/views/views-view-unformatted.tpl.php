@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Default simple view template to display a list of rows.
+ * Overridden Views unformatted template.
  *
  * @ingroup views_templates
  */

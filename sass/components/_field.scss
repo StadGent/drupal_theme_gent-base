@@ -1,26 +1,30 @@
+//
+// Field styling.
+//
 .field-label-inline .field-label {
-  float:left; /*LTR*/
+  float: left;
 }
 
 .field-label {
-  font-weight:bold;  
+  font-weight: bold;
 }
 
 .label-inline {
-  float:left;  
+  float: left;
 }
 
 // General wrapper for fields with an inline label. 
-// Uses matcheight to give label and content the same height
+// Use matchHeight to give label and content the same height.
 .inline-label-wrapper {
   @include clearfix();
-  
+
   .label-inline {
-    padding:0;
-    font-weight:bold;
     @include float-span(24);
-    
-    // Default width, override per case when not enough
+
+    padding: 0;
+    font-weight: bold;
+
+    // Default width, override per case when not enough.
     @include mq($bp-tablet-m) {
       @include float-span(6);
     }
@@ -32,14 +36,14 @@
     @include mq($bp-tablet-m) {
       @include float-span(18);
     }
-    list-style:none;
-    
-    margin:0;
-    padding:0;
+
+    list-style: none;
+    margin: 0;
+    padding: 0;
   }
-  
+
   ul {
-    list-style:none;
+    list-style: none;
   }
 }
 
@@ -49,15 +53,15 @@
 
 // Reset some inline labels to not have a fixed width
 .regular .label-inline {
-  font-weight:normal;
+  font-weight: normal;
 }
 
 .small .label-inline,
 .milli .label-inline {
-  float:none;
-  font-weight:normal;
-  width:auto;
-  display:inline-block;
+  float: none;
+  font-weight: normal;
+  width: auto;
+  display: inline-block;
 }
 
 p.date {

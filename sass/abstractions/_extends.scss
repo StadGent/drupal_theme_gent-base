@@ -1,24 +1,20 @@
 // Clearfix.
 // @extend %clearfix;
-
 %clearfix {
-  *zoom: 1;
-
-  &:before,
-  &:after {
+  &::before,
+  &::after {
+    content: '';
     display: table;
-    content: "";
   }
 
-  &:after {
+  &::after {
     clear: both;
   }
 }
 
 // Prevent Long URL’s From Breaking Out of Container.
 // http://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container
-
 %word-break {
-  word-break: break-all;
   hyphens: auto;
+  word-break: break-all;
 }

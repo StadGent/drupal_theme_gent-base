@@ -7,24 +7,28 @@
 form {
   @extend %clearfix;
 
-  .description, .fieldset-description {
+  .description,
+  .fieldset-description {
+    @include text-dimensions(-1, .7, 0, .1);
+
     clear: both;
     color: $gamma-text-color;
-    @include text-dimensions(-1, 0.7, 0, .1);
     margin-bottom: 1.5rem;
   }
 }
 
 fieldset {
   @include margin-tb(0, 1);
+
   border: 1px solid lighten($gamma-text-color, 10);
   border-radius: $alpha-radius;
   background-color: hsl(hue($alpha-ui-color), 40, 95);
 
   legend {
-    font-weight: bold;
     @include rem-padding-lr(.3, .3);
     @include padding-tb(.1, .1);
+
+    font-weight: bold;
     margin-left: .5em;
     width: auto;
     background-color: $white-color;
@@ -36,7 +40,7 @@ fieldset {
     }
   }
 
-  legend:before {
+  legend::before {
     font-family: 'gent-icons';
     speak: none;
     font-style: normal;
@@ -47,10 +51,11 @@ fieldset {
   }
 
   &.collapsible {
-    legend:before {
-      @extend .icon-arrow-down:before;
+    legend::before {
+      @extend .icon-arrow-down::before; // sass-lint:disable-line placeholder-in-extend
       margin-right: .5em;
     }
+
     .fieldset-wrapper {
       @include padding-tb(1, 1)
     }
@@ -58,13 +63,13 @@ fieldset {
 
   &.collapsible.collapsed {
     background-color: hsl(hue($alpha-ui-color), 40, 95);
-    border-right: 1px solid rgba(#fff, 0.1);
+    border-right: 1px solid rgba($white-color, .1);
     box-shadow: inset 0 -1px 1px 0 rgba(hsl(hue($alpha-ui-color), 40, 87.5), 1);
     color: $alpha-ui-color;
     height: 2em;
 
-    legend:before {
-      @extend .icon-caret:before;
+    legend::before {
+      @extend .icon-caret::before; // sass-lint:disable-line placeholder-in-extend
     }
 
     .fieldset-wrapper {
@@ -99,6 +104,7 @@ legend,
 label,
 .label {
   @include text-dimensions(-1, 1, 0, 0, .25);
+
   color: $beta-text-color;
   display: block;
   width: 100%;
@@ -116,36 +122,37 @@ label,
 }
 
 // Input elements
-
-input[type="input"],
-input[type="text"],
-input[type="email"],
-input[type="password"],
-input[type="search"],
-input[type="tel"],
-input[type="url"],
-input[type="number"],
-input[type="date"],
-input[type="month"],
-input[type="week"],
-input[type="time"],
-input[type="datetime"],
-input[type="datetime-local"],
-input[name="field_country_code"],
-input[name="field_city_code"],
-input[name="field_phone_int"],
+input[type='input'],
+input[type='text'],
+input[type='email'],
+input[type='password'],
+input[type='search'],
+input[type='tel'],
+input[type='url'],
+input[type='number'],
+input[type='date'],
+input[type='month'],
+input[type='week'],
+input[type='time'],
+input[type='datetime'],
+input[type='datetime-local'],
+input[name='field_country_code'],
+input[name='field_city_code'],
+input[name='field_phone_int'],
 select[multiple],
 textarea {
   @include border-box;
   @include input-m;
+
   display: block;
-  -webkit-appearance: none;
   margin: 0;
   width: 100%;
   line-height: 1;
   color: $gamma-text-color;
   border: 1px solid lighten($gamma-text-color, 10);
   border-radius: $alpha-radius;
+
+  -webkit-appearance: none; // sass-lint:disable-line no-vendor-prefixes
 
   &:hover {
     border-color: lighten($gamma-text-color, 5);
@@ -160,12 +167,16 @@ textarea {
 
 textarea {
   height: auto;
+  display: block;
+  resize: none;
+  overflow: auto;
 }
 
 select {
   @include border-box;
   @include input-dimensions(-2, 1, 0, .45, .45, 0);
   @include px-padding-lr(1, 1);
+
   display: block;
   margin: 0;
   width: 100%;
@@ -186,16 +197,11 @@ select {
   }
 
   &[multiple] {
+    @include padding-tb(.5, .5);
+
     height: auto;
-    @include padding-tb(0.5, 0.5);
     padding-right: 0;
   }
-}
-
-textarea {
-  display: block;
-  resize: none;
-  overflow: auto;
 }
 
 .small.input-textarea {
@@ -222,20 +228,17 @@ textarea {
     padding-bottom: 0;
     margin-bottom: 0;
   }
-
 }
 
 .input-option {
   padding: 0;
   margin: 0 .5em 0 0;
-  position: relative;
   cursor: pointer;
   width: 13px;
   height: 13px;
   vertical-align: middle;
   position: relative;
   top: -2px;
-  *overflow: hidden;
 }
 
 .label-option {
@@ -243,8 +246,8 @@ textarea {
   vertical-align: middle;
 }
 
-// Placeholders
-
+// Placeholders.
+// sass-lint:disable no-vendor-prefixes
 ::-webkit-input-placeholder {
   @include padding-tb(.1, 0);
   color: $gamma-text-color;
@@ -254,48 +257,23 @@ textarea {
   color: $gamma-text-color;
 }
 
-::-moz-placeholder {
-  color: $gamma-text-color;
-}
-
 :-ms-input-placeholder {
   color: $gamma-text-color;
 }
+// sass-lint:enable no-vendor-prefixes
 
-// Buttons
 
+// Buttons.
 .form-submit {
   @extend %btn;
+  @extend %btn--alpha;
   @include btn-m;
-  @extend .btn--alpha;
+
   @include mq($bp-tablet-s) {
     @include btn-inlineblock;
   }
 }
 
-.form-actions {
-  input.form-submit,
-  button.form-submit {
-    @include margin-tb(0, 1);
-    &:last-child {
-      margin-bottom: 0;
-    }
-    // Put buttons as inline blocks next to each other on larger screens.
-    @include mq($bp-tablet-s) {
-      @include rem-margin-lr(0, 1);
-      margin-bottom: 0;
-    }
-  }
-}
-
-.form-submit[src] {
-  padding: 0;
-  width: auto;
-}
-
-/**
- * Markup generated by Form API.
- */
 .form-actions {
   width: 100%;
   display: inline-block;
@@ -310,6 +288,26 @@ textarea {
     padding-left: 1em;
     clear: none;
   }
+
+  input.form-submit,
+  button.form-submit {
+    @include margin-tb(0, 1);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    // Put buttons as inline blocks next to each other on larger screens.
+    @include mq($bp-tablet-s) {
+      @include rem-margin-lr(0, 1);
+      margin-bottom: 0;
+    }
+  }
+}
+
+.form-submit[src] {
+  padding: 0;
+  width: auto;
 }
 
 tr.odd .form-item,
@@ -319,12 +317,13 @@ tr.even .form-item {
   white-space: nowrap;
 }
 
-.form-item .description, form .fieldset-description {
-  font-size: 0.7em;
+.form-item .description,
+form .fieldset-description {
+  font-size: .7em;
 }
 
 form .fieldset-description {
-  margin-bottom: 0.75rem;
+  margin-bottom: .75rem;
 }
 
 label {
@@ -340,8 +339,8 @@ label.option,
 
 .form-checkboxes .form-item,
 .form-radios .form-item {
-  margin-top: 0.4em;
-  margin-bottom: 0.4em;
+  margin-top: .4em;
+  margin-bottom: .4em;
 }
 
 .form-type-radio .description,
@@ -356,18 +355,16 @@ input.form-radio {
 
 .marker,
 .form-required {
-  color: #f00;
+  color: $error-color;
 }
 
 .form-item input.error,
 .form-item textarea.error,
 .form-item select.error {
-  border: 2px solid red;
+  border: 2px solid $error-color;
 }
 
-/**
- * Specific date theming.
- */
+// Specific date theming.
 .container-inline-date {
   clear: both;
 }
@@ -380,13 +377,13 @@ input.form-radio {
 
 .container-inline-date > .form-item {
   display: inline-block;
-  margin-right: 0.5em; /* LTR */
+  margin-right: .5em;
   margin-bottom: 10px;
   vertical-align: top;
 }
 
 .container-inline-date .form-item .form-item {
-  float: left; /* LTR */
+  float: left;
 }
 
 .container-inline-date .form-item,
@@ -401,11 +398,11 @@ input.form-radio {
 .container-inline-date .form-item input,
 .container-inline-date .form-item select,
 .container-inline-date .form-item option {
-  margin-right: 5px; /* LTR */
+  margin-right: 5px;
 }
 
 .container-inline-date .date-spacer {
-  margin-left: -5px; /* LTR */
+  margin-left: -5px;
 }
 
 .views-right-60 .container-inline-date div {
@@ -429,11 +426,13 @@ input.form-radio {
 }
 
 .ui-datepicker .ui-datepicker-title select {
-  font-size: 0.6 * $alpha-font-size * 1px;
-  font-size: 0.6rem;
+  // sass-lint:disable-block no-duplicate-properties
+  // @todo use the mixin.
+  font-size: .6 * $alpha-font-size * 1px;
+  font-size: .6rem;
 }
 
-// Prefix and postfix
+// Prefix and postfix.
 .prefix--medium.prefix--medium {
   @include grid-span(7);
 

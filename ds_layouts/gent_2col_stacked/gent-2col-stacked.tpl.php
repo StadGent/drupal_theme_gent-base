@@ -21,7 +21,7 @@
     <?php print $left; ?>
   </<?php print $left_wrapper ?>>
 
-	<<?php print $right_wrapper ?> class="l-secondary">
+  <<?php print $right_wrapper ?> class="l-secondary">
     <?php print $right; ?>
   </<?php print $right_wrapper ?>>
 

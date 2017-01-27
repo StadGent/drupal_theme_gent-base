@@ -5,20 +5,20 @@
   li {
     @include px-padding-lr(1.5, 0);
     position: relative;
-  }
 
-  li:before {
-    content: "\2022";
-    color: $gamma-text-color;
-    position: absolute;
-    left: 0;
-    top: 0;
+    &::before {
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: $gamma-text-color;
+      content: '\2022';
+    }
   }
 }
 
 %link-list {
-  padding-left: 0;
   margin-bottom: 0;
+  padding-left: 0;
   list-style: none;
 
   li {
@@ -26,16 +26,14 @@
     @include padding-tb(0, .6);
     position: relative;
 
-    &:before {
-      //color: inherit;
-      color: $alpha-ui-color; // Should be inherited from the parent, but links will differ from this color.
+    &::before {
       position: absolute;
       left: 0;
-      
       top: .55em;
       font-size: .7em;
       line-height: 1;
-      content: "\3e";
+      content: '\3e';
+      color: $alpha-ui-color; // Should be inherited from the parent, but links will differ from this color.
       font-family: 'gent-icons';
       speak: none;
       font-style: normal;
@@ -100,8 +98,8 @@
   text-decoration: none;
   font-weight: $beta-font-weight;
 
-  &:before {
-    content: "\e60e";
+  &::before {
+    content: '\e60e';
     font-size: .5em;
     top: .9em;
   }

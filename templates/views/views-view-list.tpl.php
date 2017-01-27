@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Default simple view template to display a list of rows.
+ * Overridden Views list template.
  *
  * - $title : The title of this group of rows.  May be empty.
  * - $options['type'] will either be ul or ol.
@@ -10,10 +10,9 @@
  */
 ?>
 <?php print $wrapper_prefix; ?>
-
   <?php if (!empty($title)): ?>
   <header class="l-full">
-  	<h2 class="h1 hT"><?php print $title; ?></h2>
+    <h2 class="h1 hT"><?php print $title; ?></h2>
   </header>
   <?php endif; ?>
 

@@ -1,42 +1,7 @@
-// Buttons
-
-.btn,
-a.btn {
-  @extend %btn;
-}
-
-// Button sizes
-.small.btn,
-.btn--small,
-a.btn--small,
-input[type="submit"].btn--small {
-  @include btn-s;
-}
-
-.medium.btn,
-.btn--medium,
-a.btn--medium,
-input[type="submit"].btn--medium {
-  @include btn-m;
-}
-
-.large.btn,
-.btn--large,
-a.btn--large,
-input[type="submit"].btn--large {
-  @include btn-l;
-}
-
-.inline.btn,
-.btn--inline,
-a.btn--inline,
-input[type="submit"].btn--inline {
-  @include btn-inlineblock
-}
-
-// Button variations
-.btn--alpha,
-a.btn--alpha {
+//
+// Buttons.
+//
+%btn--alpha {
   color: $white-color;
   background-color: $alpha-link-color;
 
@@ -50,13 +15,12 @@ a.btn--alpha {
   }
 }
 
-.btn--beta,
-a.btn--beta {
+%btn--beta {
   color: #fff;
   background-color: $beta-ui-color;
 
   &:hover {
-    color: #fff;
+    color: $white-color;
     background-color: lighten($beta-ui-color, 5);
   }
 
@@ -64,17 +28,15 @@ a.btn--beta {
   &:active {
     background-color: darken($beta-ui-color, 2.5);
   }
-
 }
 
-.btn--beta--alt,
-a.btn--beta--alt {
+%btn--beta--alt {
   color: $beta-ui-color;
   background-color: lighten($beta-ui-color, 50);
   box-shadow: 0 -1px 0 0 darken($beta-ui-color, 5) inset;
 
   &:hover {
-    background-color: #fff;
+    background-color: $white-color;
   }
 
   &:focus,
@@ -85,8 +47,7 @@ a.btn--beta--alt {
   }
 }
 
-.btn--gamma,
-a.btn--gamma {
+%btn--gamma {
   font-weight: $alpha-font-weight;
   color: $alpha-ui-color;
   border: 1px solid transparent;
@@ -100,8 +61,7 @@ a.btn--gamma {
   }
 }
 
-.btn--delta,
-a.btn--delta {
+%btn--delta {
   @include margin-tb(1, 0);
   color: $beta-ui-color;
   background-color: $white-color;
@@ -118,37 +78,41 @@ a.btn--delta {
   }
 }
 
-.btn--epsilon,
-a.btn--epsilon {
+%btn--epsilon {
   color: $white-color;
   background-color: $delta-ui-color;
 
   &:hover {
+    color: $white-color;
     background-color: darken($delta-ui-color, 3);
   }
 
   &:focus,
   &:active {
+    color: $white-color;
     background-color: darken($delta-ui-color, 3);
   }
 }
 
-.btn--option-link {
-  @include text-dimensions(-4, 0.5);
-  background: $gamma-ui-color;
-  color: $alpha-text-color;
-  display: block;
-  font-weight: $alpha-font-weight;
-  text-align: center;
-  text-decoration: none;
+%btn--zeta {
+  @include margin-tb(.8, 0);
+  color: $beta-ui-color;
+  background-color: $white-color;
+  width: 10%;
 
   &:hover {
-    background: lighten($gamma-ui-color, 5);
+    color: $beta-ui-color;
+    background-color: $white-color;
+  }
+
+  &:focus,
+  &:active {
+    color: $beta-ui-color;
+    background-color: $white-color;
   }
 }
 
-.btn--disabled,
-a.btn--disabled {
+%btn--disabled {
   color: $disabled-color;
   background-color: $disabled-ui-color;
   border: 1px solid $disabled-color;
@@ -164,21 +128,91 @@ a.btn--disabled {
   }
 }
 
+.btn,
+a.btn {
+  @extend %btn;
+}
+
+// Button sizes.
+.small.btn,
+.btn--small,
+a.btn--small,
+input[type='submit'].btn--small {
+  @include btn-s;
+}
+
+.medium.btn,
+.btn--medium,
+a.btn--medium,
+input[type='submit'].btn--medium {
+  @include btn-m;
+}
+
+.large.btn,
+.btn--large,
+a.btn--large,
+input[type='submit'].btn--large {
+  @include btn-l;
+}
+
+.inline.btn,
+.btn--inline,
+a.btn--inline,
+input[type='submit'].btn--inline {
+  @include btn-inlineblock
+}
+
+// Button variations.
+.btn--alpha,
+a.btn--alpha {
+  @extend %btn--alpha;
+}
+
+.btn--beta,
+a.btn--beta {
+  @extend %btn--beta;
+}
+
+.btn--beta--alt,
+a.btn--beta--alt {
+  @extend %btn--beta--alt;
+}
+
+.btn--delta,
+a.btn--delta {
+  @extend %btn--delta;
+}
+
+.btn--gamma,
+a.btn--gamma {
+  @extend %btn--gamma;
+}
+
+.btn--epsilon,
+a.btn--epsilon {
+  @extend %btn--epsilon;
+}
+
+.btn--disabled,
+a.btn--disabled {
+  @extend %btn--disabled;
+}
+
 .btn--zeta,
 a.btn--zeta {
-  @include margin-tb(0.8, 0);
-  color: $beta-ui-color;
-  background-color: $white-color;
-  width: 10%; /* whatever */
+  @extend %btn--zeta;
+}
+
+.btn--option-link {
+  @include text-dimensions(-4, .5);
+  background: $gamma-ui-color;
+  color: $alpha-text-color;
+  display: block;
+  font-weight: $alpha-font-weight;
+  text-align: center;
+  text-decoration: none;
 
   &:hover {
-    color: $beta-ui-color;
-    background-color: $white-color;
-  }
-
-  &:focus,
-  &:active {
-    color: $beta-ui-color;
-    background-color: $white-color;
+    background: lighten($gamma-ui-color, 5);
   }
 }

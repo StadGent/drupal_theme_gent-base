@@ -3,3 +3,12 @@ node_modules
 
 # We absolutely don't want to have the .sass-cache in git.
 .sass-cache
+bower_components/
+styleguide
+css
+npm-debug.log
+
+.DS_Store
+.project
+.settings
+.idea

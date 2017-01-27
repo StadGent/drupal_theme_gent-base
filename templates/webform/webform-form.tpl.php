@@ -25,7 +25,7 @@
   <div class="webform-left">
     <div class="sticky-nav">
       <?php
-        // Print out the progress bar at the top of the page
+        // Print out the progress bar at the top of the page.
         print drupal_render($form['progressbar']);
       ?>
     </div>
@@ -34,12 +34,13 @@
   <div class="webform-left webform-empty">
     <div class="sticky-nav">
       <?php
-        // Print out the progress bar at the top of the page
+        // Print out the progress bar at the top of the page.
         print drupal_render($form['progressbar']);
       ?>
     </div>
   </div>
 <?php endif; ?>
+
 <div class="webform-right">
 <?php
   // Print out the preview message if on the preview page.
@@ -50,7 +51,7 @@
   }
 
   // Notify the visitors about the required/optional field construction.
-  print '<div class="messages messages--webform--info">' .  t('All questions are mandatory, unless they are marked as optional.') . '</div>';
+  print '<div class="messages messages--webform--info">' . t('All questions are mandatory, unless they are marked as optional.') . '</div>';
 
   // Print out the main part of the form.
   // Feel free to break this up and move the pieces within the array.
@@ -61,4 +62,3 @@
   print drupal_render_children($form);
 ?>
 </div>
-<?php

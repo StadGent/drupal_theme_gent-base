@@ -1,4 +1,7 @@
+//
+// Footer styling.
+//
 .site__footer {
+  @extend %clearfix;
   position: relative;
 }
-
