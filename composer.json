@@ -20,7 +20,7 @@
         }
     ],
     "require": {
-        "gent-styleguide/gent": "*"
+        "gent/gent-styleguide": "dev-develop"
     },
     "extra": {
         "branch-alias": {
