@@ -234,11 +234,6 @@ function gent_base_preprocess_entity_property(&$variables) {
     $element = $variables['elements'];
     $property = $element['#entity_wrapped']->{$element['#property_name']};
 
-    // Include the theme hook suggestion.
-    $path = __DIR__ . '/../theme/entity-property--sheet--gpdc--' . str_replace('_', '-', $element['#property_name']) . '.theme.inc';
-    if (is_file($path)) {
-      require_once $path;
-    }
     switch ($element['#property_name']) {
       case 'gent_regulations':
         $variables['attributes_array']['id'] = 'sheet-regulatory';

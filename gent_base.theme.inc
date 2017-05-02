@@ -247,10 +247,10 @@ function gent_base_pager($variables) {
       );
     }
     return '<h2 class="element-invisible">' . t('Pages') . '</h2>' . theme('item_list', array(
-        'items' => $items,
-        'attributes' => array('class' => array('pager')),
-        'hide_wrapper' => TRUE,
-      ));
+      'items' => $items,
+      'attributes' => array('class' => array('pager')),
+      'hide_wrapper' => TRUE,
+    ));
   }
 }
 
@@ -409,27 +409,21 @@ function gent_base_theme() {
     // Sheet theme functions.
     'entity_property__sheet__gpdc__form_url' => array(
       'base hook' => 'entity_property',
-      'file' => 'theme/entity-property--sheet--gpdc--form-url.theme.inc',
     ),
     'entity_property__sheet__gpdc__references' => array(
       'base hook' => 'entity_property',
-      'file' => 'theme/entity-property--sheet--gpdc--references.theme.inc',
     ),
     'entity_property__sheet__gpdc__organisations' => array(
       'base hook' => 'entity_property',
-      'file' => 'theme/entity-property--sheet--gpdc--organisations.theme.inc',
     ),
     'entity_property__sheet__gpdc__attachments' => array(
       'base hook' => 'entity_property',
-      'file' => 'theme/entity-property--sheet--gpdc--attachments.theme.inc',
     ),
     'entity_property__sheet__gpdc__forms' => array(
       'base hook' => 'entity_property',
-      'file' => 'theme/entity-property--sheet--gpdc--forms.theme.inc',
     ),
     'entity_property__sheet__gpdc__gbos_products' => array(
       'base hook' => 'entity_property',
-      'file' => 'theme/entity-property--sheet--gpdc--gbos-products.theme.inc',
     ),
     // Custom webform theme functions.
     'gent_base_webform_element_label' => array(
@@ -662,4 +656,80 @@ function gent_base_gent_base_tools_extra_contact_block(&$variables) {
       'class' => array('no-bullet-list', 'clearfix'),
     ),
   )) : '';
+}
+
+
+/**
+ * Overrides theme_entity_property__sheet__gpdc__gbos_products().
+ */
+function gent_base_entity_property__sheet__gpdc__gbos_products(&$variables) {
+  $title = t('Make an appointment');
+
+  $output = '<h2 class="online-appointments-title">' . $title . ' <i class="icon-newtab"></i></h2>';
+  $output .= '<div' . $variables['attributes'] . '>';
+
+  foreach ($variables['content'] as $content) {
+    $output .= '<div class="gbos-product-wrapper">' . $content . '</div>';
+  }
+
+  $output .= '</div>';
+
+  return $output;
+}
+
+/**
+ * Overrides theme_entity_property__sheet__gpdc__attachments().
+ */
+function gent_base_entity_property__sheet__gpdc__attachments(&$variables) {
+  $output = '<div' . $variables['attributes'] . '>' . "\n";
+  $output .= '<h3><i class="icon-clip"></i>' . $variables['label'] . '</h3>';
+  $output .= theme('file_formatter_table', $variables);
+  $output .= '</div>' . "\n";
+  return $output;
+}
+
+/**
+ * Overrides theme_entity_property__sheet__gpdc__form_url().
+ */
+function gent_base_entity_property__sheet__gpdc__form_url(&$variables) {
+  $output = '<h2>' . t('Make your request online') . ' <i class="icon-newtab"></i></h2>';
+  $output .= '<div' . $variables['attributes'] . '>' . $variables['content'] . '</div>';
+  return $output;
+}
+
+/**
+ * Overrides theme_entity_property__sheet__gpdc__forms().
+ */
+function gent_base_entity_property__sheet__gpdc__forms(&$variables) {
+  $output = '<h2>' . t('Fill in the downloadable form') . '<i class="icon-form_fill"></i></h2>';
+
+  foreach ($variables['content'] as $content) {
+    $output .= '<div' . $variables['attributes'] . '>' . $content . '</div>';
+  }
+
+  return $output;
+}
+
+/**
+ * Overrides theme_entity_property__sheet__gpdc__organisations().
+ */
+function gent_base_entity_property__sheet__gpdc__organisations(&$variables) {
+  $output = '<div' . $variables['attributes'] . '>' . "\n";
+  $output .= '<h3><i class="icon-loc"></i>' . $variables['label'] . '</h3>';
+  $output .= $variables['content'];
+  $output .= '</div>' . "\n";
+
+  return $output;
+}
+
+/**
+ * Overrides theme_entity_property__sheet__gpdc__references().
+ */
+function gent_base_entity_property__sheet__gpdc__references(&$variables) {
+  $output = '<div id="sheet-references">';
+  $output .= '<h2>' . $variables['label'] . '</h3>';
+  $output .= $variables['content'];
+  $output .= '</div>' . "\n";
+
+  return $output;
 }
