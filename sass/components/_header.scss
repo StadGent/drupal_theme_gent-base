@@ -69,6 +69,7 @@
 
   @include mq($bp-tablet-s) {
     @include text-dimensions(5, 1.3, 0, 0, 0, 1.56);
+    color: #000;
   }
 }
 
@@ -116,7 +117,7 @@
 
   h1 {
     @include margin-tb(1, 1);
-    color: $white-color;
+    color: #000;
   }
 
   @include mq($bp-tablet-s) {
@@ -129,6 +130,15 @@
     h1 {
       @include margin-tb(1.5, 1.5);
       @include text-dimensions(5, 1.3);
+      color: $white-color;
+    }
+  }
+}
+
+.front {
+  .site__header__image__title {
+    h1 {
+      color: $white-color;
     }
   }
 }

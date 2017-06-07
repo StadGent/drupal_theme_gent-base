@@ -67,7 +67,7 @@
                 <?php print render($header_image); ?>
               </div>
 
-              <div class="site__header__image__title hidden-mobile">
+              <div class="site__header__image__title">
                 <div class="l-row">
                   <?php if ($page['site_name']): ?>
                     <?php print render($page['site_name']); ?>
@@ -79,7 +79,7 @@
                 </div>
               </div>
             <?php else: ?>
-              <div class="site__header__normal__title hidden-mobile">
+              <div class="site__header__normal__title">
                 <div class="l-row">
                   <!-- RSPEAK_START -->
                   <h1><?php print $title; ?></h1>
@@ -94,12 +94,6 @@
             </div>
           <?php endif; ?>
         </header>
-
-        <div class="holder site__header__normal__title visible-mobile">
-          <div class="l-row">
-            <h1><?php print $title; ?></h1>
-          </div>
-        </div>
       </section>
 
       <?php if ($page['content_top']): ?>
