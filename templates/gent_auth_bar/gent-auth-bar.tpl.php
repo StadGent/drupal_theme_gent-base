@@ -11,7 +11,7 @@
       <div class="login element-hidden">
         <a href="<?php print $login_url; ?>" class="picture-wrapper">
           <span class="name"><?php print $login_text; ?></span>
-          <span class="picture no-profile hidden-mobile"><img src="<?php print $default_picture_url; ?>" /></span>
+          <span class="picture no-profile hidden-mobile"><img src="<?php print $default_picture_url; ?>" alt="<?php print t("profile picture"); ?>" /></span>
         </a>
       </div>
     <?php endif; ?>
@@ -24,7 +24,7 @@
 
       <div class="picture-wrapper">
         <div class="picture has-profile">{picture}</div>
-        <div class="picture no-profile"><img src="<?php print $default_picture_url; ?>" /></div>
+        <div class="picture no-profile"><img src="<?php print $default_picture_url; ?>" alt="<?php print t("profile picture"); ?>" /></div>
       </div>
 
       <div class="popup-wrapper">
