@@ -4,7 +4,13 @@ All Notable changes to `digipolisgent/gent_base`.
 
 
 ## [Unreleased]
+###Changed
 
+* Added Icomoon settings file and removed individual svgs.
+* Switched icon styles to CSS3.
+* Consolidated GPDC sheet theming code.
+* Fixed double H1.
+* Added alt tag to auth bar icon.
 
 
 ## [7.x-2.5]
