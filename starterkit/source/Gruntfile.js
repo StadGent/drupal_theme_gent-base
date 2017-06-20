@@ -103,6 +103,16 @@ module.exports = function(grunt) {
         files: 'sass/*.scss',
         tasks: ['sass', 'postcss:dev']
       }
+    },
+
+    //Copy font task
+    copy: {
+      files:{
+        cwd: '../../../../../vendor/gent-styleguide/gent/public/css/fonts',
+        src: '**/*',
+        dest: '../build/fonts',
+        expand:true
+      }
     }
   });
 
@@ -112,8 +122,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("gruntify-eslint");
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-sass-lint');
+  grunt.loadNpmTasks('grunt-contrib-copy');
 
-  grunt.registerTask('build', ['eslint', 'uglify', 'sasslint', 'sass:dist', 'postcss:dist']);
+  grunt.registerTask('build', ['eslint', 'uglify', 'sasslint', 'sass:dist', 'postcss:dist', 'copy']);
 
   // Development tasks.
   grunt.registerTask('watch', ['sasslint', 'watch', 'postcss:dev']);
