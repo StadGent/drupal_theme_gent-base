@@ -3,9 +3,10 @@
 module.exports = function(grunt) {
 
   var globalConfig = {
-    scripts_dir: 'js',
+    scripts_src_dir: 'js',
+    scripts_min_dir: '../build/js',
     sass_dir: 'sass',
-    css_dir: 'css',
+    css_dir: '../build/css',
     base_theme_dir: '../../contrib/gent_base',
     // When the styleguide is available as Bower component in gent base,
     // we should use that location.
@@ -27,8 +28,8 @@ module.exports = function(grunt) {
           mangle: false,
           preserveComments: 'some',
           src: ['*.js', '!*.min.js'],
-          dest: '<%= globalConfig.scripts_dir  %>/min',
-          cwd: '<%= globalConfig.scripts_dir  %>',
+          dest: '<%= globalConfig.scripts_min_dir  %>/min',
+          cwd: '<%= globalConfig.scripts_scr_dir  %>',
           rename: function(dest, src) { return dest + '/' + src.replace('.js', '.min.js'); }
         }]
       }
@@ -36,7 +37,7 @@ module.exports = function(grunt) {
 
     // Javascript linting.
     eslint: {
-      src: ['<%= globalConfig.scripts_dir %>/*.js']
+      src: ['<%= globalConfig.scripts_scr_dir %>/*.js']
     },
 
     // Sass compilation with LibSASS
@@ -48,7 +49,7 @@ module.exports = function(grunt) {
           importer: require('node-sass-globbing')
         },
         files: {
-          'css/main.css' : '<%= globalConfig.sass_dir %>/main.scss'
+          '<%= globalConfig.css_dir %>/main.css' : '<%= globalConfig.sass_dir %>/main.scss'
         }
       },
       dist: {
@@ -58,7 +59,7 @@ module.exports = function(grunt) {
           importer: require('node-sass-globbing')
         },
         files: {
-          'css/main.css' : '<%= globalConfig.sass_dir %>/main.scss'
+          '<%= globalConfig.css_dir %>/main.css' : '<%= globalConfig.sass_dir %>/main.scss'
         }
       }
     },
@@ -68,7 +69,7 @@ module.exports = function(grunt) {
       options: {
         configFile: '.sass-lint.yml'
       },
-      target: ['sass/**/*.s+(a|c)ss']
+      target: ['<%= globalConfig.sass_dir %>/**/*.s+(a|c)ss']
     },
 
     // All postCSS tasks.
@@ -102,6 +103,16 @@ module.exports = function(grunt) {
         files: 'sass/*.scss',
         tasks: ['sass', 'postcss:dev']
       }
+    },
+
+    //Copy font task
+    copy: {
+      files:{
+        cwd: '../../../../../vendor/gent-styleguide/gent/public/css/fonts',
+        src: '**/*',
+        dest: '../build/fonts',
+        expand:true
+      }
     }
   });
 
@@ -111,8 +122,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("gruntify-eslint");
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-sass-lint');
+  grunt.loadNpmTasks('grunt-contrib-copy');
 
-  grunt.registerTask('build', ['eslint', 'uglify', 'sasslint', 'sass:dist', 'postcss:dist']);
+  grunt.registerTask('build', ['eslint', 'uglify', 'sasslint', 'sass:dist', 'postcss:dist', 'copy']);
 
   // Development tasks.
   grunt.registerTask('watch', ['sasslint', 'watch', 'postcss:dev']);
