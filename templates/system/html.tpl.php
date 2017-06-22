@@ -17,7 +17,7 @@
   <meta name="MobileOptimized" content="320" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,400italic" rel="stylesheet" type="text/css" />
+  <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic" rel="stylesheet" type="text/css" />
 
   <?php print $styles; ?>
 
@@ -46,7 +46,7 @@
   </div>
 
   <?php print $scripts; ?>
-  
+
   <?php print $page_bottom; ?>
 
   <?php if (isset($closure)): ?>
