@@ -126,7 +126,7 @@ module.exports = function(grunt) {
     // Copy font task
     copy: {
       fonts: {
-        cwd: '<%= globalConfig.styleguide_dir %>/public/css/fonts',
+        cwd: '<%= globalConfig.styleguide_dir %>/public/fonts',
         src: '**/*',
         dest: '../build/fonts',
         expand: true

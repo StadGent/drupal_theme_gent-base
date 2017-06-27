@@ -9,6 +9,8 @@ regions:
   navigation: 'Navigation'
   content: 'Content'
   footer: 'Footer'
+libraries:
+  - gent_base/breadcrumbs
 # Removes all the classy stylesheets.
 libraries-override:
   classy/base: false
