@@ -7,10 +7,10 @@ module.exports = function(grunt) {
     scripts_min_dir: '../build/js',
     sass_dir: 'sass',
     css_dir: '../build/css',
-    base_theme_dir: '../../contrib/gent_base',
+    base_theme_dir: '../../../contrib/gent_base',
     // When the styleguide is available as Bower component in gent base,
     // we should use that location.
-    styleguide_dir: '../../../../vendor/gent/gent-styleguide'
+    styleguide_dir: '../../../../../vendor/gent/gent-styleguide'
   };
 
   grunt.initConfig({
@@ -30,6 +30,14 @@ module.exports = function(grunt) {
           src: ['*.js', '!*.min.js'],
           dest: '<%= globalConfig.scripts_min_dir  %>',
           cwd: '<%= globalConfig.scripts_src_dir  %>',
+          rename: function(dest, src) { return dest + '/' + src.replace('.js', '.min.js'); }
+        }, {
+          expand: true,
+          mangle: false,
+          preserveComments: 'some',
+          src: ['*.js', '!*.min.js'],
+          dest: '<%= globalConfig.base_theme_dir %>/build/js',
+          cwd: '<%= globalConfig.base_theme_dir %>/source/js',
           rename: function(dest, src) { return dest + '/' + src.replace('.js', '.min.js'); }
         }]
       }
@@ -108,7 +116,7 @@ module.exports = function(grunt) {
       },
       scripts: {
         files: ['<%= globalConfig.scripts_src_dir %>/**/*.js'],
-        tasks: ['eslint', 'uglify:dev'],
+        tasks: ['copy:js', 'eslint', 'uglify'],
         options: {
           spawn: false
         }
@@ -118,10 +126,18 @@ module.exports = function(grunt) {
     // Copy font task
     copy: {
       fonts: {
-        cwd: '../../../../../vendor/gent/gent-styleguide/public/css/fonts',
+        cwd: '<%= globalConfig.styleguide_dir %>/public/css/fonts',
         src: '**/*',
         dest: '../build/fonts',
-        expand:true
+        expand: true
+      },
+      js: {
+        cwd: '<%= globalConfig.styleguide_dir %>/components',
+        src: ['**/*.js'],
+        dest:'<%= globalConfig.base_theme_dir %>/source/js',
+        flatten: true,
+        filter: 'isFile',
+        expand: true
       }
     }
   });
@@ -134,7 +150,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-sass-lint');
   grunt.loadNpmTasks('grunt-contrib-copy');
 
-  grunt.registerTask('build', ['eslint', 'uglify', 'sasslint', 'sass:dist', 'postcss:dist', 'copy']);
+  grunt.registerTask('build', ['copy', 'eslint', 'uglify', 'sasslint', 'sass:dist', 'postcss:dist']);
 
   // Development tasks.
   grunt.registerTask('compile', ['sasslint', 'postcss:dev']);
