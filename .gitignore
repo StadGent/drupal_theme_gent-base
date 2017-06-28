@@ -3,4 +3,5 @@ node_modules
 vendor
 composer.lock
 /source
+!/source/sass
 /build
