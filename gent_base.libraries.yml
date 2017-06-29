@@ -1,0 +1,6 @@
+breadcrumbs:
+  version: 1.x
+  js:
+    build/js/breadcrumbs.min.js: {}
+  dependencies:
+    - core/jquery

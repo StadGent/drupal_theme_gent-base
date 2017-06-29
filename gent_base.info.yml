@@ -12,6 +12,8 @@ regions:
   footer_2: Footer middle left
   footer_3: Footer middle right
   footer_4: Footer right
+libraries:
+  - gent_base/breadcrumbs
 # Removes all the classy stylesheets.
 libraries-override:
   classy/base: false
