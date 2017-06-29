@@ -1,0 +1,32 @@
+.button {
+  @extend .btn;
+}
+
+// Button sizes
+.small.button,
+.button--small,
+a.button--small,
+input[type="submit"].button--small {
+  @include btn-s;
+}
+
+.medium.button,
+.button--medium,
+a.button--medium,
+input[type="submit"].button--medium {
+  @include btn-m;
+}
+
+.large.button,
+.button--large,
+a.button--large,
+input[type="submit"].button--large {
+  @include btn-l;
+}
+
+.inline.button,
+.button--inline,
+a.button--inline,
+input[type="submit"].button--inline {
+  @include btn-inlineblock
+}
