@@ -45,34 +45,55 @@
  * @ingroup themeable
  */
 #}
-<header role="banner">
-  <div class="content-container">
-    {{ page.header }}
-  </div>
-</header>
+{% block banner %}
+  <header role="banner">
+    <div class="content-container">
+      {{ page.header }}
+    </div>
+  </header>
+{% endblock %}
 
 {% if page.navigation %}
-<div role="navigation" class="site-navigation">
-  <div class="content-container">
-    {{ page.navigation }}
-  </div>
-</div>
+  {% block navigation %}
+    <div role="navigation" class="site-navigation">
+      <div class="content-container">
+        {{ page.navigation }}
+      </div>
+    </div>
+  {% endblock %}
 {% endif %}
 
-<main role="main">
-  <div class="content-container">
-    <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
-
-    <div class="layout-content">
-      {{ page.content }}
-    </div>{# /.layout-content #}
-  </div>
-</main>
-
-{% if page.footer %}
-  <footer role="contentinfo">
+{% block main %}
+  <main role="main">
     <div class="content-container">
-      {{ page.footer }}
+      <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
+
+      <div class="layout-content">
+        {{ page.content }}
+      </div>{# /.layout-content #}
     </div>
-  </footer>
+  </main>
+{% endblock %}
+
+{% if page.footer_1 or page.footer_2 or page.footer_3 or page.footer_4 %}
+  {% block footer %}
+    <footer role="contentinfo">
+      <div class="content-container">
+        <div class="row">
+          <div class="col-tablet-3">
+            {{ page.footer_1 }}
+          </div>
+          <div class="col-tablet-3">
+            {{ page.footer_2 }}
+          </div>
+          <div class="col-tablet-3">
+            {{ page.footer_3 }}
+          </div>
+          <div class="col-tablet-3">
+            {{ page.footer_4 }}
+          </div>
+        </div>
+      </div>
+    </footer>
+  {% endblock %}
 {% endif %}
