@@ -122,11 +122,13 @@ Viewport.prototype.refresh = function () {
   };
 
   /**
-   * Refresh the viewport document ready/
+   * Refresh the viewport.
    */
-  $(document).ready(function () {
-    Drupal.gentBase.refreshViewport();
-  });
+  Drupal.behaviors.initViewport = {
+    attach: function (context) {
+      Drupal.gentBase.refreshViewport();
+    }
+  };
 
   /**
    * Refresh the viewport on scroll and resize.
