@@ -321,8 +321,17 @@ function gent_base_preprocess_entity_property(&$variables) {
  */
 function gent_base_preprocess_webform_form(&$variables) {
   $theme_path = path_to_theme();
-  if (file_exists($theme_path . '/js/webform.min.js')) {
-    drupal_add_js($theme_path . '/js/webform.min.js');
+
+  // Make sure viewport is loaded first.
+  if (file_exists($theme_path . '/js/viewport.js')) {
+    drupal_add_js($theme_path . '/js/viewport.js');
+  }
+  else {
+    drupal_add_js($theme_path . '/js/viewport.js');
+  }
+  
+  if (file_exists($theme_path . '/js/webform.js')) {
+    drupal_add_js($theme_path . '/js/webform.js');
   }
   else {
     drupal_add_js($theme_path . '/js/webform.js');

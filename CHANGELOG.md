@@ -11,6 +11,7 @@ All Notable changes to `digipolisgent/gent_base`.
 * Consolidated GPDC sheet theming code.
 * Fixed double H1.
 * Added alt tag to auth bar icon.
+* Fixed viewport order of execution.
 
 
 ## [7.x-2.5]
