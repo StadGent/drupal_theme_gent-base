@@ -12,6 +12,9 @@ All Notable changes to `digipolisgent/gent_base`.
 * Fixed double H1.
 * Added alt tag to auth bar icon.
 * Fixed viewport order of execution.
+* Sticky admin menu wraps inside #sticky-wrapper-admin
+   We wrap the sticky admin menu in a div on top of the page. #sticky-wrapper is already used by other
+   sticky containers (webform progress, kids subnavigation, sticky accordion...)
 
 
 ## [7.x-2.5]
