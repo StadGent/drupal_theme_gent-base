@@ -40,7 +40,7 @@
 
     var callback = function () {
       var elements = $(selector);
-      var wrapper = $('#sticky-wrapper');
+      var wrapper = $('#sticky-wrapper-admin');
       var spacer = $('#sticky-spacer');
       var height = 0;
 
@@ -48,7 +48,7 @@
         // Add the wrapper and spacer if missing.
         if (!wrapper.length) {
           wrapper = $('<div>')
-            .attr('id', 'sticky-wrapper')
+            .attr('id', 'sticky-wrapper-admin')
             .css({
               width: '100%',
               position: 'fixed',
