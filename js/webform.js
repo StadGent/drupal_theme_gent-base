@@ -73,12 +73,14 @@
     var $sticky_nav = $('.sticky-nav', $webform);
     if ($sticky_nav.length) {
       var $progress_bar = $('.webform-component-progressbar-pages', $webform);
-      var $document = $(document);
-      var bottom_sticky_to_bottom_screen = $document.height() - $progress_bar.offset().top - $progress_bar.height();
-      var bottom_webform_to_bottom_screen = $document.height() - $webform.offset().top - $webform.height();
-      if (bottom_sticky_to_bottom_screen <=  bottom_webform_to_bottom_screen) {
-        $sticky_nav.css('bottom', bottom_webform_to_bottom_screen);
-        $sticky_nav.css('top', 'auto');
+      if ($progress_bar.length) {
+        var $document = $(document);
+        var bottom_sticky_to_bottom_screen = $document.height() - $progress_bar.offset().top - $progress_bar.height();
+        var bottom_webform_to_bottom_screen = $document.height() - $webform.offset().top - $webform.height();
+        if (bottom_sticky_to_bottom_screen <= bottom_webform_to_bottom_screen) {
+            $sticky_nav.css('bottom', bottom_webform_to_bottom_screen);
+            $sticky_nav.css('top', 'auto');
+        }
       }
     }
   };
