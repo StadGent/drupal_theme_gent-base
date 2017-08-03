@@ -10,11 +10,13 @@
 }
 
 fieldset {
-  margin-bottom: 1rem;
-
   .fieldset-legend {
     font-weight: bold;
   }
+}
+
+.field-add-more-submit {
+  margin-bottom: 1rem;
 }
 
 .resize-vertical {
@@ -58,6 +60,10 @@ fieldset {
       padding-left: 1rem;
     }
   }
+}
+
+.image-widget + .description {
+  margin: -1rem 0 1rem;
 }
 
 .form-type-vertical-tabs {
