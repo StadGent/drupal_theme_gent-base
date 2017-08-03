@@ -9,12 +9,20 @@
   }
 }
 
+fieldset {
+  margin-bottom: 1rem;
+
+  .fieldset-legend {
+    font-weight: bold;
+  }
+}
+
 .resize-vertical {
   min-height: 7.2rem;
 }
 
 .filter-wrapper {
-  margin: -.1rem 0 .1rem;
+  margin: -1rem 0 1rem;
 
   .filter-help a:after {
     top: .25rem;
