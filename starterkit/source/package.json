@@ -10,7 +10,6 @@
   "devDependencies": {
     "del": "^3.0.0",
     "event-stream": "^3.3.4",
-    "gent_styleguide": "^1.0.3",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
     "gulp-bump": "^2.7.0",

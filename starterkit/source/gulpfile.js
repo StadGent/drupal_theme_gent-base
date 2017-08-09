@@ -27,7 +27,6 @@ var globalConfig = {
   sass_dir: 'sass',
   css_dir: '../build/css',
   base_theme_dir: '../../../contrib/gent_base',
-  styleguide_dir: './node_modules/gent_styleguide',
   build_dir: '../build'
 };
 

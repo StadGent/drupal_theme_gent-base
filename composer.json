@@ -19,9 +19,6 @@
             "url": "https://packagist.gentgrp.gent.be"
         }
     ],
-    "require": {
-        "gent/gent-styleguide": "dev-develop"
-    },
     "extra": {
         "branch-alias": {
             "dev-8.x-1.x-dev": "8.1.x-dev"
