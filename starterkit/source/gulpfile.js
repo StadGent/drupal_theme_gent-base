@@ -33,11 +33,12 @@ var globalConfig = {
 
 /*
  *
- * Build settings for your styles.
+ * Styles build task.
  * Includes:
  *  Sass globbing
  *  SCSS linting
  *  Compresssed output style
+ *  CSScomb validation
  *  Autoprefixer
  *
  */
@@ -50,6 +51,7 @@ gulp.task('styles:build', function() {
       'merge-default-rules': false
     }))
     .pipe(sassLint.format())
+    .pipe(csscomb())
     .pipe(sass({outputStyle: 'compressed'})).on('error', sass.logError)
     .pipe(autoprefixer({
         browsers: ['last 5 versions']
@@ -59,11 +61,12 @@ gulp.task('styles:build', function() {
 
 /*
  *
- * Compile development settings for your styles.
+ * Styles dist task.
  * Includes:
  *  Sass globbing
  *  SCSS linting
  *  Nested output style
+ *  CSScomb validation
  *  Sourcemaps (dev only!)
  *  Autoprefixer
  *
@@ -111,7 +114,9 @@ gulp.task('styles:watch', function() {
 
 /*
  *
- * Copy JS files.
+ * JS files build task.
+ *
+ * Copies and minifies your JS files to build/js/
  *
  */
 gulp.task('js:build', function() {
@@ -125,7 +130,10 @@ gulp.task('js:build', function() {
 
 /*
  *
- * Development copy JS files.
+ * JS files dist task.
+ *
+ * Copies your JS files to build/js/
+ * No minification is done here!
  *
  */
 gulp.task('js:dist', function() {
@@ -174,6 +182,8 @@ gulp.task('images:minify', ['styles:build'], function(cb) {
 
 /*
  * Clean build directory.
+ *
+ * This deletes the build directory before recompiling.
  */
 gulp.task('build:clean', function(cb) {
   return del(globalConfig.build_dir + '/**', {force:true});
