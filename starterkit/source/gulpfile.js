@@ -18,6 +18,7 @@ var csscomb =require('gulp-csscomb');
 var bump = require('gulp-bump');
 var del = require('del');
 var sequence = require('run-sequence');
+var plumber = require('gulp-plumber');
 
 var globalConfig = {
   scripts_src_dir: 'js',
@@ -43,6 +44,7 @@ var globalConfig = {
  */
 gulp.task('styles:build', function() {
   gulp.src(globalConfig.sass_dir + '/**/*.s+(a|c)ss')
+    .pipe(plumber())
     .pipe(sassGlob())
     .pipe(sassLint({
       configFile: './.sass-lint.yml',
@@ -72,6 +74,7 @@ gulp.task('styles:build', function() {
  */
 gulp.task('styles:dist', function() {
   gulp.src(globalConfig.sass_dir + '/**/*.s+(a|c)ss')
+    .pipe(plumber())
     .pipe(sassGlob())
     .pipe(sassLint({
       configFile: './.sass-lint.yml',
@@ -96,6 +99,7 @@ gulp.task('styles:dist', function() {
  */
 gulp.task('styles:validate', function() {
   return gulp.src(globalConfig.sass_dir + '/**/*.s+(a|c)ss')
+  .pipe(plumber())
   .pipe(sassLint({
     configFile: './.sass-lint.yml'
   }))
@@ -120,6 +124,7 @@ gulp.task('styles:watch', function() {
  */
 gulp.task('js:build', function() {
   gulp.src(globalConfig.scripts_src_dir + '/**/*.js')
+    .pipe(plumber())
     .pipe(rename({dirname: ''}))
     .pipe(minify({
       noSource: true
@@ -137,6 +142,7 @@ gulp.task('js:build', function() {
  */
 gulp.task('js:dist', function() {
   gulp.src(globalConfig.scripts_src_dir + '/**/*.js')
+    .pipe(plumber())
     .pipe(rename({
       dirname: '',
       suffix: "-min",
@@ -151,6 +157,7 @@ gulp.task('js:dist', function() {
  */
 gulp.task('js:validate', function() {
   return gulp.src(globalConfig.scripts_src_dir + '/**/*.js')
+    .pipe(plumber())
     .pipe(eslint({
       configFile: './.eslintrc'
     }))
