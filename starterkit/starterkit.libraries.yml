@@ -4,4 +4,4 @@ global-styling:
     theme:
       build/css/main.css: {}
   js:
-    build/js/starterkit-min.css: {}
+    build/js/starterkit-min.js: {}
