@@ -1,4 +1,4 @@
 node_modules
 .sass-cache
-css
+build
 npm-debug.log

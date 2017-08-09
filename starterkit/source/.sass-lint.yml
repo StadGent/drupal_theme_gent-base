@@ -87,7 +87,7 @@ rules:
     - 2
     - style: stroustrup
     - allow-single-line: false
-  clean-import-paths: 2
+  clean-import-paths: 0
   empty-args: 0
   hex-length: 2
   hex-notation: 2
@@ -99,7 +99,7 @@ rules:
   property-sort-order:
     - 2
     - order: 'smacss'
-  quotes: 2
+  quotes: 0
   shorthand-values: 2
   url-quotes: 2
   variable-for-property: 2
