@@ -12,12 +12,6 @@
         "name": "Jeroen Goossens",
         "email": "jeroen.goossens@digipolis.gent"
     }
-],
-"repositories": [
-    {
-        "type": "composer",
-        "url": "https://packagist.gentgrp.gent.be"
-    }
   ],
   "scripts": {
     "post-install-cmd": [
