@@ -7,7 +7,7 @@
   ],
   "license": "ISC",
   "devDependencies": {
-    "gent_styleguide": "^1.0.3"
+    "gent_styleguide": "^1.0.5"
   },
   "scripts": {},
   "engines": {
