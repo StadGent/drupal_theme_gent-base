@@ -28,7 +28,6 @@ var globalConfig = {
   img_min_dir: '../build/images',
   sass_dir: 'sass',
   css_dir: '../build/css',
-  base_theme_dir: '../../../contrib/gent_base',
   build_dir: '../build'
 };
 
