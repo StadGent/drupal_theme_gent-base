@@ -7,7 +7,9 @@ subtheme to let you adjust according to your specific needs.
 
 #### Installation
 To install and use this base theme and a subtheme of it follow these steps:
-* Add the `gent_base` composer package from the gentgrp packagist to your Drupal composer.json file:
+* Add the `gent_base` composer package from the duplo packagist to your Drupal composer.json file:
+  By adding the post install and post update commands we ensure that the gent_base theme is installed correctly and
+  everything is ready to use.
   ```
   "repositories": {
       "drupal": {
@@ -20,7 +22,24 @@ To install and use this base theme and a subtheme of it follow these steps:
       }
   },
   "require": {
-      "gent-drupal/gent_base": "8.1.x"
+      "gent-drupal/gent_base": "8.1.xrev"
+  },
+  "scripts": {
+    "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
+    "pre-install-cmd": [
+      "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
+    ],
+    "pre-update-cmd": [
+      "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
+    ],
+    "post-install-cmd": [
+      "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
+      "cd web/themes/contrib/gent_base; composer install"
+    ],
+    "post-update-cmd": [
+      "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
+      "cd web/themes/contrib/gent_base; composer update"
+    ]
   },
   ```
 * Install the base theme by running `composer install` in the root of your Drupal project.
