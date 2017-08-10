@@ -179,7 +179,7 @@ gulp.task('js:watch', function() {
  *
  */
 gulp.task('images:minify', ['styles:build'], function(cb) {
-  gulp.src([globalConfig.img_src_dir + '/**/*.png', globalConfig.img_src_dir + '/**/*.jpg', globalConfig.img_src_dir + '/**/*.gif', globalConfig.img_src_dir + '/**/*.jpeg'])
+  gulp.src([globalConfig.img_src_dir + '/**/*.png', globalConfig.img_src_dir + '/**/*.jpg', globalConfig.img_src_dir + '/**/*.gif', globalConfig.img_src_dir + '/**/*.jpeg', globalConfig.img_src_dir + '/**/*.svg'])
     .pipe(imagemin({
       progressive: true,
       use: [pngquant()]
