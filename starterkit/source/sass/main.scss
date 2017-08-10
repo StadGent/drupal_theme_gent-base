@@ -2,6 +2,10 @@
 @import '../../../../contrib/gent_base/source/sass/00-mixins/**/*';
 @import '00-mixins/**/*';
 
+@import '../../../../contrib/gent_base/build/sass/01-global-settings/**/*';
+@import '../../../../contrib/gent_base/source/sass/01-global-settings/**/*';
+@import '01-global-settings/**/*';
+
 @import '../../../../contrib/gent_base/build/sass/01-global/**/*';
 @import '../../../../contrib/gent_base/source/sass/01-global/**/*';
 @import '01-global/**/*';
