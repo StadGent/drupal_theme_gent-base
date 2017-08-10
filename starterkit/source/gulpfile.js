@@ -24,8 +24,8 @@ var plumber = require('gulp-plumber');
 var globalConfig = {
   scripts_src_dir: 'js',
   scripts_min_dir: '../build/js',
-  img_src_dir: 'images',
-  img_min_dir: '../build/images',
+  img_src_dir: 'img',
+  img_min_dir: '../build/img',
   sass_dir: 'sass',
   css_dir: '../build/css',
   build_dir: '../build'
