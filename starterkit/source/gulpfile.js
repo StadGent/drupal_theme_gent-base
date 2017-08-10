@@ -11,7 +11,8 @@ var cssnano = require('gulp-cssnano');
 var copy = require('gulp-contrib-copy');
 var rename = require('gulp-rename');
 var eslint = require('gulp-eslint');
-var imageop = require('gulp-image-optimization');
+var imagemin = require('gulp-imagemin');
+var pngquant = require('imagemin-pngquant');
 var es = require('event-stream');
 var minify = require('gulp-minify');
 var csscomb =require('gulp-csscomb');
@@ -179,11 +180,12 @@ gulp.task('js:watch', function() {
  *
  */
 gulp.task('images:minify', ['styles:build'], function(cb) {
-  gulp.src([globalConfig.img_src_dir + '/**/*.png', globalConfig.img_src_dir + '/**/*.jpg', globalConfig.img_src_dir + '/**/*.gif', globalConfig.img_src_dir + '/**/*.jpeg']).pipe(imageop({
-      optimizationLevel: 5,
+  gulp.src([globalConfig.img_src_dir + '/**/*.png', globalConfig.img_src_dir + '/**/*.jpg', globalConfig.img_src_dir + '/**/*.gif', globalConfig.img_src_dir + '/**/*.jpeg'])
+    .pipe(imagemin({
       progressive: true,
-      interlaced: true
-  })).pipe(gulp.dest(globalConfig.img_min_dir)).on('end', cb).on('error', cb);
+      use: [pngquant()]
+    }))
+    .pipe(gulp.dest(globalConfig.img_min_dir)).on('end', cb).on('error', cb);
 });
 
 /*
