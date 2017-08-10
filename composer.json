@@ -1,22 +1,30 @@
 {
-    "name": "gent-drupal/gent_base",
-    "homepage": "https://bitbucket.org/digipolisgent/drupal_theme_gent-base",
-    "description": "Drupal theming layer for styleguide Gent.",
-    "keywords": ["gent", "drupal", "theme"],
-    "type": "drupal-theme",
-    "license": "GPL-2.0+",
-    "minimum-stability": "dev",
-    "prefer-stable": true,
-    "authors": [
-        {
-            "name": "Jeroen Goossens",
-            "email": "jeroen.goossens@digipolis.gent"
-        }
+  "name": "gent-drupal/gent_base",
+  "homepage": "https://bitbucket.org/digipolisgent/drupal_theme_gent-base",
+  "description": "Drupal theming layer for styleguide Gent.",
+  "keywords": ["gent", "drupal", "theme"],
+  "type": "drupal-theme",
+  "license": "GPL-2.0+",
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "authors": [
+    {
+        "name": "Jeroen Goossens",
+        "email": "jeroen.goossens@digipolis.gent"
+    }
+],
+"repositories": [
+    {
+        "type": "composer",
+        "url": "https://packagist.gentgrp.gent.be"
+    }
+  ],
+  "scripts": {
+    "post-install-cmd": [
+      "cd source; sh install.sh"
     ],
-    "repositories": [
-        {
-            "type": "composer",
-            "url": "https://packagist.gentgrp.gent.be"
-        }
+    "post-update-cmd": [
+      "cd source; sh install.sh"
     ]
+  }
 }
