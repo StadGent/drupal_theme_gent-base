@@ -18,7 +18,7 @@ To install and use this base theme and a subtheme of it follow these steps:
       },
       "gent-drupal": {
           "type": "composer",
-          "url": "https://duplo.gentgrp.gent.be/packages.json"
+          "url": "https://duplo.gentgrp.gent.be"
       }
   },
   "require": {
