@@ -22,7 +22,7 @@ To install and use this base theme and a subtheme of it follow these steps:
       }
   },
   "require": {
-      "gent-drupal/gent_base": "8.1.xrev"
+      "gent-drupal/gent_base": "8.x-1.x-dev"
   },
   "scripts": {
     "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
