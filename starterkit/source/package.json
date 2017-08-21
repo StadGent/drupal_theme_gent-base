@@ -38,9 +38,6 @@
   "engines": {
     "node": ">=4.0.0"
   },
-  "eslintConfig": {
-    "root": true
-  },
   "private": true,
   "dependencies": {}
 }
