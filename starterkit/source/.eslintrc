@@ -1,6 +1,6 @@
 {
   "extends": "eslint:recommended",
-  "root": true
+  "root": true,
   "env": {
     "browser": true
   },
