@@ -1,22 +1,12 @@
 header[role],
 footer[role] {
-  @extend .section--wrapper;
+  @extend %section--wrapper;
 }
 
 main {
-  @extend .section--default;
+  @extend %section--default;
 }
 
 div.site-navigation {
-  @extend .section--accent;
-}
-
-header[role] {
-  padding: .35rem 0;
-}
-
-footer {
-  p, ol, ul, dl, table, address, pre {
-    font-size: .9rem;
-  }
+  @extend %section--accent;
 }
