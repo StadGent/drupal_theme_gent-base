@@ -1,3 +1,16 @@
+header[role],
+footer[role] {
+  @extend .section--wrapper;
+}
+
+main {
+  @extend .section--default;
+}
+
+div.site-navigation {
+  @extend .section--accent;
+}
+
 header[role] {
   padding: .35rem 0;
 }
