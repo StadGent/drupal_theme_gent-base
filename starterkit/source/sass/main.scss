@@ -1,52 +1,34 @@
 $base-theme-dir: '../../../../contrib/gent_base';
 
-@import '#{$base-theme-dir}/build/styleguide/sass/00-mixins/**/*';
-@import '#{$base-theme-dir}/source/sass/00-mixins/**/*';
-@import '00-mixins/**/*';
+@import '#{$base-theme-dir}/build/styleguide/sass/00-settings/reset';
 
-@import '#{$base-theme-dir}/build/styleguide/sass/01-global-settings/**/*';
-@import '#{$base-theme-dir}/source/sass/01-global-settings/**/*';
-@import '01-global-settings/**/*';
+@import '#{$base-theme-dir}/build/styleguide/sass/00-settings/vars';
+@import '#{$base-theme-dir}/source/sass/00-settings/vars';
+@import '00-settings/vars';
 
-@import '#{$base-theme-dir}/build/styleguide/sass/01-global/**/*';
-@import '#{$base-theme-dir}/source/sass/01-global/**/*';
-@import '01-global/**/*';
+@import '#{$base-theme-dir}/build/styleguide/sass/01-mixins/**/*';
+@import '#{$base-theme-dir}/source/sass/01-mixins/**/*';
+@import '01-mixins/**/*';
 
-@import '#{$base-theme-dir}/build/styleguide/sass/10-base-settings/**/*';
-@import '#{$base-theme-dir}/source/sass/10-base-settings/**/*';
-@import '10-base-settings/**/*';
+@import '#{$base-theme-dir}/build/styleguide/sass/02-sections/**/*';
+@import '#{$base-theme-dir}/source/sass/02-sections/**/*';
+@import '02-sections/**/*';
 
 @import '#{$base-theme-dir}/build/styleguide/sass/11-base/**/*';
 @import '#{$base-theme-dir}/source/sass/11-base/**/*';
 @import '11-base/**/*';
 
-@import '#{$base-theme-dir}/build/styleguide/sass/20-atoms-settings/**/*';
-@import '#{$base-theme-dir}/source/sass/20-atoms-settings/**/*';
-@import '20-atoms-settings/**/*';
-
 @import '#{$base-theme-dir}/build/styleguide/sass/21-atoms/**/*';
 @import '#{$base-theme-dir}/source/sass/21-atoms/**/*';
 @import '21-atoms/**/*';
-
-@import '#{$base-theme-dir}/build/styleguide/sass/30-molecules-settings/**/*';
-@import '#{$base-theme-dir}/source/sass/30-molecules-settings/**/*';
-@import '30-molecules-settings/**/*';
 
 @import '#{$base-theme-dir}/build/styleguide/sass/31-molecules/**/*';
 @import '#{$base-theme-dir}/source/sass/31-molecules/**/*';
 @import '31-molecules/**/*';
 
-@import '#{$base-theme-dir}/build/styleguide/sass/40-organisms-settings/**/*';
-@import '#{$base-theme-dir}/source/sass/40-organisms-settings/**/*';
-@import '40-organisms-settings/**/*';
-
 @import '#{$base-theme-dir}/build/styleguide/sass/41-organisms/**/*';
 @import '#{$base-theme-dir}/source/sass/41-organisms/**/*';
 @import '41-organisms/**/*';
-
-@import '#{$base-theme-dir}/build/styleguide/sass/50-templates-settings/**/*';
-@import '#{$base-theme-dir}/source/sass/50-templates-settings/**/*';
-@import '50-templates-settings/**/*';
 
 @import '#{$base-theme-dir}/build/styleguide/sass/51-templates/**/*';
 @import '#{$base-theme-dir}/source/sass/51-templates/**/*';
