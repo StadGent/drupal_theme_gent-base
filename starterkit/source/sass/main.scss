@@ -1,50 +1,32 @@
-@import '../../../../contrib/gent_base/build/styleguide/sass/00-mixins/**/*';
-@import '../../../../contrib/gent_base/source/sass/00-mixins/**/*';
-@import '00-mixins/**/*';
+@import '../../../../build/styleguide/sass/00-settings/reset';
 
-@import '../../../../contrib/gent_base/build/styleguide/sass/01-global-settings/**/*';
-@import '../../../../contrib/gent_base/source/sass/01-global-settings/**/*';
-@import '01-global-settings/**/*';
+@import '../../../../build/styleguide/sass/00-settings/vars';
+@import '../../../../source/sass/00-settings/vars';
+@import '00-settings/vars';
 
-@import '../../../../contrib/gent_base/build/styleguide/sass/01-global/**/*';
-@import '../../../../contrib/gent_base/source/sass/01-global/**/*';
-@import '01-global/**/*';
+@import '../../../../build/styleguide/sass/01-mixins/**/*';
+@import '../../../../source/sass/01-mixins/**/*';
+@import '01-mixins/**/*';
 
-@import '../../../../contrib/gent_base/build/styleguide/sass/10-base-settings/**/*';
-@import '../../../../contrib/gent_base/source/sass/10-base-settings/**/*';
-@import '10-base-settings/**/*';
+@import '../../../../build/styleguide/sass/02-sections/**/*';
+@import '../../../../source/sass/02-sections/**/*';
+@import '02-sections/**/*';
 
 @import '../../../../contrib/gent_base/build/styleguide/sass/11-base/**/*';
 @import '../../../../contrib/gent_base/source/sass/11-base/**/*';
 @import '11-base/**/*';
 
-@import '../../../../contrib/gent_base/build/styleguide/sass/20-atoms-settings/**/*';
-@import '../../../../contrib/gent_base/source/sass/20-atoms-settings/**/*';
-@import '20-atoms-settings/**/*';
-
 @import '../../../../contrib/gent_base/build/styleguide/sass/21-atoms/**/*';
 @import '../../../../contrib/gent_base/source/sass/21-atoms/**/*';
 @import '21-atoms/**/*';
-
-@import '../../../../contrib/gent_base/build/styleguide/sass/30-molecules-settings/**/*';
-@import '../../../../contrib/gent_base/source/sass/30-molecules-settings/**/*';
-@import '30-molecules-settings/**/*';
 
 @import '../../../../contrib/gent_base/build/styleguide/sass/31-molecules/**/*';
 @import '../../../../contrib/gent_base/source/sass/31-molecules/**/*';
 @import '31-molecules/**/*';
 
-@import '../../../../contrib/gent_base/build/styleguide/sass/40-organisms-settings/**/*';
-@import '../../../../contrib/gent_base/source/sass/40-organisms-settings/**/*';
-@import '40-organisms-settings/**/*';
-
 @import '../../../../contrib/gent_base/build/styleguide/sass/41-organisms/**/*';
 @import '../../../../contrib/gent_base/source/sass/41-organisms/**/*';
 @import '41-organisms/**/*';
-
-@import '../../../../contrib/gent_base/build/styleguide/sass/50-templates-settings/**/*';
-@import '../../../../contrib/gent_base/source/sass/50-templates-settings/**/*';
-@import '50-templates-settings/**/*';
 
 @import '../../../../contrib/gent_base/build/styleguide/sass/51-templates/**/*';
 @import '../../../../contrib/gent_base/source/sass/51-templates/**/*';
