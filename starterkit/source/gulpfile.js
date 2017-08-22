@@ -85,10 +85,10 @@ gulp.task('styles:dist', function() {
     .pipe(sourcemaps.init())
     .pipe(csscomb())
     .pipe(sass({outputStyle: 'nested'})).on('error', sass.logError)
-    .pipe(sourcemaps.write())
     .pipe(autoprefixer({
         browsers: ['last 5 versions']
     }))
+    .pipe(sourcemaps.write())
     .pipe(gulp.dest(globalConfig.css_dir))
 });
 
