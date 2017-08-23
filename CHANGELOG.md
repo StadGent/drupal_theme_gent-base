@@ -15,7 +15,7 @@ All Notable changes to `digipolisgent/gent_base`.
 * Sticky admin menu wraps inside #sticky-wrapper-admin
    We wrap the sticky admin menu in a div on top of the page. #sticky-wrapper is already used by other
    sticky containers (webform progress, kids subnavigation, sticky accordion...)
-
+* Added title attribute to gpdc sheet form url.
 
 ## [7.x-2.5]
 ### Changed
