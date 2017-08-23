@@ -27,7 +27,7 @@ function gent_base_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\Fo
 /**
  * Implements hook_preprocess_input__submit().
  */
-function odp_theme_preprocess_input__submit(&$variables) {
+function gent_base_preprocess_input__submit(&$variables) {
   if (isset($variables['element']['#submit'][0]) && $variables['element']['#submit'][0] == 'file_managed_file_submit') {
     $variables['attributes']['class'][] = 'button--inline';
   }
