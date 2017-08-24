@@ -1,15 +1,15 @@
-@import '../../../../build/styleguide/sass/00-settings/reset';
+@import '../../../../contrib/gent_base/build/styleguide/sass/00-settings/reset';
 
-@import '../../../../build/styleguide/sass/00-settings/vars';
-@import '../../../../source/sass/00-settings/vars';
+@import '../../../../contrib/gent_base/build/styleguide/sass/00-settings/vars';
+@import '../../../../contrib/gent_base/source/sass/00-settings/vars';
 @import '00-settings/vars';
 
-@import '../../../../build/styleguide/sass/01-mixins/**/*';
-@import '../../../../source/sass/01-mixins/**/*';
+@import '../../../../contrib/gent_base/build/styleguide/sass/01-mixins/**/*';
+@import '../../../../contrib/gent_base/source/sass/01-mixins/**/*';
 @import '01-mixins/**/*';
 
-@import '../../../../build/styleguide/sass/02-sections/**/*';
-@import '../../../../source/sass/02-sections/**/*';
+@import '../../../../contrib/gent_base/build/styleguide/sass/02-sections/**/*';
+@import '../../../../contrib/gent_base/source/sass/02-sections/**/*';
 @import '02-sections/**/*';
 
 @import '../../../../contrib/gent_base/build/styleguide/sass/11-base/**/*';
