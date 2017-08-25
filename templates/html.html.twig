@@ -25,11 +25,6 @@
  * @ingroup themeable
  */
 #}
-{%
-  set body_classes = [
-    logged_in ? 'user-logged-in',
-  ]
-%}
 <!DOCTYPE html>
 <html{{ html_attributes }}>
   <head>
@@ -38,7 +33,7 @@
     <css-placeholder token="{{ placeholder_token }}">
     <js-placeholder token="{{ placeholder_token }}">
   </head>
-  <body{{ attributes.addClass(body_classes) }}>
+  <body{{ attributes }}>
     {#
       Keyboard navigation/accessibility link to main content section in
       page.html.twig.
