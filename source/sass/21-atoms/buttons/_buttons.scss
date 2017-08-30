@@ -1,0 +1,16 @@
+//
+// General button styling.
+//
+.button {
+  @extend %btn;
+}
+
+//
+// Inline button styling.
+//
+.inline.button,
+.button--inline,
+a.button--inline,
+input[type="submit"].button--inline {
+  @include btn-inlineblock
+}
