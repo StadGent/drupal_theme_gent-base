@@ -53,7 +53,10 @@ gulp.task('styles:build', function() {
     }))
     .pipe(sassLint.format())
     .pipe(csscomb())
-    .pipe(sass({outputStyle: 'compressed'})).on('error', sass.logError)
+    .pipe(sass({
+      outputStyle: 'compressed',
+      includePaths: ['../../../contrib/gent_base/source/node_modules/breakpoint-sass/stylesheets']
+    })).on('error', sass.logError)
     .pipe(autoprefixer({
         browsers: ['last 5 versions']
     }))
@@ -84,7 +87,10 @@ gulp.task('styles:dist', function() {
     .pipe(sassLint.format())
     .pipe(sourcemaps.init())
     .pipe(csscomb())
-    .pipe(sass({outputStyle: 'nested'})).on('error', sass.logError)
+    .pipe(sass({
+      outputStyle: 'nested',
+      includePaths: ['../../../contrib/gent_base/source/node_modules/breakpoint-sass/stylesheets']
+    })).on('error', sass.logError)
     .pipe(autoprefixer({
         browsers: ['last 5 versions']
     }))
