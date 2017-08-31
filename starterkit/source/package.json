@@ -32,8 +32,8 @@
     "yargs": "^8.0.2"
   },
   "scripts": {
-    "start": "grunt",
-    "build": "grunt build"
+    "start": "gulp",
+    "build": "gulp build"
   },
   "engines": {
     "node": ">=4.0.0"

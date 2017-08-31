@@ -71,3 +71,8 @@ fieldset {
     padding: .5rem 1rem;
   }
 }
+
+.filter-guidelines .filter-guidelines-item {
+  @extend %small;
+  margin: 0;
+}
