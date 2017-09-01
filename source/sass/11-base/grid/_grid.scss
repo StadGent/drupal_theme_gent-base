@@ -1,6 +1,3 @@
-main,
-div.site-navigation,
-header,
-footer {
+div.site-navigation {
   @extend .container;
 }
