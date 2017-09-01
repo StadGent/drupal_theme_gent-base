@@ -46,7 +46,7 @@
  */
 #}
 {% block banner %}
-  <header class="section--wrapper header" role="banner">
+  <header class="container section--wrapper header" role="banner">
     <div class="content-container">
       {{ page.header }}
     </div>
@@ -55,7 +55,7 @@
 
 {% if page.navigation %}
   {% block navigation %}
-    <div role="navigation" class="site-navigation section--accent">
+    <div role="navigation" class="container site-navigation section--accent ">
       <div class="content-container">
         {{ page.navigation }}
       </div>
@@ -64,7 +64,7 @@
 {% endif %}
 
 {% block main %}
-  <main class="section--default" role="main">
+  <main class="container section--default" role="main">
     <div class="content-container">
       <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
 
@@ -75,7 +75,7 @@
 
 {% block footer %}
   {% if page.footer_1 or page.footer_2 or page.footer_3 or page.footer_4 %}
-    <footer class="section--wrapper" role="contentinfo">
+    <footer class="container section--wrapper" role="contentinfo">
       <div class="content-container">
         <div class="row">
           <div class="col-tablet-3">
