@@ -1,0 +1,35 @@
+{%
+  set classes = [
+    'mijn-gent-block',
+  ]
+%}
+<div{{ attributes.addClass(classes) }}>
+  {% if login_link %}
+    <div class="user-anonymous">
+      {{ login_link }}
+    </div>
+  {% endif %}
+  <div class="user-logged-in">
+    <div class="toggle">
+      <div class="label">
+        {% if profile_url %}
+          <a href="{{ profile_url }}" class="user-has-profile">{{ username }}</a>
+          <span class="user-no-profile">{{ username }}</span>
+        {% else %}
+          {{ username }}
+        {% endif %}
+      </div>
+
+      {% if picture_url %}
+        <div class="picture">
+          <img src="{{ picture_url }}" alt="{{ username }}" class="user-has-profile" />
+          <img src="{{ default_picture_url }}" alt="{{ username }}" class="user-no-profile" />
+        </div>
+      {% endif %}
+    </div>
+
+    <div class="content">
+      {{ menu }}
+    </div>
+  </div>
+</div>
