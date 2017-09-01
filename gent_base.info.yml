@@ -17,3 +17,7 @@ libraries:
 # Removes all the classy stylesheets.
 libraries-override:
   classy/base: false
+  dg_auth_block/menu:
+    css:
+      component:
+        css/block.css: false
