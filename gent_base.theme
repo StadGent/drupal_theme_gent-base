@@ -50,3 +50,49 @@ function gent_base_preprocess_dg_auth_block(&$variables) {
     '#value' => t('Login') . ' <i class="icon-user"></i>',
   ];
 }
+
+/**
+ * Implements hook_preprocess_HOOK().
+ *
+ * Preprocess for the item_list__steps theme function.
+ * Use item_list__steps theme function to render steps for ex. form steps.
+ *
+ * Every item in #items should be an array that contains:
+ * - #markup = the item value
+ * - #active = if the item is active
+ * - #completed = if the item is completed
+ */
+function gent_base_preprocess_item_list__steps(&$variables) {
+  $items = $variables['items'];
+  $steps = [];
+
+  $count = 1;
+  foreach ($items as $item) {
+    $step = $item;
+    if (!is_array($item['value'])) {
+      $step['value'] = [
+        '#markup' => $item['value'],
+      ];
+    }
+
+    // Set default properties on a step.
+    $step['value'] += [
+      '#active' => FALSE,
+      '#completed' => FALSE,
+    ];
+    $step['attributes']['class'] = 'progress';
+
+    if ($step['value']['#active']) {
+      $item['attributes']['class'][] = 'progress-active';
+    }
+
+    if ($step['value']['#completed']) {
+      $item['attributes']['class'][] = 'progress-previous';
+    }
+
+    $steps[$count] = $step;
+    $count++;
+  }
+
+  $variables['items'] = $steps;
+}
