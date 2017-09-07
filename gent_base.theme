@@ -63,36 +63,26 @@ function gent_base_preprocess_dg_auth_block(&$variables) {
  * - #completed = if the item is completed
  */
 function gent_base_preprocess_item_list__steps(&$variables) {
-  $items = $variables['items'];
-  $steps = [];
-
+  $items = [];
   $count = 1;
-  foreach ($items as $item) {
-    $step = $item;
+  foreach ($variables['items'] as &$item) {
     if (!is_array($item['value'])) {
       $step['value'] = [
         '#markup' => $item['value'],
       ];
     }
 
-    // Set default properties on a step.
-    $step['value'] += [
-      '#active' => FALSE,
-      '#completed' => FALSE,
-    ];
-    $step['attributes']['class'] = 'progress';
-
-    if ($step['value']['#active']) {
+    $item['attributes']['class'] = 'progress';
+    if (!empty($item['value']['#active'])) {
       $item['attributes']['class'][] = 'progress-active';
     }
-
-    if ($step['value']['#completed']) {
+    if (!empty($item['value']['#completed'])) {
       $item['attributes']['class'][] = 'progress-previous';
     }
 
-    $steps[$count] = $step;
+    $items[$count] = $item;
     $count++;
   }
 
-  $variables['items'] = $steps;
+  $variables['items'] = $items;
 }
