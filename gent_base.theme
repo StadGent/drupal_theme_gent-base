@@ -50,3 +50,37 @@ function gent_base_preprocess_dg_auth_block(&$variables) {
     '#value' => t('Login') . ' <i class="icon-user"></i>',
   ];
 }
+
+/**
+ * Implements hook_preprocess_HOOK().
+ *
+ * Preprocess for the item_list__attachments theme function.
+ * Use item_list__attachments theme function to render
+ * a list of attachments with additional file size and type.
+ *
+ * Every item in #items should be an array that contains:
+ * - renderable array = the item value
+ * - #size = the size of the attachment
+ * - #type = the type of the attachment
+ */
+function gent_base_preprocess_item_list__attachments(&$variables) {
+  foreach ($variables['items'] as &$item) {
+    $item += [
+      'size' => NULL,
+      'type' => NULL,
+    ];
+
+    if (is_array($item['value'])) {
+      if (!empty($item['value']['#size'])) {
+        $item['size'] = $item['value']['#size'];
+      }
+      if (!empty($item['value']['#type'])) {
+        $item['type'] = $item['value']['#type'];
+      }
+    }
+
+  }
+
+  $variables['attributes']['class'][] = 'no-style';
+  $variables['attributes']['class'][] = 'links';
+}
