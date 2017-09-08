@@ -50,3 +50,39 @@ function gent_base_preprocess_dg_auth_block(&$variables) {
     '#value' => t('Login') . ' <i class="icon-user"></i>',
   ];
 }
+
+/**
+ * Implements hook_theme_registry_alter().
+ */
+function gent_base_theme_registry_alter(&$theme_registry) {
+  // Add support for the information property on elements.
+  $supported_types = ['fieldset', 'form_element'];
+  foreach ($supported_types as $supported_type) {
+    if (!isset($theme_registry[$supported_type])) {
+      continue;
+    }
+
+    $theme_registry[$supported_type]['preprocess functions'][] = 'gent_base_preprocess_element_information';
+  }
+}
+
+/**
+ * Preprocess function for elements that support the #information property.
+ *
+ * @param array $variables
+ *   Element variables.
+ */
+function gent_base_preprocess_element_information(&$variables) {
+  $element = &$variables['element'];
+  $variables['information'] = NULL;
+
+  if (!empty($element['#information'])) {
+    $information_attributes = [];
+    if (!empty($element['#id'])) {
+      $information_attributes['id'] = $element['#id'] . '--information';
+    }
+
+    $variables['information']['attributes'] = new \Drupal\Core\Template\Attribute($information_attributes);
+    $variables['information']['content'] = $element['#information'];
+  }
+}
