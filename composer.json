@@ -15,10 +15,10 @@
   ],
   "scripts": {
     "post-install-cmd": [
-      "cd source; sh install.sh"
+      "sh source/install.sh"
     ],
     "post-update-cmd": [
-      "cd source; sh install.sh"
+      "sh source/install.sh"
     ]
   }
 }
