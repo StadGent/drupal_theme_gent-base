@@ -52,6 +52,76 @@ function gent_base_preprocess_dg_auth_block(&$variables) {
 }
 
 /**
+ * Implements hook_preprocess_HOOK().
+ *
+ * Preprocess for the item_list__steps theme function.
+ * Use item_list__steps theme function to render steps for ex. form steps.
+ *
+ * Every item in #items should be an array that contains:
+ * - #markup = the item value
+ * - #active = if the item is active
+ * - #completed = if the item is completed
+ */
+function gent_base_preprocess_item_list__steps(&$variables) {
+  $items = [];
+  $count = 1;
+  foreach ($variables['items'] as &$item) {
+    if (!is_array($item['value'])) {
+      $step['value'] = [
+        '#markup' => $item['value'],
+      ];
+    }
+
+    $item['attributes']['class'] = 'progress';
+    if (!empty($item['value']['#active'])) {
+      $item['attributes']['class'][] = 'progress-active';
+    }
+    if (!empty($item['value']['#completed'])) {
+      $item['attributes']['class'][] = 'progress-previous';
+    }
+
+    $items[$count] = $item;
+    $count++;
+  }
+
+  $variables['items'] = $items;
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ *
+ * Preprocess for the item_list__attachments theme function.
+ * Use item_list__attachments theme function to render
+ * a list of attachments with additional file size and type.
+ *
+ * Every item in #items should be an array that contains:
+ * - renderable array = the item value
+ * - #size = the size of the attachment
+ * - #type = the type of the attachment
+ */
+function gent_base_preprocess_item_list__attachments(&$variables) {
+  foreach ($variables['items'] as &$item) {
+    $item += [
+      'size' => NULL,
+      'type' => NULL,
+    ];
+
+    if (is_array($item['value'])) {
+      if (!empty($item['value']['#size'])) {
+        $item['size'] = $item['value']['#size'];
+      }
+      if (!empty($item['value']['#type'])) {
+        $item['type'] = $item['value']['#type'];
+      }
+    }
+
+  }
+
+  $variables['attributes']['class'][] = 'no-style';
+  $variables['attributes']['class'][] = 'links';
+}
+
+/**
  * Implements hook_theme_registry_alter().
  */
 function gent_base_theme_registry_alter(&$theme_registry) {
