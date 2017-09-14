@@ -21,3 +21,11 @@ libraries-override:
     css:
       component:
         css/block.css: false
+  core/drupal.dropbutton:
+    css:
+      component:
+        misc/dropbutton/dropbutton.css: false
+  classy/dropbutton:
+    css:
+      component:
+        css/components/dropbutton.css: false
