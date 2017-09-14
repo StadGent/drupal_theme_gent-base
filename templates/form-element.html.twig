@@ -70,42 +70,48 @@
 set information_classes = ['field-description']
 %}
 <div{{ attributes.addClass(classes) }}>
-  {% if information %}
-    <div class="form-item-column">
-      <div{{ information.attributes.addClass(information_classes) }}>
-        {{ information.content }}
-      </div>
-    </div>
-  {%  endif %}
+  <div class="form-columns">
 
-  <div class="form-item-column">
     {% if label_display in ['before', 'invisible'] %}
       {{ label }}
     {% endif %}
-    {% if prefix is not empty %}
-      <span class="field-prefix">{{ prefix }}</span>
-    {% endif %}
-    {% if description_display == 'before' and description.content %}
-      <div{{ description.attributes }}>
-        {{ description.content }}
-      </div>
-    {% endif %}
-    {{ children }}
-    {% if suffix is not empty %}
-      <span class="field-suffix">{{ suffix }}</span>
-    {% endif %}
+
     {% if label_display == 'after' %}
       {{ label }}
     {% endif %}
-    {% if errors %}
-      <div class="form-item--error-message">
-        {{ errors }}
+
+    {% if information %}
+      <div class="form-item-column">
+        <div{{ information.attributes.addClass(information_classes) }}>
+          {{ information.content }}
+        </div>
       </div>
-    {% endif %}
-    {% if description_display in ['after', 'invisible'] and description.content %}
-      <div{{ description.attributes.addClass(description_classes) }}>
-        {{ description.content }}
-      </div>
-    {% endif %}
+    {%  endif %}
+
+    <div class="form-item-column">
+      {% if prefix is not empty %}
+        <span class="field-prefix">{{ prefix }}</span>
+      {% endif %}
+      {% if description_display == 'before' and description.content %}
+        <div{{ description.attributes }}>
+          {{ description.content }}
+        </div>
+      {% endif %}
+      {{ children }}
+      {% if suffix is not empty %}
+        <span class="field-suffix">{{ suffix }}</span>
+      {% endif %}
+      {% if errors %}
+        <div class="form-item--error-message">
+          {{ errors }}
+        </div>
+      {% endif %}
+      {% if description_display in ['after', 'invisible'] and description.content %}
+        <div{{ description.attributes.addClass(description_classes) }}>
+          {{ description.content }}
+        </div>
+      {% endif %}
+    </div>
+
   </div>
 </div>
