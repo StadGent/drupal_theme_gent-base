@@ -70,12 +70,12 @@
 set information_classes = ['field-description']
 %}
 <div{{ attributes.addClass(classes) }}>
+
+  {% if label_display in ['before', 'invisible'] %}
+    {{ label }}
+  {% endif %}
+
   <div class="form-columns">
-
-    {% if label_display in ['before', 'invisible'] %}
-      {{ label }}
-    {% endif %}
-
     {% if information %}
       <div class="form-item-column">
         <div{{ information.attributes.addClass(information_classes) }}>
@@ -111,6 +111,5 @@ set information_classes = ['field-description']
         </div>
       {% endif %}
     </div>
-
   </div>
 </div>
