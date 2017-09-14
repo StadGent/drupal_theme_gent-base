@@ -76,10 +76,6 @@ set information_classes = ['field-description']
       {{ label }}
     {% endif %}
 
-    {% if label_display == 'after' %}
-      {{ label }}
-    {% endif %}
-
     {% if information %}
       <div class="form-item-column">
         <div{{ information.attributes.addClass(information_classes) }}>
@@ -100,6 +96,9 @@ set information_classes = ['field-description']
       {{ children }}
       {% if suffix is not empty %}
         <span class="field-suffix">{{ suffix }}</span>
+      {% endif %}
+      {% if label_display == 'after' %}
+        {{ label }}
       {% endif %}
       {% if errors %}
         <div class="form-item--error-message">
