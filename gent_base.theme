@@ -23,6 +23,24 @@ function gent_base_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\Fo
 }
 
 /**
+ * Implements hook_form_alter().
+ */
+function gent_base_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  // Remove button classes form delete action.
+  if (isset($form['actions']['delete']['#attributes']['class'])) {
+    foreach (['button', 'button--danger'] as $class) {
+      if (($key = array_search($class, $form['actions']['delete']['#attributes']['class'])) !== FALSE) {
+        unset($form['actions']['delete']['#attributes']['class'][$key]);
+      }
+    }
+
+    $form['actions']['delete']['#attributes']['class'][] = 'delete';
+    $form['actions']['delete']['#attributes']['class'][] = 'right';
+  }
+}
+
+
+/**
  * Implements hook_preprocess_input__submit().
  */
 function gent_base_preprocess_input__submit(&$variables) {
