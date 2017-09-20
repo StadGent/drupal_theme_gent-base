@@ -45,6 +45,23 @@
  * @ingroup themeable
  */
 #}
+{% block admin %}
+{% set has_admin = page.admin|render|striptags|trim is not empty %}
+  {% if is_admin and has_admin %}
+    <header class="section--default" role="navigation">
+      {{ page.admin }}
+    </header>
+  {%  endif %}
+{% endblock %}
+<div class="container">
+  {% block banner %}
+  <header  class="section--wrapper" role="banner">
+    <div class="content-container">
+      {{ page.header }}
+    </div>
+  </header>
+{% endblock %}
+
 {% block banner %}
   <header class="container section--wrapper header" role="banner">
     <div class="content-container">
