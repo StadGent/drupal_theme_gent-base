@@ -1,0 +1,10 @@
+<div id="{{ attributes.id }}__container" class="map-container map-island clearfix">
+  <div id="{{ attributes.id }}__left-panel" class="map-container__side-panel">
+  <h3>{{'Toon op kaart'|t}}</h3>
+  </div>
+  <div{{ attributes.addClass('map-container__map') }}></div>
+</div>
+<div id="popup" class="ol-popup" style="display: none;">
+  <a href="#" id="popup-closer" class="ol-popup__closer"></a>
+  <div id="popup-content" class="ol-popup__content"></div>
+</div>
