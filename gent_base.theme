@@ -140,6 +140,18 @@ function gent_base_preprocess_item_list__attachments(&$variables) {
 }
 
 /**
+ * Implements hook_preprocess_HOOK().
+ *
+ * Add theming classes to Olark toggle, in dg_blocks Gentinfo block
+ */
+ function gent_base_preprocess_block(&$variables) {
+  if($variables['elements']['#plugin_id'] === 'dg_blocks_gentinfo_block' )
+  {
+    array_push($variables['content']['gent_olark']['#attributes']['class'] , 'btn', 'btn-medium', 'textballoon', 'btn--inverse');
+  }
+}
+
+/**
  * Implements hook_theme_registry_alter().
  */
 function gent_base_theme_registry_alter(&$theme_registry) {
