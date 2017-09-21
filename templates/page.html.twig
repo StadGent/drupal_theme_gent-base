@@ -54,15 +54,7 @@
   {%  endif %}
 {% endblock %}
 
-{% block banner %}
-  <header class="section--wrapper" role="banner">
-    <div class="content-container">
-      {{ page.header }}
-    </div>
-  </header>
-{% endblock %}
-
-{% block banner %}
+{% block header %}
   <header class="container section--wrapper header" role="banner">
     <div class="content-container">
       {{ page.header }}
@@ -84,7 +76,6 @@
   <main class="container section--default" role="main">
     <div class="content-container">
       <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
-
       {{ page.content }}
     </div>
   </main>
