@@ -139,6 +139,30 @@ function gent_base_preprocess_item_list__attachments(&$variables) {
   $variables['attributes']['class'][] = 'links';
 }
 
+ /**
+ * Implements hook_preprocess_HOOK().
+ *
+ * Add theming classes to dg_blocks
+ */
+ function gent_base_preprocess_block(&$variables) {
+  switch($variables['elements']['#plugin_id']) {
+    case 'dg_blocks_gentinfo_block':
+      array_push($variables['content']['gent_olark']['#attributes']['class'] , 'btn', 'textballoon');
+      break;
+    case 'dg_blocks_links_block':
+      array_push($variables['content']['content']['#attributes']['class'] , 'dg-block-links', 'island');
+      break;
+    case 'dg_blocks_social_media_block':
+      $variables['attributes']['class'][] = 'dg-blocks-social';
+      break;
+    case 'dg_blocks_address_block':
+      $variables['attributes']['class'][] = 'dg-block-post-address ';
+      break;
+    default:
+      break;
+  }
+}
+
 /**
  * Implements hook_theme_registry_alter().
  */

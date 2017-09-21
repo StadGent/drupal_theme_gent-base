@@ -33,19 +33,12 @@
   ]
 %}
 <div{{ attributes.addClass(classes) }}>
-
   {{ title_prefix }}
   {% if label %}
     <h2{{ title_attributes }}>{{ label }}</h2>
   {% endif %}
   {{ title_suffix }}
-
-  {% block main %}
-    <ul {{ attributes.addclass("no-style") }}>
-      <li>{{ content.dg_blocks_phone }} - {{content.dg_blocks_text_1}}</li>
-      <li>{{ content.dg_blocks_e_mail}}</li>
-      <li>{{ content.dg_blocks_hyperlink }}</li>
-    </ul>
+  {% block content %}
+    {{ content }}
   {% endblock %}
-
 </div>
