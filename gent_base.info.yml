@@ -31,3 +31,5 @@ libraries-override:
     css:
       component:
         css/components/dropbutton.css: false
+'interface translation project': gent_base
+'interface translation server pattern': themes/contrib/gent_base/translations/%language.po
