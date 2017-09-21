@@ -83,20 +83,42 @@
 
 {% block footer %}
   {% if page.footer_1 or page.footer_2 or page.footer_3 or page.footer_4 %}
+    {%
+      set footer_class = [
+        page.footer_1 and page.footer_2 and page.footer_3 ? 'col-tablet-3',
+        page.footer_1 is empty and page.footer_2 and page.footer_3 ? 'col-tablet-4',
+        page.footer_1 and page.footer_2 is empty and page.footer_3 ? 'col-tablet-4',
+        page.footer_1 and page.footer_2 and page.footer_3 is empty ? 'col-tablet-4',
+        page.footer_1 and page.footer_2 is empty and page.footer_3 is empty ? 'col-tablet-6',
+        page.footer_1 is empty and page.footer_2 and page.footer_3 is empty ? 'col-tablet-6',
+        page.footer_1 is empty and page.footer_2 is empty and page.footer_3 ? 'col-tablet-6',
+      ]
+    %}
     <footer class="container section--wrapper" role="contentinfo">
       <div class="content-container">
         <div class="row">
-          <div class="col-tablet-3">
-            {{ page.footer_1 }}
-          </div>
-          <div class="col-tablet-3">
-            {{ page.footer_2 }}
-          </div>
-          <div class="col-tablet-3">
-            {{ page.footer_3 }}
-          </div>
-          <div class="col-tablet-3">
+          {% if page.footer_1 %}
+            <div {{ content_attributes.addClass(footer_class) }}>
+              {{ page.footer_1 }}
+            </div>
+          {% endif %}
+          {% if page.footer_2 %}
+            <div {{ content_attributes.addClass(footer_class) }}>
+              {{ page.footer_2 }}
+            </div>
+          {% endif %}
+          {% if page.footer_3 %}
+            <div {{ content_attributes.addClass(footer_class) }}>
+              {{ page.footer_3 }}
+            </div>
+          {% endif %}
+          <div {{ content_attributes.addClass(footer_class) }}>
             {{ page.footer_4 }}
+            {% block partner %}
+              <div class="db-block-partnership">
+                <p>{{ 'In cooperation with'|trans }} <i class="icon-digipolis"></i> Digipolis</p>
+              </div>
+            {% endblock %}
           </div>
         </div>
       </div>
