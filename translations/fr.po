@@ -11,3 +11,5 @@ msgstr ""
 
 msgid "In cooperation with"
 msgstr "En coopération avec"
+msgid "Show on map"
+msgstr "Voir sur la carte"
