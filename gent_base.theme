@@ -147,10 +147,10 @@ function gent_base_preprocess_item_list__attachments(&$variables) {
  function gent_base_preprocess_block(&$variables) {
   switch($variables['elements']['#plugin_id']) {
     case 'dg_blocks_gentinfo_block':
-      array_push($variables['content']['gent_olark']['#attributes']['class'] , 'btn', 'btn-medium', 'textballoon', 'btn--inverse');
+      array_push($variables['content']['gent_olark']['#attributes']['class'] , 'btn', 'textballoon');
       break;
     case 'dg_blocks_links_block':
-      array_push($variables['content']['content']['#attributes']['class'] , 'dg-block-links', 'island' );
+      array_push($variables['content']['content']['#attributes']['class'] , 'dg-block-links', 'island');
       break;
     case 'dg_blocks_social_media_block':
       $variables['attributes']['class'][] = 'dg-blocks-social';
