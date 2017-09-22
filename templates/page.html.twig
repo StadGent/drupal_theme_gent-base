@@ -51,7 +51,7 @@
     <header class="section--default" role="navigation">
       {{ page.admin }}
     </header>
-  {%  endif %}
+  {% endif %}
 {% endblock %}
 
 {% block header %}
@@ -62,15 +62,15 @@
   </header>
 {% endblock %}
 
-{% if page.navigation %}
-  {% block navigation %}
+{% block navigation %}
+  {% if page.navigation %}
     <div role="navigation" class="container site-navigation section--accent ">
       <div class="content-container">
         {{ page.navigation }}
       </div>
     </div>
-  {% endblock %}
-{% endif %}
+  {% endif %}
+{% endblock %}
 
 {% block main %}
   <main class="container section--default" role="main">
