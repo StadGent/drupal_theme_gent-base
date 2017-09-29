@@ -5,10 +5,13 @@
  * Functions to support theming in the Gent Base theme.
  */
 
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Template\Attribute;
+
 /**
  * Implements hook_form_system_theme_settings_alter().
  */
-function gent_base_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\FormStateInterface &$form_state, $form_id = NULL) {
+function gent_base_form_system_theme_settings_alter(&$form, FormStateInterface $form_state, $form_id = NULL) {
   // Work-around for a core bug affecting admin themes. See issue #943212.
   if (isset($form_id)) {
     return;
@@ -25,7 +28,7 @@ function gent_base_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\Fo
 /**
  * Implements hook_form_alter().
  */
-function gent_base_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+function gent_base_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   // Remove button classes form delete action.
   if (isset($form['actions']['delete']['#attributes']['class'])) {
     foreach (['button', 'button--danger'] as $class) {
@@ -144,25 +147,29 @@ function gent_base_preprocess_item_list__attachments(&$variables) {
   $variables['attributes']['class'][] = 'links';
 }
 
- /**
- * Implements hook_preprocess_HOOK().
- *
- * Add theming classes to dg_blocks
- */
- function gent_base_preprocess_block(&$variables) {
-  switch($variables['elements']['#plugin_id']) {
+/**
+* Implements hook_preprocess_HOOK().
+*
+* Add theming classes to dg_blocks.
+*/
+function gent_base_preprocess_block(&$variables) {
+  switch ($variables['elements']['#plugin_id']) {
     case 'dg_blocks_gentinfo_block':
-      array_push($variables['content']['gent_olark']['#attributes']['class'] , 'btn', 'textballoon');
+      array_push($variables['content']['gent_olark']['#attributes']['class'], 'btn', 'textballoon');
       break;
+
     case 'dg_blocks_links_block':
-      array_push($variables['content']['links']['#attributes']['class'] , 'dg-block-links', 'island');
+      array_push($variables['content']['links']['#attributes']['class'], 'dg-block-links', 'island');
       break;
+
     case 'dg_blocks_social_media_block':
       $variables['attributes']['class'][] = 'dg-blocks-social';
       break;
+
     case 'dg_blocks_address_block':
       $variables['attributes']['class'][] = 'dg-block-post-address ';
       break;
+
     default:
       break;
   }
@@ -199,7 +206,7 @@ function gent_base_preprocess_element_information(&$variables) {
       $information_attributes['id'] = $element['#id'] . '--information';
     }
 
-    $variables['information']['attributes'] = new \Drupal\Core\Template\Attribute($information_attributes);
+    $variables['information']['attributes'] = new Attribute($information_attributes);
     $variables['information']['content'] = $element['#information'];
   }
 }
