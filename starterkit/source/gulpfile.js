@@ -15,7 +15,6 @@ var imagemin = require('gulp-imagemin');
 var pngquant = require('imagemin-pngquant');
 var es = require('event-stream');
 var minify = require('gulp-minify');
-var csscomb =require('gulp-csscomb');
 var bump = require('gulp-bump');
 var del = require('del');
 var sequence = require('run-sequence');
@@ -38,7 +37,6 @@ var globalConfig = {
  *  Sass globbing
  *  SCSS linting
  *  Compresssed output style
- *  CSScomb validation
  *  Autoprefixer
  *
  */
@@ -47,18 +45,16 @@ gulp.task('styles:build', function() {
     .pipe(plumber())
     .pipe(sassGlob())
     .pipe(sassLint({
-      configFile: './.sass-lint.yml',
-      formatter: 'stylish',
-      'merge-default-rules': false
+      configFile: './.sass-lint.yml'
     }))
     .pipe(sassLint.format())
-    .pipe(csscomb())
+    .pipe(sassLint.failOnError())
     .pipe(sass({
       outputStyle: 'compressed',
       includePaths: ['../../../contrib/gent_base/source/node_modules/breakpoint-sass/stylesheets']
     })).on('error', sass.logError)
     .pipe(autoprefixer({
-        browsers: ['last 5 versions']
+      browsers: ['last 5 versions']
     }))
     .pipe(gulp.dest(globalConfig.css_dir))
 });
@@ -70,7 +66,6 @@ gulp.task('styles:build', function() {
  *  Sass globbing
  *  SCSS linting
  *  Nested output style
- *  CSScomb validation
  *  Sourcemaps (dev only!)
  *  Autoprefixer
  *
@@ -79,20 +74,13 @@ gulp.task('styles:dist', function() {
   gulp.src(globalConfig.sass_dir + '/**/*.s+(a|c)ss')
     .pipe(plumber())
     .pipe(sassGlob())
-    .pipe(sassLint({
-      configFile: './.sass-lint.yml',
-      formatter: 'stylish',
-      'merge-default-rules': false
-    }))
-    .pipe(sassLint.format())
     .pipe(sourcemaps.init())
-    .pipe(csscomb())
     .pipe(sass({
       outputStyle: 'nested',
       includePaths: ['../../../contrib/gent_base/source/node_modules/breakpoint-sass/stylesheets']
     })).on('error', sass.logError)
     .pipe(autoprefixer({
-        browsers: ['last 5 versions']
+      browsers: ['last 5 versions']
     }))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest(globalConfig.css_dir))
@@ -105,11 +93,12 @@ gulp.task('styles:dist', function() {
  */
 gulp.task('styles:validate', function() {
   return gulp.src(globalConfig.sass_dir + '/**/*.s+(a|c)ss')
-  .pipe(plumber())
-  .pipe(sassLint({
-    configFile: './.sass-lint.yml'
-  }))
-  .pipe(sassLint.format())
+    .pipe(plumber())
+    .pipe(sassLint({
+      configFile: './.sass-lint.yml'
+    }))
+    .pipe(sassLint.format())
+    .pipe(sassLint.failOnError())
 });
 
 /*
