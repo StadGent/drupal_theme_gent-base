@@ -3,7 +3,7 @@
 
 options:
   formatter: stylish
-  merge-default-rules: true
+  merge-default-rules: false
 rules:
   # Extends
   extends-before-mixins: 2
@@ -13,6 +13,10 @@ rules:
   # Mixins
   mixins-before-declarations:
     - 2
+    - exclude:
+      - desktop
+      - tablet
+      - tablet-only
 
   # Line Spacing
   one-declaration-per-line: 2
@@ -93,6 +97,7 @@ rules:
   hex-notation: 2
   indentation: 2
   leading-zero: 2
+  pseudo-element: 2
   nesting-depth:
     - 2
     - max-depth: 4
