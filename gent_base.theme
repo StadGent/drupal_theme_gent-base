@@ -25,7 +25,6 @@ function gent_base_form_alter(&$form, FormStateInterface $form_state, $form_id) 
   }
 }
 
-
 /**
  * Implements hook_preprocess_input__submit().
  */
@@ -58,6 +57,15 @@ function gent_base_preprocess_dg_auth_block(&$variables) {
     ],
     '#value' => t('Login') . ' <i class="icon-user"></i>',
   ];
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ *
+ * Adds theme settings as variables to html.twig template.
+ */
+function gent_base_preprocess_html(&$variables) {
+  $variables['typekit_id'] = theme_get_setting('typekit_id');
 }
 
 /**
@@ -131,10 +139,10 @@ function gent_base_preprocess_item_list__attachments(&$variables) {
 }
 
 /**
-* Implements hook_preprocess_HOOK().
-*
-* Add theming classes to dg_blocks.
-*/
+ * Implements hook_preprocess_HOOK().
+ *
+ * Add theming classes to dg_blocks.
+ */
 function gent_base_preprocess_block(&$variables) {
   switch ($variables['elements']['#plugin_id']) {
     case 'dg_blocks_gentinfo_block':
@@ -142,15 +150,19 @@ function gent_base_preprocess_block(&$variables) {
         array_push($variables['content']['gent_olark']['#attributes']['class'], 'btn', 'textballoon');
       }
       break;
+
     case 'dg_blocks_links_block':
       array_push($variables['content']['links']['#attributes']['class'], 'dg-block-links', 'island');
       break;
+
     case 'dg_blocks_social_media_block':
       $variables['attributes']['class'][] = 'dg-blocks-social';
       break;
+
     case 'dg_blocks_address_block':
       $variables['attributes']['class'][] = 'dg-block-post-address ';
       break;
+
     default:
       break;
   }
