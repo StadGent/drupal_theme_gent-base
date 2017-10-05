@@ -73,7 +73,7 @@ function gent_base_preprocess_dg_auth_block(&$variables) {
         'login-link',
       ],
     ],
-    '#value' => t('Login') . ' <i class="icon-user"></i>',
+    '#value' => $variables['login_link']['#title'] . ' <i class="icon-user"></i>',
   ];
 }
 
