@@ -5,7 +5,7 @@ https://stijlgids.stad.gent/
 It is loaded in through an NPM package `gent_styleguide` (https://www.npmjs.com/package/gent_styleguide) and uses a starterkit
 subtheme to let you adjust according to your specific needs.
 
-#### Installation
+## Installation
 To install and use this base theme and a subtheme of it follow these steps:
 * Add the `gent_base` composer package from the duplo packagist to your Drupal composer.json file:
   By adding the post install and post update commands we ensure that the gent_base theme is installed correctly and
@@ -50,3 +50,14 @@ To install and use this base theme and a subtheme of it follow these steps:
 * Copy the starterkit folder to /themes/custom of your Drupal installation and just follow the installation instructions in the `INSTALL.md` file.
 
 Done!
+
+## Theming considerations
+
+### Typekit integration
+This theme uses Gent Styleguide as basic CSS theming. The Stylguide uses a font
+(Expressway), which is an Adobe Typekit font. In order to render this font
+correctly a typekit for your project should be created.
+
+We defined a general gent base theme-setting called typekit_id to implement support
+for Adobe Typekit inside our Theme. Just put the typekit id in the typekit_id themesetting
+and your webfonts should be up and running.
