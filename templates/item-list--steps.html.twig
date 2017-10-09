@@ -38,17 +38,13 @@
       {%- for count,item in items -%}
         <li{{ item.attributes }}>
           {% if item.url %}
-            <a href="{{ item.url }}" class="count">
-          {% endif %}
-          <span class="count">{{ count }}</span>
-          {% if item.url %}
-            </a>
+            <a href="{{ item.url }}" class="indicator">
           {% endif %}
 
-          {% if item.url %}
-          <a href="{{ item.url }}" class="indicator">
-            {% endif %}
-          <span class="indicator">{{ item.value }}</span>
+          <span class="count">{{ count }}</span>
+
+          <span>{{ item.value }}</span>
+
           {% if item.url %}
             </a>
           {% endif %}
