@@ -72,19 +72,21 @@ function gent_base_preprocess_item_list__steps(&$variables) {
         '#markup' => $item['value'],
       ];
     }
+    else {
+      $item['url'] = NULL;
+      if (!empty($item['value']['#url'])) {
+        $item['url'] = $item['value']['#url'];
+      }
 
-    $item['url'] = NULL;
-    if (!empty($item['value']['#url'])) {
-      $item['url'] = $item['value']['#url'];
+      $item['attributes']['class'] = 'progress';
+      if (!empty($item['value']['#active'])) {
+        $item['attributes']['class'][] = 'progress-active';
+      }
+      if (!empty($item['value']['#completed'])) {
+        $item['attributes']['class'][] = 'progress-previous';
+      }
     }
 
-    $item['attributes']['class'] = 'progress';
-    if (!empty($item['value']['#active'])) {
-      $item['attributes']['class'][] = 'progress-active';
-    }
-    if (!empty($item['value']['#completed'])) {
-      $item['attributes']['class'][] = 'progress-previous';
-    }
 
     $items[$count] = $item;
     $count++;
