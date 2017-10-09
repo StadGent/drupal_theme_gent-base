@@ -76,6 +76,7 @@ function gent_base_preprocess_html(&$variables) {
  *
  * Every item in #items should be an array that contains:
  * - #markup = the item value
+ * - #url = optional url for the count and the list value.
  * - #active = if the item is active
  * - #completed = if the item is completed
  */
@@ -84,18 +85,25 @@ function gent_base_preprocess_item_list__steps(&$variables) {
   $count = 1;
   foreach ($variables['items'] as &$item) {
     if (!is_array($item['value'])) {
-      $step['value'] = [
+      $item['value'] = [
         '#markup' => $item['value'],
       ];
     }
+    else {
+      if (!empty($item['value']['#url'])) {
+        $item['url'] = $item['value']['#url'];
+      }
 
-    $item['attributes']['class'] = 'progress';
-    if (!empty($item['value']['#active'])) {
-      $item['attributes']['class'][] = 'progress-active';
+      $item['attributes']['class'] = 'progress';
+      if (!empty($item['value']['#active'])) {
+        $item['attributes']['class'][] = 'progress-active';
+      }
+
+      if (!empty($item['value']['#completed'])) {
+        $item['attributes']['class'][] = 'progress-previous';
+      }
     }
-    if (!empty($item['value']['#completed'])) {
-      $item['attributes']['class'][] = 'progress-previous';
-    }
+
 
     $items[$count] = $item;
     $count++;

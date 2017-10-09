@@ -37,10 +37,17 @@
       <{{ list_type }}{{ attributes.addClass('no-style')  }}>
       {%- for count,item in items -%}
         <li{{ item.attributes }}>
+          {% if item.url %}
+            <a href="{{ item.url }}" class="indicator">
+          {% endif %}
+
           <span class="count">{{ count }}</span>
-          <span class="indicator">
-              {{ item.value }}
-            </span>
+
+          <span class="label">{{ item.value }}</span>
+
+          {% if item.url %}
+            </a>
+          {% endif %}
         </li>
       {%- endfor -%}
       </{{ list_type }}>
