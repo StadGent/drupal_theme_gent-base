@@ -73,7 +73,6 @@ function gent_base_preprocess_item_list__steps(&$variables) {
       ];
     }
     else {
-      $item['url'] = NULL;
       if (!empty($item['value']['#url'])) {
         $item['url'] = $item['value']['#url'];
       }
@@ -82,6 +81,7 @@ function gent_base_preprocess_item_list__steps(&$variables) {
       if (!empty($item['value']['#active'])) {
         $item['attributes']['class'][] = 'progress-active';
       }
+
       if (!empty($item['value']['#completed'])) {
         $item['attributes']['class'][] = 'progress-previous';
       }
