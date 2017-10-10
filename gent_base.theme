@@ -101,6 +101,7 @@ function gent_base_preprocess_item_list__steps(&$variables) {
 
       if (!empty($item['value']['#completed'])) {
         $item['attributes']['class'][] = 'progress-previous';
+        $item['icon']['#markup'] = '<i class="icon icon-check"></i>';
       }
     }
 
