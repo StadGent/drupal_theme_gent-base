@@ -34,23 +34,27 @@
 
   {%- if items -%}
     <div class="form-progress">
-      <{{ list_type }}{{ attributes.addClass('no-style')  }}>
-      {%- for count,item in items -%}
-        <li{{ item.attributes }}>
-          {% if item.url %}
-            <a href="{{ item.url }}" class="indicator">
+    <{{ list_type }}{{ attributes.addClass('no-style')  }}>
+    {%- for count,item in items -%}
+      <li{{ item.attributes }}>
+        {% if item.url %}
+        <a href="{{ item.url }}" class="indicator">
           {% endif %}
 
-          <span class="count">{{ count }}</span>
+          {% if item.icon %}
+            <span class="count">{{ item.icon }}</span>
+          {% else %}
+            <span class="count">{{ count }}</span>
+          {% endif %}
 
           <span class="label">{{ item.value }}</span>
 
           {% if item.url %}
-            </a>
-          {% endif %}
-        </li>
-      {%- endfor -%}
-      </{{ list_type }}>
+        </a>
+        {% endif %}
+      </li>
+    {%- endfor -%}
+    </{{ list_type }}>
     </div>
   {%- else -%}
     {{- empty -}}
