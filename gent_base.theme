@@ -4,6 +4,23 @@
  * @file
  * Functions to support theming in the Gent Base theme.
  */
+ 
+ 
+/**
+ * Implements hook_page_attachments_alter().
+ */
+function gent_base_page_attachments_alter(array &$page) {
+  $ie_edge = [
+    '#type' => 'html_tag',
+    '#tag' => 'meta',
+    '#attributes' => [
+    'http-equiv' => 'X-UA-Compatible',
+    'content' => 'IE=edge',
+    ],
+  ];
+
+  $page['#attached']['html_head'][] = [$ie_edge, 'ie_edge'];
+}
 
 /**
  * Implements hook_form_system_theme_settings_alter().
