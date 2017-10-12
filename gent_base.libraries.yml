@@ -1,6 +1,14 @@
 breadcrumbs:
   version: 1.x
   js:
-    build/styleguide/js/breadcrumbs-min.js: {}
+    build/styleguide/js/breadcrumbs.binding-min.js: {}
+    build/styleguide/js/breadcrumbs.functions-min.js: {}
+  dependencies:
+    - core/jquery
+header:
+  version: 1.x
+  js:
+    build/styleguide/js/header.binding-min.js: {}
+    build/styleguide/js/header.functions-min.js: {}
   dependencies:
     - core/jquery
