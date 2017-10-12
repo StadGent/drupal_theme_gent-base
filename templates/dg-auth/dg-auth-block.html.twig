@@ -5,13 +5,11 @@
 %}
 <div{{ attributes.addClass(classes) }}>
   {% if login_link %}
-    <div class="user-anonymous clearfix">
-      <div class="label login-link">
-        {{ login_link }}
-      </div>
+    <div class="user-anonymous">
+      {{ login_link }}
     </div>
   {% endif %}
-  <div class="user-logged-in clearfix">
+  <div class="user-logged-in">
     <div class="toggle">
       <div class="label">
         {% if profile_url %}
