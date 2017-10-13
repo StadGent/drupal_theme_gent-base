@@ -6,12 +6,19 @@ breadcrumbs:
   dependencies:
     - core/jquery
 
-
 header:
   version: 1.x
   js:
+    build/styleguide/js/header.binding-min.js: { minified: true }
     build/styleguide/js/header.functions-min.js: { minified: true }
-    build/js/header-min.js: {}
+  dependencies:
+    - core/jquery
+
+hamburger:
+  version: 1.x
+  js:
+    build/styleguide/js/hamburger-menu.functions-min.js: { minified: true }
+    build/js/hamburger-min.js: {}
   dependencies:
     - core/drupal
     - core/jquery

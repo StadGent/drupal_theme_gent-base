@@ -86,7 +86,7 @@ gulp.task('build:clean', function(cb) {
  *
  */
 gulp.task('default', function (done) {
-  sequence('build:clean', ['validate', 'compile'], done);
+  sequence(['validate', 'compile'], done);
 });
 
 
@@ -109,11 +109,11 @@ gulp.task('validate', ['js:validate']);
  *  Used build the SCSS and JS code. This also minifies images.
  */
 gulp.task('compile', function (done) {
-  sequence('build:clean', ['js:build'], done);
+  sequence(['js:build'], done);
 });
 
 gulp.task('compile:dev', function (done) {
-  sequence('build:clean', ['js:dist'], done);
+  sequence(['js:dist'], done);
 });
 
 /*
@@ -126,5 +126,5 @@ gulp.task('compile:dev', function (done) {
  *
  */
 gulp.task('build', function (done) {
-  sequence('build:clean', ['validate', 'compile'], done);
+  sequence(['validate', 'compile'], done);
 });

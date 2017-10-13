@@ -17,6 +17,7 @@ regions:
 libraries:
   - gent_base/breadcrumbs
   - gent_base/header
+  - gent_base/hamburger
 # Removes all the classy stylesheets.
 libraries-override:
   classy/base: false
