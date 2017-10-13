@@ -15,7 +15,7 @@ function gent_base_form_system_theme_settings_alter(&$form, &$form_state, $form_
   $form['type_kit_id'] = [
     '#type' => 'textfield',
     '#title' => t('Adobe Typekit-ID'),
-    '#default_value' => theme_get_setting('typekit_id'),
+    '#default_value' => theme_get_setting('type_kit_id'),
     '#description' => t('Fill in the Adobe Typekit-ID to be used in your project'),
   ];
 
