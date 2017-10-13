@@ -157,6 +157,7 @@ gulp.task('js:validate', function() {
       configFile: './.eslintrc'
     }))
     .pipe(eslint.format())
+    .pipe(eslint.failAfterError())
 });
 
 /*
