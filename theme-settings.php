@@ -12,7 +12,7 @@ require_once dirname(__FILE__) . '/template.php';
  */
 function gent_base_form_system_theme_settings_alter(&$form, &$form_state, $form_id = NULL) {
 
-  $form['typekit_id'] = [
+  $form['type_kit_id'] = [
     '#type' => 'textfield',
     '#title' => t('Adobe Typekit-ID'),
     '#default_value' => theme_get_setting('typekit_id'),
