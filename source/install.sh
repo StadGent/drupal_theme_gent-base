@@ -12,4 +12,7 @@ cp -R ./node_modules/gent_styleguide/build/styleguide/fonts ../build/styleguide/
 cp -R ./node_modules/gent_styleguide/build/styleguide/img ../build/styleguide/img
 cp -R ./node_modules/gent_styleguide/build/styleguide/js ../build/styleguide/js
 
+echo "Building Gent basetheme js..."
+gulp build
+
 echo "The Gent basetheme is successfully installed!"
