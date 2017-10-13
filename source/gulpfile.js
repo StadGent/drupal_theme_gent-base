@@ -64,6 +64,7 @@ gulp.task('js:validate', function() {
       configFile: './.eslintrc'
     }))
     .pipe(eslint.format())
+    .pipe(eslint.failAfterError())
 });
 
 /*
@@ -96,7 +97,7 @@ gulp.task('default', function (done) {
  * Usage:
  *  gulp validate
  *
- *  Used to only validate the SCSS and JS code.
+ *  Used to validate JS code.
  *
  */
 gulp.task('validate', ['js:validate']);
@@ -106,7 +107,7 @@ gulp.task('validate', ['js:validate']);
  * Usage:
  *  gulp compile
  *
- *  Used build the SCSS and JS code. This also minifies images.
+ *  Used build to build JS code.
  */
 gulp.task('compile', function (done) {
   sequence(['js:build'], done);

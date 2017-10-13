@@ -18,7 +18,7 @@ hamburger:
   version: 1.x
   js:
     build/styleguide/js/hamburger-menu.functions-min.js: { minified: true }
-    build/js/hamburger-min.js: {}
+    build/js/hamburger-menu.binding-min.js: {}
   dependencies:
     - core/drupal
     - core/jquery
