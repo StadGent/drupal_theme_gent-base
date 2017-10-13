@@ -3,13 +3,29 @@
   "version": "2.1.1",
   "description": "Gent Base contrib theme for Drupal 8.",
   "authors": [
-    "Gert-Jan Meire <gertjan.meire@digipolis.gent>"
+    "Gert-Jan Meire <gertjan.meire@digipolis.gent>",
+    "Wim Vantomme <wim.vantomme@digipolis.gent>"
   ],
   "license": "ISC",
   "devDependencies": {
-    "gent_styleguide": "^2.6.0"
+    "del": "^3.0.0",
+    "event-stream": "^3.3.4",
+    "gent_styleguide": "^2.6.0",
+    "gulp": "^3.9.1",
+    "gulp-contrib-copy": "^0.1.3",
+    "gulp-eslint": "^4.0.0",
+    "gulp-minify": "^1.0.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sourcemaps": "^2.6.1",
+    "npm": "^5.4.2",
+    "run-sequence": "^2.2.0",
+    "yargs": "^8.0.2"
   },
-  "scripts": {},
+  "scripts": {
+    "start": "gulp",
+    "build": "gulp build"
+  },
   "engines": {
     "node": ">=4.0.0"
   },

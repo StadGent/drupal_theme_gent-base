@@ -6,9 +6,10 @@ base theme: classy
 hidden: true
 regions:
   admin: Administration header
-  header: 'Header'
-  navigation: 'Navigation'
-  content: 'Content'
+  header: Header
+  navigation: Navigation
+  nav_mobile: Mobile navigation panel
+  content: Content
   footer_1: Footer left
   footer_2: Footer middle left
   footer_3: Footer middle right
@@ -16,6 +17,7 @@ regions:
 libraries:
   - gent_base/breadcrumbs
   - gent_base/header
+  - gent_base/hamburger
 # Removes all the classy stylesheets.
 libraries-override:
   classy/base: false
