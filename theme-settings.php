@@ -11,6 +11,14 @@ require_once dirname(__FILE__) . '/template.php';
  * Implements hook_form_FORM_alter().
  */
 function gent_base_form_system_theme_settings_alter(&$form, &$form_state, $form_id = NULL) {
+
+  $form['typekit_id'] = [
+    '#type' => 'textfield',
+    '#title' => t('Adobe Typekit-ID'),
+    '#default_value' => theme_get_setting('typekit_id'),
+    '#description' => t('Fill in the Adobe Typekit-ID to be used in your project'),
+  ];
+
   // Only show these settings for the subtheme.
   if ($GLOBALS['theme_key'] == 'gent_base') {
     return;
