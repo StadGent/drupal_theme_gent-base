@@ -1,14 +1,18 @@
 breadcrumbs:
   version: 1.x
   js:
-    build/styleguide/js/breadcrumbs.binding-min.js: {}
-    build/styleguide/js/breadcrumbs.functions-min.js: {}
+    build/styleguide/js/breadcrumbs.binding-min.js: { minified: true }
+    build/styleguide/js/breadcrumbs.functions-min.js: { minified: true }
   dependencies:
     - core/jquery
+
 
 header:
   version: 1.x
   js:
-    build/styleguide/js/header.functions-min.js: {}
+    build/styleguide/js/header.functions-min.js: { minified: true }
+    build/js/header-min.js: {}
   dependencies:
+    - core/drupal
     - core/jquery
+    - core/jquery.once
