@@ -15,6 +15,8 @@ All Notable changes to `digipolisgent/gent_base`.
 * Sticky admin menu wraps inside #sticky-wrapper-admin
    We wrap the sticky admin menu in a div on top of the page. #sticky-wrapper is already used by other
    sticky containers (webform progress, kids subnavigation, sticky accordion...)
+* Switched expressway font to typekit integration and removed it from repo.
+
 
 
 ## [7.x-2.5]
