@@ -16,6 +16,8 @@ All Notable changes to `digipolisgent/gent_base`.
    We wrap the sticky admin menu in a div on top of the page. #sticky-wrapper is already used by other
    sticky containers (webform progress, kids subnavigation, sticky accordion...)
 * Added title attribute to gpdc sheet form url.
+* Switched expressway font to typekit integration and removed it from repo.
+
 
 ## [7.x-2.5]
 ### Changed
