@@ -1,9 +1,14 @@
+.form-item .form-label > label.visually-hidden {
+  width: 1px;
+}
+
 .field {
   &.field--label-inline {
     > div {
       display: inline;
     }
   }
+
   .field__label {
     font-weight: bold;
   }
@@ -26,7 +31,7 @@ fieldset {
 .filter-wrapper {
   margin: -1rem 0 1rem;
 
-  .filter-help a:after {
+  .filter-help a::after {
     top: .25rem;
   }
 }
@@ -49,15 +54,15 @@ fieldset {
         margin: -.5rem 0 0 -.5rem;
 
         .handle {
-          padding: .75rem .75rem;
           margin: .5rem;
+          padding: .75rem;
         }
       }
     }
 
     .tabledrag-hide {
-      vertical-align: middle;
       padding-left: 1rem;
+      vertical-align: middle;
     }
   }
 }
