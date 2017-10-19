@@ -18,7 +18,7 @@ hamburger:
   version: 1.x
   js:
     build/styleguide/js/hamburger-menu.functions-min.js: { minified: true }
-    build/js/hamburger-menu.binding-min.js: {}
+    build/js/hamburger-menu.binding-min.js: { minified: true }
   dependencies:
     - core/drupal
     - core/jquery
@@ -28,17 +28,16 @@ light-gallery:
   version: 1.x
   css:
     theme:
-      build/vendor/lightgallery/dist/css/lightgallery.css: {}
+      build/styleguide/vendor/lightgallery/dist/css/lightgallery.min.css: { minified: true }
   js:
-    build/vendor/lightgallery/dist/js/lightgallery.js: {}
+    build/styleguide/vendor/lightgallery/dist/js/lightgallery.min.js: { minified: true }
 
 gallery:
   version: 1.x
   js:
     build/styleguide/js/gallery.functions-min.js: { minified: true }
-    build/js/gallery.binding-min.js: {}
+    build/js/gallery.binding-min.js: { minified: true }
   dependencies:
     - core/drupal
     - core/jquery
     - core/jquery.once
-    - gent_base/light-gallery
