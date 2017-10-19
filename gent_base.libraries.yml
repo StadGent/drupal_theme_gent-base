@@ -24,16 +24,21 @@ hamburger:
     - core/jquery
     - core/jquery.once
 
-gallery:
+light-gallery:
   version: 1.x
   css:
     theme:
-      https://cdn.jsdelivr.net/npm/lightgallery@1.6.2/dist/css/lightgallery.min.css: { type: external, minified: true }
+      build/vendor/lightgallery/dist/css/lightgallery.css: {}
   js:
-    https://cdn.jsdelivr.net/npm/lightgallery@1.6.2/dist/js/lightgallery.min.js: { type: eternal, minified: true }
-    build/styleguide/js/hamburger-menu.functions-min.js: { minified: true }
-    build/styleguide/js/gallery.binding-min.js: { minified: true }
+    build/vendor/lightgallery/dist/js/lightgallery.js: {}
+
+gallery:
+  version: 1.x
+  js:
+    build/styleguide/js/gallery.functions-min.js: { minified: true }
+    build/js/gallery.binding-min.js: {}
   dependencies:
     - core/drupal
     - core/jquery
     - core/jquery.once
+    - gent_base/light-gallery

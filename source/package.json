@@ -30,5 +30,7 @@
     "node": ">=4.0.0"
   },
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "lightgallery": "^1.6.3"
+  }
 }
