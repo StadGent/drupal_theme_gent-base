@@ -5,7 +5,7 @@
 (function ($, Drupal) {
   'use strict';
 
-  Drupal.behaviors.gentBaseHeader = {
+  Drupal.behaviors.gentBaseLoadLightGallery = {
     attach: function (context, settings) {
       $('.gallery', context).once('.loadLightGallery').each(function () {
         $('.gallery').loadLightGallery();
