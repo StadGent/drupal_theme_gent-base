@@ -41,3 +41,4 @@ gallery:
     - core/drupal
     - core/jquery
     - core/jquery.once
+    - gent_base/light-gallery
