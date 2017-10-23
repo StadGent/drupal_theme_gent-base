@@ -12,6 +12,24 @@ use Drupal\Core\Template\Attribute;
  * Implements hook_form_alter().
  */
 function gent_base_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  // Setup system forms to have the "no-style" and "no-optional" styling classes
+  // As defined by the Gent styleguide.
+  $system_forms = [
+    'content_moderation_entity_moderation_form',
+    'comment_comment_form',
+    'odp_search_sort_form',
+    'odp_search_block_form',
+    'odp_subscribe_subscribe_data',
+    'odp_subscribe_subscribe_definition',
+    'node_app_form',
+    'node_app_edit_form',
+  ];
+
+  if (in_array($form_id, $system_forms)) {
+    $form['#attributes']['class'][] = 'no-style';
+    $form['#attributes']['class'][] = 'no-optional';
+  }
+
   // Remove button classes form delete action.
   if (isset($form['actions']['delete']['#attributes']['class'])) {
     foreach (['button', 'button--danger'] as $class) {
