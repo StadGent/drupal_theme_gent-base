@@ -14,3 +14,10 @@ a.button--inline,
 input[type="submit"].button--inline {
   @include btn-inlineblock
 }
+
+//
+// Hide submit button when auto submit is active.
+//
+input[type="submit"].js-hide {
+  display: none;
+}
