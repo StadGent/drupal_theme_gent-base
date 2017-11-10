@@ -46,6 +46,18 @@ fieldset {
   }
 
   .draggable {
+    td {
+      padding: 0;
+
+      .tabledrag-handle {
+        padding: 0 .5rem 0 0;
+      }
+
+      &.tabledrag-hide {
+        padding: 0 0 0 .5rem;
+      }
+    }
+
     .field-multiple-drag {
       vertical-align: middle;
 

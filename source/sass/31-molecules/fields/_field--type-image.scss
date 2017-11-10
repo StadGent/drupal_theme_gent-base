@@ -1,23 +1,32 @@
+.touchevents .field--type-image,
 .field--type-image {
   table {
     margin-bottom: 1rem;
     vertical-align: middle;
 
     td {
+      padding: .5rem 0;
       border-bottom: 1px solid $color-gray;
-      padding: .5rem;
     }
 
     .form-managed-file {
       .image-preview {
-        float: left;
-        padding: 0 .5rem .5rem 0;
         width: calc(25% - 1.3rem);
+        padding: 0 .5rem .5rem 0;
+        float: left;
+
+        img {
+          border: 0;
+        }
       }
 
       .image-widget-data {
-        float: left;
         width: calc(75% - 1.3rem);
+        float: left;
+
+        .file {
+          word-break: break-all;
+        }
       }
     }
   }
