@@ -32,6 +32,25 @@ light-gallery:
   js:
     build/styleguide/vendor/lightgallery/dist/js/lightgallery.min.js: { minified: true }
 
+chosen:
+  version: 1.x
+  css:
+    theme:
+      build/styleguide/vendor/chosen-js/chosen.min.css: { minified: true }
+  js:
+    build/styleguide/vendor/chosen-js/chosen.jquery.min.js: { minified: true }
+
+input-chosen:
+  version: 1.x
+  js:
+    build/styleguide/js/input-multiselect-chosen.functions-min.js: { minified: true }
+    build/js/input-multiselect-chosen.binding-min.js: { minified: true }
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/jquery.once
+    - gent_base/chosen
+
 gallery:
   version: 1.x
   js:

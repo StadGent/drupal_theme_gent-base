@@ -18,6 +18,7 @@ libraries:
   - gent_base/breadcrumbs
   - gent_base/header
   - gent_base/hamburger
+  - gent_base/input-chosen
 # Removes all the classy stylesheets.
 libraries-override:
   classy/base: false
