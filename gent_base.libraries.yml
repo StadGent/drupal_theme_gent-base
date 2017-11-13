@@ -44,7 +44,7 @@ input-chosen:
   version: 1.x
   js:
     build/styleguide/js/input-multiselect-chosen.functions-min.js: { minified: true }
-    build/styleguide/js/input-multiselect-chosen.binding-min.js: { minified: true }
+    build/js/input-multiselect-chosen.binding-min.js: { minified: true }
   dependencies:
     - core/drupal
     - core/jquery
