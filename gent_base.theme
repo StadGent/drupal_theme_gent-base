@@ -172,7 +172,7 @@ function gent_base_preprocess_block(&$variables) {
       break;
 
     case 'dg_blocks_links_block':
-      array_push($variables['content']['links']['#attributes']['class'], 'dg-block-links', 'island');
+      array_push($variables['content']['links']['#attributes']['class'], 'dg-block-links');
       break;
 
     case 'dg_blocks_social_media_block':
