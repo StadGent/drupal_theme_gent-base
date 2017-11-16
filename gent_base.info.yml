@@ -15,6 +15,7 @@ regions:
   footer_3: Footer middle right
   footer_4: Footer right
 libraries:
+  - gent_base/global_js
   - gent_base/breadcrumbs
   - gent_base/header
   - gent_base/hamburger

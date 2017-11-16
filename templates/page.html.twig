@@ -58,11 +58,16 @@
   {% block header %}
     <header class="section--wrapper header" role="banner">
       <div class="content-container">
-        {% block hamburger_toggle %}
-          {% if page.nav_mobile %}
-            <span class="header-component hamburger-toggle visible-mobile"> {{ "menu"|t }}</span>
-          {% endif %}
-        {% endblock %}
+        {% if page.nav_mobile %}
+          <nav class="hamburger-menu visible-mobile header-component">
+            <button class="hamburger-menu__toggle">{{ 'Menu' }}</button>
+            <div class="hamburger-menu__overlay"></div>
+            <div class="hamburger-menu__drawer" tabindex="-1">
+              <a href="javascript:void(0);" class="close">{{ 'Sluit menu'}} <i class="icon-cross"></i></a>
+                {{ page.nav_mobile }}
+            </div>
+          </nav>k
+        {% endif %}
         {{ page.header }}
       </div>
     </header>
@@ -75,16 +80,6 @@
           {{ page.navigation }}
         </div>
       </div>
-    {% endif %}
-  {% endblock %}
-
-  {% block nav_mobile %}
-    {% if page.nav_mobile %}
-      <div class="hamburger-menu-overlay"></div>
-      <section class="hamburger-menu" role="menu">
-        <a href="javascript:(void);" class="close">{{ 'Close menu'|t }} <i class="icon-cross"></i></a>
-          {{ page.nav_mobile }}
-      </section>
     {% endif %}
   {% endblock %}
 
