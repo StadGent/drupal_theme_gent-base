@@ -1,3 +1,8 @@
+global_js:
+  version: 1.x
+  js:
+    build/styleguide/js/base-min.js: { minified: true }
+
 breadcrumbs:
   version: 1.x
   js:
