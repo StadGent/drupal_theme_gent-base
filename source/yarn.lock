@@ -1224,9 +1224,9 @@ genfun@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/genfun/-/genfun-4.0.1.tgz#ed10041f2e4a7f1b0a38466d17a5c3e27df1dfc1"
 
-gent_styleguide@^2.6.15:
-  version "2.6.15"
-  resolved "https://registry.yarnpkg.com/gent_styleguide/-/gent_styleguide-2.6.15.tgz#f9813370a798e2ee45627cd129a5b05792555bd9"
+gent_styleguide@^2.6.16:
+  version "2.6.16"
+  resolved "https://registry.yarnpkg.com/gent_styleguide/-/gent_styleguide-2.6.16.tgz#0c338aa6a46091b9d62094474dbaa09c2b764f75"
   dependencies:
     breakpoint-sass "^2.7.1"
     chosen-js "^1.8.2"
