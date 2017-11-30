@@ -280,7 +280,7 @@ function gent_base_preprocess_entity_property(&$variables) {
         $variables['content'] = array();
 
         foreach ($property->value() as $file) {
-          $content = '<span class="article-content-action-document">' . l($file->filename, file_create_url($file->uri)) . '</span> ';
+          $content = '<span class="article-content-action-document">' . l($file->filename, file_create_url($file->uri), array('attributes' => array('title' => $file->filename))) . '</span> ';
           $content .= '<span class="small article-content-action-document-size">(' . format_size($file->filesize) . ')</span>' . "\n";
           $variables['content'][] = $content;
         }
