@@ -4,7 +4,10 @@ All Notable changes to `digipolisgent/gent_base`.
 
 
 ## [Unreleased]
-###Changed
+
+
+## [7.x-2.6]
+### Changed
 
 * Added Icomoon settings file and removed individual svgs.
 * Switched icon styles to CSS3.
@@ -12,7 +15,7 @@ All Notable changes to `digipolisgent/gent_base`.
 * Fixed double H1.
 * Added alt tag to auth bar icon.
 * Fixed viewport order of execution.
-* Sticky admin menu wraps inside #sticky-wrapper-admin
+* Sticky admin menu wraps inside #sticky-wrapper-admin.
    We wrap the sticky admin menu in a div on top of the page. #sticky-wrapper is already used by other
    sticky containers (webform progress, kids subnavigation, sticky accordion...)
 * Added title attribute to gpdc sheet form url.
