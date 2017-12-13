@@ -1,6 +1,9 @@
 # Changelog
 All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
+## unreleased
+* DTGB-126: Updated styleguide and added masonry binding
+
 ## gent_base-8.x-1.1-alpha6
 **Updated to gent_styleguide version 2.6.16**
 
