@@ -66,3 +66,13 @@ gallery:
     - core/jquery
     - core/jquery.once
     - gent_base/light-gallery
+
+masonry-layout:
+  version: 1.x
+  js:
+    build/styleguide/vendor/masonry-layout/dist/masonry.pkgd.min.js: { minified: true }
+    build/js/masonry.binding-min.js: { minified: true }
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/jquery.once
