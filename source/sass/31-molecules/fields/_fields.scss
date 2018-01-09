@@ -2,6 +2,13 @@
   width: 1px;
 }
 
+input[type="radio"],
+input[type="checkbox"] {
+  + label.option > .label-optional {
+    display: none;
+  }
+}
+
 .field {
   &.field--label-inline {
     > div {
