@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Installing Gent Styleguide..."
-npm install;
+yarn install;
 
 echo "Removing old build directory..."
 rm -rf ../build
