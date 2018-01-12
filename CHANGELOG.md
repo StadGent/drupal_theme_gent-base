@@ -1,8 +1,8 @@
 # Changelog
 All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
-## unreleased
-* DTGB-126: Updated styleguide and added masonry binding
+## gent_base-8.x-1.1-alpha8
+**Updated to gent_styleguide version 2.7.7**
 
 ## gent_base-8.x-1.1-alpha7
 * DTGB-128: Added small fix for radio button groups and checkboxes optional labels.
