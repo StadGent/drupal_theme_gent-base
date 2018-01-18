@@ -1,4 +1,4 @@
-#Installation
+# Installation
 
 ## Theme compilation
 
@@ -9,7 +9,7 @@ cd web/themes/custom/starterkit
 
 [Install NodeJS](https://nodejs.org/en/download/) and required dev node packages (gulp, ...).
 ```
-$ npm install --only=dev
+$ yarn install --only=dev
 ```
 
 You should be all set and able to run gulp tasks:
