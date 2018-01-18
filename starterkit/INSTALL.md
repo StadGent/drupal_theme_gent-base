@@ -7,6 +7,14 @@ Navigate to the theme directory.
 cd web/themes/custom/starterkit
 ```
 
+Rename the directory and all instances of "starterkit" to your desired themename (e.g. "sg_theme").
+
+Go to the source directory.
+```
+cd source
+```
+
+
 [Install NodeJS](https://nodejs.org/en/download/) and required dev node packages (gulp, ...).
 ```
 $ yarn install --only=dev
