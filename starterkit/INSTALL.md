@@ -7,7 +7,7 @@ Navigate to the theme directory.
 cd web/themes/custom/starterkit
 ```
 
-Rename the directory and all instances of "staterkit" to your desired themename (e.g. "sg_theme").
+Rename the directory and all instances of "starterkit" to your desired themename (e.g. "sg_theme").
 
 Go to the source directory.
 ```
