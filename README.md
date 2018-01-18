@@ -9,6 +9,10 @@ subtheme to let you adjust according to your specific needs.
 
 ## Installation
 To install and use this base theme and a subtheme of it follow these steps:
+* There's a dependency to yarn, make sure you have it installed:
+  ```
+  npm -g install yarn
+  ```
 * Add the `gent_base` composer package from the duplo packagist to your Drupal composer.json file:
   By adding the post install and post update commands we ensure that the gent_base theme is installed correctly and
   everything is ready to use.
