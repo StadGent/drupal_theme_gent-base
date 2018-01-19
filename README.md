@@ -28,7 +28,7 @@ To install and use this base theme and a subtheme of it follow these steps:
       }
   },
   "require": {
-      "gent-drupal/gent_base": "8.x-1.x-dev"
+      "gent-drupal/gent_base": "8.1.0-dev"
   },
   "scripts": {
     "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
