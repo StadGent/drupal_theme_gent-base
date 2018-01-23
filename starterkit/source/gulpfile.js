@@ -51,7 +51,7 @@ gulp.task('styles:build', function() {
     .pipe(sassLint.failOnError())
     .pipe(sass({
       outputStyle: 'compressed',
-      includePaths: ['../../../contrib/gent_base/source/node_modules/breakpoint-sass/stylesheets']
+      includePaths: ['../../../contrib/gent_base/source/node_modules/breakpoint-sass/stylesheets', '../../../contrib/gent_base/source/node_modules/susy/sass']
     })).on('error', sass.logError)
     .pipe(autoprefixer({
       browsers: ['last 5 versions']
@@ -77,7 +77,7 @@ gulp.task('styles:dist', function() {
     .pipe(sourcemaps.init())
     .pipe(sass({
       outputStyle: 'nested',
-      includePaths: ['../../../contrib/gent_base/source/node_modules/breakpoint-sass/stylesheets']
+      includePaths: ['../../../contrib/gent_base/source/node_modules/breakpoint-sass/stylesheets', '../../../contrib/gent_base/source/node_modules/susy/sass']
     })).on('error', sass.logError)
     .pipe(autoprefixer({
       browsers: ['last 5 versions']
