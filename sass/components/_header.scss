@@ -64,11 +64,11 @@
 }
 
 .top-section .site__header__normal__title h1 {
-  @include text-dimensions(5, 1.3, 0, 0, 0, .8);
+  @include text-dimensions(5, 1.5, 0, 0, 0, .8);
   margin-bottom: 0;
 
   @include mq($bp-tablet-s) {
-    @include text-dimensions(5, 1.3, 0, 0, 0, 1.56);
+    @include text-dimensions(5, 1.5, 0, 0, 0, 1.56);
     color: #000;
   }
 }

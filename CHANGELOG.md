@@ -7,6 +7,7 @@ All Notable changes to `digipolisgent/gent_base`.
 ### Changed
 
 * Removed brand tagline from header, according to new brand design.
+* Changed font family to fira-sans (update your typekits).
 
 ## [7.x-2.6]
 ### Changed
