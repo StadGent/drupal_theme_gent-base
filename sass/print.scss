@@ -166,23 +166,6 @@ html body.admin-menu {
   }
 }
 
-.brand__tagline {
-  display: block;
-  width: 40px;
-  height: 40px;
-  float: left;
-}
-
-.brand__tagline__inner {
-  background-image: none;
-  content: url('#{$base-theme-path}/img/png/logo--part2.png');
-  background-color: $white-color;
-
-  .svg & {
-    content: url('#{$base-theme-path}/img/svg/logo--part2.svg');
-  }
-}
-
 .brand__footer {
   background-image: none;
   content: url('#{$base-theme-path}/img/png/logo--footer.png');
