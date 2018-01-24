@@ -27,15 +27,6 @@
                   </div>
                 </a>
               </div>
-              <div class="brand__tagline">
-                <a href="<?php print $front_page; ?>">
-                  <div class="brand__tagline__inner">
-                      <span>
-                        <?php print $site_title; ?>
-                      </span>
-                  </div>
-                </a>
-              </div>
               <div class="thema_title">
                 <div class="vertical-align">
                   <span><?php print $site_name; ?></span>

@@ -29,8 +29,7 @@ nav.holder {
       margin: 0;
     }
 
-    .brand__logo,
-    .brand__tagline {
+    .brand__logo {
       width: 32px;
       margin-top: 5px;
 
@@ -45,32 +44,18 @@ nav.holder {
       }
     }
 
-    .brand__tagline {
-      margin-left: 32px; // logo-width
-      display: block;
-      float: left;
-
-      @include mq($bp-tablet-s) {
-        margin-left: 52px; // logo-width
-      }
-
-      @include mq($bp-tablet-m) {
-        margin-left: 55px; // logo-width
-      }
-    }
-
     // Legacy classname.
     .thema_title { // sass-lint:disable-line class-name-format
       display: table;
       height: 100%;
-      margin: 0 0 0 74px; // 0 0 0 ((logo-width * 2) + 10)
+      margin: 0 0 0 42px; // 0 0 0 ((logo-width * 2) + 10)
 
       @include mq($bp-tablet-s) {
-        margin: 0 0 0 114px; // 0 0 0 ((logo-width * 2) + 10)
+        margin: 0 0 0 62px; // 0 0 0 ((logo-width * 2) + 10)
       }
 
       @include mq($bp-tablet-m) {
-        margin: 0 0 0 120px; // 0 0 0 ((logo-width * 2) + 10)
+        margin: 0 0 0 65px; // 0 0 0 ((logo-width * 2) + 10)
       }
 
       .vertical-align {
@@ -165,34 +150,7 @@ nav.holder {
   }
 }
 
-.brand__tagline {
-  width: 60px;
-  margin-left: 60px;
-  display: block;
-
-  @include mq($bp-tablet-s) {
-    width: 70px;
-    margin-left: 70px;
-  }
-
-  @include mq($bp-tablet-m) {
-    width: 85px;
-    margin-left: 85px;
-  }
-
-  @include mq($bp-desktop-s) {
-    width: 97px;
-    margin-left: 97px;
-  }
-
-  @include mq($bp-desktop-m) {
-    width: 110px;
-    margin-left: 110px;
-  }
-}
-
-.brand__logo__inner,
-.brand__tagline__inner {
+.brand__logo__inner {
   position: absolute;
   top: 0;
   width: 100%;
@@ -215,25 +173,6 @@ nav.holder {
 
   .svg & {
     background-image: url('#{$base-theme-path}/img/svg/logo--part1.svg');
-  }
-}
-
-.brand__tagline__inner {
-  @extend %hide-text;
-
-  display: block;
-  position: relative;
-  overflow: hidden;
-  height: 40px;
-  padding-top: 72%;
-  width: 100%;
-  background-image: url('#{$base-theme-path}/img/png/logo--part2.png');
-  background-repeat: no-repeat;
-  background-position: top left;
-  background-size: 100%;
-
-  .svg & {
-    background-image: url('#{$base-theme-path}/img/svg/logo--part2.svg');
   }
 }
 
