@@ -7,7 +7,10 @@ All Notable changes to `digipolisgent/gent_base`.
 ### Changed
 
 * Removed brand tagline from header, according to new brand design.
-* Changed font family to fira-sans (update your typekits).
+* Changed font family to fira-sans (update your typekits & check project stylesheets).
+* Changed blue color to another blue color (check project stylesheets).
+* Changed theming of brand layout in footer (removed 3 towers logo).
+* Changed color of corner svg images.
 
 ## [7.x-2.6]
 ### Changed
