@@ -1,0 +1,28 @@
+.tabs.primary {
+  margin: 1rem 0;
+  padding: 0;
+  border-bottom: 1px dotted $color-gray;
+  overflow: hidden;
+
+  li {
+    display: block;
+    margin-bottom: .5rem;
+
+    @include tablet {
+      display: inline-block;
+      float: left;
+      margin-right: .5rem;
+      margin-bottom: 0;
+    }
+  }
+
+  a {
+    @extend %btn;
+    @include btn-s;
+
+    @include tablet {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+}
