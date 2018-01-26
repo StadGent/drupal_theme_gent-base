@@ -17,8 +17,6 @@
   <meta name="MobileOptimized" content="320" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic" rel="stylesheet" type="text/css" />
-
   <?php if (!empty($type_kit_id)) :?>
   <!-- Load Typekit -->
   <script>
