@@ -158,19 +158,10 @@ html body.admin-menu {
 
 .brand__logo__inner {
   background-image: none;
-  content: url('#{$base-theme-path}/img/png/logo--part1.png');
+  content: url('#{$base-theme-path}/img/png/logo--part1.png'); // Fallback to old logo ...
   background-color: $beta-ui-color;
 
   .svg & {
-    content: url('#{$base-theme-path}/img/svg/logo--part1.svg');
-  }
-}
-
-.brand__footer {
-  background-image: none;
-  content: url('#{$base-theme-path}/img/png/logo--footer.png');
-
-  .svg & {
-    content: url('#{$base-theme-path}/img/svg/logo--footer.svg');
+    content: url('#{$base-theme-path}/img/svg/logo--gentcolon.svg');
   }
 }
