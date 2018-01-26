@@ -70,21 +70,22 @@
         {% endif %}
         {{ page.header }}
       </div>
+      {% block navigation %}
+        {% if page.navigation %}
+            {{ page.navigation }}
+        {% endif %}
+      {% endblock %}
     </header>
   {% endblock %}
-
-  {% block navigation %}
-    {% if page.navigation %}
-      <div role="navigation" class="site-navigation section--accent ">
-        <div class="content-container">
-          {{ page.navigation }}
-        </div>
-      </div>
-    {% endif %}
+  {% block breadcrumb %}
+    <main class="section--breadcrumb section--default" role="main">
+      {{ page.breadcrumb }}
+    </main>
   {% endblock %}
 
+
   {% block main %}
-    <main class="section--default" role="main">
+    <main class="section--main section--default" role="main">
       <div class="content-container">
         <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
         {{ page.content }}

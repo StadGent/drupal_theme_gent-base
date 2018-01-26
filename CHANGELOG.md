@@ -5,6 +5,12 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 * DTGB-130: display webform help text as field-description.
 
 ## gent_base-8.x-1.1-alpha8
+
+* Updated .gitignore file.
+* Fixed breadcrumb styling.
+* Fixed mobile nav styling.
+
+## gent_base-8.x-1.1-alpha8
 **Updated to gent_styleguide version 2.7.7**
 
 ## gent_base-8.x-1.1-alpha7

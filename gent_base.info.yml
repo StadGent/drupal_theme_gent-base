@@ -8,6 +8,7 @@ regions:
   admin: Administration header
   header: Header
   navigation: Navigation
+  breadcrumb: Breadcrumb
   nav_mobile: Mobile navigation panel
   content: Content
   footer_1: Footer left
