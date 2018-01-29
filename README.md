@@ -75,4 +75,4 @@ contains a `$styleguide-dir` variable pointing to the directory of the style gui
 within the gent_base theme for your Drupal installation.
 
 This style guide variable is necessary for the successful compilation of the sub theme
-sass code. You 
+sass code.  
