@@ -7,6 +7,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 ## gent_base-8.x-1.1-alpha9
 
 * DTGB-135: Make style guide version fixed.
+* DTGB-103: Updated the documentation for the $styleguide-dir variable.
 * DTGB-131: Added missing 00-settings/_vars.scss partial in starterkit.
 * DTGB-137: Added basic styling for Drupal primary tabs.
 
