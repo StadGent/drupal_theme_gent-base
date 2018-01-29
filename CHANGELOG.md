@@ -4,6 +4,9 @@ All Notable changes to `digipolisgent/gent_base`.
 
 
 ## [Unreleased]
+
+
+## [7.x-2.7]
 ### Changed
 
 * Removed brand tagline from header, according to new brand design.
