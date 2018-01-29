@@ -7,6 +7,10 @@ https://stijlgids.stad.gent/
 It is loaded in through an NPM package `gent_styleguide` (https://www.npmjs.com/package/gent_styleguide) and uses a starterkit
 subtheme to let you adjust according to your specific needs.
 
+## Versioning
+
+The versioning of this repo follows the versioning of the [style guide repo](https://github.com/StadGent/fractal_styleguide_gent-base).
+
 ## Installation
 To install and use this base theme and a subtheme of it follow these steps:
 * There's a dependency to yarn, make sure you have it installed:
