@@ -1,8 +1,9 @@
 # Changelog
 All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
-## unreleased
-* DTGB-130: display webform help text as field-description.
+## Unreleased
+
+* Integrate style guide in this project for an easier workflow.
 
 ## gent_base-8.x-1.1-alpha9
 
