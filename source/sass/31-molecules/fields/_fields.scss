@@ -36,7 +36,8 @@ fieldset {
 }
 
 .filter-wrapper {
-  margin: -1rem 0 1rem;
+  margin: 0;
+  width: 50%;
 
   .filter-help a::after {
     top: .25rem;
