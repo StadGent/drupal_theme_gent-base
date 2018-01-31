@@ -1,5 +1,8 @@
 #!/bin/bash
 
+echo "Installing Gent Styleguide..."
+yarn install;
+
 echo "Removing old build directory..."
 rm -rf ../build
 

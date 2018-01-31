@@ -15,12 +15,10 @@
   ],
   "scripts": {
     "post-install-cmd": [
-      "bash -c 'cd styleguide; ./postinstall.sh'",
-      "bash -c 'cd source; ./install.sh'"
+      "bash -c 'cd styleguide/scripts; ./postinstall.sh; cd ../; gulp build; cd ../source; ./install.sh'"
     ],
     "post-update-cmd": [
-      "bash -c 'cd styleguide; ./postinstall.sh'",
-      "bash -c 'cd source; ./install.sh'"
+      "bash -c 'cd styleguide/scripts; ./postinstall.sh; cd ../; gulp build; cd ../source; ./install.sh'"
     ]
   }
 }
