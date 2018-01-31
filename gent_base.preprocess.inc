@@ -239,10 +239,6 @@ function gent_base_preprocess_entity_property(&$variables) {
         $variables['attributes_array']['id'] = 'sheet-regulatory';
         break;
 
-      case 'form_url':
-        $variables['content'] = l(t('Go to the webform'), $property->value());
-        break;
-
       case 'organisations':
         // Get the location nodes.
         $query = new EntityFieldQuery();
@@ -276,7 +272,14 @@ function gent_base_preprocess_entity_property(&$variables) {
         $variables['attributes_array']['class'] = array('island island--kappa no-border-bottom');
         break;
 
-      case 'forms':
+      case 'form_links':
+        $variables['content'] = array();
+        foreach ($property->value() as $link) {
+          $variables['content'][] = l($link['title'], $link['url']);
+        }
+        break;
+
+      case 'form_files':
         $variables['content'] = array();
 
         foreach ($property->value() as $file) {
@@ -329,7 +332,7 @@ function gent_base_preprocess_webform_form(&$variables) {
   else {
     drupal_add_js($theme_path . '/js/viewport.js');
   }
-  
+
   if (file_exists($theme_path . '/js/webform.js')) {
     drupal_add_js($theme_path . '/js/webform.js');
   }
