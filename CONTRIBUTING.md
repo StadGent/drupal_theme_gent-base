@@ -75,8 +75,9 @@ The structure of our base theme is defined like this:
 If you don't have any Drupal knowledge, don't panic! You can ignore most of 
 these directories when you want to contribute to the style guide only portion.
 
-**All work for the style guide is done in the components directory or the docs
-directory when you are changing general documentation.**
+**All work for the style guide can be done in the `styleguide/components`
+directory to theme components, or the `styleguide/docs` directory to change
+the docs.**
 
 ## Issues
 
