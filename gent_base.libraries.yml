@@ -1,28 +1,28 @@
 global_js:
   version: 1.x
   js:
-    build/styleguide/js/base-min.js: { minified: true }
+    styleguide/public/styleguide/js/base-min.js: { minified: true }
 
 breadcrumbs:
   version: 1.x
   js:
-    build/styleguide/js/breadcrumbs.binding-min.js: { minified: true }
-    build/styleguide/js/breadcrumbs.functions-min.js: { minified: true }
+    styleguide/public/styleguide/js/breadcrumbs.functions-min.js: { minified: true }
+    build/js/breadcrumbs.binding-min.js: { minified: true }
   dependencies:
     - core/jquery
 
 header:
   version: 1.x
   js:
-    build/styleguide/js/header.binding-min.js: { minified: true }
-    build/styleguide/js/header.functions-min.js: { minified: true }
+    styleguide/public/styleguide/js/header.functions-min.js: { minified: true }
+    build/js/header.binding-min.js: { minified: true }
   dependencies:
     - core/jquery
 
 hamburger:
   version: 1.x
   js:
-    build/styleguide/js/hamburger-menu.functions-min.js: { minified: true }
+    styleguide/public/styleguide/js/hamburger-menu.functions-min.js: { minified: true }
     build/js/hamburger-menu.binding-min.js: { minified: true }
   dependencies:
     - core/drupal
@@ -33,22 +33,22 @@ light-gallery:
   version: 1.x
   css:
     theme:
-      build/styleguide/vendor/lightgallery/dist/css/lightgallery.min.css: { minified: true }
+      styleguide/public/styleguide/vendor/lightgallery/dist/css/lightgallery.min.css: { minified: true }
   js:
-    build/styleguide/vendor/lightgallery/dist/js/lightgallery.min.js: { minified: true }
+    styleguide/public/styleguide/vendor/lightgallery/dist/js/lightgallery.min.js: { minified: true }
 
 chosen:
   version: 1.x
   css:
     theme:
-      build/styleguide/vendor/chosen-js/chosen.min.css: { minified: true }
+      styleguide/public/styleguide/vendor/chosen-js/chosen.min.css: { minified: true }
   js:
-    build/styleguide/vendor/chosen-js/chosen.jquery.min.js: { minified: true }
+    styleguide/public/styleguide/vendor/chosen-js/chosen.jquery.min.js: { minified: true }
 
 input-chosen:
   version: 1.x
   js:
-    build/styleguide/js/input-multiselect-chosen.functions-min.js: { minified: true }
+    styleguide/public/styleguide/js/input-multiselect-chosen.functions-min.js: { minified: true }
     build/js/input-multiselect-chosen.binding-min.js: { minified: true }
   dependencies:
     - core/drupal
@@ -59,7 +59,7 @@ input-chosen:
 gallery:
   version: 1.x
   js:
-    build/styleguide/js/gallery.functions-min.js: { minified: true }
+    styleguide/public/styleguide/js/gallery.functions-min.js: { minified: true }
     build/js/gallery.binding-min.js: { minified: true }
   dependencies:
     - core/drupal
@@ -70,7 +70,7 @@ gallery:
 masonry-layout:
   version: 1.x
   js:
-    build/styleguide/vendor/masonry-layout/dist/masonry.pkgd.min.js: { minified: true }
+    styleguide/public/styleguide/vendor/masonry-layout/dist/masonry.pkgd.min.js: { minified: true }
     build/js/masonry.binding-min.js: { minified: true }
   dependencies:
     - core/drupal
