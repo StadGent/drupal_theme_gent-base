@@ -1,15 +1,12 @@
 # Drupal 8 base theme using the styleguide of Stad Gent.
-This Drupal 8 theme is based on the styleguide of Stad Gent.
+This Drupal 8 theme is based on the style guide of Stad Gent.
 https://stijlgids.stad.gent/
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/090c45ffd08a2370cd0d/maintainability)](https://codeclimate.com/repos/5a5c70e7f5f0e502a80009f1/maintainability)
 
-It is loaded in through an NPM package `gent_styleguide` (https://www.npmjs.com/package/gent_styleguide) and uses a starterkit
-subtheme to let you adjust according to your specific needs.
-
-## Versioning
-
-The versioning of this repo follows the versioning of the [style guide repo](https://github.com/StadGent/fractal_styleguide_gent-base).
+It is included in the root of this theme inside the `styleguide` directory.
+This is also the place where the style guide code gets maintained to be 
+published as an NPM package.
 
 ## Installation
 To install and use this base theme and a subtheme of it follow these steps:
