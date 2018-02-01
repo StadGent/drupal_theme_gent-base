@@ -94,6 +94,15 @@ fieldset {
   }
 }
 
+.form-item.text-format-wrapper {
+  .filter-wrapper {
+    @include tablet {
+      width: span(6 of 12 set-gutters 0);
+    }
+    margin: 0;
+  }
+}
+
 .filter-guidelines .filter-guidelines-item {
   @extend %small;
   margin: 0;
