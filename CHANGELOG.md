@@ -4,6 +4,9 @@ All Notable changes to `digipolisgent/gent_base`.
 
 
 ## [Unreleased]
+### Changed
+
+* Fixed warning in gent_base_tools template.
 
 
 ## [7.x-2.7]
