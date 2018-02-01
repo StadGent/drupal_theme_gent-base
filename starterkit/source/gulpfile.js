@@ -44,6 +44,7 @@ gulp.task('styles:build', function() {
   gulp.src(globalConfig.sass_dir + '/**/*.s+(a|c)ss')
     .pipe(plumber())
     .pipe(sassGlob())
+    .pipe(sourcemaps.init())
     .pipe(sassLint({
       configFile: './.sass-lint.yml'
     }))
@@ -59,6 +60,7 @@ gulp.task('styles:build', function() {
     .pipe(autoprefixer({
       browsers: ['last 5 versions']
     }))
+    .pipe(sourcemaps.write())
     .pipe(gulp.dest(globalConfig.css_dir))
 });
 
