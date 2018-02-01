@@ -1,0 +1,17 @@
+/**
+ * Overrides the default contextual link styling.
+ */
+.contextual {
+  .trigger,
+  .trigger:focus,
+  .trigger:hover {
+    background: $color-white url("../../../../contrib/gent_base/source/img/pencil.svg") no-repeat center center !important;
+    background-size: .75rem !important;
+    border: 1px solid #ccc;
+  }
+
+  .trigger:focus,
+  .trigger:hover {
+    border-bottom: 0;
+  }
+}
