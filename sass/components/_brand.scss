@@ -134,19 +134,19 @@ nav.holder {
 
 .brand__logo {
   @include grid-span(7);
-  width: 60px;
+  width: 80px;
 
   @include mq($bp-tablet-s) {
-    width: 70px;
+    width: 93px;
   }
   @include mq($bp-tablet-m) {
-    width: 85px;
+    width: 113px;
   }
   @include mq($bp-desktop-s) {
-    width: 97px;
+    width: 129px;
   }
   @include mq($bp-desktop-m) {
-    width: 110px;
+    width: 143px;
   }
 }
 
