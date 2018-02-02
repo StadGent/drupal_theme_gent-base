@@ -6,25 +6,26 @@ if ! [ -x "$(command -v yarn)" ]; then
   exit 1
 fi
 
-echo "Installing Gent Basetheme...";
-cd ../source;
-yarn install;
-
 echo "Removing old gent_base 'build' directory...";
 rm -rf ../build;
 
-echo "Building the Gent basetheme...";
+echo "Recreating gent_base 'build' directory...";
 mkdir ../build && mkdir ../build/js;
-./node_modules/.bin/gulp build;
 
-echo "Building the style guide...";
+echo "Building - style guide - in gent_base...";
 cd ../styleguide;
 yarn install;
 ./node_modules/.bin/gulp build;
 
+echo "Executing - style guide - postinstall script...";
 cd scripts;
 sh ./postinstall.sh;
 
+echo "Building gent_base...";
+cd ../../source;
+yarn install;
+./node_modules/.bin/gulp build;
+
 echo "Creating main_cli.scss...";
-cd ../;
+cd ../styleguide;
 ./node_modules/.bin/gulp styles:inject;
