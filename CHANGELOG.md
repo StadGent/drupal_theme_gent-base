@@ -3,11 +3,16 @@ All Notable changes to `digipolisgent/gent_base`.
 
 
 
+
 ## [Unreleased]
+
+
+## [7.x-2.9]
 ### Changed
 
 * Fixed warning in gent_base_tools template.
-
+* Dropped base font size one pixel.
+* Defined font-weight of strong tag.
 
 ## [7.x-2.7]
 ### Changed
