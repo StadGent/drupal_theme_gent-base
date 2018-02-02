@@ -118,33 +118,29 @@
       {% set column_class = 'footer--column' %}
 
       <footer class="footer section--wrapper" role="contentinfo" data-columns="{{ footer_columns }}">
-        <div class="content-container">
-          <div class="row">
-            {% if page.footer_1 %}
-              <div {{ content_attributes.addClass(column_class) }}>
-                {{ page.footer_1 }}
-              </div>
-            {% endif %}
-            {% if page.footer_2 %}
-              <div {{ content_attributes.addClass(column_class) }}>
-                {{ page.footer_2 }}
-              </div>
-            {% endif %}
-            {% if page.footer_3 %}
-              <div {{ content_attributes.addClass(column_class) }}>
-                {{ page.footer_3 }}
-              </div>
-            {% endif %}
+          {% if page.footer_1 %}
             <div {{ content_attributes.addClass(column_class) }}>
-              {{ page.footer_4 }}
-              {% block partner %}
-                <div class="db-block-partnership">
-                  <p>{{ 'In cooperation with'|trans }} <i class="icon-digipolis"></i> Digipolis</p>
-                </div>
-              {% endblock %}
+              {{ page.footer_1 }}
             </div>
+          {% endif %}
+          {% if page.footer_2 %}
+            <div {{ content_attributes.addClass(column_class) }}>
+              {{ page.footer_2 }}
+            </div>
+          {% endif %}
+          {% if page.footer_3 %}
+            <div {{ content_attributes.addClass(column_class) }}>
+              {{ page.footer_3 }}
+            </div>
+          {% endif %}
+          <div {{ content_attributes.addClass(column_class) }}>
+            {{ page.footer_4 }}
+            {% block partner %}
+              <div class="db-block-partnership">
+                <p>{{ 'In cooperation with'|trans }} <i class="icon-digipolis"></i> Digipolis</p>
+              </div>
+            {% endblock %}
           </div>
-        </div>
       </footer>
     {% endif %}
   {% endblock %}
