@@ -118,6 +118,7 @@
       {% set column_class = 'footer--column' %}
 
       <footer class="footer section--wrapper" role="contentinfo" data-columns="{{ footer_columns }}">
+        <div class="content-container">
           {% if page.footer_1 %}
             <div {{ content_attributes.addClass(column_class) }}>
               {{ page.footer_1 }}
@@ -141,6 +142,7 @@
               </div>
             {% endblock %}
           </div>
+        </div>
       </footer>
     {% endif %}
   {% endblock %}
