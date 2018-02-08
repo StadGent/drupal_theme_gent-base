@@ -1,0 +1,37 @@
+ul,
+ol {
+  position: relative;
+  margin-left: 1rem;
+
+  &.links {
+    padding-left: 0;
+    list-style: none;
+
+    li {
+      position: relative;
+      padding-left: .93rem;
+
+      &::before {
+        @extend %icon-base-css;
+        @extend %icon-caret;
+
+        position: absolute;
+        top: .25rem;
+        left: 0;
+      }
+    }
+  }
+
+  &.no-style {
+    @extend %list-no-style;
+
+    li a i {
+      margin-right: .5rem;
+    }
+  }
+}
+
+%list-no-style {
+  padding-left: 0;
+  list-style: none;
+}

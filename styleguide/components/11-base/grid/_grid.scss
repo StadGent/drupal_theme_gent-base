@@ -1,0 +1,30 @@
+@import 'susy';
+
+$susy: (
+  'columns': susy-repeat(12),
+  'gutters': $gutter-width,
+  'spread': 'narrow'
+);
+
+%container,
+.container {
+  @include clearfix();
+  @include breakpoint($bp-container) {
+    width: $bp-container;
+    max-width: 100%;
+    margin: 0 auto;
+    border-right: $border-outside-container; //smaller width
+    border-left: $border-outside-container; //smaller width
+  }
+}
+
+%content-container,
+.content-container {
+  max-width: $bp-max-content;
+  margin: 0 auto;
+  padding: 0 (gutter() / 2);
+
+  @include tablet {
+    padding: 0 gutter() + (gutter() / 2); // gutter + padding cols
+  }
+}

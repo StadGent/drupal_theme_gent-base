@@ -17,6 +17,7 @@ rules:
       - desktop
       - tablet
       - tablet-only
+      - breakpoint
 
   # Line Spacing
   one-declaration-per-line: 2

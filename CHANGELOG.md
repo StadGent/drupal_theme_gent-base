@@ -1,8 +1,9 @@
 # Changelog
 All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
-## unreleased
-* DTGB-130: display webform help text as field-description.
+## Unreleased
+
+* **IMPORTANT** Integrate style guide in this project for an easier workflow.
 
 ## gent_base-8.x-1.1-alpha9
 
@@ -11,6 +12,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 * DTGB-103: Updated the documentation for the $styleguide-dir variable.
 * DTGB-131: Added missing 00-settings/_vars.scss partial in starterkit.
 * DTGB-137: Added basic styling for Drupal primary tabs.
+* DTGB-130: display webform help text as field-description.
 
 ## gent_base-8.x-1.1-alpha8
 **Updated to gent_styleguide version 2.7.7**

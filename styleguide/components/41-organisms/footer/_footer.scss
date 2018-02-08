@@ -1,0 +1,77 @@
+// General footer styling.
+footer.footer > .content-container {
+  @supports (display: grid) {
+    display: grid;
+    grid-gap: 1rem;
+  }
+
+  @include tablet {
+    @supports (display: grid) {
+      grid-auto-rows: 275px;
+    }
+    padding: 1.5rem;
+  }
+
+  @include desktop {
+    @supports (display: grid) {
+      grid-auto-rows: 400px;
+    }
+  }
+
+  padding: 1.5rem .5rem;
+
+  &::before,
+  &::after {
+    content: none;
+  }
+
+  h3 {
+    margin-top: 0;
+  }
+
+  p {
+    color: $color-gray;
+  }
+
+  .footer--column .island {
+    border: 0;
+  }
+}
+
+// Footer 4 column layout.
+footer[data-columns="4"] > .content-container {
+  @include tablet {
+    @supports (display: grid) {
+      grid-template-columns: repeat(2, 1fr [footer-column]);
+    }
+  }
+  @include desktop {
+    @supports (display: grid) {
+      grid-template-columns: repeat(4, 1fr [footer-column]);
+    }
+  }
+}
+
+// Footer 3 column layout.
+footer[data-columns="3"] > .content-container {
+  @include tablet {
+    @supports (display: grid) {
+      grid-template-columns: repeat(2, 1fr [footer-column]);
+    }
+  }
+
+  @include desktop {
+    @supports (display: grid) {
+      grid-template-columns: repeat(3, 1fr [footer-column]);
+    }
+  }
+}
+
+// Footer 2 column layout.
+footer[data-columns="2"] > .content-container {
+  @include tablet {
+    @supports (display: grid) {
+      grid-template-columns: repeat(2, 1fr [footer-column]);
+    }
+  }
+}
