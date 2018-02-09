@@ -7,7 +7,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 ## gent_base-8.x-3.0
 
-* No changes to the gent_base theme. 
+* No changes to the gent_base theme.
 
 ## gent_base-8.x-1.1-alpha9
 
