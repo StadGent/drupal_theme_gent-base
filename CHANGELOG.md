@@ -5,6 +5,10 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 * **IMPORTANT** Integrate style guide in this project for an easier workflow.
 
+## gent_base-8.x-3.x-3.0.0
+
+* DTGB-180: Added gulp task to perform accessibility checks in the style guide. 
+
 ## gent_base-8.x-1.1-alpha9
 
 * DTGB-133: Fixed styling of messages.
