@@ -8,6 +8,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 ## gent_base-8.x-2.10
 
 * DTGB-140: ** IMPORTANT: Merged the style guide in the gent_base theme.**
+* DTGB-400: Changed version_tag script to make deploying more streamlined. 
 
 ## gent_base-8.x-1.1-alpha9
 
