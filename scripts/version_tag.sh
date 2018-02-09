@@ -106,7 +106,7 @@ echo "Checking out master branch... and pushing develop in master..."
 git checkout 8.x-2.x
 git pull
 git merge 8.x-2.x-dev
-git tag $PACKAGE_VERSION
+git tag $TAG
 
 # Deploy to git.
 echo "Pushing master and develop branches to remote..."
