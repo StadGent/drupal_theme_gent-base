@@ -5,9 +5,11 @@
 (function ($, Drupal) {
   'use strict';
 
-  Drupal.behaviors.gentBaseLoadLightGallery = {
+  Drupal.behaviors.gentBaseLoadBreadcrumbs = {
     attach: function (context, settings) {
-      this.gentStyleGuideBreadcrumb.updateMobileBreadcrumb();
+      $(window).on('load', function (e) {
+        this.gentStyleGuideBreadcrumb.updateMobileBreadcrumb();
+      });
     }
   };
 })(jQuery, Drupal);
