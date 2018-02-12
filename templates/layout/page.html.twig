@@ -59,7 +59,7 @@
     <header class="section--wrapper header" role="banner">
       <div class="content-container">
         {% if page.nav_mobile %}
-          <nav class="hamburger-menu visible-mobile header-component">
+          <nav class="hamburger-menu visible-mobile header-compone .5rem -.35renfinmnt">
             <button class="hamburger-menu__toggle">{{ 'Menu' }}</button>
             <div class="hamburger-menu__overlay"></div>
             <div class="hamburger-menu__drawer" tabindex="-1">
@@ -80,6 +80,12 @@
           {{ page.navigation }}
         </div>
       </div>
+    {% endif %}
+  {% endblock %}
+
+  {% block breadcrumb %}
+    {% if page.breadcrumbs %}
+      {{ page.breadcrumbs }}
     {% endif %}
   {% endblock %}
 
