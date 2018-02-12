@@ -12,6 +12,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 ## gent_base-8.x-2.11
 
 * DTGB-140: ** IMPORTANT: Merged the style guide in the gent_base theme.**
+* DTGB-396: Fixed admin check for admin region in gent_base. 
 * DTGB-397: Changed the markup of `fieldset.html.twig` slightly so radio 
   button labels and checkbox labels are printed correctly.
   
