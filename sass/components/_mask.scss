@@ -24,23 +24,8 @@
   }
 }
 
-// Thumbnails.
-.ratio--big-thumb {
-  img {
-    border-radius: $gamma-radius;
-  }
-}
-
-// Thumbnails.
-.ratio--thumb {
-  img {
-    border-radius: $beta-radius;
-  }
-}
-
 // Social footer image.
 .ratio--footer {
   padding-top: 40%; // 9/16 * 100
-  border-radius: $beta-radius;
 }
 

@@ -148,7 +148,7 @@ $googleplus-color: #c63d2d;
     @extend %no-bullet-list;
 
     li {
-      @extend %rounded;
+      border-radius: $alpha-radius;
       display: block;
       float: left;
       padding: .7em;

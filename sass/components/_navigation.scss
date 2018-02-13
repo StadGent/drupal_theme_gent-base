@@ -111,7 +111,6 @@
     > span {
       @include text-dimensions(-4, 1, 0, .15, .1);
       @include px-padding-lr(.8, 0);
-      border-radius: $alpha-radius;
       position: relative;
       display: block;
       width: 100%;

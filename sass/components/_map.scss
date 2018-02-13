@@ -30,7 +30,6 @@ body .olControlMapLegend {
 
     .categoryCount {
       @include font-size(-2);
-      border-radius: $radius;
       background-color: $succes-progress;
       color: $white-color;
       font-weight: normal;

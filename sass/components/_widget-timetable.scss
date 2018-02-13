@@ -39,7 +39,6 @@ $current-pos-color: #dd2501;
     @extend %clearfix;
     @include padding-tb(0, .5);
 
-    border-radius: $alpha-radius;
     position: relative;
     background-color: $timetable-grid-bg-color;
     height: 100%;
@@ -101,7 +100,6 @@ $current-pos-color: #dd2501;
         @include px-padding-lr(1, 1);
         @include padding-tb(.1, .1);
 
-        border-radius: $alpha-radius;
         display: inline-block;
         float: right;
         color: $white-color;

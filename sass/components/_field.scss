@@ -69,10 +69,6 @@ p.date {
   color: $beta-text-color;
 }
 
-.l-secondary .field-type-image img {
-  border-radius: $gamma-radius;
-}
-
 .island--kappa {
   .address-line2 {
     @include margin-tb(0, 1);

@@ -11,7 +11,6 @@
   @include margin-tb(.6, .6);
   border: 1px solid desaturate(darken($gamma-ui-color, 5), 10);
   background-color: $white-color;
-  border-radius: $gamma-radius;
 
   ul,
   p {
@@ -147,7 +146,6 @@
   @include padding-tb(.7, .9);
   font-size: 18px;
   background-color: $gamma-ui-color;
-  border-radius: $gamma-radius;
   border: 1px solid desaturate(darken($gamma-ui-color-dark, 5), 10);
   position: relative;
 
@@ -173,7 +171,6 @@
   @include padding-tb(1, .8);
   color: $white-color;
   background-color: $alpha-ui-color;
-  border-radius: $gamma-radius;
 
   h3 {
     @include text-dimensions(7, 1.5, 1, 0, 0);
@@ -250,7 +247,6 @@
   @include margin-tb(.6, .6);
   border: 1px solid desaturate(darken($gamma-ui-color, 5), 10);
   background-color: $delta-ui-color;
-  border-radius: $gamma-radius;
 
   p,
   ul {
@@ -388,7 +384,6 @@
   .island__image {
     img {
       background-color: $white-color;
-      border-radius: $gamma-radius;
       width: 100%;
     }
   }
@@ -397,7 +392,6 @@
     @include px-padding-lr(1.5, 1.5);
     @include padding-tb(.7, .9);
     background-color: $white-color;
-    border-radius: $gamma-radius;
     border: 1px solid desaturate(darken($gamma-ui-color, 5), 10);
     position: relative;
   }
@@ -416,7 +410,6 @@
     display: inline-block;
     background-color: $alpha-ui-color;
     color: $white-color;
-    border-radius: $radius;
 
     span.data {
       @include px-padding-lr(.8, 1);
@@ -451,18 +444,12 @@
     display: none;
     background-size: cover;
     background-position: center;
-    border-radius: $gamma-radius;
-
-    img {
-      border-radius: $gamma-radius;
-    }
   }
 
   .island__bottom {
     @include padding-tb(.9, 1);
     @include px-padding-lr(2, 2);
     background-color: $beta-ui-color;
-    border-radius: $gamma-radius;
   }
 
   h2,
@@ -505,7 +492,6 @@
 
   margin: 0;
   background-color: $white-color;
-  border-radius: $gamma-radius;
   background-repeat: no-repeat;
 
   h3 {
@@ -534,34 +520,11 @@
 
   @include mq($bp-phone-m) {
     @include padding-tb(1.5, 1.5);
-    background-image: url('#{$base-theme-path}/img/png/corner-top-middle.png'),
-    url('#{$base-theme-path}/img/png/corner-bottom-middle.png'),
-    url('#{$base-theme-path}/img/png/corner-left-middle.png'),
-    url('#{$base-theme-path}/img/png/corner-right-middle.png');
-    background-position: top center,
-    bottom center,
-    center left,
-    center right;
   }
 
   @include mq($bp-tablet-m) {
     @include px-padding-lr(2.5, 2.5);
     @include padding-tb(1, 1);
-    background-image: url('#{$base-theme-path}/img/png/corner-top-middle.png'),
-    url('#{$base-theme-path}/img/png/corner-bottom-middle.png'),
-    url('#{$base-theme-path}/img/png/corner-left-middle.png'),
-    url('#{$base-theme-path}/img/png/corner-right-middle.png');
-    background-position: top center,
-    bottom center,
-    center left,
-    center right;
-
-    .svg & {
-      background-image: url('#{$base-theme-path}/img/svg/corner-top-middle.svg'),
-      url('#{$base-theme-path}/img/svg/corner-bottom-middle.svg'),
-      url('#{$base-theme-path}/img/svg/corner-left-middle.svg'),
-      url('#{$base-theme-path}/img/svg/corner-right-middle.svg');
-    }
   }
 }
 
@@ -594,7 +557,6 @@
 }
 
 .island--lambda {
-  @extend %rounded-1;
   @include margin-tb(1, 0);
   @include text-dimensions(-4, 1);
   background-color: $white-color;

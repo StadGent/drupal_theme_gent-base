@@ -10,11 +10,11 @@
 
   a,
   span {
-    @extend %rounded-1;
     @include px-padding-lr(1, 1);
     @include padding-tb(.5, .5);
     @include text-dimensions(-2, 1);
 
+    border-radius: $beta-radius;
     color: $alpha-link-color;
     background-color: transparent;
     text-decoration: none;

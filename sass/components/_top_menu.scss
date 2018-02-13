@@ -121,13 +121,11 @@
       .footer {
         margin: -5px 0 0;
         padding: 10px;
-        border-radius: 5px;
         background: $white-color;
       }
 
       .item-list + .footer {
         margin-top: 15px;
-        border-radius: 0 0 5px 5px;
         background: $gamma-ui-color;
       }
     }

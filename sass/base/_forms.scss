@@ -21,7 +21,6 @@ fieldset {
   @include margin-tb(0, 1);
 
   border: 1px solid lighten($gamma-text-color, 10);
-  border-radius: $alpha-radius;
   background-color: hsl(hue($alpha-ui-color), 40, 95);
 
   legend {
@@ -33,7 +32,6 @@ fieldset {
     width: auto;
     background-color: $white-color;
     border: 1px solid lighten($gamma-text-color, 10);
-    border-radius: $alpha-radius;
 
     a {
       text-decoration: none;
