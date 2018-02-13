@@ -20,13 +20,20 @@ required ? 'js-form-required',
 required ? 'form-required',
 ]
 %}
-{% if title is not empty or required -%}
-  {% if required == false %}
-    <label{{ attributes.addClass(classes) }}>
-      {{ title }}
-      <span class="label-optional">({% trans %}Optional{% endtrans %})</span>
-    </label>
+{% if title_display == 'after'-%}
+  <label{{ attributes.addClass(classes) }}>
+    {{ title }}
+  </label>
   {% else %}
-    <label{{ attributes.addClass(classes) }}>{{ title }}</label>
-  {% endif %}
-{%- endif %}
+    {% if title is not empty and required == '' -%}
+      <label{{ attributes.addClass(classes) }}>
+        {{ title }}
+        <span class="label-optional">({% trans %}Optional{% endtrans %})</span>
+      </label>
+    {% else %}
+      <label{{ attributes.addClass(classes) }}>
+        {{ title }}
+      </label>
+    {%- endif %}
+{% endif %}
+
