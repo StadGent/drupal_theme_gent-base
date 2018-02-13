@@ -92,8 +92,22 @@ SEMANTIC_PACKAGE_VERSION=$(cat package.json \
   | sed 's/[",]//g' \
   | tr -d '[[:space:]]')
 
-PACKAGE_VERSION=${SEMANTIC_PACKAGE_VERSION%.*}
-TAG='8.x-'$PACKAGE_VERSION
+# If the new version of the package is a prerelease version we should adapt the
+# gent_base tab accordingly as an alpha release.
+# F.e. 2.3.0-1 (semantic versioning) should become 2.3-alpha1
+if [[ $TYPE == *"prerelease"* ]]
+then
+  echo 'Creating prerelease git tag...';
+  PRERELEASE_VERSION=${SEMANTIC_PACKAGE_VERSION#*-}
+  PACKAGE_VERSION=${SEMANTIC_PACKAGE_VERSION%.*}
+  TAG='8.x-'$PACKAGE_VERSION'-alpha'$PRERELEASE_VERSION
+else
+  echo 'Creating git tag...'
+  PACKAGE_VERSION=${SEMANTIC_PACKAGE_VERSION%.*}
+  TAG='8.x-'$PACKAGE_VERSION
+fi
+
+echo "Created git tag $TAG"
 
 echo 'Move to the gent_base root directory...';
 cd  ../;
