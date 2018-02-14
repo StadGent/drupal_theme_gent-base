@@ -392,7 +392,7 @@
     @include px-padding-lr(1.5, 1.5);
     @include padding-tb(.7, .9);
     background-color: $white-color;
-    border: 1px solid desaturate(darken($gamma-ui-color, 5), 10);
+    border: 1px solid $white-color;
     position: relative;
   }
 
@@ -434,6 +434,7 @@
 .region-sidebar .island--zeta {
   .island__body {
     background-color: $gamma-ui-color;
+    border-color: $gamma-ui-color;
   }
 }
 
