@@ -5,3 +5,7 @@
   @extend %clearfix;
   position: relative;
 }
+
+.site__footer__content {
+  min-height: 325px;
+}

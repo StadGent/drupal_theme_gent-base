@@ -184,7 +184,7 @@
 
     <?php if ($page['footer_bottom']): ?>
       <footer class="holder site__footer background--beta">
-        <div class="l-row padding--big">
+        <div class="site__footer__content l-row padding--big">
           <?php print render($page['footer_bottom']); ?>
         </div>
       </footer>
