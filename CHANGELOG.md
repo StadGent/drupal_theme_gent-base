@@ -1,9 +1,13 @@
 # Changelog
 All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
-## Unreleased
+## gent_base-8.x-3.0
 
-* **IMPORTANT** Integrate style guide in this project for an easier workflow.
+* DTGB-398: Updated version_tag.sh script for easier deployment. 
+
+## gent_base-8.x-2.10
+
+* DTGB-140: ** IMPORTANT: Merged the style guide in the gent_base theme.**
 
 ## gent_base-8.x-1.1-alpha9
 

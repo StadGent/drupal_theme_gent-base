@@ -8,6 +8,17 @@ Refer to upcoming changes in our README.md under "Roadmap"
 
 All notable changes to this style guide are documented here.
 
+### 3.0.0
+
+* DTGB-398: Moved `version_tag.sh` script from the style guide to 
+  the gent_base `scripts` directory.
+
+### 2.10.0
+
+* DTGB-140: Removed some files from the NPM package.
+* DTGB-140: Fixed a bug where `npm install` breaks 
+  the install of the style guide.
+
 ### 2.9.0
 
 * STIJ-246: Added a mixin  and class `no-link-style` to make it possible

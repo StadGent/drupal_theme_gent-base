@@ -4,14 +4,16 @@
 #
 #          FILE:  version_tag.sh
 #
-#         USAGE:  ./version_tag.sh --type=patch
-#                 ./version_tag.sh --type=minor
+#         USAGE:   ./version_tag.sh --type=minor
 #                 ./version_tag.sh --type=major
 #
 #   DESCRIPTION:  ONLY USABLE FOR DIGIPOLIS EMPLOYEES!
-#                 This script automatically pulls in the latest origin/develop into your local development branch,
-#                 updates the version number based on the --type parameter and merges the development branch in the
-#                 master branch before tagging and pushing to git. Jenkins does the rest.
+#                 This script automatically pulls in the latest
+#                 origin/8.x-3.x-dev branch, updates the version number based
+#                 on the --type parameter and merges the 8.x-3.x-dev branch
+#                 in the 8.x-3.x branch before tagging and pushing to git.
+#                 Jenkins then splits the styleguide directory into its own
+#                 git repo and publishes a new NPM version of the style guide.
 #
 #       OPTIONS:  --type
 #  REQUIREMENTS:  ---
@@ -19,7 +21,7 @@
 #         NOTES:  ---
 #        AUTHOR:  Gert-Jan Meire, gertjan.meire@digipolis.gent
 #       COMPANY:  Digipolis Gent
-#       VERSION:  1.0
+#       VERSION:  2.0
 #       CREATED:  12/12/2017
 #      REVISION:  ---
 #===============================================================================
@@ -30,10 +32,25 @@ if ! [ -x "$(command -v git)" ]; then
   exit 1
 fi
 
+# Check if type argument is not empty.
+if [ $# -eq 0 ]
+  then
+    echo "No arguments supplied. Please provide a type parameter like -t=minor."
+    exit 1
+fi
+
+echo 'Move to the gent_base root directory...';
+cd ../;
+pwd;
+
 # Get latest changes in git.
 echo "Checking out latest development changes...";
-git checkout develop;
+git checkout 8.x-3.x-dev;
 git pull;
+
+echo 'Move to the styleguide directory...';
+cd styleguide
+pwd;
 
 # Check if gulp validates, otherwise terminate the script.
 gulp validate
@@ -51,13 +68,6 @@ fi
 #echo "Building latest style guide version...";
 gulp build
 
-# Check if type argument is not empty.
-if [ $# -eq 0 ]
-  then
-    echo "No arguments supplied. Please provide a type parameter like -t=patch."
-    exit 1
-fi
-
 # Checking for type argument.
 for i in "$@"
   do
@@ -69,29 +79,49 @@ for i in "$@"
     esac
 done
 
-# Update the version based on the argument given (patch, minor, major) using our gulp bump command.
+# Update the version based on the argument given (patch, minor, major)
+# using our gulp bump command.
 echo "Updating version...";
 gulp bump --type=$TYPE
 
 # Get the new package version.
-PACKAGE_VERSION=$(cat package.json \
+SEMANTIC_PACKAGE_VERSION=$(cat package.json \
   | grep version \
   | head -1 \
   | awk -F: '{ print $2 }' \
   | sed 's/[",]//g' \
   | tr -d '[[:space:]]')
 
-echo $PACKAGE_VERSION
+# If the new version of the package is a prerelease version we should adapt the
+# gent_base tab accordingly as an alpha release.
+# F.e. 2.3.0-1 (semantic versioning) should become 2.3-alpha1
+if [[ $TYPE == *"prerelease"* ]]
+then
+  echo 'Creating prerelease git tag...';
+  PRERELEASE_VERSION=${SEMANTIC_PACKAGE_VERSION#*-}
+  PACKAGE_VERSION=${SEMANTIC_PACKAGE_VERSION%.*}
+  TAG='8.x-'$PACKAGE_VERSION'-alpha'$PRERELEASE_VERSION
+else
+  echo 'Creating git tag...'
+  PACKAGE_VERSION=${SEMANTIC_PACKAGE_VERSION%.*}
+  TAG='8.x-'$PACKAGE_VERSION
+fi
+
+echo "Created git tag $TAG"
+
+echo 'Move to the gent_base root directory...';
+cd  ../;
+pwd
 
 # Add everything to git.
 echo "Adding changes to git and tagging "$PACKAGE_VERSION
 git add *
 git commit -m "Updated to version "$PACKAGE_VERSION
 echo "Checking out master branch... and pushing develop in master..."
-git checkout master
+git checkout 8.x-3.x
 git pull
-git merge develop
-git tag $PACKAGE_VERSION
+git merge --no-ff 8.x-3.x-dev
+git tag $TAG
 
 # Deploy to git.
 echo "Pushing master and develop branches to remote..."
