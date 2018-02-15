@@ -177,21 +177,9 @@ nav.holder {
 }
 
 .brand__footer__wrapper {
-  width: 100%;
   text-align: right;
 
-  @include mq($bp-phone-m) {
-    position: absolute;
-    bottom: 12px;
-    right: 0;
-  }
-
-  @include mq($bp-tablet-m) {
-    bottom: 52px;
-  }
-
   p {
-    display: block;
     margin-bottom: 0;
     color: $gamma-text-color;
   }
@@ -211,10 +199,6 @@ nav.holder {
 
   width: 100%;
   height: 100px;
-}
-
-.brand__footer__sub {
-  padding-right: 7px;
 }
 
 .brand__footer__sub__text {
