@@ -5,9 +5,9 @@
 // Alpha font
 //
 // Styleguide 1.3.1.1
-$alpha-font-family: 'Source Sans Pro', arial, sans-serif;
+$alpha-font-family: fira-sans, arial, sans-serif;
 $alpha-font-weight: 400;
-$alpha-font-size: 18; // pixel-value
+$alpha-font-size: 17; // pixel-value
 $alpha-line-height: 1.4; // em-value
 $alpha-baseline-grid: 8; // pixel-value
 $alpha-leading: .8; // multiplier
@@ -15,7 +15,7 @@ $alpha-leading: .8; // multiplier
 // Beta font
 //
 // Styleguide 1.3.1.2
-$beta-font-family: 'expressway', sans-serif;
+$beta-font-family: fira-sans, sans-serif;
 $beta-font-weight: 800;
 
 // Modular scale settings
@@ -25,5 +25,4 @@ $ratio: 1.1;
 $importantnumber: 36;
 $leading: 1;
 $base-size: $alpha-font-size / 16 * 1em;
-
-
+$letter-spacing: 0.05; // em-value

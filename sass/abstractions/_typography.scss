@@ -128,15 +128,18 @@ $basefontpercent: $alpha-font-size / 16 * 100;
 
   font-family: $beta-font-family;
   font-weight: $beta-font-weight;
+  letter-spacing: $letter-spacing * 1rem;
 }
 
 %h2 {
   @extend %base-header;
   @include text-dimensions(2, 1.15, .3, 2);
   font-family: $beta-font-family;
+  letter-spacing: $letter-spacing * 0.75 * 1rem;
 }
 
 %h3 {
   @extend %base-header;
   @include text-dimensions(0, 1, 0);
+  letter-spacing: $letter-spacing * 0.5 * 1rem;
 }

@@ -17,8 +17,6 @@
   <meta name="MobileOptimized" content="320" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic" rel="stylesheet" type="text/css" />
-
   <?php if (!empty($type_kit_id)) :?>
   <!-- Load Typekit -->
   <script>
@@ -41,7 +39,7 @@
   <?php endif; ?>
 
   <meta name="msapplication-TileImage" content="<?php print $base_theme_path ?>mstile-144x144.png" />
-  <meta name="msapplication-TileColor" content="#007db3">
+  <meta name="msapplication-TileColor" content="#009de0">
   <meta name="msapplication-square310x310logo" content="<?php print $base_theme_path ?>mstile-310x310.png" />
   <meta name="msapplication-wide310x150logo" content="<?php print $base_theme_path ?>mstile-310x150.png" />
   <meta name="msapplication-square150x150logo" content="<?php print $base_theme_path ?>mstile-150x150.png" />

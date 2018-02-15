@@ -407,9 +407,6 @@ function gent_base_theme() {
   $theme_path = drupal_get_path('theme', 'gent_base');
   return array(
     // Sheet theme functions.
-    'entity_property__sheet__gpdc__form_url' => array(
-      'base hook' => 'entity_property',
-    ),
     'entity_property__sheet__gpdc__references' => array(
       'base hook' => 'entity_property',
     ),
@@ -419,7 +416,10 @@ function gent_base_theme() {
     'entity_property__sheet__gpdc__attachments' => array(
       'base hook' => 'entity_property',
     ),
-    'entity_property__sheet__gpdc__forms' => array(
+    'entity_property__sheet__gpdc__form_links' => array(
+      'base hook' => 'entity_property',
+    ),
+    'entity_property__sheet__gpdc__form_files' => array(
       'base hook' => 'entity_property',
     ),
     'entity_property__sheet__gpdc__gbos_products' => array(
@@ -689,18 +689,22 @@ function gent_base_entity_property__sheet__gpdc__attachments(&$variables) {
 }
 
 /**
- * Overrides theme_entity_property__sheet__gpdc__form_url().
+ * Overrides theme_entity_property__sheet__gpdc__form_links().
  */
-function gent_base_entity_property__sheet__gpdc__form_url(&$variables) {
+function gent_base_entity_property__sheet__gpdc__form_links(&$variables) {
   $output = '<h2>' . t('Make your request online') . ' <i class="icon-newtab"></i></h2>';
-  $output .= '<div' . $variables['attributes'] . '>' . $variables['content'] . '</div>';
+
+  foreach ($variables['content'] as $content) {
+    $output .= '<div' . $variables['attributes'] . '>' . $content . '</div>';
+  }
+
   return $output;
 }
 
 /**
- * Overrides theme_entity_property__sheet__gpdc__forms().
+ * Overrides theme_entity_property__sheet__gpdc__form_files().
  */
-function gent_base_entity_property__sheet__gpdc__forms(&$variables) {
+function gent_base_entity_property__sheet__gpdc__form_files(&$variables) {
   $output = '<h2>' . t('Fill in the downloadable form') . '<i class="icon-form_fill"></i></h2>';
 
   foreach ($variables['content'] as $content) {

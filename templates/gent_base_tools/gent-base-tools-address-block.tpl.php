@@ -17,11 +17,4 @@
       <span itemprop="addressLocality"><?php print check_plain($settings['address_location']) ?></span>
     <?php endif; ?>
   </li>
-  <?php foreach ($settings['pages'] as $i => $page): ?>
-    <?php // @codingStandardsIgnoreStart ?>
-    <li class="milli <?php if ($i == 0): print 'list__divider'; endif; ?>">
-    <?php // @codingStandardsIgnoreEnd ?>
-      <?php print l($page['entity_label'], $page['path']); ?>
-    </li>
-  <?php endforeach; ?>
 </ul>

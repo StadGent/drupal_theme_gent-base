@@ -3,7 +3,26 @@ All Notable changes to `digipolisgent/gent_base`.
 
 
 
+
 ## [Unreleased]
+
+
+## [7.x-2.9]
+### Changed
+
+* Fixed warning in gent_base_tools template.
+* Dropped base font size one pixel.
+* Defined font-weight of strong tag.
+
+## [7.x-2.7]
+### Changed
+
+* Removed brand tagline from header, according to new brand design.
+* Added new brand logo.
+* Changed font family to fira-sans (update your typekits & check project stylesheets for use of old fonts expressway & Source Sans).
+* Changed blue color to another blue color (check project stylesheets).
+* Changed theming of brand layout in footer, content has been split (see gent_base_tools).
+* Changed color of corner svg images.
 
 
 ## [7.x-2.6]
