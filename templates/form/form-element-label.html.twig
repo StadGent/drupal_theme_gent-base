@@ -28,7 +28,7 @@ required ? 'form-required',
     {% if title is not empty and required == '' -%}
       <label{{ attributes.addClass(classes) }}>
         {{ title }}
-        <span class="label-optional">({% trans %}Optional{% endtrans %})</span>
+        <span class="label-optional">({{ 'Optional'|t }})</span>
       </label>
     {% else %}
       <label{{ attributes.addClass(classes) }}>
