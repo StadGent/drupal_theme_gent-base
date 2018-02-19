@@ -7,6 +7,11 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 ## gent_base-8.x-3.0
 
+## gent_base-8.x-2.11
+
+* DTGB-140: ** IMPORTANT: Merged the style guide in the gent_base theme.**
+* DTGB-401: Updated links to new public gent_base repository. 
+
 ## gent_base-8.x-1.1-alpha9
 
 * DTGB-133: Fixed styling of messages.
