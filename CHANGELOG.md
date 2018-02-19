@@ -1,14 +1,17 @@
 # Changelog
 All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
-## Unreleased
-
-* **IMPORTANT** Integrate style guide in this project for an easier workflow.
-
-## gent_base-8.x-2.10
+## gent_base-8.x-2.11
 
 * DTGB-140: ** IMPORTANT: Merged the style guide in the gent_base theme.**
 * DTGB-396: Fixed admin check for admin region in gent_base. 
+* DTGB-397: Changed the markup of `fieldset.html.twig` slightly so radio 
+  button labels and checkbox labels are printed correctly.
+  
+  > Note that you might need template overriding when applying this update!
+* DTGB-401: Updated links to new public gent_base repository. 
+* DTGB-402: Added `form.html.twig` in the templates directory to add a 
+  required fields indicator at the top of every form.
 
 ## gent_base-8.x-1.1-alpha9
 
