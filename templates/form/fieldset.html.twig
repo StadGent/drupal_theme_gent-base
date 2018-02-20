@@ -37,7 +37,7 @@
       'fieldset-legend',
       required ? 'js-form-required',
       required ? 'form-required',
-      required == 1 ? 'label-optional',
+      required == 0 ? 'label-optional',
     ]
   %}
 
@@ -55,7 +55,7 @@
   {#  Always wrap fieldset legends in a <span> for CSS positioning. #}
   <legend{{ legend.attributes }}>
     {{ legend.title }}
-    {% if required == 1 %}
+    {% if required == 0 and fieldset_optional != 1 %}
       <span{{ legend_span.attributes.addClass(legend_span_classes) }}>({{ 'Optional'|t }})</span>
     {% endif %}
   </legend>
