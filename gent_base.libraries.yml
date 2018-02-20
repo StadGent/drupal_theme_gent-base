@@ -6,7 +6,7 @@ global_js:
 breadcrumbs:
   version: 1.x
   js:
-    styleguide/public/styleguide/js/breadcrumbs.functions-min.js: { minified: true }
+    styleguide/build/styleguide/js/breadcrumbs.functions-min.js: { minified: true }
     build/js/breadcrumbs.binding-min.js: { minified: true }
   dependencies:
     - core/jquery

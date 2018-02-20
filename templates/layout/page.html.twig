@@ -84,6 +84,12 @@
     {% endif %}
   {% endblock %}
 
+  {% block breadcrumb %}
+    {% if page.breadcrumbs %}
+      {{ page.breadcrumbs }}
+    {% endif %}
+  {% endblock %}
+
   {% block main %}
     <main class="section--default" role="main">
       <div class="content-container">
