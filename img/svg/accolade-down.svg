@@ -8,11 +8,11 @@
     </defs>
     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g transform="translate(3000.000000, 24.000000) scale(1, -1) translate(-3000.000000, -24.000000) ">
-            <mask id="accolade-mask" class="accolade-bg" fill="currentColor">
+            <mask id="accolade-mask" class="accolade-bg" fill="#fff">
                 <use xlink:href="#accolade-path-1" />
             </mask>
-            <use class="accolade-bg" fill="currentColor" xlink:href="#accolade-path-1" />
-            <g mask="url(#accolade-mask)" class="accolade-bg" fill="currentColor">
+            <use class="accolade-bg" fill="#fff" xlink:href="#accolade-path-1" />
+            <g mask="url(#accolade-mask)" class="accolade-bg" fill="#fff">
                 <rect x="0" y="0" width="6000" height="48" />
             </g>
         </g>

@@ -69,11 +69,6 @@
                   <?php endif; ?>
                 </div>
               </div>
-              <?php if (!empty($header_accolade)): ?>
-                <div class="header__accolade">
-                  <?php print render($header_accolade); ?>
-                </div>
-              <?php endif; ?>
             <?php else: ?>
               <div class="site__header__normal__title">
                 <div class="l-row">

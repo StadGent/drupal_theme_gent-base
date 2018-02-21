@@ -96,23 +96,22 @@
   }
 }
 
-.header__accolade {
+.header--has-accolade .header__background::after {
   display: none;
   position: absolute;
+  z-index: 10;
   bottom: 0;
   left: 0;
   right: 0;
   height: $accolade-height;
+  content: '';
+
+  background: transparent url('#{$base-theme-path}/img/svg/accolade-down.svg') no-repeat center center;
+  background-size: auto 48px;
 
   @include mq($bp-tablet-s) {
     display: block;
   }
-}
-
-.header__accolade__image {
-  color: $accolade-default-color;
-  height: $accolade-height + 1px;
-  width: 100%;
 }
 
 @include mq($bp-tablet-s) {
