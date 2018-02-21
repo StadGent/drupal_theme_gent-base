@@ -83,6 +83,8 @@
 }
 
 .header__background {
+  position: relative;
+  box-sizing: border-box;
   width: 100%;
   max-height: 420px;
   overflow: hidden;
@@ -91,6 +93,31 @@
 .large-header {
   .header__background {
     max-height: 490px;
+  }
+}
+
+.header__accolade {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: $accolade-height;
+
+  @include mq($bp-tablet-s) {
+    display: block;
+  }
+}
+
+.header__accolade__image {
+  color: $accolade-default-color;
+  height: $accolade-height + 1px;
+  width: 100%;
+}
+
+@include mq($bp-tablet-s) {
+  .header--has-accolade .site__header__image__title {
+    bottom: $accolade-height;
   }
 }
 

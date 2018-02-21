@@ -111,6 +111,14 @@ function gent_base_preprocess_page(&$variables) {
     $variables['header_image']['#title'] = theme_get_setting('header_image_caption');
   }
 
+  // Header image accolade overlay.
+  $variables['header_accolade'] = NULL;
+  if (theme_get_setting('header_accolade')) {
+    $variables['header_accolade'] = array(
+      '#theme' => 'gent_base_header_accolade',
+    );
+  }
+
   // Add classes to content / sidebar if sidebar is available.
   if (!empty($variables['page']['sidebar'])) {
     $variables['page']['content']['#sidebar'] = TRUE;

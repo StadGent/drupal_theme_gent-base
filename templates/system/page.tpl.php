@@ -51,9 +51,9 @@
           </section>
         <?php endif; ?>
 
-        <header class="site__header">
+        <header class="<?php print $header_classes; ?>">
           <div class="mask ratio--header">
-            <?php if ($header_image): ?>
+            <?php if (!empty($header_image)): ?>
               <div class="header__background">
                 <?php print render($header_image); ?>
               </div>
@@ -69,6 +69,11 @@
                   <?php endif; ?>
                 </div>
               </div>
+              <?php if (!empty($header_accolade)): ?>
+                <div class="header__accolade">
+                  <?php print render($header_accolade); ?>
+                </div>
+              <?php endif; ?>
             <?php else: ?>
               <div class="site__header__normal__title">
                 <div class="l-row">
@@ -80,7 +85,7 @@
             <?php endif; ?>
           </div>
           <?php if (!empty($header_image['#title'])): ?>
-            <div class="l-row">
+            <div class="header__caption l-row">
               <p class="caption"><?php print check_plain($header_image['#title']); ?></p>
             </div>
           <?php endif; ?>

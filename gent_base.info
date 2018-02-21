@@ -42,4 +42,5 @@ scripts[] = js/alerts.min.js
 settings[header_image_behavior] = 2
 settings[header_image_styles][] = headerbanner_medium
 settings[header_image_styles][] = headerbanner_large
+settings[header_accolade] = 1
 settings[readspeaker_enabled] = 0

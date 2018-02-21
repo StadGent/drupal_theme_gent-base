@@ -440,6 +440,10 @@ function gent_base_theme() {
       'template' => 'form--gent-base-search-widget',
       'path' => $theme_path . '/templates/form',
     ),
+    'gent_base_header_accolade' => array(
+      'variables' => array(),
+      'function' => 'theme_gent_base_header_accolade',
+    ),
   );
 }
 
@@ -735,5 +739,21 @@ function gent_base_entity_property__sheet__gpdc__references(&$variables) {
   $output .= $variables['content'];
   $output .= '</div>' . "\n";
 
+  return $output;
+}
+
+/**
+ * Theme function that renders the header accolade.
+ *
+ * @param array $variables
+ *   The theme function variables.
+ *
+ * @return string
+ *   The output.
+ */
+function theme_gent_base_header_accolade($variables) {
+  $output = '<svg class="header__accolade__image" viewBox="0 0 6000 48" preserveAspectRatio="xMidYMin slice">';
+  $output .= '<use xlink:href="' . base_path() . path_to_theme() . '/img/svg/accolade-down.svg#svg-wrapper"></use>';
+  $output .= '</svg>';
   return $output;
 }
