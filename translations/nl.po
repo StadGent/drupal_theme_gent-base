@@ -209,7 +209,7 @@ msgstr "Contacten"
 
 #: preprocess/entity-property.preprocess.inc:92
 msgid "Error loading appointments."
-msgstr "Mislukt op de online afspraken in te laden."
+msgstr "Momenteel niet mogelijk, probeer later opnieuw."
 
 #: preprocess/page.preprocess.inc:55
 msgid "Home"

@@ -250,7 +250,7 @@ function gent_base_preprocess_entity_property(&$variables) {
           ->fieldCondition('field_vesta_id', 'value', $property->value())
           ->execute();
 
-        $variables['content'] = '';
+        gent_base_set_entity_property_content($variables, '');
         if (!empty($result['node'])) {
           $nodes = node_load_multiple(array_keys($result['node']));
           $rendered_nodes = array();
@@ -259,11 +259,12 @@ function gent_base_preprocess_entity_property(&$variables) {
             $node_view = node_view($node, 'teaser');
             $rendered_nodes[] = render($node_view);
           }
-          $variables['content'] = theme('item_list', array(
+          $content = theme('item_list', array(
             'items' => $rendered_nodes,
             'hide_wrapper' => TRUE,
             'attributes' => array('class' => array('link-list')),
           ));
+          gent_base_set_entity_property_content($variables, $content);
         }
         $variables['attributes_array']['class'] = array('island island--kappa no-border-bottom');
 
@@ -276,46 +277,44 @@ function gent_base_preprocess_entity_property(&$variables) {
         break;
 
       case 'form_links':
-        $variables['content'] = array();
+        $content = array();
         foreach ($property->value() as $link) {
-          $variables['content'][] = l($link['title'], $link['url']);
+          $content[] = l($link['title'], $link['url']);
         }
+        gent_base_set_entity_property_content($variables, $content);
         break;
 
       case 'form_files':
-        $variables['content'] = array();
-
+        $content = array();
         foreach ($property->value() as $file) {
-          $content = '<span class="article-content-action-document">' . l($file->filename, file_create_url($file->uri), array('attributes' => array('title' => $file->filename))) . '</span> ';
-          $content .= '<span class="small article-content-action-document-size">(' . format_size($file->filesize) . ')</span>' . "\n";
-          $variables['content'][] = $content;
+          $item = '<span class="article-content-action-document">' . l($file->filename, file_create_url($file->uri), array('attributes' => array('title' => $file->filename))) . '</span> ';
+          $item .= '<span class="small article-content-action-document-size">(' . format_size($file->filesize) . ')</span>' . "\n";
+          $content[] = $item;
         }
+        gent_base_set_entity_property_content($variables, $content);
         break;
 
       case 'gbos_products':
 
         $variables['label'] = '';
-        $variables['content'] = '';
-        $data = $property->value();
+        gent_base_set_entity_property_content($variables, '');
 
         try {
           if (module_exists('gent_gbos')) {
             $provider = new GbosDrupalDataProvider();
             $products = $provider->getProductsOptions();
 
-            $appointment_base_path = 'mijn-gent/afspraak/maken';
-            $variables['content'] = array();
-
-            foreach ($data as $product_id) {
+            $content = array();
+            foreach ($property->value() as $product_id) {
               if (isset($products[$product_id])) {
-                $content = '<span class="article-content-action-appointment">' . l($products[$product_id], sprintf($appointment_base_path . '/%d', $product_id)) . '</span>';
-                $variables['content'][] = $content;
+                $content[] = '<span class="article-content-action-appointment">' . l($products[$product_id], sprintf('mijn-gent/afspraak/maken/%d', $product_id)) . '</span>';
               }
             }
+            gent_base_set_entity_property_content($variables, $content);
           }
         }
         catch (Exception $e) {
-          $variables['content'] = t('Error loading appointments.');
+          gent_base_set_entity_property_content($variables, t('Error loading appointments.'));
         }
         break;
     }

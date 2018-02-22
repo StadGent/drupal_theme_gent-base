@@ -148,3 +148,23 @@ function gent_base_get_header_image() {
 
   return NULL;
 }
+
+/**
+ * Set the content for a entity property.
+ *
+ * Fixes a big change in entity contrib module and the implementation of
+ * preprocess functions that sets the entity property content. This function
+ * sets both entity implementation as our own breaking none. Use this
+ * in preprocess functions of entity properties to set their value.
+ *
+ * @param array $variables
+ *   The entity property variables array.
+ * @param mixed $value
+ *   The value of the entity property.
+ *
+ * @see template_preprocess_entity_property() entity 1.8+
+ */
+function gent_base_set_entity_property_content(&$variables, $value) {
+  $variables['content'] = $value;
+  $variables['elements']['#content'] = $value;
+}
