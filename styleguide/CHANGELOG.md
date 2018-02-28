@@ -11,6 +11,7 @@ All notable changes to this style guide are documented here.
 ### 3.0.0
 
 * DTGB-394: Moved layouts from 61-layouts directory to a 71-pages directory.
+* DTGB-180: Added gulp task to perform accessibility checks.
 
 ### 2.11.0
 

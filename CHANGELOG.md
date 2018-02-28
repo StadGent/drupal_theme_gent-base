@@ -27,6 +27,10 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
   > Note that you might need template overriding when applying this update!
 * DTGB-401: Updated links to new public gent_base repository. 
 
+## gent_base-8.x-3.0
+
+* No changes to the gent_base theme.
+
 ## gent_base-8.x-1.1-alpha9
 
 * DTGB-133: Fixed styling of messages.
