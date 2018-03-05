@@ -4,7 +4,7 @@
   "description": "Drupal theming layer for styleguide Gent.",
   "keywords": ["gent", "drupal", "theme"],
   "type": "drupal-theme",
-  "license": "GPL-2.0+",
+  "license": "GPL-3.0",
   "minimum-stability": "dev",
   "prefer-stable": true,
   "authors": [
