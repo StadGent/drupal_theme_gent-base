@@ -2,13 +2,6 @@
   width: 1px;
 }
 
-input[type="radio"],
-input[type="checkbox"] {
-  + label.option > .label-optional {
-    display: none;
-  }
-}
-
 .field {
   &.field--label-inline {
     > div {
@@ -23,7 +16,7 @@ input[type="checkbox"] {
 
 fieldset {
   .fieldset-legend {
-    font-weight: bold;
+    font-weight: normal;
   }
 }
 

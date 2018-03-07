@@ -46,10 +46,11 @@
  */
 #}
 {% block admin %}
-{% set has_admin = page.admin|render|striptags|trim is not empty %}
-  {% if is_admin and has_admin %}
+  {% if is_admin %}
     <header class="section--default" role="navigation">
-      {{ page.admin }}
+      <div class="content-container">
+        {{ page.admin }}
+      </div>
     </header>
   {% endif %}
 {% endblock %}
@@ -80,6 +81,12 @@
           {{ page.navigation }}
         </div>
       </div>
+    {% endif %}
+  {% endblock %}
+
+  {% block breadcrumb %}
+    {% if page.breadcrumbs %}
+      {{ page.breadcrumbs }}
     {% endif %}
   {% endblock %}
 
