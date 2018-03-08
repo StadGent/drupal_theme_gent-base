@@ -5,12 +5,13 @@
   }
 
   ul {
+    margin: 0;
     padding-left: 0;
     list-style: none;
   }
 
   a {
-    color: $color-gray;
+    color: color('dark-gray');
     text-decoration: none;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -18,11 +19,11 @@
     word-wrap: break-word;
 
     &:visited {
-      color: $color-gray;
+      color: color('dark-gray');
     }
 
     &:hover {
-      color: $color-medium-lighter-gray;
+      color: tint('dark-gray', -2);
     }
 
     &::before {
