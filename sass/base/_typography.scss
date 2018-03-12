@@ -94,13 +94,13 @@ pre {
   @include text-dimensions(-1, 1, 1);
 
   @include mq($bp-tablet-s) {
-    @include text-dimensions(0, 1, 1);
+    @include text-dimensions(0, 1.1, 1);
   }
 }
 
 .lead {
   @include text-dimensions(1, 1.2, 1.2, .8, .8);
-  color: $alpha-ui-color;
+  font-weight: 500;
   border-bottom: 1px solid darken($gamma-ui-color, 5);
 }
 
@@ -113,7 +113,7 @@ pre {
   @include text-dimensions(-5, .65);
   @include padding-tb(.3, .3);
 
-  color: $gamma-text-color;
+  color: $caption-color;
   font-style: italic;
   margin: 0;
 
