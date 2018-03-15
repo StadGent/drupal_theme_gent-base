@@ -88,18 +88,6 @@ input[type="submit"] {
     @include button-small;
   }
 
-  &.button-medium {
-    @include button-medium;
-  }
-
-  &.button-large {
-    @include button-large;
-  }
-
-  &:disabled {
-    @include button-disabled;
-  }
-
   &.button-icon {
     padding-right: .625rem;
     padding-left: .625rem;
