@@ -4,8 +4,10 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 ## gent_base-8.x-3.0
 
-* No changes to the gent_base theme.
+* DTGB-409: Removed region templates for footer and header.
 
+  > This enables better behat testing.
+  > A new design still has to be implemented, so for now they aren't used.
 
 ## gent_base-8.x-2.11
 
