@@ -9,7 +9,7 @@ $darkness: 5 !default;
 
 // Colors.
 //$alpha-ui-color: #007db3;  // Blue
-$alpha-ui-color: #009de0;
+$alpha-ui-color: #007db3;
 $beta-ui-color: #2c3f48;  // Dark blue
 $gamma-ui-color: #ecf5f7;  // Blue tint
 $gamma-ui-color-dark: #c8e2e8; // Blue tint dark
@@ -19,7 +19,7 @@ $body-bg-color: #f4f4f4; // White-ish
 
 $light-grey: #f2f2f2; // Light grey
 $dark-grey: #666; // Dark grey;
-$alpha-text-color: #595f60;  // Grey
+$alpha-text-color: #3a474d;  // Grey
 $beta-text-color: #6c7678;  // Lighter grey
 $gamma-text-color: #9da8af;  // Lightest grey
 $grey-progressbar: #e7e7e7; // Grey progressbar
@@ -29,6 +29,8 @@ $error-color: #d62300;  // Red
 $success-color: #93d600;  // Green
 $succes-progress: #4ca22f; // Green progress
 $notice-color: #f39200;  // Orange
+
+$caption-color: #607485;
 
 $disabled-ui-color: #f5f5f1;
 $disabled-color: #c0c0bb;

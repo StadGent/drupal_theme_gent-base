@@ -121,9 +121,9 @@ $basefontpercent: $alpha-font-size / 16 * 100;
 
 %h1 {
   @extend %base-header;
-  @include text-dimensions(5, 1.3, 1);
+  @include text-dimensions(3, 1.3, 1);
   @include mq($bp-desktop-s) {
-    @include text-dimensions(8, 1.75, 1);
+    @include text-dimensions(5, 1.4, 1);
   }
 
   font-family: $beta-font-family;

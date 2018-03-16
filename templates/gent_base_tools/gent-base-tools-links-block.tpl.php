@@ -7,9 +7,7 @@
 ?>
 <ul class="no-bullet-list">
   <?php foreach ($settings['pages'] as $i => $page): ?>
-    <?php // @codingStandardsIgnoreStart ?>
-    <li class="milli <?php if ($i == 0): print 'list__divider'; endif; ?>">
-    <?php // @codingStandardsIgnoreEnd ?>
+    <li class="milli">
       <?php print l($page['entity_label'], $page['path']); ?>
     </li>
   <?php endforeach; ?>
