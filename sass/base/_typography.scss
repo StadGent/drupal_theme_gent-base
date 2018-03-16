@@ -94,7 +94,7 @@ pre {
   @include text-dimensions(-1, 1, 1);
 
   @include mq($bp-tablet-s) {
-    @include text-dimensions(0, 1.1, 1);
+    @include text-dimensions(0, 1, 1);
   }
 }
 
