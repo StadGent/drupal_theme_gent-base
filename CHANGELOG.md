@@ -20,6 +20,9 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
     
   > The breadcrumbs should now be drag and drop inside the new breadcrumbs
     region and should fully styled and function responsively.
+    
+* DTGB-283: Updated the license file to GPLv2.
+    
 * DTGB-396: Fixed admin check for admin region in gent_base. 
 * DTGB-397: Changed the markup of `fieldset.html.twig` slightly so radio 
   button labels and checkbox labels are printed correctly.
