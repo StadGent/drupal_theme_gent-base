@@ -101,16 +101,32 @@
   position: absolute;
   z-index: 10;
   bottom: 0;
-  left: 0;
+  left: -130px;
   right: 0;
   height: $accolade-height;
   content: '';
 
-  background: transparent url('#{$base-theme-path}/img/svg/accolade-down.svg') no-repeat center center;
-  background-size: auto 48px;
+  background: transparent url('#{$base-theme-path}/img/svg/accolade-down.svg') no-repeat left top;
+  background-size: auto $accolade-height;
 
   @include mq($bp-tablet-s) {
     display: block;
+  }
+
+  // The padding surrounding our content div becomes flexible from
+  // $bp-desktop-s (1340px 83em) until $bp-container (1600px 100em)
+  // We fix the accolade background by changing the left position per 1em.
+  // When we reach the container width (1600px), we need no worry.
+  $min: 83;
+  $max: 100;
+  @for $i from $min through ($max - 1) {
+    @media (min-width: #{$i}em) and (max-width: #{$i + 0.999}em) {
+      left: #{-130 + (130 * (($i - $min) / ($max - $min)))}px;
+    }
+  }
+
+  @include mq($bp-container) {
+    left: 0;
   }
 }
 
