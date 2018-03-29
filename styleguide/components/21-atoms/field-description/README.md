@@ -1,13 +1,10 @@
-# Field Description atom
+# Field description
 
 ## General
 
-This atom is used in the context of a webform or an interactive field on a
-website. The field description is used as a tool tip. This element is always
-used in combination with a field.
+* A field description is used in the context of a form.
+* A field description can only be used to describe fields or fieldsets.
 
-## Themify
+## Web accessibility
 
-This is a themify enabled component. Please use the themify mixin as defined in
-<a href="{{path '../../docs/mixins'}}">mixins</a> to change the colorscheme of
-this description.
+* A field must reference the field description by use of aria-describedby, unless a field message has priority.
