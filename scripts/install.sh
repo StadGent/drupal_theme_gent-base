@@ -15,7 +15,7 @@ mkdir ../build && mkdir ../build/js;
 echo "Building - style guide - in gent_base...";
 cd ../styleguide;
 yarn install;
-./node_modules/.bin/gulp build;
+./node_modules/.bin/gulp compile;
 
 echo "Executing - style guide - postinstall script...";
 cd scripts;
