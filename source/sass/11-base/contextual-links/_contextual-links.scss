@@ -5,8 +5,12 @@
   .trigger,
   .trigger:focus,
   .trigger:hover {
-    background: $color-white url("../../../../contrib/gent_base/source/img/pencil.svg") no-repeat center center !important;
-    background-size: .75rem !important;
+    @include theme('background-color', 'color-secondary', 'contextual-link-background');
+
+    background-image: url("../../../../contrib/gent_base/source/img/pencil.svg");
+    background-repeat:no-repeat;
+    background-position: center center;
+    background-size: .75rem;
     border: 1px solid #ccc;
   }
 
