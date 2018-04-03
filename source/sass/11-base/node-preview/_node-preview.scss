@@ -1,0 +1,13 @@
+.node-preview-container {
+  @include theme('background-color', 'color-primary--lighten-6', 'node-preview-background');
+  @include theme('border-color', 'color-primary--lighten-1', 'node-preview-border-color');
+  @include theme('color', 'color-tertiary', 'node-preview-color');
+
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-bottom: 2px solid;
+
+  .required-fields-indicator {
+    display: none;
+  }
+}
