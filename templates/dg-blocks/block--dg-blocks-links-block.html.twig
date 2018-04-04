@@ -27,8 +27,7 @@
 #}
 {%
   set classes = [
-    'dg-blocks-social',
-    'island',
+    'dg-block-disclaimer',
   ]
 %}
 <div{{ attributes.addClass(classes) }}>
@@ -37,7 +36,7 @@
     <h3{{ title_attributes }}>{{ label }}</h3>
   {% endif %}
   {{ title_suffix }}
-  {% block main %}
+  {% block content %}
     {{ content }}
   {% endblock %}
 </div>

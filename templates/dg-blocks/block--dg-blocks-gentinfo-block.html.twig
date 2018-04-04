@@ -27,18 +27,19 @@
 #}
 {%
   set classes = [
-    'dg-default-block',
-    'island',
-    'section--accent',
+    'gentinfo-block',
   ]
 %}
 <div{{ attributes.addClass(classes) }}>
-  {{ title_prefix }}
-  {% if label %}
-    <h3{{ title_attributes }}>{{ label }}</h3>
-  {% endif %}
-  {{ title_suffix }}
-  {% block content %}
-    {{ content }}
-  {% endblock %}
+  <div aria-hidden="true" class="gentinfo-icon"></div>
+  <div class="gentinfo-block-content">
+    {{ title_prefix }}
+    {% if label %}
+      <h2{{ title_attributes }}>{{ label }}</h2>
+    {% endif %}
+    {{ title_suffix }}
+    {% block content %}
+      {{ content }}
+    {% endblock %}
+  </div>
 </div>

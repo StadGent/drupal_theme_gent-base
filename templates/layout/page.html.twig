@@ -124,9 +124,9 @@
       {# General footer column class. #}
       {% set column_class = 'footer--column' %}
 
-      <footer class="footer section--wrapper" role="contentinfo" data-columns="{{ footer_columns }}">
-        <h2 class="visually-hidden">Footer</h2>
-        <div class="content-container">
+      <footer class="footer" role="contentinfo">
+        <h2 class="visually-hidden">{{ 'Footer'|t }}</h2>
+        <div class="footer-top content-container">
           {% if page.footer_1 %}
             <div {{ content_attributes.addClass(column_class) }}>
               {{ page.footer_1 }}
@@ -142,14 +142,24 @@
               {{ page.footer_3 }}
             </div>
           {% endif %}
-          <div {{ content_attributes.addClass(column_class) }}>
-            {{ page.footer_4 }}
-            {% block partner %}
-              <div class="db-block-partnership">
-                <p>{{ 'In cooperation with'|trans }} <i class="icon-digipolis"></i> Digipolis</p>
-              </div>
-            {% endblock %}
-          </div>
+          {% if page.footer_3 %}
+            <div {{ content_attributes.addClass(column_class) }}>
+              {{ page.footer_4 }}
+            </div>
+          {% endif %}
+        </div>
+        <div class="footer-bottom content-container">
+          {% block partner %}
+            <div class="db-block-partnership">
+              <p>{{ 'In cooperation with'|trans }} <i class="icon-digipolis"></i> Digipolis</p>
+               <i aria-hidden="true" class="icon-digipolis"></i>
+            </div>
+          {% endblock %}
+          {% if page.footer_6 %}
+            <div {{ content_attributes.addClass(column_class) }}>
+              {{ page.footer_6 }}
+            </div>
+          {% endif %}
         </div>
       </footer>
     {% endif %}

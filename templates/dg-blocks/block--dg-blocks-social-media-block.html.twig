@@ -27,18 +27,16 @@
 #}
 {%
   set classes = [
-    'dg-block-links',
-    'no-style',
-    'island',
+    'dg-blocks-social',
   ]
 %}
-{{ title_prefix }}
+<div{{ attributes.addClass(classes) }}>
+  {{ title_prefix }}
   {% if label %}
-    <h2{{ title_attributes }}>{{ label }}</h2>
+    <p {{ title_attributes }}>{{ label }}</p>
   {% endif %}
-{{ title_suffix }}
-<ul{{ attributes.addClass(classes) }}>
+  {{ title_suffix }}
   {% block main %}
     {{ content }}
   {% endblock %}
-</ul>
+</div>
