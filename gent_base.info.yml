@@ -37,5 +37,7 @@ libraries-override:
     css:
       component:
         css/components/dropbutton.css: false
+stylesheets-remove:
+  - core/themes/stable/css/node/node.preview.css
 'interface translation project': gent_base
 'interface translation server pattern': themes/contrib/gent_base/translations/%language.po
