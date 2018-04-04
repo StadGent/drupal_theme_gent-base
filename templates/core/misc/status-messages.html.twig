@@ -46,13 +46,11 @@
         <i class="icon-cross" aria-hidden="true"></i>
       {% endif %}
       {% if messages|length > 1 %}
-        <p>
-          <ul class="messages__list">
-            {% for message in messages %}
-              <li class="messages__item">{{ message }}</li>
-            {% endfor %}
-          </ul>
-        </p>
+        <ul class="messages__list">
+          {% for message in messages %}
+            <li class="messages__item">{{ message }}</li>
+          {% endfor %}
+        </ul>
       {% else %}
         {{ messages|first }}
       {% endif %}
