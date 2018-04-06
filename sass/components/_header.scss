@@ -100,7 +100,7 @@
   display: none;
   position: absolute;
   z-index: 10;
-  bottom: 0;
+  bottom: -1px;
   left: -130px;
   right: 0;
   height: $accolade-height;
@@ -132,7 +132,7 @@
 
 @include mq($bp-tablet-s) {
   .header--has-accolade .site__header__image__title {
-    bottom: $accolade-height;
+    bottom: #{$accolade-height - 2px};
   }
 }
 
