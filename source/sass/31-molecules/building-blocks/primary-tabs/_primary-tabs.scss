@@ -19,8 +19,11 @@
   }
 
   a {
+    @extend %button-primary;
     @include button;
     @include button-small;
+
+    text-decoration: none;
 
     @include tablet {
       border-bottom-left-radius: 0;
