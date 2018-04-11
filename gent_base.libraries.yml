@@ -3,14 +3,6 @@ global_js:
   js:
     styleguide/public/styleguide/js/base-min.js: { minified: true }
 
-breadcrumbs:
-  version: 1.x
-  js:
-    styleguide/build/styleguide/js/breadcrumbs.functions-min.js: { minified: true }
-    build/js/breadcrumbs.binding-min.js: { minified: true }
-  dependencies:
-    - core/jquery
-
 header:
   version: 1.x
   js:
