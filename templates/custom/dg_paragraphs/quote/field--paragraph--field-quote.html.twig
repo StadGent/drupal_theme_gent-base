@@ -1,0 +1,5 @@
+{% extends "field.html.twig" %}
+
+{% block blockquote_content %}
+  <div{{ item.attributes.addClass('content') }}><p>{{ item.content }}</p></div>
+{% endblock %}

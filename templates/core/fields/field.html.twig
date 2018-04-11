@@ -38,6 +38,14 @@
  */
 #}
 {%
+  set classes = [
+    'field',
+    'field--name-' ~ field_name|clean_class,
+    'field--type-' ~ field_type|clean_class,
+    'field--label-' ~ label_display,
+  ]
+%}
+{%
   set title_classes = [
     'field__label',
     label_display == 'visually_hidden' ? 'visually-hidden',
@@ -46,14 +54,16 @@
 
 {% if label_hidden %}
   {% if multiple %}
-    <div{{ attributes.addClass('field__items') }}>
+    <div{{ attributes.addClass(classes, 'field__items') }}>
       {% for item in items %}
-        <footer{{ item.attributes }}>{{ item.content }}</footer>
+        {% block blockquote_content%}
+          <div{{ item.attributes.addClass('field__item') }}>{{ item.content }}</div>
+        {% endblock %}
       {% endfor %}
     </div>
   {% else %}
     {% for item in items %}
-      <footer{{ attributes }}>{{ item.content }}</footer>
+      {{ block('blockquote_content') }}
     {% endfor %}
   {% endif %}
 {% else %}
@@ -63,7 +73,7 @@
       <div class="field__items">
     {% endif %}
     {% for item in items %}
-      <footer{{ item.attributes }}>{{ item.content }}</footer>
+      {{ block('blockquote_content') }}
     {% endfor %}
     {% if multiple %}
       </div>
