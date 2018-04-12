@@ -9,8 +9,13 @@
   <div{{ attributes.addClass(classes) }}>
     <blockquote>
       {% block content %}
-        {{ content }}
+        <div class="contewnt">
+          <p>{{ content.field_quote|render|striptags('<br>')|trim|raw }}</p>
+        </div>
       {% endblock %}
+      <footer>
+        {{ content.field_author|render|striptags|trim }}, {{ content.field_position|render|striptags|trim }}
+      </footer>
     </blockquote>
   </div>
 {% endblock paragraph %}
