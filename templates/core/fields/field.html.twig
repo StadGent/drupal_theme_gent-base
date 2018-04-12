@@ -55,16 +55,16 @@
 {% if label_hidden %}
   {% if multiple %}
     <div{{ attributes.addClass(classes, 'field__items') }}>
-      {% for item in items %}
+      {%- for item in items %}
         {% block blockquote_content %}
           <div{{ item.attributes.addClass('field__item') }}>{{ item.content }}</div>
         {% endblock %}
-      {% endfor %}
+      {% endfor -%}
     </div>
   {% else %}
-    {% for item in items %}
+    {%- for item in items %}
       {{ block('blockquote_content') }}
-    {% endfor %}
+    {% endfor -%}
   {% endif %}
 {% else %}
   <div{{ attributes.addClass(classes) }}>
@@ -72,9 +72,9 @@
     {% if multiple %}
       <div class="field__items">
     {% endif %}
-    {% for item in items %}
+    {%- for item in items %}
       {{ block('blockquote_content') }}
-    {% endfor %}
+    {% endfor -%}
     {% if multiple %}
       </div>
     {% endif %}
