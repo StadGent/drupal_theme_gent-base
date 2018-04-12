@@ -1,0 +1,16 @@
+{% extends "paragraph.html.twig" %}
+
+{% block paragraph %}
+  {%
+    set classes = [
+      'quote',
+    ]
+  %}
+  <div{{ attributes.addClass(classes) }}>
+    <blockquote>
+      {% block content %}
+        {{ content }}
+      {% endblock %}
+    </blockquote>
+  </div>
+{% endblock paragraph %}
