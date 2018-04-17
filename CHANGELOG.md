@@ -9,6 +9,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
   > This enables better behat testing.
   > A new design still has to be implemented, so for now they aren't used.
 
+* DTGB-414: Implemented the quote molecule in gent_base.
 * DTGB-415: Added styling for node preview form.
 
 ## gent_base-8.x-2.11
