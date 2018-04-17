@@ -28,13 +28,12 @@
 {%
   set classes = [
     'dg-blocks-social',
-    'island',
   ]
 %}
 <div{{ attributes.addClass(classes) }}>
   {{ title_prefix }}
   {% if label %}
-    <h3{{ title_attributes }}>{{ label }}</h3>
+    <span {{ title_attributes }}>{{ label }}</span>
   {% endif %}
   {{ title_suffix }}
   {% block main %}
