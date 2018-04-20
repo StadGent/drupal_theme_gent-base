@@ -4,7 +4,7 @@
   "description": "Styleguide Stad.Gent",
   "devDependencies": {
     "@frctl/fractal": "^1.1.7",
-    "@frctl/twig": "git+https://github.com/tnottu/fractal-twig-adapter.git",
+    "@frctl/twig": "git+https://github.com/delrueba/fractal-twig-adapter.git",
     "event-stream": "^3.3.4",
     "gulp": "^4.0.0",
     "gulp-autoprefixer": "^4.0.0",
