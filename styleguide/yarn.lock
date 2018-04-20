@@ -68,9 +68,9 @@
     js-beautify "^1.6.2"
     lodash "^4.12.0"
 
-"@frctl/twig@git+https://github.com/tnottu/fractal-twig-adapter.git":
+"@frctl/twig@git+https://github.com/delrueba/fractal-twig-adapter.git":
   version "0.2.0"
-  resolved "git+https://github.com/tnottu/fractal-twig-adapter.git#c51697e2f9a7e72cc7fedc4e3595713777ee7feb"
+  resolved "git+https://github.com/delrueba/fractal-twig-adapter.git#14908cfe8f46bab7705a3bbd250e567bec3f31d1"
   dependencies:
     "@frctl/fractal" "^1.0.0-rc.1"
     lodash "^4.0.0"
