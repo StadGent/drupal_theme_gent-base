@@ -17,7 +17,5 @@ regions:
   content: Content
   footer_1: Footer left
   footer_2: Footer middle left
-  footer_3: Footer middle right
-  footer_4: Footer right
-  footer_5: Footer bottom left
-  footer_6: Footer bottom right
+  footer_3: Footer right
+  footer_4: Footer bottom right
