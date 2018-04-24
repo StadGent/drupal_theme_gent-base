@@ -171,6 +171,14 @@ function gent_base_preprocess_block(&$variables) {
       }
       break;
 
+    case 'dg_blocks_address_block':
+      $variables['attributes']['class'][] = 'dg-block-post-address';
+      break;
+
+    case 'dg_blocks_links_block':
+      $variables['attributes']['class'][] = 'dg-block-disclaimer';
+      break;
+
     case 'dg_auth_block':
       $variables['attributes']['class'][] = 'header-component';
       $variables['attributes']['class'][] = 'right';
