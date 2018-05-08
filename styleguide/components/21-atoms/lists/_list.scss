@@ -36,14 +36,21 @@ ul {
         top: 0;
         left: 0;
         font-size: 1.6rem;
-        line-height: 1.1em;
+        line-height: 1.1;
       }
     }
   }
 
-  &.iconlist-small li::before {
-    font-size: 1.2rem;
-    line-height: 1.7em;
+  &.iconlist-small {
+    li {
+      font-size: .8rem;
+      line-height: 2.4;
+
+      &::before {
+        font-size: 1.2rem;
+        line-height: 1.7;
+      }
+    }
   }
 }
 
@@ -61,7 +68,7 @@ dl {
 
   dd {
     margin-bottom: .4rem;
-    padding-left: 1rem;
+    padding-left: 1.2rem;
   }
 }
 
