@@ -72,36 +72,18 @@
 #}
 {%
   set classes = [
-    'node',
-    'node--type-' ~ node.bundle|clean_class,
-    node.isPromoted() ? 'node--promoted',
-    node.isSticky() ? 'node--sticky',
-    not node.isPublished() ? 'node--unpublished',
-    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+    'info-page-layout'
   ]
 %}
+
+{% block info_page_layout_top %}
+{% endblock %}
+
 <article{{ attributes.addClass(classes) }}>
 
-  {{ title_prefix }}
-  {% if not page %}
-    <h2{{ title_attributes }}>
-      <a href="{{ url }}" rel="bookmark">{{ label }}</a>
-    </h2>
-  {% endif %}
-  {{ title_suffix }}
-
-  {% if display_submitted %}
-    <footer class="node__meta">
-      {{ author_picture }}
-      <div{{ author_attributes.addClass('node__submitted') }}>
-        {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
-        {{ metadata }}
-      </div>
-    </footer>
-  {% endif %}
-
   {% block info_page_layout_content %}
-    {{ content }}
+    <div class="content">
+      {{ content }}
+    </div>
   {% endblock %}
-
 </article>

@@ -39,7 +39,7 @@
 #}
 {%
   set classes = [
-    'collection',
+    'field',
   ]
 %}
 {%
@@ -54,7 +54,7 @@
     <div{{ attributes.addClass(classes, 'field__items') }}>
       {%- for item in items %}
         {% block content %}
-          {{ item.content }}
+        <p {{ item.attributes.addClass('summary-text') }}>{{ item.content }}</p>
         {% endblock %}
       {% endfor -%}
     </div>

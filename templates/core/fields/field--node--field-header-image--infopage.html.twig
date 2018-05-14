@@ -54,7 +54,7 @@
     <div{{ attributes.addClass(classes, 'field__items') }}>
       {%- for item in items %}
         {% block content %}
-          {{ item.content }}
+        <figure class="page-wide-image">{{ item.content }}</figure>
         {% endblock %}
       {% endfor -%}
     </div>
