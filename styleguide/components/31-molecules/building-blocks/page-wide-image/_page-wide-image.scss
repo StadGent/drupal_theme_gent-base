@@ -1,16 +1,31 @@
+// @TODO: Implement mobile styling when design is finished.
 .page-wide-image {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: flex-end;
+
   img {
-    display: block;
-    width: 100%;
-    max-height: 26.25rem;
-    overflow: hidden;
+    display: none;
+
+    @include phablet {
+      display: block;
+      width: 100%;
+      max-height: 26.25rem;
+      overflow: hidden;
+    }
   }
 
   figcaption {
     @extend %content-container;
 
-    margin: .4rem 0;
+    position: relative;
+    max-height: 1rem;
+    margin: -1.4rem 0 .4rem;
+    padding-top: .4rem;
     text-align: right;
+    z-index: 2;
   }
 }
 

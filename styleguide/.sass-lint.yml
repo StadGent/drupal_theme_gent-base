@@ -21,6 +21,7 @@ rules:
       - desktop-xl
       - desktop
       - tablet
+      - phablet
       - tablet-only
       - breakpoint
 

@@ -1,0 +1,59 @@
+///
+/// Reverse accolade to be used on images.
+///
+/// @since 3.0.0
+/// @group tools
+/// @access public
+/// @author Gert-Jan Meire
+///
+@mixin reverse-accolade($position: 'center') {
+  &::after {
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1.5rem;
+    margin: auto;
+    content: '';
+
+    @if $position == 'center' {
+      background: svg-as-background('accolade-down-center', color('white')) no-repeat;
+      background-position: center bottom;
+    }
+
+    @if $position == 'left' {
+      background: svg-as-background('accolade-down-left', color('white')) no-repeat;
+      background-position: left bottom;
+    }
+  }
+}
+
+///
+/// Helper class to apply centered downward accolade on an image.
+///
+/// @since 3.0.0
+/// @group tools
+/// @access public
+/// @author Gert-Jan Meire
+///
+.accolade-center-down {
+  @include reverse-accolade();
+
+  position: relative;
+}
+
+///
+/// Helper class to apply left aligned downward accolade on an image.
+///
+/// @since 3.0.0
+/// @group tools
+/// @access public
+/// @author Gert-Jan Meire
+///
+.accolade-center-left {
+  @include reverse-accolade('left');
+
+  position: relative;
+}
