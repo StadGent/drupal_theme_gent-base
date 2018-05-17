@@ -68,6 +68,24 @@
         font-size: .8rem;
         font-weight: 600;
         text-decoration: none;
+
+        &.button {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 1rem;
+
+          @include tablet {
+            display: inline;
+            margin: 0 0 0 -.3rem;
+            padding: .3em;
+            border: 0;
+            box-shadow: none;
+
+            i {
+              display: none;
+            }
+          }
+        }
       }
     }
   }
@@ -84,11 +102,6 @@
       right: 1.5rem;
       left: auto;
       width: auto;
-    }
-
-    i {
-      margin-top: .2rem;
-      font-size: 1.2rem;
     }
   }
 }
