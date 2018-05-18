@@ -1,0 +1,23 @@
+{#
+/**
+ * @file
+ * Theme override to display a media item.
+ *
+ * Available variables:
+ * - name: Name of the media.
+ * - content: Media content.
+ *
+ * @see template_preprocess_media()
+ *
+ * @ingroup themeable
+ */
+#}
+<a{{ attributes }} href="{{ content.field_media_image.0['#item'].entity.uri.value|image_style('teaser') }}" aria-label="image caption" aria-describedby="image-gallery__open-gallery">
+  {{ title_suffix.contextual_links }}
+  {% if content %}
+    <figure>
+      {{ content.field_media_image }}
+      <figcaption>{{ content.field_media_caption}}</figcaption>
+    </figure>
+  {% endif %}
+</a>
