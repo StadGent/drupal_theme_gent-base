@@ -1,6 +1,6 @@
 /**
  * @file
- * Javascript binding of baguettebox.min.js.
+* Gallery component binding.
  */
 (function ($, Drupal) {
   'use strict';

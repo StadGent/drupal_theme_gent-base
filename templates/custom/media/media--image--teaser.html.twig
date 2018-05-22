@@ -12,12 +12,16 @@
  * @ingroup themeable
  */
 #}
-<a{{ attributes }} href="{{ file_url(content.field_media_image.0['#item'].entity.uri.value) }}" aria-label="image caption" aria-describedby="image-gallery__open-gallery">
-  {{ title_suffix.contextual_links }}
-  {% if content %}
-    <figure>
-      {{ content.field_media_image }}
-      <figcaption>{{ content.field_media_caption}}</figcaption>
-    </figure>
-  {% endif %}
+{% if content.field_media_caption|render|trim is not empty %}
+  <a{{ attributes }} href="{{ file_url(content.field_media_image.0['#item'].entity.uri.value) }}" aria-label="image caption" aria-describedby="image-gallery__open-gallery">
+{% else %}
+  <a{{ attributes }} href="{{ file_url(content.field_media_image.0['#item'].entity.uri.value) }}" aria-describedby="image-gallery__open-gallery">
+{% endif }
+{{ title_suffix.contextual_links }}
+  <figure>
+    {{ content.field_media_image }}
+    {% if content.field_media_caption|render|trim is not empty %}
+      <figcaption>{{ content.field_media_caption }}</figcaption>
+    {% endif %}
+  </figure>
 </a>

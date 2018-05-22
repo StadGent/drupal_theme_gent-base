@@ -65,7 +65,6 @@
             </div>
           </li>
         </ul>
-        <span hidden="" id="image-gallery__open-gallery">{{ 'open gallery'|t }}</span>
       {% endblock %}
   {% else %}
     {%- for item in items %}
@@ -74,17 +73,17 @@
     {{ block('gallery_extras') }}
   {% endif %}
 {% else %}
+  <div{{ title_attributes.addClass(title_classes) }}>{{ label }}</div>
+  {% if multiple %}
+    <div class="field__items">
+  {% endif %}
   <ul{{ attributes.addClass(classes) }}>
-    <div{{ title_attributes.addClass(title_classes) }}>{{ label }}</div>
-    {% if multiple %}
-      <div class="field__items">
-    {% endif %}
     {%- for item in items %}
       {{ block('gallery') }}
     {% endfor -%}
     {{ block('gallery_extras') }}
-    {% if multiple %}
-      </div>
-    {% endif %}
   </ul>
+  {% if multiple %}
+    </div>
+  {% endif %}
 {% endif %}
