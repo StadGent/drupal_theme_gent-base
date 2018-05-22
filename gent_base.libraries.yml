@@ -3,68 +3,20 @@ global_js:
   js:
     styleguide/public/styleguide/js/base-min.js: { minified: true }
 
-header:
-  version: 1.x
-  js:
-    styleguide/public/styleguide/js/header.functions-min.js: { minified: true }
-    build/js/header.binding-min.js: { minified: true }
-  dependencies:
-    - core/jquery
-
-hamburger:
-  version: 1.x
-  js:
-    styleguide/public/styleguide/js/hamburger-menu.functions-min.js: { minified: true }
-    build/js/hamburger-menu.binding-min.js: { minified: true }
-  dependencies:
-    - core/drupal
-    - core/jquery
-    - core/jquery.once
-
 light-gallery:
   version: 1.x
   css:
     theme:
-      styleguide/public/styleguide/vendor/lightgallery/dist/css/lightgallery.min.css: { minified: true }
+      styleguide/public/styleguide/vendor/baguettebox/dist/baguetteBox.min.css: { minified: true }
   js:
-    styleguide/public/styleguide/vendor/lightgallery/dist/js/lightgallery.min.js: { minified: true }
-
-chosen:
-  version: 1.x
-  css:
-    theme:
-      styleguide/public/styleguide/vendor/chosen-js/chosen.min.css: { minified: true }
-  js:
-    styleguide/public/styleguide/vendor/chosen-js/chosen.jquery.min.js: { minified: true }
-
-input-chosen:
-  version: 1.x
-  js:
-    styleguide/public/styleguide/js/input-multiselect-chosen.functions-min.js: { minified: true }
-    build/js/input-multiselect-chosen.binding-min.js: { minified: true }
-  dependencies:
-    - core/drupal
-    - core/jquery
-    - core/jquery.once
-    - gent_base/chosen
+    styleguide/public/styleguide/vendor/baguettebox/dist/baguetteBox.min.js: { minified: true }
 
 gallery:
   version: 1.x
   js:
-    styleguide/public/styleguide/js/gallery.functions-min.js: { minified: true }
     build/js/gallery.binding-min.js: { minified: true }
   dependencies:
     - core/drupal
     - core/jquery
     - core/jquery.once
     - gent_base/light-gallery
-
-masonry-layout:
-  version: 1.x
-  js:
-    styleguide/public/styleguide/vendor/masonry-layout/dist/masonry.pkgd.min.js: { minified: true }
-    build/js/masonry.binding-min.js: { minified: true }
-  dependencies:
-    - core/drupal
-    - core/jquery
-    - core/jquery.once
