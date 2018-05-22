@@ -16,7 +16,7 @@
   <a{{ attributes }} href="{{ file_url(content.field_media_image.0['#item'].entity.uri.value) }}" aria-label="image caption" aria-describedby="image-gallery__open-gallery">
 {% else %}
   <a{{ attributes }} href="{{ file_url(content.field_media_image.0['#item'].entity.uri.value) }}" aria-describedby="image-gallery__open-gallery">
-{% endif }
+{% endif %}
 {{ title_suffix.contextual_links }}
   <figure>
     {{ content.field_media_image }}
