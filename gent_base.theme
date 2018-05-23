@@ -262,6 +262,7 @@ function gent_base_preprocess_fieldset(&$variables) {
  * Add theming classes to dg_blocks gentinfo.
  */
 function gent_base_preprocess_dg_blocks_gentinfo(&$variables) {
+$variables["phone"]["#title"] = t('T') . ': ' . $variables["phone"]["#title"];
   $variables["phone"]["#attributes"]["class"][] = 'button button-secondary button-call icon-phone';
   $variables["link"]["#attributes"]["class"][] = 'standalone-link';
 }
