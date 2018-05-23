@@ -2,6 +2,8 @@ global_js:
   version: 1.x
   js:
     styleguide/public/styleguide/js/base-min.js: { minified: true }
+  dependencies:
+    - core/drupal
 
 light-gallery:
   version: 1.x
