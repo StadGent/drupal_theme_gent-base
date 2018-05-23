@@ -16,6 +16,7 @@
 #  themes/contrib/gent_base/templates/core/form/form.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/navigation/breadcrumb.html.twig: n/a
 #  themes/contrib/gent_base/templates/custom/dg_paragraphs/image-gallery/field--paragraph--field-image--image.html.twig: n/a
+#  themes/contrib/gent_base/templates/custom/dg_paragraphs/video/field--media--field-src-audio-description.html.twig: n/a
 #  themes/contrib/gent_base/templates/layout/html.html.twig: n/a
 #  themes/contrib/gent_base/templates/layout/page.html.twig: n/a
 #
@@ -23,7 +24,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2018-05-23 12:40+0000\n"
+"POT-Creation-Date: 2018-05-23 16:30+0200\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -102,6 +103,10 @@ msgstr ""
 
 #: themes/contrib/gent_base/templates/custom/dg_paragraphs/image-gallery/field--paragraph--field-image--image.html.twig:64
 msgid "Show all photos"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/custom/dg_paragraphs/video/field--media--field-src-audio-description.html.twig:43
+msgid "Watch this video with audio descripiton"
 msgstr ""
 
 #: themes/contrib/gent_base/templates/layout/html.html.twig:64
