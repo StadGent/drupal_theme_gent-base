@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2018-05-23 12:40+0000\n"
-"PO-Revision-Date: 2018-05-23 15:26+0200\n"
+"POT-Creation-Date: 2018-05-23 16:30+0200\n"
+"PO-Revision-Date: 2018-05-23 16:35+0200\n"
 "Last-Translator: Wim Vantomme <wim.vantomme@digipolis.gent>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
 "Language: nl\n"
@@ -43,8 +43,8 @@ msgid ""
 "\">stijlgids.stad.gent</a>)."
 msgstr ""
 "Gent Base thema. Dit abstract thema zou nooit rechtstreeks gebruikt mogen "
-"worden maar moet extended worden (gebasseerd op <a href=“https://"
-"stijlgids.stad.gent” target=“_blank”>stijlgids.stad.gent</a>)."
+"worden maar moet extended worden (gebasseerd op <a href=“https://stijlgids."
+"stad.gent” target=“_blank”>stijlgids.stad.gent</a>)."
 
 #: themes/contrib/gent_base/starterkit/starterkit.info.yml:0
 msgid "Starterkit Subtheme"
@@ -90,6 +90,10 @@ msgstr "Broodkruimel"
 #: themes/contrib/gent_base/templates/custom/dg_paragraphs/image-gallery/field--paragraph--field-image--image.html.twig:64
 msgid "Show all photos"
 msgstr "Toon alle afbeeldingen"
+
+#: themes/contrib/gent_base/templates/custom/dg_paragraphs/video/field--media--field-src-audio-description.html.twig:43
+msgid "Watch this video with audio descripiton"
+msgstr "Bekijk deze video met audiodescriptie"
 
 #: themes/contrib/gent_base/templates/layout/html.html.twig:64
 msgid "Skip to main content"
