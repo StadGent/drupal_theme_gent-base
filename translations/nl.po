@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2018-05-23 16:30+0200\n"
-"PO-Revision-Date: 2018-05-23 16:35+0200\n"
+"POT-Creation-Date: 2018-05-24 07:45+0000\n"
+"PO-Revision-Date: 2018-05-24 09:47+0200\n"
 "Last-Translator: Wim Vantomme <wim.vantomme@digipolis.gent>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
 "Language: nl\n"
@@ -89,7 +89,7 @@ msgstr "Broodkruimel"
 
 #: themes/contrib/gent_base/templates/custom/dg_paragraphs/image-gallery/field--paragraph--field-image--image.html.twig:64
 msgid "Show all photos"
-msgstr "Toon alle afbeeldingen"
+msgstr "Bekijk alle foto’s"
 
 #: themes/contrib/gent_base/templates/custom/dg_paragraphs/video/field--media--field-src-audio-description.html.twig:43
 msgid "Watch this video with audio descripiton"
