@@ -13,9 +13,9 @@
  */
 #}
 {% if content.field_media_caption|render|trim is not empty %}
-  <a{{ attributes }} href="{{ file_url(content.field_media_image.0['#item'].entity.uri.value) }}" aria-label="image caption" aria-describedby="image-gallery__open-gallery">
+  <a{{ attributes.addClass('gallery-link') }} href="{{ file_url(content.field_media_image.0['#item'].entity.uri.value) }}" aria-label="image caption" aria-describedby="image-gallery__open-gallery">
 {% else %}
-  <a{{ attributes }} href="{{ file_url(content.field_media_image.0['#item'].entity.uri.value) }}" aria-describedby="image-gallery__open-gallery">
+  <a{{ attributes.addClass('gallery-link') }} href="{{ file_url(content.field_media_image.0['#item'].entity.uri.value) }}" aria-describedby="image-gallery__open-gallery">
 {% endif %}
 {{ title_suffix.contextual_links }}
   <figure>
