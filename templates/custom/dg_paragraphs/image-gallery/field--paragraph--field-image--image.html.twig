@@ -37,63 +37,40 @@
  * @see template_preprocess_field()
  */
 #}
-{%
-  set classes = [
-    'image-gallery',
-  ]
-%}
-{%
-  set title_classes = [
-    'field__label',
-    label_display == 'visually_hidden' ? 'visually-hidden',
-  ]
-%}
+{% set classes = [
+  'image-gallery',
+] %}
+{% set title_classes = [
+  'field__label',
+  label_display == 'visually_hidden' ? 'visually-hidden',
+] %}
 
 {% if label_hidden %}
-  {% if multiple %}
-    <ul{{ attributes.addClass(classes) }}>
-      {%- for item in items %}
-        {% block gallery %}
-          <li>{{ item.content }}</li>
-        {% endblock %}
-      {% endfor -%}
-      {% block gallery_extras %}
-          <li class="image-gallery__show-more">
-            <div class="show-more__content">
-              <span class="show-more__total">7</span>
-              <span>{{ 'Show all photos'|t }} <i class="icon-arrow-right" aria-hidden="true"></i></span>
-            </div>
-          </li>
-        </ul>
-      {% endblock %}
-  {% else %}
-    {%- for item in items %}
-      {{ block('gallery') }}
-    {% endfor -%}
-    {{ block('gallery_extras') }}
-  {% endif %}
-{% else %}
   <div{{ title_attributes.addClass(title_classes) }}>{{ label }}</div>
-  {% if multiple %}
+{% endif %}
+  {% if items|length > 1 %}
   <ul{{ attributes.addClass(classes) }}>
     {%- for item in items %}
-      {% block gallery %}
-        <li>{{ item.content }}</li>
-      {% endblock %}
+      <li>
+        {% block gallery %}
+          {{ item.content }}
+        {% endblock %}
+      </li>
     {% endfor -%}
     {% block gallery_extras %}
       <li class="image-gallery__show-more">
         <div class="show-more__content">
           <span class="show-more__total">7</span>
-          <span>{{ 'Show all photos'|t }} <i class="icon-arrow-right" aria-hidden="true"></i></span>
+          <span>{{ 'Show all photos'|t }}
+            <i class="icon-arrow-right"
+               aria-hidden="true"></i>
+          </span>
         </div>
       </li>
-      </ul>
     {% endblock %}
-  {% else %}
-    {%- for item in items %}
-      {{ block('gallery') }}
-    {% endfor -%}
-    {{ block('gallery_extras') }}
-  {% endif %}
-{% endif %}
+  </ul>
+{% else %}
+  {%- for item in items %}
+    {{ block('gallery') }}
+  {% endfor -%}
+{% endif %}j
