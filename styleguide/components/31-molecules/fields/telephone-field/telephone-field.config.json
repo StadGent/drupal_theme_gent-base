@@ -1,6 +1,6 @@
 {
   "title": "Telephone field",
-  "status": "ready",
+  "status": "beta",
   "handle": "telephone-field",
   "collated": true,
   "context": {

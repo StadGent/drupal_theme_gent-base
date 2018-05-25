@@ -1,3 +1,17 @@
+{# --- MESSAGES --- #}
+<h3 id="styleguide-messages" class="styleguide-title">Messages</h3>
+<div class="preview-inner-container">
+  <h4 class="styleguide-title">Success message</h4>
+  {% include '@status-message' with { 'icon': 'icon-checkmark', 'modifier': 'messages--status', 'text': 'Aliquam ullamcorper vehicula leo. Mauris mattis egestas hendrerit. Sed vitae aliquet mauris. Morbi at erat sed mi mollis maximus at sit amet enim. Sed quis libero eu mauris eleifend accumsan vitae semper turpis. Vestibulum nisl ipsum, ullamcorper euismod ultrices nec, tempor sit amet urna. Pellentesque bibendum a mi commodo consectetur. Aliquam nec est tellus.' } %}
+
+  <h4 class="styleguide-title">Error message</h4>
+  {% include '@status-message' with { 'icon': 'icon-cross', 'modifier': 'messages--error', 'text': 'Aliquam ullamcorper vehicula leo. Mauris mattis egestas hendrerit. Sed vitae aliquet mauris. Morbi at erat sed mi mollis maximus at sit amet enim. Sed quis libero eu mauris eleifend accumsan vitae semper turpis. Vestibulum nisl ipsum, ullamcorper euismod ultrices nec, tempor sit amet urna. Pellentesque bibendum a mi commodo consectetur. Aliquam nec est tellus.' } %}
+
+  <h4 class="styleguide-title">Warning message</h4>
+  {% include '@status-message' with { 'icon': 'icon-exclamation', 'modifier': 'messages--warning', 'text': 'Aliquam ullamcorper vehicula leo. Mauris mattis egestas hendrerit. Sed vitae aliquet mauris. Morbi at erat sed mi mollis maximus at sit amet enim. Sed quis libero eu mauris eleifend accumsan vitae semper turpis. Vestibulum nisl ipsum, ullamcorper euismod ultrices nec, tempor sit amet urna. Pellentesque bibendum a mi commodo consectetur. Aliquam nec est tellus.' } %}
+</div>
+
+{# --- FORM ITEMS --- #}
 <h3 id="styleguide-form-items" class="styleguide-title">Form items</h3>
 <div class="preview-inner-container">
   <form class="{{ modifier }}">
@@ -248,44 +262,181 @@
           ]
         }
         %}
-
-{#
-        {% include '@multiselect-chosen'
-        with {
-          "label": "Label multiselect with chosen",
-          "for": "multiselect_chosen_id_field",
-          "label_optional": "Optional",
-
-          "field_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec laoreet, urna sit amet convallis rhoncus, felis ex pellentesque neque, nec ultrices dui enim ut diam. Nam pellentesque velit pharetra, accumsan ante at, gravida turpis. Cras venenatis velit ut ipsum molestie pretium. Vivamus tellus metus, pretium eu nibh vitae, eleifend luctus dolor. Morbi feugiat tristique ante eu egestas. Nunc ligula magna, fringilla sed consequat id, pellentesque at risus. Nunc ex elit, tincidunt at lorem vel, mattis gravida nisl. Praesent sodales nibh massa, id ultrices metus viverra id.",
-          "field_error": "",
-          "description": "Description multiselect with chosen.",
-
-          "multiselect_id": "multiselect_chosen_id_field",
-          "multiselect_name": "multiselect_name",
-          "options": [
-            {
-            "label": "Option 1"
-            },
-            {
-            "label": "Option 2"
-            },
-            {
-            "label": "Option 3"
-            },
-            {
-            "label": "Option 4"
-            }
-          ]
-        }
-        %}
-#}
-
       </div>
     </fieldset>
 
     {% include '@address' %}
 
     {% include '@form-actions--editor' %}
-
   </form>
+</div>
+
+
+{# --- COLLECTIONS --- #}
+<h3 id="styleguide-collections" class="styleguide-title">Collections</h3>
+<div class="preview-inner-container">
+  {% include '@teaser-topic-collection' with {
+      "teaser_paragraph_text": "Teaser text, Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, suscipit.",
+      "teaser_h3_title": "Title text ",
+      "teaser_uid": "uid",
+      "teaser_link_text": "read more",
+      "teaser_link_link" : "javascript:void(0);"
+  } %}
+</div>
+
+
+{# --- BUILDING BLOCKS OVERVIEW--- #}
+<h3 class="styleguide-title">Building blocks overview</h3>
+<div class="preview-inner-inner-container">
+  <h4 id="styleguide-quote" class="styleguide-title">{{ 'Quote' }}</h4>
+  {% include '@quote' %}
+</div>
+<div class="preview-inner-inner-container">
+  <h4 id="styleguide-breadcrumbs" class="styleguide-title">Breadcrumbs</h4>
+  {% include '@breadcrumbs' with {
+    "items": [
+      "<a href='#'>Stad.gent</a>",
+      "<a href='#'>Overview</a>",
+      "<span>Overview</span>",
+      "<span>Overview</span>",
+      "<span>Page title</span>"
+    ]
+  }%}
+</div>
+<div class="preview-inner-inner-container">
+  <h4 id="styleguide-video" class="styleguide-title">Video</h4>
+  {% include '@video' with {
+    'title': 'Promofilm stad Gent.',
+    'src': 'https://www.youtube.com/embed/S0vLmTWUmok',
+    'audio_description_src': 'https://www.youtube.com/embed/S0vLmTWUmok'
+  } %}
+</div>
+
+{#
+<div class="preview-inner-inner-container">
+  <h3 class="styleguide">Header</h3>
+  {% include '@header' %}
+</div>
+
+<div class="preview-inner-inner-container">
+  <h3 class="styleguide">Newsletter block</h3>
+  {% include '@newsletter-block' %}
+</div>
+
+
+<div class="preview-inner-inner-container">
+  <h3 class="styleguide">Pagination</h3>
+  {% include '@pagination' %}
+</div>
+
+<div class="preview-inner-inner-container">
+  <h3 class="styleguide">Search</h3>
+  {% include '@search' with {
+  "label": "What are you looking for?",
+  "for": "",
+  "label_optional": "",
+  "search_id": "header-search",
+  "search_name": "header-search",
+  "placeholder": "What are you looking for?",
+  "modifier_search": "inline",
+  "text": "Search",
+  "modifier_submit": "btn--inline"
+  } %}
+</div>
+
+
+<div class="preview-inner-inner-container">
+  <h3 class="styleguide">CTA link</h3>
+  {% include '@cta-link--website' with {
+    'title': 'Want more info?',
+    'link_text': 'Visit our website',
+    'modifier': 'link'
+  }%}
+</div>
+
+<div class="preview-inner-inner-container">
+  <h3 class="styleguide">CTA document</h3>
+  {% include '@cta-link--document' with {
+    'title': 'Want more info?',
+    'link_text': 'Download',
+    'modifier': 'clip'
+  }%}
+</div>
+
+<div class="preview-inner-inner-container">
+  <h3 class="styleguide">CTA form fill</h3>
+  {% include '@cta-link--form-fill' with {
+    'title': 'Fill in the form',
+    'link_text': 'Fill in',
+    'modifier': 'form-fill'
+  }%}
+</div>
+
+<div class="preview-inner-inner-container">
+  <h3 class="styleguide">CTA email</h3>
+  {% include '@cta-link--email' with {
+    'title': 'Contact us by email',
+    'link_text': 'Mail',
+    'modifier': 'email'
+  }%}
+</div>
+
+<div class="preview-inner-inner-container">
+  <h3 class="styleguide">CTA phone</h3>
+  {% include '@cta-link--phone' with {
+    'title': 'Contact us by phone',
+    'link_text': 'Call us',
+    'modifier': 'phone'
+  }%}
+</div>
+
+<div class="preview-inner-inner-container">
+  <h3 class="styleguide">CTA location</h3>
+  {% include '@cta-link--location' with {
+    'title': 'Location',
+    'link_text': 'Location',
+    'modifier': 'loc'
+  }%}
+</div>
+
+<div class="preview-inner-inner-container">
+  <h3 class="styleguide">Form steps</h3>
+  {% include '@form-steps' with {
+    "step1_title": "Step 1 title",
+    "step2_title": "Step 2 title",
+    "step3_title": "Step 3 title",
+    "step4_title": "Step 4 title",
+    "step5_title": "Step 5 title",
+    "step6_title": "Step 6 title",
+    "step7_title": "Step 7 title"
+  } %}
+</div>
+
+<div class="preview-inner-inner-container">
+  <h3 class="styleguide">Page wide image</h3>
+  {% include '@page-wide-image' with {
+    "src": "https://via.placeholder.com/1600x420",
+    "alt_text": "Page wide image",
+    "modifier": "no-style",
+    "description": "Caption text comes here.",
+    "h2_text": "Page wide title"
+  } %}
+</div>
+
+#}
+
+
+{# --- BLOCKS OVERVIEW--- #}
+<h2 class="styleguide-title">Blocks overview</h2>
+<div class="preview-inner-inner-container">
+  <h3 class="styleguide-title">Disclaimer block</h3>
+  {% include '@disclaimer-block' %}
+</div>
+<div class="preview-inner-inner-container">
+  <h3 class="styleguide-title">Post address block</h3>
+  {% include '@post-address-block' %}
+</div>
+<div class="preview-inner-inner-container">
+  <h3 class="styleguide-title">Social media block</h3>
+  {% include '@social-media-block' %}
 </div>
