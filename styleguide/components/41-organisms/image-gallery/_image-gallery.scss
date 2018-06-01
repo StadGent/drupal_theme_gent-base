@@ -3,7 +3,7 @@
 
   position: relative;
   padding: 0;
-  list-style: none;
+  text-align: center;
 
   li {
     display: inline-block;
@@ -65,7 +65,6 @@
   }
 
   a.gallery-link {
-    display: block;
     margin: 0;
     padding: 0;
     font-weight: normal;
@@ -146,8 +145,13 @@
 
 ul.image-gallery {
   margin: 0 calc(-1 * (#{$gutter-width} / 2));
+  list-style: none;
 
   figcaption {
     display: none;
+  }
+
+  a.gallery-link {
+    display: block;
   }
 }

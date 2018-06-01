@@ -37,53 +37,42 @@
  * @see template_preprocess_field()
  */
 #}
-{%
-  set classes = [
-    'image-gallery',
-  ]
-%}
-{%
-  set title_classes = [
-    'field__label',
-    label_display == 'visually_hidden' ? 'visually-hidden',
-  ]
-%}
+{% set classes = [
+'image-gallery',
+] %}
+{% set title_classes = [
+'field__label',
+label_display == 'visually_hidden' ? 'visually-hidden',
+] %}
 
-{% if label_hidden %}
-  {% if multiple %}
-    <ul{{ attributes.addClass(classes) }}>
-      {%- for item in items %}
-        {% block gallery %}
-          <li>{{ item.content }}</li>
-        {% endblock %}
-      {% endfor -%}
-      {% block gallery_extras %}
-          <li class="image-gallery__show-more">
-            <div class="show-more__content">
-              <span class="show-more__total">7</span>
-              <span>{{ 'Show all photos'|t }} <i class="icon-arrow-right" aria-hidden="true"></i></span>
-            </div>
-          </li>
-        </ul>
-      {% endblock %}
-  {% else %}
-    {%- for item in items %}
-      {{ block('gallery') }}
-    {% endfor -%}
-    {{ block('gallery_extras') }}
-  {% endif %}
-{% else %}
+{% if not label_hidden %}
   <div{{ title_attributes.addClass(title_classes) }}>{{ label }}</div>
-  {% if multiple %}
-    <div class="field__items">
-  {% endif %}
-  <ul{{ attributes.addClass(classes) }}>
-    {%- for item in items %}
-      {{ block('gallery') }}
-    {% endfor -%}
-    {{ block('gallery_extras') }}
-  </ul>
-  {% if multiple %}
-    </div>
-  {% endif %}
 {% endif %}
+{% if items|length > 1 %}
+  <ul{{ attributes.addClass(classes) }}>
+    {% for item in items %}
+      <li>
+        {% block gallery %}
+          {{ item.content }}
+        {% endblock %}
+      </li>
+    {% endfor %}
+    {% block gallery_extras %}
+      <li class="image-gallery__show-more">
+        <div class="show-more__content">
+          <span class="show-more__total">{{ items|length }}</span>
+          <span>{{ 'Show all photos'|t }}
+            <i class="icon-arrow-right"
+               aria-hidden="true"></i>
+        </span>
+        </div>
+      </li>
+    {% endblock %}
+  </ul>
+{% else %}
+  {%- for item in items %}
+    <div {{ attributes.addClass(classes) }}>
+      {{ block('gallery') }}
+    </div>
+  {% endfor -%}
+{% endif %}j
