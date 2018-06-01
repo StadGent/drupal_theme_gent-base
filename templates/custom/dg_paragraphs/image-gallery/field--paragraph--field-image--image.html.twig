@@ -71,6 +71,8 @@
   </ul>
 {% else %}
   {%- for item in items %}
-    {{ block('gallery') }}
+    <div {{ attributes.addClass(classes) }}>
+      {{ block('gallery') }}
+    </div>
   {% endfor -%}
 {% endif %}j
