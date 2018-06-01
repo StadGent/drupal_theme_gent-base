@@ -42,29 +42,17 @@
 label_display == 'visually_hidden' ? 'visually-hidden',
 ] %}
 
-{% if label_hidden %}
-  {% if multiple %}
-    <ul{{ attributes }}>
-      {% for item in items %}
-        <li{{ item.attributes }}>{{ item.content }}</li>
-      {% endfor %}
-    </ul>
-  {% else %}
-    {% for item in items %}
-      {{ item.content }}
-    {% endfor %}
-  {% endif %}
-{% else %}
+{% if not label_hidden %}
   <div{{ title_attributes.addClass(title_classes) }}>{{ label }}</div>
-    {% if multiple %}
-    <ul{{ attributes }}>
-      {% for item in items %}
-        <li{{ item.attributes }}>{{ item.content }}</li>
-      {% endfor %}
-    </ul>
-    {% else %}
+{% endif %}
+{% if items|length > 1 %}
+  <ul{{ attributes }}>
     {% for item in items %}
-      {{ item.content }}
+      <li{{ item.attributes }}>{{ item.content }}</li>
     {% endfor %}
-  {% endif %}
+  </ul>
+{% else %}
+  {% for item in items %}
+    {{ item.content }}
+  {% endfor %}
 {% endif %}
