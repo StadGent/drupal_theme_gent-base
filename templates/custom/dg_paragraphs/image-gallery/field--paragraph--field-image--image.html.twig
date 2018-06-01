@@ -38,33 +38,33 @@
  */
 #}
 {% set classes = [
-  'image-gallery',
+'image-gallery',
 ] %}
 {% set title_classes = [
-  'field__label',
-  label_display == 'visually_hidden' ? 'visually-hidden',
+'field__label',
+label_display == 'visually_hidden' ? 'visually-hidden',
 ] %}
 
-{% if label_hidden %}
+{% if not label_hidden %}
   <div{{ title_attributes.addClass(title_classes) }}>{{ label }}</div>
 {% endif %}
-  {% if items|length > 1 %}
+{% if items|length > 1 %}
   <ul{{ attributes.addClass(classes) }}>
-    {%- for item in items %}
+    {% for item in items %}
       <li>
         {% block gallery %}
           {{ item.content }}
         {% endblock %}
       </li>
-    {% endfor -%}
+    {% endfor %}
     {% block gallery_extras %}
       <li class="image-gallery__show-more">
         <div class="show-more__content">
-          <span class="show-more__total">7</span>
+          <span class="show-more__total">{{ items|length }}</span>
           <span>{{ 'Show all photos'|t }}
             <i class="icon-arrow-right"
                aria-hidden="true"></i>
-          </span>
+        </span>
         </div>
       </li>
     {% endblock %}
