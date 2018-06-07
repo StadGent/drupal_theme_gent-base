@@ -1,0 +1,127 @@
+# $Id$
+#
+# LANGUAGE translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  themes/contrib/gent_base/theme-settings.php: n/a
+#  themes/contrib/gent_base/gent_base.theme: n/a
+#  themes/contrib/gent_base/gent_base.info.yml: n/a
+#  themes/contrib/gent_base/starterkit/starterkit.info.yml: n/a
+#  themes/contrib/gent_base/templates/contrib/dg-maps/dg-maps-map.html.twig: n/a
+#  themes/contrib/gent_base/templates/contrib/dg_blocks/block--dg-blocks-gentinfo-block.html.twig: n/a
+#  themes/contrib/gent_base/templates/core/block/block--system-branding-block.html.twig: n/a
+#  themes/contrib/gent_base/templates/core/content-edit/filter-tips.html.twig: n/a
+#  themes/contrib/gent_base/templates/core/form/fieldset.html.twig: n/a
+#  themes/contrib/gent_base/templates/core/form/form-element-label.html.twig: n/a
+#  themes/contrib/gent_base/templates/core/form/form.html.twig: n/a
+#  themes/contrib/gent_base/templates/core/navigation/breadcrumb.html.twig: n/a
+#  themes/contrib/gent_base/templates/custom/dg_paragraphs/image-gallery/field--paragraph--field-image--image.html.twig: n/a
+#  themes/contrib/gent_base/templates/custom/dg_paragraphs/video/field--media--field-src-audio-description.html.twig: n/a
+#  themes/contrib/gent_base/templates/layout/html.html.twig: n/a
+#  themes/contrib/gent_base/templates/layout/page.html.twig: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2018-05-24 07:45+0000\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: themes/contrib/gent_base/theme-settings.php:21
+msgid "Gent Base settings"
+msgstr ""
+
+#: themes/contrib/gent_base/theme-settings.php:22
+msgid "All settings defined by the Gent Base styleguide."
+msgstr ""
+
+#: themes/contrib/gent_base/theme-settings.php:28
+msgid "Adobe Typekit-ID"
+msgstr ""
+
+#: themes/contrib/gent_base/theme-settings.php:30
+msgid "Fill in the Adobe Typekit-ID to be used in your project"
+msgstr ""
+
+#: themes/contrib/gent_base/gent_base.theme:265
+msgid "T"
+msgstr ""
+
+#: themes/contrib/gent_base/gent_base.info.yml:0
+msgid "Gent Base"
+msgstr ""
+
+#: themes/contrib/gent_base/gent_base.info.yml:0
+msgid "Ghent base theme. This abstract theme should never be used but always be extended (based on <a href=\"https://stijlgids.stad.gent\" target=\"_blank\">stijlgids.stad.gent</a>)."
+msgstr ""
+
+#: themes/contrib/gent_base/starterkit/starterkit.info.yml:0
+msgid "Starterkit Subtheme"
+msgstr ""
+
+#: themes/contrib/gent_base/starterkit/starterkit.info.yml:0
+msgid "Example Subtheme based on Ghent Base."
+msgstr ""
+
+#: themes/contrib/gent_base/starterkit/starterkit.info.yml:0
+msgid "Gent"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/contrib/dg-maps/dg-maps-map.html.twig:3
+msgid "Show on map"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/contrib/dg_blocks/block--dg-blocks-gentinfo-block.html.twig:46
+msgid "Chat with Gentinfo"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/core/block/block--system-branding-block.html.twig:19;20
+msgid "Home"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/core/content-edit/filter-tips.html.twig:20
+msgid "Text Formats"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/core/form/fieldset.html.twig:59 themes/contrib/gent_base/templates/core/form/form-element-label.html.twig:31
+msgid "Optional"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/core/form/form.html.twig:14
+msgid "Fill in all fields unless otherwise stated"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/core/navigation/breadcrumb.html.twig:12
+msgid "Breadcrumb"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/custom/dg_paragraphs/image-gallery/field--paragraph--field-image--image.html.twig:64
+msgid "Show all photos"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/custom/dg_paragraphs/video/field--media--field-src-audio-description.html.twig:43
+msgid "Watch this video with audio descripiton"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/layout/html.html.twig:64
+msgid "Skip to main content"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/layout/page.html.twig:128
+msgid "Footer"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/layout/page.html.twig:153
+msgid "In cooperation with"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/layout/page.html.twig:169
+msgid "open gallery"
+msgstr ""
+

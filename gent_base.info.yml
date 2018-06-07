@@ -17,10 +17,6 @@ regions:
   footer_4: Footer bottom right
 libraries:
   - gent_base/global_js
-  - gent_base/breadcrumbs
-  - gent_base/header
-  - gent_base/hamburger
-  - gent_base/input-chosen
 # Removes all the classy stylesheets.
 libraries-override:
   classy/base: false
@@ -39,5 +35,6 @@ libraries-override:
         css/components/dropbutton.css: false
 stylesheets-remove:
   - core/themes/stable/css/node/node.preview.css
+  - modules/contrib/video_embed_field/css/video_embed_field.responsive-video.css
 'interface translation project': gent_base
 'interface translation server pattern': themes/contrib/gent_base/translations/%language.po

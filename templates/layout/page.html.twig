@@ -126,22 +126,24 @@
 
       <footer class="footer" role="contentinfo">
         <h2 class="visually-hidden">{{ 'Footer'|t }}</h2>
-        <div class="footer-top content-container">
-          {% if page.footer_1 %}
-            <div {{ content_attributes.addClass(column_class) }}>
-              {{ page.footer_1 }}
-            </div>
-          {% endif %}
-          {% if page.footer_2 %}
-            <div {{ content_attributes.addClass(column_class) }}>
-              {{ page.footer_2 }}
-            </div>
-          {% endif %}
-          {% if page.footer_3 %}
-            <div {{ content_attributes.addClass(column_class) }}>
-              {{ page.footer_3 }}
-            </div>
-          {% endif %}
+        <div class="footer-top">
+          <div class="content-container">
+            {% if page.footer_1 %}
+              <div {{ content_attributes.addClass(column_class) }}>
+                {{ page.footer_1 }}
+              </div>
+            {% endif %}
+            {% if page.footer_2 %}
+              <div {{ content_attributes.addClass(column_class) }}>
+                {{ page.footer_2 }}
+              </div>
+            {% endif %}
+            {% if page.footer_3 %}
+              <div {{ content_attributes.addClass(column_class) }}>
+                {{ page.footer_3 }}
+              </div>
+            {% endif %}
+          </div>
         </div>
         <div class="footer-bottom content-container">
           <div class="footer--column">
@@ -164,3 +166,4 @@
     {% endif %}
   {% endblock %}
 </div>
+<span hidden="" id="image-gallery__open-gallery">{{ 'open gallery'|t }}</span>
