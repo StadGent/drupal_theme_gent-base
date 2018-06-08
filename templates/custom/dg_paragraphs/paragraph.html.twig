@@ -38,16 +38,9 @@
  * @ingroup themeable
  */
 #}
-{{ attach_library('gent_base/gallery') }}
-{%
-  set classes = [
-    'images'
-  ]
-%}
+
 {% block paragraph %}
-  <div{{ attributes.addClass(classes) }}>
-    {% block content %}
-      {{ content }}
-    {% endblock %}
-  </div>
+  {% block content %}
+    {{ content }}
+  {% endblock %}
 {% endblock paragraph %}
