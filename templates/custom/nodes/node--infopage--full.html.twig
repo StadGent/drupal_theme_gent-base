@@ -95,7 +95,7 @@ set classes = [
 </footer>
 {% endif %}
 
-{{ content|without('field_related_by_tags', 'field_tags') }}
+{{ content|without('field_related', 'field_related_by_tags', 'field_tags') }}
 
 </article>
 
@@ -107,7 +107,7 @@ set classes = [
 
       <div class="extra-info-box-content-column">
         <h3>{{ 'Similar articles'|t }}</h3>
-        {{ content.field_related_by_tags }}
+        {{ content.field_related}}
 
       </div>
         <div class="extra-info-box-content-column">
