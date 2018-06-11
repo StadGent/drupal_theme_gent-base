@@ -17,6 +17,7 @@ regions:
   footer_4: Footer bottom right
 libraries:
   - gent_base/global_js
+  - gent_base/accordion
 # Removes all the classy stylesheets.
 libraries-override:
   classy/base: false

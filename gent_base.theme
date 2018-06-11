@@ -272,13 +272,42 @@ $variables["phone"]["#title"] = t('T') . ': ' . $variables["phone"]["#title"];
 function gent_base_preprocess_menu_local_task(&$variables) {
   $variables['link']['#options']['attributes']['class'][] = 'button button-primary';
 }
+
 /**
  * Implements hook_preprocess_field(&$variables).
  */
 function gent_base_preprocess_field(&$variables) {
   if($variables["element"]["#field_name"] == 'field_tags' && count($variables["items"]) > 0) {
+
     foreach ($variables['items'] as $key => $item) {
       $variables["items"][$key]["content"]["#options"]['attributes']['class'][] = 'tag';
+    }
+  }
+
+  // Add timeline wrapper.
+  if($variables["element"]["#field_name"] == 'field_paragraphs') {
+    $paragraphs = $variables['element']["#items"]->getIterator();
+
+    $isTimeline = FALSE;
+
+    foreach ($paragraphs as $key => $paragraph) {
+      $entity = \Drupal\paragraphs\Entity\Paragraph::load( $paragraph->get('target_id')->getValue() );
+      $type = $entity->get('type')->getString();
+
+      if($type === 'timeline_frame') {
+        // It's the first timeline frame.
+        if ($isTimeline === FALSE) {
+          $isTimeline = TRUE;
+
+          $variables['items'][$key]['content']['#prefix'] = '<dl class="timeline accordion">';
+        }
+      }
+      else {
+        if ($isTimeline === TRUE) {
+          $isTimeline = FALSE;
+          $variables['items'][$key-1]['content']['#suffix'] = '</dl>';
+        }
+      }
     }
   }
 }
