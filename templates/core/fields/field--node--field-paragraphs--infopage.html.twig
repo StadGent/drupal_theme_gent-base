@@ -37,17 +37,6 @@
  * @see template_preprocess_field()
  */
 #}
-{%
-  set classes = [
-    'paragraph-collection',
-  ]
-%}
-{%
-  set title_classes = [
-    'field__label',
-    label_display == 'visually_hidden' ? 'visually-hidden',
-  ]
-%}
 
 {% if label_hidden %}
   {% if multiple %}

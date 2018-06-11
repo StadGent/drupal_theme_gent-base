@@ -38,16 +38,17 @@
  * @ingroup themeable
  */
 #}
-{{ attach_library('gent_base/gallery') }}
+
 {%
   set classes = [
-    'images'
+    'timeline-slot'
   ]
 %}
 {% block paragraph %}
-  <div{{ attributes.addClass(classes) }}>
-    {% block content %}
-      {{ content }}
-    {% endblock %}
-  </div>
+  {% block content %}
+    <div{{ attributes.addClass(classes) }}>
+    <dt>{{ content.title }}</dt>
+    <dd>{{ content.timeline_items }}</dd>
+    </div>
+  {% endblock %}
 {% endblock paragraph %}

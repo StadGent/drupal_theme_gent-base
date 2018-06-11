@@ -39,7 +39,7 @@
 #}
 {%
   set classes = [
-    'paragraph-collection',
+    'collection',
   ]
 %}
 {%
@@ -50,11 +50,11 @@
 %}
 
 {% if label_hidden %}
-  {% if multiple %}
+  <ul{{ attributes.addClass(classes, 'field__items') }}>
     {%- for item in items %}
       {% block content %}
-        {{ item.content }}
+        <li>{{ item.content }}</li>
       {% endblock %}
     {% endfor -%}
-  {% endif %}
+  </ul>
 {% endif %}

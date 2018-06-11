@@ -38,15 +38,9 @@
  * @ingroup themeable
  */
 #}
-{%
-  set classes = [
-    'videos',
-  ]
-%}
+
 {% block paragraph %}
-  <div{{ attributes.addClass(classes) }}>
-    {% block content %}
-      {{ content }}
-    {% endblock %}
-  </div>
+  {% block content %}
+    {{ content }}
+  {% endblock %}
 {% endblock paragraph %}

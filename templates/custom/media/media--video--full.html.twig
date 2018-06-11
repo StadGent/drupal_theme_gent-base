@@ -1,0 +1,28 @@
+{#
+/**
+ * @file
+ * Theme override to display a media item.
+ *
+ * Available variables:
+ * - name: Name of the media.
+ * - content: Media content.
+ *
+ * @see template_preprocess_media()
+ *
+ * @ingroup themeable
+ */
+#}
+{%
+set classes = [
+'video',
+]
+%}
+<div{{ attributes.addClass(classes) }}>
+  {{ title_suffix.contextual_links }}
+  {% if content %}
+    {{ content.field_media_video_embed_field }}
+    {% if content.field_src_audio_description|render|trim is not empty %}
+      {{ content.field_src_audio_description }}
+    {% endif %}
+  {% endif %}
+</div>
