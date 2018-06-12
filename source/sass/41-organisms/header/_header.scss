@@ -40,5 +40,9 @@ header.header {
       }
     }
   }
-}
 
+  // Hide DG block icon.
+  .mijn-gent-block .login-link i {
+    display: none;
+  }
+}
