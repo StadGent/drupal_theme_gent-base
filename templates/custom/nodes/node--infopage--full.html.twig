@@ -70,32 +70,35 @@
 *   in different view modes.
 */
 #}
+
 {%
-set classes = [
-'node--type-' ~ node.bundle|clean_class,
-'detail-layout'
-]
+  set classes = [
+    'node--type-' ~ node.bundle|clean_class,
+    'detail-layout'
+  ]
 %}
+
 {{ attach_library('classy/node') }}
+
 <article{{ attributes.addClass(classes) }}>
 
-{{ title_prefix }}
-<h1{{ title_attributes }}>
-{{ label }}
-  </h1>
+  {{ title_prefix }}
+    <h1{{ title_attributes }}>
+      {{ label }}
+    </h1>
   {{ title_suffix }}
 
   {% if display_submitted %}
-  <footer class="node__meta">
-    {{ author_picture }}
-    <div{{ author_attributes.addClass('node__submitted') }}>
-    {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
-    {{ metadata }}
-  </div>
-</footer>
-{% endif %}
+    <footer class="node__meta">
+      {{ author_picture }}
+      <div{{ author_attributes.addClass('node__submitted') }}>
+        {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
+        {{ metadata }}
+      </div>
+    </footer>
+  {% endif %}
 
-{{ content|without('field_related', 'field_related_by_tags', 'field_tags') }}
+  {{ content|without('field_related', 'field_related_by_tags', 'field_tags') }}
 
 </article>
 
@@ -107,17 +110,15 @@ set classes = [
 
       <div class="extra-info-box-content-column">
         <h3>{{ 'Similar articles'|t }}</h3>
-        {{ content.field_related}}
-
+        {{ content.field_related }}
       </div>
-        <div class="extra-info-box-content-column">
-          <h3>{{ 'More info about'|t }}</h3>
-          {{ content.field_tags}}
+      <div class="extra-info-box-content-column">
+        <h3>{{ 'More info about'|t }}</h3>
+        {{ content.field_tags }}
 
-          <h3>{{ 'Related Linked Open Data'|t }}</h3>
-
-        </div>
+        <h3>{{ 'Related Linked Open Data'|t }}</h3>
       </div>
     </div>
-    <p class="info-page--edit-date">{{ 'Last changed'|t }}: {{ node.changed.value|format_date() }}</p>
-  </aside>
+  </div>
+  <p class="info-page--edit-date">{{ 'Last changed'|t }}: {{ node.changed.value|format_date() }}</p>
+</aside>

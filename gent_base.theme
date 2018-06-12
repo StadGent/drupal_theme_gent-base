@@ -179,15 +179,6 @@ function gent_base_preprocess_block(&$variables) {
       $variables['attributes']['class'][] = 'dg-block-disclaimer';
       break;
 
-    case 'dg_auth_block':
-      $variables['attributes']['class'][] = 'header-component';
-      $variables['attributes']['class'][] = 'right';
-      break;
-
-    case 'system_branding_block':
-      $variables['attributes']['class'][] = 'header-component';
-      break;
-
     default:
       break;
   }
