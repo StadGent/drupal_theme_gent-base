@@ -48,95 +48,95 @@
 
 <div class="container">
   {% block header %}
-    <header class="header">
-      <div class="content-container">
-        {% if page.header %}
-          {{ page.header }}
-        {% endif %}
+  <header class="header">
+    <div class="content-container">
+      {% if page.header %}
+      {{ page.header }}
+      {% endif %}
     </div>
 
     {% block breadcrumb %}
-      {% if page.breadcrumbs %}
-        {{ page.breadcrumbs }}
-      {% endif %}
+    {% if page.breadcrumbs %}
+    {{ page.breadcrumbs }}
+    {% endif %}
     {% endblock %}
   </header>
-{% endblock %}
+  {% endblock %}
 
-{% block main %}
-<main class="section--default" role="main">
-  <div class="content-container">
-    <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
-    {{ page.content }}
-  </div>
-</main>
-{% endblock %}
-
-{% block footer %}
-{% if page.footer_1 or page.footer_2 or page.footer_3 or page.footer_4 %}
-
-{# 4 column layout. #}
-{% if page.footer_1 and page.footer_2 and page.footer_3 %}
-{% set footer_columns = '4' %}
-{% endif %}
-
-{# 3 column layout. #}
-{% if (page.footer_1 is empty and page.footer_2 and page.footer_3)
-or (page.footer_1 and page.footer_2 is empty and page.footer_3)
-or (page.footer_1 and page.footer_2 and page.footer_3 is empty) %}
-{% set footer_columns = '3' %}
-{% endif %}
-
-{# 2 column layout. #}
-{% if (page.footer_1 and page.footer_2 is empty and page.footer_3 is empty)
-or (page.footer_1 is empty and page.footer_2 and page.footer_3 is empty)
-or (page.footer_1 is empty and page.footer_2 is empty and page.footer_3) %}
-{% set footer_columns = '2' %}
-{% endif %}
-
-{# General footer column class. #}
-{% set column_class = 'footer--column' %}
-
-<footer class="footer" role="contentinfo">
-  <h2 class="visually-hidden">{{ 'Footer'|t }}</h2>
-  <div class="footer-top">
+  {% block main %}
+  <main class="section--default" role="main">
     <div class="content-container">
-      {% if page.footer_1 %}
-      <div {{ content_attributes.addClass(column_class) }}>
-        {{ page.footer_1 }}
-      </div>
-      {% endif %}
-      {% if page.footer_2 %}
-      <div {{ content_attributes.addClass(column_class) }}>
-        {{ page.footer_2 }}
-      </div>
-      {% endif %}
-      {% if page.footer_3 %}
-      <div {{ content_attributes.addClass(column_class) }}>
-        {{ page.footer_3 }}
-      </div>
-      {% endif %}
+      <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
+      {{ page.content }}
     </div>
-  </div>
-  <div class="footer-bottom content-container">
-    <div class="footer--column">
-      {% block partner %}
-      <div class="db-block-partnership">
-        <p>
-          {{ 'In cooperation with'|trans }} Digipolis
-        </p>
-        <i aria-hidden="true" class="icon-digipolis"></i>
-      </div>
-      {% endblock %}
-    </div>
-    {% if page.footer_4 %}
-    <div {{ content_attributes.addClass(column_class) }}>
-      {{ page.footer_4 }}
-    </div>
+  </main>
+  {% endblock %}
+
+  {% block footer %}
+    {% if page.footer_1 or page.footer_2 or page.footer_3 or page.footer_4 %}
+
+    {# 4 column layout. #}
+    {% if page.footer_1 and page.footer_2 and page.footer_3 %}
+      {% set footer_columns = '4' %}
     {% endif %}
-  </div>
-</footer>
-{% endif %}
-{% endblock %}
+
+    {# 3 column layout. #}
+    {% if (page.footer_1 is empty and page.footer_2 and page.footer_3)
+    or (page.footer_1 and page.footer_2 is empty and page.footer_3)
+    or (page.footer_1 and page.footer_2 and page.footer_3 is empty) %}
+      {% set footer_columns = '3' %}
+    {% endif %}
+
+    {# 2 column layout. #}
+    {% if (page.footer_1 and page.footer_2 is empty and page.footer_3 is empty)
+    or (page.footer_1 is empty and page.footer_2 and page.footer_3 is empty)
+    or (page.footer_1 is empty and page.footer_2 is empty and page.footer_3) %}
+      {% set footer_columns = '2' %}
+  {% endif %}
+
+  {# General footer column class. #}
+  {% set column_class = 'footer--column' %}
+
+  <footer class="footer" role="contentinfo">
+    <h2 class="visually-hidden">{{ 'Footer'|t }}</h2>
+    <div class="footer-top">
+      <div class="content-container">
+        {% if page.footer_1 %}
+        <div {{ content_attributes.addClass(column_class) }}>
+          {{ page.footer_1 }}
+        </div>
+        {% endif %}
+        {% if page.footer_2 %}
+        <div {{ content_attributes.addClass(column_class) }}>
+          {{ page.footer_2 }}
+        </div>
+        {% endif %}
+        {% if page.footer_3 %}
+        <div {{ content_attributes.addClass(column_class) }}>
+          {{ page.footer_3 }}
+        </div>
+        {% endif %}
+      </div>
+    </div>
+    <div class="footer-bottom content-container">
+      <div class="footer--column">
+        {% block partner %}
+        <div class="db-block-partnership">
+          <p>
+            {{ 'In cooperation with'|trans }} Digipolis
+          </p>
+          <i aria-hidden="true" class="icon-digipolis"></i>
+        </div>
+        {% endblock %}
+      </div>
+      {% if page.footer_4 %}
+      <div {{ content_attributes.addClass(column_class) }}>
+        {{ page.footer_4 }}
+      </div>
+      {% endif %}
+    </div>
+  </footer>
+  {% endif %}
+  {% endblock %}
 </div>
 <span hidden="" id="image-gallery__open-gallery">{{ 'open gallery'|t }}</span>
