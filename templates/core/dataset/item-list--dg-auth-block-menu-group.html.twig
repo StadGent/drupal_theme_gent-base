@@ -20,27 +20,21 @@
  */
 #}
 {% if context.list_style %}
-  {%- set wrapper_attributes = wrapper_attributes.addClass('item-list--' ~ context.list_style) %}
   {%- set attributes = attributes.addClass('item-list__' ~ context.list_style) %}
 {% endif %}
 {% if items or empty -%}
-  <div{{ wrapper_attributes.addClass('mijn-gent-component') }}>
-    {%- if title is not empty -%}
-      <header>
-        <h3>{{ title }}</h3>
-      </header>
-    {%- endif -%}
-    {%- if items -%}
-      <section>
-        <{{ list_type }}{{ attributes.addClass('no-style') }}>
-        {%- for item in items -%}
-          <li{{ item.attributes }}>{{ item.value }}</li>
-        {%- endfor -%}
-        </{{ list_type }}>
-      </section>
-    {%- else -%}
-      {{- empty -}}
-    {%- endif -%}
-  </div>
+  {%- if title is not empty -%}
+  {%- endif -%}
+  {%- if items -%}
+    <section>
+      <{{ list_type }}{{ attributes.addClass('links') }}>
+      {%- for item in items -%}
+        <li{{ item.attributes }}>{{ item.value }}</li>
+      {%- endfor -%}
+      </{{ list_type }}>
+    </section>
+  {%- else -%}
+    {{- empty -}}
+  {%- endif -%}
 {%- endif %}
 

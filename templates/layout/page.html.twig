@@ -48,19 +48,19 @@
 
 <div class="container">
   {% block header %}
-  <header class="header">
-    <div class="content-container">
-      {% if page.header %}
-      {{ page.header }}
-      {% endif %}
-    </div>
+    <header class="header">
+      <div class="content-container">
+        {% if page.header %}
+          {{ page.header }}
+        {% endif %}
+      </div>
 
-    {% block breadcrumb %}
-    {% if page.breadcrumbs %}
-    {{ page.breadcrumbs }}
-    {% endif %}
-    {% endblock %}
-  </header>
+      {% block breadcrumb %}
+        {% if page.breadcrumbs %}
+          {{ page.breadcrumbs }}
+        {% endif %}
+      {% endblock %}
+    </header>
   {% endblock %}
 
   {% block main %}

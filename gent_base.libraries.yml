@@ -17,9 +17,7 @@ accordion:
   version: 1.x
   js:
     styleguide/build/styleguide/js/accordion.functions-min.js: { minified: true }
-    build/js/accordion.binding-min.js: { minified: true }
-  dependencies:
-    - core/drupal
+    styleguide/components/31-molecules/accordion/accordion.bindings.js: {}
 
 gallery:
   version: 1.x
