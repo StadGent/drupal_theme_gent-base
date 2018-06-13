@@ -37,6 +37,13 @@ function gent_base_form_alter(&$form, FormStateInterface $form_state, $form_id) 
 }
 
 /**
+ * Implements hook_preprocess().
+ */
+function gent_base_preprocess(&$variables, $hook) {
+  $variables['base_path'] = base_path();
+}
+
+/**
  * Implements hook_preprocess_input__submit().
  */
 function gent_base_preprocess_input__submit(&$variables) {
