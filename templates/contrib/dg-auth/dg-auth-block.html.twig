@@ -1,6 +1,7 @@
 {%
   set classes = [
     'mijn-gent-block',
+    'accordion'
   ]
 %}
 
@@ -12,20 +13,55 @@
       </div>
     </div>
   {% endif %}
-  <div class="user-logged-in clearfix">
-    <div class="label">
-      {% if profile_url %}
-        <a href="{{ profile_url }}" class="user-has-profile">{{ username }}</a>
-        <span class="user-no-profile">{{ username }}</span>
-      {% else %}
-        {{ username }}
-      {% endif %}
-    </div>
 
-    <div class="picture">
-      <img src="{{ default_picture_url }}" alt="{{ username }}" />
-    </div>
+  <button aria-expanded="false" aria-controls="mijn_gent_content" class="toggle accordion--button">
+    <img src="{{ default_picture_url }}" alt="{{ username }}" />
+    <span>James M.</span>
+  </button>
 
-    {{ menu }}
+  <div id="mijn_gent_content" class="accordion--content" aria-hidden="true" hidden="true" style="max-height: 0px;">
+    <div class="content">
+      <h2>Mijn Gent</h2>
+      <section class="profile">
+        <img src="{{ default_picture_url }}" alt="{{ username }}" />
+        <div class="profile-info">
+          <span>John Doe</span>
+          <a href="#" class="button button-primary button-small">Show profile</a>
+        </div>
+      </section>
+      <section>
+
+        <ul class="links">
+          <li><a href="javascript:(void);">Overzicht</a></li>
+          <li><a href="javascript:(void);">Leestips</a></li>
+          <li><a href="javascript:(void);">Mijn profiel</a></li>
+        </ul>
+
+      </section>
+      <section>
+        <h2>Mijn Gent</h2>
+
+        <ul class="links">
+          <li><a href="javascript:(void);">Mijn profiel</a></li>
+          <li><a href="javascript:(void);">Nieuwsbrieven</a></li>
+          <li><a href="javascript:(void);">Historiek</a></li>
+        </ul>
+
+      </section>
+      <footer>
+        <a href="javascript:(void);" class="button button-small button-secondary">Afmelden</a>
+      </footer>
+    </div>
   </div>
+
+  <!-- <div class="label"> -->
+  <!--   {% if profile_url %} -->
+  <!--   <a href="{{ profile_url }}" class="user-has-profile">{{ username }}</a> -->
+  <!--   <span class="user-no-profile">{{ username }}</span> -->
+  <!--   {% else %} -->
+  <!--   {{ username }} -->
+  <!--   {% endif %} -->
+  <!-- </div> -->
+
+  <!-- {{ menu }} -->
 </div>
