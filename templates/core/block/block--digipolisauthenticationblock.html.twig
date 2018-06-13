@@ -25,24 +25,12 @@
  * @see template_preprocess_block()
  */
 #}
-{%
-  set classes = [
-    'gentinfo-block',
-  ]
-%}
-<div{{ attributes.addClass(classes) }}>
-  <img src="{{ base_path }}themes/contrib/gent_base/styleguide/build/styleguide/img/svg/gentinfo.svg" alt="Gentinfo icon" class="gentinfo-icon">
-  <div class="gentinfo-block-content">
-    {{ title_prefix }}
-    {% if label %}
-      <h2{{ title_attributes }}>{{ label }}</h2>
-    {% endif %}
-    {{ title_suffix }}
-    {% block content %}
-      {{ content }}
-    {% endblock %}
-  </div>
-  <button type="button" class="button button-primary gentinfo-chat-button icon-chat-round">
-    {{ 'Chat with Gentinfo'|t }}
-  </button>
-</div>
+
+{{ title_prefix }}
+{% if label %}
+  <h2{{ title_attributes }}>{{ label }}</h2>
+{% endif %}
+{{ title_suffix }}
+{% block content %}
+  {{ content }}
+{% endblock %}

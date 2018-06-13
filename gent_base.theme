@@ -37,6 +37,13 @@ function gent_base_form_alter(&$form, FormStateInterface $form_state, $form_id) 
 }
 
 /**
+ * Implements hook_preprocess().
+ */
+function gent_base_preprocess(&$variables, $hook) {
+  $variables['base_path'] = base_path();
+}
+
+/**
  * Implements hook_preprocess_input__submit().
  */
 function gent_base_preprocess_input__submit(&$variables) {
@@ -156,6 +163,11 @@ function gent_base_preprocess_item_list__attachments(&$variables) {
 
   $variables['attributes']['class'][] = 'no-style';
   $variables['attributes']['class'][] = 'links';
+}
+
+function gent_base_preprocess_item_list__dg_auth_block_menu(&$variables) {
+  $logoutLink = end($variables["items"]);
+  $logoutLink['attributes']['class'][] = 'button button-small button-secondary';
 }
 
 /**

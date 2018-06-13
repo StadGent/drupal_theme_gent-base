@@ -18,8 +18,6 @@ accordion:
   js:
     styleguide/build/styleguide/js/accordion.functions-min.js: { minified: true }
     build/js/accordion.binding-min.js: { minified: true }
-  dependencies:
-    - core/drupal
 
 gallery:
   version: 1.x
