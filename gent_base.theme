@@ -44,10 +44,11 @@ function gent_base_preprocess_page(&$variables) {
   $entityTypeManager = \Drupal::entityTypeManager();
   $entity = $routeMatch->getParameter('node');
 
-  $headerImage = $entity->get('field_header_image')->view();
-  $render = $entityTypeManager->getViewBuilder('node');
-
-  $variables['hero_image'] = $render->view($entity, 'hero_image');
+  if ($entity && $entity->access('view')) {
+    $headerImage = $entity->get('field_header_image')->view();
+    $render = $entityTypeManager->getViewBuilder('node');
+    $variables['hero_image'] = $render->view($entity, 'hero_image');
+  }
 }
 /**
  * Implements hook_preprocess().
