@@ -39,6 +39,19 @@ function gent_base_form_alter(&$form, FormStateInterface $form_state, $form_id) 
 /**
  * Implements hook_preprocess().
  */
+function gent_base_preprocess_page(&$variables) {
+  $routeMatch = \Drupal::routeMatch();
+  $entityTypeManager = \Drupal::entityTypeManager();
+  $entity = $routeMatch->getParameter('node');
+
+  $headerImage = $entity->get('field_header_image')->view();
+  $render = $entityTypeManager->getViewBuilder('node');
+
+  $variables['hero_image'] = $render->view($entity, 'hero_image');
+}
+/**
+ * Implements hook_preprocess().
+ */
 function gent_base_preprocess(&$variables, $hook) {
   $variables['base_path'] = base_path();
 }
