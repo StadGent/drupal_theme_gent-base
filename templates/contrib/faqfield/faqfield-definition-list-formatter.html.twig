@@ -1,0 +1,34 @@
+{#
+/**
+ * @file
+ * Default theme implementation of a FAQ Field definition list formatter.
+ *
+ * Available variables:
+ * - items: An array of objects with the following fields.
+ *   - question: Prefiltered question value by check_plain.
+ *   - answer: Prefiltered answer value by field setting format.
+ *
+ * @see template_preprocess()
+ * @see template_preprocess_faqfield_definition_list_formatter()
+ *
+ * @ingroup themeable
+ */
+#}
+{% spaceless %}
+  <dl class="accordion">
+    {% for item in items %}
+      <dt class="faqfield-question">
+        <h3>
+          <button class="accordion--button" aria-expanded="false" aria-controls="accordion--multiple--content--1">
+            {{ item.question }}
+          </button>
+        </h3>
+      </dt>
+      <dd class="faqfield-answer">
+        <div class="accordion--content" id="accordion--multiple--content--1" aria-hidden="true" hidden="true">
+          {{ item.answer }}
+        </div>
+      </dd>
+    {% endfor %}
+  </dl>
+{% endspaceless %}
