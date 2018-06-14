@@ -7,24 +7,25 @@
 #  themes/contrib/gent_base/gent_base.theme: n/a
 #  themes/contrib/gent_base/gent_base.info.yml: n/a
 #  themes/contrib/gent_base/starterkit/starterkit.info.yml: n/a
+#  themes/contrib/gent_base/templates/contrib/dg-auth/dg-auth-block.html.twig: n/a
 #  themes/contrib/gent_base/templates/contrib/dg-maps/dg-maps-map.html.twig: n/a
-#  themes/contrib/gent_base/templates/contrib/dg_blocks/block--dg-blocks-gentinfo-block.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/block/block--system-branding-block.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/content-edit/filter-tips.html.twig: n/a
+#  themes/contrib/gent_base/templates/core/fields/field--media--field-src-audio-description.html.twig: n/a
+#  themes/contrib/gent_base/templates/core/fields/field--paragraph--field-image.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/form/fieldset.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/form/form-element-label.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/form/form.html.twig: n/a
+#  themes/contrib/gent_base/templates/core/layout/html.html.twig: n/a
+#  themes/contrib/gent_base/templates/core/layout/page.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/navigation/breadcrumb.html.twig: n/a
-#  themes/contrib/gent_base/templates/custom/dg_paragraphs/image-gallery/field--paragraph--field-image--image.html.twig: n/a
-#  themes/contrib/gent_base/templates/custom/dg_paragraphs/video/field--media--field-src-audio-description.html.twig: n/a
-#  themes/contrib/gent_base/templates/layout/html.html.twig: n/a
-#  themes/contrib/gent_base/templates/layout/page.html.twig: n/a
+#  themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig: n/a
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2018-05-24 07:45+0000\n"
+"POT-Creation-Date: 2018-06-14 11:59+0000\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -49,7 +50,7 @@ msgstr ""
 msgid "Fill in the Adobe Typekit-ID to be used in your project"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:265
+#: themes/contrib/gent_base/gent_base.theme:262
 msgid "T"
 msgstr ""
 
@@ -73,20 +74,32 @@ msgstr ""
 msgid "Gent"
 msgstr ""
 
+#: themes/contrib/gent_base/templates/contrib/dg-auth/dg-auth-block.html.twig:26
+msgid "Mijn Gent"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/contrib/dg-auth/dg-auth-block.html.twig:31
+msgid "Show profile"
+msgstr ""
+
 #: themes/contrib/gent_base/templates/contrib/dg-maps/dg-maps-map.html.twig:3
 msgid "Show on map"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/contrib/dg_blocks/block--dg-blocks-gentinfo-block.html.twig:46
-msgid "Chat with Gentinfo"
-msgstr ""
-
-#: themes/contrib/gent_base/templates/core/block/block--system-branding-block.html.twig:19;20
+#: themes/contrib/gent_base/templates/core/block/block--system-branding-block.html.twig:18;19
 msgid "Home"
 msgstr ""
 
 #: themes/contrib/gent_base/templates/core/content-edit/filter-tips.html.twig:20
 msgid "Text Formats"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/core/fields/field--media--field-src-audio-description.html.twig:44
+msgid "Watch this video with audio descripiton"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/core/fields/field--paragraph--field-image.html.twig:64
+msgid "Show all photos"
 msgstr ""
 
 #: themes/contrib/gent_base/templates/core/form/fieldset.html.twig:59 themes/contrib/gent_base/templates/core/form/form-element-label.html.twig:31
@@ -97,31 +110,51 @@ msgstr ""
 msgid "Fill in all fields unless otherwise stated"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/navigation/breadcrumb.html.twig:12
-msgid "Breadcrumb"
-msgstr ""
-
-#: themes/contrib/gent_base/templates/custom/dg_paragraphs/image-gallery/field--paragraph--field-image--image.html.twig:64
-msgid "Show all photos"
-msgstr ""
-
-#: themes/contrib/gent_base/templates/custom/dg_paragraphs/video/field--media--field-src-audio-description.html.twig:43
-msgid "Watch this video with audio descripiton"
-msgstr ""
-
-#: themes/contrib/gent_base/templates/layout/html.html.twig:64
+#: themes/contrib/gent_base/templates/core/layout/html.html.twig:64
 msgid "Skip to main content"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/layout/page.html.twig:128
+#: themes/contrib/gent_base/templates/core/layout/page.html.twig:78
 msgid "Footer"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/layout/page.html.twig:153
+#: themes/contrib/gent_base/templates/core/layout/page.html.twig:103
 msgid "In cooperation with"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/layout/page.html.twig:169
+#: themes/contrib/gent_base/templates/core/layout/page.html.twig:112
+msgid "Follow Stad Gent on social media"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/core/layout/page.html.twig:153
 msgid "open gallery"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/core/navigation/breadcrumb.html.twig:13
+msgid "Breadcrumb"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:95
+msgid "Submitted by @author_name on @date"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:109
+msgid "Also interesting"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:112
+msgid "Similar articles"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:116
+msgid "More info about"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:119
+msgid "Related Linked Open Data"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:123
+msgid "Last changed"
 msgstr ""
 
