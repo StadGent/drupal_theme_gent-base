@@ -13,6 +13,12 @@ light-gallery:
   js:
     styleguide/public/styleguide/vendor/baguettebox/dist/baguetteBox.min.js: { minified: true }
 
+accordion:
+  version: 1.x
+  js:
+    styleguide/build/styleguide/js/accordion.functions-min.js: { minified: true }
+    build/js/accordion.binding-min.js: { minified: true }
+
 gallery:
   version: 1.x
   js:

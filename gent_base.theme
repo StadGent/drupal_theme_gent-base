@@ -37,6 +37,13 @@ function gent_base_form_alter(&$form, FormStateInterface $form_state, $form_id) 
 }
 
 /**
+ * Implements hook_preprocess().
+ */
+function gent_base_preprocess(&$variables, $hook) {
+  $variables['base_path'] = base_path();
+}
+
+/**
  * Implements hook_preprocess_input__submit().
  */
 function gent_base_preprocess_input__submit(&$variables) {
@@ -158,6 +165,11 @@ function gent_base_preprocess_item_list__attachments(&$variables) {
   $variables['attributes']['class'][] = 'links';
 }
 
+function gent_base_preprocess_item_list__dg_auth_block_menu(&$variables) {
+  $logoutLink = end($variables["items"]);
+  $logoutLink['attributes']['class'][] = 'button button-small button-secondary';
+}
+
 /**
  * Implements hook_preprocess_HOOK().
  *
@@ -165,27 +177,12 @@ function gent_base_preprocess_item_list__attachments(&$variables) {
  */
 function gent_base_preprocess_block(&$variables) {
   switch ($variables['elements']['#plugin_id']) {
-    case 'dg_blocks_gentinfo_block':
-      if (isset($variables['content']['gent_olark'])) {
-        array_push($variables['content']['gent_olark']['#attributes']['class'], 'btn', 'textballoon');
-      }
-      break;
-
     case 'dg_blocks_address_block':
       $variables['attributes']['class'][] = 'dg-block-post-address';
       break;
 
     case 'dg_blocks_links_block':
       $variables['attributes']['class'][] = 'dg-block-disclaimer';
-      break;
-
-    case 'dg_auth_block':
-      $variables['attributes']['class'][] = 'header-component';
-      $variables['attributes']['class'][] = 'right';
-      break;
-
-    case 'system_branding_block':
-      $variables['attributes']['class'][] = 'header-component';
       break;
 
     default:
@@ -262,7 +259,52 @@ function gent_base_preprocess_fieldset(&$variables) {
  * Add theming classes to dg_blocks gentinfo.
  */
 function gent_base_preprocess_dg_blocks_gentinfo(&$variables) {
-$variables["phone"]["#title"] = t('T') . ': ' . $variables["phone"]["#title"];
+  $variables["phone"]["#title"] = t('T') . ': ' . $variables["phone"]["#title"];
   $variables["phone"]["#attributes"]["class"][] = 'button button-secondary button-call icon-phone';
   $variables["link"]["#attributes"]["class"][] = 'standalone-link';
+}
+/**
+ * Implements hook_preprocess_menu_local_task(&$variables).
+ */
+function gent_base_preprocess_menu_local_task(&$variables) {
+  $variables['link']['#options']['attributes']['class'][] = 'button button-primary';
+}
+
+/**
+ * Implements hook_preprocess_field(&$variables).
+ */
+function gent_base_preprocess_field(&$variables) {
+  if($variables["element"]["#field_name"] == 'field_tags' && count($variables["items"]) > 0) {
+
+    foreach ($variables['items'] as $key => $item) {
+      $variables["items"][$key]["content"]["#options"]['attributes']['class'][] = 'tag';
+    }
+  }
+
+  // Add timeline wrapper.
+  if($variables["element"]["#field_name"] == 'field_paragraphs') {
+    $paragraphs = $variables['element']["#items"]->getIterator();
+
+    $isTimeline = FALSE;
+
+    foreach ($paragraphs as $key => $paragraph) {
+      $entity = \Drupal\paragraphs\Entity\Paragraph::load( $paragraph->get('target_id')->getValue() );
+      $type = $entity->get('type')->getString();
+
+      if($type === 'timeline_frame') {
+        // It's the first timeline frame.
+        if ($isTimeline === FALSE) {
+          $isTimeline = TRUE;
+
+          $variables['items'][$key]['content']['#prefix'] = '<dl class="timeline accordion">';
+        }
+      }
+      else {
+        if ($isTimeline === TRUE) {
+          $isTimeline = FALSE;
+          $variables['items'][$key-1]['content']['#suffix'] = '</dl>';
+        }
+      }
+    }
+  }
 }

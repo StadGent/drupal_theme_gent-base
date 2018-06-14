@@ -29,7 +29,7 @@
     {%- for item in items -%}
       {% if loop.last %}
         <footer>
-          {{ item.value }}
+          <a href="{{ item.value.value['#url'] }}" {{ item.attributes }}>{{ item.value.value['#title'] }}</a>
         </footer>
       {% else %}
         {{ item.value }}
