@@ -49,31 +49,18 @@
   ]
 %}
 
-{% if label_hidden %}
-  {% if multiple %}
-    <div{{ attributes.addClass(classes, 'field__items') }}>
-      {%- for item in items %}
-        {% block content %}
-          {{ item.content }}
-        {% endblock %}
-      {% endfor -%}
-    </div>
-  {% else %}
-    {%- for item in items %}
-      {{ block('content') }}
-    {% endfor -%}
-  {% endif %}
+{% if not label_hidden %}
+  <div{{ title_attributes.addClass(title_classes) }}>{{ label }}</div>
+{% endif %}
+
+{% if items|length > 1 %}
+  <ul{{ attributes }}>
+    {% for item in items %}
+      <li{{ item.attributes }}>{{ item.content }}</li>
+    {% endfor %}
+  </ul>
 {% else %}
-  <div{{ attributes.addClass(classes) }}>
-    <div{{ title_attributes.addClass(title_classes) }}>{{ label }}</div>
-    {% if multiple %}
-      <div class="field__items">
-    {% endif %}
-    {%- for item in items %}
-      {{ block('content') }}
-    {% endfor -%}
-    {% if multiple %}
-      </div>
-    {% endif %}
-  </div>
+  {% for item in items %}
+    {{ item.content }}
+  {% endfor %}
 {% endif %}
