@@ -9,10 +9,9 @@ regions:
   header_top: Header top
   header_bottom: Header bottom
   content: Content
-  footer_1: Footer (top) links
-  footer_2: Footer (top) address
-  footer_3: Footer (top) contact
-  footer_4: Footer (bottom) social
+  footer_1: Footer contact
+  footer_2: Footer links
+  footer_3: Footer address
 libraries:
   - gent_base/global_js
   - gent_base/accordion
