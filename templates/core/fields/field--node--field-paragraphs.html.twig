@@ -52,16 +52,6 @@
 {% if not label_hidden %}
   <div{{ title_attributes.addClass(title_classes) }}>{{ label }}</div>
 {% endif %}
-{% if items|length > 1 %}
-  {% block content %}
-    {%- for item in items %}
-      <ul{{ attributes }}>
-        <li>{{ item.content }}</li>
-      </ul>
-    {% endfor -%}
-  {% endblock %}
-{% else %}
-  {%- for item in items %}
-    {{ item.content }}
-  {% endfor -%}
-{% endif %}
+{%- for item in items %}
+  {{ item.content }}
+{% endfor -%}
