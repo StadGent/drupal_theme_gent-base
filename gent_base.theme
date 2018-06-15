@@ -344,3 +344,24 @@ function gent_base_preprocess_field(&$variables) {
 function gent_base_preprocess_faqfield_definition_list_formatter(&$variables) {
   $variables['unique_list_id'] = Html::getUniqueId('faqItem');
 }
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function gent_base_preprocess_node(&$variables) {
+  $node = $variables['node'];
+  $created = $node->getCreatedTime();
+
+  $variables['author_attributes']->setAttribute('datetime', \Drupal::service('date.formatter')->format($created, 'custom', 'Y-m-d H:i:s T'));
+  $variables['author_attributes']->setAttribute('pubdate', 'pubdate');
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function gent_base_preprocess_links__node(&$variables) {
+  if (isset($variables['links']['node-readmore'])) {
+    $readmore = &$variables['links']['node-readmore'];
+    $readmore['link']['#options']['attributes']['class'] = ['read-nore', 'standalone-link'];
+  }
+}
