@@ -25,7 +25,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2018-06-14 11:59+0000\n"
+"POT-Creation-Date: 2018-06-15 08:57+0000\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -50,8 +50,8 @@ msgstr ""
 msgid "Fill in the Adobe Typekit-ID to be used in your project"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:262
-msgid "T"
+#: themes/contrib/gent_base/gent_base.theme:288
+msgid "T: @phone"
 msgstr ""
 
 #: themes/contrib/gent_base/gent_base.info.yml:0
@@ -114,19 +114,19 @@ msgstr ""
 msgid "Skip to main content"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/layout/page.html.twig:78
+#: themes/contrib/gent_base/templates/core/layout/page.html.twig:83
 msgid "Footer"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/layout/page.html.twig:103
+#: themes/contrib/gent_base/templates/core/layout/page.html.twig:108
 msgid "In cooperation with"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/layout/page.html.twig:112
+#: themes/contrib/gent_base/templates/core/layout/page.html.twig:117
 msgid "Follow Stad Gent on social media"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/layout/page.html.twig:153
+#: themes/contrib/gent_base/templates/core/layout/page.html.twig:158
 msgid "open gallery"
 msgstr ""
 
