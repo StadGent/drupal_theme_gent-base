@@ -12,7 +12,7 @@ git stash -q --keep-index
 
 # First, we check code quality.
 echo 'Checking PHP code style...'
-vendor/bin/phpcs --standard=phpcs.xml.dist -p --colors
+vendor/bin/phpcs --standard=phpcs.xml.dist -p
 PHPCS_EC=$?
 
 # We're done with checks, we can unstash changes.
