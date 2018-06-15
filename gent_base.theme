@@ -7,6 +7,7 @@
 
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Template\Attribute;
+use Drupal\node\NodeInterface;
 
 /**
  * Implements hook_form_alter().
@@ -36,6 +37,26 @@ function gent_base_form_alter(&$form, FormStateInterface $form_state, $form_id) 
   }
 }
 
+/**
+ * Implements hook_preprocess().
+ */
+function gent_base_preprocess_page(&$variables) {
+  $routeMatch = \Drupal::routeMatch();
+  $entityTypeManager = \Drupal::entityTypeManager();
+  $entity= $routeMatch->getParameter('node');
+
+  if($entity instanceof NodeInterface) {
+    $bundle = $entity->bundle();
+
+    $isViewMode = \Drupal::service('entity_type.manager')->getStorage('entity_view_display')->load('node.' . $bundle . '.hero_image');
+
+    if ($entity->access('view') && $isViewMode !== NULL) {
+      $render = $entityTypeManager->getViewBuilder('node');
+
+      $variables['hero_image'] = $render->view($entity, 'hero_image');
+    }
+  }
+}
 /**
  * Implements hook_preprocess().
  */
