@@ -289,22 +289,27 @@ function gent_base_preprocess_field(&$variables) {
 
     foreach ($paragraphs as $key => $paragraph) {
       $entity = \Drupal\paragraphs\Entity\Paragraph::load( $paragraph->get('target_id')->getValue() );
-      $type = $entity->get('type')->getString();
+      if ($entity) {
+        $type = $entity->get('type')->getString();
 
-      if($type === 'timeline_frame') {
-        // It's the first timeline frame.
-        if ($isTimeline === FALSE) {
-          $isTimeline = TRUE;
+        if($type === 'timeline_frame') {
+          // It's the first timeline frame.
+          if ($isTimeline === FALSE) {
+            $isTimeline = TRUE;
 
-          $variables['items'][$key]['content']['#prefix'] = '<dl class="timeline accordion">';
+            $variables['items'][$key]['content']['#prefix'] = '<dl class="timeline accordion">';
+          }
         }
-      }
-      else {
-        if ($isTimeline === TRUE) {
-          $isTimeline = FALSE;
-          $variables['items'][$key-1]['content']['#suffix'] = '</dl>';
+        else {
+          if ($isTimeline === TRUE) {
+            $isTimeline = FALSE;
+            $variables['items'][$key-1]['content']['#suffix'] = '</dl>';
+          }
         }
       }
     }
   }
+}
+function gent_base_preprocess_faqfield_definition_list_formatter(&$variables) {
+  $test = $variables;
 }
