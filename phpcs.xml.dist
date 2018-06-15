@@ -3,7 +3,7 @@
   <description>Default PHP CodeSniffer configuration based on Drupal core.</description>
 
   <file>.</file>
-  <arg name="extensions" value="inc,install,module,php,profile,test,theme"/>
+  <arg name="extensions" value="inc,install,module,php,profile,test,theme,twig"/>
 
   <!-- Exclude GitHub templates. -->
   <exclude-pattern type="relative">^.github/*</exclude-pattern>
