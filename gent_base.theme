@@ -8,6 +8,7 @@
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Template\Attribute;
 use Drupal\Component\Utility\Html;
+use Drupal\paragraphs\Entity\Paragraph;
 
 /**
  * Implements hook_form_alter().
@@ -289,7 +290,7 @@ function gent_base_preprocess_field(&$variables) {
     $isTimeline = FALSE;
 
     foreach ($paragraphs as $key => $paragraph) {
-      $entity = \Drupal\paragraphs\Entity\Paragraph::load( $paragraph->get('target_id')->getValue() );
+      $entity = Paragraph::load( $paragraph->get('target_id')->getValue() );
       if ($entity) {
         $type = $entity->get('type')->getString();
 
