@@ -23,7 +23,7 @@
       "bash -c 'cd ./scripts; ./install.sh;'"
     ],
     "check-style": [
-      "vendor/bin/phpcs --standard=phpcs.xml.dist -p --colors"
+      "vendor/bin/phpcs --report=full --colors -p"
     ]
   },
   "require": {

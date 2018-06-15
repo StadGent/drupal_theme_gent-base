@@ -9,20 +9,11 @@ dist: trusty
 node_js:
   - '8'
 
-cache:
-  yarn: true
-  directories:
-    - $HOME/.composer/cache
-    - $HOME/.drupal/db
-
-before_install:
-  - node --version
-  - npm --version
-
 install:
   - npm install -g gulp-cli yarn
   - composer install
 
 script:
-  - cd source && gulp validate && cd ..
-  - vendor/bin/phpcs --standard=phpcs.xml.dist -p --colors
+  - cd "$TRAVIS_BUILD_DIR/source" && gulp validate
+  - cd "$TRAVIS_BUILD_DIR/styleguide/components" && gulp js:validate && gulp styles:validate
+  - cd "$TRAVIS_BUILD_DIR" && vendor/bin/phpcs -p --colors
