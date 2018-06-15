@@ -311,5 +311,7 @@ function gent_base_preprocess_field(&$variables) {
   }
 }
 function gent_base_preprocess_faqfield_definition_list_formatter(&$variables) {
-  $test = $variables;
+  $uuid_service = \Drupal::service('uuid');
+  $variables['unique_list_id'] = $uuid_service->generate();
+
 }
