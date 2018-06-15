@@ -20,6 +20,9 @@
   <!-- Exclude third party code. -->
   <exclude-pattern>./vendor/*</exclude-pattern>
 
+  <!-- Exclude markdown files since coder does not handle long links well. -->
+  <exclude-pattern>*.md</exclude-pattern>
+
   <!-- Drupal sniffs -->
   <rule ref="vendor/drupal/coder/coder_sniffer/Drupal/ruleset.xml"/>
   <rule ref="vendor/drupal/coder/coder_sniffer/DrupalPractice/ruleset.xml"/>
