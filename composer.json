@@ -15,10 +15,18 @@
   ],
   "scripts": {
     "post-install-cmd": [
+      ".githooks/init.sh",
       "bash -c 'cd ./scripts; ./install.sh;'"
     ],
     "post-update-cmd": [
+      ".githooks/init.sh",
       "bash -c 'cd ./scripts; ./install.sh;'"
+    ],
+    "check-style": [
+      "vendor/bin/phpcs --standard=phpcs.xml.dist -p --colors"
     ]
+  },
+  "require": {
+    "drupal/coder": "^8.2"
   }
 }
