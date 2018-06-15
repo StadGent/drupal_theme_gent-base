@@ -3,22 +3,22 @@
   <description>Default PHP CodeSniffer configuration based on Drupal core.</description>
 
   <file>.</file>
-  <arg name="extensions" value="inc,install,module,php,profile,test,theme"/>
+  <arg name="extensions" value="inc,install,module,php,profile,test,theme,twig"/>
 
   <!-- Exclude GitHub templates. -->
-  <exclude-pattern>./.github/*</exclude-pattern>
+  <exclude-pattern type="relative">^.github/*</exclude-pattern>
 
   <!-- Exclude build artifacts -->
-  <exclude-pattern>./build/*</exclude-pattern>
+  <exclude-pattern type="relative">^build/*</exclude-pattern>
 
   <!-- Exclude Node modules. -->
-  <exclude-pattern>./source/node_modules/*</exclude-pattern>
+  <exclude-pattern type="relative">^source/node_modules/*</exclude-pattern>
 
   <!-- Exclude Styleguide. -->
-  <exclude-pattern>./styleguide/*</exclude-pattern>
+  <exclude-pattern type="relative">^styleguide/*</exclude-pattern>
 
   <!-- Exclude third party code. -->
-  <exclude-pattern>./vendor/*</exclude-pattern>
+  <exclude-pattern type="relative">^vendor/*</exclude-pattern>
 
   <!-- Exclude markdown files since coder does not handle long links well. -->
   <exclude-pattern>*.md</exclude-pattern>
