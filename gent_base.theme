@@ -7,6 +7,7 @@
 
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Template\Attribute;
+use Drupal\Component\Utility\Html;
 
 /**
  * Implements hook_form_alter().
@@ -315,7 +316,5 @@ function gent_base_preprocess_field(&$variables) {
  * Implements hook_preprocess(&$variables).
  */
 function gent_base_preprocess_faqfield_definition_list_formatter(&$variables) {
-  $uuid_service = \Drupal::service('uuid');
-  $variables['unique_list_id'] = $uuid_service->generate();
-
+  $variables['unique_list_id'] = Html::getUniqueId('faqItem');
 }
