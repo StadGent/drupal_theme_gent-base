@@ -92,9 +92,13 @@
         <time{{ author_attributes.addClass('published') }}>
           {{ date }}
         </time>
+      {% else %}
+        <div class="event">
+          <span>{{ content.field_event_date }}</span>
+        </div>
       {% endif %}
 
-      {{ content|without('field_header_image', 'og_audience') }}
+      {{ content|without('field_header_image', 'og_audience', 'field_event_date') }}
     </div>
 
     <div class="content__top">

@@ -357,7 +357,7 @@ function gent_base_preprocess_node(&$variables) {
   $created = $node->getCreatedTime();
 
   $variables['author_attributes']->setAttribute('datetime', \Drupal::service('date.formatter')
-    ->format($created, 'custom', 'Y-m-d H:i:s T'));
+    ->format($created, 'custom', 'c'));
   $variables['author_attributes']->setAttribute('pubdate', 'pubdate');
 }
 
