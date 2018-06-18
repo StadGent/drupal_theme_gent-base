@@ -1,17 +1,24 @@
 {% extends 'paragraph.html.twig' %}
 
 {% block content %}
-  <div class="timeline-slot-header">
-    <h3 class="timeline-slot-title"><button aria-expanded="false" aria-controls="timeline-slot-content--{{ paragraph.id() }}" class="accordion--button">{{ content.title }}</button></h3>
-    <span class="timeline-slot-date">{{ content.subtitle }}</span>
-    <div class="image-gallery-wrapper">
-      {{ content.field_image }}
+  <dd>
+    <div class="timeline-slot-header">
+      <h3 class="timeline-slot-title">
+        <button aria-expanded="false"
+                aria-controls="timeline-slot-content--{{ paragraph.id() }}"
+                class="accordion--button">{{ content.title }}</button>
+      </h3>
+      <span class="timeline-slot-date">{{ content.subtitle }}</span>
+      <div class="image-gallery-wrapper">
+        {{ content.field_image }}
+      </div>
     </div>
-  </div>
-  <div class="timeline-slot-content accordion--content accordion--expanded" id="timeline-slot-content--{{ paragraph.id() }}" aria-hidden="false">
-    {{ content.field_text }}
-    <div class="video-wrapper">
-      {{ content.field_video }}
+    <div class="timeline-slot-content accordion--content accordion--expanded"
+         id="timeline-slot-content--{{ paragraph.id() }}" aria-hidden="false">
+      {{ content.field_text }}
+      <div class="video-wrapper">
+        {{ content.field_video }}
+      </div>
     </div>
-  </div>
+  </dd>
 {% endblock %}

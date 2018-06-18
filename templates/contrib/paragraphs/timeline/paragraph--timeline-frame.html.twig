@@ -48,7 +48,7 @@
   {% block content %}
     <div{{ attributes.addClass(classes) }}>
     <dt>{{ content.title }}</dt>
-    <dd>{{ content.timeline_items }}</dd>
+    {{ content.timeline_items }}
     </div>
   {% endblock %}
 {% endblock paragraph %}
