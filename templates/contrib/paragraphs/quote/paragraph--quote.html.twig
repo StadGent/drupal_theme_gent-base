@@ -15,7 +15,7 @@
       {% endblock %}
       <footer>
         {{ content.field_author|render|striptags|trim }}
-        {% if field_position|render|striptags|trim is not empty %}
+        {% if content.field_position|render|striptags|trim is not empty %}
           , {{ content.field_position|render|striptags|trim }}
         {% endif %}
       </footer>
