@@ -1,0 +1,61 @@
+{#
+/**
+ * @file
+ * Theme override to display a block.
+ *
+ * Available variables:
+ * - plugin_id: The ID of the block implementation.
+ * - label: The configured label of the block if visible.
+ * - configuration: A list of the block's configuration values.
+ *   - label: The configured label for the block.
+ *   - label_display: The display settings for the label.
+ *   - provider: The module or other provider that provided this block plugin.
+ *   - Block plugin specific settings will also be stored here.
+ * - content: The content of this block.
+ * - attributes: array of HTML attributes populated by modules, intended to
+ *   be added to the main container tag of this template.
+ *   - id: A valid HTML ID and guaranteed unique.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ *
+ * @see template_preprocess_block()
+ */
+#}
+{%
+  set classes = [
+    'search-block'
+  ]
+%}
+<div{{ attributes.addClass(classes) }}>
+    <img src="{{ base_path }}themes/contrib/gent_base/styleguide/build/styleguide/img/svg/whistle-light.svg" alt="" class="search-block-icon">
+    <div class="search-block-content">
+      {{ title_prefix }}
+      {% if label %}
+        <h2{{ title_attributes }}>{{ label }}</h2>
+      {% endif %}
+      {{ title_suffix }}
+
+      <ul class="icon-list">
+        <li><i class="icon-home"></i> {{ 'Return to the'|t }} <a href="{{ url('<front>') }}" alt="Homepage">{{ 'homepage'|t }}</a></li>
+        <li><i class="icon-fancyback"></i>{{ 'Use the back button of your browser'|t }}</li>
+        <li><i class="icon-document"></i>{{ 'Or notify us of the page through the'|t }} <a href="javascript:(void);" alt="Contact form">{{ 'contact form'|t }}</a></li>
+      </ul>
+
+      <h3>{{ 'Are you looking for another page?'|t }}</h3>
+
+      {% block content %}
+        {{ content }}
+      {% endblock %}
+
+      {# -- Stub search form -- #}
+      <form class="form search">
+        <input type="search" name="search_field_403" id="search_field_403" placeholder="" aria-label="search" required="">
+        <input type="submit" value="Search!" class="">
+      </form>
+      {# -- End stub -- #}
+    </div>
+</div>

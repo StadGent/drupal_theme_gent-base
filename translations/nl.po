@@ -24,8 +24,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2018-06-15 08:57+0000\n"
-"PO-Revision-Date: 2018-06-15 10:59+0200\n"
+"POT-Creation-Date: 2018-06-19 08:58+0000\n"
+"PO-Revision-Date: 2018-06-19 11:01+0200\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
 "Language: nl\n"
@@ -51,9 +51,13 @@ msgstr "Adobe Typekit-ID"
 msgid "Fill in the Adobe Typekit-ID to be used in your project"
 msgstr "Vul de Adobe Typekit-ID in om gebruikt te worden in je project"
 
-#: themes/contrib/gent_base/gent_base.theme:288
+#: themes/contrib/gent_base/gent_base.theme:290
 msgid "T: @phone"
 msgstr "T: @phone"
+
+#: themes/contrib/gent_base/gent_base.theme:330
+msgid "timeline"
+msgstr "tijdlijn"
 
 #: themes/contrib/gent_base/gent_base.info.yml:0
 msgid "Gent Base"
@@ -92,6 +96,40 @@ msgstr "Bekijk profiel"
 #: themes/contrib/gent_base/templates/contrib/dg-maps/dg-maps-map.html.twig:3
 msgid "Show on map"
 msgstr "Toon op kaart"
+
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:43
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:71
+msgid "Return to the"
+msgstr "Ga terug naar de"
+
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:43
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:71
+msgid "homepage"
+msgstr "homepagina"
+
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:44
+msgid "Use the back button of your browser"
+msgstr "De terugknop van uw browser gebruiken"
+
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:45
+msgid "Or notify us of the page through the"
+msgstr "Of ons de pagina melden via het"
+
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:45
+msgid "contact form"
+msgstr "contactformulier"
+
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:48
+msgid "Are you looking for another page?"
+msgstr "Zoekt u een andere pagina?"
+
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:55
+msgid "2. Try to find the page through our search function"
+msgstr "2. Probeer de pagina te vinden via onze zoekfunctie"
+
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:68
+msgid "3. Continue to navigate from here"
+msgstr "3. Verder navigeren vanaf hier"
 
 #: themes/contrib/gent_base/templates/core/block/block--system-branding-block.html.twig:18;19
 msgid "Home"
@@ -142,27 +180,39 @@ msgstr "galerij openen"
 msgid "Breadcrumb"
 msgstr "Kruimelpad"
 
+#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:95
 #: themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:95
+#: themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:95
 msgid "Submitted by @author_name on @date"
 msgstr "Ingediend door @author_name op @date"
 
+#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:109
 #: themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:109
+#: themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:109
 msgid "Also interesting"
 msgstr "Ook nog interessant"
 
+#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:112
 #: themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:112
+#: themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:112
 msgid "Similar articles"
 msgstr "Vergelijkbare artikels"
 
+#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:116
 #: themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:116
+#: themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:116
 msgid "More info about"
 msgstr "Bekijk meer over"
 
+#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:119
 #: themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:119
+#: themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:119
 msgid "Related Linked Open Data"
 msgstr "Gerelateerde Linked Open Data"
 
+#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:123
 #: themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:123
+#: themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:123
 msgid "Last changed"
 msgstr "Laatst aangepast"
 
