@@ -9,6 +9,8 @@
 #  themes/contrib/gent_base/starterkit/starterkit.info.yml: n/a
 #  themes/contrib/gent_base/templates/contrib/dg-auth/dg-auth-block.html.twig: n/a
 #  themes/contrib/gent_base/templates/contrib/dg-maps/dg-maps-map.html.twig: n/a
+#  themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig: n/a
+#  themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/block/block--system-branding-block.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/content-edit/filter-tips.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/fields/field--media--field-src-audio-description.html.twig: n/a
@@ -19,13 +21,15 @@
 #  themes/contrib/gent_base/templates/core/layout/html.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/layout/page.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/navigation/breadcrumb.html.twig: n/a
+#  themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig: n/a
 #  themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig: n/a
+#  themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig: n/a
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2018-06-15 08:57+0000\n"
+"POT-Creation-Date: 2018-06-19 08:58+0000\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -50,8 +54,12 @@ msgstr ""
 msgid "Fill in the Adobe Typekit-ID to be used in your project"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:288
+#: themes/contrib/gent_base/gent_base.theme:290
 msgid "T: @phone"
+msgstr ""
+
+#: themes/contrib/gent_base/gent_base.theme:330
+msgid "timeline"
 msgstr ""
 
 #: themes/contrib/gent_base/gent_base.info.yml:0
@@ -84,6 +92,38 @@ msgstr ""
 
 #: themes/contrib/gent_base/templates/contrib/dg-maps/dg-maps-map.html.twig:3
 msgid "Show on map"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:43 themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:71
+msgid "Return to the"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:43 themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:71
+msgid "homepage"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:44
+msgid "Use the back button of your browser"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:45
+msgid "Or notify us of the page through the"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:45
+msgid "contact form"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:48
+msgid "Are you looking for another page?"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:55
+msgid "2. Try to find the page through our search function"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:68
+msgid "3. Continue to navigate from here"
 msgstr ""
 
 #: themes/contrib/gent_base/templates/core/block/block--system-branding-block.html.twig:18;19
@@ -134,27 +174,27 @@ msgstr ""
 msgid "Breadcrumb"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:95
+#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:95 themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:95 themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:95
 msgid "Submitted by @author_name on @date"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:109
+#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:109 themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:109 themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:109
 msgid "Also interesting"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:112
+#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:112 themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:112 themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:112
 msgid "Similar articles"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:116
+#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:116 themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:116 themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:116
 msgid "More info about"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:119
+#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:119 themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:119 themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:119
 msgid "Related Linked Open Data"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:123
+#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:123 themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:123 themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:123
 msgid "Last changed"
 msgstr ""
 
