@@ -24,8 +24,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2018-06-19 08:58+0000\n"
-"PO-Revision-Date: 2018-06-19 11:01+0200\n"
+"POT-Creation-Date: 2018-06-20 07:52+0000\n"
+"PO-Revision-Date: 2018-06-20 09:53+0200\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
 "Language: nl\n"
@@ -64,14 +64,8 @@ msgid "Gent Base"
 msgstr "Gent Base"
 
 #: themes/contrib/gent_base/gent_base.info.yml:0
-msgid ""
-"Ghent base theme. This abstract theme should never be used but always be "
-"extended (based on <a href=\"https://stijlgids.stad.gent\" target=\"_blank"
-"\">stijlgids.stad.gent</a>)."
-msgstr ""
-"Gent Base thema. Dit abstract thema zou nooit rechtstreeks gebruikt mogen "
-"worden maar moet extended worden (gebasseerd op <a href=“https://stijlgids."
-"stad.gent” target=“_blank”>stijlgids.stad.gent</a>)."
+msgid "Ghent base theme. Always use a subtheme of this theme."
+msgstr "Gent base theme. Gebruik altijd een subthema van dit thema."
 
 #: themes/contrib/gent_base/starterkit/starterkit.info.yml:0
 msgid "Starterkit Subtheme"
@@ -97,31 +91,36 @@ msgstr "Bekijk profiel"
 msgid "Show on map"
 msgstr "Toon op kaart"
 
-#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:43
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:45
 #: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:71
 msgid "Return to the"
-msgstr "Ga terug naar de"
+msgstr "Terugkeren naar de"
 
-#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:43
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:45
 #: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:71
 msgid "homepage"
 msgstr "homepagina"
 
-#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:44
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:46
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:72
 msgid "Use the back button of your browser"
 msgstr "De terugknop van uw browser gebruiken"
 
-#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:45
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:47
 msgid "Or notify us of the page through the"
 msgstr "Of ons de pagina melden via het"
 
-#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:45
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:47
 msgid "contact form"
 msgstr "contactformulier"
 
-#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:48
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:50
 msgid "Are you looking for another page?"
 msgstr "Zoekt u een andere pagina?"
+
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:42
+msgid "1. Maybe you were looking for this?"
+msgstr "1. Misschien was u hiernaar op zoek?"
 
 #: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:55
 msgid "2. Try to find the page through our search function"
@@ -130,6 +129,10 @@ msgstr "2. Probeer de pagina te vinden via onze zoekfunctie"
 #: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:68
 msgid "3. Continue to navigate from here"
 msgstr "3. Verder navigeren vanaf hier"
+
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:69
+msgid "This can be done in several ways:"
+msgstr "Dat kan op verschillende manieren:"
 
 #: themes/contrib/gent_base/templates/core/block/block--system-branding-block.html.twig:18;19
 msgid "Home"
@@ -142,6 +145,10 @@ msgstr "Tekstopmaken"
 #: themes/contrib/gent_base/templates/core/fields/field--media--field-src-audio-description.html.twig:44
 msgid "Watch this video with audio descripiton"
 msgstr "Bekijk deze video met audiodescriptie"
+
+#: themes/contrib/gent_base/templates/core/fields/field--node--created.html.twig:23
+msgid "Submitted on"
+msgstr "Ingediend door"
 
 #: themes/contrib/gent_base/templates/core/fields/field--paragraph--field-image.html.twig:64
 msgid "Show all photos"
@@ -215,6 +222,9 @@ msgstr "Gerelateerde Linked Open Data"
 #: themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:123
 msgid "Last changed"
 msgstr "Laatst aangepast"
+
+#~ msgid "Ghent base theme. This abstract theme should never be used but always be extended (based on <a href=\"https://stijlgids.stad.gent\" target=\"_blank\">stijlgids.stad.gent</a>)."
+#~ msgstr "Gent Base thema. Dit abstract thema zou nooit rechtstreeks gebruikt mogen worden maar moet extended worden (gebasseerd op <a href=“https://stijlgids.stad.gent” target=“_blank”>stijlgids.stad.gent</a>)."
 
 #~ msgid "T"
 #~ msgstr "T"

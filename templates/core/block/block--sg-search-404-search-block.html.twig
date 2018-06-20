@@ -39,7 +39,7 @@
 
   {% block content %}
     <div class="help-block-section">
-      <h3>{{ '1. Maybe you were looking for this?' }}</h3>
+      <h3>{{ '1. Maybe you were looking for this?'|t }}</h3>
 
       {# -- Stub related search results -- #}
       <a href="javascript:(void);" class="standalone-link">Filip Watteeuw</a>
@@ -66,10 +66,10 @@
 
     <div class="help-block-section">
       <h3>{{ '3. Continue to navigate from here'|t }}</h3>
-      <p>{{ 'This can be done in several ways:' }}</p>
+      <p>{{ 'This can be done in several ways:'|t }}</p>
       <ul class="icon-list">
         <li><i class="icon-home" aria-hidden="true"></i> {{ 'Return to the'|t }} <a href="{{ url('<front>') }}" alt="Homepage">{{ 'homepage'|t }}</a></li>
-        <li><i class="icon-fancyback" aria-hidden="true"></i>{{ 'Use the back button of your browser' }}</li>
+        <li><i class="icon-fancyback" aria-hidden="true"></i>{{ 'Use the back button of your browser'|t }}</li>
       </ul>
     </div>
 

@@ -20,5 +20,5 @@
  */
 #}
 {%- for item in items -%}
-  {{ 'Submitted on @date'|t({'@date': item.content|render }) }}
+  {{ 'Submitted on'|t }} {{ item.content|render }}
 {%- endfor -%}
