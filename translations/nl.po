@@ -64,14 +64,8 @@ msgid "Gent Base"
 msgstr "Gent Base"
 
 #: themes/contrib/gent_base/gent_base.info.yml:0
-msgid ""
-"Ghent base theme. This abstract theme should never be used but always be "
-"extended (based on <a href=\"https://stijlgids.stad.gent\" target=\"_blank"
-"\">stijlgids.stad.gent</a>)."
-msgstr ""
-"Gent Base thema. Dit abstract thema zou nooit rechtstreeks gebruikt mogen "
-"worden maar moet extended worden (gebasseerd op <a href=“https://stijlgids."
-"stad.gent” target=“_blank”>stijlgids.stad.gent</a>)."
+msgid "Ghent base theme. Always use a subtheme of this theme."
+msgstr "Gent base theme. Gebruik altijd een subthema van dit thema."
 
 #: themes/contrib/gent_base/starterkit/starterkit.info.yml:0
 msgid "Starterkit Subtheme"
@@ -228,6 +222,9 @@ msgstr "Gerelateerde Linked Open Data"
 #: themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:123
 msgid "Last changed"
 msgstr "Laatst aangepast"
+
+#~ msgid "Ghent base theme. This abstract theme should never be used but always be extended (based on <a href=\"https://stijlgids.stad.gent\" target=\"_blank\">stijlgids.stad.gent</a>)."
+#~ msgstr "Gent Base thema. Dit abstract thema zou nooit rechtstreeks gebruikt mogen worden maar moet extended worden (gebasseerd op <a href=“https://stijlgids.stad.gent” target=“_blank”>stijlgids.stad.gent</a>)."
 
 #~ msgid "T"
 #~ msgstr "T"
