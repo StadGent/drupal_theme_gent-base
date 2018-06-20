@@ -29,7 +29,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2018-06-19 08:58+0000\n"
+"POT-Creation-Date: 2018-06-19 13:47+0000\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -67,7 +67,7 @@ msgid "Gent Base"
 msgstr ""
 
 #: themes/contrib/gent_base/gent_base.info.yml:0
-msgid "Ghent base theme. This abstract theme should never be used but always be extended (based on <a href=\"https://stijlgids.stad.gent\" target=\"_blank\">stijlgids.stad.gent</a>)."
+msgid "Ghent base theme. Always use a subtheme of this theme."
 msgstr ""
 
 #: themes/contrib/gent_base/starterkit/starterkit.info.yml:0
