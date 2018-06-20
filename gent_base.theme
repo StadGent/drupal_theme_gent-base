@@ -373,3 +373,25 @@ function gent_base_preprocess_links__node(&$variables) {
     ];
   }
 }
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function gent_base_preprocess_paragraph__image(&$variables) {
+  $image_count = count($variables['content']['field_image']['#items']);
+
+  if ($image_count === 1) {
+    return;
+  }
+
+  $isViewMode = \Drupal::service('entity_type.manager')
+    ->getStorage('entity_view_display')
+    ->load('paragraph.image.gallery_multiple');
+
+  if ($isViewMode) {
+    for ($i = 0; $i < $image_count; $i++) {
+      $variables['content']['field_image'][$i]['#view_mode'] = 'gallery_multiple';
+      unset($variables['content']['field_image'][$i]['#cache']['keys']);
+    }
+  }
+}
