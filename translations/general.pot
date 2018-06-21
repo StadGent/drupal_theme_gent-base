@@ -14,6 +14,7 @@
 #  themes/contrib/gent_base/templates/core/block/block--system-branding-block.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/content-edit/filter-tips.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/fields/field--media--field-src-audio-description.html.twig: n/a
+#  themes/contrib/gent_base/templates/core/fields/field--node--created.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/fields/field--paragraph--field-image.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/form/fieldset.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/form/form-element-label.html.twig: n/a
@@ -29,7 +30,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2018-06-19 08:58+0000\n"
+"POT-Creation-Date: 2018-06-20 07:52+0000\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -67,7 +68,7 @@ msgid "Gent Base"
 msgstr ""
 
 #: themes/contrib/gent_base/gent_base.info.yml:0
-msgid "Ghent base theme. This abstract theme should never be used but always be extended (based on <a href=\"https://stijlgids.stad.gent\" target=\"_blank\">stijlgids.stad.gent</a>)."
+msgid "Ghent base theme. Always use a subtheme of this theme."
 msgstr ""
 
 #: themes/contrib/gent_base/starterkit/starterkit.info.yml:0
@@ -94,28 +95,32 @@ msgstr ""
 msgid "Show on map"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:43 themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:71
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:45 themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:71
 msgid "Return to the"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:43 themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:71
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:45 themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:71
 msgid "homepage"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:44
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:46 themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:72
 msgid "Use the back button of your browser"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:45
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:47
 msgid "Or notify us of the page through the"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:45
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:47
 msgid "contact form"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:48
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:50
 msgid "Are you looking for another page?"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:42
+msgid "1. Maybe you were looking for this?"
 msgstr ""
 
 #: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:55
@@ -124,6 +129,10 @@ msgstr ""
 
 #: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:68
 msgid "3. Continue to navigate from here"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:69
+msgid "This can be done in several ways:"
 msgstr ""
 
 #: themes/contrib/gent_base/templates/core/block/block--system-branding-block.html.twig:18;19
@@ -136,6 +145,10 @@ msgstr ""
 
 #: themes/contrib/gent_base/templates/core/fields/field--media--field-src-audio-description.html.twig:44
 msgid "Watch this video with audio descripiton"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/core/fields/field--node--created.html.twig:23
+msgid "Submitted on"
 msgstr ""
 
 #: themes/contrib/gent_base/templates/core/fields/field--paragraph--field-image.html.twig:64
