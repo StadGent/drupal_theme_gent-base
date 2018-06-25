@@ -6,15 +6,15 @@
  * Available variables:
  * - name: Name of the media.
  * - content: Media content.
+ * - gallery_full_url: URL of the gallery_full image style.
  *
  * @see template_preprocess_media()
  *
  * @ingroup themeable
  */
 #}
-
 <a{{ attributes }}
-  href="{{ file_url(content.field_media_image.0['#item'].entity.uri.value) }}"
+  href="{{ gallery_full_url|default(file_url(content.field_media_image.0['#item'].entity.uri.value)) }}"
   class="gallery-link"
   {% if content.field_media_caption|render|trim is not empty %}
     aria-label="image caption"

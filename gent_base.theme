@@ -8,8 +8,11 @@
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Template\Attribute;
 use Drupal\Component\Utility\Html;
+use Drupal\image\Entity\ImageStyle;
 use Drupal\paragraphs\Entity\Paragraph;
 use Drupal\node\NodeInterface;
+
+include __DIR__ . '/theme.inc';
 
 /**
  * Implements hook_form_FORM_ID_alter().
@@ -50,9 +53,7 @@ function gent_base_preprocess_page(&$variables) {
   if ($entity instanceof NodeInterface) {
     $bundle = $entity->bundle();
 
-    $isViewMode = \Drupal::service('entity_type.manager')
-      ->getStorage('entity_view_display')
-      ->load('node.' . $bundle . '.hero_image');
+    $isViewMode = gent_base_is_view_mode('node.' . $bundle . '.hero_image');
 
     if ($entity->access('view') && $isViewMode !== NULL) {
       $render = $entityTypeManager->getViewBuilder('node');
@@ -372,4 +373,44 @@ function gent_base_preprocess_links__node(&$variables) {
       'standalone-link',
     ];
   }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ *
+ * If a image paragraph contains multiple images,
+ * the view mode of the images is changed to 'gallery_multiple'.
+ */
+function gent_base_preprocess_paragraph__image(&$variables) {
+  $image_count = count($variables['content']['field_image']['#items']);
+
+  if ($image_count === 1 || !gent_base_is_view_mode('paragraph.image.gallery_multiple')) {
+    return;
+  }
+
+  for ($i = 0; $i < $image_count; $i++) {
+    $variables['content']['field_image'][$i]['#view_mode'] = 'gallery_multiple';
+    unset($variables['content']['field_image'][$i]['#cache']['keys']);
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ *
+ * Provide a 'gallery_full' image style URL to the image template,
+ * this is the url used in the lightbox implementation.
+ */
+function gent_base_preprocess_media__image(&$variables) {
+  if ($variables['view_mode'] !== 'gallery_multiple' && $variables['view_mode'] !== 'gallery_single') {
+    return;
+  }
+
+  $image_style = ImageStyle::load('gallery_full');
+
+  if (!$image_style) {
+    return;
+  }
+
+  $file = $variables['content']['field_media_image'][0]['#item']->entity->getFileUri();
+  $variables['gallery_full_url'] = $image_style->buildUrl($file);
 }
