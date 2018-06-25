@@ -1,8 +1,8 @@
 <?php
 
 /**
+ * @file
  * ThemeHelper Class Doc Comment.
- * Aqmkdjfml  qmsdkfj.
  *
  * Include this in the theme file to access the helper methods.
  *
