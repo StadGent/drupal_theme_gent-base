@@ -1,12 +1,8 @@
 <?php
 
 /**
- * @file
- * Helper class to support theming in the Gent Base theme.
- */
-
-/**
  * ThemeHelper Class Doc Comment.
+ * Aqmkdjfml  qmsdkfj.
  *
  * Include this in the theme file to access the helper methods.
  *
