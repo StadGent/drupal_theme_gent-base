@@ -1,9 +1,17 @@
 <?php
 
 /**
+ * ThemeHelper File Doc Comment
+ *
+ * @category ThemeHelper
+ * @package   gent_base
+ */
+
+/**
  * ThemeHelper Class Doc Comment.
  *
  * Include this in the theme file to access the helper methods.
+ *
  * @category Class
  * @package gent_base
  */
