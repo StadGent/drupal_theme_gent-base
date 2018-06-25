@@ -8,8 +8,11 @@
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Template\Attribute;
 use Drupal\Component\Utility\Html;
+use Drupal\image\Entity\ImageStyle;
 use Drupal\paragraphs\Entity\Paragraph;
 use Drupal\node\NodeInterface;
+
+include 'ThemeHelper.php';
 
 /**
  * Implements hook_form_FORM_ID_alter().
@@ -50,9 +53,7 @@ function gent_base_preprocess_page(&$variables) {
   if ($entity instanceof NodeInterface) {
     $bundle = $entity->bundle();
 
-    $isViewMode = \Drupal::service('entity_type.manager')
-      ->getStorage('entity_view_display')
-      ->load('node.' . $bundle . '.hero_image');
+    $isViewMode = ThemeHelper::isViewMode('node.' . $bundle . '.hero_image');
 
     if ($entity->access('view') && $isViewMode !== NULL) {
       $render = $entityTypeManager->getViewBuilder('node');
@@ -380,18 +381,30 @@ function gent_base_preprocess_links__node(&$variables) {
 function gent_base_preprocess_paragraph__image(&$variables) {
   $image_count = count($variables['content']['field_image']['#items']);
 
-  if ($image_count === 1) {
+  if ($image_count === 1 || !ThemeHelper::isViewMode('paragraph.image.gallery_multiple')) {
     return;
   }
 
-  $isViewMode = \Drupal::service('entity_type.manager')
-    ->getStorage('entity_view_display')
-    ->load('paragraph.image.gallery_multiple');
-
-  if ($isViewMode) {
-    for ($i = 0; $i < $image_count; $i++) {
-      $variables['content']['field_image'][$i]['#view_mode'] = 'gallery_multiple';
-      unset($variables['content']['field_image'][$i]['#cache']['keys']);
-    }
+  for ($i = 0; $i < $image_count; $i++) {
+    $variables['content']['field_image'][$i]['#view_mode'] = 'gallery_multiple';
+    unset($variables['content']['field_image'][$i]['#cache']['keys']);
   }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function gent_base_preprocess_media__image(&$variables) {
+  if ($variables['view_mode'] !== 'gallery_multiple' && $variables['view_mode'] !== 'gallery_single') {
+    return;
+  }
+
+  $image_style = ImageStyle::load('gallery_full');
+
+  if (!$image_style) {
+    return;
+  }
+
+  $file = $variables['content']['field_media_image'][0]['#item']->entity->getFileUri();
+  $variables['gallery_full_url'] = $image_style->buildUrl($file);
 }
