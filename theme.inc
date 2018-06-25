@@ -6,6 +6,8 @@
  */
 
 /**
+ * Check to see if a give view mode exists.
+ *
  * @param string $key
  *   The view mode key.
  *
