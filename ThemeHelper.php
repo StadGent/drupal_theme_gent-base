@@ -1,10 +1,10 @@
 <?php
 
 /**
- * ThemeHelper File Doc Comment
+ * ThemeHelper File Doc Comment.
  *
  * @category ThemeHelper
- * @package   gent_base
+ * @package gent_base
  */
 
 /**
