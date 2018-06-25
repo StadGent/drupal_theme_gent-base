@@ -1,11 +1,11 @@
 <?php
+
 /**
- * ThemeHelper Class Doc Comment
+ * ThemeHelper Class Doc Comment.
  *
  * @category Class
- * @package  gent_base
- * @author   Bart Delrue
- *
+ * @package gent_base
+ * @author Bart Delrue
  */
 class ThemeHelper {
 
@@ -13,7 +13,7 @@ class ThemeHelper {
    * @param string $key
    *   The view mode key.
    *
-   * @return mixed
+   * @return mixed Returns the view mode if found.
    */
   public static function isViewMode($key) {
     return \Drupal::service('entity_type.manager')
