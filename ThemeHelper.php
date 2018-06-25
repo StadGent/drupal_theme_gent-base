@@ -1,13 +1,17 @@
 <?php
 
 /**
+ * @file
+ * Helper class to support theming in the Gent Base theme.
+ */
+
+/**
  * ThemeHelper Class Doc Comment.
  *
  * Include this in the theme file to access the helper methods.
  *
  * @category Class
  * @package gent_base
- * @author Bart Delrue
  */
 class ThemeHelper {
 
