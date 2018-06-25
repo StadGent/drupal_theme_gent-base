@@ -12,7 +12,7 @@ use Drupal\image\Entity\ImageStyle;
 use Drupal\paragraphs\Entity\Paragraph;
 use Drupal\node\NodeInterface;
 
-include 'ThemeHelper.php';
+include __DIR__ . '/theme.inc';
 
 /**
  * Implements hook_form_FORM_ID_alter().
@@ -53,7 +53,7 @@ function gent_base_preprocess_page(&$variables) {
   if ($entity instanceof NodeInterface) {
     $bundle = $entity->bundle();
 
-    $isViewMode = ThemeHelper::isViewMode('node.' . $bundle . '.hero_image');
+    $isViewMode = gent_base_is_view_mode('node.' . $bundle . '.hero_image');
 
     if ($entity->access('view') && $isViewMode !== NULL) {
       $render = $entityTypeManager->getViewBuilder('node');
@@ -381,7 +381,7 @@ function gent_base_preprocess_links__node(&$variables) {
 function gent_base_preprocess_paragraph__image(&$variables) {
   $image_count = count($variables['content']['field_image']['#items']);
 
-  if ($image_count === 1 || !ThemeHelper::isViewMode('paragraph.image.gallery_multiple')) {
+  if ($image_count === 1 || !gent_base_is_view_mode('paragraph.image.gallery_multiple')) {
     return;
   }
 
