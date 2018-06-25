@@ -1,10 +1,12 @@
 <?php
-
 /**
- * @file
- * Helper functions to support theming in the Gent Base theme.
+ * ThemeHelper Class Doc Comment
+ *
+ * @category Class
+ * @package  gent_base
+ * @author   Bart Delrue
+ *
  */
-
 class ThemeHelper {
 
   /**
@@ -13,7 +15,7 @@ class ThemeHelper {
    *
    * @return mixed
    */
-  private static function isViewMode($key) {
+  public static function isViewMode($key) {
     return \Drupal::service('entity_type.manager')
       ->getStorage('entity_view_display')
       ->load($key);
