@@ -418,17 +418,31 @@ function gent_base_preprocess_paragraph__image(&$variables) {
  * Provide a 'gallery_full' image style URL to the image template,
  * this is the url used in the lightbox implementation.
  */
-function gent_base_preprocess_media__image(&$variables) {
-  if ($variables['view_mode'] !== 'gallery_multiple' && $variables['view_mode'] !== 'gallery_single') {
-    return;
-  }
+function gent_base_preprocess_media__image__gallery_multiple(&$variables) {
+  _get_image_style_gallery_full($variables);
+}
 
+/**
+ * Implements hook_preprocess_HOOK().
+ *
+ * Provide a 'gallery_full' image style URL to the image template,
+ * this is the url used in the lightbox implementation.
+ */
+function gent_base_preprocess_media__image__gallery_single(&$variables) {
+  _get_image_style_gallery_full($variables);
+}
+
+/**
+ * Helper function to get a gallery_full image style URL.
+ *
+ * Provide a 'gallery_full' image style URL to the image template,
+ * this is the url used in the lightbox implementation.
+ */
+function _get_image_style_gallery_full($variables) {
   $image_style = ImageStyle::load('gallery_full');
 
-  if (!$image_style) {
-    return;
+  if ($image_style) {
+    $file = $variables['content']['field_media_image'][0]['#item']->entity->getFileUri();
+    $variables['gallery_full_url'] = $image_style->buildUrl($file);
   }
-
-  $file = $variables['content']['field_media_image'][0]['#item']->entity->getFileUri();
-  $variables['gallery_full_url'] = $image_style->buildUrl($file);
 }
