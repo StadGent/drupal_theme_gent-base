@@ -74,21 +74,6 @@ function gent_base_preprocess_page(&$variables) {
 }
 
 /**
- * Implements hook_preprocess_HOOK().
- */
-function gent_base_preprocess_region__content(&$variables) {
-  $page_type = 'overview-layout';
-
-  $routeMatch = \Drupal::routeMatch();
-  $entity = $routeMatch->getParameter('node');
-  if ($entity instanceof NodeInterface) {
-    $page_type = 'detail-layout';
-  }
-
-  $variables['attributes']['class'][] = $page_type;
-}
-
-/**
  * Implements hook_preprocess_input__submit().
  */
 function gent_base_preprocess_input__submit(&$variables) {
@@ -375,9 +360,15 @@ function gent_base_preprocess_node(&$variables) {
   $node = $variables['node'];
   $created = $node->getCreatedTime();
 
+  // Set datetime attributes on "Submitted on" label.
   $variables['author_attributes']->setAttribute('datetime', \Drupal::service('date.formatter')
     ->format($created, 'custom', 'c'));
   $variables['author_attributes']->setAttribute('pubdate', 'pubdate');
+
+  // Set detail layout class on full/default view modes.
+  if (isset($variables['view_mode']) && $variables['view_mode'] === 'full') {
+    $variables['attributes']['class'][] = 'detail-layout';
+  }
 }
 
 /**
