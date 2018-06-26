@@ -32,6 +32,10 @@ libraries-override:
     css:
       component:
         css/components/dropbutton.css: false
+  better_exposed_filters/general:
+    css:
+      theme:
+        css/better_exposed_filters.css: false
 stylesheets-remove:
   - core/themes/stable/css/node/node.preview.css
   - modules/contrib/video_embed_field/css/video_embed_field.responsive-video.css
