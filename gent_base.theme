@@ -429,7 +429,7 @@ function gent_base_preprocess_media__image__gallery_single(&$variables) {
  * Provide a 'gallery_full' image style URL to the image template,
  * this is the url used in the lightbox implementation.
  */
-function _get_image_style_gallery_full($variables) {
+function _get_image_style_gallery_full(&$variables) {
   $image_style = ImageStyle::load('gallery_full');
 
   if ($image_style) {
