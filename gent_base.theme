@@ -45,6 +45,13 @@ function gent_base_form_alter(&$form, FormStateInterface $form_state, $form_id) 
 /**
  * Implements hook_preprocess().
  */
+function gent_base_preprocess(&$variables, $hook) {
+  $variables['base_path'] = base_path();
+}
+
+/**
+ * Implements hook_preprocess().
+ */
 function gent_base_preprocess_page(&$variables) {
   $routeMatch = \Drupal::routeMatch();
   $entityTypeManager = \Drupal::entityTypeManager();
@@ -61,13 +68,24 @@ function gent_base_preprocess_page(&$variables) {
       $variables['hero_image'] = $render->view($entity, 'hero_image');
     }
   }
+  else {
+    $variables['attributes']['class'][] = 'overview-page';
+  }
 }
 
 /**
- * Implements hook_preprocess().
+ * Implements hook_preprocess_HOOK().
  */
-function gent_base_preprocess(&$variables, $hook) {
-  $variables['base_path'] = base_path();
+function gent_base_preprocess_region__content(&$variables) {
+  $page_type = 'overview-layout';
+
+  $routeMatch = \Drupal::routeMatch();
+  $entity = $routeMatch->getParameter('node');
+  if ($entity instanceof NodeInterface) {
+    $page_type = 'detail-layout';
+  }
+
+  $variables['attributes']['class'][] = $page_type;
 }
 
 /**
