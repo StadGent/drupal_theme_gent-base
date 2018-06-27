@@ -17,7 +17,8 @@ cd ../styleguide;
 yarn install;
 
 echo "Copy public files to build...";
-cp -rf ./public/** ./build
+mkdir build;
+cp -rf ./public/** ./build;
 
 ./node_modules/.bin/gulp iconfont;
 ./node_modules/.bin/gulp styles:extract;
