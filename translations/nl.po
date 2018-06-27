@@ -30,8 +30,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2018-06-27 06:44+0000\n"
-"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"POT-Creation-Date: 2018-06-27 07:03+0000\n"
+"PO-Revision-Date: 2018-06-27 09:04+0200\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
 "MIME-Version: 1.0\n"
@@ -136,8 +136,8 @@ msgid "2. Try to find the page through our search function"
 msgstr "2. Probeer de pagina te vinden via onze zoekfunctie"
 
 #: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:68
-msgid "3. Continue to navigate from here"
-msgstr "3. Verder navigeren vanaf hier"
+msgid "3. Continue to navigate from here?"
+msgstr "3. Verder navigeren vanaf hier?"
 
 #: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:69
 msgid "This can be done in several ways:"

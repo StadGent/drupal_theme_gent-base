@@ -15,7 +15,14 @@ mkdir ../build && mkdir ../build/js;
 echo "Building - style guide - in gent_base...";
 cd ../styleguide;
 yarn install;
-./node_modules/.bin/gulp compile;
+
+echo "Copy public files to build...";
+cp -rf ./public/** ./build
+
+./node_modules/.bin/gulp iconfont;
+./node_modules/.bin/gulp styles:extract;
+./node_modules/.bin/gulp js:build;
+./node_modules/.bin/gulp images:minify;
 
 echo "Executing - style guide - postinstall script...";
 cd scripts;
@@ -25,7 +32,3 @@ echo "Building gent_base...";
 cd ../../source;
 yarn install;
 ./node_modules/.bin/gulp build;
-
-echo "Creating main_cli.scss...";
-cd ../styleguide;
-./node_modules/.bin/gulp styles:inject;
