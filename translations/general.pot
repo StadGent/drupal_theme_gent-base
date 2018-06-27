@@ -30,7 +30,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2018-06-20 07:52+0000\n"
+"POT-Creation-Date: 2018-06-27 06:44+0000\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -48,18 +48,26 @@ msgid "All settings defined by the Gent Base styleguide."
 msgstr ""
 
 #: themes/contrib/gent_base/theme-settings.php:28
+msgid "Style guide color scheme class"
+msgstr ""
+
+#: themes/contrib/gent_base/theme-settings.php:31
+msgid "Fill in the color scheme class to be used in your project, leave empty for the default color scheme."
+msgstr ""
+
+#: themes/contrib/gent_base/theme-settings.php:36
 msgid "Adobe Typekit-ID"
 msgstr ""
 
-#: themes/contrib/gent_base/theme-settings.php:30
-msgid "Fill in the Adobe Typekit-ID to be used in your project"
+#: themes/contrib/gent_base/theme-settings.php:38
+msgid "Fill in the Adobe Typekit-ID to be used in your project."
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:290
+#: themes/contrib/gent_base/gent_base.theme:297
 msgid "T: @phone"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:330
+#: themes/contrib/gent_base/gent_base.theme:337
 msgid "timeline"
 msgstr ""
 
@@ -167,19 +175,19 @@ msgstr ""
 msgid "Skip to main content"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/layout/page.html.twig:83
+#: themes/contrib/gent_base/templates/core/layout/page.html.twig:87
 msgid "Footer"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/layout/page.html.twig:108
+#: themes/contrib/gent_base/templates/core/layout/page.html.twig:112
 msgid "In cooperation with"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/layout/page.html.twig:117
+#: themes/contrib/gent_base/templates/core/layout/page.html.twig:121
 msgid "Follow Stad Gent on social media"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/layout/page.html.twig:158
+#: themes/contrib/gent_base/templates/core/layout/page.html.twig:162
 msgid "open gallery"
 msgstr ""
 
@@ -187,27 +195,27 @@ msgstr ""
 msgid "Breadcrumb"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:95 themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:95 themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:95
+#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:94 themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:94 themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:94
 msgid "Submitted by @author_name on @date"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:109 themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:109 themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:109
+#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:108 themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:108 themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:108
 msgid "Also interesting"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:112 themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:112 themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:112
+#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:111 themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:111 themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:111
 msgid "Similar articles"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:116 themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:116 themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:116
+#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:115 themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:115 themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:115
 msgid "More info about"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:119 themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:119 themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:119
+#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:118 themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:118 themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:118
 msgid "Related Linked Open Data"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:123 themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:123 themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:123
+#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:122 themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:122 themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:122
 msgid "Last changed"
 msgstr ""
 
