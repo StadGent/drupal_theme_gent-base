@@ -80,3 +80,4 @@ exclude_patterns:
 - "**/tests/**/*"
 - "**/*.settings.php"
 - "RoboFile.php"
+- "**/*.config.json"
