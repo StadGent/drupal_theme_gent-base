@@ -24,8 +24,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2018-06-20 07:52+0000\n"
-"PO-Revision-Date: 2018-06-20 09:53+0200\n"
+"POT-Creation-Date: 2018-06-27 07:03+0000\n"
+"PO-Revision-Date: 2018-06-27 09:04+0200\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
 "Language: nl\n"
@@ -33,7 +33,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
-"X-Generator: Poedit 2.0.6\n"
+"X-Generator: Poedit 2.0.8\n"
 
 #: themes/contrib/gent_base/theme-settings.php:21
 msgid "Gent Base settings"
@@ -51,11 +51,11 @@ msgstr "Adobe Typekit-ID"
 msgid "Fill in the Adobe Typekit-ID to be used in your project"
 msgstr "Vul de Adobe Typekit-ID in om gebruikt te worden in je project"
 
-#: themes/contrib/gent_base/gent_base.theme:290
+#: themes/contrib/gent_base/gent_base.theme:294
 msgid "T: @phone"
 msgstr "T: @phone"
 
-#: themes/contrib/gent_base/gent_base.theme:330
+#: themes/contrib/gent_base/gent_base.theme:334
 msgid "timeline"
 msgstr "tijdlijn"
 
@@ -127,8 +127,8 @@ msgid "2. Try to find the page through our search function"
 msgstr "2. Probeer de pagina te vinden via onze zoekfunctie"
 
 #: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:68
-msgid "3. Continue to navigate from here"
-msgstr "3. Verder navigeren vanaf hier"
+msgid "3. Continue to navigate from here?"
+msgstr "3. Verder navigeren vanaf hier?"
 
 #: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:69
 msgid "This can be done in several ways:"
@@ -167,19 +167,19 @@ msgstr "Vul alle velden in tenzij anders gespecificeerd"
 msgid "Skip to main content"
 msgstr "Overslaan en naar de inhoud gaan"
 
-#: themes/contrib/gent_base/templates/core/layout/page.html.twig:83
+#: themes/contrib/gent_base/templates/core/layout/page.html.twig:87
 msgid "Footer"
 msgstr "Voet"
 
-#: themes/contrib/gent_base/templates/core/layout/page.html.twig:108
+#: themes/contrib/gent_base/templates/core/layout/page.html.twig:112
 msgid "In cooperation with"
 msgstr "In samenwerking met"
 
-#: themes/contrib/gent_base/templates/core/layout/page.html.twig:117
+#: themes/contrib/gent_base/templates/core/layout/page.html.twig:121
 msgid "Follow Stad Gent on social media"
 msgstr "Volg Stad Gent op sociale media"
 
-#: themes/contrib/gent_base/templates/core/layout/page.html.twig:158
+#: themes/contrib/gent_base/templates/core/layout/page.html.twig:162
 msgid "open gallery"
 msgstr "galerij openen"
 
@@ -187,39 +187,39 @@ msgstr "galerij openen"
 msgid "Breadcrumb"
 msgstr "Kruimelpad"
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:95
-#: themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:95
-#: themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:95
+#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:94
+#: themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:94
+#: themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:94
 msgid "Submitted by @author_name on @date"
 msgstr "Ingediend door @author_name op @date"
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:109
-#: themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:109
-#: themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:109
+#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:108
+#: themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:108
+#: themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:108
 msgid "Also interesting"
 msgstr "Ook nog interessant"
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:112
-#: themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:112
-#: themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:112
+#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:111
+#: themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:111
+#: themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:111
 msgid "Similar articles"
 msgstr "Vergelijkbare artikels"
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:116
-#: themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:116
-#: themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:116
+#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:115
+#: themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:115
+#: themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:115
 msgid "More info about"
 msgstr "Bekijk meer over"
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:119
-#: themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:119
-#: themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:119
+#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:118
+#: themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:118
+#: themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:118
 msgid "Related Linked Open Data"
 msgstr "Gerelateerde Linked Open Data"
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:123
-#: themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:123
-#: themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:123
+#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:122
+#: themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:122
+#: themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:122
 msgid "Last changed"
 msgstr "Laatst aangepast"
 
