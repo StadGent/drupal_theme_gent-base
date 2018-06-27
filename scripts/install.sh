@@ -16,13 +16,20 @@ echo "Building - style guide - in gent_base...";
 cd ../styleguide;
 yarn install;
 
+echo "Generating iconfont...";
+./node_modules/.bin/gulp iconfont;
+
 echo "Copy public files to build...";
 mkdir build;
 cp -rf ./public/** ./build;
 
-./node_modules/.bin/gulp iconfont;
+echo "Extracting styles...";
 ./node_modules/.bin/gulp styles:extract;
+
+echo "Building JS...";
 ./node_modules/.bin/gulp js:build;
+
+echo "Minifying images...";
 ./node_modules/.bin/gulp images:minify;
 
 echo "Executing - style guide - postinstall script...";
