@@ -24,7 +24,6 @@ cp -rf ./public/** ./build
 ./node_modules/.bin/gulp js:build;
 ./node_modules/.bin/gulp images:minify;
 
-
 echo "Executing - style guide - postinstall script...";
 cd scripts;
 sh ./postinstall.sh;
