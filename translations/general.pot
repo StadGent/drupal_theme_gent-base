@@ -63,11 +63,11 @@ msgstr ""
 msgid "Fill in the Adobe Typekit-ID to be used in your project."
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:297
+#: themes/contrib/gent_base/gent_base.theme:294
 msgid "T: @phone"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:337
+#: themes/contrib/gent_base/gent_base.theme:334
 msgid "timeline"
 msgstr ""
 
