@@ -87,21 +87,17 @@
     </h1>
   {{ title_suffix }}
 
-  {% if display_submitted %}
-    <footer class="node__meta">
-      {{ author_picture }}
-      <div{{ author_attributes.addClass('node__submitted') }}>
-        {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
-        {{ metadata }}
-      </div>
-    </footer>
-  {% endif %}
-
-  {{ content|without('field_related', 'field_related_by_tags', 'field_tags') }}
+  {{ content|without('field_related', 'field_related_by_tags', 'field_tags', 'field_related_news_events', 'field_documents') }}
 
 </article>
 
 <aside>
+
+  <div class="document-box accordion">
+    <h2>{{ 'Documents'|t }}</h2>
+    {{ content.field_documents }}
+  </div>
+
   <div class="related-box">
     <img src="{{ base_path }}themes/contrib/gent_base/styleguide/build/styleguide/img/svg/lightbulb.svg" alt="" class="related-box-image" />
     <div class="related-box-content">
@@ -117,6 +113,13 @@
 
         <h3>{{ 'Related Linked Open Data'|t }}</h3>
       </div>
+    </div>
+  </div>
+  <div class="extra-articles">
+
+    <div class="extra-articles-content">
+      <h2>{{ 'More news and events'|t }}</h1>
+      {{ content.field_related_news_events }}
     </div>
   </div>
   <p class="info-page--edit-date">{{ 'Last changed'|t }}: {{ node.changed.value|format_date() }}</p>
