@@ -48,11 +48,19 @@ msgid "All settings defined by the Gent Base styleguide."
 msgstr ""
 
 #: themes/contrib/gent_base/theme-settings.php:28
+msgid "Style guide color scheme class"
+msgstr ""
+
+#: themes/contrib/gent_base/theme-settings.php:31
+msgid "Fill in the color scheme class to be used in your project, leave empty for the default color scheme."
+msgstr ""
+
+#: themes/contrib/gent_base/theme-settings.php:36
 msgid "Adobe Typekit-ID"
 msgstr ""
 
-#: themes/contrib/gent_base/theme-settings.php:30
-msgid "Fill in the Adobe Typekit-ID to be used in your project"
+#: themes/contrib/gent_base/theme-settings.php:38
+msgid "Fill in the Adobe Typekit-ID to be used in your project."
 msgstr ""
 
 #: themes/contrib/gent_base/gent_base.theme:294
