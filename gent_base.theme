@@ -12,6 +12,7 @@ use Drupal\image\Entity\ImageStyle;
 use Drupal\paragraphs\Entity\Paragraph;
 use Drupal\node\NodeInterface;
 use Drupal\Core\Url;
+use Drupal\Core\Link;
 use Drupal\file\Entity\File;
 
 include __DIR__ . '/theme.inc';
@@ -388,7 +389,7 @@ function gent_base_preprocess_file_link(&$variables) {
     $options['attributes']['class'][] = 'standalone-link';
     $options['attributes']['download'][] = 'download';
 
-    $variables['link'] = \Drupal::l($link_text, Url::fromUri($url, $options));
+    $variables['link'] = Link::fromTextAndUrl($link_text, Url::fromUri($url, $options));
   }
 }
 
