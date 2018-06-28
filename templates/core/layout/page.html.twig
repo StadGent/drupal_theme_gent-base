@@ -45,8 +45,12 @@
 * @ingroup themeable
 */
 #}
-
-<div class="container">
+{%
+  set classes = [
+  'container'
+]
+%}
+<div {{ attributes.addClass(classes) }}>
   {% block header %}
     <header class="header">
       <div class="content-container">

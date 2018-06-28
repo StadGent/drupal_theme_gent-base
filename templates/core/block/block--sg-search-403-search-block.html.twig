@@ -25,11 +25,13 @@
  * @see template_preprocess_block()
  */
 #}
+
 {%
   set classes = [
     'search-block'
   ]
 %}
+
 <div{{ attributes.addClass(classes) }}>
     <img src="{{ base_path }}themes/contrib/gent_base/styleguide/build/styleguide/img/svg/whistle-light.svg" alt="" class="search-block-icon">
     <div class="search-block-content">

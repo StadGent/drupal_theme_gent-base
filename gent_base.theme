@@ -8,8 +8,14 @@
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Template\Attribute;
 use Drupal\Component\Utility\Html;
+use Drupal\image\Entity\ImageStyle;
 use Drupal\paragraphs\Entity\Paragraph;
 use Drupal\node\NodeInterface;
+use Drupal\Core\Url;
+use Drupal\Core\Link;
+use Drupal\file\Entity\File;
+
+include __DIR__ . '/theme.inc';
 
 /**
  * Implements hook_form_FORM_ID_alter().
@@ -42,6 +48,13 @@ function gent_base_form_alter(&$form, FormStateInterface $form_state, $form_id) 
 /**
  * Implements hook_preprocess().
  */
+function gent_base_preprocess(&$variables, $hook) {
+  $variables['base_path'] = base_path();
+}
+
+/**
+ * Implements hook_preprocess().
+ */
 function gent_base_preprocess_page(&$variables) {
   $routeMatch = \Drupal::routeMatch();
   $entityTypeManager = \Drupal::entityTypeManager();
@@ -50,9 +63,7 @@ function gent_base_preprocess_page(&$variables) {
   if ($entity instanceof NodeInterface) {
     $bundle = $entity->bundle();
 
-    $isViewMode = \Drupal::service('entity_type.manager')
-      ->getStorage('entity_view_display')
-      ->load('node.' . $bundle . '.hero_image');
+    $isViewMode = gent_base_is_view_mode('node.' . $bundle . '.hero_image');
 
     if ($entity->access('view') && $isViewMode !== NULL) {
       $render = $entityTypeManager->getViewBuilder('node');
@@ -60,13 +71,9 @@ function gent_base_preprocess_page(&$variables) {
       $variables['hero_image'] = $render->view($entity, 'hero_image');
     }
   }
-}
-
-/**
- * Implements hook_preprocess().
- */
-function gent_base_preprocess(&$variables, $hook) {
-  $variables['base_path'] = base_path();
+  else {
+    $variables['attributes']['class'][] = 'overview-page';
+  }
 }
 
 /**
@@ -110,6 +117,9 @@ function gent_base_preprocess_dg_auth_block(&$variables) {
  */
 function gent_base_preprocess_html(&$variables) {
   $variables['typekit_id'] = theme_get_setting('typekit_id');
+
+  $color_scheme = (theme_get_setting('color_scheme')) ? theme_get_setting('color_scheme') : 'default';
+  $variables['attributes']['class'][] = 'cs--' . $color_scheme;
 }
 
 /**
@@ -343,6 +353,47 @@ function gent_base_preprocess_field(&$variables) {
 }
 
 /**
+ * Implements hook_preprocess_HOOK().
+ */
+function gent_base_preprocess_field__node__field_documents(&$variables) {
+  $documents = $variables['items'];
+
+  foreach ($documents as $key => $document) {
+    if ($key < 2) {
+      $variables['documents_visible'][] = $document;
+    }
+    else {
+      $variables['documents_invisible'][] = $document;
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function gent_base_preprocess_file_link(&$variables) {
+  if ($variables) {
+    $options = [];
+    $file = $variables['file'];
+    $mime_type = $file->getMimeType();
+    $file_entity = ($file instanceof File) ? $file : File::load($file->fid);
+
+    $url = file_create_url($file_entity->getFileUri());
+    $link_text = $file_entity->getFilename();
+
+    $variables['file_size'] = format_size($file->getSize());
+    $variables['file_type'] = strtr($mime_type, [
+      '/' => '-',
+    ]);
+
+    $options['attributes']['class'][] = 'standalone-link';
+    $options['attributes']['download'][] = 'download';
+
+    $variables['link'] = Link::fromTextAndUrl($link_text, Url::fromUri($url, $options));
+  }
+}
+
+/**
  * Implements hook_preprocess().
  */
 function gent_base_preprocess_faqfield_definition_list_formatter(&$variables) {
@@ -356,9 +407,15 @@ function gent_base_preprocess_node(&$variables) {
   $node = $variables['node'];
   $created = $node->getCreatedTime();
 
+  // Set datetime attributes on "Submitted on" label.
   $variables['author_attributes']->setAttribute('datetime', \Drupal::service('date.formatter')
     ->format($created, 'custom', 'c'));
   $variables['author_attributes']->setAttribute('pubdate', 'pubdate');
+
+  // Set detail layout class on full/default view modes.
+  if (isset($variables['view_mode']) && $variables['view_mode'] === 'full') {
+    $variables['attributes']['class'][] = 'detail-layout';
+  }
 }
 
 /**
@@ -371,5 +428,59 @@ function gent_base_preprocess_links__node(&$variables) {
       'read-nore',
       'standalone-link',
     ];
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ *
+ * If a image paragraph contains multiple images,
+ * the view mode of the images is changed to 'gallery_multiple'.
+ */
+function gent_base_preprocess_paragraph__image(&$variables) {
+  $image_count = count($variables['content']['field_image']['#items']);
+
+  if ($image_count === 1 || !gent_base_is_view_mode('paragraph.image.gallery_multiple')) {
+    return;
+  }
+
+  for ($i = 0; $i < $image_count; $i++) {
+    $variables['content']['field_image'][$i]['#view_mode'] = 'gallery_multiple';
+    unset($variables['content']['field_image'][$i]['#cache']['keys']);
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ *
+ * Provide a 'gallery_full' image style URL to the image template,
+ * this is the url used in the lightbox implementation.
+ */
+function gent_base_preprocess_media__image__gallery_multiple(&$variables) {
+  _get_image_style_gallery_full($variables);
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ *
+ * Provide a 'gallery_full' image style URL to the image template,
+ * this is the url used in the lightbox implementation.
+ */
+function gent_base_preprocess_media__image__gallery_single(&$variables) {
+  _get_image_style_gallery_full($variables);
+}
+
+/**
+ * Helper function to get a gallery_full image style URL.
+ *
+ * Provide a 'gallery_full' image style URL to the image template,
+ * this is the url used in the lightbox implementation.
+ */
+function _get_image_style_gallery_full(&$variables) {
+  $image_style = ImageStyle::load('gallery_full');
+
+  if ($image_style) {
+    $file = $variables['content']['field_media_image'][0]['#item']->entity->getFileUri();
+    $variables['gallery_full_url'] = $image_style->buildUrl($file);
   }
 }
