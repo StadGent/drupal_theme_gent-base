@@ -11,6 +11,9 @@ use Drupal\Component\Utility\Html;
 use Drupal\image\Entity\ImageStyle;
 use Drupal\paragraphs\Entity\Paragraph;
 use Drupal\node\NodeInterface;
+use Drupal\Core\Url;
+use Drupal\Core\Link;
+use Drupal\file\Entity\File;
 
 include __DIR__ . '/theme.inc';
 
@@ -346,6 +349,47 @@ function gent_base_preprocess_field(&$variables) {
         }
       }
     }
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function gent_base_preprocess_field__node__field_documents(&$variables) {
+  $documents = $variables['items'];
+
+  foreach ($documents as $key => $document) {
+    if ($key < 2) {
+      $variables['documents_visible'][] = $document;
+    }
+    else {
+      $variables['documents_invisible'][] = $document;
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function gent_base_preprocess_file_link(&$variables) {
+  if ($variables) {
+    $options = [];
+    $file = $variables['file'];
+    $mime_type = $file->getMimeType();
+    $file_entity = ($file instanceof File) ? $file : File::load($file->fid);
+
+    $url = file_create_url($file_entity->getFileUri());
+    $link_text = $file_entity->getFilename();
+
+    $variables['file_size'] = format_size($file->getSize());
+    $variables['file_type'] = strtr($mime_type, [
+      '/' => '-',
+    ]);
+
+    $options['attributes']['class'][] = 'standalone-link';
+    $options['attributes']['download'][] = 'download';
+
+    $variables['link'] = Link::fromTextAndUrl($link_text, Url::fromUri($url, $options));
   }
 }
 
