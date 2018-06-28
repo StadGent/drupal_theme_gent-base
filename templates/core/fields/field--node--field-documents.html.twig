@@ -50,7 +50,7 @@
 {% endif %}
 
 <ul class="links">
-  {% for document in documents_news_visible %}
+  {% for document in documents_visible %}
     <li>{{ document }}</li>
   {% endfor %}
 </ul>
@@ -65,7 +65,7 @@
 
   <div class="accordion--content" id="documents--content" aria-hidden="true" hidden="true">
     <ul class="links">
-      {% for document in documents_news_invisible %}
+      {% for document in documents_invisible %}
         <li>{{ document }}</li>
       {% endfor %}
     </ul>

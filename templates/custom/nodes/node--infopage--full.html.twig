@@ -96,8 +96,7 @@
   {% if content.field_documents|render|striptags|trim is not empty %}
     <div class="document-box accordion">
       <h2>{{ 'Documents'|t }}</h2>
-      {{ documents_news_visible }}
-      {{ documents_news_invisible }}
+      {{ content.field_documents }}
     </div>
   {% endif %}
 
