@@ -14,7 +14,6 @@
 #  themes/contrib/gent_base/templates/core/block/block--system-branding-block.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/content-edit/filter-tips.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/fields/field--media--field-src-audio-description.html.twig: n/a
-#  themes/contrib/gent_base/templates/core/fields/field--node--field-documents.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/fields/field--paragraph--field-image.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/form/fieldset.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/form/form-element-label.html.twig: n/a
@@ -30,7 +29,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2018-06-29 10:02+0000\n"
+"POT-Creation-Date: 2018-07-02 11:22+0000\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -67,11 +66,19 @@ msgstr ""
 msgid "T: @phone"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:343
+#: themes/contrib/gent_base/gent_base.theme:340
 msgid "timeline"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:414
+#: themes/contrib/gent_base/gent_base.theme:373
+msgid "There is 1 other document available"
+msgstr ""
+
+#: themes/contrib/gent_base/gent_base.theme:376
+msgid "There are @count other documents available"
+msgstr ""
+
+#: themes/contrib/gent_base/gent_base.theme:420
 msgid "Posted on @date"
 msgstr ""
 
@@ -159,10 +166,6 @@ msgstr ""
 msgid "Watch this video with audio descripiton"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/fields/field--node--field-documents.html.twig:62
-msgid "There are 3 other documents available"
-msgstr ""
-
 #: themes/contrib/gent_base/templates/core/fields/field--paragraph--field-image.html.twig:64
 msgid "Show all photos"
 msgstr ""
@@ -223,7 +226,7 @@ msgstr ""
 msgid "More news and events"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:133 themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:123 themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:133
+#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:133 themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:133
 msgid "Last changed"
 msgstr ""
 

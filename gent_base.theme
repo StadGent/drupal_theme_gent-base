@@ -366,6 +366,14 @@ function gent_base_preprocess_field__node__field_documents(&$variables) {
       $variables['documents_invisible'][] = $document;
     }
   }
+
+  $extra_documents_count = count($variables['documents_invisible']);
+  if ($extra_documents_count === 1) {
+    $variables['documents_toggle_text'] = t('There is 1 other document available');
+  }
+  else {
+    $variables['documents_toggle_text'] = t('There are @count other documents available', ['@count' => $extra_documents_count]);
+  }
 }
 
 /**
@@ -375,17 +383,15 @@ function gent_base_preprocess_file_link(&$variables) {
   if ($variables) {
     $options = [];
     $file = $variables['file'];
-    $mime_type = $file->getMimeType();
     $file_entity = ($file instanceof File) ? $file : File::load($file->fid);
+    $filename = $file->getFilename();
+    $filenameParts = explode('.', $filename);
 
     $url = file_create_url($file_entity->getFileUri());
     $link_text = $file_entity->getFilename();
 
     $variables['file_size'] = format_size($file->getSize());
-    $variables['file_type'] = strtr($mime_type, [
-      '/' => '-',
-    ]);
-
+    $variables['file_type'] = $filenameParts[count($filenameParts) - 1];
     $options['attributes']['class'][] = 'standalone-link';
     $options['attributes']['download'][] = 'download';
 
