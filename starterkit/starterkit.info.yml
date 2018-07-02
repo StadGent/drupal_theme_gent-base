@@ -10,11 +10,9 @@ base theme: gent_base
 
 regions:
   admin: Administration header
-  header: Header
-  navigation: Navigation
-  nav_mobile: Mobile navigation panel
+  header_top: Header top
+  header_bottom: Header bottom
   content: Content
-  footer_1: Footer left
-  footer_2: Footer middle left
-  footer_3: Footer middle right
-  footer_4: Footer right
+  footer_1: Footer contact
+  footer_2: Footer links
+  footer_3: Footer address

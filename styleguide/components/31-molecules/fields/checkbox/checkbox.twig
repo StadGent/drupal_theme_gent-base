@@ -1,10 +1,10 @@
-<div class="form-item">
-  <div class="form-label">
-    {% include '@label' with {
-      "label": label,
-      "label_optional": label_optional
-    } %}
-  </div>
+<fieldset class="form-item {{ modifier }}">
+  <legend>
+    {{ label }}
+    {% if label_optional %}
+      <span class="label-optional">({{ label_optional }})</span>
+    {% endif %}
+  </legend>
   <div class="form-columns">
     <div class="form-item-column">
       {% include '@field-description' with {
@@ -13,35 +13,24 @@
     </div>
     <div class="form-item-column">
 
+    {% for option in options %}
       {% include '@input-checkbox' with {
-        'label': label_checkbox1,
-        'checkbox_name': checkbox1_name,
-        'checkbox_id': checkbox1_id
+        'checkbox_label': option.label_checkbox,
+        'checkbox_name': option.checkbox_name,
+        'checkbox_id': option.checkbox_id
       } %}
-      {% include '@label' with {
-        "label": checkbox1_label,
-        "for": checkbox1_label_for,
-        "label_optional": checkbox1_label_optional
-      } %}
+    {% endfor %}
 
-      {% include '@input-checkbox' with {
-        'label': label_checkbox2,
-        'checkbox_name': checkbox2_name,
-        'checkbox_id': checkbox2_id
-      } %}
-      {% include '@label' with {
-        "label": checkbox2_label,
-        "for": checkbox2_label_for,
-        "label_optional": checkbox2_label_optional
-      } %}
-
-      {% include '@description' with {
-        "description": description
-      } %}
-      {% include '@field-error' with {
-        "field_error": field_error
-      } %}
-
+      {% if modifier == 'error' %}
+        {% include '@field-message' with {
+          "modifier": "error"
+        } %}
+      {% endif %}
+      {% if modifier == 'success' %}
+        {% include '@field-message' with {
+          "modifier": "success"
+        } %}
+      {% endif %}
     </div>
   </div>
-</div>
+</fieldset>

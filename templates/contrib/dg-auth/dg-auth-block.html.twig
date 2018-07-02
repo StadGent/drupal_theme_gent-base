@@ -1,0 +1,39 @@
+{%
+  set classes = [
+    'mijn-gent-block',
+    'accordion'
+  ]
+%}
+
+
+<div{{ attributes.addClass(classes) }}>
+  {% if login_link %}
+    <div class="user-anonymous clearfix">
+      <div class="label">
+        {{ login_link }}
+      </div>
+    </div>
+  {% endif %}
+
+  <div class="user-logged-in">
+    <button aria-expanded="false" aria-controls="mijn_gent_content" class="toggle accordion--button">
+      <img src="{{ default_picture_url }}" alt="{{ username }}" />
+      <span>{{ username }}</span>
+    </button>
+
+    <div id="mijn_gent_content" class="accordion--content" aria-hidden="true" hidden="true">
+      <div class="content">
+        <h2>{{ 'Mijn Gent'|t }}</h2>
+        <section class="profile">
+          <img src="{{ default_picture_url }}" alt="{{ username }}" />
+          <div class="profile-info">
+            <span>{{ username }}</span>
+            <a href="#" class="button button-primary button-small">{{ 'Show profile'|t }}</a>
+          </div>
+        </section>
+        {{ menu }}
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,13 +1,29 @@
-<div class="section--accent island dg-default-block">
-  {% include '@h3'with { 'h3_text': 'Gentinfo' } %}
-  {% include '@list'with {
-    'h3_text': 'Gentinfo',
-    'modifier': 'no-style',
-    'items': [
-      '<a class="phone" href="tel:+3288888888">08 888 88 88 - mo - sat from 8-19u</a>',
-      '<a class="email" href="mailto:gentinfo@stad.gent">gentinfo@stad.gent</a>',
-      '<a class="link" href="">Contact form</a>',
-      '<a class="btn textballoon">Online Chat</a>'
-    ]
+<div class="gentinfo-block">
+  {% include '@image' with {
+    'src': '/styleguide/img/svg/gentinfo.svg'|path,
+    'alt_text': 'Gentinfo icon',
+    'modifier': 'gentinfo-icon'
   } %}
+  <div class="gentinfo-block-content">
+    {% include '@heading' with {
+      'type': 'h2',
+      'heading_text': 'Gentinfo'
+    } %}
+    {% include '@paragraph'
+      with {
+        'text': 'Gentinfo is available from Monday till Saturday from 08:00 till 19:00'
+      }
+    %}
+    {% include '@list'
+      with {
+        'type': 'unordered',
+        'items': [
+          '<a href="tel:09 210 10 10" alt="Gentinfo tel link" class="button button-secondary button-call icon-phone">T: 09 210 10 10</a>',
+          '<a href="mailto:gentinfo@stad.gent" alt="Gentinfo mail link">Gentinfo@stad.gent</a>',
+          '<a href="javascript:(void);" class="standalone-link" alt="Contact form">Contactformulier</a>'
+        ]
+      }
+    %}
+  </div>
+  {% include '@button' with { 'text': 'Chat with Gentinfo', 'type': 'primary', 'modifier': 'gentinfo-chat-button button icon-chat-round' } %}
 </div>

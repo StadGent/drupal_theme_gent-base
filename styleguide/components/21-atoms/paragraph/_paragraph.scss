@@ -1,15 +1,21 @@
-%small,
-.small,
-.caption,
-.description {
-  font-size: .8rem;
-  line-height: 1.5em;
-}
-
+///
+/// Helper class to align text right.
+///
+/// @since 3.0.0
+/// @access public
+/// @author Gert-Jan Meire
+///
 .text-right {
   text-align: right;
 }
 
+///
+/// Helper class to align text left.
+///
+/// @since 3.0.0
+/// @access public
+/// @author Gert-Jan Meire
+///
 .text-left {
   text-align: left;
 }

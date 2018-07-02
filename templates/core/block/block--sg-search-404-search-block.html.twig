@@ -1,0 +1,77 @@
+{#
+/**
+ * @file
+ * Theme override to display a block.
+ *
+ * Available variables:
+ * - plugin_id: The ID of the block implementation.
+ * - label: The configured label of the block if visible.
+ * - configuration: A list of the block's configuration values.
+ *   - label: The configured label for the block.
+ *   - label_display: The display settings for the label.
+ *   - provider: The module or other provider that provided this block plugin.
+ *   - Block plugin specific settings will also be stored here.
+ * - content: The content of this block.
+ * - attributes: array of HTML attributes populated by modules, intended to
+ *   be added to the main container tag of this template.
+ *   - id: A valid HTML ID and guaranteed unique.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ *
+ * @see template_preprocess_block()
+ */
+#}
+{%
+  set classes = [
+    'help-block',
+  ]
+%}
+<div{{ attributes.addClass(classes) }}>
+  {{ title_prefix }}
+  {% if label %}
+    <h2{{ title_attributes }}>{{ label }}</h2>
+  {% endif %}
+  {{ title_suffix }}
+
+  {% block content %}
+    <div class="help-block-section">
+      <h3>{{ '1. Maybe you were looking for this?'|t }}</h3>
+
+      {# -- Stub related search results -- #}
+      <a href="javascript:(void);" class="standalone-link">Filip Watteeuw</a>
+      <p>Donec condimentum morbi et mollis ultrices eleifend a montes ante ad morbi est ad eleifend ullamcorper. Sapien tristique lectus integer ac condimentum orci nunc quisque</p>
+      <a href="javascript:(void);" class="standalone-link">This is another link</a>
+      <p>Donec condimentum morbi et mollis ultrices eleifend a montes ante ad morbi est ad eleifend ullamcorper.</p>
+      <a href="javascript:(void);" class="standalone-link">And a third link</a>
+      <p>Donec condimentum morbi et mollis ultrices eleifend a montes ante ad morbi est ad eleifend ullamcorper. Sapien tristique lectus integer ac condimentum orci nunc quisque</p>
+      {# -- End stub -- #}
+    </div>
+
+    <div class="help-block-section">
+      <h3>{{ '2. Try to find the page through our search function'|t }}:</h3>
+
+      {{ content }}
+
+      {# -- Stub search form -- #}
+      <form class="form search">
+        <input type="search" name="search_field_403" id="search_field_403" placeholder="" aria-label="search" required="">
+        <input type="submit" value="Search!" >
+      </form>
+      {# -- End stub -- #}
+    </div>
+
+    <div class="help-block-section">
+      <h3>{{ '3. Continue to navigate from here?'|t }}</h3>
+      <p>{{ 'This can be done in several ways:'|t }}</p>
+      <ul class="icon-list">
+        <li><i class="icon-home" aria-hidden="true"></i><span>{{ 'Return to the'|t }} <a href="{{ url('<front>') }}" alt="Homepage">{{ 'homepage'|t }}</a></span></li>
+        <li><i class="icon-fancyback" aria-hidden="true"></i><span>{{ 'Use the back button of your browser'|t }}</span></li>
+      </ul>
+    </div>
+
+  {% endblock %}
+</div>

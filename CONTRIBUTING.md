@@ -12,11 +12,11 @@ ways to help out, even if you've never worked on an open source project before.
 If you've found a bug or want to request a feature, you can report it by
 [posting an issue](https://github.com/digipolisgent/drupal_theme_gent-base/issues/new).
 Be sure to read the [guidelines](#issues) first! If you want to contribute
-your own work (be it code or documentation), please read the [guidelines](#pull-requests)
-for submitting a pull request.
+your own work (be it code or documentation), please read the
+[guidelines](#pull-requests) for submitting a pull request.
 
-> If you want to report a security issue, please read [the Security guidelines](SECURITY.md)
-> first!
+> If you want to report a security issue, please read
+> [the Security guidelines](SECURITY.md) first!
 
 ### Third party style guide contribution guidelines 
 
@@ -51,6 +51,7 @@ The structure of our base theme is defined like this:
 │   │   ├── 41-organisms/
 │   │   ├── 51-templates/
 │   │   ├── 61-layouts/
+│   │   ├── 71-pages/
 │   │   ├── _preview-hamburger-menu.twig
 │   │   ├── _preview-mijn-gent.twig
 │   │   ├── _preview-without-padding.twig

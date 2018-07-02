@@ -1,0 +1,56 @@
+{% if type == 'ordered' %}
+  <ol class="{{ modifier }}">
+      {% for item in items %}
+          <li>{{ item }}</li>
+      {% endfor %}
+  </ol>
+{% endif %}
+
+{% if type == 'unordered' %}
+  <ul class="{{ modifier }}">
+      {% for item in items %}
+          <li>{{ item }}</li>
+      {% endfor %}
+  </ul>
+{% endif %}
+
+{% if type == 'links' %}
+  <ul class="{{ modifier }}">
+    {% for item in items %}
+      <li>{{ item }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
+
+{% if type == 'checkmark-list' %}
+  <ul class="checkmark-list {{ modifier }}">
+      {% for item in items %}
+          <li>{{ item }}</li>
+      {% endfor %}
+  </ul>
+{% endif %}
+
+{% if type == 'checkmark-list-small' %}
+  <ul class="checkmark-list-small {{ modifier }}">
+      {% for item in items %}
+          <li>{{ item }}</li>
+      {% endfor %}
+  </ul>
+{% endif %}
+
+{% if type == 'icon-list' %}
+  <ul class="icon-list{{ modifier }}">
+      {% for item in icon_items %}
+          <li>{{ item }}</li>
+      {% endfor %}
+  </ul>
+{% endif %}
+
+{% if type == 'definition' %}
+  <dl class="checkmark-list {{ modifier }}">
+      {% for key, item in items %}
+          <dt>{{ item  }}</dt>
+          <dd>{{ definitions[key] }}</dd>
+      {% endfor %}
+  </ul>
+{% endif %}

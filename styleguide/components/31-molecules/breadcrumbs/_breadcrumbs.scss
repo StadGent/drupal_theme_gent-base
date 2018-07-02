@@ -1,0 +1,52 @@
+.breadcrumb {
+  clear: both;
+
+  ul,
+  ol {
+    margin: 0;
+    list-style: none;
+
+    li {
+      @include icon('chevron-right', 'after');
+
+      display: inline-block;
+      margin-right: .4rem;
+
+      &::after {
+        @include theme('color', 'color-primary', 'breadcrumb-arrows-color');
+
+        margin-left: .4rem;
+        vertical-align: -15%;
+      }
+
+      &:last-of-type {
+        margin-right: 0;
+
+        &::after {
+          display: none;
+          content: '';
+        }
+      }
+
+      > * {
+        font-size: .6rem;
+      }
+
+      a {
+        font-weight: 600;
+
+        &::after {
+          content: none;
+        }
+      }
+    }
+
+    &.nav--mobile-breadcrumb {
+      display: block;
+
+      @media (min-width: $bp-tablet) {
+        display: none;
+      }
+    }
+  }
+}

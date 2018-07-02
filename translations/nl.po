@@ -1,15 +1,231 @@
+# $Id$
+#
+# LANGUAGE translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  themes/contrib/gent_base/theme-settings.php: n/a
+#  themes/contrib/gent_base/gent_base.theme: n/a
+#  themes/contrib/gent_base/gent_base.info.yml: n/a
+#  themes/contrib/gent_base/starterkit/starterkit.info.yml: n/a
+#  themes/contrib/gent_base/templates/contrib/dg-auth/dg-auth-block.html.twig: n/a
+#  themes/contrib/gent_base/templates/contrib/dg-maps/dg-maps-map.html.twig: n/a
+#  themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig: n/a
+#  themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig: n/a
+#  themes/contrib/gent_base/templates/core/block/block--system-branding-block.html.twig: n/a
+#  themes/contrib/gent_base/templates/core/content-edit/filter-tips.html.twig: n/a
+#  themes/contrib/gent_base/templates/core/fields/field--media--field-src-audio-description.html.twig: n/a
+#  themes/contrib/gent_base/templates/core/fields/field--node--field-documents.html.twig: n/a
+#  themes/contrib/gent_base/templates/core/fields/field--paragraph--field-image.html.twig: n/a
+#  themes/contrib/gent_base/templates/core/form/fieldset.html.twig: n/a
+#  themes/contrib/gent_base/templates/core/form/form-element-label.html.twig: n/a
+#  themes/contrib/gent_base/templates/core/form/form.html.twig: n/a
+#  themes/contrib/gent_base/templates/core/layout/html.html.twig: n/a
+#  themes/contrib/gent_base/templates/core/layout/page.html.twig: n/a
+#  themes/contrib/gent_base/templates/core/navigation/breadcrumb.html.twig: n/a
+#  themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig: n/a
+#  themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig: n/a
+#  themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig: n/a
+#
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2017-01-26 11:08+0100\n"
-"Last-Translator: Wim Vantomme <wim.vantomme@digipolis.gent>\n"
+"POT-Creation-Date: 2018-06-29 10:03+0000\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-msgid "In cooperation with"
-msgstr "In samenwerking met"
+#: themes/contrib/gent_base/theme-settings.php:21
+msgid "Gent Base settings"
+msgstr "Gent Base instellingen"
+
+#: themes/contrib/gent_base/theme-settings.php:22
+msgid "All settings defined by the Gent Base styleguide."
+msgstr "Alle instellingen gedefinieerd door de Gent Base stijlgids."
+
+#: themes/contrib/gent_base/theme-settings.php:28
+msgid "Style guide color scheme class"
+msgstr "Stijlgids kleurenschema CSS-klasse"
+
+#: themes/contrib/gent_base/theme-settings.php:31
+msgid "Fill in the color scheme class to be used in your project, leave empty for the default color scheme."
+msgstr ""
+"Vul de kleurenschema CSS-klasse in om te gebruiken in je project, laat "
+"leeg om het standaard thema te gebruiken."
+
+#: themes/contrib/gent_base/theme-settings.php:36
+msgid "Adobe Typekit-ID"
+msgstr "Adobe Typekit-ID"
+
+#: themes/contrib/gent_base/theme-settings.php:38
+msgid "Fill in the Adobe Typekit-ID to be used in your project."
+msgstr "Vul de Adobe Typekit-ID in om gebruikt te worden in je project."
+
+#: themes/contrib/gent_base/gent_base.theme:300
+msgid "T: @phone"
+msgstr "T: @phone"
+
+#: themes/contrib/gent_base/gent_base.theme:343
+msgid "timeline"
+msgstr "tijdlijn"
+
+#: themes/contrib/gent_base/gent_base.theme:414
+msgid "Posted on @date"
+msgstr "Gepost op @date"
+
+#: themes/contrib/gent_base/gent_base.info.yml:0
+msgid "Gent Base"
+msgstr "Gent Base"
+
+#: themes/contrib/gent_base/gent_base.info.yml:0
+msgid "Ghent base theme. Always use a subtheme of this theme."
+msgstr "Gent base theme. Gebruik altijd een subthema van dit thema."
+
+#: themes/contrib/gent_base/starterkit/starterkit.info.yml:0
+msgid "Starterkit Subtheme"
+msgstr "Starterkit Subthema"
+
+#: themes/contrib/gent_base/starterkit/starterkit.info.yml:0
+msgid "Example Subtheme based on Ghent Base."
+msgstr "Voorbeeld Subthema gebaseerd op Gent Base."
+
+#: themes/contrib/gent_base/starterkit/starterkit.info.yml:0
+msgid "Gent"
+msgstr "Gent"
+
+#: themes/contrib/gent_base/templates/contrib/dg-auth/dg-auth-block.html.twig:26
+msgid "Mijn Gent"
+msgstr "Mijn Gent"
+
+#: themes/contrib/gent_base/templates/contrib/dg-auth/dg-auth-block.html.twig:31
+msgid "Show profile"
+msgstr "Bekijk profiel"
+
+#: themes/contrib/gent_base/templates/contrib/dg-maps/dg-maps-map.html.twig:3
 msgid "Show on map"
 msgstr "Toon op kaart"
+
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:45 themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:71
+msgid "Return to the"
+msgstr "Terugkeren naar de"
+
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:45 themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:71
+msgid "homepage"
+msgstr "homepagina"
+
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:46 themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:72
+msgid "Use the back button of your browser"
+msgstr "De terugknop van uw browser gebruiken"
+
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:47
+msgid "Or notify us of the page through the"
+msgstr "Of ons de pagina melden via het"
+
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:47
+msgid "contact form"
+msgstr "contactformulier"
+
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:50
+msgid "Are you looking for another page?"
+msgstr "Zoekt u een andere pagina?"
+
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:42
+msgid "1. Maybe you were looking for this?"
+msgstr "1. Misschien was u hiernaar op zoek?"
+
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:55
+msgid "2. Try to find the page through our search function"
+msgstr "2. Probeer de pagina te vinden via onze zoekfunctie"
+
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:68
+msgid "3. Continue to navigate from here?"
+msgstr "3. Verder navigeren vanaf hier?"
+
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:69
+msgid "This can be done in several ways:"
+msgstr "Dat kan op verschillende manieren:"
+
+#: themes/contrib/gent_base/templates/core/block/block--system-branding-block.html.twig:18;19
+msgid "Home"
+msgstr "Home"
+
+#: themes/contrib/gent_base/templates/core/content-edit/filter-tips.html.twig:20
+msgid "Text Formats"
+msgstr "Tekstopmaken"
+
+#: themes/contrib/gent_base/templates/core/fields/field--media--field-src-audio-description.html.twig:44
+msgid "Watch this video with audio descripiton"
+msgstr "Bekijk deze video met audiodescriptie"
+
+#: themes/contrib/gent_base/templates/core/fields/field--node--field-documents.html.twig:62
+msgid "There are 3 other documents available"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/core/fields/field--paragraph--field-image.html.twig:64
+msgid "Show all photos"
+msgstr "Bekijk alle foto's"
+
+#: themes/contrib/gent_base/templates/core/form/fieldset.html.twig:59 themes/contrib/gent_base/templates/core/form/form-element-label.html.twig:31
+msgid "Optional"
+msgstr "Optioneel"
+
+#: themes/contrib/gent_base/templates/core/form/form.html.twig:14
+msgid "Fill in all fields unless otherwise stated"
+msgstr "Vul alle velden in tenzij anders gespecificeerd"
+
+#: themes/contrib/gent_base/templates/core/layout/html.html.twig:64
+msgid "Skip to main content"
+msgstr "Overslaan en naar de inhoud gaan"
+
+#: themes/contrib/gent_base/templates/core/layout/page.html.twig:87
+msgid "Footer"
+msgstr "Voet"
+
+#: themes/contrib/gent_base/templates/core/layout/page.html.twig:112
+msgid "In cooperation with"
+msgstr "In samenwerking met"
+
+#: themes/contrib/gent_base/templates/core/layout/page.html.twig:121
+msgid "Follow Stad Gent on social media"
+msgstr "Volg Stad Gent op sociale media"
+
+#: themes/contrib/gent_base/templates/core/layout/page.html.twig:162
+msgid "open gallery"
+msgstr "galerij openen"
+
+#: themes/contrib/gent_base/templates/core/navigation/breadcrumb.html.twig:13
+msgid "Breadcrumb"
+msgstr "Kruimelpad"
+
+#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:98 themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:98 themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:98
+msgid "Documents"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:106 themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:106 themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:106
+msgid "Also interesting"
+msgstr "Ook nog interessant"
+
+#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:110 themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:110 themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:110
+msgid "Similar articles"
+msgstr "Vergelijkbare artikels"
+
+#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:116 themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:116 themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:116
+msgid "More info about"
+msgstr "Bekijk meer over"
+
+#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:119 themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:119 themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:119
+msgid "Related Linked Open Data"
+msgstr "Gerelateerde Linked Open Data"
+
+#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:127 themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:127
+msgid "More news and events"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:133 themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:123 themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:133
+msgid "Last changed"
+msgstr "Laatst aangepast"
+

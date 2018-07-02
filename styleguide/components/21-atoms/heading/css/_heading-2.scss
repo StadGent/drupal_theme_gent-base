@@ -1,0 +1,7 @@
+h2,
+.h2,
+%h2 {
+  @include theme('color', 'color-tertiary', 'heading-2-color');
+
+  font-size: 1.3rem;
+}

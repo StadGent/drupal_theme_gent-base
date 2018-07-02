@@ -1,18 +1,15 @@
-.dg-block-links {
-  list-style: none;
+.dg-block-disclaimer {
+
+  h2 {
+    @extend %h3;
+  }
+
+  ul {
+    margin: 0;
+    list-style: none;
+  }
 
   a {
-    color: $color-orange-light;
-    text-decoration: underline;
-
-    &:hover,
-    &:focus {
-      color: $color-orange-lighter;
-    }
-
-    &:visited {
-      color: $color-orange-light;
-    }
-
+    margin-left: -.2em;
   }
 }

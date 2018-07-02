@@ -7,9 +7,18 @@
 
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Template\Attribute;
+use Drupal\Component\Utility\Html;
+use Drupal\image\Entity\ImageStyle;
+use Drupal\paragraphs\Entity\Paragraph;
+use Drupal\node\NodeInterface;
+use Drupal\Core\Url;
+use Drupal\Core\Link;
+use Drupal\file\Entity\File;
+
+include __DIR__ . '/theme.inc';
 
 /**
- * Implements hook_form_alter().
+ * Implements hook_form_FORM_ID_alter().
  */
 function gent_base_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   // Setup system forms to have the "no-style" and "no-optional" styling classes
@@ -33,6 +42,37 @@ function gent_base_form_alter(&$form, FormStateInterface $form_state, $form_id) 
 
     $form['actions']['delete']['#attributes']['class'][] = 'delete';
     $form['actions']['delete']['#attributes']['class'][] = 'right';
+  }
+}
+
+/**
+ * Implements hook_preprocess().
+ */
+function gent_base_preprocess(&$variables, $hook) {
+  $variables['base_path'] = base_path();
+}
+
+/**
+ * Implements hook_preprocess().
+ */
+function gent_base_preprocess_page(&$variables) {
+  $routeMatch = \Drupal::routeMatch();
+  $entityTypeManager = \Drupal::entityTypeManager();
+  $entity = $routeMatch->getParameter('node');
+
+  if ($entity instanceof NodeInterface) {
+    $bundle = $entity->bundle();
+
+    $isViewMode = gent_base_is_view_mode('node.' . $bundle . '.hero_image');
+
+    if ($entity->access('view') && $isViewMode !== NULL) {
+      $render = $entityTypeManager->getViewBuilder('node');
+
+      $variables['hero_image'] = $render->view($entity, 'hero_image');
+    }
+  }
+  else {
+    $variables['attributes']['class'][] = 'overview-page';
   }
 }
 
@@ -77,6 +117,9 @@ function gent_base_preprocess_dg_auth_block(&$variables) {
  */
 function gent_base_preprocess_html(&$variables) {
   $variables['typekit_id'] = theme_get_setting('typekit_id');
+
+  $color_scheme = (theme_get_setting('color_scheme')) ? theme_get_setting('color_scheme') : 'default';
+  $variables['attributes']['class'][] = 'cs--' . $color_scheme;
 }
 
 /**
@@ -115,7 +158,6 @@ function gent_base_preprocess_item_list__steps(&$variables) {
         $item['icon']['#markup'] = '<i class="icon icon-check"></i>';
       }
     }
-
 
     $items[$count] = $item;
     $count++;
@@ -160,36 +202,24 @@ function gent_base_preprocess_item_list__attachments(&$variables) {
 
 /**
  * Implements hook_preprocess_HOOK().
+ */
+function gent_base_preprocess_item_list__dg_auth_block_menu(&$variables) {
+  end($variables["items"])['attributes']['class'][] = 'button button-small button-secondary';
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
  *
  * Add theming classes to dg_blocks.
  */
 function gent_base_preprocess_block(&$variables) {
   switch ($variables['elements']['#plugin_id']) {
-    case 'dg_blocks_gentinfo_block':
-      if (isset($variables['content']['gent_olark'])) {
-        array_push($variables['content']['gent_olark']['#attributes']['class'], 'btn', 'textballoon');
-      }
+    case 'dg_blocks_address_block':
+      $variables['attributes']['class'][] = 'dg-block-post-address';
       break;
 
     case 'dg_blocks_links_block':
-      array_push($variables['content']['links']['#attributes']['class'], 'dg-block-links');
-      break;
-
-    case 'dg_blocks_social_media_block':
-      $variables['attributes']['class'][] = 'dg-blocks-social';
-      break;
-
-    case 'dg_blocks_address_block':
-      $variables['attributes']['class'][] = 'dg-block-post-address ';
-      break;
-
-    case 'dg_auth_block':
-      $variables['attributes']['class'][] = 'header-component';
-      $variables['attributes']['class'][] = 'right';
-      break;
-
-    case 'system_branding_block':
-      $variables['attributes']['class'][] = 'header-component';
+      $variables['attributes']['class'][] = 'dg-block-disclaimer';
       break;
 
     default:
@@ -218,7 +248,7 @@ function gent_base_theme_registry_alter(&$theme_registry) {
  * @param array $variables
  *   Element variables.
  */
-function gent_base_preprocess_element_information(&$variables) {
+function gent_base_preprocess_element_information(array &$variables) {
   $element = &$variables['element'];
   $variables['information'] = NULL;
 
@@ -250,4 +280,214 @@ function gent_base_preprocess_form_element(&$variables) {
  */
 function gent_base_preprocess_webform_element_help(&$variables) {
   $variables['help_icon'] = NULL;
+}
+
+/**
+ * Implements hook_preprocess_fieldset().
+ */
+function gent_base_preprocess_fieldset(&$variables) {
+  if ($variables['element']['#type'] == 'fieldset' && empty($variables['element']['#required'])) {
+    $variables['fieldset_optional'] = TRUE;
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ *
+ * Add theming classes to dg_blocks gentinfo.
+ */
+function gent_base_preprocess_dg_blocks_gentinfo(&$variables) {
+  $variables["phone"]["#title"] = t('T: @phone', ['@phone' => $variables["phone"]["#title"]]);
+  $variables["phone"]["#attributes"]["class"][] = 'button button-secondary button-call icon-phone';
+  $variables["link"]["#attributes"]["class"][] = 'standalone-link';
+}
+
+/**
+ * Implements hook_preprocess_menu_local_task().
+ */
+function gent_base_preprocess_menu_local_task(&$variables) {
+  $variables['link']['#options']['attributes']['class'][] = 'button button-primary';
+}
+
+/**
+ * Implements hook_preprocess_field().
+ */
+function gent_base_preprocess_field(&$variables) {
+  if ($variables["element"]["#field_name"] == 'field_tags' && count($variables["items"]) > 0) {
+
+    foreach ($variables['items'] as $key => $item) {
+      $variables["items"][$key]["content"]["#options"]['attributes']['class'][] = 'tag';
+    }
+  }
+
+  // Add timeline wrapper.
+  if ($variables["element"]["#field_name"] == 'field_paragraphs') {
+    $paragraphs = $variables['element']["#items"]->getIterator();
+
+    $isTimeline = FALSE;
+
+    foreach ($paragraphs as $key => $paragraph) {
+      $entity = Paragraph::load($paragraph->get('target_id')->getValue());
+      if ($entity) {
+        $type = $entity->get('type')->getString();
+
+        if ($type === 'timeline_frame') {
+          // It's the first timeline frame.
+          if ($isTimeline === FALSE) {
+            $isTimeline = TRUE;
+
+            $variables['items'][$key]['content']['#prefix'] =
+              '<h2 class="visually-hidden">' . t('timeline') . '</h2>' .
+              '<dl class="timeline accordion">';
+          }
+        }
+        else {
+          if ($isTimeline === TRUE) {
+            $isTimeline = FALSE;
+            $variables['items'][$key - 1]['content']['#suffix'] = '</dl>';
+          }
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function gent_base_preprocess_field__node__field_documents(&$variables) {
+  $documents = $variables['items'];
+
+  foreach ($documents as $key => $document) {
+    if ($key < 2) {
+      $variables['documents_visible'][] = $document;
+    }
+    else {
+      $variables['documents_invisible'][] = $document;
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function gent_base_preprocess_file_link(&$variables) {
+  if ($variables) {
+    $options = [];
+    $file = $variables['file'];
+    $mime_type = $file->getMimeType();
+    $file_entity = ($file instanceof File) ? $file : File::load($file->fid);
+
+    $url = file_create_url($file_entity->getFileUri());
+    $link_text = $file_entity->getFilename();
+
+    $variables['file_size'] = format_size($file->getSize());
+    $variables['file_type'] = strtr($mime_type, [
+      '/' => '-',
+    ]);
+
+    $options['attributes']['class'][] = 'standalone-link';
+    $options['attributes']['download'][] = 'download';
+
+    $variables['link'] = Link::fromTextAndUrl($link_text, Url::fromUri($url, $options));
+  }
+}
+
+/**
+ * Implements hook_preprocess().
+ */
+function gent_base_preprocess_faqfield_definition_list_formatter(&$variables) {
+  $variables['unique_list_id'] = Html::getUniqueId('faqItem');
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function gent_base_preprocess_node(&$variables) {
+  $node = $variables['node'];
+  $created = $node->getCreatedTime();
+
+  $render = [
+    '#markup' => t('Posted on @date', [
+      '@date' => \Drupal::service('date.formatter')->format($created, 'custom', 'l j F Y'),
+    ]),
+  ];
+  $variables['date'] = \Drupal::service('renderer')->render($render);
+
+  // Set datetime attributes on "Submitted on" label.
+  $variables['author_attributes']->setAttribute('datetime', \Drupal::service('date.formatter')
+    ->format($created, 'custom', 'c'));
+  $variables['author_attributes']->setAttribute('pubdate', 'pubdate');
+
+  // Set detail layout class on full/default view modes.
+  if (isset($variables['view_mode']) && $variables['view_mode'] === 'full') {
+    $variables['attributes']['class'][] = 'detail-layout';
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function gent_base_preprocess_links__node(&$variables) {
+  if (isset($variables['links']['node-readmore'])) {
+    $readmore = &$variables['links']['node-readmore'];
+    $readmore['link']['#options']['attributes']['class'] = [
+      'read-nore',
+      'standalone-link',
+    ];
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ *
+ * If a image paragraph contains multiple images,
+ * the view mode of the images is changed to 'gallery_multiple'.
+ */
+function gent_base_preprocess_paragraph__image(&$variables) {
+  $image_count = count($variables['content']['field_image']['#items']);
+
+  if ($image_count === 1 || !gent_base_is_view_mode('paragraph.image.gallery_multiple')) {
+    return;
+  }
+
+  for ($i = 0; $i < $image_count; $i++) {
+    $variables['content']['field_image'][$i]['#view_mode'] = 'gallery_multiple';
+    unset($variables['content']['field_image'][$i]['#cache']['keys']);
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ *
+ * Provide a 'gallery_full' image style URL to the image template,
+ * this is the url used in the lightbox implementation.
+ */
+function gent_base_preprocess_media__image__gallery_multiple(&$variables) {
+  _get_image_style_gallery_full($variables);
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ *
+ * Provide a 'gallery_full' image style URL to the image template,
+ * this is the url used in the lightbox implementation.
+ */
+function gent_base_preprocess_media__image__gallery_single(&$variables) {
+  _get_image_style_gallery_full($variables);
+}
+
+/**
+ * Helper function to get a gallery_full image style URL.
+ *
+ * Provide a 'gallery_full' image style URL to the image template,
+ * this is the url used in the lightbox implementation.
+ */
+function _get_image_style_gallery_full(&$variables) {
+  $image_style = ImageStyle::load('gallery_full');
+
+  if ($image_style) {
+    $file = $variables['content']['field_media_image'][0]['#item']->entity->getFileUri();
+    $variables['gallery_full_url'] = $image_style->buildUrl($file);
+  }
 }

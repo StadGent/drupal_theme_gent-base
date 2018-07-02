@@ -1,10 +1,36 @@
+////
+///
+/// This file defines all grid related settings.
+///
+/// @group grid
+/// @author Gert-Jan Meire
+///
+////
 @import 'susy';
 
+///
+/// This map describes the susy grid system settings.
+///
+/// @since 3.0.0
+/// @group grid
+/// @access private
+/// @type map
+/// @author Gert-Jan Meire
+///
 $susy: (
   'columns': susy-repeat(12),
   'gutters': $gutter-width,
+  'spread': 'narrow',
 );
 
+///
+/// The container to put a grid in.
+///
+/// @since 3.0.0
+/// @group grid
+/// @access public
+/// @author Gert-Jan Meire
+///
 %container,
 .container {
   @include clearfix();
@@ -15,35 +41,81 @@ $susy: (
     border-right: $border-outside-container; //smaller width
     border-left: $border-outside-container; //smaller width
   }
+
+  padding: 0 calc(#{$gutter-width});
 }
 
+///
+/// The inner container to put a grid in. This also provides the necessary
+/// padding for mobile display.
+///
+/// @since 3.0.0
+/// @group grid
+/// @access  public
+/// @author Gert-Jan Meire
+///
 %content-container,
 .content-container {
   max-width: $bp-max-content;
   margin: 0 auto;
-  padding: 0 ($gutter-width / 2);
+}
 
-  @include tablet {
-    padding: 0 $gutter-width + ($gutter-width / 2); // gutter + padding cols
+///
+/// Helper mixin to break out of the grid structure in targeted places.
+///
+/// @since 3.0.0
+/// @group grid
+/// @access  public
+/// @author Gert-Jan Meire
+///
+@mixin wide {
+  @include desktop-and-below {
+    width: calc(100% + #{$gutter-width});
+    margin-right: -$gutter-width/2;
+    margin-left: -$gutter-width/2;
   }
 }
 
-%row,
-.row {
-  @include make-row();
+///
+/// Helper mixin to break out of the grid structure in targeted places.
+///
+/// @since 3.0.0
+/// @group grid
+/// @access  public
+/// @author Gert-Jan Meire
+///
+@mixin extra-wide {
+  @include desktop-and-below {
+    width: calc(100% + (#{$gutter-width} * 2));
+    margin-right: -$gutter-width;
+    margin-left: -$gutter-width;
+  }
 }
 
-// Columns
-//
-// Common styles grid columns
+///
+/// Provide a helper mixin to easily position items on the grid..
+///
+/// @since 3.0.0
+/// @group grid
+/// @access  public
+/// @author Gert-Jan Meire
+///
+/// @param {string} $width
+///   The width in columns: e.g. 3 (... of 12).
+///
+/// @param {string} $offset
+///   The offset in columns: e.g. 3 (... of 12).
+///
+/// @param {string} $columns
+///   The amount of columns.
+///
+@mixin set-layout($width: 'width-12', $offset: 'offset-0', $columns: 'columns-12') {
+  width: span(number(nth(str-split($width, '-'), 2)) of number(nth(str-split($columns, '-'), 2)));
 
-@include make-grid-columns;
-@include make-grid('mobile');
-
-@include tablet {
-  @include make-grid('tablet');
-}
-
-@include desktop {
-  @include make-grid('desktop');
+  @if $offset != 'offset-0' {
+    margin-left: span(number(nth(str-split($offset, '-'), 2)) wide of number(nth(str-split($columns, '-'), 2)));
+  }
+  @else {
+    margin-left: 0;
+  }
 }

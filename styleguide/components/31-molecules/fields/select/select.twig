@@ -1,4 +1,4 @@
-<div class="form-item{% if field_modifier %} {{ field_modifier }}{% endif %}">
+<div class="form-item{% if field_modifier %} {{ field_modifier }}{% endif %} {{ modifier }}">
   <div class="form-label">
     {% include '@label' with {
       "label": label,
@@ -18,12 +18,16 @@
         "select_name": select_name,
         "options": options
       } %}
-      {% include '@description' with {
-        "description": description
-      } %}
-      {% include '@field-error' with {
-        "field_error": field_error
-      } %}
+      {% if modifier == 'error' %}
+        {% include '@field-message' with {
+          "modifier": "error"
+        } %}
+      {% endif %}
+      {% if modifier == 'success' %}
+        {% include '@field-message' with {
+          "modifier": "success"
+        } %}
+      {% endif %}
     </div>
   </div>
 </div>

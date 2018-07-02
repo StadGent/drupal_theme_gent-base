@@ -1,0 +1,123 @@
+ul,
+ol {
+  position: relative;
+  margin-left: 1rem;
+
+  li,
+  li > a {
+    font-family: $default-font-family;
+    line-height: 2.1;
+  }
+
+  &.links {
+    @extend %list-no-style;
+  }
+
+  a {
+    font-weight: normal;
+  }
+}
+
+ul {
+  &.checkmark-list,
+  &.checkmark-list-small {
+    @extend %list-no-style;
+
+    margin-left: 0;
+
+    li {
+      @include icon('checkmark');
+
+      position: relative;
+      padding-left: 1.6em;
+
+      &::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin-left: -.2em;
+        font-size: 1.6rem;
+        line-height: 1.1;
+      }
+    }
+  }
+
+  &.checkmark-list-small {
+    li {
+      font-size: .8rem;
+      line-height: 2.4;
+
+      &::before {
+        font-size: 1.2rem;
+        line-height: 1.7;
+      }
+    }
+  }
+
+  &.icon-list {
+    margin: 0 0 2rem;
+    list-style-type: none;
+
+    li {
+      position: relative;
+      margin-bottom: .8rem;
+      padding-left: 0;
+      line-height: 1.6;
+      overflow: hidden;
+
+      i {
+        width: calc(15% - .4em);
+        max-width: 1.2rem;
+        margin-right: .4em;
+        float: left;
+        font-size: 1.5em;
+        vertical-align: middle;
+        line-height: 1;
+      }
+
+      span {
+        width: 85%;
+        float: left;
+      }
+    }
+  }
+}
+
+dl {
+  dt,
+  dd {
+    font-family: $default-font-family;
+    line-height: 1.8;
+  }
+
+  dt {
+    font-weight: 600;
+  }
+
+  dd {
+    margin-bottom: .4rem;
+    padding-left: 1.2rem;
+  }
+}
+
+
+///
+/// Remove default styling from a list.
+///
+/// @since 3.0.0
+/// @access public
+/// @author Gert-Jan Meire
+///
+%list-no-style {
+  margin-left: 0;
+  padding-left: 0;
+  list-style: none;
+
+  p {
+    font-size: .8rem;
+  }
+
+  a {
+    font-weight: 600;
+  }
+}

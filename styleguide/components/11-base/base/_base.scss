@@ -1,8 +1,6 @@
-//
-// Base
-// ---
-// Default markup for the most common HTML elements, based on the settings file.
-//
+////
+/// Default markup for the most common HTML elements, based on the settings file.
+////
 
 *,
 *::before,
@@ -16,24 +14,24 @@ html {
   line-height: $default-line-height;
   box-sizing: border-box;
 
-  @include breakpoint($bp-tablet-fonts) {
-    font-size: $default-font-size + 2;
-  }
-
-  @include breakpoint($bp-desktop-fonts) {
+  @include breakpoint($bp-desktop-xl-fonts) {
     font-size: $default-font-size + 4;
   }
 }
 
 body {
+  @include theme('color', 'color-tertiary', 'default-text-color');
   position: relative;
-  color: $default-text-color;
+}
+
+body,
+body * {
+  font-size: .8rem;
 }
 
 ::selection {
-  background-color: $default-text-color;
-  color: lighten($default-text-color, 65%);
-  text-shadow: none;
+  @include theme('background-color', 'color-primary--darken-1', 'text-selection-background');
+  @include theme('color', 'color-secondary', 'text-selection-color');
 }
 
 th > * {
@@ -43,50 +41,15 @@ th > * {
 hr {
   margin: 0 0 $default-line-height;
   clear: both;
-  border: 1px 0 0 solid lighten($default-text-color, 60);
+  border: 1px 0 0 solid color('dark-gray', -2);
 }
 
 //
 // Fix a > img problem
 //
-
 img {
   border: 0;
   vertical-align: top;
-}
-
-// Inline items.
-.container-inline div,
-.container-inline label {
-  display: inline;
-}
-
-// Fieldset contents always need to be rendered as block.
-.container-inline .fieldset-wrapper {
-  display: block;
-}
-
-// Prevent text wrapping.
-.nowrap {
-  white-space: nowrap;
-}
-
-// Visually hidden
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  padding: 0;
-  border: 0;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-}
-
-
-%no-link-style,
-.no-link-style {
-  @include no-link-style;
 }
 
 p,
@@ -99,4 +62,34 @@ pre {
   margin-bottom: .5em;
   font-size: inherit;
   line-height: inherit;
+}
+
+p {
+  margin-bottom: 1em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+span,
+input,
+label,
+textarea,
+button,
+select,
+dd,
+q {
+  max-width: 40rem;
+}
+
+strong {
+  font-weight: 600;
+}
+
+input[type=button],
+button {
+  font: $default-font-weight $default-font-size $default-font-family;
 }

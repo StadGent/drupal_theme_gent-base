@@ -1,7 +1,9 @@
 .tabs.primary {
+  @include theme('border-color', 'color-tertiary', 'tabs-primary-border-color');
+
   margin: 1rem 0;
   padding: 0;
-  border-bottom: 1px dotted $color-gray;
+  border-bottom: 1px dotted;
   overflow: hidden;
 
   li {
@@ -13,16 +15,6 @@
       float: left;
       margin-right: .5rem;
       margin-bottom: 0;
-    }
-  }
-
-  a {
-    @extend %btn;
-    @include btn-s;
-
-    @include tablet {
-      border-bottom-left-radius: 0;
-      border-bottom-right-radius: 0;
     }
   }
 }

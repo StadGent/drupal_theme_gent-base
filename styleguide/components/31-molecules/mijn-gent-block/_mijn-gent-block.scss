@@ -1,0 +1,113 @@
+.mijn-gent-block {
+  display: flex;
+  position: relative;
+  justify-content: flex-end;
+
+  .login-link {
+    text-overflow: ellipsis;
+    overflow: hidden;
+
+    &::after {
+      content: none;
+    }
+  }
+
+  img {
+    border-radius: 50%;
+  }
+
+  .accordion--button {
+
+    display: flex;
+    align-items: center;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+
+    * {
+      vertical-align: middle;
+    }
+
+    img {
+      width: 2.3rem;
+      height: 2.3rem;
+      object-fit: cover;
+    }
+
+    span {
+      display: none;
+      padding: 0 .5em;
+      font-weight: 600;
+
+      @include tablet {
+        display: inline-block;
+      }
+    }
+
+    &::before {
+      line-height: 0;
+    }
+  }
+
+  .accordion--content {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: calc(100vw - 2 * #{$gutter-width});
+    max-width: $bp-mobile;
+    margin-top: .5rem;
+    transition: max-height .3s ease-in-out;
+    border-radius: border-radius('radius-1');
+    background: color('white');
+    box-shadow: 0 2px 12px 0 rgba(35, 51, 58, .25);
+    z-index: 9999;
+  }
+
+  .content {
+    padding: 1.2rem;
+
+    h2 {
+      @extend %h3;
+      margin-bottom: 0;
+    }
+
+    section {
+      @include theme('border-color', 'color-primary--lighten-4', 'mijn_gent-border-color');
+
+      padding: .6rem 0;
+      border-top: 2px solid;
+
+      ul {
+        margin: 0;
+
+        ///
+        /// All links shouldn't have an indicator.
+        ///
+        a::after {
+          display: none;
+        }
+      }
+    }
+
+    .profile {
+      display: flex;
+      padding-bottom: 1rem;
+      border-top: 0;
+
+      &-info {
+        span {
+          display: block;
+          font-size: .7rem;
+        }
+      }
+
+      img {
+        align-self: flex-start;
+        width: 3.3rem;
+        height: 3.3rem;
+        margin-right: $gutter-width;
+        object-fit: cover;
+      }
+    }
+  }
+}

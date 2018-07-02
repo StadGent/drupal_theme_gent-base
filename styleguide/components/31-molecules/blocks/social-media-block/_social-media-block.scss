@@ -1,63 +1,65 @@
+$social-media-link-width: 1.6rem;
+
 .dg-blocks-social {
-  h3 {
-    margin: 0;
-    line-height: 1.5em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 2rem;
+
+  @include tablet {
+    flex-wrap: nowrap;
+  }
+
+  > span {
+    width: 100%;
+    margin-bottom: 1.2rem;
+    font-size: .7rem;
+    line-height: 1rem;
+    text-align: center;
+
+    @include tablet {
+      margin: 0 1.4rem 0 0;
+      text-align: right;
+    }
   }
 
   ul {
-    padding-left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+    margin: 0;
     list-style: none;
-  }
 
-  a {
-    color: $color-gray;
-    text-decoration: none;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    word-wrap: break-word;
-
-    &:visited {
-      color: $color-gray;
+    @include tablet {
+      justify-content: space-between;
     }
 
-    &:hover {
-      color: $color-medium-lighter-gray;
+    a {
+      &,
+      &[download]:not(.button),
+      &[href^="http://"]:not(.button),
+      &[href^="https://"]:not(.button) {
+        @include theme('background-color', 'color-primary--lighten-5', 'social-media-icon-background');
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: $social-media-link-width;
+        height: $social-media-link-width;
+        border-radius: $social-media-link-width;
+        text-decoration: none;
+
+        &::after {
+          display: none;
+          content: '';
+        }
+      }
     }
 
-    &::before {
-      @extend %icon-base-css;
-      padding-right: .5rem;
-    }
-  }
-
-  .facebook {
-    &::before {
-      @extend %icon-facebook;
-    }
-  }
-
-  .twitter {
-    &::before {
-      @extend %icon-twitter;
-    }
-  }
-
-  .linkedin {
-    &::before {
-      @extend %icon-linkedin;
-    }
-  }
-
-  .youtube {
-    &::before {
-      @extend %icon-youtube;
-    }
-  }
-
-  .instagram {
-    &::before {
-      @extend %icon-instagram;
+    i {
+      font-size: 1.4rem;
     }
   }
 }

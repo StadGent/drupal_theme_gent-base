@@ -1,4 +1,4 @@
-<div class="form-item">
+<div class="form-item {{ modifier }}">
   <div class="form-label">
     {% include '@label' with {
       "label": label,
@@ -17,12 +17,16 @@
         "textarea_id": textarea_id,
         "textarea_name": textarea_name
       } %}
-      {% include '@description' with {
-        "description": description,
-      } %}
-      {% include '@field-error' with {
-        "field_error": field_error
-      } %}
+      {% if modifier == 'error' %}
+        {% include '@field-message' with {
+          "modifier": "error"
+        } %}
+      {% endif %}
+      {% if modifier == 'success' %}
+        {% include '@field-message' with {
+          "modifier": "success"
+        } %}
+      {% endif %}
     </div>
   </div>
 </div>

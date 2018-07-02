@@ -1,9 +1,0 @@
-{
-  "title": "Input number",
-  "status": "ready",
-  "handle": "input-number",
-  "context": {
-    "number_name": "number_name",
-    "number_id": "number_id"
-  }
-}

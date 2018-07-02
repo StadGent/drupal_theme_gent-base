@@ -1,25 +1,21 @@
 name: Gent Base
-description: Ghent base theme. This abstract theme should never be used but always be extended (based on <a href="https://stijlgids.stad.gent" target="_blank">stijlgids.stad.gent</a>).
+description: Ghent base theme. Always use a subtheme of this theme.
 type: theme
 core: 8.x
 base theme: classy
 hidden: true
 regions:
   admin: Administration header
-  header: Header
-  navigation: Navigation
-  nav_mobile: Mobile navigation panel
+  header_top: Header top
+  header_bottom: Header bottom
   content: Content
-  footer_1: Footer left
-  footer_2: Footer middle left
-  footer_3: Footer middle right
-  footer_4: Footer right
+  footer_1: Footer contact
+  footer_2: Footer links
+  footer_3: Footer address
 libraries:
   - gent_base/global_js
-  - gent_base/breadcrumbs
-  - gent_base/header
-  - gent_base/hamburger
-  - gent_base/input-chosen
+  - gent_base/accordion
+  - gent_base/gallery
 # Removes all the classy stylesheets.
 libraries-override:
   classy/base: false
@@ -36,5 +32,12 @@ libraries-override:
     css:
       component:
         css/components/dropbutton.css: false
+  better_exposed_filters/general:
+    css:
+      theme:
+        css/better_exposed_filters.css: false
+stylesheets-remove:
+  - core/themes/stable/css/node/node.preview.css
+  - modules/contrib/video_embed_field/css/video_embed_field.responsive-video.css
 'interface translation project': gent_base
 'interface translation server pattern': themes/contrib/gent_base/translations/%language.po

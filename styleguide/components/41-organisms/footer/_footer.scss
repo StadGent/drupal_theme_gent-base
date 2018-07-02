@@ -1,55 +1,172 @@
 // General footer styling.
 footer.footer {
-  padding: 1.5rem 0;
+  .footer-top {
+    @include theme('background-color', 'color-primary--lighten-5', 'footer-background-color');
 
-  h3 {
-    margin-top: 0;
-  }
+    width: calc(100% + 2 * #{$gutter-width});
+    margin-right: -$gutter-width;
+    margin-left: -$gutter-width;
 
-  p {
-    color: $color-gray;
-  }
+    > .content-container {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: calc(#{$bp-max-content} + 54px);
+      margin-bottom: 1rem;
+      padding: 0 $gutter-width 1.5rem;
 
-  .db-block-partnership {
-    @include tablet {
-      margin-top: 6rem;
+      @include tablet {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+      }
+
+      @media (min-width: $bp-max-content + 54px) {
+        max-width: $bp-max-content;
+        padding: 4rem 0;
+      }
+    }
+
+    .footer--column {
+      width: 100%;
+
+      @include tablet {
+        flex: 1 0 auto;
+        order: 1;
+        width: span(2 of 12);
+      }
+
+      &:nth-of-type(3) {
+        display: flex;
+
+        @include tablet {
+          justify-content: center;
+        }
+
+        @include desktop {
+          width: span(2 of 12);
+        }
+      }
+
+      &:first-of-type {
+        width: 100%;
+
+        @include tablet {
+          order: 3;
+          width: span(6 of 12);
+        }
+
+        @include desktop {
+          width: span(7 of 12);
+        }
+      }
     }
   }
 
-  .footer--column .island {
-    border: 0;
-  }
-}
+  .footer-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: .8rem;
+    overflow: hidden;
 
-// Footer 2 column layout.
-footer[data-columns="2"] {
-  .footer--column {
-    @include make-mobile-column(12);
-    @include make-tablet-column(6);
-    @include make-desktop-column(6);
-  }
-}
+    @include tablet {
+      flex-wrap: nowrap;
+    }
 
-// Footer 3 column layout.
-footer[data-columns="3"] {
-  .footer--column {
-    @include make-mobile-column(12);
-    @include make-tablet-column(6);
-    @include make-desktop-column(4);
-  }
-}
+    .footer--column {
+      width: 100%;
+      line-height: 1rem;
 
-// Footer 4 column layout.
-footer[data-columns="4"] {
-  .footer--column {
-    @include make-mobile-column(12);
-    @include make-tablet-column(6);
-    @include make-desktop-column(3);
+      // Left column.
+      &:first-child {
+        order: 2;
+
+        @include tablet {
+          order: 1;
+          width: span(4 of 12);
+        }
+      }
+
+      // Right column.
+      &:last-child {
+        order: 1;
+        margin-bottom: 1.8rem;
+
+        @include tablet {
+          order: 2;
+          width: span(8 of 12);
+        }
+
+        @include desktop {
+          width: span(6 of 12);
+        }
+      }
+    }
+  }
+
+  .dg-block-post-address,
+  .dg-block-disclaimer {
+    margin-top: 2.2rem;
+    margin-left: 1.2rem;
+
+    @include tablet {
+      margin-left: 0;
+    }
+  }
+
+  .dg-blocks-social,
+  .db-block-partnership {
+    height: 2rem;
   }
 
   .db-block-partnership {
-    @include desktop {
-      margin-top: 12.5rem;
+    justify-content: center;
+    width: 100%;
+
+    @include tablet {
+      justify-content: start;
+    }
+  }
+
+  ///
+  /// External links other than group Ghent get an indicator.
+  ///
+  a {
+    &[href^="http://"],
+    &[href^="https://"] {
+      &[href*="stad.gent"] {
+        &:not([download]):not(.standalone-link)::after {
+          content: none;
+        }
+
+        ///
+        /// Download links.
+        ///
+        &[download] {
+          @include icon(download, after);
+        }
+
+        ///
+        /// Stand alone links.
+        ///
+        &.standalone-link {
+          @extend %a-bounce-animation;
+          @include icon(arrow-right, after);
+        }
+      }
+    }
+
+    &.button {
+      &[href^="http://"],
+      &[href^="https://"] {
+        &[href*="stad.gent"] {
+          @extend %a-bounce-animation;
+          @include icon(arrow-right);
+
+          &::after {
+            content: none;
+          }
+        }
+      }
     }
   }
 }

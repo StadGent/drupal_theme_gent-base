@@ -8,6 +8,81 @@ Refer to upcoming changes in our README.md under "Roadmap"
 
 All notable changes to this style guide are documented here.
 
+### 3.0.0
+
+* DTGB-208: Added max-width fallback for text elements.
+* DTGB-416: Updated gulp build to fail on error.
+* DTGB-410: Added fractal search functionality.
+* DTGB-203: Refactored gulpfile to gulp ^4.0.0
+* DTGB-144: Added SassDoc generation for external developers.
+* DTGB-147: Redefined the color palletes and color schemes.
+
+> Refactored the way themify works. This removed the use of variables
+> to determine the themified variant of a component.
+<!-- -->
+> **Sections have changed into color schemes**
+> Sections have been changed into color schemes with the `cs--` prefix.
+> Colors are now defined in a `$colors` SASS map and accessed through the
+> `color()` function. See the documentation of colors for more information.
+<!-- -->
+> **Themify changes**
+> Refactored the way themify works. This removed the use of variables
+> to determine the themified variant of a component.
+<!-- -->
+> **Color scheme nesting removed**
+> Color scheme nesting has also been removed because they won't be used
+> anymore in the new style guide.
+<!-- -->
+> **Color panals introduced**
+> Color panels have been added to allow easier default styling of new
+> components and to allow easier overriding of the properties of these
+> components.
+
+* STIJ-159: Added tag atom styling.
+* DTGB-174: Changed styling of status messages.
+* DTGB-214: Added new styling to buttons.
+* DTGB-218: Added new logo.
+* DTGB-258: Added gulp task to generate iconfont.
+* DTGB-283: Updated the license file to GPLv2.
+* DTGB-288: Added the quote molecule.
+* DTGB-394: Moved layouts from 61-layouts directory to a 71-pages directory.
+* DTGB-180: Added gulp task to perform accessibility checks.
+* DTGB-209: Added new styling for basic input field atoms.
+* DTGB-431: Added video component.
+
+> We added styling for radio buttons and checkboxes. These were not styled in
+> previous versions of the style guide.
+<!-- -->
+> **Removed jQuery UI Datepicker support and integration!**
+> Did some refactoring to the SASS partials. Most of the input field styling
+> can now be found in the `_forms.scss` partial.
+
+* DTGB-406: Added styling for the footer organism.
+* DTGB-407: Changed the default font size breakpoints.
+* DTGB-421: Added a feedback form component.
+* DTGB-282: Added an image gallery organism.
+* DTGB-282: Replaced lightgallery by baguettebox as lightbox libary.
+* DTGB-423: Added a topic collection organism.
+* DTGB-148: Refactored heading organism.
+* DTGB-148: Added info-box organism.
+
+### 2.11.0
+
+* DTGB-140: Removed some files from the NPM package.
+* DTGB-140: Fixed a bug where `npm install` breaks
+  the install of the style guide.
+* DTGB-276: Fixed a bug where the breadcrumb alignment was not correct.
+
+  > **Some markup changes have been introduced so you might need some
+refactoring.**
+
+* DTGB-397: Changed the markup of radio buttons and checkboxes. They are
+  now inside their own fieldset.
+* DTGB-401: Updated links to new public gent_base repository.
+* DTGB-402: Added a required form fields indicator at the top of forms.
+* DTGB-443: Added article teaser component.
+* DTGB-443: Added 'more articles' block.
+
 ### 2.9.0
 
 * STIJ-246: Added a mixin  and class `no-link-style` to make it possible

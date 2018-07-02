@@ -1,28 +1,204 @@
-a {
-  @include themify {
-    @include element-states($link-color, $link-color-hover);
-    @include element-states(underline, none, $property: 'text-decoration');
-  }
+$link-padding: .3em;
 
-  transition: color .11s ease-in-out;
-  cursor: pointer;
+%a,
+a {
+  @include theme('color', 'color-primary', 'link-color');
+
+  padding: $link-padding;
+  transition: background-color .1s ease-in-out;
+  font-weight: 600;
+  text-decoration: underline;
+
+  &:focus,
+  &:hover {
+    @include theme('background-color', 'color-primary--lighten-4', 'link-hover-background');
+    @include theme('color', 'color-primary--darken-2', 'link-hover-color');
+    border-radius: border-radius('radius-1');
+  }
 
   &:focus {
     outline: thin dotted;
   }
 
-  &.btn {
-    text-decoration: none !important; // sass-lint:disable-line no-important
+  // Different button link types. These are links styled as a button.
+  &.button {
+    @include button;
+    @include button-icon;
+
+    @include icon(arrow-right);
+
+    &[href^="http://"],
+    &[href^="https://"] {
+      @include icon(external-link);
+
+      &::after {
+        content: none;
+      }
+    }
+
+    // Overrule flex for IE
+    align-items: flex-start;
+    padding-top: .6em;
+    text-decoration: none;
+
+    &.button-success {
+      @extend %button-success;
+    }
+
+    &.button-alert {
+      @extend %button-alert;
+    }
+
+    &.button-dark {
+      @extend %button-dark;
+    }
+
+    &::before {
+      margin-right: -.2rem;
+      padding-right: .2rem;
+      line-height: 1;
+    }
   }
 
-  &.external-link {
-    &::before {
-      @extend %icon-base-css;
-      @extend %icon-newtab;
+  &::after {
+    transition: margin .1s ease-in;
+    font-size: 1.2rem;
+    line-height: 1;
+    // For IE purposes first set underline, then remove it.
+    text-decoration: underline;
+    vertical-align: text-bottom;
+  }
 
-      display: inline-block;
-      margin-right: .25rem;
+  &:not(.button)::after {
+    margin-left: .2rem;
+  }
+
+  ///
+  /// Styling of:
+  ///   - standalone links
+  ///   - links with an icon class on them
+  ///   - links that go to an external source
+  ///
+  &.standalone-link,
+  &[download],
+  &[class^="icon-"],
+  &[href^="http://"],
+  &[href^="https://"] {
+    display: inline-flex;
+    align-items: center;
+    padding: 0 $link-padding;
+  }
+
+  ///
+  /// Stand alone links.
+  ///
+  &.standalone-link {
+    @include icon(arrow-right, after);
+
+    margin-left: 0;
+    padding-left: 0;
+    text-decoration: none;
+
+    &:focus,
+    &:hover {
+      @include theme('color', 'color-primary--darken-2', 'link-hover-color');
+
+      background-color: transparent;
+    }
+  }
+
+  &.standalone-link:not([download]):not([href^="http://"]):not([href^="https://"]),
+  &.button:not([download]):not([href^="http://"]):not([href^="https://"]) {
+    @extend %a-bounce-animation;
+  }
+
+  &[download]:not(.button),
+  &[href^="http://"]:not(.button),
+  &[href^="https://"]:not(.button) {
+    display: inline-flex;
+
+    &::after {
+      display: block;
       text-decoration: none;
+    }
+  }
+
+  ///
+  /// Download links.
+  ///
+  &[download] {
+    @include icon(download, after);
+  }
+
+  ///
+  /// External links get an indicator.
+  ///
+  &[href^="http://"],
+  &[href^="https://"] {
+    @include icon(external-link, after);
+  }
+}
+
+%a-bounce-animation {
+  &:focus,
+  &:hover {
+    &::after,
+    &::before {
+      animation: bounce 1s 2;
+
+      // Animation causes pointer flickering in IE.
+      @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) { // sass-lint:disable-line no-vendor-prefixes
+        animation: none;
+      }
+    }
+  }
+
+  @keyframes bounce {
+    0% {
+      padding-right: .2rem;
+      padding-left: 0;
+    }
+
+    40% {
+      padding-right: 0;
+      padding-left: .2rem;
+    }
+
+    100% {
+      padding-right: .2rem;
+      padding-left: 0;
+    }
+  }
+}
+
+%a-bounce-animation--left {
+  &:focus,
+  &:hover {
+    &::after,
+    &::before {
+      animation: bounce-left 1s 2;
+
+      // Animation causes pointer flickering in IE.
+      @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) { // sass-lint:disable-line no-vendor-prefixes
+        animation: none;
+      }
+    }
+  }
+
+  @keyframes bounce-left {
+    0% {
+      padding-right: .2rem;
+      padding-left: .4rem;
+    }
+
+    40% {
+      padding-right: .4rem;
+      padding-left: .2rem;
+    }
+
+    100% {
+      padding-right: .2rem;
+      padding-left: .4rem;
     }
   }
 }

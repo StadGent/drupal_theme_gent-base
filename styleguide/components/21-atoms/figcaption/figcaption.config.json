@@ -1,0 +1,9 @@
+{
+  "title": "Figcaption",
+  "status": "ready",
+  "handle": "figcaption",
+  "hidden": "true",
+  "context": {
+    "figcaption": "Figcaption comes here"
+  }
+}
