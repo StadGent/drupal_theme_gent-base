@@ -42,9 +42,9 @@
       {{ title_suffix }}
 
       <ul class="icon-list">
-        <li><i class="icon-home"></i> {{ 'Return to the'|t }} <a href="{{ url('<front>') }}" alt="Homepage">{{ 'homepage'|t }}</a></li>
-        <li><i class="icon-fancyback"></i>{{ 'Use the back button of your browser'|t }}</li>
-        <li><i class="icon-document"></i>{{ 'Or notify us of the page through the'|t }} <a href="javascript:(void);" alt="Contact form">{{ 'contact form'|t }}</a></li>
+        <li><i class="icon-home" aria-hidden="true"></i><span>{{ 'Return to the'|t }} <a href="{{ url('<front>') }}" alt="Homepage">{{ 'homepage'|t }}</a></span></li>
+          <li><i class="icon-fancyback" aria-hidden="true"></i><span>{{ 'Use the back button of your browser'|t }}</span></li>
+          <li><i class="icon-document" aria-hidden="true"></i><span>{{ 'Or notify us of the page through the'|t }} <a href="javascript:(void);" alt="Contact form">{{ 'contact form'|t }}</a></span></li>
       </ul>
 
       <h3>{{ 'Are you looking for another page?'|t }}</h3>
