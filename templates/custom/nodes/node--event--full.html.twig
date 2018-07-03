@@ -87,7 +87,34 @@
     </h1>
   {{ title_suffix }}
 
-  {{ content|without('field_related', 'field_related_by_tags', 'field_tags', 'field_related_news_events', 'field_documents') }}
+  {{ content.field_summary }}
+
+  <aside class="info-box">
+    <img src="{{ base_path }}themes/contrib/gent_base/styleguide/build/styleguide/img/svg/whistle-light.svg" alt="" class="info-box-icon">
+    <div class="info-box-content">
+      <h2>Extra information about this event</h2>
+
+      <ul class="icon-list">
+        <li>
+          <i class="icon-calendar" aria-hidden="true"></i>
+          <span>
+            {{ content.field_event_date }}
+            {{ content.field_event_date_textual }}
+          </span>
+        </li>
+        <li>
+          <i class="icon-marker" aria-hidden="true"></i>
+          <span>
+            {{ content.field_event_location }}
+          </span>
+        </li>
+      </ul>
+
+      {{ content.field_event_subscription_link }}
+    </div>
+  </aside>
+
+  {{ content.field_paragraphs }}
 
 </article>
 
@@ -113,10 +140,13 @@
       {% endif %}
 
       <div class="related-box-content-column">
-        <h3>{{ 'More info about'|t }}</h3>
-        {{ content.field_tags }}
+        {% if content.field_tags|render|striptags|trim is not empty %}
+          <h3>{{ 'More info about'|t }}</h3>
+          {{ content.field_tags }}
+        {% endif %}
 
         <h3>{{ 'Related Linked Open Data'|t }}</h3>
+        <p>{{ 'Stub' }}</p>
       </div>
     </div>
   </div>
@@ -130,5 +160,5 @@
     </div>
   {% endif %}
 
-  <p class="info-page--edit-date">{{ 'Last changed'|t }}: {{ node.changed.value|format_date() }}</p>
+  <p class="info-page--edit-date">{{ dateChanged }}</p>
 </aside>
