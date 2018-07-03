@@ -412,13 +412,21 @@ function gent_base_preprocess_faqfield_definition_list_formatter(&$variables) {
 function gent_base_preprocess_node(&$variables) {
   $node = $variables['node'];
   $created = $node->getCreatedTime();
+  $changed = $node->getChangedTime();
 
-  $render = [
+  $renderCreated = [
     '#markup' => t('Posted on @date', [
       '@date' => \Drupal::service('date.formatter')->format($created, 'custom', 'l j F Y'),
     ]),
   ];
-  $variables['date'] = \Drupal::service('renderer')->render($render);
+  $variables['date'] = \Drupal::service('renderer')->render($renderCreated);
+
+  $renderChanged = [
+    '#markup' => t('Last changed: @date', [
+      '@date' => \Drupal::service('date.formatter')->format($changed, 'custom', 'l j F Y - H:i '),
+    ]),
+  ];
+  $variables['dateChanged'] = \Drupal::service('renderer')->render($renderChanged);
 
   // Set datetime attributes on "Submitted on" label.
   $variables['author_attributes']->setAttribute('datetime', \Drupal::service('date.formatter')
