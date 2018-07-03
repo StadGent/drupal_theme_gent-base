@@ -26,18 +26,19 @@
 #  themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig: n/a
 #  themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig: n/a
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2018-06-29 10:03+0000\n"
-"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"POT-Creation-Date: 2018-07-02 10:55+0000\n"
+"PO-Revision-Date: 2018-07-02 13:22+0200\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"X-Generator: Poedit 2.0.8\n"
 
 #: themes/contrib/gent_base/theme-settings.php:21
 msgid "Gent Base settings"
@@ -52,10 +53,12 @@ msgid "Style guide color scheme class"
 msgstr "Stijlgids kleurenschema CSS-klasse"
 
 #: themes/contrib/gent_base/theme-settings.php:31
-msgid "Fill in the color scheme class to be used in your project, leave empty for the default color scheme."
+msgid ""
+"Fill in the color scheme class to be used in your project, leave empty for "
+"the default color scheme."
 msgstr ""
-"Vul de kleurenschema CSS-klasse in om te gebruiken in je project, laat "
-"leeg om het standaard thema te gebruiken."
+"Vul de kleurenschema CSS-klasse in om te gebruiken in je project, laat leeg "
+"om het standaard thema te gebruiken."
 
 #: themes/contrib/gent_base/theme-settings.php:36
 msgid "Adobe Typekit-ID"
@@ -69,11 +72,19 @@ msgstr "Vul de Adobe Typekit-ID in om gebruikt te worden in je project."
 msgid "T: @phone"
 msgstr "T: @phone"
 
-#: themes/contrib/gent_base/gent_base.theme:343
+#: themes/contrib/gent_base/gent_base.theme:340
 msgid "timeline"
 msgstr "tijdlijn"
 
-#: themes/contrib/gent_base/gent_base.theme:414
+#: themes/contrib/gent_base/gent_base.theme:373
+msgid "There is 1 other document available"
+msgstr "Er is 1 ander document beschikbaar"
+
+#: themes/contrib/gent_base/gent_base.theme:376
+msgid "There are @count other documents available"
+msgstr "Er zijn @count andere documenten beschikbaar"
+
+#: themes/contrib/gent_base/gent_base.theme:420
 msgid "Posted on @date"
 msgstr "Gepost op @date"
 
@@ -109,15 +120,18 @@ msgstr "Bekijk profiel"
 msgid "Show on map"
 msgstr "Toon op kaart"
 
-#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:45 themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:71
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:45
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:71
 msgid "Return to the"
 msgstr "Terugkeren naar de"
 
-#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:45 themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:71
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:45
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:71
 msgid "homepage"
 msgstr "homepagina"
 
-#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:46 themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:72
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:46
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:72
 msgid "Use the back button of your browser"
 msgstr "De terugknop van uw browser gebruiken"
 
@@ -161,15 +175,12 @@ msgstr "Tekstopmaken"
 msgid "Watch this video with audio descripiton"
 msgstr "Bekijk deze video met audiodescriptie"
 
-#: themes/contrib/gent_base/templates/core/fields/field--node--field-documents.html.twig:62
-msgid "There are 3 other documents available"
-msgstr ""
-
 #: themes/contrib/gent_base/templates/core/fields/field--paragraph--field-image.html.twig:64
 msgid "Show all photos"
 msgstr "Bekijk alle foto's"
 
-#: themes/contrib/gent_base/templates/core/form/fieldset.html.twig:59 themes/contrib/gent_base/templates/core/form/form-element-label.html.twig:31
+#: themes/contrib/gent_base/templates/core/form/fieldset.html.twig:59
+#: themes/contrib/gent_base/templates/core/form/form-element-label.html.twig:31
 msgid "Optional"
 msgstr "Optioneel"
 
@@ -201,31 +212,48 @@ msgstr "galerij openen"
 msgid "Breadcrumb"
 msgstr "Kruimelpad"
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:98 themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:98 themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:98
+#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:98
+#: themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:98
+#: themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:98
 msgid "Documents"
-msgstr ""
+msgstr "Documenten"
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:106 themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:106 themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:106
+#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:106
+#: themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:106
+#: themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:106
 msgid "Also interesting"
 msgstr "Ook nog interessant"
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:110 themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:110 themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:110
+#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:110
+#: themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:110
+#: themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:110
 msgid "Similar articles"
 msgstr "Vergelijkbare artikels"
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:116 themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:116 themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:116
+#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:116
+#: themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:116
+#: themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:116
 msgid "More info about"
 msgstr "Bekijk meer over"
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:119 themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:119 themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:119
+#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:119
+#: themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:119
+#: themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:119
 msgid "Related Linked Open Data"
 msgstr "Gerelateerde Linked Open Data"
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:127 themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:127
+#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:127
+#: themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:127
 msgid "More news and events"
-msgstr ""
+msgstr "Meer nieuws en evenementen"
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:133 themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:123 themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:133
+#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:133
+#: themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:133
 msgid "Last changed"
 msgstr "Laatst aangepast"
 
+#~ msgid "There is"
+#~ msgstr "Er is nog"
+
+#~ msgid "There are"
+#~ msgstr "Er zijn nog"
