@@ -423,7 +423,7 @@ function gent_base_preprocess_node(&$variables) {
 
   $renderChanged = [
     '#markup' => t('Last changed: @date', [
-      '@date' => \Drupal::service('date.formatter')->format($changed, 'custom', 'l j F Y - H:i '),
+      '@date' => \Drupal::service('date.formatter')->format($changed, 'custom', 'l j F Y - H.i '),
     ]),
   ];
   $variables['dateChanged'] = \Drupal::service('renderer')->render($renderChanged);
