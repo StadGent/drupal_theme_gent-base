@@ -16,7 +16,7 @@
   <div class="site-logo">
     {% if site_logo %}
       <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">
-        <img src="{{ site_logo }}" alt="{{ 'Home'|t }}" />
+        {{ site_name }}
       </a>
     {% endif %}
   </div>
