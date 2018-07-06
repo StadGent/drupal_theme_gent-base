@@ -1,7 +1,7 @@
 global_js:
   version: 1.x
   js:
-    styleguide/public/styleguide/js/base-min.js: { minified: true }
+    styleguide/build/styleguide/js/base-min.js: { minified: true }
   dependencies:
     - core/drupal
 
@@ -13,16 +13,24 @@ light-gallery:
   js:
     styleguide/public/styleguide/vendor/baguettebox/dist/baguetteBox.min.js: { minified: true }
 
+menu:
+  version: 1.x
+  js:
+    styleguide/build/styleguide/js/menu.functions-min.js: { minified: true }
+    build/js/menu.bindings-min.js: { minified: true }
+  dependencies:
+    - gent_base/global_js
+
 accordion:
   version: 1.x
   js:
     styleguide/build/styleguide/js/accordion.functions-min.js: { minified: true }
-    build/js/accordion.binding-min.js: { minified: true }
+    build/js/accordion.bindings-min.js: { minified: true }
 
 gallery:
   version: 1.x
   js:
-    build/js/gallery.binding-min.js: { minified: true }
+    build/js/gallery.bindings-min.js: { minified: true }
   dependencies:
     - core/drupal
     - core/jquery

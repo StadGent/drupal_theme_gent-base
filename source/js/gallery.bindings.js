@@ -2,7 +2,7 @@
  * @file
 * Gallery component binding.
  */
-(function ($, Drupal) {
+(function (Drupal) {
   'use strict';
 
   Drupal.behaviors.gentBaseLoadLightGallery = {
@@ -21,4 +21,4 @@
       });
     }
   };
-})(jQuery, Drupal);
+})(Drupal);
