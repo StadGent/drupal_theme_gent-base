@@ -1,9 +1,23 @@
 <figure {% if modifier %} class="{{ modifier }}" {% endif %}>
-  {% if figure_title %}
-    {% include '@heading' with {
-      'type': 'h1',
-      'heading_text': figure_title
-    } %}
+  {% if subsite %}
+    <div class="subsite">
+      <div class="subsite-title">
+        {% include '@image' with {
+          'src': figure_logo_src_dark,
+          'alt_text': figure_title,
+          'modifier': 'dark'
+        } %}
+        {% include '@image' with {
+          'src': figure_logo_src_light,
+          'alt_text': figure_title,
+          'modifier': 'light'
+        } %}
+        {% include '@heading' with {
+          'type': 'h1',
+          'heading_text': figure_title
+        } %}
+      </div>
+    </div>
   {% endif %}
   {% include '@image' with {
     'src': figure_image_src,
