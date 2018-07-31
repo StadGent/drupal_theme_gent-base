@@ -29,7 +29,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2018-07-04 08:42+0000\n"
+"POT-Creation-Date: 2018-07-31 10:49+0000\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -118,51 +118,59 @@ msgstr ""
 msgid "Show on map"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/contrib/dg_blocks/block--dg-blocks-gentinfo-block.html.twig:48
+#: themes/contrib/gent_base/templates/contrib/dg_blocks/block--dg-blocks-gentinfo-block.html.twig:47
 msgid "Chat with Gentinfo"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:45 themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:71
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:37
+msgid "From here you can..."
+msgstr ""
+
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:40 themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:67
 msgid "Return to the"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:45 themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:71
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:40 themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:67
 msgid "homepage"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:46 themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:72
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:41 themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:68
 msgid "Use the back button of your browser"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:47
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:42
 msgid "Or notify us of the page through the"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:47
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:42
 msgid "contact form"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:50
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:45
 msgid "Are you looking for another page?"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:42
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:34
+msgid "How can we help you further?"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:38
 msgid "1. Maybe you were looking for this?"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:55
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:51
 msgid "2. Try to find the page through our search function"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:68
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:64
 msgid "3. Continue to navigate from here?"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:69
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:65
 msgid "This can be done in several ways:"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/block/block--system-branding-block.html.twig:18;19
+#: themes/contrib/gent_base/templates/core/block/block--system-branding-block.html.twig:17
 msgid "Home"
 msgstr ""
 
@@ -214,23 +222,23 @@ msgstr ""
 msgid "Documents"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:106 themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:24
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:105 themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:23
 msgid "Also interesting"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:110 themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:28
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:109 themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:27
 msgid "Similar articles"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:117 themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:35
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:116 themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:34
 msgid "More info about"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:121 themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:39
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:120 themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:38
 msgid "Related Linked Open Data"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:130
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:129
 msgid "More news and events"
 msgstr ""
 
