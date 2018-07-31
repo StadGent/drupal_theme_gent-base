@@ -34,11 +34,7 @@
 
 <div{{ attributes.addClass(classes) }}>
     <div class="search-block-content">
-      {{ title_prefix }}
-      {% if label %}
-        <h2{{ title_attributes }}>{{ label }}</h2>
-      {% endif %}
-      {{ title_suffix }}
+      <h2>{{ 'From here you can...'|t }}</h2>
 
       <ul class="icon-list">
         <li><i class="icon-home" aria-hidden="true"></i><span>{{ 'Return to the'|t }} <a href="{{ url('<front>') }}" alt="Homepage">{{ 'homepage'|t }}</a></span></li>
