@@ -1,13 +1,5 @@
 {% extends 'paragraph.html.twig' %}
 
-{%
-  set classes = [
-    'paragraph',
-  ]
-%}
-
 {% block content %}
-  <div {{ attributes.addClass(classes) }}>
-    {{ content }}
-  </div>
+  {{ content }}
 {% endblock %}
