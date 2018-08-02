@@ -5,7 +5,7 @@
 (function (Drupal) {
   'use strict';
 
-  Drupal.behaviors.gentBaseLoadLightGallery = {
+  Drupal.behaviors.gentBaseLoadImageGallery = {
     attach: function (context, settings) {
       if (!baguetteBox) { // eslint-disable-line no-undef
         return;
