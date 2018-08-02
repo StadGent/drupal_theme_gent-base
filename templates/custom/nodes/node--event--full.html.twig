@@ -15,19 +15,26 @@
         <li>
           <i class="icon-calendar" aria-hidden="true"></i>
           <span>
-            {{ content.field_event_date }}
-            {{ content.field_event_date_textual }}
+            {% if content.field_event_date_textual|render|striptags|trim is not empty %}
+              {{ content.field_event_date_textual }}
+            {% else %}
+              {{ content.field_event_date }}
+            {% endif %}
           </span>
         </li>
-        <li>
-          <i class="icon-marker" aria-hidden="true"></i>
-          <span>
-            {{ content.field_event_location }}
-          </span>
-        </li>
+        {% if content.field_event_location|render|striptags|trim is not empty %}
+          <li>
+            <i class="icon-marker" aria-hidden="true"></i>
+            <span>
+              {{ content.field_event_location }}
+            </span>
+          </li>
+        {% endif %}
       </ul>
 
-      <div class="accolade bottom center"></div>
+      {% if content.field_event_subscription_link|render|striptags|trim is not empty %}
+        <div class="accolade bottom center"></div>
+      {% endif %}
 
     </div>
 
