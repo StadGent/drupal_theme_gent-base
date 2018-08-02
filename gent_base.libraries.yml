@@ -27,10 +27,20 @@ accordion:
     styleguide/build/styleguide/js/accordion.functions-min.js: { minified: true }
     build/js/accordion.bindings-min.js: { minified: true }
 
-gallery:
+image-gallery:
   version: 1.x
   js:
-    build/js/gallery.bindings-min.js: { minified: true }
+    build/js/image-gallery.bindings-min.js: { minified: true }
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/jquery.once
+    - gent_base/light-gallery
+
+image-wall:
+  version: 1.x
+  js:
+    build/js/image-wall.bindings-min.js: { minified: true }
   dependencies:
     - core/drupal
     - core/jquery
