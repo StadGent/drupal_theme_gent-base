@@ -2,7 +2,7 @@
  * @file
 * Gallery component binding.
  */
-(function ($, Drupal) {
+(function (Drupal) {
   'use strict';
 
   Drupal.behaviors.gentBaseLoadLightGallery = {
@@ -16,8 +16,9 @@
         captions: function (element) {
           var figcaption = element.querySelector('figcaption');
           return figcaption ? figcaption.innerText : null;
-        }
+        },
+        buttons: true
       });
     }
   };
-})(jQuery, Drupal);
+})(Drupal);

@@ -355,10 +355,11 @@ function gent_base_preprocess_field(&$variables) {
 /**
  * Implements hook_preprocess_HOOK().
  */
-function gent_base_preprocess_field__node__field_documents(&$variables) {
+function gent_base_preprocess_field__field_documents(&$variables) {
   $documents = $variables['items'];
 
   foreach ($documents as $key => $document) {
+    unset($document['attributes']);
     if ($key < 2) {
       $variables['documents_visible'][] = $document;
     }
@@ -367,12 +368,14 @@ function gent_base_preprocess_field__node__field_documents(&$variables) {
     }
   }
 
-  $extra_documents_count = count($variables['documents_invisible']);
-  if ($extra_documents_count === 1) {
-    $variables['documents_toggle_text'] = t('There is 1 other document available');
-  }
-  else {
-    $variables['documents_toggle_text'] = t('There are @count other documents available', ['@count' => $extra_documents_count]);
+  if (isset($variables['documents_invisible'])) {
+    $extra_documents_count = count($variables['documents_invisible']);
+    if ($extra_documents_count === 1) {
+      $variables['documents_toggle_text'] = t('There is 1 other document available');
+    }
+    else {
+      $variables['documents_toggle_text'] = t('There are @count other documents available', ['@count' => $extra_documents_count]);
+    }
   }
 }
 
@@ -412,13 +415,21 @@ function gent_base_preprocess_faqfield_definition_list_formatter(&$variables) {
 function gent_base_preprocess_node(&$variables) {
   $node = $variables['node'];
   $created = $node->getCreatedTime();
+  $changed = $node->getChangedTime();
 
-  $render = [
+  $renderCreated = [
     '#markup' => t('Posted on @date', [
       '@date' => \Drupal::service('date.formatter')->format($created, 'custom', 'l j F Y'),
     ]),
   ];
-  $variables['date'] = \Drupal::service('renderer')->render($render);
+  $variables['date'] = \Drupal::service('renderer')->render($renderCreated);
+
+  $renderChanged = [
+    '#markup' => t('Last changed: @date', [
+      '@date' => \Drupal::service('date.formatter')->format($changed, 'custom', 'l j F Y - H:i '),
+    ]),
+  ];
+  $variables['dateChanged'] = \Drupal::service('renderer')->render($renderChanged);
 
   // Set datetime attributes on "Submitted on" label.
   $variables['author_attributes']->setAttribute('datetime', \Drupal::service('date.formatter')
@@ -493,7 +504,11 @@ function _get_image_style_gallery_full(&$variables) {
   $image_style = ImageStyle::load('gallery_full');
 
   if ($image_style) {
-    $file = $variables['content']['field_media_image'][0]['#item']->entity->getFileUri();
-    $variables['gallery_full_url'] = $image_style->buildUrl($file);
+    $entity = $variables['content']['field_media_image'][0]['#item']->entity;
+
+    if ($entity) {
+      $file = $entity->getFileUri();
+      $variables['gallery_full_url'] = $image_style->buildUrl($file);
+    }
   }
 }

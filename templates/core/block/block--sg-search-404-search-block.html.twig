@@ -31,11 +31,7 @@
   ]
 %}
 <div{{ attributes.addClass(classes) }}>
-  {{ title_prefix }}
-  {% if label %}
-    <h2{{ title_attributes }}>{{ label }}</h2>
-  {% endif %}
-  {{ title_suffix }}
+<h2>{{ 'How can we help you further?'|t }}</h2>
 
   {% block content %}
     <div class="help-block-section">

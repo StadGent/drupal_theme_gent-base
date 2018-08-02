@@ -32,7 +32,6 @@
 %}
 
 <div{{ attributes.addClass(classes) }}>
-  <img src="{{ base_path }}themes/contrib/gent_base/styleguide/build/styleguide/img/svg/gentinfo.svg" alt="Gentinfo icon" class="gentinfo-icon">
   <div class="gentinfo-block-content">
     {{ title_prefix }}
     {% if label %}
@@ -45,7 +44,7 @@
   </div>
   {% if content.gent_olark %}
     <button type="button" class="button button-primary gentinfo-chat-button icon-chat-round olark-toggle">
-      {{ content.gent_olark['#title'] }}
+      {{ 'Chat with Gentinfo'|t }}
     </button>
   {% endif %}
 </div>

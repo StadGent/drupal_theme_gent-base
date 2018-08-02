@@ -1,0 +1,13 @@
+<nav class="menu">
+  <button class="toggle">{{ 'Menu' }}</button>
+  <div class="overlay"></div>
+  <div class="drawer" tabindex="-1">
+    <div class="header">
+      {% include '@logo' %}
+      <button class="close">{{ 'Close menu' }}</button>
+    </div>
+    {% include '@list' with {
+      'type': 'links'
+    } %}
+  </div>
+</nav>

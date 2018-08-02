@@ -1,6 +1,6 @@
 {
   "name": "gent_styleguide",
-  "version": "3.0.0-alpha.3",
+  "version": "3.0.0-alpha.4",
   "description": "Styleguide Stad.Gent",
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.49",
@@ -44,6 +44,7 @@
   "dependencies": {
     "baguettebox.js": "^1.10.0",
     "breakpoint-sass": "^2.7.1",
+    "gulp-recolor-svg": "^1.0.3",
     "masonry-layout": "^4.2.0",
     "sassdoc": "^2.5.0",
     "sassdoc-theme-flippant": "^0.1.0",

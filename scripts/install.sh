@@ -19,6 +19,9 @@ yarn install;
 echo "Generating iconfont...";
 ./node_modules/.bin/gulp iconfont;
 
+echo "Generating spot images...";
+./node_modules/.bin/gulp spotimages;
+
 echo "Copy public files to build...";
 mkdir build;
 cp -rf ./public/** ./build;

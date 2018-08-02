@@ -1,6 +1,5 @@
 .gentinfo-block {
   @include theme('background-color', 'color-secondary', 'gentinfo-block-background');
-
   display: flex;
   position: relative;
   flex-wrap: wrap;
@@ -18,11 +17,10 @@
     text-align: left;
   }
 
-  .gentinfo-icon {
-    display: block;
-    width: 7.8rem;
+  &::before {
+    @include spot-image('gentinfo');
+    height: 10rem;
     margin: -6rem auto 0;
-    padding: 1rem 0;
 
     @include tablet {
       display: none;
@@ -72,6 +70,7 @@
         }
 
         &.button-call {
+          @include icon('phone');
           display: flex;
           justify-content: space-between;
           margin-bottom: 1rem;
@@ -79,8 +78,6 @@
           &::after {
             display: none;
           }
-
-          @include icon('phone');
 
           @include tablet {
             display: inline;
