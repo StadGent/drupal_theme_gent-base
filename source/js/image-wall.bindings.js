@@ -32,7 +32,7 @@
           return;
         }
 
-        let list = document.getElementsByClassName('image-wall');
+        var list = document.getElementsByClassName('image-wall');
         if (list.length === 0) {
           return;
         }
