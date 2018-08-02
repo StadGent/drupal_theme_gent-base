@@ -16,11 +16,14 @@
     <div class="timeline-slot-content accordion--content accordion--expanded"
          id="timeline-slot-content--{{ paragraph.id() }}" aria-hidden="false">
       {{ content.field_text }}
-      <div class="video-wrapper">
-        <div class="video-inner-wrapper">
-          {{ content.field_video }}
+
+      {% if content.field_video|render is not empty %}
+        <div class="video-wrapper">
+          <div class="video-inner-wrapper">
+            {{ content.field_video }}
+          </div>
         </div>
-      </div>
+      {% endif %}
     </div>
   </dd>
 {% endblock %}
