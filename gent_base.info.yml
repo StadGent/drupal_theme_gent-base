@@ -15,7 +15,8 @@ regions:
 libraries:
   - gent_base/global_js
   - gent_base/accordion
-  - gent_base/gallery
+  - gent_base/image-collections
+  - gent_base/image-wall
 # Removes all the classy stylesheets.
 libraries-override:
   classy/base: false

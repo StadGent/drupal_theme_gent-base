@@ -5,14 +5,6 @@ global_js:
   dependencies:
     - core/drupal
 
-light-gallery:
-  version: 1.x
-  css:
-    theme:
-      styleguide/public/styleguide/vendor/baguettebox/dist/baguetteBox.min.css: { minified: true }
-  js:
-    styleguide/public/styleguide/vendor/baguettebox/dist/baguetteBox.min.js: { minified: true }
-
 menu:
   version: 1.x
   js:
@@ -27,12 +19,18 @@ accordion:
     styleguide/build/styleguide/js/accordion.functions-min.js: { minified: true }
     build/js/accordion.bindings-min.js: { minified: true }
 
-gallery:
+image-collections:
+  version: 1.x
+  css:
+    theme:
+      styleguide/public/styleguide/vendor/baguettebox/dist/baguetteBox.min.css: { minified: true }
+  js:
+    styleguide/public/styleguide/vendor/baguettebox/dist/baguetteBox.min.js: { minified: true }
+    build/js/image-collections.bindings-min.js: { minified: true }
+
+image-wall:
   version: 1.x
   js:
-    build/js/gallery.bindings-min.js: { minified: true }
-  dependencies:
-    - core/drupal
-    - core/jquery
-    - core/jquery.once
-    - gent_base/light-gallery
+    styleguide/public/styleguide/vendor/promise-polyfill/dist/polyfill.min.js: { minified: true }
+    styleguide/public/styleguide/vendor/macy/dist/macy.js: { minified: true }
+    build/js/image-wall.bindings-min.js: { minified: true }
