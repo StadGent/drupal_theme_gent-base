@@ -27,8 +27,6 @@ image-collections:
   js:
     styleguide/public/styleguide/vendor/baguettebox/dist/baguetteBox.min.js: { minified: true }
     build/js/image-collections.bindings-min.js: { minified: true }
-  dependencies:
-    - gent_base/light-gallery
 
 image-wall:
   version: 1.x
