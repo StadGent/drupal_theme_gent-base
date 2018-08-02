@@ -2,8 +2,6 @@
  * @file
  * Javascript binding of baguettebox.min.js and macy.js.
  */
-'use strict';
-
 (function (Drupal) {
   'use strict';
 
