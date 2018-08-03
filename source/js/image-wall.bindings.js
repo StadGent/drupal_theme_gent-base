@@ -14,9 +14,9 @@
           return;
         }
 
-        const grid = document.querySelector('.image-wall');
+        var grid = document.querySelector('.image-wall');
 
-        const msnry = new Masonry(grid, { // eslint-disable-line no-undef
+        var msnry = new Masonry(grid, { // eslint-disable-line no-undef
           columnWidth: 'li',
           itemSelector: 'li',
           transitionDuration: 0,
