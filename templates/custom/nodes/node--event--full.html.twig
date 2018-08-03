@@ -9,28 +9,36 @@
 
   {{ content.field_summary }}
 
-  <aside class="info-box">
-    <div class="info-box-content">
-      <h2>Extra information about this event</h2>
-
+  <aside class="summary-box">
+    <div class="summary-box-content">
       <ul class="icon-list">
         <li>
           <i class="icon-calendar" aria-hidden="true"></i>
           <span>
-            {{ content.field_event_date }}
-            {{ content.field_event_date_textual }}
+            {% if content.field_event_date_textual|render|striptags|trim is not empty %}
+              {{ content.field_event_date_textual }}
+            {% else %}
+              {{ content.field_event_date }}
+            {% endif %}
           </span>
         </li>
-        <li>
-          <i class="icon-marker" aria-hidden="true"></i>
-          <span>
-            {{ content.field_event_location }}
-          </span>
-        </li>
+        {% if content.field_event_location|render|striptags|trim is not empty %}
+          <li>
+            <i class="icon-marker" aria-hidden="true"></i>
+            <span>
+              {{ content.field_event_location }}
+            </span>
+          </li>
+        {% endif %}
       </ul>
 
-      {{ content.field_event_subscription_link }}
+      {% if content.field_event_subscription_link|render|striptags|trim is not empty %}
+        <div class="accolade bottom center"></div>
+      {% endif %}
+
     </div>
+
+    {{ content.field_event_subscription_link }}
   </aside>
 
   {{ content.field_paragraphs }}

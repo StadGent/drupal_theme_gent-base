@@ -7,7 +7,7 @@
     </h1>
   {{ title_suffix }}
 
-  {{ content|without('field_related', 'field_related_by_tags', 'field_tags', 'field_related_news_events', 'field_documents') }}
+  {{ content|without('field_related', 'field_related_by_tags', 'field_tags', 'field_related_news_events', 'field_documents', 'field_opendata_link') }}
 {% endblock %}
 
 {% block article_aside %}
