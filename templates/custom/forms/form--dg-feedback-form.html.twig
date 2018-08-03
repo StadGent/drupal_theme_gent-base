@@ -1,0 +1,34 @@
+{#
+/**
+* @file
+* Theme override for a 'form' element.
+*
+* Available variables
+* - attributes: A list of HTML attributes for the wrapper element.
+* - children: The child elements of the form.
+*
+* @see template_preprocess_form()
+*/
+#}
+
+<div class="feedback-form accordion ">
+  <h2><button class="accordion--button" aria-expanded="false" aria-controls="feedback-form-content">{{ 'Can we improve something about this page?'|t }}</button></h2>
+  <div id="feedback-form-content" class="accordion--content" aria-hidden="true">
+    <h3>{{ 'You can contact Gentinfo for personal questions or complaints.'|t }}</h3>
+
+    <p class="">{{ 'How to reach?' }}</p>
+
+    <ul class="icon-list">
+      <li><i class="icon-phone"></i><span>{{ 'By phone:'|t }} <a href="tel: 09 210 10 10">09 210 10 10</a> {{ '(from monday till saturday from 08:00 till 19:00)'|t }}</span></li>
+      <li><i class="icon-envelope"></i><span>{{ 'Send us an'|t }} <a href="mailto: info@stad.gent">{{ 'email'|t }}</a></span></li>
+      <li><i class="icon-twitter-outline"></i><span>{{ 'Through the'|t }} <a href="https://twitter.com/stadgent">{{ 'Twitter account'|t }}</a> {{ 'of the City of Gent'|t }} (<a href="https://twitter.com/stadgent">@StadGent</a>)</span></li>
+      <li><i class="icon-document"></i><span>{{ 'Through the'|t }} <a href="#">{{ 'contact form'|t }}</a></span></li>
+      <li><i class="icon-chat-round"></i><span>{{ 'Through the'|t }} <a href="#">{{ 'chat'|t }}</a></span></li>
+    </ul>
+
+    <form{{ attributes.addClass('no-style') }}>
+      {{ children }}
+    </form>
+
+  </div>
+</div>
