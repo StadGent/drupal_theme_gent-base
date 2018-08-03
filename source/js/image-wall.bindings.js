@@ -23,7 +23,7 @@
           gutter: 24
         });
 
-        imagesLoaded(grid).on('progress', () => { // eslint-disable-line no-undef
+        imagesLoaded(grid).on('progress', function () { // eslint-disable-line no-undef
           msnry.layout();
         });
 
