@@ -30,7 +30,9 @@
             <a href="{{ content.field_primary_action_link|render|striptags|trim }}" class="button button-primary" title="{{ content.field_primary_action_title|render|striptags|trim }}">{{ content.field_primary_action_title|render|striptags|trim }}</a>
           {% endif %}
           {% if primary_type == 'document' %}
-            <a href="{{ content.field_primary_action_document|render|striptags|trim }}" class="button button-primary" title="{{ content.field_primary_action_title|render|striptags|trim }}" download>{{ content.field_primary_action_title|render|striptags|trim }}</a>
+            {% if content.field_primary_action_document|render|striptags|trim is not empty %}
+              {{ content.field_primary_action_document }}
+            {% endif %}
           {% endif %}
         </li>
         <li>
@@ -38,7 +40,9 @@
             <a href="{{ content.field_secondary_action_link|render|striptags|trim }}" class="standalone-link" title="{{ content.field_secondary_action_title|render|striptags|trim }}">{{ content.field_secondary_action_title|render|striptags|trim }}</a>
           {% endif %}
           {% if secondary_type == 'document' %}
-            <a href="{{ content.field_secondary_action_document|render|striptags|trim }}" class="standalone-link" title="{{ content.field_secondary_action_title|render|striptags|trim }}" download>{{ content.field_secondary_action_title|render|striptags|trim }}</a>
+            {% if content.field_secondary_action_document|render|striptags|trim is not empty %}
+              {{ content.field_secondary_action_document }}
+            {% endif %}
           {% endif %}
         </li>
       </ul>
