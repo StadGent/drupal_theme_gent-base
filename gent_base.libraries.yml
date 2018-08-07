@@ -31,6 +31,6 @@ image-collections:
 image-wall:
   version: 1.x
   js:
-    styleguide/public/styleguide/vendor/promise-polyfill/dist/polyfill.min.js: { minified: true }
-    styleguide/public/styleguide/vendor/macy/dist/macy.js: { minified: true }
+    styleguide/public/styleguide/vendor/imagesloaded/imagesloaded.pkgd.min.js: { minified: true }
+    styleguide/public/styleguide/vendor/masonry-layout/dist/masonry.pkgd.min.js: { minified: true }
     build/js/image-wall.bindings-min.js: { minified: true }

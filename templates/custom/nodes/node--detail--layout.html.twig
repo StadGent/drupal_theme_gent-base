@@ -80,14 +80,22 @@
 {{ attach_library('classy/node') }}
 
 <article{{ attributes.addClass(classes) }}>
-  {% block article_content %}
-    {{ title_prefix }}
-      <h1{{ title_attributes }}>
-        {{ label }}
-      </h1>
-    {{ title_suffix }}
 
-    {{ content|without('field_related', 'field_related_by_tags', 'field_tags', 'field_related_news_events', 'field_documents', 'field_opendata_link') }}
+  {{ title_prefix }}
+    <h1{{ title_attributes }}>
+      {{ label }}
+    </h1>
+  {{ title_suffix }}
+
+  {% block article_content_top %}
+    {{ content.field_summary }}
+  {% endblock %}
+
+  {% block article_content_summary %}
+  {% endblock %}
+
+  {% block article_content_bottom %}
+    {{ content.field_paragraphs }}
   {% endblock %}
 </article>
 
@@ -136,5 +144,6 @@
       </div>
     {% endif %}
 
+    {{ content.feedback_form }}
   {% endblock %}
 </aside>

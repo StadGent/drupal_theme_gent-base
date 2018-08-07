@@ -1,6 +1,6 @@
 /**
  * @file
- * Javascript binding of macy.js.
+ * Javascript binding of Masonry.
  */
 (function (Drupal) {
   'use strict';
@@ -8,29 +8,26 @@
   Drupal.behaviors.gentBaseLoadImageWall = {
     attach: function (context, settings) {
 
-      if (!Macy) { // eslint-disable-line no-undef
-        return;
-      }
+      (function () {
 
-      var list = document.getElementsByClassName('image-wall');
-      if (list.length === 0) {
-        return;
-      }
-
-      Macy({ // eslint-disable-line no-undef
-        container: '.image-wall',
-        mobileFirst: true,
-        margin: 24, // Base font: 20px - Gutter: 1.2rem
-        columns: 1,
-        breakAt: {
-          1920: {
-            margin: 28.8 // Base font: 24px - Gutter: 1.2rem
-          },
-          960: 4,
-          768: 3,
-          576: 2
+        if (!Masonry || !imagesLoaded) { // eslint-disable-line no-undef
+          return;
         }
-      });
+
+        var grid = document.querySelector('.image-wall');
+
+        var msnry = new Masonry(grid, { // eslint-disable-line no-undef
+          columnWidth: 'li:not(.hidden)',
+          itemSelector: 'li',
+          transitionDuration: 0,
+          gutter: 24
+        });
+
+        imagesLoaded(grid).on('progress', function () { // eslint-disable-line no-undef
+          msnry.layout();
+        });
+
+      })();
 
     }
   };
