@@ -17,6 +17,7 @@ libraries:
   - gent_base/accordion
   - gent_base/image-collections
   - gent_base/image-wall
+  - gent_base/menu
 # Removes all the classy stylesheets.
 libraries-override:
   classy/base: false
