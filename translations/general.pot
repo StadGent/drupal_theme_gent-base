@@ -22,14 +22,14 @@
 #  themes/contrib/gent_base/templates/core/layout/html.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/layout/page.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/navigation/breadcrumb.html.twig: n/a
+#  themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig: n/a
 #  themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig: n/a
-#  themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig: n/a
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2018-07-31 10:49+0000\n"
+"POT-Creation-Date: 2018-08-08 08:53+0000\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -70,19 +70,19 @@ msgstr ""
 msgid "timeline"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:372
+#: themes/contrib/gent_base/gent_base.theme:374
 msgid "There is 1 other document available"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:375
+#: themes/contrib/gent_base/gent_base.theme:377
 msgid "There are @count other documents available"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:418
+#: themes/contrib/gent_base/gent_base.theme:421
 msgid "Posted on @date"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:425
+#: themes/contrib/gent_base/gent_base.theme:428
 msgid "Last changed: @date"
 msgstr ""
 
@@ -182,7 +182,7 @@ msgstr ""
 msgid "Watch this video with audio descripiton"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/fields/field--paragraph--field-image.html.twig:64
+#: themes/contrib/gent_base/templates/core/fields/field--paragraph--field-image.html.twig:65
 msgid "Show all photos"
 msgstr ""
 
@@ -198,19 +198,19 @@ msgstr ""
 msgid "Skip to main content"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/layout/page.html.twig:87
+#: themes/contrib/gent_base/templates/core/layout/page.html.twig:89
 msgid "Footer"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/layout/page.html.twig:112
+#: themes/contrib/gent_base/templates/core/layout/page.html.twig:114
 msgid "In cooperation with"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/layout/page.html.twig:121
+#: themes/contrib/gent_base/templates/core/layout/page.html.twig:123
 msgid "Follow Stad Gent on social media"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/layout/page.html.twig:162
+#: themes/contrib/gent_base/templates/core/layout/page.html.twig:164
 msgid "open gallery"
 msgstr ""
 
@@ -218,27 +218,59 @@ msgstr ""
 msgid "Breadcrumb"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:98 themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:16
+#: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:15
+msgid "Can we improve something about this page?"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:17
+msgid "You can contact Gentinfo for personal questions or complaints."
+msgstr ""
+
+#: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:19
+msgid "How to reach?"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:22
+msgid "By phone: <a href=\":tel\">09 210 10 10</a> (from monday till saturday from 08:00 till 19:00)"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:23
+msgid "Send us an <a href=\":url\">email</a>"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:24
+msgid "Through the <a href=\":url\">Twitter account</a> of the City of Gent (<a href=\":url\">@StadGent</a>)"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:25
+msgid "Through the <a href=\":url\">contact form</a>"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:26
+msgid "Through the <a href=\":url\">chat</a>"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:106
 msgid "Documents"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:105 themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:23
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:114
 msgid "Also interesting"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:109 themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:27
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:118
 msgid "Similar articles"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:116 themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:34
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:125
 msgid "More info about"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:120 themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:38
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:130
 msgid "Related Linked Open Data"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:129
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:141
 msgid "More news and events"
 msgstr ""
 

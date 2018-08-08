@@ -29,8 +29,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2018-07-31 10:49+0000\n"
-"PO-Revision-Date: 2018-07-31 12:50+0200\n"
+"POT-Creation-Date: 2018-08-08 08:53+0000\n"
+"PO-Revision-Date: 2018-08-08 11:20.+0400\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
 "Language: nl\n"
@@ -38,7 +38,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
-"X-Generator: Poedit 2.0.8\n"
+"X-Generator: Poedit 2.1.1\n"
 
 #: themes/contrib/gent_base/theme-settings.php:21
 msgid "Gent Base settings"
@@ -53,12 +53,8 @@ msgid "Style guide color scheme class"
 msgstr "Stijlgids kleurenschema CSS-klasse"
 
 #: themes/contrib/gent_base/theme-settings.php:31
-msgid ""
-"Fill in the color scheme class to be used in your project, leave empty for "
-"the default color scheme."
-msgstr ""
-"Vul de kleurenschema CSS-klasse in om te gebruiken in je project, laat leeg "
-"om het standaard thema te gebruiken."
+msgid "Fill in the color scheme class to be used in your project, leave empty for the default color scheme."
+msgstr "Vul de kleurenschema CSS-klasse in om te gebruiken in je project, laat leeg om het standaard thema te gebruiken."
 
 #: themes/contrib/gent_base/theme-settings.php:36
 msgid "Adobe Typekit-ID"
@@ -76,19 +72,19 @@ msgstr "T: @phone"
 msgid "timeline"
 msgstr "tijdlijn"
 
-#: themes/contrib/gent_base/gent_base.theme:372
+#: themes/contrib/gent_base/gent_base.theme:374
 msgid "There is 1 other document available"
 msgstr "Er is 1 ander document beschikbaar"
 
-#: themes/contrib/gent_base/gent_base.theme:375
+#: themes/contrib/gent_base/gent_base.theme:377
 msgid "There are @count other documents available"
 msgstr "Er zijn @count andere documenten beschikbaar"
 
-#: themes/contrib/gent_base/gent_base.theme:418
+#: themes/contrib/gent_base/gent_base.theme:421
 msgid "Posted on @date"
 msgstr "Gepost op @date"
 
-#: themes/contrib/gent_base/gent_base.theme:425
+#: themes/contrib/gent_base/gent_base.theme:428
 msgid "Last changed: @date"
 msgstr "Laatst gewijzigd: @date"
 
@@ -191,7 +187,7 @@ msgstr "Tekstopmaken"
 msgid "Watch this video with audio descripiton"
 msgstr "Bekijk deze video met audiodescriptie"
 
-#: themes/contrib/gent_base/templates/core/fields/field--paragraph--field-image.html.twig:64
+#: themes/contrib/gent_base/templates/core/fields/field--paragraph--field-image.html.twig:65
 msgid "Show all photos"
 msgstr "Bekijk alle foto's"
 
@@ -208,19 +204,19 @@ msgstr "Vul alle velden in tenzij anders gespecificeerd"
 msgid "Skip to main content"
 msgstr "Overslaan en naar de inhoud gaan"
 
-#: themes/contrib/gent_base/templates/core/layout/page.html.twig:87
+#: themes/contrib/gent_base/templates/core/layout/page.html.twig:89
 msgid "Footer"
 msgstr "Voet"
 
-#: themes/contrib/gent_base/templates/core/layout/page.html.twig:112
+#: themes/contrib/gent_base/templates/core/layout/page.html.twig:114
 msgid "In cooperation with"
 msgstr "In samenwerking met"
 
-#: themes/contrib/gent_base/templates/core/layout/page.html.twig:121
+#: themes/contrib/gent_base/templates/core/layout/page.html.twig:123
 msgid "Follow Stad Gent on social media"
 msgstr "Volg Stad Gent op sociale media"
 
-#: themes/contrib/gent_base/templates/core/layout/page.html.twig:162
+#: themes/contrib/gent_base/templates/core/layout/page.html.twig:164
 msgid "open gallery"
 msgstr "galerij openen"
 
@@ -228,34 +224,89 @@ msgstr "galerij openen"
 msgid "Breadcrumb"
 msgstr "Kruimelpad"
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:98
-#: themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:16
+#: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:15
+msgid "Can we improve something about this page?"
+msgstr "Kunnen we iets verbeteren aan deze pagina?"
+
+#: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:17
+msgid "You can contact Gentinfo for personal questions or complaints."
+msgstr "Voor persoonlijke vragen of klachten kan u terecht bij Gentinfo."
+
+#: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:19
+msgid "How to reach?"
+msgstr "Hoe bereiken?"
+
+#: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:22
+msgid "By phone: <a href=\":tel\">09 210 10 10</a> (from monday till saturday from 08:00 till 19:00)"
+msgstr "Telefonisch: <a href=":tel">09 210 10 10</a> (van maandag t.e.m. zaterdag van 08:00 tot 19:00 uur)"
+
+#: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:23
+msgid "Send us an <a href=\":url\">email</a>"
+msgstr "Stuur ons een <a href=\":url\">email</a>"
+
+#: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:24
+msgid "Through the <a href=\":url\">Twitter account</a> of the City of Gent (<a href=\":url\">@StadGent</a>)"
+msgstr "Via de <a href=\":url\">Twitter account</a> van Stad Gent (<a href=\":url\">@StadGent</a>)"
+
+#: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:25
+msgid "Through the <a href=\":url\">contact form</a>"
+msgstr "Via het <a href=\":url\">contact formulier</a>"
+
+#: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:26
+msgid "Through the <a href=\":url\">chat</a>"
+msgstr "Via de <a href=\":url\">chat</a>"
+
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:106
 msgid "Documents"
 msgstr "Documenten"
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:105
-#: themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:23
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:114
 msgid "Also interesting"
 msgstr "Ook nog interessant"
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:109
-#: themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:27
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:118
 msgid "Similar articles"
 msgstr "Vergelijkbare artikels"
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:116
-#: themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:34
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:125
 msgid "More info about"
 msgstr "Bekijk meer over"
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:120
-#: themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:38
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:130
 msgid "Related Linked Open Data"
 msgstr "Gerelateerde Linked Open Data"
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:129
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:141
 msgid "More news and events"
 msgstr "Meer nieuws en evenementen"
+
+#~ msgid "By phone:"
+#~ msgstr "Telefonisch:"
+
+#~ msgid "Send us an"
+#~ msgstr "Stuur ons een"
+
+#~ msgid "email"
+#~ msgstr "email"
+
+#~ msgid "Through the"
+#~ msgstr "Via de"
+
+#~ msgid "Twitter account"
+#~ msgstr "Twitter account"
+
+#~ msgid "of the City of Gent"
+#~ msgstr "van Stad Gent"
+
+#~ msgid "chat"
+#~ msgstr "chat"
+
+#~ msgid ""
+#~ "<li><i class=\"icon-document\"></i><span>@Through the <a href=\":url"
+#~ "\">contact form</a></span></li>"
+#~ msgstr ""
+#~ "<li><i class=“icon-document"></i><span>@Via het <a href=“:url">contact "
+#~ "formulier</a></span></li>"
 
 #~ msgid "Last changed"
 #~ msgstr "Laatst gewijzigd"
