@@ -529,10 +529,20 @@ function _get_image_style_gallery_full(&$variables) {
  * Implements hook_theme_suggestions_alter().
  */
 function gent_base_theme_suggestions_alter(array &$suggestions, array $variables) {
-  if (isset($variables['element']['#type']) && $variables['element']['#type'] == 'form') {
-    $original_theme_hook = $variables['theme_hook_original'];
+  $original_theme_hook = $variables['theme_hook_original'];
 
+  if (isset($variables['element']['#type']) && $variables['element']['#type'] == 'form') {
     $suggestions[] = $original_theme_hook . '__' . str_replace('-', '_', $variables['element']['#id']);
+  }
+
+  if ($original_theme_hook === 'taxonomy_term') {
+    /** @var \Drupal\taxonomy\TermInterface $term */
+    $term = $variables['elements']['#taxonomy_term'];
+    $sanitized_view_mode = strtr($variables['elements']['#view_mode'], '.', '_');
+
+    $suggestions[] = $original_theme_hook . '__' . $sanitized_view_mode;
+    $suggestions[] = $original_theme_hook . '__' . $term->bundle() . '__' . $sanitized_view_mode;
+    $suggestions[] = $original_theme_hook . '__' . $term->id() . '__' . $sanitized_view_mode;
   }
 
   return $suggestions;
