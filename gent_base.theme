@@ -444,15 +444,27 @@ function gent_base_preprocess_node(&$variables) {
 
 /**
  * Implements hook_preprocess_HOOK().
+ *
+ * Add standalone-link class to read more links.
  */
 function gent_base_preprocess_links__node(&$variables) {
   if (isset($variables['links']['node-readmore'])) {
     $readmore = &$variables['links']['node-readmore'];
     $readmore['link']['#options']['attributes']['class'] = [
-      'read-nore',
       'standalone-link',
     ];
   }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ *
+ * Add standalone-link class to read more links.
+ */
+function gent_base_preprocess_views_view(&$variables) {
+  $variables['more']['#options']['attributes']['class'] = [
+    'standalone-link',
+  ];
 }
 
 /**
