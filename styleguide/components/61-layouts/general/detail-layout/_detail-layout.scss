@@ -98,9 +98,14 @@ aside.bottom {
   @extend %content-container;
 
   > * {
+    @include theme('border-color', 'color-primary--lighten-4', 'more-info-block-border-color');
+
+    border-top: 2px solid;
+
     @include desktop {
       @include set-layout();
       width: 100%;
+      margin-bottom: 2rem;
       margin-left: 0;
       padding-right: span(2 wide of 12);
       padding-left: span(2 wide of 12);
@@ -113,6 +118,12 @@ aside.top {
   margin: 5rem auto 0;
 
   > div:first-child {
+    padding-top: 3rem;
+
+    @include tablet {
+      padding-top: 2rem;
+    }
+
     &::before {
       @include spot-image('lightbulb', $bulb-image-width);
 
@@ -136,6 +147,7 @@ aside.bottom {
     @include wide;
 
     margin-bottom: 2rem;
+    border-top: 0;
 
     @include desktop {
       @include set-layout('width-9', 'offset-1');
