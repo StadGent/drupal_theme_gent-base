@@ -546,9 +546,9 @@ function gent_base_theme_suggestions_alter(array &$suggestions, array $variables
 function gent_base_preprocess_pager(&$variables) {
   $element = $variables['pager']['#element'];
   $parameters = $variables['pager']['#parameters'];
-  $quantity = 3;
+
   // Implement hardcoded quantity of links.
-  //
+  $quantity = 3;
   $route_name = $variables['pager']['#route_name'];
   $route_parameters = isset($variables['pager']['#route_parameters']) ? $variables['pager']['#route_parameters'] : [];
   global $pager_page_array, $pager_total;
@@ -657,6 +657,7 @@ function gent_base_preprocess_pager(&$variables) {
   // parameters matter.
   $variables['#cache']['contexts'][] = 'url.query_args';
 
+  // Add hardcode first and last text.
   $variables['items']['first']['text'] = '1';
   $variables['items']['last']['text'] = $total;
 }
