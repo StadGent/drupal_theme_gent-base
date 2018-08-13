@@ -536,3 +536,16 @@ function gent_base_theme_suggestions_alter(array &$suggestions, array $variables
 
   return $suggestions;
 }
+
+/**
+ * Implements hook_theme_preprocess_pager().
+ */
+function gent_base_preprocess_pager(&$variables) {
+  global $pager_total;
+
+  $element = $variables['pager']['#element'];
+  $total = $pager_total[$element];
+
+  $variables['items']['first']['text'] = '1';
+  $variables['items']['last']['text'] = $total;
+}
