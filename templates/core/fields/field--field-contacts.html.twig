@@ -55,15 +55,14 @@
   {% endfor %}
 </ul>
 
-
 {% if items|length > 2 %}
   <h3>
-    <button class="accordion--button" aria-expanded="false" aria-controls="contact-box--content">
+    <button class="accordion--button" aria-expanded="false" aria-controls="contact-box--content--{{ contacts_unique_id }}">
       {{ contacts_toggle_text }}
     </button>
   </h3>
 
-  <div class="accordion--content" id="contact-box--content" aria-hidden="true" hidden="true">
+  <div class="accordion--content" id="contact-box--content--{{ contacts_unique_id }}" aria-hidden="true" hidden="true">
     <ul class="links">
       {% for contact in contacts_invisible %}
         <li>{{ contact }}</li>

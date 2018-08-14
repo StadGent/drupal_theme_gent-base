@@ -347,6 +347,8 @@ function gent_base_preprocess_field(&$variables) {
 function gent_base_preprocess_field__field_documents(&$variables) {
   $documents = $variables['items'];
 
+  $variables['document_unique_id'] = Html::getUniqueId('documentbox');
+
   foreach ($documents as $key => $document) {
     unset($document['attributes']);
     if ($key < 2) {
@@ -373,6 +375,8 @@ function gent_base_preprocess_field__field_documents(&$variables) {
  */
 function gent_base_preprocess_field__field_contacts(&$variables) {
   $contacts = $variables['items'];
+
+  $variables['contacts_unique_id'] = Html::getUniqueId('contactbox');
 
   foreach ($contacts as $key => $contact) {
     unset($contact['attributes']);
