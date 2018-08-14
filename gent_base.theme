@@ -536,3 +536,128 @@ function gent_base_theme_suggestions_alter(array &$suggestions, array $variables
 
   return $suggestions;
 }
+
+/**
+ * Implements theme_preprocess_pager()
+ *
+ * We override core to change the quantity of all pagers throughout the site.
+ * This is a guideline determined by Stad Gent!
+ */
+function gent_base_preprocess_pager(&$variables) {
+  $element = $variables['pager']['#element'];
+  $parameters = $variables['pager']['#parameters'];
+
+  // Implement hardcoded quantity of links.
+  $quantity = 3;
+  $route_name = $variables['pager']['#route_name'];
+  $route_parameters = isset($variables['pager']['#route_parameters']) ? $variables['pager']['#route_parameters'] : [];
+  global $pager_page_array, $pager_total;
+
+  $total = $pager_total[$element];
+
+  // Nothing to do if there is only one page.
+  if ($pager_total[$element] <= 1) {
+    return;
+  }
+
+  $tags = $variables['pager']['#tags'];
+
+  // Calculate various markers within this pager piece:
+  // Middle is used to "center" pages around the current page.
+  $pager_middle = ceil($quantity / 2);
+  // Current is the page we are currently paged to.
+  $pager_current = $pager_page_array[$element] + 1;
+  // First is the first page listed by this pager piece (re quantity).
+  $pager_first = $pager_current - $pager_middle + 1;
+  // Last is the last page listed by this pager piece (re quantity).
+  $pager_last = $pager_current + $quantity - $pager_middle;
+  // Max is the maximum page number.
+  $pager_max = $pager_total[$element];
+
+  // Prepare for generation loop.
+  $i = $pager_first;
+  if ($pager_last > $pager_max) {
+    // Adjust "center" if at end of query.
+    $i = $i + ($pager_max - $pager_last);
+    $pager_last = $pager_max;
+  }
+  if ($i <= 0) {
+    // Adjust "center" if at start of query.
+    $pager_last = $pager_last + (1 - $i);
+    $i = 1;
+  }
+
+  // Create the "first" and "previous" links if we are not on the first page.
+  if ($pager_page_array[$element] > 0) {
+    $items['first'] = [];
+    $options = [
+      'query' => pager_query_add_page($parameters, $element, 0),
+    ];
+    $items['first']['href'] = \Drupal::url($route_name, $route_parameters, $options);
+    if (isset($tags[0])) {
+      $items['first']['text'] = $tags[0];
+    }
+
+    $items['previous'] = [];
+    $options = [
+      'query' => pager_query_add_page($parameters, $element, $pager_page_array[$element] - 1),
+    ];
+    $items['previous']['href'] = \Drupal::url($route_name, $route_parameters, $options);
+    if (isset($tags[1])) {
+      $items['previous']['text'] = $tags[1];
+    }
+  }
+
+  if ($i != $pager_max) {
+    // Add an ellipsis if there are further previous pages.
+    if ($i > 1) {
+      $variables['ellipses']['previous'] = TRUE;
+    }
+    // Now generate the actual pager piece.
+    for (; $i <= $pager_last && $i <= $pager_max; $i++) {
+      $options = [
+        'query' => pager_query_add_page($parameters, $element, $i - 1),
+      ];
+      $items['pages'][$i]['href'] = \Drupal::url($route_name, $route_parameters, $options);
+      if ($i == $pager_current) {
+        $variables['current'] = $i;
+      }
+    }
+    // Add an ellipsis if there are further next pages.
+    if ($i < $pager_max + 1) {
+      $variables['ellipses']['next'] = TRUE;
+    }
+  }
+
+  // Create the "next" and "last" links if we are not on the last page.
+  if ($pager_page_array[$element] < ($pager_max - 1)) {
+    $items['next'] = [];
+    $options = [
+      'query' => pager_query_add_page($parameters, $element, $pager_page_array[$element] + 1),
+    ];
+    $items['next']['href'] = \Drupal::url($route_name, $route_parameters, $options);
+    if (isset($tags[3])) {
+      $items['next']['text'] = $tags[3];
+    }
+
+    $items['last'] = [];
+    $options = [
+      'query' => pager_query_add_page($parameters, $element, $pager_max - 1),
+    ];
+    $items['last']['href'] = \Drupal::url($route_name, $route_parameters, $options);
+    if (isset($tags[4])) {
+      $items['last']['text'] = $tags[4];
+    }
+  }
+
+  $variables['items'] = $items;
+
+  // The rendered link needs to play well with any other query parameter used
+  // on the page, like exposed filters, so for the cacheability all query
+  // parameters matter.
+  $variables['#cache']['contexts'][] = 'url.query_args';
+
+  // Add hardcode first and last text.
+  $variables['items']['first']['text'] = '1';
+  $variables['items']['last']['text'] = $total;
+}
