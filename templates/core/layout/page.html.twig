@@ -75,12 +75,29 @@
   {% endblock %}
 
   {% block main %}
-  <main class="section--default" role="main">
-    <div class="content-container">
-      <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
-      {{ page.content }}
-    </div>
-  </main>
+    <main class="section--default" role="main">
+      <div class="content-container">
+        <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
+        {{ page.content }}
+      </div>
+    </main>
+  {% endblock %}
+
+  {% block theme_footer %}
+    {% if page.theme_footer_box or page.theme_footer %}
+      <section class="theme-footer">
+        <h2 class="visually-hidden">{{ 'Theme footer'|t }}</h2>
+        <div class="content-container">
+          {% if page.theme_footer_box %}
+            <div class="box-no-icon">
+              {{ page.theme_footer_box }}
+              <div class="accolade bottom-center"></div>
+            </div>
+          {% endif %}
+          {{ page.theme_footer }}
+        </div>
+      </section>
+    {% endif %}
   {% endblock %}
 
   {% block footer %}
@@ -90,31 +107,31 @@
         <div class="footer-top">
           <div class="content-container">
             {% if page.footer_1 %}
-            <div {{ content_attributes.addClass('footer--column') }}>
-              {{ page.footer_1 }}
-            </div>
+              <div class="footer--column">
+                {{ page.footer_1 }}
+              </div>
             {% endif %}
             {% if page.footer_2 %}
-            <div {{ content_attributes.addClass('footer--column') }}>
-              {{ page.footer_2 }}
-            </div>
+              <div class="footer--column">
+                {{ page.footer_2 }}
+              </div>
             {% endif %}
             {% if page.footer_3 %}
-            <div {{ content_attributes.addClass('footer--column') }}>
-              {{ page.footer_3 }}
-            </div>
+              <div class="footer--column">
+                {{ page.footer_3 }}
+              </div>
             {% endif %}
           </div>
         </div>
         <div class="footer-bottom content-container">
           <div class="footer--column">
             {% block partner %}
-            <div class="db-block-partnership">
-              <p>
-                {{ 'In cooperation with'|t }} Digipolis
-              </p>
-              <i aria-hidden="true" class="icon-digipolis"></i>
-            </div>
+              <div class="db-block-partnership">
+                <p>
+                  {{ 'In cooperation with'|t }} Digipolis
+                </p>
+                <i aria-hidden="true" class="icon-digipolis"></i>
+              </div>
             {% endblock %}
           </div>
           <div class="footer--column">
