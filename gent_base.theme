@@ -347,6 +347,8 @@ function gent_base_preprocess_field(&$variables) {
 function gent_base_preprocess_field__field_documents(&$variables) {
   $documents = $variables['items'];
 
+  $variables['document_unique_id'] = Html::getUniqueId('documentbox');
+
   foreach ($documents as $key => $document) {
     unset($document['attributes']);
     if ($key < 2) {
@@ -365,6 +367,44 @@ function gent_base_preprocess_field__field_documents(&$variables) {
     else {
       $variables['documents_toggle_text'] = t('There are @count other documents available', ['@count' => $extra_documents_count]);
     }
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function gent_base_preprocess_field__field_contacts(&$variables) {
+  $contacts = $variables['items'];
+
+  $variables['contacts_unique_id'] = Html::getUniqueId('contactbox');
+
+  foreach ($contacts as $key => $contact) {
+    unset($contact['attributes']);
+    if ($key < 2) {
+      $variables['contacts_visible'][] = $contact;
+    }
+    else {
+      $variables['contacts_invisible'][] = $contact;
+    }
+  }
+
+  if (isset($variables['contacts_invisible'])) {
+    $extra_contacts_count = count($variables['contacts_invisible']);
+    if ($extra_contacts_count === 1) {
+      $variables['contacts_toggle_text'] = t('There is 1 other contact available');
+    }
+    else {
+      $variables['contacts_toggle_text'] = t('There are @count other contacts available', ['@count' => $extra_contacts_count]);
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function gent_base_preprocess_field__field_responsible_person(&$variables) {
+  foreach ($variables['items'] as $key => $item) {
+    $variables["items"][$key]["content"]["#options"]['attributes']['class'][] = 'standalone-link';
   }
 }
 
@@ -428,6 +468,21 @@ function gent_base_preprocess_node(&$variables) {
   // Set detail layout class on full/default view modes.
   if (isset($variables['view_mode']) && $variables['view_mode'] === 'full') {
     $variables['attributes']['class'][] = 'detail-layout';
+  }
+
+  // Render contact title as link.
+  if ($node->getType() == 'contact') {
+    $url = Url::fromRoute('entity.node.canonical', ['node' => $node->id()]);
+    $link_options = [
+      'attributes' => [
+        'class' => [
+          'standalone-link',
+        ],
+      ],
+    ];
+    $url->setOptions($link_options);
+    $link = Link::fromTextAndUrl($node->getTitle(), $url);
+    $variables['contact_title'] = $link;
   }
 }
 

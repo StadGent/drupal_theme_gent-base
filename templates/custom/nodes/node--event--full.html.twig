@@ -2,7 +2,7 @@
 
 
 {% block article_content_summary %}
-  <aside class="summary-box">
+  <aside class="summary-box box-top">
     <div class="inner-box">
       <ul class="icon-list">
         <li>
@@ -38,5 +38,5 @@
 {% block article_aside_bottom %}
   {{ parent() }}
 
-  <p class="info-page--edit-date">{{ dateChanged }}</p>
+  <p class="changed-date">{{ dateChanged }}</p>
 {% endblock %}

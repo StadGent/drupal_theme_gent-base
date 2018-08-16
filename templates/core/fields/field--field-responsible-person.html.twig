@@ -37,7 +37,11 @@
  * @see template_preprocess_field()
  */
 #}
-
+{%
+  set classes = [
+    'collection',
+  ]
+%}
 {%
   set title_classes = [
     'field__label',
@@ -49,24 +53,14 @@
   <div{{ title_attributes.addClass(title_classes) }}>{{ label }}</div>
 {% endif %}
 
-<ul class="links">
-  {% for document in documents_visible %}
-    <li>{{ document }}</li>
+{% if items|length > 1 %}
+  <ul{{ attributes.addClass('links') }}>
+    {% for item in items %}
+      <li{{ item.attributes }}>{{ item.content }}</li>
+    {% endfor %}
+  </ul>
+{% else %}
+  {% for item in items %}
+    {{ item.content }}
   {% endfor %}
-</ul>
-
-{% if items|length > 2 %}
-  <h3>
-    <button class="accordion--button" aria-expanded="false" aria-controls="documents--content--{{ document_unique_id }}">
-      {{ documents_toggle_text }}
-    </button>
-  </h3>
-
-  <div class="accordion--content" id="documents--content--{{ document_unique_id }}" aria-hidden="true" hidden="true">
-    <ul class="links">
-      {% for document in documents_invisible %}
-        <li>{{ document }}</li>
-      {% endfor %}
-    </ul>
-  </div>
 {% endif %}
