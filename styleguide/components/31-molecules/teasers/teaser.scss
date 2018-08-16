@@ -1,5 +1,4 @@
 .teaser {
-
   position: relative;
   list-style: none;
 
@@ -10,7 +9,6 @@
   }
 
   .teaser-content {
-
     a {
       position: relative;
       z-index: 2;
@@ -25,7 +23,12 @@
       margin-bottom: .4rem;
       line-height: 1.7;
     }
+  }
 
+  .content__top {
+    > * {
+      margin-bottom: .8rem;
+    }
   }
 
   a.teaser-overlay-link {
