@@ -118,7 +118,7 @@ function gent_base_preprocess_dg_auth_block(&$variables) {
 function gent_base_preprocess_html(&$variables) {
   $variables['typekit_id'] = theme_get_setting('typekit_id');
 
-  $color_scheme = (theme_get_setting('color_scheme')) ? theme_get_setting('color_scheme') : 'default';
+  $color_scheme = (theme_get_setting('color_scheme')) ? theme_get_setting('color_scheme') : 'cyan';
   $variables['attributes']['class'][] = 'cs--' . $color_scheme;
 }
 
