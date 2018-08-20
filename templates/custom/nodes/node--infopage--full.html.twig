@@ -1,11 +1,1 @@
 {% extends 'node--detail--layout.html.twig' %}
-
-{% block article_content %}
-  {{ title_prefix }}
-    <h1{{ title_attributes }}>
-      {{ label }}
-    </h1>
-  {{ title_suffix }}
-
-  {{ content|without('field_related', 'field_related_by_tags', 'field_tags', 'field_documents', 'field_opendata_link') }}
-{% endblock %}

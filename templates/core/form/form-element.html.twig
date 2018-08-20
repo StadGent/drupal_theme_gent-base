@@ -55,6 +55,7 @@
     'js-form-type-' ~ type|clean_class,
     'form-item-' ~ name|clean_class,
     'js-form-item-' ~ name|clean_class,
+    type|clean_class,
     title_display not in ['after', 'before'] ? 'form-no-label',
     disabled == 'disabled' ? 'form-disabled',
     errors ? 'form-item--error',
@@ -67,15 +68,15 @@
   ]
 %}
 {%
-set information_classes = ['field-description']
+  set information_classes = ['field-description']
 %}
 <div{{ attributes.addClass(classes) }}>
 
-  <div class="form-label">
-    {% if label_display in ['before', 'invisible'] %}
+  {% if label_display in ['before', 'invisible'] %}
+    <div class="form-label">
       {{ label }}
-    {% endif %}
-  </div>
+    </div>
+  {% endif %}
 
   <div class="form-columns">
     {% if information %}

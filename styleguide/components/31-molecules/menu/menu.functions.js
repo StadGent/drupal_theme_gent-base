@@ -14,7 +14,7 @@
     }
   }
 }(this || window, function () {
-  return (elem, options) => {
+  return function (elem, options) {
     if (typeof gent_styleguide === 'undefined') {
       console.error('You need to include base.js.'); // eslint-disable-line no-console
       return;
@@ -40,7 +40,6 @@
       drawer.classList.remove('js-opened');
       overlay.classList.remove('js-opened');
       document.removeEventListener('keydown', handleKeyboardInput);
-      tabTrap.reset();
 
       // return focus to the trigger
       if (openbtn) {
@@ -97,23 +96,20 @@
 
       switch (keyCode) {
         case 9: // tab
-          e.preventDefault();
           if (e.shiftKey) {
-            tabTrap.back();
+            tabTrap.back(e);
           }
           else {
-            tabTrap.next();
+            tabTrap.next(e);
           }
           break;
         case 40: // arrow down
         case 39: // arrow right
-          e.preventDefault();
-          tabTrap.next();
+          tabTrap.next(e);
           break;
         case 38: // arrow up
         case 37: // arrow left
-          e.preventDefault();
-          tabTrap.back();
+          tabTrap.back(e);
           break;
         case 36: // home
           e.preventDefault();

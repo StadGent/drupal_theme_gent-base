@@ -1,43 +1,42 @@
 {% extends 'node--detail--layout.html.twig' %}
 
-{% block article_content %}
-  {{ title_prefix }}
-    <h1{{ title_attributes }}>
-      {{ label }}
-    </h1>
-  {{ title_suffix }}
 
-  {{ content.field_summary }}
-
-  <aside class="info-box">
-    <div class="info-box-content">
-      <h2>Extra information about this event</h2>
-
+{% block article_content_summary %}
+  <aside class="summary-box box-top">
+    <div class="inner-box">
       <ul class="icon-list">
         <li>
           <i class="icon-calendar" aria-hidden="true"></i>
           <span>
-            {{ content.field_event_date }}
-            {{ content.field_event_date_textual }}
+            {% if content.field_event_date_textual|render|striptags|trim is not empty %}
+              {{ content.field_event_date_textual }}
+            {% else %}
+              {{ content.field_event_date }}
+            {% endif %}
           </span>
         </li>
-        <li>
-          <i class="icon-marker" aria-hidden="true"></i>
-          <span>
-            {{ content.field_event_location }}
-          </span>
-        </li>
+        {% if content.field_event_location|render|striptags|trim is not empty %}
+          <li>
+            <i class="icon-marker" aria-hidden="true"></i>
+            <span>
+              {{ content.field_event_location }}
+            </span>
+          </li>
+        {% endif %}
       </ul>
 
-      {{ content.field_event_subscription_link }}
-    </div>
-  </aside>
+      {% if content.field_event_subscription_link|render|striptags|trim is not empty %}
+        <div class="accolade bottom center"></div>
+      {% endif %}
 
-  {{ content.field_paragraphs }}
+    </div>
+
+    {{ content.field_event_subscription_link }}
+  </aside>
 {% endblock %}
 
-{% block article_aside %}
+{% block article_aside_bottom %}
   {{ parent() }}
 
-  <p class="info-page--edit-date">{{ dateChanged }}</p>
+  <p class="changed-date">{{ dateChanged }}</p>
 {% endblock %}

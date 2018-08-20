@@ -1,0 +1,31 @@
+.image-wall {
+  @include phablet {
+    display: flex;
+    flex: 1 1 100%;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  > li {
+    margin-bottom: $gutter-width;
+
+    @include phablet {
+      width: span(6 of 12);
+    }
+
+    @include tablet {
+      width: span(4 of 12);
+    }
+
+    @include desktop {
+      width: span(3 of 12);
+    }
+
+    &.hidden {
+      margin: 0;
+    }
+  }
+
+  width: 100%;
+}

@@ -22,14 +22,15 @@
 #  themes/contrib/gent_base/templates/core/layout/html.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/layout/page.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/navigation/breadcrumb.html.twig: n/a
+#  themes/contrib/gent_base/templates/core/navigation/pager.html.twig: n/a
+#  themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig: n/a
 #  themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig: n/a
-#  themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig: n/a
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2018-07-31 10:49+0000\n"
+"POT-Creation-Date: 2018-08-16 09:40+0000\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -62,27 +63,31 @@ msgstr ""
 msgid "Fill in the Adobe Typekit-ID to be used in your project."
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:300
-msgid "T: @phone"
-msgstr ""
-
-#: themes/contrib/gent_base/gent_base.theme:340
+#: themes/contrib/gent_base/gent_base.theme:329
 msgid "timeline"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:372
+#: themes/contrib/gent_base/gent_base.theme:365
 msgid "There is 1 other document available"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:375
+#: themes/contrib/gent_base/gent_base.theme:368
 msgid "There are @count other documents available"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:418
+#: themes/contrib/gent_base/gent_base.theme:394
+msgid "There is 1 other contact available"
+msgstr ""
+
+#: themes/contrib/gent_base/gent_base.theme:397
+msgid "There are @count other contacts available"
+msgstr ""
+
+#: themes/contrib/gent_base/gent_base.theme:450
 msgid "Posted on @date"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:425
+#: themes/contrib/gent_base/gent_base.theme:457
 msgid "Last changed: @date"
 msgstr ""
 
@@ -122,51 +127,51 @@ msgstr ""
 msgid "Chat with Gentinfo"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:37
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:38
 msgid "From here you can..."
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:40 themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:67
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:41 themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:68
 msgid "Return to the"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:40 themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:67
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:41 themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:68
 msgid "homepage"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:41 themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:68
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:42 themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:69
 msgid "Use the back button of your browser"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:42
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:43
 msgid "Or notify us of the page through the"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:42
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:43
 msgid "contact form"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:45
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:46
 msgid "Are you looking for another page?"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:34
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:35
 msgid "How can we help you further?"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:38
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:39
 msgid "1. Maybe you were looking for this?"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:51
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:52
 msgid "2. Try to find the page through our search function"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:64
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:65
 msgid "3. Continue to navigate from here?"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:65
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:66
 msgid "This can be done in several ways:"
 msgstr ""
 
@@ -182,7 +187,7 @@ msgstr ""
 msgid "Watch this video with audio descripiton"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/fields/field--paragraph--field-image.html.twig:64
+#: themes/contrib/gent_base/templates/core/fields/field--paragraph--field-image.html.twig:65
 msgid "Show all photos"
 msgstr ""
 
@@ -191,26 +196,30 @@ msgid "Optional"
 msgstr ""
 
 #: themes/contrib/gent_base/templates/core/form/form.html.twig:14
-msgid "Fill in all fields unless otherwise stated"
+msgid "Fill in all fields unless otherwise stated."
 msgstr ""
 
 #: themes/contrib/gent_base/templates/core/layout/html.html.twig:64
 msgid "Skip to main content"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/layout/page.html.twig:87
+#: themes/contrib/gent_base/templates/core/layout/page.html.twig:89
+msgid "Theme footer"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/core/layout/page.html.twig:106
 msgid "Footer"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/layout/page.html.twig:112
+#: themes/contrib/gent_base/templates/core/layout/page.html.twig:131
 msgid "In cooperation with"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/layout/page.html.twig:121
+#: themes/contrib/gent_base/templates/core/layout/page.html.twig:140
 msgid "Follow Stad Gent on social media"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/layout/page.html.twig:162
+#: themes/contrib/gent_base/templates/core/layout/page.html.twig:183
 msgid "open gallery"
 msgstr ""
 
@@ -218,27 +227,119 @@ msgstr ""
 msgid "Breadcrumb"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:98 themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:16
+#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:34
+msgid "Pagination"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:39
+msgid "Go to previous page"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:40
+msgid "Previous page"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:41
+msgid "Previous"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:48
+msgid "Go to first page"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:49
+msgid "First page"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:82
+msgid "Go to last page"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:83
+msgid "Last page"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:91
+msgid "Go to next page"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:92
+msgid "Next page"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:93
+msgid "Next"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:15
+msgid "Can we improve something about this page?"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:17
+msgid "You can contact Gentinfo for personal questions or complaints."
+msgstr ""
+
+#: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:19
+msgid "How to reach?"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:22
+msgid "By phone: <a href=\":tel\">09 210 10 10</a> (from monday till saturday from 08:00 till 19:00)"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:23
+msgid "Send us an <a href=\":url\">email</a>"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:24
+msgid "Through the <a href=\":url\">Twitter account</a> of the City of Gent (<a href=\":url\">@StadGent</a>)"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:25
+msgid "Through the <a href=\":url\">contact form</a>"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:26
+msgid "Through the <a href=\":url\">chat</a>"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:105
+msgid "Contact"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:110
+msgid "Contacts"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:117
+msgid "Location"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:119
+msgid "Authorized persons"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:128
 msgid "Documents"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:105 themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:23
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:136
 msgid "Also interesting"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:109 themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:27
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:140
 msgid "Similar articles"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:116 themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:34
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:147
 msgid "More info about"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:120 themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:38
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:152
 msgid "Related Linked Open Data"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:129
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:163
 msgid "More news and events"
 msgstr ""
 

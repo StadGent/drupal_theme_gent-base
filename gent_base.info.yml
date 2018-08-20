@@ -9,13 +9,17 @@ regions:
   header_top: Header top
   header_bottom: Header bottom
   content: Content
+  theme_footer_box: Theme footer (box)
+  theme_footer: Theme footer
   footer_1: Footer contact
   footer_2: Footer links
   footer_3: Footer address
 libraries:
   - gent_base/global_js
   - gent_base/accordion
-  - gent_base/gallery
+  - gent_base/image-collections
+  - gent_base/image-wall
+  - gent_base/menu
 # Removes all the classy stylesheets.
 libraries-override:
   classy/base: false

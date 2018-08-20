@@ -29,8 +29,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2018-07-31 10:49+0000\n"
-"PO-Revision-Date: 2018-07-31 12:50+0200\n"
+"POT-Creation-Date: 2018-08-16 09:40+0000\n"
+"PO-Revision-Date: 2018-08-16 11:41+0200\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
 "Language: nl\n"
@@ -38,7 +38,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
-"X-Generator: Poedit 2.0.8\n"
+"X-Generator: Poedit 2.1.1\n"
 
 #: themes/contrib/gent_base/theme-settings.php:21
 msgid "Gent Base settings"
@@ -68,27 +68,31 @@ msgstr "Adobe Typekit-ID"
 msgid "Fill in the Adobe Typekit-ID to be used in your project."
 msgstr "Vul de Adobe Typekit-ID in om gebruikt te worden in je project."
 
-#: themes/contrib/gent_base/gent_base.theme:300
-msgid "T: @phone"
-msgstr "T: @phone"
-
-#: themes/contrib/gent_base/gent_base.theme:340
+#: themes/contrib/gent_base/gent_base.theme:329
 msgid "timeline"
 msgstr "tijdlijn"
 
-#: themes/contrib/gent_base/gent_base.theme:372
+#: themes/contrib/gent_base/gent_base.theme:365
 msgid "There is 1 other document available"
 msgstr "Er is 1 ander document beschikbaar"
 
-#: themes/contrib/gent_base/gent_base.theme:375
+#: themes/contrib/gent_base/gent_base.theme:368
 msgid "There are @count other documents available"
 msgstr "Er zijn @count andere documenten beschikbaar"
 
-#: themes/contrib/gent_base/gent_base.theme:418
+#: themes/contrib/gent_base/gent_base.theme:394
+msgid "There is 1 other contact available"
+msgstr "Er is 1 ander contact beschikbaar"
+
+#: themes/contrib/gent_base/gent_base.theme:397
+msgid "There are @count other contacts available"
+msgstr "Er zijn @count andere contacten beschikbaar"
+
+#: themes/contrib/gent_base/gent_base.theme:450
 msgid "Posted on @date"
 msgstr "Gepost op @date"
 
-#: themes/contrib/gent_base/gent_base.theme:425
+#: themes/contrib/gent_base/gent_base.theme:457
 msgid "Last changed: @date"
 msgstr "Laatst gewijzigd: @date"
 
@@ -128,54 +132,54 @@ msgstr "Toon op kaart"
 msgid "Chat with Gentinfo"
 msgstr "Chat met Gentinfo"
 
-#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:37
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:38
 msgid "From here you can..."
 msgstr "Vanaf hier kan u…"
 
-#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:40
-#: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:67
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:41
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:68
 msgid "Return to the"
 msgstr "Terugkeren naar de"
 
-#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:40
-#: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:67
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:41
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:68
 msgid "homepage"
 msgstr "homepagina"
 
-#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:41
-#: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:68
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:42
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:69
 msgid "Use the back button of your browser"
 msgstr "De terugknop van uw browser gebruiken"
 
-#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:42
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:43
 msgid "Or notify us of the page through the"
 msgstr "Of ons de pagina melden via het"
 
-#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:42
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:43
 msgid "contact form"
 msgstr "contactformulier"
 
-#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:45
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:46
 msgid "Are you looking for another page?"
 msgstr "Zoekt u een andere pagina?"
 
-#: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:34
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:35
 msgid "How can we help you further?"
 msgstr "Hoe kunnen we u verder helpen?"
 
-#: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:38
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:39
 msgid "1. Maybe you were looking for this?"
 msgstr "1. Misschien was u hiernaar op zoek?"
 
-#: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:51
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:52
 msgid "2. Try to find the page through our search function"
 msgstr "2. Probeer de pagina te vinden via onze zoekfunctie"
 
-#: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:64
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:65
 msgid "3. Continue to navigate from here?"
 msgstr "3. Verder navigeren vanaf hier?"
 
-#: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:65
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:66
 msgid "This can be done in several ways:"
 msgstr "Dat kan op verschillende manieren:"
 
@@ -191,7 +195,7 @@ msgstr "Tekstopmaken"
 msgid "Watch this video with audio descripiton"
 msgstr "Bekijk deze video met audiodescriptie"
 
-#: themes/contrib/gent_base/templates/core/fields/field--paragraph--field-image.html.twig:64
+#: themes/contrib/gent_base/templates/core/fields/field--paragraph--field-image.html.twig:65
 msgid "Show all photos"
 msgstr "Bekijk alle foto's"
 
@@ -201,26 +205,30 @@ msgid "Optional"
 msgstr "Optioneel"
 
 #: themes/contrib/gent_base/templates/core/form/form.html.twig:14
-msgid "Fill in all fields unless otherwise stated"
-msgstr "Vul alle velden in tenzij anders gespecificeerd"
+msgid "Fill in all fields unless otherwise stated."
+msgstr "Vul alle velden in tenzij anders vermeld."
 
 #: themes/contrib/gent_base/templates/core/layout/html.html.twig:64
 msgid "Skip to main content"
 msgstr "Overslaan en naar de inhoud gaan"
 
-#: themes/contrib/gent_base/templates/core/layout/page.html.twig:87
+#: themes/contrib/gent_base/templates/core/layout/page.html.twig:89
+msgid "Theme footer"
+msgstr "Thema footer"
+
+#: themes/contrib/gent_base/templates/core/layout/page.html.twig:106
 msgid "Footer"
 msgstr "Voet"
 
-#: themes/contrib/gent_base/templates/core/layout/page.html.twig:112
+#: themes/contrib/gent_base/templates/core/layout/page.html.twig:131
 msgid "In cooperation with"
 msgstr "In samenwerking met"
 
-#: themes/contrib/gent_base/templates/core/layout/page.html.twig:121
+#: themes/contrib/gent_base/templates/core/layout/page.html.twig:140
 msgid "Follow Stad Gent on social media"
 msgstr "Volg Stad Gent op sociale media"
 
-#: themes/contrib/gent_base/templates/core/layout/page.html.twig:162
+#: themes/contrib/gent_base/templates/core/layout/page.html.twig:183
 msgid "open gallery"
 msgstr "galerij openen"
 
@@ -228,40 +236,129 @@ msgstr "galerij openen"
 msgid "Breadcrumb"
 msgstr "Kruimelpad"
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:98
-#: themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:16
+#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:34
+msgid "Pagination"
+msgstr "Paginatie"
+
+#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:39
+msgid "Go to previous page"
+msgstr "Ga naar de vorige pagina"
+
+#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:40
+msgid "Previous page"
+msgstr "Vorige pagina"
+
+#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:41
+msgid "Previous"
+msgstr "Vorige"
+
+#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:48
+msgid "Go to first page"
+msgstr "Ga naar de eerste pagina"
+
+#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:49
+msgid "First page"
+msgstr "Eerste pagina"
+
+#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:82
+msgid "Go to last page"
+msgstr "Ga naar de laatste pagina"
+
+#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:83
+msgid "Last page"
+msgstr "Laatste pagina"
+
+#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:91
+msgid "Go to next page"
+msgstr "Ga naar de volgende pagina"
+
+#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:92
+msgid "Next page"
+msgstr "Volgende pagina"
+
+#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:93
+msgid "Next"
+msgstr "Volgende"
+
+#: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:15
+msgid "Can we improve something about this page?"
+msgstr "Kunnen we iets verbeteren aan deze pagina?"
+
+#: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:17
+msgid "You can contact Gentinfo for personal questions or complaints."
+msgstr "Voor persoonlijke vragen of klachten kan u terecht bij Gentinfo."
+
+#: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:19
+msgid "How to reach?"
+msgstr "Hoe bereiken?"
+
+#: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:22
+msgid ""
+"By phone: <a href=\":tel\">09 210 10 10</a> (from monday till saturday from "
+"08:00 till 19:00)"
+msgstr ""
+"Telefonisch: <a href=\":tel\">09 210 10 10</a> (van maandag t.e.m. zaterdag "
+"van 08:00 tot 19:00 uur)"
+
+#: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:23
+msgid "Send us an <a href=\":url\">email</a>"
+msgstr "Stuur ons een <a href=\":url\">e-mail</a>"
+
+#: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:24
+msgid ""
+"Through the <a href=\":url\">Twitter account</a> of the City of Gent (<a "
+"href=\":url\">@StadGent</a>)"
+msgstr ""
+"Via de <a href=\":url\">Twitter-account</a> van Stad Gent (<a href=\":url"
+"\">@StadGent</a>)"
+
+#: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:25
+msgid "Through the <a href=\":url\">contact form</a>"
+msgstr "Via het <a href=\":url\">contactformulier</a>"
+
+#: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:26
+msgid "Through the <a href=\":url\">chat</a>"
+msgstr "Via de <a href=\":url\">chat</a>"
+
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:105
+msgid "Contact"
+msgstr "Contact"
+
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:110
+msgid "Contacts"
+msgstr "Contacten"
+
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:117
+msgid "Location"
+msgstr "Locatie"
+
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:119
+msgid "Authorized persons"
+msgstr "Bevoegde personen"
+
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:128
 msgid "Documents"
 msgstr "Documenten"
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:105
-#: themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:23
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:136
 msgid "Also interesting"
 msgstr "Ook nog interessant"
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:109
-#: themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:27
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:140
 msgid "Similar articles"
 msgstr "Vergelijkbare artikels"
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:116
-#: themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:34
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:147
 msgid "More info about"
 msgstr "Bekijk meer over"
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:120
-#: themes/contrib/gent_base/templates/custom/nodes/node--infopage--full.html.twig:38
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:152
 msgid "Related Linked Open Data"
 msgstr "Gerelateerde Linked Open Data"
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:129
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:163
 msgid "More news and events"
 msgstr "Meer nieuws en evenementen"
 
-#~ msgid "Last changed"
-#~ msgstr "Laatst gewijzigd"
-
-#~ msgid "There is"
-#~ msgstr "Er is nog"
-
-#~ msgid "There are"
-#~ msgstr "Er zijn nog"
+#~ msgid "T: @phone"
+#~ msgstr "T: @phone"
