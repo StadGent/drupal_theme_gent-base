@@ -23,6 +23,8 @@ function gent_base_is_view_mode($key) {
 /**
  * Helper function to get generate a placeholder teaser.
  *
+ * @param mixed $teaser_image
+ *   The teaser image field of the content type.
  * @param string $image_style
  *   The image style to be applied to the placeholder image.
  * @param string $placeholder
