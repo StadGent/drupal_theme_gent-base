@@ -101,6 +101,30 @@
 
 <aside class="top">
   {% block article_aside_top %}
+    {% if content.field_contacts|render|striptags|trim is not empty or content.field_responsible_person|render|striptags|trim is not empty %}
+      <div class="contact-box accordion">
+        <h2>{{ 'Contact'|t }}</h2>
+
+        <div class="contact-box--header">
+          {% if content.field_contacts|render|striptags|trim is not empty %}
+            <div class="contact-box-column">
+              <h3>{{ 'Contacts'|t }}</h3>
+              {{ content.field_contacts }}
+            </div>
+          {% endif %}
+
+          {% if content.field_responsible_person|render|striptags|trim is not empty %}
+            <div class="contact-box-column">
+              <h3>{{ 'Location'|t }}</h3>
+              <p class="">Map stub</p>
+              <h3>{{ 'Authorized persons'|t }}</h3>
+              {{ content.field_responsible_person }}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+
     {% if content.field_documents|render|striptags|trim is not empty %}
       <div class="document-box accordion">
         <h2>{{ 'Documents'|t }}</h2>

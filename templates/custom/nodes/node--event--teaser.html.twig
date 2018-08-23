@@ -98,11 +98,11 @@
         </div>
       {% endif %}
 
-      {{ content|without('field_header_image', 'og_audience', 'field_event_date') }}
+      {{ content|without('field_teaser_image', 'og_audience', 'field_event_date') }}
     </div>
 
     <div class="content__top">
-      {{ content.field_header_image }}
+      {{ content.field_teaser_image }}
       {{ content.og_audience }}
     </div>
 
