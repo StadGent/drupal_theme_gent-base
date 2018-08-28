@@ -98,7 +98,13 @@
     </div>
 
     <div class="content__top">
-      {{ content.field_teaser_image }}
+      <div class="image-wrapper">
+        <figure>
+          {% if content.field_event_location|render|striptags|trim is not empty %}
+            {{ content.field_teaser_image }}
+          {% endif %}
+        </figure>
+      </div>
       {{ content.og_audience }}
     </div>
 
