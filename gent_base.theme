@@ -456,20 +456,6 @@ function gent_base_preprocess_node(&$variables) {
   $created = $node->getCreatedTime();
   $changed = $node->getChangedTime();
 
-  $renderCreated = [
-    '#markup' => t('Posted on @date', [
-      '@date' => \Drupal::service('date.formatter')->format($created, 'custom', 'l j F Y'),
-    ]),
-  ];
-  $variables['date'] = \Drupal::service('renderer')->render($renderCreated);
-
-  $renderChanged = [
-    '#markup' => t('Last changed: @date', [
-      '@date' => \Drupal::service('date.formatter')->format($changed, 'custom', 'l j F Y - H:i '),
-    ]),
-  ];
-  $variables['dateChanged'] = \Drupal::service('renderer')->render($renderChanged);
-
   // Set datetime attributes on "Submitted on" label.
   $variables['author_attributes']->setAttribute('datetime', \Drupal::service('date.formatter')
     ->format($created, 'custom', 'c'));
@@ -479,6 +465,10 @@ function gent_base_preprocess_node(&$variables) {
   if (isset($variables['view_mode']) && $variables['view_mode'] === 'full') {
     $variables['attributes']['class'][] = 'detail-layout';
   }
+
+  // Set theming variables.
+  $variables['date'] = $created;
+  $variables['dateChanged'] = $changed;
 
   // Render contact title as link.
   if ($node->getType() == 'contact') {

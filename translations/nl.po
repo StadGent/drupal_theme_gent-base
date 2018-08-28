@@ -29,8 +29,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2018-08-16 09:40+0000\n"
-"PO-Revision-Date: 2018-08-16 11:41+0200\n"
+"POT-Creation-Date: 2018-08-28 14:38+0000\n"
+"PO-Revision-Date: 2018-08-28 16:39+0200\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
 "Language: nl\n"
@@ -80,21 +80,13 @@ msgstr "Er is 1 ander document beschikbaar"
 msgid "There are @count other documents available"
 msgstr "Er zijn @count andere documenten beschikbaar"
 
-#: themes/contrib/gent_base/gent_base.theme:394
+#: themes/contrib/gent_base/gent_base.theme:395
 msgid "There is 1 other contact available"
 msgstr "Er is 1 ander contact beschikbaar"
 
-#: themes/contrib/gent_base/gent_base.theme:397
+#: themes/contrib/gent_base/gent_base.theme:398
 msgid "There are @count other contacts available"
 msgstr "Er zijn @count andere contacten beschikbaar"
-
-#: themes/contrib/gent_base/gent_base.theme:450
-msgid "Posted on @date"
-msgstr "Gepost op @date"
-
-#: themes/contrib/gent_base/gent_base.theme:457
-msgid "Last changed: @date"
-msgstr "Laatst gewijzigd: @date"
 
 #: themes/contrib/gent_base/gent_base.info.yml:0
 msgid "Gent Base"
@@ -240,43 +232,43 @@ msgstr "Kruimelpad"
 msgid "Pagination"
 msgstr "Paginatie"
 
-#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:39
+#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:41
 msgid "Go to previous page"
 msgstr "Ga naar de vorige pagina"
 
-#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:40
+#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:42
 msgid "Previous page"
 msgstr "Vorige pagina"
 
-#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:41
+#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:43
 msgid "Previous"
 msgstr "Vorige"
 
-#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:48
+#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:50
 msgid "Go to first page"
 msgstr "Ga naar de eerste pagina"
 
-#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:49
+#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:51
 msgid "First page"
 msgstr "Eerste pagina"
 
-#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:82
+#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:84
 msgid "Go to last page"
 msgstr "Ga naar de laatste pagina"
 
-#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:83
+#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:85
 msgid "Last page"
 msgstr "Laatste pagina"
 
-#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:91
+#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:93
 msgid "Go to next page"
 msgstr "Ga naar de volgende pagina"
 
-#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:92
+#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:94
 msgid "Next page"
 msgstr "Volgende pagina"
 
-#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:93
+#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:95
 msgid "Next"
 msgstr "Volgende"
 
@@ -320,45 +312,54 @@ msgstr "Via het <a href=\":url\">contactformulier</a>"
 msgid "Through the <a href=\":url\">chat</a>"
 msgstr "Via de <a href=\":url\">chat</a>"
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:105
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:106
 msgid "Contact"
 msgstr "Contact"
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:110
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:111
 msgid "Contacts"
 msgstr "Contacten"
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:117
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:118
 msgid "Location"
 msgstr "Locatie"
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:119
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:120
 msgid "Authorized persons"
 msgstr "Bevoegde personen"
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:128
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:130
 msgid "Documents"
 msgstr "Documenten"
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:136
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:138
 msgid "Also interesting"
 msgstr "Ook nog interessant"
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:140
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:142
 msgid "Similar articles"
 msgstr "Vergelijkbare artikels"
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:147
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:149
 msgid "More info about"
 msgstr "Bekijk meer over"
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:152
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:154
 msgid "Related Linked Open Data"
 msgstr "Gerelateerde Linked Open Data"
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:163
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:165
 msgid "More news and events"
 msgstr "Meer nieuws en evenementen"
+
+#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:42
+#: themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:6
+msgid "Last changed"
+msgstr "Laatst gewijzigd"
+
+#: themes/contrib/gent_base/templates/custom/nodes/node--news--teaser.html.twig:93
+msgid "Posted on"
+msgstr "Gepost op"
 
 #~ msgid "T: @phone"
 #~ msgstr "T: @phone"
