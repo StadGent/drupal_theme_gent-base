@@ -90,7 +90,7 @@
 
       {% if display_submitted %}
         <time{{ author_attributes.addClass('published') }}>
-          {{ date }}
+          {{ 'Posted on '|t }}{{ date|dg_format_date('text') }}
         </time>
       {% endif %}
 
