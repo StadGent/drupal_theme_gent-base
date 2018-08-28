@@ -103,11 +103,11 @@
 
     <div class="content__top">
       <div class="image-wrapper">
-        <figure>
-          {% if content.field_teaser_image is not empty %}
+        {% if content.field_teaser_image|render is not empty %}
+          <figure>
             {{ content.field_teaser_image }}
-          {% endif %}
-        </figure>
+          </figure>
+        {% endif %}
       </div>
       {{ content.og_audience }}
     </div>
