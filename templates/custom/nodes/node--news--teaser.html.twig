@@ -98,13 +98,11 @@
     </div>
 
     <div class="content__top">
-      <div class="image-wrapper">
-        {% if content.field_teaser_image|render is not empty %}
-          <figure>
-            {{ content.field_teaser_image }}
-          </figure>
-        {% endif %}
-      </div>
+      <figure>
+        <div class="image-wrapper">
+          {{ content.field_teaser_image }}
+        </div>
+      </figure>
       {{ content.og_audience }}
     </div>
 
