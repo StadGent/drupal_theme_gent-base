@@ -30,7 +30,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2018-08-16 09:40+0000\n"
+"POT-Creation-Date: 2018-08-29 09:15+0000\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -56,38 +56,46 @@ msgid "Fill in the color scheme class to be used in your project, leave empty fo
 msgstr ""
 
 #: themes/contrib/gent_base/theme-settings.php:36
+msgid "Style guide color scheme primary HEX color"
+msgstr ""
+
+#: themes/contrib/gent_base/theme-settings.php:39
+msgid "Fill in the color scheme primary HEX color to be used in your project, leave empty for the default color scheme. This setting is only used for displaying the favicon correctly on Android + Windows phones and Apple's Touch Bar enabled computers."
+msgstr ""
+
+#: themes/contrib/gent_base/theme-settings.php:44
 msgid "Adobe Typekit-ID"
 msgstr ""
 
-#: themes/contrib/gent_base/theme-settings.php:38
+#: themes/contrib/gent_base/theme-settings.php:46
 msgid "Fill in the Adobe Typekit-ID to be used in your project."
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:329
+#: themes/contrib/gent_base/gent_base.theme:332
 msgid "timeline"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:365
+#: themes/contrib/gent_base/gent_base.theme:368
 msgid "There is 1 other document available"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:368
+#: themes/contrib/gent_base/gent_base.theme:371
 msgid "There are @count other documents available"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:394
+#: themes/contrib/gent_base/gent_base.theme:398
 msgid "There is 1 other contact available"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:397
+#: themes/contrib/gent_base/gent_base.theme:401
 msgid "There are @count other contacts available"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:450
+#: themes/contrib/gent_base/gent_base.theme:463
 msgid "Posted on @date"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:457
+#: themes/contrib/gent_base/gent_base.theme:470
 msgid "Last changed: @date"
 msgstr ""
 
@@ -231,43 +239,43 @@ msgstr ""
 msgid "Pagination"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:39
+#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:41
 msgid "Go to previous page"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:40
+#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:42
 msgid "Previous page"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:41
+#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:43
 msgid "Previous"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:48
+#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:50
 msgid "Go to first page"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:49
+#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:51
 msgid "First page"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:82
+#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:84
 msgid "Go to last page"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:83
+#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:85
 msgid "Last page"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:91
+#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:93
 msgid "Go to next page"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:92
+#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:94
 msgid "Next page"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:93
+#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:95
 msgid "Next"
 msgstr ""
 
@@ -303,43 +311,43 @@ msgstr ""
 msgid "Through the <a href=\":url\">chat</a>"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:105
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:106
 msgid "Contact"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:110
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:111
 msgid "Contacts"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:117
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:118
 msgid "Location"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:119
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:120
 msgid "Authorized persons"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:128
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:130
 msgid "Documents"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:136
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:138
 msgid "Also interesting"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:140
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:142
 msgid "Similar articles"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:147
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:149
 msgid "More info about"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:152
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:154
 msgid "Related Linked Open Data"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:163
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:165
 msgid "More news and events"
 msgstr ""
 

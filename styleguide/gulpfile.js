@@ -1,14 +1,14 @@
-/* eslint-disable no-console */
+/** eslint-disable no-console */
 'use strict';
 
-/*
-* Node core modules.
-*/
+/**
+ * Node core modules.
+ */
 const fs = require('fs');
 
-/*
-* NPM based modules
-*/
+/**
+ * NPM based modules
+ */
 const gulp = require('gulp');
 const sass = require('gulp-sass');
 const sassGlob = require('gulp-sass-glob');
@@ -17,6 +17,8 @@ const sassLint = require('gulp-sass-lint');
 const sassdoc = require('sassdoc');
 const autoprefixer = require('gulp-autoprefixer');
 const cssnano = require('gulp-cssnano');
+const postcss = require('gulp-postcss');
+const calc = require('postcss-calc');
 const rename = require('gulp-rename');
 const eslint = require('gulp-eslint');
 const imagemin = require('gulp-imagemin');
@@ -34,22 +36,23 @@ const gulpif = require('gulp-if');
 const babel = require('gulp-babel');
 const Color = require('color');
 const RecolorSvg = require('gulp-recolor-svg');
-// require our configurated fractal module
+const realFavicon = require('gulp-real-favicon');
+// require our configurated fractal module.
 const fractal = require('./fractal');
 
 let build = false;
 
-/*
-* Get the sassFiles.
-*/
+/**
+ * Get the sassFiles.
+ */
 const _sassFiles = () => {
   return gulp.src('components/**/*.s+(a|c)ss')
     .pipe(sassGlob());
 };
 
-/*
-* Return a sass Compile stream
-*/
+/**
+ * Return a sass Compile stream
+ */
 const _sassCompile = () => {
   const combined = combiner.obj([
     sass({
@@ -68,17 +71,28 @@ const _sassCompile = () => {
   return combined;
 };
 
-/*
-* Get the spotimages map.
-*/
-const _spotimagesMap = () => {
-  // require colors
+/**
+ * Get color map.
+ */
+const _getColors = () => {
   const colors = require('./components/11-base/colors/colors.config.js');
   if (!colors) {
     return [];
   }
 
-  const colormap = colors.context.secondary;
+  return colors.context.secondary;
+};
+
+/**
+ * Get the spotimages map.
+ */
+const _spotimagesMap = () => {
+  // require colors
+  const colormap = _getColors();
+  if (!colormap) {
+    return [];
+  }
+
   let map = [{
     suffix: '--cyan',
     colors: [Color('#009DE0')]
@@ -96,10 +110,8 @@ const _spotimagesMap = () => {
   return map;
 };
 
-/*
- *
+/**
  * Inject SASS partial paths as imports in main_cli.scss.
- *
  */
 gulp.task('styles:inject', () => {
   const injectSettingsFiles = gulp.src('components/00-settings/**/*.s+(a|c)ss', {read: false});
@@ -182,8 +194,7 @@ gulp.task('styles:inject', () => {
     .pipe(gulp.dest('components/'));
 });
 
-/*
- *
+/**
  * Development settings of your styles.
  * Includes:
  *  Sass globbing
@@ -192,37 +203,60 @@ gulp.task('styles:inject', () => {
  *  Autoprefixer
  */
 gulp.task('styles:dist', () => {
+  var plugins = [
+    calc()
+  ];
+
   return _sassFiles()
     .pipe(sourcemaps.init())
     .pipe(_sassCompile())
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest('./public/css/'));
+    .pipe(gulp.dest('./public/css/'))
+    .pipe(gulp.src('public/css/main.css'))
+    .pipe(postcss(plugins))
+    .pipe(gulp.dest('public/css'));
 });
 
-/*
- *
+/**
  * Build settings for your styles.
  * Includes:
  *  Sass globbing
  *  Sass
  *  Autoprefixer
  *  CSS nano
- *
  */
 gulp.task('styles:build', () => {
   return _sassFiles()
     .pipe(_sassCompile())
     .pipe(cssnano())
-    .pipe(gulp.dest('./build/css/'));
+    .pipe(gulp.dest('build/css/'));
 });
 
-/*
- *
+gulp.task('styles:postcss:build', () => {
+  var plugins = [
+    calc()
+  ];
+
+  return gulp.src('build/css/main.css')
+    .pipe(postcss(plugins))
+    .pipe(gulp.dest('build/css'));
+});
+
+gulp.task('styles:postcss:dist', () => {
+  var plugins = [
+    calc()
+  ];
+
+  return gulp.src('public/css/main.css')
+    .pipe(postcss(plugins))
+    .pipe(gulp.dest('public/css'));
+});
+
+/**
  * Validate SCSS files.
  * Includes:
  *  Sass globbing
  *  SassLint
- *
  */
 gulp.task('styles:validate', () => {
   return _sassFiles()
@@ -234,13 +268,11 @@ gulp.task('styles:validate', () => {
     .pipe(sassLint.format());
 });
 
-/*
- *
+/**
  * Watch SCSS files For Changes.
  * Includes:
  *  Styles:validate
  *  Styles:dist
- *
  */
 gulp.task('styles:watch', () => {
   return gulp.watch('./components/**/*.scss', gulp.parallel(
@@ -250,20 +282,16 @@ gulp.task('styles:watch', () => {
   ));
 });
 
-/*
- *
+/**
  * Extract SCSS from the components folder.
- *
  */
 gulp.task('styles:extract', () => {
   return _sassFiles()
     .pipe(gulp.dest('./build/styleguide/sass/'));
 });
 
-/*
- *
+/**
  * Copy JS files during development.
- *
  */
 gulp.task('js:dist', () => {
   return gulp.src(['components/**/*.js', '!components/**/*.config.js'])
@@ -277,12 +305,10 @@ gulp.task('js:dist', () => {
     .pipe(gulp.dest('./public/styleguide/js/'));
 });
 
-/*
- *
+/**
  * Copy JS files during Fractal build.
  * Inlcudes:
  *  minify
- *
  */
 gulp.task('js:build', gulp.parallel(
   () => {
@@ -305,10 +331,8 @@ gulp.task('js:build', gulp.parallel(
       .pipe(gulp.dest('./build/styleguide/js/'));
   }));
 
-/*
- *
+/**
  * Validate JS files.
- *
  */
 gulp.task('js:validate', () => {
   return gulp.src('components/**/*.js')
@@ -320,10 +344,8 @@ gulp.task('js:validate', () => {
     .pipe(eslint.failAfterError());
 });
 
-/*
- *
+/**
  * Watch JS files For Changes.
- *
  */
 gulp.task('js:watch', () => {
   return gulp.watch('./components/**/*.js', gulp.parallel('js:validate', 'js:dist'));
@@ -331,10 +353,8 @@ gulp.task('js:watch', () => {
 
 // Todo where do we store images, what is their destination?
 // this does not seem correct
-/*
- *
+/**
  * Minify images.
- *
  */
 gulp.task('images:minify', () => {
   return gulp.src([
@@ -348,7 +368,7 @@ gulp.task('images:minify', () => {
     .pipe(gulp.dest('build/styleguide/sass'));
 });
 
-/*
+/**
  * Start the Fractal server
  *
  * In this example we are passing the option 'sync: true' which means that it will
@@ -368,7 +388,7 @@ gulp.task('fractal:start', () => {
   }).catch(() => logger.error('Fractal server failed to start'));
 });
 
-/*
+/**
  * Run a static export of the project web UI.
  *
  * This task will report on progress using the 'progress' event emitted by the
@@ -387,7 +407,7 @@ gulp.task('fractal:build', () => {
   }).catch(() => logger.error('Fractal server failed to start'));
 });
 
-/*
+/**
  * Publish to the NPM public registry.
  */
 gulp.task('publish:npm', (callback) => {
@@ -470,7 +490,7 @@ gulp.task('publish:npm', (callback) => {
   });
 });
 
-/*
+/**
  * Bump the version number of the package.
  */
 gulp.task('bump', () => {
@@ -496,7 +516,7 @@ gulp.task('bump', () => {
     .pipe(gulp.dest('./'));
 });
 
-/*
+/**
  * Test the style guide components for accessibility issues.
  *   - wcag2a
  *   - wcag2aa
@@ -570,12 +590,10 @@ gulp.task('axe', function (done) {
 });
 
 /**
- *
  * Create an iconfont based on SVG files.
  *
  * Usage:
  *  gulp iconfont
- *
  */
 gulp.task('iconfont', () => {
   const fontName = 'gent-icons';
@@ -594,9 +612,9 @@ gulp.task('iconfont', () => {
       normalize: true,
       fontHeight: 1001,
       formats: ['ttf', 'eot', 'woff', 'svg', 'woff2'], // default, 'woff2' and
-                                                       // 'svg' are available
+      // 'svg' are available
       timestamp: runTimestamp // recommended to get consistent builds when
-                              // watching files
+      // watching files
     }))
     .on('glyphs', function (glyphs, options) {
       // CSS templating, e.g.
@@ -605,6 +623,12 @@ gulp.task('iconfont', () => {
     .pipe(gulp.dest('./public/styleguide/fonts/'));
 });
 
+/**
+ * Create spotiamges.
+ *
+ * Usage:
+ *   gulp spotimages
+ */
 gulp.task('spotimages', () => {
   return gulp.src('./public/styleguide/img/svg/*.svg')
     .pipe(RecolorSvg.GenerateVariants(
@@ -612,6 +636,118 @@ gulp.task('spotimages', () => {
       _spotimagesMap()
     ))
     .pipe(gulp.dest('./public/styleguide/img/svg/build'));
+});
+
+/**
+ * Create base favicons.
+ *
+ * Usage:
+ *   gulp favicon:prebuild
+ */
+gulp.task('favicon:prebuild', () => {
+  return gulp.src('./public/styleguide/img/favicon/favicon.svg')
+    .pipe(RecolorSvg.GenerateVariants(
+      [RecolorSvg.ColorMatcher(Color('#009DE0'))],
+      _spotimagesMap()
+    ))
+    .pipe(gulp.dest('./public/styleguide/img/favicon/build'));
+});
+
+/**
+ * Build favicons viarants for multpile OS.
+ *
+ * Usage:
+ *   gulp favicon:build
+ */
+gulp.task('favicon:build', (done) => {
+  const colormap = _getColors();
+  if (!colormap) {
+    return;
+  }
+
+  let map = [{
+    folder: 'cyan',
+    color: '#009DE0'
+  }];
+
+  for (const cs in colormap) {
+    if (colormap.hasOwnProperty(cs)) {
+      map.push({
+        folder: cs,
+        color: colormap[cs]
+      });
+    }
+  }
+
+  for (const key in map) {
+    if (map.hasOwnProperty(key)) {
+      realFavicon.generateFavicon({
+        masterPicture: './public/styleguide/img/favicon/build/favicon--' + map[key].folder + '.svg',
+        dest: './public/styleguide/img/favicon/build/' + map[key].folder + '/',
+        iconsPath: '/',
+        design: {
+          ios: {
+            pictureAspect: 'backgroundAndMargin',
+            backgroundColor: map[key].color,
+            margin: '14%',
+            assets: {
+              ios6AndPriorIcons: false,
+              ios7AndLaterIcons: false,
+              precomposedIcons: false,
+              declareOnlyDefaultIcon: true
+            }
+          },
+          desktopBrowser: {},
+          windows: {
+            masterPicture: './public/styleguide/img/favicon/favicon-blank.svg',
+            pictureAspect: 'noChange',
+            backgroundColor: map[key].color,
+            onConflict: 'override',
+            assets: {
+              windows80Ie10Tile: false,
+              windows10Ie11EdgeTiles: {
+                small: true,
+                medium: true,
+                big: true,
+                rectangle: false
+              }
+            }
+          },
+          androidChrome: {
+            pictureAspect: 'backgroundAndMargin',
+            margin: '8%',
+            backgroundColor: map[key].color,
+            themeColor: map[key].color,
+            manifest: {
+              display: 'standalone',
+              orientation: 'notSet',
+              onConflict: 'override',
+              declared: true
+            },
+            assets: {
+              legacyIcon: false,
+              lowResolutionIcons: false
+            }
+          },
+          safariPinnedTab: {
+            masterPicture: './public/styleguide/img/favicon/favicon-blank.svg',
+            pictureAspect: 'silhouette',
+            themeColor: map[key].color
+          }
+        },
+        settings: {
+          scalingAlgorithm: 'Mitchell',
+          errorOnImageTooSmall: false,
+          readmeFile: false,
+          htmlCodeFile: false,
+          usePathAsIs: false
+        },
+        markupFile: './public/styleguide/img/favicon/build/buffer.json'
+      }, () => {
+        done();
+      });
+    }
+  }
 });
 
 /**
@@ -626,32 +762,39 @@ gulp.task('sassdoc', () => {
     }));
 });
 
-/*
- *
+/**
  * Default tasks:
  * Usage:
  *  gulp
  *  gulp watch
  *
  * Used for local development to compile and validate after every change.
- *
  */
 gulp.task('default', gulp.series('fractal:start', gulp.parallel('styles:watch', 'js:watch')));
 gulp.task('watch', gulp.parallel('default'));
 
-/*
+/**
+ * Helper task:
+ * Usage:
+ *   gulp favicon:prebuild
+ *   gulp favicon:build
  *
+ * Helper task to build the sub themes favicons.
+ *
+ * TODO: Add this task to the compile commands when our build server supports the realfavicongenerator.net API.
+ */
+gulp.task('favicon', gulp.series('favicon:prebuild', 'favicon:build'));
+
+/**
  * Validate task:
  * Usage:
  *  gulp validate
  *
  *  Used to only validate the SCSS and JS code.
- *
  */
 gulp.task('validate', gulp.parallel('styles:validate', 'js:validate', 'axe'), callback => callback());
 
-/*
- *
+/**
  * Compile task:
  * Usage:
  *  gulp compile
@@ -659,7 +802,6 @@ gulp.task('validate', gulp.parallel('styles:validate', 'js:validate', 'axe'), ca
  *  Add sourcemaps to the CSS files.
  *
  *  Used to compile production ready SCSS and JS code.
- *
  */
 gulp.task('compile', gulp.series(
   gulp.parallel(
@@ -676,6 +818,10 @@ gulp.task('compile', gulp.series(
     'js:dist',
     'images:minify'
   ),
+  gulp.series(
+    'styles:postcss:dist',
+    'styles:postcss:build'
+  ),
   'styles:extract'
 ), callback => callback());
 
@@ -690,17 +836,16 @@ gulp.task('compile:dev', gulp.series(
     'sassdoc',
     'js:dist',
     'images:minify'
-  )
+  ),
+  'styles:postcss:dist'
 ));
 
-/*
- *
+/**
  * Build task:
  * Usage:
  *  gulp build
  *
  *  Used to validate and build production ready code.
- *
  */
 gulp.task('build', gulp.series((callback) => {
   // set env variable to be used in gulp-if
@@ -711,13 +856,11 @@ gulp.task('build', gulp.series((callback) => {
   callback();
 }));
 
-/*
- *
+/**
  * Publish task:
  * Usage:
  *  gulp publish
  *
  *  Used to publish to the public NPM registry.
- *
  */
 gulp.task('publish', gulp.parallel('publish:npm'));

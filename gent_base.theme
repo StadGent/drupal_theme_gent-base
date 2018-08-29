@@ -118,8 +118,11 @@ function gent_base_preprocess_dg_auth_block(&$variables) {
 function gent_base_preprocess_html(&$variables) {
   $variables['typekit_id'] = theme_get_setting('typekit_id');
 
-  $color_scheme = (theme_get_setting('color_scheme')) ? theme_get_setting('color_scheme') : 'cyan';
-  $variables['attributes']['class'][] = 'cs--' . $color_scheme;
+  $color = (theme_get_setting('color_scheme')) ? theme_get_setting('color_scheme') : 'cyan';
+  $variables['cs']['color'] = $color;
+
+  $hex = (theme_get_setting('color_scheme_hex')) ? theme_get_setting('color_scheme_hex') : '009DE0';
+  $variables['cs']['hex'] = '#' . $hex;
 }
 
 /**
@@ -456,20 +459,6 @@ function gent_base_preprocess_node(&$variables) {
   $created = $node->getCreatedTime();
   $changed = $node->getChangedTime();
 
-  $renderCreated = [
-    '#markup' => t('Posted on @date', [
-      '@date' => \Drupal::service('date.formatter')->format($created, 'custom', 'l j F Y'),
-    ]),
-  ];
-  $variables['date'] = \Drupal::service('renderer')->render($renderCreated);
-
-  $renderChanged = [
-    '#markup' => t('Last changed: @date', [
-      '@date' => \Drupal::service('date.formatter')->format($changed, 'custom', 'l j F Y - H:i '),
-    ]),
-  ];
-  $variables['dateChanged'] = \Drupal::service('renderer')->render($renderChanged);
-
   // Set datetime attributes on "Submitted on" label.
   $variables['author_attributes']->setAttribute('datetime', \Drupal::service('date.formatter')
     ->format($created, 'custom', 'c'));
@@ -479,6 +468,10 @@ function gent_base_preprocess_node(&$variables) {
   if (isset($variables['view_mode']) && $variables['view_mode'] === 'full') {
     $variables['attributes']['class'][] = 'detail-layout';
   }
+
+  // Set theming variables.
+  $variables['date'] = $created;
+  $variables['dateChanged'] = $changed;
 
   // Render contact title as link.
   if ($node->getType() == 'contact') {
@@ -725,18 +718,4 @@ function gent_base_preprocess_pager(&$variables) {
   // Add hardcode first and last text.
   $variables['items']['first']['text'] = '1';
   $variables['items']['last']['text'] = $total;
-}
-
-/**
- * Implements hook_preprocess_HOOK().
- */
-function gent_base_preprocess_node__news__teaser(&$variables) {
-  _gent_base_generate_placeholder_image($variables['content']['field_teaser_image']);
-}
-
-/**
- * Implements hook_preprocess_HOOK().
- */
-function gent_base_preprocess_node__event__teaser(&$variables) {
-  _gent_base_generate_placeholder_image($variables['content']['field_teaser_image']);
 }

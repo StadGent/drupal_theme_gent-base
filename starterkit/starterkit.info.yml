@@ -5,9 +5,10 @@ package: Gent
 core: 8.x
 libraries:
   - starterkit/global-styling
-
+# Unset all theming features.
+features:
+  -
 base theme: gent_base
-
 regions:
   admin: Administration header
   header_top: Header top
