@@ -25,15 +25,12 @@
 #  themes/contrib/gent_base/templates/core/navigation/pager.html.twig: n/a
 #  themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig: n/a
 #  themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig: n/a
-#  themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig: n/a
-#  themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig: n/a
-#  themes/contrib/gent_base/templates/custom/nodes/node--news--teaser.html.twig: n/a
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2018-08-28 14:38+0000\n"
+"POT-Creation-Date: 2018-08-29 09:15+0000\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -59,31 +56,47 @@ msgid "Fill in the color scheme class to be used in your project, leave empty fo
 msgstr ""
 
 #: themes/contrib/gent_base/theme-settings.php:36
+msgid "Style guide color scheme primary HEX color"
+msgstr ""
+
+#: themes/contrib/gent_base/theme-settings.php:39
+msgid "Fill in the color scheme primary HEX color to be used in your project, leave empty for the default color scheme. This setting is only used for displaying the favicon correctly on Android + Windows phones and Apple's Touch Bar enabled computers."
+msgstr ""
+
+#: themes/contrib/gent_base/theme-settings.php:44
 msgid "Adobe Typekit-ID"
 msgstr ""
 
-#: themes/contrib/gent_base/theme-settings.php:38
+#: themes/contrib/gent_base/theme-settings.php:46
 msgid "Fill in the Adobe Typekit-ID to be used in your project."
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:329
+#: themes/contrib/gent_base/gent_base.theme:332
 msgid "timeline"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:365
+#: themes/contrib/gent_base/gent_base.theme:368
 msgid "There is 1 other document available"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:368
+#: themes/contrib/gent_base/gent_base.theme:371
 msgid "There are @count other documents available"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:395
+#: themes/contrib/gent_base/gent_base.theme:398
 msgid "There is 1 other contact available"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:398
+#: themes/contrib/gent_base/gent_base.theme:401
 msgid "There are @count other contacts available"
+msgstr ""
+
+#: themes/contrib/gent_base/gent_base.theme:463
+msgid "Posted on @date"
+msgstr ""
+
+#: themes/contrib/gent_base/gent_base.theme:470
+msgid "Last changed: @date"
 msgstr ""
 
 #: themes/contrib/gent_base/gent_base.info.yml:0
@@ -336,13 +349,5 @@ msgstr ""
 
 #: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:165
 msgid "More news and events"
-msgstr ""
-
-#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:42 themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:6
-msgid "Last changed"
-msgstr ""
-
-#: themes/contrib/gent_base/templates/custom/nodes/node--news--teaser.html.twig:93
-msgid "Posted on"
 msgstr ""
 
