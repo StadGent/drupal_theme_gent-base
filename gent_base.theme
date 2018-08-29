@@ -487,6 +487,20 @@ function gent_base_preprocess_node(&$variables) {
     $link = Link::fromTextAndUrl($node->getTitle(), $url);
     $variables['contact_title'] = $link;
   }
+
+  // Add a datetime attribute to event dates.
+  if ($node->getType() == 'event') {
+    $event_date = $node->get('field_event_date')->getValue()[0];
+    $event_start_date = strtotime($event_date['value']);
+    $event_end_date = strtotime($event_date['end_value']);
+
+    if ($event_start_date === $event_end_date) {
+      $variables['event_datetime'] = \Drupal::service('date.formatter')->format($event_start_date, 'custom', 'c');
+    }
+    else {
+      $variables['event_datetime'] = \Drupal::service('date.formatter')->format($event_start_date, 'custom', 'c') . '-' . \Drupal::service('date.formatter')->format($event_end_date, 'custom', 'c');
+    }
+  }
 }
 
 /**
