@@ -20,6 +20,9 @@ libraries:
   - gent_base/image-collections
   - gent_base/image-wall
   - gent_base/menu
+# Unset all theming features.
+features:
+  -
 # Removes all the classy stylesheets.
 libraries-override:
   classy/base: false

@@ -14,10 +14,11 @@
       left: 0;
       width: 100vw;
       height: 100vh;
-      padding: 1rem;
+      padding: 0 1rem 1rem;
       background-color: color('white');
       z-index: 200;
       overflow-y: scroll;
+      -webkit-overflow-scrolling: touch; // sass-lint:disable-line no-vendor-prefixes
 
       .modal-actions {
         display: block;
@@ -26,6 +27,7 @@
 
     .modal-actions {
       display: none;
+      padding-top: .2rem;
       text-align: right;
 
       button.close {
@@ -88,7 +90,7 @@
     }
 
     ul.filter__results {
-      margin: 0 0 2rem;
+      @extend %list-no-style;
     }
 
     .pager {
