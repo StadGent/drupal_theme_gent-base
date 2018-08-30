@@ -102,11 +102,20 @@
     </div>
 
     <div class="content__top">
+      <span class="teaser-label">
+        <i class="icon-calendar"></i>
+        <span>{{  'Event'|t }}</span>
+      </span>
+
+      <div class="figure-wrapper">
         <figure>
           <div class="image-wrapper">
             {{ content.field_teaser_image }}
           </div>
         </figure>
+
+        <div class="accolade-inverse bottom-left"></div>
+      </div>
       {{ content.og_audience }}
     </div>
 
