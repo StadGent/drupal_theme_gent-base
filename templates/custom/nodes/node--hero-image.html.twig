@@ -71,6 +71,8 @@
  */
 #}
 
-<figure class="hero">
-  {{ content }}
-</figure>
+{% if content %}
+  <figure class="hero">
+    {{ content }}
+  </figure>
+{% endif %}
