@@ -30,10 +30,16 @@
             <i class="icon-envelope" aria-hidden="true"></i>
             <span>{{ person_email }}</span>
           </li>
+          <li>
+            <i class="icon-envelope" aria-hidden="true"></i>
+            <span>{{ person_website }}</span>
+          </li>
         </ul>
       </div>
       <div class="contact-details-column">
-        {{ person_image }}
+        <div class="image-wrapper" data-ratio="1:1">
+          {{ person_image }}
+        </div>
       </div>
     </div>
   </aside>
