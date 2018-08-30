@@ -71,8 +71,10 @@
  */
 #}
 
-<figure class="hero">
-  <div class="image-wrapper" data-ratio="4:1">
-    {{ content }}
-  </div>
-</figure>
+{% if content|render is not empty %}
+  <figure class="hero">
+    <div class="image-wrapper" data-ratio="4:1">
+      {{ content }}
+    </div>
+  </figure>
+{% endif %}
