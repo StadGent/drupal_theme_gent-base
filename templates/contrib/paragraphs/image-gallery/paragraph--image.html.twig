@@ -42,7 +42,8 @@
 {% extends 'paragraph.html.twig' %}
 
 {% block content %}
-  <div class="image-gallery--wrapper">
+  <div class="image-gallery--wrapper {{ image_gallery_type }}">
     {{ content|without('field_title') }}
   </div>
+
 {% endblock %}
