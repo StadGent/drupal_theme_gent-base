@@ -3,6 +3,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 ## Unreleased
 
+* DTGB-517: Updated media--video templates.
 * DTGB-540: Replaced typekit by google fonts.
 * DTGB-539: Refactored page template to use footer sections.
 * DTGB-539: Refactored timeline item wrappers to role listitem.
