@@ -66,16 +66,6 @@ Done!
 
 ## Theming considerations
 
-### Typekit integration
-
-This theme uses Gent Styleguide as basic CSS theming. The Stylguide uses a font
-(Expressway), which is an Adobe Typekit font. In order to render this font
-correctly a typekit for your project should be created.
-
-We defined a general gent base theme-setting called typekit_id to implement
-support for Adobe Typekit inside our Theme. Just put the typekit id in the
-typekit_id themesetting and your webfonts should be up and running.
-
 ### The $styleguide-dir variable
 
 This theme as well as its starter kit contains a `00-settings/_vars.scss` file
