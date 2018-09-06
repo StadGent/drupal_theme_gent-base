@@ -116,8 +116,6 @@ function gent_base_preprocess_dg_auth_block(&$variables) {
  * Adds theme settings as variables to html.twig template.
  */
 function gent_base_preprocess_html(&$variables) {
-  $variables['typekit_id'] = theme_get_setting('typekit_id');
-
   $color = (theme_get_setting('color_scheme')) ? theme_get_setting('color_scheme') : 'cyan';
   $variables['cs']['color'] = $color;
 
