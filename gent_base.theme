@@ -9,7 +9,6 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Template\Attribute;
 use Drupal\Component\Utility\Html;
 use Drupal\image\Entity\ImageStyle;
-use Drupal\media\Entity\Media;
 use Drupal\paragraphs\Entity\Paragraph;
 use Drupal\node\NodeInterface;
 use Drupal\Core\Url;
@@ -739,51 +738,12 @@ function gent_base_preprocess_pager(&$variables) {
  * Implements hook_preprocess_HOOK().
  */
 function gent_base_preprocess_paragraph__call_to_action(&$variables) {
-  $variables['primary_document_size'] = format_size(_gent_base_get_entity_reference_file_size($variables, 'field_primary_action_document'));
-  $variables['secondary_document_size'] = format_size(_gent_base_get_entity_reference_file_size($variables, 'field_secondary_action_document'));
-}
+  $primary_document_data = _gent_base_get_entity_reference_file_data($variables, 'field_primary_action_document');
+  $secondary_document_data = _gent_base_get_entity_reference_file_data($variables, 'field_secondary_action_document');
 
-/**
- * Helper function to get the file size of a referenced File entity.
- *
- * @param mixed $variables
- *   The variables array to work with.
- * @param string $field
- *   The field to get the referenced file file size from.
- *
- * @return string|null
- *   The file size of the document in bytes.
- *
- * @throws \Drupal\Core\TypedData\Exception\MissingDataException
- */
-function _gent_base_get_entity_reference_file_size(&$variables, $field) {
-  /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
-  $paragraph = $variables['elements']['#paragraph'];
-  if (!$paragraph->hasField($field)) {
-    return;
-  }
-  /* @var $entity \Drupal\Core\Field\Plugin\Field\FieldType\EntityReferenceItem */
-  $entity = $paragraph->get($field)->first();
-  if (!$entity) {
-    return;
-  }
+  $variables['primary_document_size'] = format_size($primary_document_data['file_size']);
+  $variables['primary_document_file_uri'] = file_create_url($primary_document_data['file_uri']);
 
-  /* @var $media \Drupal\media\Entity\Media */
-  $media = Media::load($entity->get('target_id')->getValue());
-  if (!$media) {
-    return;
-  }
-
-  $file = $media->get('field_media_file')->getValue();
-  if (empty($file[0]['target_id'])) {
-    return;
-  }
-
-  /* @var $file_entity \Drupal\file\Entity\File */
-  $file_entity = File::load($file[0]['target_id']);
-  if (!$file_entity) {
-    return;
-  }
-
-  return $file_entity->getSize();
+  $variables['secondary_document_size'] = format_size($secondary_document_data['file_size']);
+  $variables['secondary_document_file_uri'] = file_create_url($secondary_document_data['file_uri']);
 }
