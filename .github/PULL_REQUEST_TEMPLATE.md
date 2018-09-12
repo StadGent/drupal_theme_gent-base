@@ -27,3 +27,4 @@
 - [ ] I have updated the documentation accordingly.
 - [ ] I have updated the style guide CHANGELOG accordingly.
 - [ ] I have updated the gent_base CHANGELOG accordingly.
+- [ ] I have ran gulp axe on the compiled files and found no errors.
