@@ -31,7 +31,8 @@
           {% endif %}
           {% if primary_type == 'document' %}
             {% if content.field_primary_action_document|render|striptags|trim is not empty %}
-              {{ content.field_primary_action_document }}
+              <a href="{{ file_url(content.field_primary_action_document[0]['#media'].field_media_file.entity.uri.value) }}" class="standalone-link button" download title="{{ content.field_primary_action_title|render|striptags|trim }}">{{ content.field_primary_action_title|render|striptags|trim }}</a>
+              <span class="file-size">({{ primary_document_size }})</span>
             {% endif %}
           {% endif %}
         </li>
@@ -41,7 +42,8 @@
           {% endif %}
           {% if secondary_type == 'document' %}
             {% if content.field_secondary_action_document|render|striptags|trim is not empty %}
-              {{ content.field_secondary_action_document }}
+              <a href="{{ file_url(content.field_secondary_action_document[0]['#media'].field_media_file.entity.uri.value) }}" class="standalone-link" download title="{{ content.field_secondary_action_title|render|striptags|trim }}">{{ content.field_secondary_action_title|render|striptags|trim }}</a>
+              <span class="file-size">({{ secondary_document_size }})</span>
             {% endif %}
           {% endif %}
         </li>
