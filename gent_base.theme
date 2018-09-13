@@ -377,27 +377,15 @@ function gent_base_preprocess_field__field_documents(&$variables) {
 function gent_base_preprocess_field__field_contacts(&$variables) {
   $contacts = $variables['items'];
 
-  $variables['contacts_unique_id'] = Html::getUniqueId('contactbox');
-
-  foreach ($contacts as $key => $contact) {
-    unset($contact['attributes']);
-    if ($key < 2) {
-      $variables['contacts_visible'][] = $contact;
-    }
-    else {
+  // Change the view_mode of the contacts if there are more then 3 contacts.
+  if (count($contacts) > 2) {
+    foreach ($contacts as $key => $contact) {
       $variables["items"][$key]["content"]["#view_mode"] = 'teaser_tiny';
-      $variables['contacts_invisible'][] = $variables["items"][$key];
+      $variables['contacts'][] = $variables["items"][$key];
     }
   }
-
-  if (isset($variables['contacts_invisible'])) {
-    $extra_contacts_count = count($variables['contacts_invisible']);
-    if ($extra_contacts_count === 1) {
-      $variables['contacts_toggle_text'] = t('There is 1 other contact available');
-    }
-    else {
-      $variables['contacts_toggle_text'] = t('There are @count other contacts available', ['@count' => $extra_contacts_count]);
-    }
+  else {
+    $variables['contacts'][] = $variables["items"];
   }
 }
 
