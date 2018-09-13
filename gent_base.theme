@@ -721,3 +721,17 @@ function gent_base_preprocess_pager(&$variables) {
   $variables['items']['first']['text'] = '1';
   $variables['items']['last']['text'] = $total;
 }
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function gent_base_preprocess_paragraph__call_to_action(&$variables) {
+  $primary_document_data = _gent_base_get_entity_reference_file_data($variables, 'field_primary_action_document');
+  $secondary_document_data = _gent_base_get_entity_reference_file_data($variables, 'field_secondary_action_document');
+
+  $variables['primary_document_size'] = format_size($primary_document_data['file_size']);
+  $variables['primary_document_file_uri'] = file_create_url($primary_document_data['file_uri']);
+
+  $variables['secondary_document_size'] = format_size($secondary_document_data['file_size']);
+  $variables['secondary_document_file_uri'] = file_create_url($secondary_document_data['file_uri']);
+}
