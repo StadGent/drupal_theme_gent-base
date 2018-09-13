@@ -46,7 +46,7 @@
 %}
 {% block paragraph %}
   {% block content %}
-    <div{{ attributes.addClass(classes) }}>
+    <div{{ attributes.addClass(classes) }} role="listitem">
     <dt>{{ content.title }}</dt>
     {{ content.timeline_items }}
     </div>

@@ -20,7 +20,9 @@ set classes = [
 <div{{ attributes.addClass(classes) }}>
   {{ title_suffix.contextual_links }}
   {% if content %}
-    {{ content.field_media_video_embed_field }}
+    <div class="responsive-video">
+      {{ content.field_media_video_embed_field }}
+    </div>
     {% if content.field_src_audio_description|render|trim is not empty %}
       {{ content.field_src_audio_description }}
     {% endif %}

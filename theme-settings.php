@@ -38,11 +38,4 @@ function gent_base_form_system_theme_settings_alter(&$form, FormStateInterface $
     '#field_prefix' => '#',
     '#description' => t("Fill in the color scheme primary HEX color to be used in your project, leave empty for the default color scheme. This setting is only used for displaying the favicon correctly on Android + Windows phones and Apple's Touch Bar enabled computers."),
   ];
-
-  $form['gent_base']['typekit_id'] = [
-    '#type' => 'textfield',
-    '#title' => t("Adobe Typekit-ID"),
-    '#default_value' => theme_get_setting('typekit_id'),
-    '#description' => t("Fill in the Adobe Typekit-ID to be used in your project."),
-  ];
 }

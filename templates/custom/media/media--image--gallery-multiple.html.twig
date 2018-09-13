@@ -18,8 +18,11 @@
   class="gallery-link"
   {% if content.field_media_caption|render|trim is not empty %}
     aria-label="image caption"
+    aria-describedby="image-gallery__open-gallery"
+  {% else %}
+    aria-labelledby="image-gallery__open-gallery"
   {% endif %}
-  aria-describedby="image-gallery__open-gallery">
+  >
   {{ title_suffix.contextual_links }}
   <figure>
     <div class="image-wrapper" data-ratio="8:5">
