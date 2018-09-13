@@ -26,18 +26,19 @@
 #  themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig: n/a
 #  themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig: n/a
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2018-08-29 10:59+0000\n"
-"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"POT-Creation-Date: 2018-09-10 13:46+0000\n"
+"PO-Revision-Date: 2018-09-10 15:47+0200\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"X-Generator: Poedit 2.1.1\n"
 
 #: themes/contrib/gent_base/theme-settings.php:21
 msgid "Gent Base settings"
@@ -52,57 +53,48 @@ msgid "Style guide color scheme class"
 msgstr "Stijlgids kleurenschema CSS-klasse"
 
 #: themes/contrib/gent_base/theme-settings.php:31
-msgid "Fill in the color scheme class to be used in your project, leave empty for the default color scheme."
+msgid ""
+"Fill in the color scheme class to be used in your project, leave empty for "
+"the default color scheme."
 msgstr ""
-"Vul de kleurenschema CSS-klasse in om te gebruiken in je project, laat "
-"leeg om het standaard thema te gebruiken."
+"Vul de kleurenschema CSS-klasse in om te gebruiken in je project, laat leeg "
+"om het standaard thema te gebruiken."
 
 #: themes/contrib/gent_base/theme-settings.php:36
 msgid "Style guide color scheme primary HEX color"
 msgstr "Stijlgids kleurenschema primaire HEX kleur"
 
 #: themes/contrib/gent_base/theme-settings.php:39
-msgid "Fill in the color scheme primary HEX color to be used in your project, leave empty for the default color scheme. This setting is only used for displaying the favicon correctly on Android + Windows phones and Apple's Touch Bar enabled computers."
-msgstr "Vul de primaire kleur van het kleurenschame in als HEX waarde, laat "
-"leeg om het standaard thema te gebruiken. Deze instelling wordt gebruikt om "
-"het favicon correct in te stellen voor Android + Windows telefoons en voor "
+msgid ""
+"Fill in the color scheme primary HEX color to be used in your project, leave "
+"empty for the default color scheme. This setting is only used for displaying "
+"the favicon correctly on Android + Windows phones and Apple's Touch Bar "
+"enabled computers."
+msgstr ""
+"Vul de primaire kleur van het kleurenschame in als HEX waarde, laat leeg om "
+"het standaard thema te gebruiken. Deze instelling wordt gebruikt om het "
+"favicon correct in te stellen voor Android + Windows telefoons en voor "
 "Apple's computers met Touch Bar."
 
-#: themes/contrib/gent_base/theme-settings.php:44
-msgid "Adobe Typekit-ID"
-msgstr "Adobe Typekit-ID"
-
-#: themes/contrib/gent_base/theme-settings.php:46
-msgid "Fill in the Adobe Typekit-ID to be used in your project."
-msgstr "Vul de Adobe Typekit-ID in om gebruikt te worden in je project."
-
-#: themes/contrib/gent_base/gent_base.theme:332
+#: themes/contrib/gent_base/gent_base.theme:330
 msgid "timeline"
 msgstr "tijdlijn"
 
-#: themes/contrib/gent_base/gent_base.theme:368
+#: themes/contrib/gent_base/gent_base.theme:366
 msgid "There is 1 other document available"
 msgstr "Er is 1 ander document beschikbaar"
 
-#: themes/contrib/gent_base/gent_base.theme:371
+#: themes/contrib/gent_base/gent_base.theme:369
 msgid "There are @count other documents available"
 msgstr "Er zijn @count andere documenten beschikbaar"
 
-#: themes/contrib/gent_base/gent_base.theme:398
+#: themes/contrib/gent_base/gent_base.theme:396
 msgid "There is 1 other contact available"
 msgstr "Er is 1 ander contact beschikbaar"
 
-#: themes/contrib/gent_base/gent_base.theme:401
+#: themes/contrib/gent_base/gent_base.theme:399
 msgid "There are @count other contacts available"
 msgstr "Er zijn @count andere contacten beschikbaar"
-
-#: themes/contrib/gent_base/gent_base.theme:463
-msgid "Posted on @date"
-msgstr "Gepost op @date"
-
-#: themes/contrib/gent_base/gent_base.theme:470
-msgid "Last changed: @date"
-msgstr "Laatst gewijzigd: @date"
 
 #: themes/contrib/gent_base/gent_base.info.yml:0
 msgid "Gent Base"
@@ -132,10 +124,6 @@ msgstr "Mijn Gent"
 msgid "Show profile"
 msgstr "Bekijk profiel"
 
-#: themes/contrib/gent_base/templates/contrib/dg-maps/dg-maps-map.html.twig:3
-msgid "Show on map"
-msgstr "Toon op kaart"
-
 #: themes/contrib/gent_base/templates/contrib/dg_blocks/block--dg-blocks-gentinfo-block.html.twig:47
 msgid "Chat with Gentinfo"
 msgstr "Chat met Gentinfo"
@@ -144,15 +132,18 @@ msgstr "Chat met Gentinfo"
 msgid "From here you can..."
 msgstr "Vanaf hier kan u…"
 
-#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:41 themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:68
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:41
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:68
 msgid "Return to the"
 msgstr "Terugkeren naar de"
 
-#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:41 themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:68
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:41
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:68
 msgid "homepage"
 msgstr "homepagina"
 
-#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:42 themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:69
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:42
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:69
 msgid "Use the back button of your browser"
 msgstr "De terugknop van uw browser gebruiken"
 
@@ -204,7 +195,8 @@ msgstr "Bekijk deze video met audiodescriptie"
 msgid "Show all photos"
 msgstr "Bekijk alle foto's"
 
-#: themes/contrib/gent_base/templates/core/form/fieldset.html.twig:59 themes/contrib/gent_base/templates/core/form/form-element-label.html.twig:31
+#: themes/contrib/gent_base/templates/core/form/fieldset.html.twig:59
+#: themes/contrib/gent_base/templates/core/form/form-element-label.html.twig:31
 msgid "Optional"
 msgstr "Optioneel"
 
@@ -212,27 +204,27 @@ msgstr "Optioneel"
 msgid "Fill in all fields unless otherwise stated."
 msgstr "Vul alle velden in tenzij anders vermeld."
 
-#: themes/contrib/gent_base/templates/core/layout/html.html.twig:64
+#: themes/contrib/gent_base/templates/core/layout/html.html.twig:62
 msgid "Skip to main content"
 msgstr "Overslaan en naar de inhoud gaan"
 
-#: themes/contrib/gent_base/templates/core/layout/page.html.twig:89
+#: themes/contrib/gent_base/templates/core/layout/page.html.twig:90
 msgid "Theme footer"
 msgstr "Thema footer"
 
-#: themes/contrib/gent_base/templates/core/layout/page.html.twig:106
+#: themes/contrib/gent_base/templates/core/layout/page.html.twig:107
 msgid "Footer"
 msgstr "Voet"
 
-#: themes/contrib/gent_base/templates/core/layout/page.html.twig:131
+#: themes/contrib/gent_base/templates/core/layout/page.html.twig:132
 msgid "In cooperation with"
 msgstr "In samenwerking met"
 
-#: themes/contrib/gent_base/templates/core/layout/page.html.twig:140
+#: themes/contrib/gent_base/templates/core/layout/page.html.twig:141
 msgid "Follow Stad Gent on social media"
 msgstr "Volg Stad Gent op sociale media"
 
-#: themes/contrib/gent_base/templates/core/layout/page.html.twig:183
+#: themes/contrib/gent_base/templates/core/layout/page.html.twig:188
 msgid "open gallery"
 msgstr "galerij openen"
 
@@ -297,20 +289,24 @@ msgid "How to reach?"
 msgstr "Hoe bereiken?"
 
 #: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:22
-msgid "By phone: <a href=\":tel\">09 210 10 10</a> (from monday till saturday from 08:00 till 19:00)"
+msgid ""
+"By phone: <a href=\":tel\">09 210 10 10</a> (from monday till saturday from "
+"08:00 till 19:00)"
 msgstr ""
-"Telefonisch: <a href=\":tel\">09 210 10 10</a> (van maandag t.e.m. "
-"zaterdag van 08:00 tot 19:00 uur)"
+"Telefonisch: <a href=\":tel\">09 210 10 10</a> (van maandag t.e.m. zaterdag "
+"van 08:00 tot 19:00 uur)"
 
 #: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:23
 msgid "Send us an <a href=\":url\">email</a>"
 msgstr "Stuur ons een <a href=\":url\">e-mail</a>"
 
 #: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:24
-msgid "Through the <a href=\":url\">Twitter account</a> of the City of Gent (<a href=\":url\">@StadGent</a>)"
-msgstr ""
-"Via de <a href=\":url\">Twitter-account</a> van Stad Gent (<a "
+msgid ""
+"Through the <a href=\":url\">Twitter account</a> of the City of Gent (<a "
 "href=\":url\">@StadGent</a>)"
+msgstr ""
+"Via de <a href=\":url\">Twitter-account</a> van Stad Gent (<a href=\":url"
+"\">@StadGent</a>)"
 
 #: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:25
 msgid "Through the <a href=\":url\">contact form</a>"
@@ -360,3 +356,28 @@ msgstr "Gerelateerde Linked Open Data"
 msgid "More news and events"
 msgstr "Meer nieuws en evenementen"
 
+#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:42
+#: themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:6
+msgid "Last changed"
+msgstr "Laatst gewijzigd"
+
+#: themes/contrib/gent_base/templates/custom/nodes/node--event--teaser.html.twig:107
+msgid "Event"
+msgstr "Evenement"
+
+#: themes/contrib/gent_base/templates/custom/nodes/node--news--teaser.html.twig:93
+msgid "Posted on"
+msgstr "Gepost op"
+
+#: themes/contrib/gent_base/templates/custom/nodes/node--person--full.html.twig:14
+msgid "Contact details"
+msgstr "Contactgegevens"
+
+#~ msgid "Adobe Typekit-ID"
+#~ msgstr "Adobe Typekit-ID"
+
+#~ msgid "Fill in the Adobe Typekit-ID to be used in your project."
+#~ msgstr "Vul de Adobe Typekit-ID in om gebruikt te worden in je project."
+
+#~ msgid "Show on map"
+#~ msgstr "Toon op kaart"

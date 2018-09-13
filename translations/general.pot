@@ -8,7 +8,6 @@
 #  themes/contrib/gent_base/gent_base.info.yml: n/a
 #  themes/contrib/gent_base/starterkit/starterkit.info.yml: n/a
 #  themes/contrib/gent_base/templates/contrib/dg-auth/dg-auth-block.html.twig: n/a
-#  themes/contrib/gent_base/templates/contrib/dg-maps/dg-maps-map.html.twig: n/a
 #  themes/contrib/gent_base/templates/contrib/dg_blocks/block--dg-blocks-gentinfo-block.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig: n/a
@@ -25,12 +24,17 @@
 #  themes/contrib/gent_base/templates/core/navigation/pager.html.twig: n/a
 #  themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig: n/a
 #  themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig: n/a
+#  themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig: n/a
+#  themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig: n/a
+#  themes/contrib/gent_base/templates/custom/nodes/node--event--teaser.html.twig: n/a
+#  themes/contrib/gent_base/templates/custom/nodes/node--news--teaser.html.twig: n/a
+#  themes/contrib/gent_base/templates/custom/nodes/node--person--full.html.twig: n/a
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2018-08-29 09:15+0000\n"
+"POT-Creation-Date: 2018-09-10 13:46+0000\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -63,40 +67,24 @@ msgstr ""
 msgid "Fill in the color scheme primary HEX color to be used in your project, leave empty for the default color scheme. This setting is only used for displaying the favicon correctly on Android + Windows phones and Apple's Touch Bar enabled computers."
 msgstr ""
 
-#: themes/contrib/gent_base/theme-settings.php:44
-msgid "Adobe Typekit-ID"
-msgstr ""
-
-#: themes/contrib/gent_base/theme-settings.php:46
-msgid "Fill in the Adobe Typekit-ID to be used in your project."
-msgstr ""
-
-#: themes/contrib/gent_base/gent_base.theme:332
+#: themes/contrib/gent_base/gent_base.theme:330
 msgid "timeline"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:368
+#: themes/contrib/gent_base/gent_base.theme:366
 msgid "There is 1 other document available"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:371
+#: themes/contrib/gent_base/gent_base.theme:369
 msgid "There are @count other documents available"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:398
+#: themes/contrib/gent_base/gent_base.theme:396
 msgid "There is 1 other contact available"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:401
+#: themes/contrib/gent_base/gent_base.theme:399
 msgid "There are @count other contacts available"
-msgstr ""
-
-#: themes/contrib/gent_base/gent_base.theme:463
-msgid "Posted on @date"
-msgstr ""
-
-#: themes/contrib/gent_base/gent_base.theme:470
-msgid "Last changed: @date"
 msgstr ""
 
 #: themes/contrib/gent_base/gent_base.info.yml:0
@@ -125,10 +113,6 @@ msgstr ""
 
 #: themes/contrib/gent_base/templates/contrib/dg-auth/dg-auth-block.html.twig:31
 msgid "Show profile"
-msgstr ""
-
-#: themes/contrib/gent_base/templates/contrib/dg-maps/dg-maps-map.html.twig:3
-msgid "Show on map"
 msgstr ""
 
 #: themes/contrib/gent_base/templates/contrib/dg_blocks/block--dg-blocks-gentinfo-block.html.twig:47
@@ -207,27 +191,27 @@ msgstr ""
 msgid "Fill in all fields unless otherwise stated."
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/layout/html.html.twig:64
+#: themes/contrib/gent_base/templates/core/layout/html.html.twig:62
 msgid "Skip to main content"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/layout/page.html.twig:89
+#: themes/contrib/gent_base/templates/core/layout/page.html.twig:90
 msgid "Theme footer"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/layout/page.html.twig:106
+#: themes/contrib/gent_base/templates/core/layout/page.html.twig:107
 msgid "Footer"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/layout/page.html.twig:131
+#: themes/contrib/gent_base/templates/core/layout/page.html.twig:132
 msgid "In cooperation with"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/layout/page.html.twig:140
+#: themes/contrib/gent_base/templates/core/layout/page.html.twig:141
 msgid "Follow Stad Gent on social media"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/layout/page.html.twig:183
+#: themes/contrib/gent_base/templates/core/layout/page.html.twig:188
 msgid "open gallery"
 msgstr ""
 
@@ -349,5 +333,21 @@ msgstr ""
 
 #: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:165
 msgid "More news and events"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:42 themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:6
+msgid "Last changed"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/custom/nodes/node--event--teaser.html.twig:107
+msgid "Event"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/custom/nodes/node--news--teaser.html.twig:93
+msgid "Posted on"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/custom/nodes/node--person--full.html.twig:14
+msgid "Contact details"
 msgstr ""
 

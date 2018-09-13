@@ -116,8 +116,6 @@ function gent_base_preprocess_dg_auth_block(&$variables) {
  * Adds theme settings as variables to html.twig template.
  */
 function gent_base_preprocess_html(&$variables) {
-  $variables['typekit_id'] = theme_get_setting('typekit_id');
-
   $color = (theme_get_setting('color_scheme')) ? theme_get_setting('color_scheme') : 'cyan';
   $variables['cs']['color'] = $color;
 
@@ -379,27 +377,15 @@ function gent_base_preprocess_field__field_documents(&$variables) {
 function gent_base_preprocess_field__field_contacts(&$variables) {
   $contacts = $variables['items'];
 
-  $variables['contacts_unique_id'] = Html::getUniqueId('contactbox');
-
-  foreach ($contacts as $key => $contact) {
-    unset($contact['attributes']);
-    if ($key < 2) {
-      $variables['contacts_visible'][] = $contact;
-    }
-    else {
+  // Change the view_mode of the contacts if there are more then 3 contacts.
+  if (count($contacts) > 2) {
+    foreach ($contacts as $key => $contact) {
       $variables["items"][$key]["content"]["#view_mode"] = 'teaser_tiny';
-      $variables['contacts_invisible'][] = $variables["items"][$key];
+      $variables['contacts'][] = $variables["items"][$key];
     }
   }
-
-  if (isset($variables['contacts_invisible'])) {
-    $extra_contacts_count = count($variables['contacts_invisible']);
-    if ($extra_contacts_count === 1) {
-      $variables['contacts_toggle_text'] = t('There is 1 other contact available');
-    }
-    else {
-      $variables['contacts_toggle_text'] = t('There are @count other contacts available', ['@count' => $extra_contacts_count]);
-    }
+  else {
+    $variables['contacts'][] = $variables["items"];
   }
 }
 
@@ -491,8 +477,8 @@ function gent_base_preprocess_node(&$variables) {
   // Add a datetime attribute to event dates.
   if ($node->getType() == 'event') {
     $event_date = $node->get('field_event_date')->getValue()[0];
-    $event_start_date = strtotime($event_date['value']);
-    $event_end_date = strtotime($event_date['end_value']);
+    $event_start_date = (float) strtotime($event_date['value']);
+    $event_end_date = (float) strtotime($event_date['end_value']);
 
     if ($event_start_date === $event_end_date) {
       $variables['event_datetime'] = \Drupal::service('date.formatter')->format($event_start_date, 'custom', 'c');
@@ -538,11 +524,13 @@ function gent_base_preprocess_paragraph__image(&$variables) {
   $image_count = count($variables['content']['field_image']['#items']);
 
   if ($image_count === 1 || !gent_base_is_view_mode('paragraph.image.gallery_multiple')) {
+    $variables['image_gallery_type'] = 'single';
     return;
   }
 
   for ($i = 0; $i < $image_count; $i++) {
     $variables['content']['field_image'][$i]['#view_mode'] = 'gallery_multiple';
+    $variables['image_gallery_type'] = 'multiple';
     unset($variables['content']['field_image'][$i]['#cache']['keys']);
   }
 }
@@ -732,4 +720,18 @@ function gent_base_preprocess_pager(&$variables) {
   // Add hardcode first and last text.
   $variables['items']['first']['text'] = '1';
   $variables['items']['last']['text'] = $total;
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function gent_base_preprocess_paragraph__call_to_action(&$variables) {
+  $primary_document_data = _gent_base_get_entity_reference_file_data($variables, 'field_primary_action_document');
+  $secondary_document_data = _gent_base_get_entity_reference_file_data($variables, 'field_secondary_action_document');
+
+  $variables['primary_document_size'] = format_size($primary_document_data['file_size']);
+  $variables['primary_document_file_uri'] = file_create_url($primary_document_data['file_uri']);
+
+  $variables['secondary_document_size'] = format_size($secondary_document_data['file_size']);
+  $variables['secondary_document_file_uri'] = file_create_url($secondary_document_data['file_uri']);
 }

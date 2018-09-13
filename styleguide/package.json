@@ -1,6 +1,6 @@
 {
   "name": "gent_styleguide",
-  "version": "3.0.0-alpha.7",
+  "version": "3.0.0-alpha.8",
   "description": "Styleguide Stad.Gent",
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.49",
@@ -55,7 +55,7 @@
     "susy": "^3.0.1"
   },
   "optionalDependencies": {
-    "gulp-axe-webdriver": "^1.4.0"
+    "gulp-axe-webdriver": "^3.0.1"
   },
   "scripts": {
     "postinstall": "cd scripts; ./postinstall.sh"
