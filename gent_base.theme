@@ -731,7 +731,9 @@ function gent_base_preprocess_paragraph__call_to_action(&$variables) {
 
   $variables['primary_document_size'] = format_size($primary_document_data['file_size']);
   $variables['primary_document_file_uri'] = file_create_url($primary_document_data['file_uri']);
+  $variables['primary_document_type'] = $primary_document_data['file_type'];
 
   $variables['secondary_document_size'] = format_size($secondary_document_data['file_size']);
   $variables['secondary_document_file_uri'] = file_create_url($secondary_document_data['file_uri']);
+  $variables['secondary_document_type'] = $secondary_document_data['file_type'];
 }
