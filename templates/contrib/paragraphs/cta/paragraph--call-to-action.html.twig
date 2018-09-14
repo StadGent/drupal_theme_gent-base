@@ -7,9 +7,18 @@
  * - primary_document_size: The size of the primary document uploaded.
  * - primary_document_file_uri: The link to the primary document uploaded.
  * - primary_document_type: The type of the primary document uploaded.
+ *
+ * The primary_document_size and primary_document_type variables are linked.
+ * You can't have one without the other because they come from the same File
+ * entity.
+ *
  * - secondary_document_size: The size of the secondary document uploaded.
  * - secondary_document_file_uri: The link to the secondary document uploaded.
  * - secondary_document_type: The type of the secondary document uploaded.
+ *
+ * The secondary_document_size and secondary_document_type variables are linked.
+ * You can't have one without the other because they come from the same File
+ * entity.
  */
 #}
 {% extends "paragraph.html.twig" %}
