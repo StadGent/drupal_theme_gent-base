@@ -10,6 +10,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 * DTGB-539: Refactored page template to use footer sections.
 * DTGB-539: Refactored timeline item wrappers to role listitem.
 * DTBG-539: Refactored image-gallery template to also use labelledby.
+* DTGB-563: Fixed detecting the current node to insert the hero image.
 
 ### Updated
 

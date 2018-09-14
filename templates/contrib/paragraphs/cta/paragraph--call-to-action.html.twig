@@ -1,3 +1,26 @@
+{#
+/**
+ * @file
+ * CTA paragraph implementation..
+ *
+ * Available variables:
+ * - primary_document_size: The size of the primary document uploaded.
+ * - primary_document_file_uri: The link to the primary document uploaded.
+ * - primary_document_type: The type of the primary document uploaded.
+ *
+ * The primary_document_size and primary_document_type variables are linked.
+ * You can't have one without the other because they come from the same File
+ * entity.
+ *
+ * - secondary_document_size: The size of the secondary document uploaded.
+ * - secondary_document_file_uri: The link to the secondary document uploaded.
+ * - secondary_document_type: The type of the secondary document uploaded.
+ *
+ * The secondary_document_size and secondary_document_type variables are linked.
+ * You can't have one without the other because they come from the same File
+ * entity.
+ */
+#}
 {% extends "paragraph.html.twig" %}
 
 {% block paragraph %}
@@ -31,7 +54,10 @@
           {% endif %}
           {% if primary_type == 'document' %}
             {% if content.field_primary_action_document|render|striptags|trim is not empty %}
-              {{ content.field_primary_action_document }}
+              <a href="{{ primary_document_file_uri }}" class="button" download>{{ content.field_primary_action_title|render|striptags|trim }}</a>
+              {% if primary_document_size and primary_document_type %}
+                <span class="file-size">{{ primary_document_type }} ({{ primary_document_size }})</span>
+              {% endif %}
             {% endif %}
           {% endif %}
         </li>
@@ -41,7 +67,10 @@
           {% endif %}
           {% if secondary_type == 'document' %}
             {% if content.field_secondary_action_document|render|striptags|trim is not empty %}
-              {{ content.field_secondary_action_document }}
+              <a href="{{ secondary_document_file_uri }}" class="standalone-link" download>{{ content.field_secondary_action_title|render|striptags|trim }}</a>
+              {% if secondary_document_size and secondary_document_type %}
+                <span class="file-size">{{ secondary_document_type }} ({{ secondary_document_size }})</span>
+              {% endif %}
             {% endif %}
           {% endif %}
         </li>

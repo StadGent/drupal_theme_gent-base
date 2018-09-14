@@ -10,7 +10,6 @@ use Drupal\Core\Template\Attribute;
 use Drupal\Component\Utility\Html;
 use Drupal\image\Entity\ImageStyle;
 use Drupal\paragraphs\Entity\Paragraph;
-use Drupal\node\NodeInterface;
 use Drupal\Core\Url;
 use Drupal\Core\Link;
 use Drupal\file\Entity\File;
@@ -53,26 +52,34 @@ function gent_base_preprocess(&$variables, $hook) {
 }
 
 /**
- * Implements hook_preprocess().
+ * Implements hook_preprocess_page().
  */
 function gent_base_preprocess_page(&$variables) {
-  $routeMatch = \Drupal::routeMatch();
-  $entityTypeManager = \Drupal::entityTypeManager();
-  $entity = $routeMatch->getParameter('node');
+  gent_base_preprocess_page_hero_image($variables);
+}
 
-  if ($entity instanceof NodeInterface) {
-    $bundle = $entity->bundle();
-
-    $isViewMode = gent_base_is_view_mode('node.' . $bundle . '.hero_image');
-
-    if ($entity->access('view') && $isViewMode !== NULL) {
-      $render = $entityTypeManager->getViewBuilder('node');
-
-      $variables['hero_image'] = $render->view($entity, 'hero_image');
-    }
-  }
-  else {
+/**
+ * Helper to add the hero display of the current node to the page header.
+ */
+function gent_base_preprocess_page_hero_image(&$variables) {
+  $route = \Drupal::request()->get('_route');
+  if ($route !== 'entity.node.canonical') {
     $variables['attributes']['class'][] = 'overview-page';
+    return;
+  }
+
+  $entity = \Drupal::request()->get('node');
+  if (!$entity->access('view')) {
+    return;
+  }
+
+  $isViewMode = gent_base_is_view_mode(
+    'node.' . $entity->bundle() . '.hero_image'
+  );
+  if ($isViewMode) {
+    $variables['hero_image'] = \Drupal::entityTypeManager()
+      ->getViewBuilder('node')
+      ->view($entity, 'hero_image');
   }
 }
 
@@ -377,27 +384,15 @@ function gent_base_preprocess_field__field_documents(&$variables) {
 function gent_base_preprocess_field__field_contacts(&$variables) {
   $contacts = $variables['items'];
 
-  $variables['contacts_unique_id'] = Html::getUniqueId('contactbox');
-
-  foreach ($contacts as $key => $contact) {
-    unset($contact['attributes']);
-    if ($key < 2) {
-      $variables['contacts_visible'][] = $contact;
-    }
-    else {
+  // Change the view_mode of the contacts if there are more then 3 contacts.
+  if (count($contacts) > 2) {
+    foreach ($contacts as $key => $contact) {
       $variables["items"][$key]["content"]["#view_mode"] = 'teaser_tiny';
-      $variables['contacts_invisible'][] = $variables["items"][$key];
+      $variables['contacts'][] = $variables["items"][$key];
     }
   }
-
-  if (isset($variables['contacts_invisible'])) {
-    $extra_contacts_count = count($variables['contacts_invisible']);
-    if ($extra_contacts_count === 1) {
-      $variables['contacts_toggle_text'] = t('There is 1 other contact available');
-    }
-    else {
-      $variables['contacts_toggle_text'] = t('There are @count other contacts available', ['@count' => $extra_contacts_count]);
-    }
+  else {
+    $variables['contacts'][] = $variables["items"];
   }
 }
 
@@ -732,4 +727,20 @@ function gent_base_preprocess_pager(&$variables) {
   // Add hardcode first and last text.
   $variables['items']['first']['text'] = '1';
   $variables['items']['last']['text'] = $total;
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function gent_base_preprocess_paragraph__call_to_action(&$variables) {
+  $primary_document_data = _gent_base_get_entity_reference_file_data($variables, 'field_primary_action_document');
+  $secondary_document_data = _gent_base_get_entity_reference_file_data($variables, 'field_secondary_action_document');
+
+  $variables['primary_document_size'] = format_size($primary_document_data['file_size']);
+  $variables['primary_document_file_uri'] = file_create_url($primary_document_data['file_uri']);
+  $variables['primary_document_type'] = $primary_document_data['file_type'];
+
+  $variables['secondary_document_size'] = format_size($secondary_document_data['file_size']);
+  $variables['secondary_document_file_uri'] = file_create_url($secondary_document_data['file_uri']);
+  $variables['secondary_document_type'] = $secondary_document_data['file_type'];
 }
