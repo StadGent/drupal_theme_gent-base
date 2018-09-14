@@ -67,8 +67,12 @@ function _gent_base_get_entity_reference_file_data(&$variables, $field) {
     return;
   }
 
+  $file_name = $file_entity->getFilename();
+  $file_type = strtoupper(end(explode('.', $file_name)));
+
   $data['file_size'] = $file_entity->getSize();
   $data['file_uri'] = $file_entity->getFileUri();
+  $data['file_type'] = $file_type;
 
   return $data;
 }
