@@ -737,3 +737,19 @@ function gent_base_preprocess_paragraph__call_to_action(&$variables) {
   $variables['secondary_document_file_uri'] = file_create_url($secondary_document_data['file_uri']);
   $variables['secondary_document_type'] = $secondary_document_data['file_type'];
 }
+
+/**
+ * Implements hook_page_attachments_alter().
+ */
+function gent_base_page_attachments_alter(array &$page) {
+  $ie_edge = [
+    '#type' => 'html_tag',
+    '#tag' => 'meta',
+    '#attributes' => [
+      'http-equiv' => 'X-UA-Compatible',
+      'content' => 'IE=edge',
+    ],
+  ];
+
+  $page['#attached']['html_head'][] = [$ie_edge, 'ie_edge'];
+}
