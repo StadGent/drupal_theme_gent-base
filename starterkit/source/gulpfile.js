@@ -20,7 +20,6 @@ var del = require('del');
 var sequence = require('run-sequence');
 var plumber = require('gulp-plumber');
 var postcss = require('gulp-postcss');
-var calc = require('postcss-calc');
 
 var globalConfig = {
   scripts_src_dir: 'js',
@@ -62,7 +61,6 @@ gulp.task('styles:build', function() {
     .pipe(autoprefixer({
       browsers: ['last 5 versions']
     }))
-    .pipe(postcss([calc]))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest(globalConfig.css_dir))
 });
