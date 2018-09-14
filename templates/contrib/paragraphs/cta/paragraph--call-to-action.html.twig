@@ -54,7 +54,7 @@
           {% endif %}
           {% if primary_type == 'document' %}
             {% if content.field_primary_action_document|render|striptags|trim is not empty %}
-              <a href="{{ primary_document_file_uri }}" class="standalone-link button" download>{{ content.field_primary_action_title|render|striptags|trim }}</a>
+              <a href="{{ primary_document_file_uri }}" class="button" download>{{ content.field_primary_action_title|render|striptags|trim }}</a>
               {% if primary_document_size and primary_document_type %}
                 <span class="file-size">{{ primary_document_type }} ({{ primary_document_size }})</span>
               {% endif %}
