@@ -13,7 +13,6 @@
 
   <!-- Exclude Node modules. -->
   <exclude-pattern type="relative">^source/node_modules/*</exclude-pattern>
-  <exclude-pattern type="relative">^node_modules/*</exclude-pattern>
 
   <!-- Exclude Styleguide. -->
   <exclude-pattern type="relative">^styleguide/*</exclude-pattern>
