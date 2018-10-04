@@ -294,7 +294,7 @@ msgid ""
 "08:00 till 19:00)"
 msgstr ""
 "Telefonisch: <a href=\":tel\">09 210 10 10</a> (van maandag t.e.m. zaterdag "
-"van 08:00 tot 19:00 uur)"
+"van 8 tot 19 uur)"
 
 #: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:23
 msgid "Send us an <a href=\":url\">email</a>"
