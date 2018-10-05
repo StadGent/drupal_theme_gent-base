@@ -1,0 +1,125 @@
+{#
+/**
+ * @file
+ * Theme override for a main view template.
+ *
+ * Available variables:
+ * - attributes: Remaining HTML attributes for the element.
+ * - css_name: A css-safe version of the view name.
+ * - css_class: The user-specified classes names, if any.
+ * - header: The optional header.
+ * - footer: The optional footer.
+ * - rows: The results of the view query, if any.
+ * - empty: The content to display if there are no rows.
+ * - pager: The optional pager next/prev links to display.
+ * - exposed: Exposed widget form/info to display.
+ * - feed_icons: Optional feed icons to display.
+ * - more: An optional link to the next page of results.
+ * - title: Title of the view, only used when displaying in the admin preview.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the view title.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the view title.
+ * - attachment_before: An optional attachment view to be displayed before the
+ *   view content.
+ * - attachment_after: An optional attachment view to be displayed after the
+ *   view content.
+ * - dom_id: Unique id for every view being printed to give unique class for
+ *   Javascript.
+ *
+ * @see template_preprocess_views_view()
+ */
+#}
+{%
+  set classes = [
+  'view',
+  'view-' ~ id|clean_class,
+  'view-id-' ~ id,
+  'view-display-id-' ~ display_id,
+  'sidebar-layout',
+  'filter',
+  dom_id ? 'js-view-dom-id-' ~ dom_id,
+]
+%}
+
+{{ attach_library('gent_base/filter') }}
+{{ attach_library('gent_base/modal') }}
+
+<div{{ attributes.addClass(classes) }}>
+  {% if header %}
+    <div class="view-header">
+      {{ title_prefix }}
+      {% if title %}
+        {{ title }}
+      {% endif %}
+      {{ title_suffix }}
+      {{ header }}
+    </div>
+  {% endif %}
+  {% if exposed %}
+    <section id="filter" class="filter-section sidebar modal" tabindex="-1" aria-hidden="false">
+      <div class="modal-actions">
+        <button type="button" class="button close icon-cross modal-close modal__close">
+          {{ 'Close'|t }}
+        </button>
+      </div>
+      <h2>{{ 'Filter the results'|t }}</h2>
+      <span>{{ 'When selecting or deselecting filters, the page is automatically reloaded.'|t }}</span>
+      {{ exposed }}
+    </section>
+  {% endif %}
+  {% if attachment_before %}
+    <div class="attachment attachment-before">
+      {{ attachment_before }}
+    </div>
+  {% endif %}
+
+  <div class="content result-section">
+    <h1 class="overview-title">
+      <span class="overview-title-colon">
+        {% block view_title %}
+          {{ 'View title'|t }}
+        {% endblock %}
+        <span class="colon" aria-hidden="true"></span>
+      </span>
+    </h1>
+
+    <button type="button" class="button button-primary icon-filter result__show-filters modal-trigger" aria-expanded="false" aria-controls="filter">
+      {{ 'Show filters'|t }}
+    </button>
+
+    <div class="filter-results">
+      {% if rows %}
+        {{ rows }}
+      {% elseif empty %}
+        <div class="view-empty">
+          {{ empty }}
+        </div>
+      {% endif %}
+    </div>
+
+    {% if more %}
+      {{ more }}
+    {% endif %}
+  </div>
+
+  {% if pager %}
+    {{ pager }}
+  {% endif %}
+  {% if attachment_after %}
+    <div class="attachment attachment-after">
+      {{ attachment_after }}
+    </div>
+  {% endif %}
+
+  {% if footer %}
+    <div class="view-footer">
+      {{ footer }}
+    </div>
+  {% endif %}
+  {% if feed_icons %}
+    <div class="feeds">
+      {{ feed_icons }}
+    </div>
+  {% endif %}
+</div>

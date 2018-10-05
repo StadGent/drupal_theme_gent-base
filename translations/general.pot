@@ -22,6 +22,7 @@
 #  themes/contrib/gent_base/templates/core/layout/page.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/navigation/breadcrumb.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/navigation/pager.html.twig: n/a
+#  themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig: n/a
 #  themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig: n/a
 #  themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig: n/a
 #  themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig: n/a
@@ -34,7 +35,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2018-09-26 07:04+0000\n"
+"POT-Creation-Date: 2018-10-05 11:12+0000\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -179,7 +180,7 @@ msgstr ""
 msgid "Optional"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/form/form.html.twig:14
+#: themes/contrib/gent_base/templates/core/form/form.html.twig:15
 msgid "Fill in all fields unless otherwise stated."
 msgstr ""
 
@@ -237,6 +238,26 @@ msgstr ""
 
 #: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:95
 msgid "Next"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig:63
+msgid "Close"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig:66
+msgid "Filter the results"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig:67
+msgid "When selecting or deselecting filters, the page is automatically reloaded."
+msgstr ""
+
+#: themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig:81
+msgid "View title"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig:88
+msgid "Show filters"
 msgstr ""
 
 #: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:15
