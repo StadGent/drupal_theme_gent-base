@@ -22,6 +22,7 @@
 #  themes/contrib/gent_base/templates/core/layout/page.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/navigation/breadcrumb.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/navigation/pager.html.twig: n/a
+#  themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig: n/a
 #  themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig: n/a
 #  themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig: n/a
 #  themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig: n/a
@@ -34,7 +35,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2018-09-10 13:46+0000\n"
+"POT-Creation-Date: 2018-10-05 11:12+0000\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -67,24 +68,16 @@ msgstr ""
 msgid "Fill in the color scheme primary HEX color to be used in your project, leave empty for the default color scheme. This setting is only used for displaying the favicon correctly on Android + Windows phones and Apple's Touch Bar enabled computers."
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:330
+#: themes/contrib/gent_base/gent_base.theme:337
 msgid "timeline"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:366
+#: themes/contrib/gent_base/gent_base.theme:373
 msgid "There is 1 other document available"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:369
+#: themes/contrib/gent_base/gent_base.theme:376
 msgid "There are @count other documents available"
-msgstr ""
-
-#: themes/contrib/gent_base/gent_base.theme:396
-msgid "There is 1 other contact available"
-msgstr ""
-
-#: themes/contrib/gent_base/gent_base.theme:399
-msgid "There are @count other contacts available"
 msgstr ""
 
 #: themes/contrib/gent_base/gent_base.info.yml:0
@@ -187,7 +180,7 @@ msgstr ""
 msgid "Optional"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/form/form.html.twig:14
+#: themes/contrib/gent_base/templates/core/form/form.html.twig:15
 msgid "Fill in all fields unless otherwise stated."
 msgstr ""
 
@@ -195,23 +188,7 @@ msgstr ""
 msgid "Skip to main content"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/layout/page.html.twig:90
-msgid "Theme footer"
-msgstr ""
-
-#: themes/contrib/gent_base/templates/core/layout/page.html.twig:107
-msgid "Footer"
-msgstr ""
-
-#: themes/contrib/gent_base/templates/core/layout/page.html.twig:132
-msgid "In cooperation with"
-msgstr ""
-
-#: themes/contrib/gent_base/templates/core/layout/page.html.twig:141
-msgid "Follow Stad Gent on social media"
-msgstr ""
-
-#: themes/contrib/gent_base/templates/core/layout/page.html.twig:188
+#: themes/contrib/gent_base/templates/core/layout/page.html.twig:95
 msgid "open gallery"
 msgstr ""
 
@@ -263,6 +240,26 @@ msgstr ""
 msgid "Next"
 msgstr ""
 
+#: themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig:63
+msgid "Close"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig:66
+msgid "Filter the results"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig:67
+msgid "When selecting or deselecting filters, the page is automatically reloaded."
+msgstr ""
+
+#: themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig:81
+msgid "View title"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig:88
+msgid "Show filters"
+msgstr ""
+
 #: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:15
 msgid "Can we improve something about this page?"
 msgstr ""
@@ -299,11 +296,11 @@ msgstr ""
 msgid "Contact"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:111
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:109
 msgid "Contacts"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:118
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:116
 msgid "Location"
 msgstr ""
 
