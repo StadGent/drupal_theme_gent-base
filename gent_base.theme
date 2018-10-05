@@ -605,6 +605,13 @@ function gent_base_theme_suggestions_alter(array &$suggestions, array $variables
 }
 
 /**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function gent_base_theme_suggestions_views_view_alter(array &$suggestions, array $variables) {
+  $suggestions[] = sprintf('views_view__%s', $variables['view']->current_display);
+}
+
+/**
  * Implements theme_preprocess_pager()
  *
  * We override core to change the quantity of all pagers throughout the site.

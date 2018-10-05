@@ -19,6 +19,19 @@ accordion:
     styleguide/build/styleguide/js/accordion.functions-min.js: { minified: true }
     build/js/accordion.bindings-min.js: { minified: true }
 
+filter:
+  version: 1.x
+  js:
+    build/js/filter.bindings-min.js: { minified: true }
+  dependencies:
+    - gent_base/global_js
+    - gent_base/modal
+
+modal:
+  version: 1.x
+  js:
+    styleguide/build/styleguide/js/modal.functions-min.js: { minified: true }
+
 image-collections:
   version: 1.x
   css:
