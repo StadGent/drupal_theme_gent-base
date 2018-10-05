@@ -83,104 +83,102 @@
     </main>
   {% endblock %}
 
-  rfooter>
-    {% block theme_footer %}
-      {% if page.theme_footer_box or page.theme_footer %}
-        <section class="theme-footer">
-          <h2 class="visually-hidden">{{ 'Theme footer'|t }}</h2>
+  {% block theme_footer %}
+    {% if page.theme_footer_box or page.theme_footer %}
+      <section class="theme-footer">
+        <h2 class="visually-hidden">{{ 'Theme footer'|t }}</h2>
+        <div class="content-container">
+          {% if page.theme_footer_box %}
+            <div class="box-no-icon">
+              {{ page.theme_footer_box }}
+              <div class="accolade bottom-center"></div>
+            </div>
+          {% endif %}
+          {{ page.theme_footer }}
+        </div>
+      </section>
+    {% endif %}
+  {% endblock %}
+
+  {% block footer %}
+    {% if page.footer_1 or page.footer_2 or page.footer_3 %}
+      <section class="footer">
+        <h2 class="visually-hidden">{{ 'Footer'|t }}</h2>
+        <div class="footer-top">
           <div class="content-container">
-            {% if page.theme_footer_box %}
-              <div class="box-no-icon">
-                {{ page.theme_footer_box }}
-                <div class="accolade bottom-center"></div>
+            {% if page.footer_1 %}
+              <div class="footer--column">
+                {{ page.footer_1 }}
               </div>
             {% endif %}
-            {{ page.theme_footer }}
+            {% if page.footer_2 %}
+              <div class="footer--column">
+                {{ page.footer_2 }}
+              </div>
+            {% endif %}
+            {% if page.footer_3 %}
+              <div class="footer--column">
+                {{ page.footer_3 }}
+              </div>
+            {% endif %}
           </div>
-        </section>
-      {% endif %}
-    {% endblock %}
-
-    {% block footer %}
-      {% if page.footer_1 or page.footer_2 or page.footer_3 %}
-        <section class="footer">
-          <h2 class="visually-hidden">{{ 'Footer'|t }}</h2>
-          <div class="footer-top">
-            <div class="content-container">
-              {% if page.footer_1 %}
-                <div class="footer--column">
-                  {{ page.footer_1 }}
-                </div>
-              {% endif %}
-              {% if page.footer_2 %}
-                <div class="footer--column">
-                  {{ page.footer_2 }}
-                </div>
-              {% endif %}
-              {% if page.footer_3 %}
-                <div class="footer--column">
-                  {{ page.footer_3 }}
-                </div>
-              {% endif %}
-            </div>
+        </div>
+        <div class="footer-bottom content-container">
+          <div class="footer--column">
+            {% block partner %}
+              <div class="db-block-partnership">
+                <p>
+                  {{ 'In cooperation with'|t }} Digipolis
+                </p>
+                <i aria-hidden="true" class="icon-digipolis"></i>
+              </div>
+            {% endblock %}
           </div>
-          <div class="footer-bottom content-container">
-            <div class="footer--column">
-              {% block partner %}
-                <div class="db-block-partnership">
-                  <p>
-                    {{ 'In cooperation with'|t }} Digipolis
-                  </p>
-                  <i aria-hidden="true" class="icon-digipolis"></i>
+          <div class="footer--column">
+            {% block socials %}
+              <div class="dg-blocks-social">
+                <span>{{ 'Follow Stad Gent on social media'|t }}</span>
+                <div class="social-list">
+                  <ul>
+                    <li>
+                      <a href="https://www.facebook.com/stadsbestuurgent" class="facebook">
+                        <span class="visually-hidden">Stadsbestuurgent</span>
+                        <i aria-hidden="true" class="icon-facebook"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://twitter.com/stadgent" class="twitter">
+                        <span class="visually-hidden">@Stadgent</span>
+                        <i aria-hidden="true" class="icon-twitter"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://www.linkedin.com/company/stad-gent" class="linkedin">
+                        <span class="visually-hidden">Stad Gent</span>
+                        <i aria-hidden="true" class="icon-linkedin"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://www.youtube.com/channel/UCmJLf8SFG0D0GTd6LSSTQLw" class="youtube">
+                        <span class="visually-hidden">YouTube Stad Gent</span>
+                        <i aria-hidden="true" class="icon-youtube"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://www.instagram.com/stadgent" class="instagram">
+                        <span class="visually-hidden">@stadgent</span>
+                        <i aria-hidden="true" class="icon-instagram"></i>
+                      </a>
+                    </li>
+                  </ul>
                 </div>
-              {% endblock %}
-            </div>
-            <div class="footer--column">
-              {% block socials %}
-                <div class="dg-blocks-social">
-                  <span>{{ 'Follow Stad Gent on social media'|t }}</span>
-                  <div class="social-list">
-                    <ul>
-                      <li>
-                        <a href="https://www.facebook.com/stadsbestuurgent" class="facebook">
-                          <span class="visually-hidden">Stadsbestuurgent</span>
-                          <i aria-hidden="true" class="icon-facebook"></i>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="https://twitter.com/stadgent" class="twitter">
-                          <span class="visually-hidden">@Stadgent</span>
-                          <i aria-hidden="true" class="icon-twitter"></i>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="https://www.linkedin.com/company/stad-gent" class="linkedin">
-                          <span class="visually-hidden">Stad Gent</span>
-                          <i aria-hidden="true" class="icon-linkedin"></i>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="https://www.youtube.com/channel/UCmJLf8SFG0D0GTd6LSSTQLw" class="youtube">
-                          <span class="visually-hidden">YouTube Stad Gent</span>
-                          <i aria-hidden="true" class="icon-youtube"></i>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="https://www.instagram.com/stadgent" class="instagram">
-                          <span class="visually-hidden">@stadgent</span>
-                          <i aria-hidden="true" class="icon-instagram"></i>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              {% endblock %}
-            </div>
+              </div>
+            {% endblock %}
           </div>
-        </section>
-      {% endif %}
-    {% endblock %}
-  </footer>
+        </div>
+      </section>
+    {% endif %}
+  {% endblock %}
 
 </div>
 <span hidden="" id="image-gallery__open-gallery">{{ 'open gallery'|t }}</span>
