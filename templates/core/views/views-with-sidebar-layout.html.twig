@@ -46,16 +46,6 @@
 {{ attach_library('gent_base/modal') }}
 
 <div{{ attributes.addClass(classes) }}>
-  {% if header %}
-    <div class="view-header">
-      {{ title_prefix }}
-      {% if title %}
-        {{ title }}
-      {% endif %}
-      {{ title_suffix }}
-      {{ header }}
-    </div>
-  {% endif %}
   {% if exposed %}
     <section id="filter" class="filter-section sidebar modal" tabindex="-1" aria-hidden="false">
       <div class="modal-actions">
@@ -87,6 +77,17 @@
     <button type="button" class="button button-primary icon-filter result__show-filters modal-trigger" aria-expanded="false" aria-controls="filter">
       {{ 'Show filters'|t }}
     </button>
+
+    {% if header %}
+      <div class="jkk">
+        {{ title_prefix }}
+        {% if title %}
+          {{ title }}
+        {% endif %}
+        {{ title_suffix }}
+        {{ header }}
+      </div>
+    {% endif %}
 
     <div class="filter-results">
       {% if rows %}
