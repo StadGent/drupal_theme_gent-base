@@ -85,7 +85,15 @@
 {{ attach_library('classy/node') }}
 
 <article{{ attributes.addClass(classes) }}>
-  <div{{ content_attributes.addClass('content__bottom') }}>
+  <div{{ content_attributes.addClass('content__right') }}>
+    <h3{{ title_attributes }}>{{ label }}</h3>
+    <div class="location">
+      <i class="icon-marker" aria-hidden="true"></i><span>{{ content.field_district }}</span>
+    </div>
+    {{ content.field_related_terrains }}
+    {{ content.links }}
+  </div>
+  <div class="content__left">
     <div class="figure-wrapper">
       <figure>
         <div class="image-wrapper">
@@ -93,9 +101,5 @@
         </div>
       </figure>
     </div>
-    <h3{{ title_attributes }}>{{ label }}</h3>
-    <i class="icon-marker" aria-hidden="true"></i><span>{{ content.field_district }}</span>
-    {{ content.field_related_terrains }}
-    {{ content.links }}
   </div>
 </article>

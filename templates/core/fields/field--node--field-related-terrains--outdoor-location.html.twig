@@ -54,7 +54,7 @@
 {% endif %}
 
 {% if items|length > 1 %}
-  <ul{{ attributes.addClass('links') }}>
+  <ul{{ attributes.addClass('links inline') }}>
     {% for item in items %}
       <li{{ item.attributes }}>{{ item.content }}</li>
     {% endfor %}

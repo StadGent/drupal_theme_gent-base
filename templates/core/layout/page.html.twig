@@ -80,12 +80,16 @@
 
       {% if page.filters %}
       <div class="content-container sidebar-layout filter">
+        {{ attach_library('gent_base/filter') }}
+        {{ attach_library('gent_base/modal') }}
+
         {{ page.filters }}
+        {{ page.content }}
       {% else %}
         <div class="content-container">
+          {{ page.content }}
       {% endif %}
 
-      {{ page.content }}
       </div>
     </main>
   {% endblock %}
