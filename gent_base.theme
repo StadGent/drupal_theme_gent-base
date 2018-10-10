@@ -128,6 +128,12 @@ function gent_base_preprocess_html(&$variables) {
 
   $hex = (theme_get_setting('color_scheme_hex')) ? theme_get_setting('color_scheme_hex') : '009DE0';
   $variables['cs']['hex'] = '#' . $hex;
+
+  // Check if there is sidebar content.
+  if (!empty($variables['page']['filters'])) {
+    $variables['page']['sidebar_first']['#attributes']['class'][] = 'sidebar-layout';
+    $variables['page']['sidebar_first']['#attributes']['class'][] = 'filter';
+  }
 }
 
 /**
@@ -609,6 +615,13 @@ function gent_base_theme_suggestions_alter(array &$suggestions, array $variables
  */
 function gent_base_theme_suggestions_views_view_alter(array &$suggestions, array $variables) {
   $suggestions[] = sprintf('views_view__%s', $variables['view']->current_display);
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function gent_base_theme_suggestions_facets_result_item_alter(array &$suggestions, array $variables) {
+  $suggestions[] = 'facets_result_item__test';
 }
 
 /**

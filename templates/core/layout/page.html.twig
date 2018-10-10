@@ -76,9 +76,16 @@
 
   {% block main %}
     <main class="section--default" role="main">
-      <div class="content-container">
-        <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
-        {{ page.content }}
+      <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
+
+      {% if page.filters %}
+      <div class="content-container sidebar-layout filter">
+        {{ page.filters }}
+      {% else %}
+        <div class="content-container">
+      {% endif %}
+
+      {{ page.content }}
       </div>
     </main>
   {% endblock %}

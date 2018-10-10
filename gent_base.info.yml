@@ -9,6 +9,7 @@ regions:
   header_top: Header top
   header_bottom: Header bottom
   content: Content
+  filters: Filters
   theme_footer_box: Theme footer (box)
   theme_footer: Theme footer
   footer_1: Footer contact
