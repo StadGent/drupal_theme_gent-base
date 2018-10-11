@@ -14,8 +14,4 @@ regions:
   header_top: Header top
   header_bottom: Header bottom
   content: Content
-  theme_footer_box: Theme footer (box)
-  theme_footer: Theme footer
-  footer_1: Footer contact
-  footer_2: Footer links
-  footer_3: Footer address
+  footer: Footer
