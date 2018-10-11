@@ -56,8 +56,9 @@
       <span class="clearlink">
         {{ clearlink }}
       </span>
-      <h2>{{ count }}</h2>
     </div>
+    <button type="button" class="button button-primary icon-filter result__show-filters modal-trigger" aria-expanded="false" aria-controls="filter">{{ 'Show filters'|t }}</button>
+    <h2>{{ count }}</h2>
   {%- else -%}
     {{- empty -}}
   {%- endif -%}

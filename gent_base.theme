@@ -56,6 +56,12 @@ function gent_base_preprocess(&$variables, $hook) {
  */
 function gent_base_preprocess_page(&$variables) {
   gent_base_preprocess_page_hero_image($variables);
+
+  // Check if there is sidebar content.
+  if (!empty($variables['page']['filters'])) {
+    $variables['page']['content']['#testje'] = 'TRUE';
+    $variables['test'] = TRUE;
+  }
 }
 
 /**
@@ -128,12 +134,6 @@ function gent_base_preprocess_html(&$variables) {
 
   $hex = (theme_get_setting('color_scheme_hex')) ? theme_get_setting('color_scheme_hex') : '009DE0';
   $variables['cs']['hex'] = '#' . $hex;
-
-  // Check if there is sidebar content.
-  if (!empty($variables['page']['filters'])) {
-    $variables['page']['sidebar_first']['#attributes']['class'][] = 'sidebar-layout';
-    $variables['page']['sidebar_first']['#attributes']['class'][] = 'filter';
-  }
 }
 
 /**

@@ -10,3 +10,11 @@
     }
   }
 }
+
+.result__show-filters.modal-trigger {
+  display:  none;
+
+  .sidebar-layout.filter & {
+    display: flex;
+  }
+}
