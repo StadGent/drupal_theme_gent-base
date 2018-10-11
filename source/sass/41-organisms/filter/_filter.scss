@@ -20,3 +20,12 @@
     }
   }
 }
+
+.filter-show-results-button {
+  display: block;
+
+  @media (min-width: 769px) {
+    display: none;
+  }
+
+}
