@@ -3,23 +3,17 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var sassGlob = require('gulp-sass-glob');
-var watch = require('gulp-watch');
 var sourcemaps = require('gulp-sourcemaps');
 var sassLint = require('gulp-sass-lint');
 var autoprefixer = require('gulp-autoprefixer');
-var cssnano = require('gulp-cssnano');
-var copy = require('gulp-contrib-copy');
 var rename = require('gulp-rename');
 var eslint = require('gulp-eslint');
 var imagemin = require('gulp-imagemin');
 var pngquant = require('imagemin-pngquant');
-var es = require('event-stream');
 var minify = require('gulp-minify');
-var bump = require('gulp-bump');
 var del = require('del');
 var sequence = require('run-sequence');
 var plumber = require('gulp-plumber');
-var postcss = require('gulp-postcss');
 
 var globalConfig = {
   scripts_src_dir: 'js',
