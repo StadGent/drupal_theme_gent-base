@@ -29,8 +29,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2018-09-10 13:46+0000\n"
-"PO-Revision-Date: 2018-09-10 15:47+0200\n"
+"POT-Creation-Date: 2018-10-05 11:12+0000\n"
+"PO-Revision-Date: 2018-10-05 13:13+0200\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
 "Language: nl\n"
@@ -76,25 +76,17 @@ msgstr ""
 "favicon correct in te stellen voor Android + Windows telefoons en voor "
 "Apple's computers met Touch Bar."
 
-#: themes/contrib/gent_base/gent_base.theme:330
+#: themes/contrib/gent_base/gent_base.theme:337
 msgid "timeline"
 msgstr "tijdlijn"
 
-#: themes/contrib/gent_base/gent_base.theme:366
+#: themes/contrib/gent_base/gent_base.theme:373
 msgid "There is 1 other document available"
 msgstr "Er is 1 ander document beschikbaar"
 
-#: themes/contrib/gent_base/gent_base.theme:369
+#: themes/contrib/gent_base/gent_base.theme:376
 msgid "There are @count other documents available"
 msgstr "Er zijn @count andere documenten beschikbaar"
-
-#: themes/contrib/gent_base/gent_base.theme:396
-msgid "There is 1 other contact available"
-msgstr "Er is 1 ander contact beschikbaar"
-
-#: themes/contrib/gent_base/gent_base.theme:399
-msgid "There are @count other contacts available"
-msgstr "Er zijn @count andere contacten beschikbaar"
 
 #: themes/contrib/gent_base/gent_base.info.yml:0
 msgid "Gent Base"
@@ -200,7 +192,7 @@ msgstr "Bekijk alle foto's"
 msgid "Optional"
 msgstr "Optioneel"
 
-#: themes/contrib/gent_base/templates/core/form/form.html.twig:14
+#: themes/contrib/gent_base/templates/core/form/form.html.twig:15
 msgid "Fill in all fields unless otherwise stated."
 msgstr "Vul alle velden in tenzij anders vermeld."
 
@@ -276,6 +268,29 @@ msgstr "Volgende pagina"
 msgid "Next"
 msgstr "Volgende"
 
+#: themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig:63
+msgid "Close"
+msgstr "Sluiten"
+
+#: themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig:66
+msgid "Filter the results"
+msgstr "Filter de resultaten"
+
+#: themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig:67
+msgid ""
+"When selecting or deselecting filters, the page is automatically reloaded."
+msgstr ""
+"Bij selecteren of deselecteren van filters wordt de pagina automatisch "
+"herladen."
+
+#: themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig:81
+msgid "View title"
+msgstr "Overzicht titel"
+
+#: themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig:88
+msgid "Show filters"
+msgstr "Toon filters"
+
 #: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:15
 msgid "Can we improve something about this page?"
 msgstr "Kunnen we iets verbeteren aan deze pagina?"
@@ -294,7 +309,7 @@ msgid ""
 "08:00 till 19:00)"
 msgstr ""
 "Telefonisch: <a href=\":tel\">09 210 10 10</a> (van maandag t.e.m. zaterdag "
-"van 08:00 tot 19:00 uur)"
+"van 8 tot 19 uur)"
 
 #: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:23
 msgid "Send us an <a href=\":url\">email</a>"
@@ -320,11 +335,11 @@ msgstr "Via de <a href=\":url\">chat</a>"
 msgid "Contact"
 msgstr "Contact"
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:111
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:109
 msgid "Contacts"
 msgstr "Contacten"
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:118
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:116
 msgid "Location"
 msgstr "Locatie"
 
@@ -372,6 +387,12 @@ msgstr "Gepost op"
 #: themes/contrib/gent_base/templates/custom/nodes/node--person--full.html.twig:14
 msgid "Contact details"
 msgstr "Contactgegevens"
+
+#~ msgid "There is 1 other contact available"
+#~ msgstr "Er is 1 ander contact beschikbaar"
+
+#~ msgid "There are @count other contacts available"
+#~ msgstr "Er zijn @count andere contacten beschikbaar"
 
 #~ msgid "Adobe Typekit-ID"
 #~ msgstr "Adobe Typekit-ID"
