@@ -14,7 +14,9 @@
 .result__show-filters.modal-trigger {
   display:  none;
 
-  .sidebar-layout.filter & {
-    display: flex;
+  @media (max-width: 769px) {
+    .sidebar-layout.filter & {
+      display: flex;
+    }
   }
 }

@@ -56,12 +56,6 @@ function gent_base_preprocess(&$variables, $hook) {
  */
 function gent_base_preprocess_page(&$variables) {
   gent_base_preprocess_page_hero_image($variables);
-
-  // Check if there is sidebar content.
-  if (!empty($variables['page']['filters'])) {
-    $variables['page']['content']['#testje'] = 'TRUE';
-    $variables['test'] = TRUE;
-  }
 }
 
 /**
