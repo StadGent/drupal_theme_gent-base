@@ -1,0 +1,12 @@
+.selected-filters {
+  > a {
+    @include theme('color', 'color-tertiary', 'selected-filters-link-color');
+
+    font-weight: normal;
+    text-decoration: none;
+
+    &:hover {
+      background: none;
+    }
+  }
+}

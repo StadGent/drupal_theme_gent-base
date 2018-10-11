@@ -21,6 +21,10 @@
  * @ingroup themeable
  */
 #}
+
+{% set clearlink = '' %}
+{% set count = '' %}
+{% set facets = [] %}
 {% if context.list_style %}
   {%- set attributes = attributes.addClass('item-list__' ~ context.list_style) %}
 {% endif %}
@@ -31,9 +35,31 @@
 
   {%- if items -%}
     {%- for item in items -%}
-      {{ item.value }}
+      {% if 'facet-summary-item--clear' in item.attributes.class %}
+        {% set clearlink = item.value %}
+      {% elseif 'facet-summary-item--facet' in item.attributes.class %}
+        {% set facets = facets|merge({
+          (loop.index): item.value
+        }) %}
+      {% else %}
+        {% set count = item.value %}
+      {% endif  %}
     {%- endfor -%}
+
+    <div {{ attributes }} class="selected-filters">
+      {% if facets is not empty %}
+        <h2>You have selected:</h2>
+      {% endif %}
+      {% for facet in facets %}
+        {{ facet }}
+      {% endfor %}
+      <span class="clearlink">
+        {{ clearlink }}
+      </span>
+      <h2>{{ count }}</h2>
+    </div>
   {%- else -%}
     {{- empty -}}
   {%- endif -%}
 {%- endif %}
+
