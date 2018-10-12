@@ -2,7 +2,7 @@
 
 {% if content.field_park_offer|render|striptags|trim is not empty %}
   <h3>{{ 'Park offer'|t }}</h3>
-  {{ content.field_park_offer }}
+  <p>{{ content.field_park_offer }}</p>
 {% endif %}
 
 {% if content.field_coordinates|render is not empty %}
@@ -23,5 +23,5 @@
 
 {% if content.field_playground_offer|render|striptags|trim is not empty %}
   <h3>{{ 'Park offer'|t }}</h3>
-  {{ content.field_playground_offer }}
+  <p>{{ content.field_playground_offer }}</p>
 {% endif %}
