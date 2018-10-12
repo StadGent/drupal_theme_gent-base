@@ -612,6 +612,13 @@ function gent_base_theme_suggestions_views_view_alter(array &$suggestions, array
 }
 
 /**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function gent_base_theme_suggestions_facets_result_item_alter(array &$suggestions, array $variables) {
+  $suggestions[] = 'facets_result_item__test';
+}
+
+/**
  * Implements theme_preprocess_pager()
  *
  * We override core to change the quantity of all pagers throughout the site.
