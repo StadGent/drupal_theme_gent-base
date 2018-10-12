@@ -20,7 +20,7 @@
 ]
 %}
 {% if content %}
-  <aside id="filter" {{ attributes.addClass(classes) }} tabindex="-1" aria-hidden="false">
+  <section id="filter" {{ attributes.addClass(classes) }} tabindex="-1" aria-hidden="false">
     <div class="modal-actions">
       <button type="button" class="button close icon-cross modal-close modal__close">
         {{ 'Close'|t }}
@@ -30,5 +30,5 @@
     <span>{{ 'When selecting or deselecting filters, the page is automatically reloaded.'|t }}</span>
     {{ content }}
     <button type="button" class="button button-primary modal-close modal__close filter-show-results-button">{{ 'Show results' }}</button>
-  </aside>
+  </section>
 {% endif %}
