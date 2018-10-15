@@ -19,6 +19,7 @@
 #  themes/contrib/gent_base/templates/core/block/block--system-branding-block.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/content-edit/filter-tips.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/fields/field--media--field-src-audio-description.html.twig: n/a
+#  themes/contrib/gent_base/templates/core/fields/field--node--field-images.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/fields/field--paragraph--field-image.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/form/fieldset.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/form/form-element-label.html.twig: n/a
@@ -29,6 +30,7 @@
 #  themes/contrib/gent_base/templates/core/navigation/breadcrumb.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/navigation/pager.html.twig: n/a
 #  themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig: n/a
+#  themes/contrib/gent_base/templates/custom/nodes/node--terrain--default.html.twig: n/a
 #  themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig: n/a
 #  themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig: n/a
 #  themes/contrib/gent_base/templates/custom/nodes/node--event--teaser.html.twig: n/a
@@ -39,7 +41,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2018-10-15 08:28+0000\n"
+"POT-Creation-Date: 2018-10-15 11:57+0000\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -72,15 +74,15 @@ msgstr ""
 msgid "Fill in the color scheme primary HEX color to be used in your project, leave empty for the default color scheme. This setting is only used for displaying the favicon correctly on Android + Windows phones and Apple's Touch Bar enabled computers."
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:337
+#: themes/contrib/gent_base/gent_base.theme:338
 msgid "timeline"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:373
+#: themes/contrib/gent_base/gent_base.theme:374
 msgid "There is 1 other document available"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:376
+#: themes/contrib/gent_base/gent_base.theme:377
 msgid "There are @count other documents available"
 msgstr ""
 
@@ -194,7 +196,7 @@ msgstr ""
 msgid "Watch this video with audio descripiton"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/fields/field--paragraph--field-image.html.twig:65
+#: themes/contrib/gent_base/templates/core/fields/field--node--field-images.html.twig:65 themes/contrib/gent_base/templates/core/fields/field--paragraph--field-image.html.twig:65
 msgid "Show all photos"
 msgstr ""
 
@@ -224,6 +226,10 @@ msgstr ""
 
 #: themes/contrib/gent_base/templates/core/layout/region--filters.html.twig:30 themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig:57
 msgid "When selecting or deselecting filters, the page is automatically reloaded."
+msgstr ""
+
+#: themes/contrib/gent_base/templates/core/layout/region--filters.html.twig:32
+msgid "Show results"
 msgstr ""
 
 #: themes/contrib/gent_base/templates/core/navigation/breadcrumb.html.twig:13
@@ -318,7 +324,7 @@ msgstr ""
 msgid "Contacts"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:116
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:116 themes/contrib/gent_base/templates/custom/nodes/node--terrain--default.html.twig:9
 msgid "Location"
 msgstr ""
 
@@ -360,5 +366,13 @@ msgstr ""
 
 #: themes/contrib/gent_base/templates/custom/nodes/node--person--full.html.twig:14
 msgid "Contact details"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/custom/nodes/node--terrain--default.html.twig:4;25
+msgid "Park offer"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/custom/nodes/node--terrain--default.html.twig:14
+msgid "Description"
 msgstr ""
 

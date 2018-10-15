@@ -29,8 +29,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2018-10-15 08:28+0000\n"
-"PO-Revision-Date: 2018-10-15 10:29+0200\n"
+"POT-Creation-Date: 2018-10-15 11:57+0000\n"
+"PO-Revision-Date: 2018-10-15 13:59+0200\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
 "Language: nl\n"
@@ -76,15 +76,15 @@ msgstr ""
 "favicon correct in te stellen voor Android + Windows telefoons en voor "
 "Apple's computers met Touch Bar."
 
-#: themes/contrib/gent_base/gent_base.theme:337
+#: themes/contrib/gent_base/gent_base.theme:338
 msgid "timeline"
 msgstr "tijdlijn"
 
-#: themes/contrib/gent_base/gent_base.theme:373
+#: themes/contrib/gent_base/gent_base.theme:374
 msgid "There is 1 other document available"
 msgstr "Er is 1 ander document beschikbaar"
 
-#: themes/contrib/gent_base/gent_base.theme:376
+#: themes/contrib/gent_base/gent_base.theme:377
 msgid "There are @count other documents available"
 msgstr "Er zijn @count andere documenten beschikbaar"
 
@@ -203,6 +203,7 @@ msgstr "Tekstopmaken"
 msgid "Watch this video with audio descripiton"
 msgstr "Bekijk deze video met audiodescriptie"
 
+#: themes/contrib/gent_base/templates/core/fields/field--node--field-images.html.twig:65
 #: themes/contrib/gent_base/templates/core/fields/field--paragraph--field-image.html.twig:65
 msgid "Show all photos"
 msgstr "Bekijk alle foto's"
@@ -241,6 +242,10 @@ msgid ""
 msgstr ""
 "Bij selecteren of deselecteren van filters wordt de pagina automatisch "
 "herladen."
+
+#: themes/contrib/gent_base/templates/core/layout/region--filters.html.twig:32
+msgid "Show results"
+msgstr "Toon resultaten"
 
 #: themes/contrib/gent_base/templates/core/navigation/breadcrumb.html.twig:13
 msgid "Breadcrumb"
@@ -343,6 +348,7 @@ msgid "Contacts"
 msgstr "Contacten"
 
 #: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:116
+#: themes/contrib/gent_base/templates/custom/nodes/node--terrain--default.html.twig:9
 msgid "Location"
 msgstr "Locatie"
 
@@ -386,3 +392,11 @@ msgstr "Gepost op"
 #: themes/contrib/gent_base/templates/custom/nodes/node--person--full.html.twig:14
 msgid "Contact details"
 msgstr "Contactgegevens"
+
+#: themes/contrib/gent_base/templates/custom/nodes/node--terrain--default.html.twig:4;25
+msgid "Park offer"
+msgstr "Aanbod en mogelijkheden"
+
+#: themes/contrib/gent_base/templates/custom/nodes/node--terrain--default.html.twig:14
+msgid "Description"
+msgstr "Beschrijving"
