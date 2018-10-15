@@ -1,0 +1,27 @@
+<h2>{{ label }}</h2>
+
+{% if content.field_park_offer|render|striptags|trim is not empty %}
+  <h3>{{ 'Park offer'|t }}</h3>
+  <p>{{ content.field_park_offer }}</p>
+{% endif %}
+
+{% if content.field_coordinates|render is not empty %}
+  <h3>{{ 'Location'|t }}</h3>
+  {{ content.field_coordinates }}
+{% endif %}
+
+{% if content.body|render|striptags|trim is not empty %}
+  <h3>{{ 'Description'|t }}</h3>
+  {{ content.body }}
+{% endif %}
+
+{% if content.field_images|render|striptags|trim is not empty %}
+  <div class="image-gallery-wrapper multiple">
+    {{ content.field_images }}
+  </div>
+{% endif %}
+
+{% if content.field_playground_offer|render|striptags|trim is not empty %}
+  <h3>{{ 'Park offer'|t }}</h3>
+  <p>{{ content.field_playground_offer }}</p>
+{% endif %}
