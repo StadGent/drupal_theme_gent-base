@@ -90,7 +90,13 @@
     <div class="location">
       <i class="icon-marker" aria-hidden="true"></i><span>{{ content.field_district }}</span>
     </div>
-    {{ content.field_related_terrains }}
+    <ul class="links inline">
+      {% for item in content.related_items  %}
+        <li>
+          {{ item }}
+        </li>
+      {% endfor %}
+    </ul>
     {{ content.links }}
   </div>
   <div class="content__left">
