@@ -528,7 +528,7 @@ function gent_base_preprocess_node__outdoor_location__teaser(&$variables) {
     }
   }
 
-  $variables['content']['related_items'] = $items;
+  $variables['content']['related_items'] = array_unique($items);
 }
 
 /**
