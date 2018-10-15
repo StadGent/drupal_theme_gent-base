@@ -10,7 +10,6 @@ use Drupal\Core\Template\Attribute;
 use Drupal\Component\Utility\Html;
 use Drupal\image\Entity\ImageStyle;
 use Drupal\paragraphs\Entity\Paragraph;
-use Drupal\node\NodeInterface;
 use Drupal\Core\Url;
 use Drupal\Core\Link;
 use Drupal\file\Entity\File;
@@ -53,26 +52,34 @@ function gent_base_preprocess(&$variables, $hook) {
 }
 
 /**
- * Implements hook_preprocess().
+ * Implements hook_preprocess_page().
  */
 function gent_base_preprocess_page(&$variables) {
-  $routeMatch = \Drupal::routeMatch();
-  $entityTypeManager = \Drupal::entityTypeManager();
-  $entity = $routeMatch->getParameter('node');
+  gent_base_preprocess_page_hero_image($variables);
+}
 
-  if ($entity instanceof NodeInterface) {
-    $bundle = $entity->bundle();
-
-    $isViewMode = gent_base_is_view_mode('node.' . $bundle . '.hero_image');
-
-    if ($entity->access('view') && $isViewMode !== NULL) {
-      $render = $entityTypeManager->getViewBuilder('node');
-
-      $variables['hero_image'] = $render->view($entity, 'hero_image');
-    }
-  }
-  else {
+/**
+ * Helper to add the hero display of the current node to the page header.
+ */
+function gent_base_preprocess_page_hero_image(&$variables) {
+  $route = \Drupal::request()->get('_route');
+  if ($route !== 'entity.node.canonical') {
     $variables['attributes']['class'][] = 'overview-page';
+    return;
+  }
+
+  $entity = \Drupal::request()->get('node');
+  if (!$entity->access('view')) {
+    return;
+  }
+
+  $isViewMode = gent_base_is_view_mode(
+    'node.' . $entity->bundle() . '.hero_image'
+  );
+  if ($isViewMode) {
+    $variables['hero_image'] = \Drupal::entityTypeManager()
+      ->getViewBuilder('node')
+      ->view($entity, 'hero_image');
   }
 }
 
@@ -595,6 +602,20 @@ function gent_base_theme_suggestions_alter(array &$suggestions, array $variables
   }
 
   return $suggestions;
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function gent_base_theme_suggestions_views_view_alter(array &$suggestions, array $variables) {
+  $suggestions[] = sprintf('views_view__%s', $variables['view']->current_display);
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function gent_base_theme_suggestions_facets_result_item_alter(array &$suggestions, array $variables) {
+  $suggestions[] = 'facets_result_item__test';
 }
 
 /**
