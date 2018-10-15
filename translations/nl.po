@@ -382,30 +382,3 @@ msgstr "Gepost op"
 #: themes/contrib/gent_base/templates/custom/nodes/node--person--full.html.twig:14
 msgid "Contact details"
 msgstr "Contactgegevens"
-
-#~ msgid "Theme footer"
-#~ msgstr "Thema footer"
-
-#~ msgid "Footer"
-#~ msgstr "Voet"
-
-#~ msgid "In cooperation with"
-#~ msgstr "In samenwerking met"
-
-#~ msgid "Follow Stad Gent on social media"
-#~ msgstr "Volg Stad Gent op sociale media"
-
-#~ msgid "There is 1 other contact available"
-#~ msgstr "Er is 1 ander contact beschikbaar"
-
-#~ msgid "There are @count other contacts available"
-#~ msgstr "Er zijn @count andere contacten beschikbaar"
-
-#~ msgid "Adobe Typekit-ID"
-#~ msgstr "Adobe Typekit-ID"
-
-#~ msgid "Fill in the Adobe Typekit-ID to be used in your project."
-#~ msgstr "Vul de Adobe Typekit-ID in om gebruikt te worden in je project."
-
-#~ msgid "Show on map"
-#~ msgstr "Toon op kaart"
