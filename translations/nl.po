@@ -29,8 +29,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2018-10-15 08:57+0200\n"
-"PO-Revision-Date: 2018-10-15 08:59+0200\n"
+"POT-Creation-Date: 2018-10-15 08:28+0000\n"
+"PO-Revision-Date: 2018-10-15 10:29+0200\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
 "Language: nl\n"
@@ -38,7 +38,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.1.1\n"
+"X-Generator: Poedit 2.2\n"
 
 #: themes/contrib/gent_base/theme-settings.php:21
 msgid "Gent Base settings"
@@ -125,6 +125,10 @@ msgid "1 result found"
 msgid_plural "@count results found"
 msgstr[0] "1 resultaat gevonden"
 msgstr[1] "@count resultaten gevonden"
+
+#: themes/contrib/gent_base/templates/contrib/facets/facets-summary-item-list.html.twig:51
+msgid "You have selected"
+msgstr "U filterde op"
 
 #: themes/contrib/gent_base/templates/contrib/facets/facets-summary-item-list.html.twig:60
 #: themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig:78
