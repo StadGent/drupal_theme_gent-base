@@ -763,6 +763,7 @@ function gent_base_preprocess_paragraph__call_to_action(&$variables) {
  * Implements hook_page_attachments_alter().
  */
 function gent_base_page_attachments_alter(array &$page) {
+  // Disable IE compatibility mode for the theme.
   $ie_edge = [
     '#type' => 'html_tag',
     '#tag' => 'meta',
