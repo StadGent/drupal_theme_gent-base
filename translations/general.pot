@@ -41,7 +41,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2018-10-15 11:57+0000\n"
+"POT-Creation-Date: 2018-10-15 12:07+0000\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -119,8 +119,8 @@ msgid "Chat with Gentinfo"
 msgstr ""
 
 #: themes/contrib/gent_base/templates/contrib/facets/facets-summary-count.html.twig:11
-msgid "1 result found"
-msgid_plural "@count results found"
+msgid "There is 1 result"
+msgid_plural "There are @count results"
 msgstr[0] ""
 msgstr[1] ""
 

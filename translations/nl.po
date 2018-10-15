@@ -29,8 +29,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2018-10-15 11:57+0000\n"
-"PO-Revision-Date: 2018-10-15 13:59+0200\n"
+"POT-Creation-Date: 2018-10-15 12:07+0000\n"
+"PO-Revision-Date: 2018-10-15 14:08+0200\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
 "Language: nl\n"
@@ -121,10 +121,10 @@ msgid "Chat with Gentinfo"
 msgstr "Chat met Gentinfo"
 
 #: themes/contrib/gent_base/templates/contrib/facets/facets-summary-count.html.twig:11
-msgid "1 result found"
-msgid_plural "@count results found"
-msgstr[0] "1 resultaat gevonden"
-msgstr[1] "@count resultaten gevonden"
+msgid "There is 1 result"
+msgid_plural "There are @count results"
+msgstr[0] "Er is 1 resultaat"
+msgstr[1] "Er zijn @count resultaten"
 
 #: themes/contrib/gent_base/templates/contrib/facets/facets-summary-item-list.html.twig:51
 msgid "You have selected"
@@ -400,3 +400,8 @@ msgstr "Aanbod en mogelijkheden"
 #: themes/contrib/gent_base/templates/custom/nodes/node--terrain--default.html.twig:14
 msgid "Description"
 msgstr "Beschrijving"
+
+#~ msgid "1 result found"
+#~ msgid_plural "@count results found"
+#~ msgstr[0] "1 resultaat gevonden"
+#~ msgstr[1] "@count resultaten gevonden"
