@@ -79,7 +79,7 @@ function _gent_base_get_entity_reference_file_data(&$variables, $field) {
 }
 
 /**
- * Helper function to get the file data of a referenced File entity.
+ * Helper function to get the referenced entities on an outdoor location.
  *
  * @param mixed $item
  *   The item to get the referenced entities from.
