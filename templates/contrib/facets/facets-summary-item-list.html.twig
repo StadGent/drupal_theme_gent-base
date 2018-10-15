@@ -48,7 +48,7 @@
 
     <div {{ attributes }} class="selected-filters">
       {% if facets is not empty %}
-        <h2>You have selected:</h2>
+        <h2>{{ 'You have selected'|t }}:</h2>
       {% endif %}
       {% for facet in facets %}
         {{ facet }}
