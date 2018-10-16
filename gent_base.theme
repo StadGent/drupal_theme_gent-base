@@ -775,6 +775,7 @@ function gent_base_preprocess_pager(&$variables) {
 
   // Add hardcode first and last text.
   $variables['items']['first']['text'] = '1';
+  $variables['total'] = $total;
   $variables['items']['last']['text'] = $total;
 }
 
