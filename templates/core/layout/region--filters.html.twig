@@ -1,0 +1,34 @@
+{#
+/**
+ * @file
+ * Theme override to display a region.
+ *
+ * Available variables:
+ * - content: The content for this region, typically blocks.
+ * - attributes: HTML attributes for the region <div>.
+ * - region: The name of the region variable as defined in the theme's
+ *   .info.yml file.
+ *
+ * @see template_preprocess_region()
+ */
+#}
+{%
+  set classes = [
+  'filter-section',
+  'sidebar',
+  'modal',
+]
+%}
+{% if content %}
+  <section id="filter" {{ attributes.addClass(classes) }} tabindex="-1" aria-hidden="false">
+    <div class="modal-actions">
+      <button type="button" class="button close icon-cross modal-close modal__close">
+        {{ 'Close'|t }}
+      </button>
+    </div>
+    <h2>{{ 'Filter the results'|t }}</h2>
+    <span>{{ 'When selecting or deselecting filters, the page is automatically reloaded.'|t }}</span>
+    {{ content }}
+    <button type="button" class="button button-primary modal-close modal__close filter-show-results-button">{{ 'Show results'|t }}</button>
+  </section>
+{% endif %}
