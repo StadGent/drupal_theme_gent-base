@@ -502,7 +502,10 @@ function gent_base_preprocess_node(&$variables) {
  */
 function gent_base_preprocess_node__outdoor_location__teaser(&$variables) {
   // Get the field value.
-  $related_terrains = $variables['elements']['field_related_terrains']['#object'];
+  if (isset($variables['elements']['field_related_terrains']['#object'])) {
+    $related_terrains = $variables['elements']['field_related_terrains']['#object'];
+  }
+
   if (!$related_terrains) {
     return;
   }
