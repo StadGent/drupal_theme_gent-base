@@ -79,7 +79,7 @@
           </li>
         {% endfor %}
 
-        {% if current < (total - 2) %}
+        {% if current < (item.pages|length - 1) %}
           <li class="pager__item pager__item--ellipsis spacing" role="presentation">&hellip;</li>
         {% endif %}
 
