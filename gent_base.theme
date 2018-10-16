@@ -505,11 +505,7 @@ function gent_base_preprocess_node__outdoor_location__teaser(&$variables) {
   if (!isset($variables['elements']['field_related_terrains']['#object'])) {
     return;
   }
-
   $related_terrains = $variables['elements']['field_related_terrains']['#object'];
-  if (!$related_terrains) {
-    return;
-  }
 
   // Get the id of the related terrain node.
   $related_id = $related_terrains->id();
