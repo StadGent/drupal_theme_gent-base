@@ -92,9 +92,7 @@
     </div>
     <ul class="links inline">
       {% for item in content.related_items  %}
-        <li>
-          {{ item }}
-        </li>
+        <li>{{ item|render|striptags|trim }}</li>
       {% endfor %}
     </ul>
     {{ content.links }}

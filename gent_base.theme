@@ -528,7 +528,7 @@ function gent_base_preprocess_node__outdoor_location__teaser(&$variables) {
     // Traverse the terms per teaser.
     foreach ($terms as $term) {
       $label = $term->label();
-      $items[] = $label;
+      $items[] = trim($label);
     }
   }
 
