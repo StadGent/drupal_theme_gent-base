@@ -29,16 +29,16 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2018-10-05 11:12+0000\n"
-"PO-Revision-Date: 2018-10-05 13:13+0200\n"
+"POT-Creation-Date: 2018-10-15 12:07+0000\n"
+"PO-Revision-Date: 2018-10-15 14:08+0200\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
-"X-Generator: Poedit 2.1.1\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.2\n"
 
 #: themes/contrib/gent_base/theme-settings.php:21
 msgid "Gent Base settings"
@@ -76,15 +76,15 @@ msgstr ""
 "favicon correct in te stellen voor Android + Windows telefoons en voor "
 "Apple's computers met Touch Bar."
 
-#: themes/contrib/gent_base/gent_base.theme:337
+#: themes/contrib/gent_base/gent_base.theme:338
 msgid "timeline"
 msgstr "tijdlijn"
 
-#: themes/contrib/gent_base/gent_base.theme:373
+#: themes/contrib/gent_base/gent_base.theme:374
 msgid "There is 1 other document available"
 msgstr "Er is 1 ander document beschikbaar"
 
-#: themes/contrib/gent_base/gent_base.theme:376
+#: themes/contrib/gent_base/gent_base.theme:377
 msgid "There are @count other documents available"
 msgstr "Er zijn @count andere documenten beschikbaar"
 
@@ -119,6 +119,26 @@ msgstr "Bekijk profiel"
 #: themes/contrib/gent_base/templates/contrib/dg_blocks/block--dg-blocks-gentinfo-block.html.twig:47
 msgid "Chat with Gentinfo"
 msgstr "Chat met Gentinfo"
+
+#: themes/contrib/gent_base/templates/contrib/facets/facets-summary-count.html.twig:11
+msgid "There is 1 result"
+msgid_plural "There are @count results"
+msgstr[0] "Er is 1 resultaat"
+msgstr[1] "Er zijn @count resultaten"
+
+#: themes/contrib/gent_base/templates/contrib/facets/facets-summary-item-list.html.twig:51
+msgid "You have selected"
+msgstr "U filterde op"
+
+#: themes/contrib/gent_base/templates/contrib/facets/facets-summary-item-list.html.twig:60
+#: themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig:78
+msgid "Show filters"
+msgstr "Toon filters"
+
+#: themes/contrib/gent_base/templates/core/block/block--article-aside-top.html.twig:37
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:138
+msgid "Also interesting"
+msgstr "Ook nog interessant"
 
 #: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:38
 msgid "From here you can..."
@@ -183,6 +203,7 @@ msgstr "Tekstopmaken"
 msgid "Watch this video with audio descripiton"
 msgstr "Bekijk deze video met audiodescriptie"
 
+#: themes/contrib/gent_base/templates/core/fields/field--node--field-images.html.twig:65
 #: themes/contrib/gent_base/templates/core/fields/field--paragraph--field-image.html.twig:65
 msgid "Show all photos"
 msgstr "Bekijk alle foto's"
@@ -200,25 +221,31 @@ msgstr "Vul alle velden in tenzij anders vermeld."
 msgid "Skip to main content"
 msgstr "Overslaan en naar de inhoud gaan"
 
-#: themes/contrib/gent_base/templates/core/layout/page.html.twig:90
-msgid "Theme footer"
-msgstr "Thema footer"
-
-#: themes/contrib/gent_base/templates/core/layout/page.html.twig:107
-msgid "Footer"
-msgstr "Voet"
-
-#: themes/contrib/gent_base/templates/core/layout/page.html.twig:132
-msgid "In cooperation with"
-msgstr "In samenwerking met"
-
-#: themes/contrib/gent_base/templates/core/layout/page.html.twig:141
-msgid "Follow Stad Gent on social media"
-msgstr "Volg Stad Gent op sociale media"
-
-#: themes/contrib/gent_base/templates/core/layout/page.html.twig:188
+#: themes/contrib/gent_base/templates/core/layout/page.html.twig:106
 msgid "open gallery"
 msgstr "galerij openen"
+
+#: themes/contrib/gent_base/templates/core/layout/region--filters.html.twig:26
+#: themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig:53
+msgid "Close"
+msgstr "Sluiten"
+
+#: themes/contrib/gent_base/templates/core/layout/region--filters.html.twig:29
+#: themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig:56
+msgid "Filter the results"
+msgstr "Filter de resultaten"
+
+#: themes/contrib/gent_base/templates/core/layout/region--filters.html.twig:30
+#: themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig:57
+msgid ""
+"When selecting or deselecting filters, the page is automatically reloaded."
+msgstr ""
+"Bij selecteren of deselecteren van filters wordt de pagina automatisch "
+"herladen."
+
+#: themes/contrib/gent_base/templates/core/layout/region--filters.html.twig:32
+msgid "Show results"
+msgstr "Toon resultaten"
 
 #: themes/contrib/gent_base/templates/core/navigation/breadcrumb.html.twig:13
 msgid "Breadcrumb"
@@ -268,28 +295,9 @@ msgstr "Volgende pagina"
 msgid "Next"
 msgstr "Volgende"
 
-#: themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig:63
-msgid "Close"
-msgstr "Sluiten"
-
-#: themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig:66
-msgid "Filter the results"
-msgstr "Filter de resultaten"
-
-#: themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig:67
-msgid ""
-"When selecting or deselecting filters, the page is automatically reloaded."
-msgstr ""
-"Bij selecteren of deselecteren van filters wordt de pagina automatisch "
-"herladen."
-
-#: themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig:81
+#: themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig:71
 msgid "View title"
 msgstr "Overzicht titel"
-
-#: themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig:88
-msgid "Show filters"
-msgstr "Toon filters"
 
 #: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:15
 msgid "Can we improve something about this page?"
@@ -340,6 +348,7 @@ msgid "Contacts"
 msgstr "Contacten"
 
 #: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:116
+#: themes/contrib/gent_base/templates/custom/nodes/node--terrain--default.html.twig:9
 msgid "Location"
 msgstr "Locatie"
 
@@ -350,10 +359,6 @@ msgstr "Bevoegde personen"
 #: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:130
 msgid "Documents"
 msgstr "Documenten"
-
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:138
-msgid "Also interesting"
-msgstr "Ook nog interessant"
 
 #: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:142
 msgid "Similar articles"
@@ -388,17 +393,15 @@ msgstr "Gepost op"
 msgid "Contact details"
 msgstr "Contactgegevens"
 
-#~ msgid "There is 1 other contact available"
-#~ msgstr "Er is 1 ander contact beschikbaar"
+#: themes/contrib/gent_base/templates/custom/nodes/node--terrain--default.html.twig:4;25
+msgid "Park offer"
+msgstr "Aanbod en mogelijkheden"
 
-#~ msgid "There are @count other contacts available"
-#~ msgstr "Er zijn @count andere contacten beschikbaar"
+#: themes/contrib/gent_base/templates/custom/nodes/node--terrain--default.html.twig:14
+msgid "Description"
+msgstr "Beschrijving"
 
-#~ msgid "Adobe Typekit-ID"
-#~ msgstr "Adobe Typekit-ID"
-
-#~ msgid "Fill in the Adobe Typekit-ID to be used in your project."
-#~ msgstr "Vul de Adobe Typekit-ID in om gebruikt te worden in je project."
-
-#~ msgid "Show on map"
-#~ msgstr "Toon op kaart"
+#~ msgid "1 result found"
+#~ msgid_plural "@count results found"
+#~ msgstr[0] "1 resultaat gevonden"
+#~ msgstr[1] "@count resultaten gevonden"

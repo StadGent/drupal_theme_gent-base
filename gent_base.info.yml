@@ -9,6 +9,7 @@ regions:
   header_top: Header top
   header_bottom: Header bottom
   content: Content
+  filters: Filters
   footer: Footer
 libraries:
   - gent_base/global_js
