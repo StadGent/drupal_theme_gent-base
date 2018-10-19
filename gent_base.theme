@@ -335,6 +335,7 @@ function gent_base_preprocess_field(&$variables) {
             $isTimeline = TRUE;
 
             $variables['items'][$key]['content']['#prefix'] =
+              '<div class="timeline-wrapper">' .
               '<h2 class="visually-hidden">' . t('timeline') . '</h2>' .
               '<dl class="timeline accordion">';
           }
@@ -342,7 +343,9 @@ function gent_base_preprocess_field(&$variables) {
         else {
           if ($isTimeline === TRUE) {
             $isTimeline = FALSE;
-            $variables['items'][$key - 1]['content']['#suffix'] = '</dl>';
+            $variables['items'][$key - 1]['content']['#suffix'] =
+              '</dl>' .
+              '</div>';
           }
         }
       }
