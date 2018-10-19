@@ -500,6 +500,24 @@ function gent_base_preprocess_node(&$variables) {
 /**
  * Implements hook_preprocess_HOOK().
  */
+function gent_base_preprocess_node__outdoor_location__full(&$variables) {
+  $node = $variables['node'];
+
+  // Get the related terrains entities.
+  $related_terrain = $node->get('field_related_terrains')->referencedEntities();
+
+  $items = [];
+  foreach ($related_terrain as $item) {
+    $title = $item->getTitle();
+    $items[] = trim($title);
+  }
+
+  $variables['content']['anchor_links'] = $items;
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
 function gent_base_preprocess_node__outdoor_location__teaser(&$variables) {
   // Get the field value.
   if (!isset($variables['elements']['field_related_terrains']['#object'])) {

@@ -1,4 +1,4 @@
-<h2>{{ label }}</h2>
+<h2 id="{{ label|render|striptags|trim }}">{{ label }}</h2>
 
 {% if content.field_park_offer|render|striptags|trim is not empty %}
   <h3>{{ 'Park offer'|t }}</h3>
@@ -11,7 +11,6 @@
 {% endif %}
 
 {% if content.body|render|striptags|trim is not empty %}
-  <h3>{{ 'Description'|t }}</h3>
   {{ content.body }}
 {% endif %}
 
