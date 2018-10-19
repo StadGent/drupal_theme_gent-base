@@ -786,6 +786,14 @@ function gent_base_preprocess_pager(&$variables) {
 /**
  * Implements hook_preprocess_HOOK().
  */
+function gent_base_preprocess_facets_item_list(&$variables) {
+  $test = $variables;
+  $variables['testje'] = 'items';
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
 function gent_base_preprocess_paragraph__call_to_action(&$variables) {
   $primary_document_data = _gent_base_get_entity_reference_file_data($variables, 'field_primary_action_document');
   $secondary_document_data = _gent_base_get_entity_reference_file_data($variables, 'field_secondary_action_document');

@@ -1,3 +1,38 @@
-.block-facet--range-slider {
+.form-item.facets-widget-range_slider {
+  .pips-preview {
+    font-size: .8rem;
+    font-weight: 600;
+  }
 
+  .ui-slider-tip,
+  .ui-slider-pip {
+    display: none;
+  }
+
+  .ui-widget.ui-widget-content {
+    @include theme('border-color', 'color-primary--lighten-4', 'ui-slider-widget-background-color');
+
+    height: 0;
+    margin: 1.5rem 0 2rem;
+    border: 2px solid;
+  }
+
+  .ui-slider-range {
+    @include theme('border-color', 'color-primary', 'ui-slider-range-background-color');
+
+    top: -2px;
+    height: 0;
+    border: 2px solid;
+  }
+
+  .ui-slider-handle {
+    @include theme('background-color', 'color-primary', 'ui-slider-handle-background-color');
+
+    top: -.7rem;
+    width: 1.4rem;
+    height: 1.4rem;
+    border-radius: 100%;
+    border: 0;
+    cursor: pointer;
+  }
 }
