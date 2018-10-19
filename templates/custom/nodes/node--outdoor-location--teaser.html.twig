@@ -84,7 +84,7 @@
 
 {{ attach_library('classy/node') }}
 
-<article{{ attributes.addClass(classes) }}>
+<article{{ attributes.addClass(classes).removeAttribute('role') }}>
   <div{{ content_attributes.addClass('content__right') }}>
     <h3{{ title_attributes }}>{{ label }}</h3>
     <div class="location">
