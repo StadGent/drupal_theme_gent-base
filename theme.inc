@@ -106,3 +106,7 @@ function _gent_base_get_related_terrains($item) {
   $terms = $parkItems + $playgroundItems;
   return $terms;
 }
+
+function _gent_base_get_timeline_display($entity) {
+  return ($entity->get('field_timeline_as_program')->value) ? 'alt' : 'normal';
+}

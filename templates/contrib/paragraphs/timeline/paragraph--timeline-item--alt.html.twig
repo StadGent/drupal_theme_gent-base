@@ -1,0 +1,66 @@
+{% extends 'paragraph.html.twig' %}
+
+{% block content %}
+  <li>
+    <!-- Programme detail -->
+    <section id="{{ paragraph.id() }}" class="programme-detail modal" tabindex="-1">
+      <div class="programme-detail-inner">
+        <div class="modal-actions">
+          <button type="button" class="button close icon-cross modal-close modal__close">
+            {{ 'Close'|t }}
+          </button>
+        </div>
+
+        <h2>{{ content.title }}</h2>
+        {% if content.subtitle %}
+          <h3>{{ content.subtitle }}</h3>
+        {% endif %}
+
+        {{ content.field_image }}
+        {{ content.field_text }}
+
+        {% if content.field_video|render is not empty %}
+        <div class="video-wrapper">
+          <div class="video-inner-wrapper">
+            {{ content.field_video }}
+          </div>
+        </div>
+        {% endif %}
+      </div>
+    </section>
+    <div class="programme-detail-overlay"></div>
+    <!-- /Programme detail -->
+
+
+    <!-- Programme Teaser -->
+    <article class="programme-teaser">
+      <!-- Content -->
+      <div class="programme-teaser__bottom">
+        <h3 id="uid_{{ paragraph.id() }}">{{ content.title }}</h3>
+        <span class="programme-teaser-subtitle">{{ content.subtitle }}</span>
+
+        <a href="javascript:void(0);" class="read-more standalone-link" aria-labelledby="uid_{{ paragraph.id() }}">{{ 'read more'|t }}</a>
+      </div>
+
+      <!-- Image -->
+      <div class="programme-teaser__top">
+        <div class="figure-wrapper">
+          <figure>
+            <div class="image-wrapper" data-ratio="8:5">
+              {{ fake_teaser_image }}
+            </div>
+          </figure>
+          <div class="accolade-inverse bottom-left"></div>
+        </div>
+      </div>
+
+      <!-- Overlay Link -->
+      <a href="javascript:void(0);" class="programme-teaser-overlay-link modal-trigger"
+         tabindex="-1"
+         aria-hidden="true"
+         aria-expanded="false"
+         aria-controls="{{ paragraph.id() }}">{{ content.title }}</a>
+    </article>
+    <!-- /Programme Teaser -->
+  </li>
+{% endblock %}

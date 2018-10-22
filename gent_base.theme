@@ -330,19 +330,28 @@ function gent_base_preprocess_field(&$variables) {
         $type = $entity->get('type')->getString();
 
         if ($type === 'timeline_frame') {
+          $isProgram = _gent_base_get_timeline_display($entity);
+
           // It's the first timeline frame.
           if ($isTimeline === FALSE) {
             $isTimeline = TRUE;
 
-            $variables['items'][$key]['content']['#prefix'] =
-              '<h2 class="visually-hidden">' . t('timeline') . '</h2>' .
-              '<dl class="timeline accordion">';
+            if ($isProgram === 'alt') {
+              $variables['items'][$key]['content']['#prefix'] =
+                '<div class="programme-wrapper"><h2 class="visually-hidden">' . t('programme') . '</h2>' .
+                '<dl class="programme box-top">';
+            }
+            else {
+              $variables['items'][$key]['content']['#prefix'] =
+                '<div class="timeline-wrapper"><h2 class="visually-hidden">' . t('timeline') . '</h2>' .
+                '<dl class="timeline accordion">';
+            }
           }
         }
         else {
           if ($isTimeline === TRUE) {
             $isTimeline = FALSE;
-            $variables['items'][$key - 1]['content']['#suffix'] = '</dl>';
+            $variables['items'][$key - 1]['content']['#suffix'] = '</dl></div>';
           }
         }
       }
@@ -500,6 +509,24 @@ function gent_base_preprocess_node(&$variables) {
 /**
  * Implements hook_preprocess_HOOK().
  */
+function gent_base_preprocess_node__outdoor_location__full(&$variables) {
+  $node = $variables['node'];
+
+  // Get the related terrains entities.
+  $related_terrain = $node->get('field_related_terrains')->referencedEntities();
+
+  $items = [];
+  foreach ($related_terrain as $item) {
+    $title = $item->getTitle();
+    $items[] = trim($title);
+  }
+
+  $variables['content']['anchor_links'] = $items;
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
 function gent_base_preprocess_node__outdoor_location__teaser(&$variables) {
   // Get the field value.
   if (!isset($variables['elements']['field_related_terrains']['#object'])) {
@@ -581,6 +608,17 @@ function gent_base_preprocess_paragraph__image(&$variables) {
   }
 }
 
+function gent_base_preprocess_paragraph__timeline_item__alt(&$variables) {
+  $paragraph = $variables['elements']['#paragraph'];
+  $entity = $paragraph->get('field_image')->entity;
+
+  if ($entity) {
+    $variables['fake_teaser_image'] = \Drupal::entityTypeManager()
+      ->getViewBuilder('media')
+      ->view($entity, 'teaser');
+  }
+}
+
 /**
  * Implements hook_preprocess_HOOK().
  *
@@ -638,6 +676,28 @@ function gent_base_theme_suggestions_alter(array &$suggestions, array $variables
     $suggestions[] = $original_theme_hook . '__' . $sanitized_view_mode;
     $suggestions[] = $original_theme_hook . '__' . $term->bundle() . '__' . $sanitized_view_mode;
     $suggestions[] = $original_theme_hook . '__' . $term->id() . '__' . $sanitized_view_mode;
+  }
+
+  if ($original_theme_hook === 'paragraph') {
+    $paragraph = $variables['elements']['#paragraph'];
+
+    if($paragraph->get('type')->getString() === 'timeline_frame') {
+      $suggestion = _gent_base_get_timeline_display($paragraph);
+      $sanitized_view_mode = strtr($variables['elements']['#view_mode'], '.', '_');
+
+      $suggestions[] = $original_theme_hook . '__' . $paragraph->bundle() . '__' . $suggestion;
+      $suggestions[] = $original_theme_hook . '__' . $paragraph->bundle() . '__' . $sanitized_view_mode . '__' . $suggestion;
+    }
+
+    if ($paragraph->get('type')->getString() === 'timeline_item') {
+      $parent = $paragraph->getParentEntity();
+      $suggestion = _gent_base_get_timeline_display($parent);
+      $sanitized_view_mode = strtr($variables['elements']['#view_mode'], '.', '_');
+
+      $suggestions[] = $original_theme_hook . '__' . $paragraph->bundle() . '__' . $suggestion;
+      $suggestions[] = $original_theme_hook . '__' . $paragraph->bundle() . '__' . $sanitized_view_mode . '__' . $suggestion;
+
+    }
   }
 
   return $suggestions;
