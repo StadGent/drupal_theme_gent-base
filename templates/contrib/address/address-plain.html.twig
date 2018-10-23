@@ -32,7 +32,7 @@
  * @ingroup themeable
  */
 #}
-<address class="address" translate="no">
+<div translate="no">
   {% if given_name or family_name %}
     {{ given_name }} {{ family_name }},
   {% endif %}
@@ -52,4 +52,4 @@
     {{ locality.code }} {{ postal_code }} {{ administrative_area.code }},
   {% endif %}
   {{ country.name }}
-</address>
+</div>
