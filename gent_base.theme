@@ -402,7 +402,7 @@ function gent_base_preprocess_field__field_contacts(&$variables) {
     }
   }
   else {
-    $variables['contacts'][] = $variables["items"];
+    $variables['contacts'] = $variables["items"];
   }
 }
 
