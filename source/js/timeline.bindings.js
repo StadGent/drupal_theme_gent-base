@@ -1,4 +1,3 @@
-/* global Modal */
 /**
  * @file
  * Menu component binding.
@@ -8,13 +7,13 @@
 
   Drupal.behaviors.gentBaseLoadMenu = {
     attach: function (context, settings) {
-      if (!Modal) {
+      if (!Modal) { // eslint-disable-line no-undef
         return;
       }
 
       var selected = document.querySelectorAll('.programme-detail');
       for (var i = selected.length; i--;) {
-        new Modal(selected[i], {
+        new Modal(selected[i], { // eslint-disable-line no-undef
           changeHash: true
         });
       }
