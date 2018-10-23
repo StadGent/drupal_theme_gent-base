@@ -29,18 +29,18 @@
     {%- set attributes = attributes.addClass('item-list__' ~ facet.widget.type) %}
   {% endif %}
   {% if items or empty %}
-  {%- if title is not empty -%}
-    <legend>{{ title }}</legend>
-  {%- endif -%}
+    {%- if title is not empty -%}
+      <label for="{{ facet.id }}">{{ title }}</label>
+    {%- endif -%}
 
-  {%- if items -%}
-  <{{ list_type }}{{ attributes.addClass('links') }}>
-  {%- for item in items -%}
-    <li{{ item.attributes.addClass('checkbox') }}>{{ item.value }}</li>
-  {%- endfor -%}
-</{{ list_type }}>
-  {%- else -%}
-    {{- empty -}}
+    {%- if items -%}
+      <{{ list_type }}{{ attributes.addClass('links') }} id="{{ facet.id }}">
+        {%- for item in items -%}
+          <li{{ item.attributes }}>{{ item.value }}</li>
+        {%- endfor -%}
+      </{{ list_type }}>
+    {%- else -%}
+      {{- empty -}}
     {%- endif -%}
   {%- endif %}
 </fieldset>

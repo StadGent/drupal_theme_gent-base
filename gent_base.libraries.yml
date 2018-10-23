@@ -48,6 +48,14 @@ image-wall:
     styleguide/public/styleguide/vendor/masonry-layout/dist/masonry.pkgd.min.js: { minified: true }
     build/js/image-wall.bindings-min.js: { minified: true }
 
+facet_range_slider:
+  version: 1.x
+  js:
+    build/js/facet_range_slider.bindings-min.js: { minified: true }
+  dependencies:
+    - core/drupal
+    - core/jquery.ui.slider
+
 timeline:
   version: 1.x
   js:

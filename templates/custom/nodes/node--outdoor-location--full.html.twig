@@ -1,5 +1,15 @@
 {% extends 'node--detail--layout.html.twig' %}
 
   {% block article_content_summary %}
+    <nav class="table-of-contents" aria-labelledby="table-of-contents">
+      <div class="content-container">
+        <ul class="links inline">
+          {% for link in content.anchor_links %}
+            <li><a href="#{{ link }}">{{ link }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+    </nav>
+
     {{ content.field_related_terrains }}
   {% endblock %}

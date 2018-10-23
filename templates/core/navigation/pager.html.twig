@@ -30,7 +30,7 @@
  */
 #}
 {% if items or button %}
-  <nav class="pager" role="navigation" aria-labelledby="pagination-heading">
+  <nav class="pager" aria-labelledby="pagination-heading">
     <h4 id="pagination-heading" class="visually-hidden">{{ 'Pagination'|t }}</h4>
 
     {% if items %}
@@ -79,7 +79,7 @@
           </li>
         {% endfor %}
 
-        {% if current < (item.pages|length - 1) %}
+        {% if current < (total - 2) %}
           <li class="pager__item pager__item--ellipsis spacing" role="presentation">&hellip;</li>
         {% endif %}
 
