@@ -76,4 +76,3 @@ function _gent_base_get_entity_reference_file_data(&$variables, $field) {
 
   return $data;
 }
-
