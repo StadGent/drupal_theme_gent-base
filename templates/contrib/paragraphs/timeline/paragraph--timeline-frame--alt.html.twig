@@ -48,7 +48,6 @@
 {{ attach_library('gent_base/timeline') }}
 
 {% block paragraph %}
-  <div class="inner-box">
     {% block content %}
       <div{{ attributes.addClass(classes) }} role="listitem">
         <dt class="programme-slot-title">{{ content.title }}</dt>
@@ -57,5 +56,4 @@
         </ul>
       </div>
     {% endblock %}
-  </div>
 {% endblock paragraph %}

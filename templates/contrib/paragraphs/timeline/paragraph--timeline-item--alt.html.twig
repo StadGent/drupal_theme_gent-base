@@ -16,7 +16,9 @@
           <h3>{{ content.subtitle }}</h3>
         {% endif %}
 
-        {{ content.field_image }}
+        <div class="image-gallery--wrapper multiple image-gallery--secondary">
+          {{ content.field_image }}
+        </div>
         {{ content.field_text }}
 
         {% if content.field_video|render is not empty %}
