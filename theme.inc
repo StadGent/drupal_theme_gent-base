@@ -110,6 +110,12 @@ function _gent_base_get_related_terrains($item) {
   return $terms;
 }
 
+/**
+ * Get desired display of the timeline, based on field_timeline_as_program
+ *
+ * @param $entity
+ * @return string
+ */
 function _gent_base_get_timeline_display($entity) {
   $isProgram = $entity->get('field_timeline_as_program')->value;
   return ($isProgram === '1') ? 'alt' : 'normal';
