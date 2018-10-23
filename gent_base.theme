@@ -9,7 +9,6 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Template\Attribute;
 use Drupal\Component\Utility\Html;
 use Drupal\image\Entity\ImageStyle;
-use Drupal\node\Entity\Node;
 use Drupal\paragraphs\Entity\Paragraph;
 use Drupal\Core\Url;
 use Drupal\Core\Link;
@@ -495,62 +494,6 @@ function gent_base_preprocess_node(&$variables) {
       $variables['event_datetime'] = \Drupal::service('date.formatter')->format($event_start_date, 'custom', 'c') . '-' . \Drupal::service('date.formatter')->format($event_end_date, 'custom', 'c');
     }
   }
-}
-
-/**
- * Implements hook_preprocess_HOOK().
- */
-function gent_base_preprocess_node__outdoor_location__full(&$variables) {
-  $node = $variables['node'];
-
-  // Get the related terrains entities.
-  $related_terrain = $node->get('field_related_terrains')->referencedEntities();
-
-  $items = [];
-  foreach ($related_terrain as $item) {
-    $title = $item->getTitle();
-    $items[] = trim($title);
-  }
-
-  $variables['content']['anchor_links'] = $items;
-}
-
-/**
- * Implements hook_preprocess_HOOK().
- */
-function gent_base_preprocess_node__outdoor_location__teaser(&$variables) {
-  // Get the field value.
-  if (!isset($variables['elements']['field_related_terrains']['#object'])) {
-    return;
-  }
-  $related_terrains = $variables['elements']['field_related_terrains']['#object'];
-
-  // Get the id of the related terrain node.
-  $related_id = $related_terrains->id();
-  if (empty($related_id)) {
-    return;
-  }
-
-  // Get the node based on it's id.
-  $node = Node::load($related_id);
-  if (!$node) {
-    return;
-  }
-  // Get the related terrains entities.
-  $related_terrain = $node->get('field_related_terrains')->referencedEntities();
-
-  $items = [];
-  foreach ($related_terrain as $item) {
-    $terms = _gent_base_get_related_terrains($item);
-
-    // Traverse the terms per teaser.
-    foreach ($terms as $term) {
-      $label = $term->label();
-      $items[] = trim($label);
-    }
-  }
-
-  $variables['content']['related_items'] = array_unique($items);
 }
 
 /**
