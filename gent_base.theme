@@ -330,7 +330,6 @@ function gent_base_preprocess_field(&$variables) {
       if ($entity) {
         $type = $entity->get('type')->getString();
 
-
         if ($type === 'timeline_frame') {
           $isProgram = _gent_base_get_timeline_display($entity);
 
@@ -350,12 +349,13 @@ function gent_base_preprocess_field(&$variables) {
             }
           }
         }
-        else if ($isTimeline === TRUE) {
+        elseif ($isTimeline === TRUE) {
           $isTimeline = FALSE;
 
-          if($isProgram) {
+          if ($isProgram) {
             $variables['items'][$key - 1]['content']['#suffix'] = '</div></dl></div>';
-          } else {
+          }
+          else {
             $variables['items'][$key - 1]['content']['#suffix'] = '</dl></div>';
           }
         }
@@ -618,7 +618,6 @@ function gent_base_preprocess_paragraph__image(&$variables) {
  *
  * Isolate one of the selected images for the teaser (before opening the
  * popup). Currently, this'll be the first image of the gallery.
- * @param $variables
  */
 function gent_base_preprocess_paragraph__timeline_item__alt(&$variables) {
   $paragraph = $variables['elements']['#paragraph'];
@@ -693,7 +692,7 @@ function gent_base_theme_suggestions_alter(array &$suggestions, array $variables
   if ($original_theme_hook === 'paragraph') {
     $paragraph = $variables['elements']['#paragraph'];
 
-    if($paragraph->get('type')->getString() === 'timeline_frame') {
+    if ($paragraph->get('type')->getString() === 'timeline_frame') {
       $suggestion = _gent_base_get_timeline_display($paragraph);
       $sanitized_view_mode = strtr($variables['elements']['#view_mode'], '.', '_');
 

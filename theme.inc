@@ -8,6 +8,7 @@
 use Drupal\file\Entity\File;
 use Drupal\media\Entity\Media;
 use Drupal\node\Entity\Node;
+use Drupal\paragraphs\Entity\Paragraph;
 
 /**
  * Check to see if a give view mode exists.
@@ -111,12 +112,16 @@ function _gent_base_get_related_terrains($item) {
 }
 
 /**
- * Get desired display of the timeline, based on field_timeline_as_program
+ * Get desired display of the timeline, based on field_timeline_as_program.
  *
- * @param $entity
+ * @param Drupal\paragraphs\Entity\Paragraph $entity
+ *   The paragraph entity.
+ *
  * @return string
+ *   whether the alternative ('alt') or normal ('normal') display should be
+ *   used.
  */
-function _gent_base_get_timeline_display($entity) {
+function _gent_base_get_timeline_display(Paragraph $entity) {
   $isProgram = $entity->get('field_timeline_as_program')->value;
   return ($isProgram === '1') ? 'alt' : 'normal';
 }
