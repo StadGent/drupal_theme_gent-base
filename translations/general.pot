@@ -9,6 +9,7 @@
 #  themes/contrib/gent_base/starterkit/starterkit.info.yml: n/a
 #  themes/contrib/gent_base/templates/contrib/dg-auth/dg-auth-block.html.twig: n/a
 #  themes/contrib/gent_base/templates/contrib/dg_blocks/block--dg-blocks-gentinfo-block.html.twig: n/a
+#  themes/contrib/gent_base/templates/contrib/facets/facets-item-list--range-slider.html.twig: n/a
 #  themes/contrib/gent_base/templates/contrib/facets/facets-summary-count.html.twig: n/a
 #  themes/contrib/gent_base/templates/contrib/facets/facets-summary-item-list.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig: n/a
@@ -41,7 +42,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2018-10-15 12:07+0000\n"
+"POT-Creation-Date: 2018-10-25 13:07+0200\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -74,15 +75,15 @@ msgstr ""
 msgid "Fill in the color scheme primary HEX color to be used in your project, leave empty for the default color scheme. This setting is only used for displaying the favicon correctly on Android + Windows phones and Apple's Touch Bar enabled computers."
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:338
+#: themes/contrib/gent_base/gent_base.theme:337
 msgid "timeline"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:374
+#: themes/contrib/gent_base/gent_base.theme:373
 msgid "There is 1 other document available"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:377
+#: themes/contrib/gent_base/gent_base.theme:376
 msgid "There are @count other documents available"
 msgstr ""
 
@@ -116,6 +117,10 @@ msgstr ""
 
 #: themes/contrib/gent_base/templates/contrib/dg_blocks/block--dg-blocks-gentinfo-block.html.twig:47
 msgid "Chat with Gentinfo"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--range-slider.html.twig:42
+msgid "From <span class=\"pips-preview-min\"></span> to <span class=\"pips-preview-max\"></span> year"
 msgstr ""
 
 #: themes/contrib/gent_base/templates/contrib/facets/facets-summary-count.html.twig:11
@@ -228,7 +233,7 @@ msgstr ""
 msgid "When selecting or deselecting filters, the page is automatically reloaded."
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/layout/region--filters.html.twig:32
+#: themes/contrib/gent_base/templates/core/layout/region--filters.html.twig:34
 msgid "Show results"
 msgstr ""
 
@@ -252,31 +257,31 @@ msgstr ""
 msgid "Previous"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:50
+#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:51
 msgid "Go to first page"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:51
+#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:52
 msgid "First page"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:84
+#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:89
 msgid "Go to last page"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:85
+#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:90
 msgid "Last page"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:93
+#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:98
 msgid "Go to next page"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:94
+#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:99
 msgid "Next page"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:95
+#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:100
 msgid "Next"
 msgstr ""
 
@@ -368,11 +373,7 @@ msgstr ""
 msgid "Contact details"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--terrain--default.html.twig:4;25
+#: themes/contrib/gent_base/templates/custom/nodes/node--terrain--default.html.twig:4;24
 msgid "Park offer"
-msgstr ""
-
-#: themes/contrib/gent_base/templates/custom/nodes/node--terrain--default.html.twig:14
-msgid "Description"
 msgstr ""
 
