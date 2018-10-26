@@ -2,6 +2,10 @@
   .pips-preview {
     font-size: .8rem;
     font-weight: 600;
+
+    > .placeholder {
+      font-style: normal;
+    }
   }
 
   .ui-slider-tip,
