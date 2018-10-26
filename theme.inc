@@ -11,7 +11,7 @@ use Drupal\node\Entity\Node;
 use Drupal\paragraphs\Entity\Paragraph;
 
 /**
- * Check to see if a give view mode exists.
+ * Check to see if a given view mode exists.
  *
  * @param string $key
  *   The view mode key.
