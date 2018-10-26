@@ -404,8 +404,3 @@ msgstr "Contactgegevens"
 #: themes/contrib/gent_base/templates/custom/nodes/node--terrain--default.html.twig:4;24
 msgid "Park offer"
 msgstr "Aanbod en mogelijkheden"
-
-#~ msgid "1 result found"
-#~ msgid_plural "@count results found"
-#~ msgstr[0] "1 resultaat gevonden"
-#~ msgstr[1] "@count resultaten gevonden"
