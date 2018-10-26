@@ -42,7 +42,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2018-10-25 13:07+0200\n"
+"POT-Creation-Date: 2018-10-26 12:17+0200\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -119,8 +119,8 @@ msgstr ""
 msgid "Chat with Gentinfo"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--range-slider.html.twig:42
-msgid "From <span class=\"pips-preview-min\"></span> to <span class=\"pips-preview-max\"></span> year"
+#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--range-slider.html.twig:41
+msgid "From %min to %max year"
 msgstr ""
 
 #: themes/contrib/gent_base/templates/contrib/facets/facets-summary-count.html.twig:11
@@ -357,7 +357,7 @@ msgstr ""
 msgid "More news and events"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:42 themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:6
+#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:42 themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:12
 msgid "Last changed"
 msgstr ""
 
