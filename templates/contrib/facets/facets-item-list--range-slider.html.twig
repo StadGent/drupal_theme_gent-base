@@ -38,11 +38,7 @@
     {{ items.value }}
 
     <div class="pips-preview">
-      {{ 'From'|t }}
-      <span class="pips-preview-min"></span>
-      {{ 'to'|t }}
-      <span class="pips-preview-max"></span>
-      {{ 'year'|t }}
+      {{ 'From %min to %max year'|t({'%min': '', '%max': ''}) }}
     </div>
 
     {%- if items -%}

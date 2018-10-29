@@ -8,36 +8,51 @@
 #  themes/contrib/gent_base/gent_base.info.yml: n/a
 #  themes/contrib/gent_base/starterkit/starterkit.info.yml: n/a
 #  themes/contrib/gent_base/templates/contrib/dg-auth/dg-auth-block.html.twig: n/a
-#  themes/contrib/gent_base/templates/contrib/dg-maps/dg-maps-map.html.twig: n/a
 #  themes/contrib/gent_base/templates/contrib/dg_blocks/block--dg-blocks-gentinfo-block.html.twig: n/a
+#  themes/contrib/gent_base/templates/contrib/facets/facets-item-list--range-slider.html.twig: n/a
+#  themes/contrib/gent_base/templates/contrib/facets/facets-summary-count.html.twig: n/a
+#  themes/contrib/gent_base/templates/contrib/facets/facets-summary-item-list.html.twig: n/a
+#  themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig: n/a
+#  themes/contrib/gent_base/templates/contrib/paragraphs/timeline/paragraph--timeline-item--alt.html.twig: n/a
+#  themes/contrib/gent_base/templates/core/layout/region--filters.html.twig: n/a
+#  themes/contrib/gent_base/templates/core/block/block--article-aside-top.html.twig: n/a
+#  themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/block/block--system-branding-block.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/content-edit/filter-tips.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/fields/field--media--field-src-audio-description.html.twig: n/a
+#  themes/contrib/gent_base/templates/core/fields/field--node--field-images.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/fields/field--paragraph--field-image.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/form/fieldset.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/form/form-element-label.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/form/form.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/layout/html.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/layout/page.html.twig: n/a
+#  themes/contrib/gent_base/templates/core/layout/region--filters.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/navigation/breadcrumb.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/navigation/pager.html.twig: n/a
 #  themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig: n/a
-#  themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig: n/a
+#  themes/contrib/gent_base/templates/custom/nodes/node--terrain--default.html.twig: n/a
+#  themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig: n/a
+#  themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig: n/a
+#  themes/contrib/gent_base/templates/custom/nodes/node--event--teaser.html.twig: n/a
+#  themes/contrib/gent_base/templates/custom/nodes/node--news--teaser.html.twig: n/a
+#  themes/contrib/gent_base/templates/custom/nodes/node--person--full.html.twig: n/a
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2018-10-15 12:07+0000\n"
-"PO-Revision-Date: 2018-10-15 14:08+0200\n"
-"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2018-10-29 10:32+0100\n"
+"PO-Revision-Date: 2018-10-29 10:33+0100\n"
+"Last-Translator: Helena Standaert <helena.standaert@digipolis.gent>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: nl\n"
 "X-Generator: Poedit 2.2\n"
 
 #: themes/contrib/gent_base/theme-settings.php:21
@@ -53,12 +68,8 @@ msgid "Style guide color scheme class"
 msgstr "Stijlgids kleurenschema CSS-klasse"
 
 #: themes/contrib/gent_base/theme-settings.php:31
-msgid ""
-"Fill in the color scheme class to be used in your project, leave empty for "
-"the default color scheme."
-msgstr ""
-"Vul de kleurenschema CSS-klasse in om te gebruiken in je project, laat leeg "
-"om het standaard thema te gebruiken."
+msgid "Fill in the color scheme class to be used in your project, leave empty for the default color scheme."
+msgstr "Vul de kleurenschema CSS-klasse in om te gebruiken in je project, laat leeg om het standaard thema te gebruiken."
 
 #: themes/contrib/gent_base/theme-settings.php:36
 msgid "Style guide color scheme primary HEX color"
@@ -76,15 +87,19 @@ msgstr ""
 "favicon correct in te stellen voor Android + Windows telefoons en voor "
 "Apple's computers met Touch Bar."
 
-#: themes/contrib/gent_base/gent_base.theme:338
+#: themes/contrib/gent_base/gent_base.theme:342
+msgid "programme"
+msgstr "programma"
+
+#: themes/contrib/gent_base/gent_base.theme:347
 msgid "timeline"
 msgstr "tijdlijn"
 
-#: themes/contrib/gent_base/gent_base.theme:374
+#: themes/contrib/gent_base/gent_base.theme:388
 msgid "There is 1 other document available"
 msgstr "Er is 1 ander document beschikbaar"
 
-#: themes/contrib/gent_base/gent_base.theme:377
+#: themes/contrib/gent_base/gent_base.theme:391
 msgid "There are @count other documents available"
 msgstr "Er zijn @count andere documenten beschikbaar"
 
@@ -120,6 +135,10 @@ msgstr "Bekijk profiel"
 msgid "Chat with Gentinfo"
 msgstr "Chat met Gentinfo"
 
+#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--range-slider.html.twig:41
+msgid "From %min to %max year"
+msgstr "Van %min tot %max jaar"
+
 #: themes/contrib/gent_base/templates/contrib/facets/facets-summary-count.html.twig:11
 msgid "There is 1 result"
 msgid_plural "There are @count results"
@@ -130,13 +149,19 @@ msgstr[1] "Er zijn @count resultaten"
 msgid "You have selected"
 msgstr "U filterde op"
 
-#: themes/contrib/gent_base/templates/contrib/facets/facets-summary-item-list.html.twig:60
-#: themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig:78
+#: themes/contrib/gent_base/templates/contrib/facets/facets-summary-item-list.html.twig:60 themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig:78
 msgid "Show filters"
 msgstr "Toon filters"
 
-#: themes/contrib/gent_base/templates/core/block/block--article-aside-top.html.twig:37
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:138
+#: themes/contrib/gent_base/templates/contrib/paragraphs/timeline/paragraph--timeline-item--alt.html.twig:10 themes/contrib/gent_base/templates/core/layout/region--filters.html.twig:26 themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig:53
+msgid "Close"
+msgstr "Sluiten"
+
+#: themes/contrib/gent_base/templates/contrib/paragraphs/timeline/paragraph--timeline-item--alt.html.twig:44
+msgid "more info"
+msgstr "meer informatie"
+
+#: themes/contrib/gent_base/templates/core/block/block--article-aside-top.html.twig:37 themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:138
 msgid "Also interesting"
 msgstr "Ook nog interessant"
 
@@ -144,18 +169,15 @@ msgstr "Ook nog interessant"
 msgid "From here you can..."
 msgstr "Vanaf hier kan u…"
 
-#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:41
-#: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:68
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:41 themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:68
 msgid "Return to the"
 msgstr "Terugkeren naar de"
 
-#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:41
-#: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:68
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:41 themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:68
 msgid "homepage"
 msgstr "homepagina"
 
-#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:42
-#: themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:69
+#: themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig:42 themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig:69
 msgid "Use the back button of your browser"
 msgstr "De terugknop van uw browser gebruiken"
 
@@ -203,13 +225,11 @@ msgstr "Tekstopmaken"
 msgid "Watch this video with audio descripiton"
 msgstr "Bekijk deze video met audiodescriptie"
 
-#: themes/contrib/gent_base/templates/core/fields/field--node--field-images.html.twig:65
-#: themes/contrib/gent_base/templates/core/fields/field--paragraph--field-image.html.twig:65
+#: themes/contrib/gent_base/templates/core/fields/field--node--field-images.html.twig:65 themes/contrib/gent_base/templates/core/fields/field--paragraph--field-image.html.twig:65
 msgid "Show all photos"
 msgstr "Bekijk alle foto's"
 
-#: themes/contrib/gent_base/templates/core/form/fieldset.html.twig:59
-#: themes/contrib/gent_base/templates/core/form/form-element-label.html.twig:31
+#: themes/contrib/gent_base/templates/core/form/fieldset.html.twig:59 themes/contrib/gent_base/templates/core/form/form-element-label.html.twig:31
 msgid "Optional"
 msgstr "Optioneel"
 
@@ -225,13 +245,7 @@ msgstr "Overslaan en naar de inhoud gaan"
 msgid "open gallery"
 msgstr "galerij openen"
 
-#: themes/contrib/gent_base/templates/core/layout/region--filters.html.twig:26
-#: themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig:53
-msgid "Close"
-msgstr "Sluiten"
-
-#: themes/contrib/gent_base/templates/core/layout/region--filters.html.twig:29
-#: themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig:56
+#: themes/contrib/gent_base/templates/core/layout/region--filters.html.twig:29 themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig:56
 msgid "Filter the results"
 msgstr "Filter de resultaten"
 
@@ -243,7 +257,7 @@ msgstr ""
 "Bij selecteren of deselecteren van filters wordt de pagina automatisch "
 "herladen."
 
-#: themes/contrib/gent_base/templates/core/layout/region--filters.html.twig:32
+#: themes/contrib/gent_base/templates/core/layout/region--filters.html.twig:34
 msgid "Show results"
 msgstr "Toon resultaten"
 
@@ -267,31 +281,31 @@ msgstr "Vorige pagina"
 msgid "Previous"
 msgstr "Vorige"
 
-#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:50
+#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:51
 msgid "Go to first page"
 msgstr "Ga naar de eerste pagina"
 
-#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:51
+#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:52
 msgid "First page"
 msgstr "Eerste pagina"
 
-#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:84
+#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:89
 msgid "Go to last page"
 msgstr "Ga naar de laatste pagina"
 
-#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:85
+#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:90
 msgid "Last page"
 msgstr "Laatste pagina"
 
-#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:93
+#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:98
 msgid "Go to next page"
 msgstr "Ga naar volgende pagina"
 
-#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:94
+#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:99
 msgid "Next page"
 msgstr "Volgende pagina"
 
-#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:95
+#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:100
 msgid "Next"
 msgstr "Volgende"
 
@@ -347,8 +361,7 @@ msgstr "Contact"
 msgid "Contacts"
 msgstr "Contacten"
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:116
-#: themes/contrib/gent_base/templates/custom/nodes/node--terrain--default.html.twig:9
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:116 themes/contrib/gent_base/templates/custom/nodes/node--terrain--default.html.twig:9
 msgid "Location"
 msgstr "Locatie"
 
@@ -376,8 +389,7 @@ msgstr "Gerelateerde Linked Open Data"
 msgid "More news and events"
 msgstr "Meer nieuws en evenementen"
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:42
-#: themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:6
+#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:42 themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:6
 msgid "Last changed"
 msgstr "Laatst gewijzigd"
 
@@ -393,15 +405,6 @@ msgstr "Gepost op"
 msgid "Contact details"
 msgstr "Contactgegevens"
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--terrain--default.html.twig:4;25
+#: themes/contrib/gent_base/templates/custom/nodes/node--terrain--default.html.twig:4;24
 msgid "Park offer"
 msgstr "Aanbod en mogelijkheden"
-
-#: themes/contrib/gent_base/templates/custom/nodes/node--terrain--default.html.twig:14
-msgid "Description"
-msgstr "Beschrijving"
-
-#~ msgid "1 result found"
-#~ msgid_plural "@count results found"
-#~ msgstr[0] "1 resultaat gevonden"
-#~ msgstr[1] "@count resultaten gevonden"

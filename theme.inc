@@ -7,7 +7,6 @@
 
 use Drupal\file\Entity\File;
 use Drupal\media\Entity\Media;
-use Drupal\node\Entity\Node;
 use Drupal\paragraphs\Entity\Paragraph;
 
 /**
@@ -80,35 +79,6 @@ function _gent_base_get_entity_reference_file_data(&$variables, $field) {
   $data['file_type'] = $file_type;
 
   return $data;
-}
-
-/**
- * Helper function to get the referenced entities on an outdoor location.
- *
- * @param mixed $item
- *   The item to get the referenced entities from.
- *
- * @return array|null
- *   The terms that are referenced.
- *
- * @throws \Drupal\Core\TypedData\Exception\MissingDataException
- */
-function _gent_base_get_related_terrains($item) {
-  // Get the related terrain node.
-  $node = Node::load($item->id());
-  if (!$node) {
-    return;
-  }
-
-  $terms = [];
-
-  // Get the park offer field value.
-  $parkItems = $node->get('field_park_offer')->referencedEntities();
-  $playgroundItems = $node->get('field_playground_offer')->referencedEntities();
-
-  // Merge all items in one array.
-  $terms = $parkItems + $playgroundItems;
-  return $terms;
 }
 
 /**
