@@ -124,6 +124,10 @@ msgstr ""
 msgid "Chat with Gentinfo"
 msgstr ""
 
+#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--range-slider.html.twig:41
+msgid "From %min to %max year"
+msgstr ""
+
 #: themes/contrib/gent_base/templates/contrib/facets/facets-summary-count.html.twig:11
 msgid "There is 1 result"
 msgid_plural "There are @count results"
@@ -278,7 +282,7 @@ msgstr ""
 msgid "Last page"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:98
+#: themes/contrib/gent_base/templates/core/navigation/pager.html.twig:93
 msgid "Go to next page"
 msgstr ""
 
@@ -362,7 +366,7 @@ msgstr ""
 msgid "More news and events"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:42 themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:6
+#: themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig:42 themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig:12
 msgid "Last changed"
 msgstr ""
 

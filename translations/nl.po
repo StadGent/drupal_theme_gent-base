@@ -29,6 +29,7 @@
 #  themes/contrib/gent_base/templates/core/form/form.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/layout/html.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/layout/page.html.twig: n/a
+#  themes/contrib/gent_base/templates/core/layout/region--filters.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/navigation/breadcrumb.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/navigation/pager.html.twig: n/a
 #  themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig: n/a
@@ -75,8 +76,16 @@ msgid "Style guide color scheme primary HEX color"
 msgstr "Stijlgids kleurenschema primaire HEX kleur"
 
 #: themes/contrib/gent_base/theme-settings.php:39
-msgid "Fill in the color scheme primary HEX color to be used in your project, leave empty for the default color scheme. This setting is only used for displaying the favicon correctly on Android + Windows phones and Apple's Touch Bar enabled computers."
-msgstr "Vul de primaire kleur van het kleurenschame in als HEX waarde, laat leeg om het standaard thema te gebruiken. Deze instelling wordt gebruikt om het favicon correct in te stellen voor Android + Windows telefoons en voor Apple's computers met Touch Bar."
+msgid ""
+"Fill in the color scheme primary HEX color to be used in your project, leave "
+"empty for the default color scheme. This setting is only used for displaying "
+"the favicon correctly on Android + Windows phones and Apple's Touch Bar "
+"enabled computers."
+msgstr ""
+"Vul de primaire kleur van het kleurenschame in als HEX waarde, laat leeg om "
+"het standaard thema te gebruiken. Deze instelling wordt gebruikt om het "
+"favicon correct in te stellen voor Android + Windows telefoons en voor "
+"Apple's computers met Touch Bar."
 
 #: themes/contrib/gent_base/gent_base.theme:342
 msgid "programme"
@@ -125,6 +134,10 @@ msgstr "Bekijk profiel"
 #: themes/contrib/gent_base/templates/contrib/dg_blocks/block--dg-blocks-gentinfo-block.html.twig:47
 msgid "Chat with Gentinfo"
 msgstr "Chat met Gentinfo"
+
+#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--range-slider.html.twig:41
+msgid "From %min to %max year"
+msgstr "Van %min tot %max jaar"
 
 #: themes/contrib/gent_base/templates/contrib/facets/facets-summary-count.html.twig:11
 msgid "There is 1 result"
@@ -236,9 +249,13 @@ msgstr "galerij openen"
 msgid "Filter the results"
 msgstr "Filter de resultaten"
 
-#: themes/contrib/gent_base/templates/core/layout/region--filters.html.twig:30 themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig:57
-msgid "When selecting or deselecting filters, the page is automatically reloaded."
-msgstr "Bij selecteren of deselecteren van filters wordt de pagina automatisch herladen."
+#: themes/contrib/gent_base/templates/core/layout/region--filters.html.twig:30
+#: themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig:57
+msgid ""
+"When selecting or deselecting filters, the page is automatically reloaded."
+msgstr ""
+"Bij selecteren of deselecteren van filters wordt de pagina automatisch "
+"herladen."
 
 #: themes/contrib/gent_base/templates/core/layout/region--filters.html.twig:34
 msgid "Show results"
@@ -309,16 +326,24 @@ msgid "How to reach?"
 msgstr "Hoe bereiken?"
 
 #: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:22
-msgid "By phone: <a href=\":tel\">09 210 10 10</a> (from monday till saturday from 08:00 till 19:00)"
-msgstr "Telefonisch: <a href=\":tel\">09 210 10 10</a> (van maandag t.e.m. zaterdag van 8 tot 19 uur)"
+msgid ""
+"By phone: <a href=\":tel\">09 210 10 10</a> (from monday till saturday from "
+"08:00 till 19:00)"
+msgstr ""
+"Telefonisch: <a href=\":tel\">09 210 10 10</a> (van maandag t.e.m. zaterdag "
+"van 8 tot 19 uur)"
 
 #: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:23
 msgid "Send us an <a href=\":url\">email</a>"
 msgstr "Stuur ons een <a href=\":url\">e-mail</a>"
 
 #: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:24
-msgid "Through the <a href=\":url\">Twitter account</a> of the City of Gent (<a href=\":url\">@StadGent</a>)"
-msgstr "Via de <a href=\":url\">Twitter-account</a> van Stad Gent (<a href=\":url\">@StadGent</a>)"
+msgid ""
+"Through the <a href=\":url\">Twitter account</a> of the City of Gent (<a "
+"href=\":url\">@StadGent</a>)"
+msgstr ""
+"Via de <a href=\":url\">Twitter-account</a> van Stad Gent (<a href=\":url"
+"\">@StadGent</a>)"
 
 #: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:25
 msgid "Through the <a href=\":url\">contact form</a>"
