@@ -158,8 +158,8 @@ msgid "Close"
 msgstr "Sluiten"
 
 #: themes/contrib/gent_base/templates/contrib/paragraphs/timeline/paragraph--timeline-item--alt.html.twig:44
-msgid "more info"
-msgstr "meer informatie"
+msgid "More info"
+msgstr "Meer informatie"
 
 #: themes/contrib/gent_base/templates/core/block/block--article-aside-top.html.twig:37 themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:138
 msgid "Also interesting"
