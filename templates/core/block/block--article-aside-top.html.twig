@@ -34,7 +34,10 @@
 <aside{{ attributes.addClass(classes) }}>
   <div class="related-box">
     <div class="related-box-content">
-      <h2>{{ 'Also interesting'|t }}</h2>
+      {% block related_box_title %}
+        <h2>{{ 'Also interesting'|t }}</h2>
+      {% endblock %}
+
       <div class="related-box-content-column">
         {{ title_prefix }}
         {% if label %}
