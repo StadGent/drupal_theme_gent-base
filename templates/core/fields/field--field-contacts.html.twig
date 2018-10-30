@@ -50,7 +50,7 @@
 {% endif %}
 
 <ul class="main-contacts">
-  {% for contact in contacts %}
-    <li>{{ contact }}</li>
+  {%- for contact in contacts -%}
+    <li>{{ contact.content }}</li>
   {% endfor %}
 </ul>

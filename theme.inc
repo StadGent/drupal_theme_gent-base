@@ -7,9 +7,10 @@
 
 use Drupal\file\Entity\File;
 use Drupal\media\Entity\Media;
+use Drupal\paragraphs\Entity\Paragraph;
 
 /**
- * Check to see if a give view mode exists.
+ * Check to see if a given view mode exists.
  *
  * @param string $key
  *   The view mode key.
@@ -68,11 +69,29 @@ function _gent_base_get_entity_reference_file_data(&$variables, $field) {
   }
 
   $file_name = $file_entity->getFilename();
-  $file_type = strtoupper(end(explode('.', $file_name)));
+
+  $file_type = explode('.', $file_name);
+  $file_type = end($file_type);
+  $file_type = strtoupper($file_type);
 
   $data['file_size'] = $file_entity->getSize();
   $data['file_uri'] = $file_entity->getFileUri();
   $data['file_type'] = $file_type;
 
   return $data;
+}
+
+/**
+ * Get desired display of the timeline, based on field_timeline_as_program.
+ *
+ * @param Drupal\paragraphs\Entity\Paragraph $entity
+ *   The paragraph entity.
+ *
+ * @return string
+ *   whether the alternative ('alt') or normal ('normal') display should be
+ *   used.
+ */
+function _gent_base_get_timeline_display(Paragraph $entity) {
+  $isProgram = $entity->get('field_timeline_as_program')->value;
+  return ($isProgram === '1') ? 'alt' : 'normal';
 }

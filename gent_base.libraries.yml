@@ -55,3 +55,8 @@ facet_range_slider:
   dependencies:
     - core/drupal
     - core/jquery.ui.slider
+
+timeline:
+  version: 1.x
+  js:
+    build/js/timeline.bindings-min.js: { minified: true }
