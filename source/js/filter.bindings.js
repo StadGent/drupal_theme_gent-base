@@ -11,7 +11,7 @@
         return;
       }
 
-      var filter = document.querySelector('#filter');
+      var filter = document.querySelectorAll('#filter');
       // eslint-disable-next-line no-undef
       new Modal(filter, {
         // The modal is always visible from tablet and up,

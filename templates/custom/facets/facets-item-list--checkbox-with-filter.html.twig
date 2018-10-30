@@ -1,0 +1,102 @@
+{#
+/**
+ * @file
+ * Default theme implementation for a facets item list.
+ *
+ * Available variables:
+ * - items: A list of items. Each item contains:
+ *   - attributes: HTML attributes to be applied to each list item.
+ *   - value: The content of the list element.
+ * - title: The title of the list.
+ * - list_type: The tag for list element ("ul" or "ol").
+ * - wrapper_attributes: HTML attributes to be applied to the list wrapper.
+ * - attributes: HTML attributes to be applied to the list.
+ * - empty: A message to display when there are no items. Allowed value is a
+ *   string or render array.
+ * - context: A list of contextual data associated with the list. May contain:
+ *   - list_style: The ID of the widget plugin this facet uses.
+ * - facet: The facet for this result item.
+ *   - id: the machine name for the facet.
+ *   - label: The facet label.
+ *
+ * @see facets_preprocess_facets_item_list()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% set modal = {
+  id: 'modal-' ~ facet.id
+} %}
+
+{{ attach_library('gent_base/checkbox_filter') }}
+
+<fieldset class="form-item facets-widget- {{- facet.widget.type -}} -with-filter checkbox-filter">
+  {% if items or empty %}
+    {%- if title is not empty -%}
+      <legend>{{ title }}</legend>
+    {%- endif -%}
+
+    {%- if items -%}
+
+      <section id="{{ modal.id }}" class="modal modal--fixed-height checkbox-filter__modal" tabindex="-1">
+        <div class="modal-inner">
+          <div class="modal-header">
+            <button type="button" class="button close icon-cross modal-close" data-target="{{ modal.id }}">
+              {{ 'Close'|t }}
+            </button>
+          </div>
+
+          <div class="modal-content">
+            {%- if title is not empty -%}
+              <h3>{{ title }}</h3>
+            {%- endif -%}
+
+            <div class="form-item">
+              <label for="checkboxes__filter_id_{{ facet.id }}">{{ 'Filter the list below'|t }}</label>
+              <input type="search" id="checkboxes__filter_id_{{ facet.id }}" class="checkbox-filter__filter">
+              <div class="checkbox-filter__selected"></div>
+            </div>
+
+            <p>
+              <strong class="checkbox-filter__result-placeholder">{{ 'There is no filter applied.'|t }}</strong>
+              <strong aria-live="polite" class="checkbox-filter__result-wrapper">
+                <span class="checkbox-filter__result">#</span> result(s) found:
+              </strong>
+            </p>
+
+            <div class="checkbox-filter__checkboxes">
+              <{{ list_type }}{{ attributes.addClass('links') }}>
+                {%- for item in items -%}
+                  <li{{ item.attributes.addClass('checkbox') }}>{{ item.value }}</li>
+                {%- endfor -%}
+              </{{ list_type }}>
+            </div>
+          </div>
+
+          <div class="modal-actions">
+            <button type="button" class="button button-primary checkbox-filter__submit modal-close"
+                    data-target="{{ modal.id }}">{{ 'Confirm selection'|t }}</button>
+          </div>
+        </div>
+
+        <div class="modal-overlay modal-close checkbox-filter__close" data-target="{{ modal.id }}"></div>
+      </section>
+
+      <p class="checkbox-filter__count-wrapper hidden">
+        <strong>
+          {% trans %}
+            <span class="checkbox-filter__count">0</span> selected.
+          {% endtrans %}
+        </strong>
+      </p>
+      <button type="button" class="button button-secondary button-small checkbox-filter__open"
+              aria-controls="{{ modal.id }}" aria-expanded="false">
+        {% trans %}Select {{ title }} &hellip;{% endtrans %}.
+      </button>
+
+    {%- else -%}
+      {{- empty -}}
+    {%- endif -%}
+  {%- endif %}
+</fieldset>

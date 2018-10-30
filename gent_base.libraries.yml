@@ -31,6 +31,7 @@ modal:
   version: 1.x
   js:
     styleguide/build/styleguide/js/modal.functions-min.js: { minified: true }
+    styleguide/build/styleguide/js/modal.bindings-min.js: { minified: true }
 
 image-collections:
   version: 1.x
@@ -56,7 +57,11 @@ facet_range_slider:
     - core/drupal
     - core/jquery.ui.slider
 
-timeline:
+checkbox_filter:
   version: 1.x
   js:
-    build/js/timeline.bindings-min.js: { minified: true }
+    styleguide/build/styleguide/js/checkbox_filter.functions.js: { minified: false }
+    build/js/checkbox_filter.bindings-min.js: { minified: true }
+  dependencies:
+    - gent_base/global_js
+    - gent_base/modal
