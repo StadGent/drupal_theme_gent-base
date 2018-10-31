@@ -11,6 +11,8 @@
  */
 #}
 <form{{ attributes }}>
-  <p class="required-fields-indicator">{{ 'Fill in all fields unless otherwise stated.'|t }}</p>
+  {% block form_required_indicator %}
+    <p class="required-fields-indicator">{{ 'Fill in all fields unless otherwise stated.'|t }}</p>
+  {% endblock %}
   {{ children }}
 </form>

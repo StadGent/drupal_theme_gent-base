@@ -38,9 +38,11 @@
     }
   }
 
+  > .box-top,
   > .summary-box,
   > .cta-block,
-  > .contact-details {
+  > .contact-details,
+  > .contact-box {
     @include desktop {
       @include set-layout('width-10', 'offset-1');
     }
@@ -62,7 +64,8 @@
     }
   }
 
-  > .timeline-wrapper {
+  > .timeline-wrapper,
+  > .programme-wrapper {
     @include set-layout();
     @include extra-wide;
   }

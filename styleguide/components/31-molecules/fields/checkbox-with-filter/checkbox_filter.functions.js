@@ -128,12 +128,6 @@
     );
 
     /**
-     * Store the button that triggered the modal.
-     * @type {null|Element}
-     */
-    let trigger = null;
-
-    /**
      * Store the checked checkboxes prior to making changes.
      * @type {Array}
      */
@@ -289,61 +283,6 @@
     };
 
     /**
-     * Open or close the modal
-     */
-    const toggleModal = () => {
-      // hide
-      if (modal.classList.contains('visible')) {
-        updateCount();
-        openBtn.setAttribute('aria-expanded', 'false');
-        modal.setAttribute('aria-hidden', 'true');
-        modal.classList.remove('visible');
-        if (trigger) {
-          trigger.focus();
-        }
-
-        filter(true);
-        document.removeEventListener('keydown', handleKeyboardInput);
-
-        /*
-        This component can be part of a filter-organism,
-        we need to remove the scroll lock from the filter modal if visible.
-         */
-        let elem = modal;
-        // eslint-disable-next-line no-empty
-        while ((elem = elem.parentElement) && !elem.classList.contains('modal')) {}
-
-        if (elem && elem.classList.contains('visible')) {
-          elem.style.overflow = '';
-        }
-        else {
-          document.body.style.overflow = '';
-        }
-      }
-      // show
-      else {
-        openBtn.setAttribute('aria-expanded', 'true');
-        modal.removeAttribute('aria-hidden');
-        document.body.style.overflow = 'hidden';
-        document.addEventListener('keydown', handleKeyboardInput);
-        modal.classList.add('visible');
-        modal.focus();
-
-        /*
-        This component can be part of a filter-organism,
-        we need to add a scroll lock to the filter modal if visible.
-         */
-        let elem = modal;
-        // eslint-disable-next-line no-empty
-        while ((elem = elem.parentElement) && !elem.classList.contains('modal')) {}
-
-        if (elem && elem.classList.contains('visible')) {
-          elem.style.overflow = 'hidden';
-        }
-      }
-    };
-
-    /**
      * Loop over all checkboxes and execute a callback for each iteration.
      * @param {function} next The callback function.
      */
@@ -382,9 +321,6 @@
      */
     const init = () => {
       selectedFilters = [];
-      modal.setAttribute('tabindex', '-1');
-      modal.setAttribute('aria-hidden', 'true');
-      openBtn.setAttribute('aria-expanded', 'false');
 
       checkboxLoop(({checkbox, label}) => {
         if (checkbox.checked && makeTags) {
@@ -431,8 +367,7 @@
 
       // Enable opening the modal.
       if (openBtn) {
-        openBtn.addEventListener('click', () => {
-          trigger = openBtn;
+        openBtn.addEventListener('click', (e) => {
           selectedFilters = [];
 
           checkboxLoop(({checkbox}) => {
@@ -441,7 +376,7 @@
             }
           });
 
-          toggleModal();
+          document.addEventListener('keydown', handleKeyboardInput);
         });
       }
 
@@ -450,14 +385,15 @@
         for (let i = closeBtns.length; i--;) {
           closeBtns[i].addEventListener('click', () => {
             reset();
-            toggleModal();
+            updateCount();
+            document.removeEventListener('keydown', handleKeyboardInput);
           });
         }
       }
 
       // Update selectedFilters and close.
       if (submitBtn) {
-        submitBtn.addEventListener('click', toggleModal);
+        submitBtn.addEventListener('click', updateCount);
       }
     };
 
@@ -466,24 +402,12 @@
      * @param {object} e event
      */
     const handleKeyboardInput = e => {
-      if (!tabTrap || !tabTrap.hasFocusables || !e) {
-        return;
-      }
-
-      var keyCode = e.keyCode || e.which;
+      let keyCode = e.keyCode || e.which;
       switch (keyCode) {
-        case 9: // tab
-          if (e.shiftKey) {
-            tabTrap.back(e);
-          }
-          else {
-            tabTrap.next(e);
-          }
-          break;
         case 27: // esc
           e.preventDefault();
           reset();
-          toggleModal();
+          updateCount();
           break;
         case 13: // enter
           e.preventDefault(); // prevent form submit
