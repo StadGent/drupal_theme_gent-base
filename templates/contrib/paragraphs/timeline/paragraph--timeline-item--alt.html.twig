@@ -12,9 +12,10 @@
         </div>
         <div class="modal-content">
           <h3>{{ content.title }}</h3>
+          <h4>{{ paragraph.getParentEntity().title.value }}</h4>
 
           {% if content.subtitle %}
-            <h4>{{ content.subtitle }}</h4>
+            <p>{{ content.subtitle }}</p>
           {% endif %}
 
           <div class="image-gallery--wrapper multiple image-gallery--secondary">
