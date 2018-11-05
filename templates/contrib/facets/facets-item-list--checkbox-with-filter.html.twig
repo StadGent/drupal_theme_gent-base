@@ -26,7 +26,7 @@
 #}
 
 {% set modal = {
-  id: 'modal-' ~ facet.id
+  id: facet.id
 } %}
 
 {{ attach_library('gent_base/checkbox_filter') }}
@@ -65,13 +65,11 @@
               </strong>
             </p>
 
-            <div class="checkbox-filter__checkboxes">
-              <{{ list_type }}{{ attributes.addClass('links') }}>
-                {%- for item in items -%}
-                  <li{{ item.attributes.addClass('checkbox') }}>{{ item.value }}</li>
-                {%- endfor -%}
-              </{{ list_type }}>
-            </div>
+            <{{ list_type }}{{ attributes.addClass('links checkbox-filter__checkboxes') }}>
+              {%- for item in items -%}
+                <li{{ item.attributes.addClass('checkbox') }}>{{ item.value }}</li>
+              {%- endfor -%}
+            </{{ list_type }}>
           </div>
 
           <div class="modal-actions">
@@ -92,7 +90,7 @@
       </p>
       <button type="button" class="button button-secondary button-small checkbox-filter__open"
               aria-controls="{{ modal.id }}" aria-expanded="false">
-        {% trans %}Select {{ title }} &hellip;{% endtrans %}.
+        {% trans %}Select &hellip;{% endtrans %}.
       </button>
 
     {%- else -%}

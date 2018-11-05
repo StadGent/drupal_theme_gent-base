@@ -15,7 +15,10 @@
       for (var i = selected.length; i--;) {
         new CheckboxFilter(selected[i], { // eslint-disable-line no-undef
           checkboxes: '.facet-item.checkbox',
-          hiddenTagText: 'Remove tag'
+          hiddenTagText: 'Remove tag',
+          onRemoveTag: function (checkbox) {
+            jQuery(checkbox).trigger('change.facets');
+          }
         });
       }
     }

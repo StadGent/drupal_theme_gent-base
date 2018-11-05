@@ -5,7 +5,7 @@
 (function (Drupal) {
   'use strict';
 
-  Drupal.behaviors.gentBaseLoadMenu = {
+  Drupal.behaviors.gentBaseLoadModal = {
     attach: function (context, settings) {
       if (!Modal) { // eslint-disable-line no-undef
         return;
