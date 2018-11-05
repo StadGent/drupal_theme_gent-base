@@ -61,7 +61,7 @@
             <p>
               <strong class="checkbox-filter__result-placeholder">{{ 'There is no filter applied.'|t }}</strong>
               <strong aria-live="polite" class="checkbox-filter__result-wrapper">
-                <span class="checkbox-filter__result">#</span> result(s) found:
+                {{ '%count result(s) found'|t({'%count': '#'}) }}
               </strong>
             </p>
 
@@ -83,14 +83,12 @@
 
       <p class="checkbox-filter__count-wrapper hidden">
         <strong>
-          {% trans %}
-            <span class="checkbox-filter__count">0</span> selected.
-          {% endtrans %}
+          {{ '%count items selected'|t({'%count': 0}) }}
         </strong>
       </p>
-      <button type="button" class="button button-secondary button-small checkbox-filter__open"
-              aria-controls="{{ modal.id }}" aria-expanded="false">
-        {% trans %}Select &hellip;{% endtrans %}.
+
+      <button type="button" class="button button-secondary button-small checkbox-filter__open" aria-controls="{{ modal.id }}" aria-expanded="false">
+        {% trans %}Select ...{% endtrans %}
       </button>
 
     {%- else -%}
