@@ -835,7 +835,7 @@ function gent_base_page_attachments_alter(array &$page) {
  */
 function gent_base_preprocess_facets_item_list__checkbox__leisure_activity(&$variables) {
   foreach ($variables['items'] as &$item) {
-    if ($item['value']['children']) {
+    if (isset($item['value']['children'])) {
       $title = $item['value']['#title']['#value'];
       $item['value']['#title']['#value'] = t('@category - All', ['@category' => $title]);
       $item['value']['#title']['#original'] = $title;
