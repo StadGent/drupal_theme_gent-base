@@ -23,9 +23,11 @@ filter:
   version: 1.x
   js:
     build/js/filter.bindings-min.js: { minified: true }
+    build/js/filter.functions-min.js: { minified: true }
   dependencies:
     - gent_base/global_js
     - gent_base/modal
+    - facets_range_widget/slider
 
 modal:
   version: 1.x
