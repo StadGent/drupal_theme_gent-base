@@ -43,8 +43,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2018-11-05 13:46+0100\n"
-"PO-Revision-Date: 2018-11-05 13:46+0100\n"
+"POT-Creation-Date: 2018-11-06 08:40+0100\n"
+"PO-Revision-Date: 2018-11-06 08:41+0100\n"
 "Last-Translator: Helena Standaert <helena.standaert@digipolis.gent>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
 "Language: nl\n"
@@ -106,6 +106,10 @@ msgstr "Er is 1 ander document beschikbaar"
 msgid "There are @count other documents available"
 msgstr "Er zijn @count andere documenten beschikbaar"
 
+#: themes/contrib/gent_base/gent_base.theme:836
+msgid "@category - All"
+msgstr "@category - Alle"
+
 #: themes/contrib/gent_base/gent_base.info.yml:0
 msgid "Gent Base"
 msgstr "Gent Base"
@@ -157,15 +161,15 @@ msgstr "Er is geen filter toegepast."
 msgid "%count result(s) found"
 msgstr "%count resultaten"
 
-#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-with-filter.html.twig:77
+#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-with-filter.html.twig:94
 msgid "Confirm selection"
 msgstr "Bevestig selectie"
 
-#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-with-filter.html.twig:86
+#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-with-filter.html.twig:103
 msgid "%count items selected"
 msgstr "%count items geselecteerd"
 
-#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-with-filter.html.twig:91
+#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-with-filter.html.twig:108
 msgid "Select ..."
 msgstr "Selecteer …"
 

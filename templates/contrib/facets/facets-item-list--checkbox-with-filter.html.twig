@@ -65,11 +65,28 @@
               </strong>
             </p>
 
-            <{{ list_type }}{{ attributes.addClass('links checkbox-filter__checkboxes') }}>
+            <div{{ attributes.addClass('links checkbox-filter__checkboxes') }}>
               {%- for item in items -%}
-                <li{{ item.attributes.addClass('checkbox') }}>{{ item.value }}</li>
+                {# Multi-level filters #}
+                {% if (item.value.children) %}
+                  </div>
+
+                  <div {{ attributes.addClass('links checkbox-filter__checkboxes') }}>
+                    <h4 class="checkbox-filter__category">{{ item.value['#title']['#original'] }}</h4>
+                    <div {{ item.attributes.addClass('checkbox full-width') }}>
+                      {{ item.value|without('children') }}
+                    </div>
+
+                    {% for child in item.value.children['#items'] %}
+                      <div class="facet-item checkbox">{{ child }}</div>
+                    {% endfor %}
+
+                {# Single-level filters #}
+                {% else %}
+                  <div{{ item.attributes.addClass('checkbox') }}>{{ item.value }}</div>
+                {% endif %}
               {%- endfor -%}
-            </{{ list_type }}>
+            </div>
           </div>
 
           <div class="modal-actions">
