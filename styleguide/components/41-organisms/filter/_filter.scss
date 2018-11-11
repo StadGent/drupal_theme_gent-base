@@ -1,34 +1,53 @@
 .filter {
   .filter-section {
-    display: none;
     padding-top: .7rem;
+    visibility: hidden;
 
     @include tablet {
-      display: block;
+      position: static;
+      height: auto;
+      box-shadow: none;
+      overflow: visible;
+      visibility: visible;
+      z-index: auto;
     }
 
     &.visible {
-      display: block;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      padding: 0 1rem 1rem;
-      background-color: color('white');
-      z-index: 200;
-      overflow-y: auto;
+      @include breakpoint(max-width 768px) {
+        padding: 0;
+        visibility: visible;
 
-      > .modal-actions {
-        display: block;
+        > .modal-inner > .modal-header {
+          display: block;
+        }
       }
     }
 
-    > .modal-actions {
+    > .modal-inner {
+      @include tablet {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        transform: none;
+        z-index: auto;
+      }
+
+      > .modal-header {
+        display: none;
+      }
+
+      > .modal-content {
+        @include tablet {
+          padding: 0;
+        }
+      }
+    }
+
+    > .modal-overlay {
       display: none;
-      margin-right: -1rem;
-      margin-left: -1rem;
-      text-align: right;
     }
 
     form {
