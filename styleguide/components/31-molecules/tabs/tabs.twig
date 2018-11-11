@@ -1,20 +1,16 @@
-<div class="tabs {{ modifier }}">
+<div class="tabs {{ modifier }}" data-tabs>
   <ul role="tablist">
     {% for tab in tabs %}
       <li role="presentation">
-        <a role="tab" href="#{{ modifier ~ tab.target }}"
-           {% if loop.index == 1 %}aria-selected="true" {% endif %}
-           aria-controls="requirements"
-          {% if loop.index == 1 %}tabindex="0"{% else %}tabindex="-1"{% endif %}>
+        <a role="tab" href="#{{ modifier ~ tab.target }}" aria-controls="{{ modifier ~ tab.target }}">
           {{ tab.label }}
         </a>
       </li>
     {% endfor %}
   </ul>
   {% for tab in tabs %}
-    <article role="tabpanel" class="tabpanel" id="{{ modifier ~ tab.target }}"
-             {% if loop.index == 1 %}aria-hidden="true" {% endif %}>
+    <div role="tabpanel" id="{{ modifier ~ tab.target }}">
       {{ tab.content }}
-    </article>
+    </div>
   {% endfor %}
 </div>

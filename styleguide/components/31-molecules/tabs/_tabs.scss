@@ -1,6 +1,6 @@
 .tabs {
 
-  .tabpanel[role='tabpanel'] {
+  [role='tabpanel'] {
     @include theme('background-color', 'color-primary--lighten-5', 'tab-background-color');
 
     padding: 1rem;
@@ -26,7 +26,7 @@
     }
   }
 
-  ul[role='tablist'] {
+  [role='tablist'] {
 
     display: flex;
     margin: 0;
@@ -75,7 +75,7 @@
         }
       }
 
-      a[role='tab'][aria-selected='true'] {
+      [role='tab'][aria-selected='true'] {
         @include theme('background-color', 'color-primary--lighten-5', 'tab-background-color');
 
         border-bottom: 0;
@@ -84,11 +84,11 @@
   }
 
   &.light {
-    .tabpanel[role='tabpanel'] {
+    [role='tabpanel'] {
       background-color: transparent;
     }
 
-    ul[role='tablist'] {
+    [role='tablist'] {
       @include theme('border-color', 'color-primary--lighten-5', 'tab-background-color');
       border-bottom: 2px solid;
     }

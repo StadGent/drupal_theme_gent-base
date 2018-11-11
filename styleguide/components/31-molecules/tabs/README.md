@@ -21,4 +21,4 @@
 
 ## Javascript
 
-...
+For full documentation of the used javaScript library, see [allieTabs](https://github.com/BartDelrue/allieTabs)
