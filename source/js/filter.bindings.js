@@ -19,6 +19,7 @@
         resizeEvent: function resizeEvent() {
           if (window.innerWidth > 768) {
             filter.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = '';
           }
           else {
             filter.setAttribute('aria-hidden', 'true');
