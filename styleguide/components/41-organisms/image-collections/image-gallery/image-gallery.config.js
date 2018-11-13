@@ -1,5 +1,14 @@
 'use strict';
 
+const imageList = [];
+for (let i = 6; i--;) {
+  imageList.push({
+    src: 'https://via.placeholder.com/800x500&text=8:5+(800x500)',
+    alt: 'placeholder image alternative text',
+    caption: 'image caption'
+  });
+}
+
 module.exports = {
   title: 'Image gallery',
   status: 'ready',
@@ -19,28 +28,14 @@ module.exports = {
       name: 'default',
       label: 'Single',
       preview: '@preview',
-      context: {
-        src: 'https://via.placeholder.com/800x500&text=8:5+(800x500)',
-        alt: 'placeholder image alternative text',
-        caption: 'image caption'
-      }
+      context: imageList[0]
     },
     {
       name: 'double',
       view: 'image-gallery--multiple',
       preview: '@preview',
       context: {
-        items: [
-          {
-            src: 'https://via.placeholder.com/800x500&text=8:5+(800x500)',
-            alt: 'placeholder image alternative text',
-            caption: 'image caption'
-          },
-          {
-            src: 'https://via.placeholder.com/800x500&text=8:5+(800x500)',
-            alt: 'placeholder image alternative text'
-          }
-        ]
+        items: imageList.slice(-2)
       }
     },
     {
@@ -48,22 +43,7 @@ module.exports = {
       view: 'image-gallery--multiple',
       preview: '@preview',
       context: {
-        items: [
-          {
-            src: 'https://via.placeholder.com/800x500&text=8:5+(800x500)',
-            alt: 'placeholder image alternative text',
-            caption: 'image caption'
-          },
-          {
-            src: 'https://via.placeholder.com/800x500&text=8:5+(800x500)',
-            alt: 'placeholder image alternative text',
-            caption: 'image caption'
-          },
-          {
-            src: 'https://via.placeholder.com/800x500&text=8:5+(800x500)',
-            alt: 'placeholder image alternative text'
-          }
-        ]
+        items: imageList.slice(-3)
       }
     },
     {
@@ -71,27 +51,7 @@ module.exports = {
       view: 'image-gallery--multiple',
       preview: '@preview',
       context: {
-        items: [
-          {
-            src: 'https://via.placeholder.com/800x500&text=8:5+(800x500)',
-            alt: 'placeholder image alternative text',
-            caption: 'image caption'
-          },
-          {
-            src: 'https://via.placeholder.com/800x500&text=8:5+(800x500)',
-            alt: 'placeholder image alternative text',
-            caption: 'image caption'
-          },
-          {
-            src: 'https://via.placeholder.com/800x500&text=8:5+(800x500)',
-            alt: 'placeholder image alternative text',
-            caption: 'image caption'
-          },
-          {
-            src: 'https://via.placeholder.com/800x500&text=8:5+(800x500)',
-            alt: 'placeholder image alternative text'
-          }
-        ]
+        items: imageList.slice(-4)
       }
     },
     {
@@ -99,32 +59,7 @@ module.exports = {
       view: 'image-gallery--multiple',
       preview: '@preview',
       context: {
-        items: [
-          {
-            src: 'https://via.placeholder.com/800x500&text=8:5+(800x500)',
-            alt: 'placeholder image alternative text',
-            caption: 'image caption'
-          },
-          {
-            src: 'https://via.placeholder.com/800x500&text=8:5+(800x500)',
-            alt: 'placeholder image alternative text',
-            caption: 'image caption'
-          },
-          {
-            src: 'https://via.placeholder.com/800x500&text=8:5+(800x500)',
-            alt: 'placeholder image alternative text',
-            caption: 'image caption'
-          },
-          {
-            src: 'https://via.placeholder.com/800x500&text=8:5+(800x500)',
-            alt: 'placeholder image alternative text',
-            caption: 'image caption'
-          },
-          {
-            src: 'https://via.placeholder.com/800x500&text=8:5+(800x500)',
-            alt: 'placeholder image alternative text'
-          }
-        ]
+        items: imageList.slice(-5)
       }
     },
     {
@@ -132,42 +67,48 @@ module.exports = {
       view: 'image-gallery--multiple',
       preview: '@preview',
       context: {
-        items: [
-          {
-            src: 'https://via.placeholder.com/800x500&text=8:5+(800x500)',
-            alt: 'placeholder image alternative text',
-            caption: 'image caption'
-          },
-          {
-            src: 'https://via.placeholder.com/800x500&text=8:5+(800x500)',
-            alt: 'placeholder image alternative text',
-            caption: 'image caption'
-          },
-          {
-            src: 'https://via.placeholder.com/800x500&text=8:5+(800x500)',
-            alt: 'placeholder image alternative text',
-            caption: 'image caption'
-          },
-          {
-            src: 'https://via.placeholder.com/800x500&text=8:5+(800x500)',
-            alt: 'placeholder image alternative text',
-            caption: 'image caption'
-          },
-          {
-            src: 'https://via.placeholder.com/800x500&text=8:5+(800x500)',
-            alt: 'placeholder image alternative text',
-            caption: 'image caption'
-          },
-          {
-            src: 'https://via.placeholder.com/800x500&text=8:5+(800x500)',
-            alt: 'placeholder image alternative text',
-            caption: 'image caption'
-          },
-          {
-            src: 'https://via.placeholder.com/800x500&text=8:5+(800x500)',
-            alt: 'placeholder image alternative text'
-          }
-        ]
+        items: imageList
+      }
+    },
+    {
+      name: 'default-alternative',
+      label: 'Single (alternative)',
+      preview: '@preview',
+      context: {
+        src: imageList[0].src,
+        caption: imageList[0].caption,
+        alt: imageList[0].alt,
+        type: 'secondary'
+      }
+    },
+    {
+      name: 'double-alternative',
+      label: 'Double (alternative)',
+      view: 'image-gallery--multiple',
+      preview: '@preview',
+      context: {
+        items: imageList.slice(-2),
+        type: 'secondary'
+      }
+    },
+    {
+      name: 'triple-alternative',
+      label: 'Triple (alternative)',
+      view: 'image-gallery--multiple',
+      preview: '@preview',
+      context: {
+        items: imageList.slice(-3),
+        type: 'secondary'
+      }
+    },
+    {
+      name: 'quadruple-alternative',
+      label: 'Quadruple (alternative)',
+      view: 'image-gallery--multiple',
+      preview: '@preview',
+      context: {
+        items: imageList.slice(-4),
+        type: 'secondary'
       }
     }
   ]

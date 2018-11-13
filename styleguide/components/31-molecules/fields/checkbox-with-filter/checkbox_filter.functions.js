@@ -52,8 +52,8 @@
      * Container for the checkboxes.
      * @type {Element}
      */
-    const checkboxContainer = elem.querySelector(
-      options.checkboxContainer || '.checkbox-filter__checkboxes'
+    const checkboxContainers = elem.querySelectorAll(
+      options.checkboxContainers || '.checkbox-filter__checkboxes'
     );
 
     /**
@@ -128,12 +128,6 @@
     );
 
     /**
-     * Store the button that triggered the modal.
-     * @type {null|Element}
-     */
-    let trigger = null;
-
-    /**
      * Store the checked checkboxes prior to making changes.
      * @type {Array}
      */
@@ -172,14 +166,14 @@
 
       let count = 0;
 
-      if (checkboxContainer) {
-        checkboxContainer.style.display = 'none';
-      }
+      [].slice.call(checkboxContainers).forEach(container => {
+        container.style.display = 'none';
+      });
 
       checkboxLoop(({checkboxWrapper, checkbox, label}) => {
         if (
           !label ||
-          label.innerText
+          label.textContent
             .toUpperCase()
             .indexOf(filterfield.value.toUpperCase()) === -1
         ) {
@@ -193,9 +187,12 @@
         }
       });
 
-      if (checkboxContainer) {
-        checkboxContainer.style.display = '';
-      }
+      [].slice.call(checkboxContainers).forEach(container => {
+        let displayedCount = container.querySelectorAll(`${options.checkboxes || 'div.checkbox'}:not([hidden])`).length;
+        if (displayedCount) {
+          container.style.display = '';
+        }
+      });
 
       updateResult(count);
       tabTrap.setFocusables();
@@ -210,7 +207,7 @@
     const makeTag = (checkbox, label) => {
       let tag = document.createElement('span');
       tag.className = 'tag filter';
-      tag.innerText = label.innerText;
+      tag.textContent = label.textContent;
       tag.setAttribute('data-value', checkbox.value);
 
       let button = document.createElement('button');
@@ -221,6 +218,10 @@
       button.addEventListener('click', () => {
         checkbox.checked = false;
         selectedContainer.removeChild(tag);
+
+        if (typeof options.onRemoveTag === 'function') {
+          options.onRemoveTag(checkbox, tag);
+        }
       });
 
       tag.appendChild(button);
@@ -248,7 +249,7 @@
       const selectedCount = selectedContainer.children.length;
 
       if (countSpan) {
-        countSpan.innerText = selectedCount;
+        countSpan.textContent = selectedCount;
       }
       if (countSpanWrapper) {
         if (selectedCount > 0) {
@@ -266,7 +267,7 @@
      */
     const updateResult = (resultCount) => {
       if (resultSpan) {
-        resultSpan.innerText = resultCount;
+        resultSpan.textContent = resultCount;
       }
 
       if (resultSpanWrapper) {
@@ -284,61 +285,6 @@
         }
         else {
           resultSpanPlaceholder.classList.add('hidden');
-        }
-      }
-    };
-
-    /**
-     * Open or close the modal
-     */
-    const toggleModal = () => {
-      // hide
-      if (modal.classList.contains('visible')) {
-        updateCount();
-        openBtn.setAttribute('aria-expanded', 'false');
-        modal.setAttribute('aria-hidden', 'true');
-        modal.classList.remove('visible');
-        if (trigger) {
-          trigger.focus();
-        }
-
-        filter(true);
-        document.removeEventListener('keydown', handleKeyboardInput);
-
-        /*
-        This component can be part of a filter-organism,
-        we need to remove the scroll lock from the filter modal if visible.
-         */
-        let elem = modal;
-        // eslint-disable-next-line no-empty
-        while ((elem = elem.parentElement) && !elem.classList.contains('modal')) {}
-
-        if (elem && elem.classList.contains('visible')) {
-          elem.style.overflow = '';
-        }
-        else {
-          document.body.style.overflow = '';
-        }
-      }
-      // show
-      else {
-        openBtn.setAttribute('aria-expanded', 'true');
-        modal.removeAttribute('aria-hidden');
-        document.body.style.overflow = 'hidden';
-        document.addEventListener('keydown', handleKeyboardInput);
-        modal.classList.add('visible');
-        modal.focus();
-
-        /*
-        This component can be part of a filter-organism,
-        we need to add a scroll lock to the filter modal if visible.
-         */
-        let elem = modal;
-        // eslint-disable-next-line no-empty
-        while ((elem = elem.parentElement) && !elem.classList.contains('modal')) {}
-
-        if (elem && elem.classList.contains('visible')) {
-          elem.style.overflow = 'hidden';
         }
       }
     };
@@ -382,12 +328,9 @@
      */
     const init = () => {
       selectedFilters = [];
-      modal.setAttribute('tabindex', '-1');
-      modal.setAttribute('aria-hidden', 'true');
-      openBtn.setAttribute('aria-expanded', 'false');
 
       checkboxLoop(({checkbox, label}) => {
-        if (checkbox.checked && makeTags) {
+        if (checkbox.checked && !checkbox.indeterminate && makeTags) {
           selectedContainer.appendChild(makeTag(checkbox, label));
         }
       });
@@ -431,8 +374,7 @@
 
       // Enable opening the modal.
       if (openBtn) {
-        openBtn.addEventListener('click', () => {
-          trigger = openBtn;
+        openBtn.addEventListener('click', (e) => {
           selectedFilters = [];
 
           checkboxLoop(({checkbox}) => {
@@ -441,7 +383,7 @@
             }
           });
 
-          toggleModal();
+          document.addEventListener('keydown', handleKeyboardInput);
         });
       }
 
@@ -450,14 +392,15 @@
         for (let i = closeBtns.length; i--;) {
           closeBtns[i].addEventListener('click', () => {
             reset();
-            toggleModal();
+            updateCount();
+            document.removeEventListener('keydown', handleKeyboardInput);
           });
         }
       }
 
       // Update selectedFilters and close.
       if (submitBtn) {
-        submitBtn.addEventListener('click', toggleModal);
+        submitBtn.addEventListener('click', updateCount);
       }
     };
 
@@ -466,24 +409,12 @@
      * @param {object} e event
      */
     const handleKeyboardInput = e => {
-      if (!tabTrap || !tabTrap.hasFocusables || !e) {
-        return;
-      }
-
-      var keyCode = e.keyCode || e.which;
+      let keyCode = e.keyCode || e.which;
       switch (keyCode) {
-        case 9: // tab
-          if (e.shiftKey) {
-            tabTrap.back(e);
-          }
-          else {
-            tabTrap.next(e);
-          }
-          break;
         case 27: // esc
           e.preventDefault();
           reset();
-          toggleModal();
+          updateCount();
           break;
         case 13: // enter
           e.preventDefault(); // prevent form submit

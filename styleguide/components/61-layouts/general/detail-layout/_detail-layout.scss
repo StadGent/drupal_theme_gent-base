@@ -38,6 +38,7 @@
     }
   }
 
+  > .box-top,
   > .summary-box,
   > .cta-block,
   > .contact-details,
@@ -63,7 +64,8 @@
     }
   }
 
-  > .timeline-wrapper {
+  > .timeline-wrapper,
+  > .programme-wrapper {
     @include set-layout();
     @include extra-wide;
   }

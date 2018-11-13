@@ -1,0 +1,31 @@
+.selected-filters {
+  > a {
+    @include theme('color', 'color-tertiary', 'selected-filters-link-color');
+
+    font-weight: normal;
+    text-decoration: none;
+
+    &:hover {
+      background: none;
+    }
+  }
+}
+
+.result__show-filters.modal-trigger {
+  display:  none;
+
+  @media (max-width: 769px) {
+    .sidebar-layout.filter & {
+      display: flex;
+    }
+  }
+}
+
+.filter-show-results-button {
+  display: block;
+
+  @media (min-width: 769px) {
+    display: none;
+  }
+
+}

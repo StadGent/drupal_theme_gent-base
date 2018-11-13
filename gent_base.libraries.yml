@@ -19,6 +19,22 @@ accordion:
     styleguide/build/styleguide/js/accordion.functions-min.js: { minified: true }
     build/js/accordion.bindings-min.js: { minified: true }
 
+filter:
+  version: 1.x
+  js:
+    build/js/filter.bindings-min.js: { minified: true }
+    build/js/filter.functions-min.js: { minified: true }
+  dependencies:
+    - gent_base/global_js
+    - gent_base/modal
+    - facets_range_widget/slider
+
+modal:
+  version: 1.x
+  js:
+    styleguide/build/styleguide/js/modal.functions-min.js: { minified: true }
+    build/js/modal.bindings-min.js: { minified: true }
+
 image-collections:
   version: 1.x
   css:
@@ -34,3 +50,21 @@ image-wall:
     styleguide/public/styleguide/vendor/imagesloaded/imagesloaded.pkgd.min.js: { minified: true }
     styleguide/public/styleguide/vendor/masonry-layout/dist/masonry.pkgd.min.js: { minified: true }
     build/js/image-wall.bindings-min.js: { minified: true }
+
+facet_range_slider:
+  version: 1.x
+  js:
+    build/js/facet_range_slider.bindings-min.js: { minified: true }
+  dependencies:
+    - core/drupal
+    - core/jquery.ui.slider
+    - facets_range_widget/slider
+
+checkbox_filter:
+  version: 1.x
+  js:
+    styleguide/build/styleguide/js/checkbox_filter.functions.js: { minified: false }
+    build/js/checkbox_filter.bindings-min.js: { minified: true }
+  dependencies:
+    - gent_base/global_js
+    - gent_base/modal
