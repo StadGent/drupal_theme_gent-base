@@ -96,7 +96,7 @@ msgstr "programma"
 
 #: themes/contrib/gent_base/gent_base.theme:346
 msgid "timeline"
-msgstr "tijdlijn"
+msgstr "tijdslijn"
 
 #: themes/contrib/gent_base/gent_base.theme:387
 msgid "There is 1 other document available"
