@@ -62,7 +62,7 @@
     flex-wrap: wrap;
     margin-bottom: gutter();
 
-    li {
+    > li {
       width: 100%;
 
       @include desktop {
@@ -74,32 +74,6 @@
         margin-top: 0;
       }
 
-    }
-  }
-
-  .opening-hours {
-    @include icon(clock);
-
-    display: inline-block;
-    padding: 0 .5rem;
-    font-weight: 700;
-    line-height: 1.8;
-
-    &::before {
-      font-size: 1.5em;
-      vertical-align: -13%;
-    }
-
-    time {
-      font-weight: normal;
-    }
-
-    &.open {
-      background-color: color('green', -4);
-    }
-
-    &.closed {
-      background-color: color('red', -4);
     }
   }
 

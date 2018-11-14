@@ -1,0 +1,19 @@
+<ul class="opening-hours {{ modifier }}">
+  {% for channel in channels %}
+    <li class="opening-hours-channel">
+      <{{ headingTag|default('h4') }}>{{ channel.label }}</{{ headingTag|default('h4') }}>
+
+      {% if channel.time %}
+        &mdash;
+        {% if channel.time.opening %}
+          From
+          <time{{ channel.time.openingDatetime  ? ' datetime="' ~ channel.time.openingDatetime ~ '"' }}>{{ channel.time.opening }}</time>
+        {% endif %}
+        {% if channel.time.closing %}
+          to
+          <time{{ channel.time.closingDatetime  ? ' datetime="' ~ channel.time.closingDatetime ~ '"' }}">{{ channel.time.closing }}</time>
+        {% endif %}
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>

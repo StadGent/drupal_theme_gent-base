@@ -1,0 +1,33 @@
+.opening-hours {
+  @extend %list-no-style;
+
+  display: inline-block;
+  padding: .3rem .5rem;
+  border-radius: border-radius('radius-1');
+  background-color: color('green', -4);
+
+  // states
+  &.closed {
+    background-color: color('red', -4);
+  }
+}
+
+.opening-hours-channel {
+  padding-left: 1.4rem;
+  line-height: 1.4rem;
+
+  > * {
+    font-size: .8rem;
+    display: inline;
+  }
+
+  &:first-of-type {
+    @include icon(clock);
+    padding-left: 0;
+
+    &::before {
+      font-size: 1.5em;
+      vertical-align: -13%;
+    }
+  }
+}

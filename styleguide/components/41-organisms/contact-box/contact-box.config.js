@@ -19,7 +19,18 @@ module.exports = {
         address: 'Kasteelwegel 23<br />9000 Gent',
         phone: '09 123 45 67',
         email: 'thomas.vandersteen@stad.gent',
-        opening_hours: 'From 10:00 till 18:00'
+        opening_hours: {
+          label: 'Opened today',
+          channels: [
+            {
+              label: 'Opened today',
+              time: {
+                opening: '10:00',
+                closing: '18:00'
+              }
+            }
+          ]
+        }
       },
       {
         link: '#',
@@ -27,7 +38,18 @@ module.exports = {
         address: 'Kasteelwegel 23<br />9000 Gent',
         phone: '09 123 45 67',
         email: 'thomas.vandersteen@stad.gent',
-        opening_hours: 'From 10:00 till 18:00'
+        opening_hours: {
+          label: 'Opened today',
+          channels: [
+            {
+              label: 'Opened today',
+              time: {
+                opening: '10:00',
+                closing: '18:00'
+              }
+            }
+          ]
+        }
       }
     ],
     authorized_persons: [

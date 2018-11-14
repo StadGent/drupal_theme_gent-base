@@ -53,13 +53,16 @@
               </ul>
             </address>
             {% if contact.opening_hours|length > 0 %}
-              <span class="opening-hours open">
-                             {{ 'Today open - ' }}<time>{{ contact.opening_hours }}</time>
-                             </span>
+              {% include '@opening-hours' with contact.opening_hours %}
             {% else %}
-              <span class="opening-hours closed">
-                             {{ 'Closed today' }}
-                             </span>
+              {% include '@opening-hours' with {
+                modifier: 'closed',
+                channels: [
+                  {
+                    label: 'Closed today'
+                  }
+                ]
+              } %}
             {% endif %}
           </li>
         {% endfor %}
