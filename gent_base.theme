@@ -848,7 +848,8 @@ function gent_base_preprocess_facets_item_list__checkbox_popup(&$variables) {
  */
 function gent_base_preprocess_vesta(&$variables) {
   /* @var $entity Drupal\dg_vesta\Entity\Vesta */
-  $entity = $variables['content']['vesta_value']['#object'];
+  $entity = $variables['elements']['#vesta'];
 
   $variables['entity'] = $entity->getVestaValue();
+  $variables['url'] = $entity->toUrl();
 }

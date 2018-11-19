@@ -36,7 +36,7 @@
 
     {{ content.field_opening_hours }}
 
-    <a href="" class="read-more standalone-link" aria-labelledby="{{ entity.id }}">{{ 'More info and opening hours'|t }}</a>
+    <a href="{{ url }}" class="read-more standalone-link" aria-labelledby="{{ entity.id }}">{{ 'More info and opening hours'|t }}</a>
   </div>
 </article>
-<a href="#" class="teaser-overlay-link" tabindex="-1" aria-hidden="true">{{ entity.name }}</a>
+<a href="{{ url }}" class="teaser-overlay-link" tabindex="-1" aria-hidden="true">{{ entity.name }}</a>
