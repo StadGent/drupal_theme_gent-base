@@ -9,7 +9,7 @@
 #  themes/contrib/gent_base/starterkit/starterkit.info.yml: n/a
 #  themes/contrib/gent_base/templates/contrib/dg-auth/dg-auth-block.html.twig: n/a
 #  themes/contrib/gent_base/templates/contrib/dg_blocks/block--dg-blocks-gentinfo-block.html.twig: n/a
-#  themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-with-filter.html.twig: n/a
+#  themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-popup.html.twig: n/a
 #  themes/contrib/gent_base/templates/contrib/paragraphs/timeline/paragraph--timeline-item--alt.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/layout/region--filters.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig: n/a
@@ -44,7 +44,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2018-11-06 08:40+0100\n"
+"POT-Creation-Date: 2018-11-16 10:43+0100\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -93,7 +93,7 @@ msgstr ""
 msgid "There are @count other documents available"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:836
+#: themes/contrib/gent_base/gent_base.theme:840
 msgid "@category - All"
 msgstr ""
 
@@ -129,31 +129,31 @@ msgstr ""
 msgid "Chat with Gentinfo"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-with-filter.html.twig:46 themes/contrib/gent_base/templates/contrib/paragraphs/timeline/paragraph--timeline-item--alt.html.twig:10 themes/contrib/gent_base/templates/core/layout/region--filters.html.twig:27 themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig:54
+#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-popup.html.twig:46 themes/contrib/gent_base/templates/contrib/paragraphs/timeline/paragraph--timeline-item--alt.html.twig:10 themes/contrib/gent_base/templates/core/layout/region--filters.html.twig:27 themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig:54
 msgid "Close"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-with-filter.html.twig:56
+#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-popup.html.twig:56
 msgid "Filter the list below"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-with-filter.html.twig:62
+#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-popup.html.twig:62
 msgid "There is no filter applied."
 msgstr ""
 
-#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-with-filter.html.twig:64
+#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-popup.html.twig:64
 msgid "%count result(s) found"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-with-filter.html.twig:94
-msgid "Confirm selection"
+#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-popup.html.twig:94 themes/contrib/gent_base/templates/core/layout/region--filters.html.twig:37
+msgid "Show results"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-with-filter.html.twig:103
+#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-popup.html.twig:103
 msgid "%count items selected"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-with-filter.html.twig:108
+#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-popup.html.twig:108
 msgid "Select ..."
 msgstr ""
 
@@ -175,7 +175,7 @@ msgstr ""
 msgid "Show filters"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/contrib/paragraphs/timeline/paragraph--timeline-item--alt.html.twig:44
+#: themes/contrib/gent_base/templates/contrib/paragraphs/timeline/paragraph--timeline-item--alt.html.twig:45
 msgid "More info"
 msgstr ""
 
@@ -269,10 +269,6 @@ msgstr ""
 
 #: themes/contrib/gent_base/templates/core/layout/region--filters.html.twig:33 themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig:59
 msgid "When selecting or deselecting filters, the page is automatically reloaded."
-msgstr ""
-
-#: themes/contrib/gent_base/templates/core/layout/region--filters.html.twig:37
-msgid "Show results"
 msgstr ""
 
 #: themes/contrib/gent_base/templates/core/navigation/breadcrumb.html.twig:13
