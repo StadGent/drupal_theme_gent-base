@@ -162,8 +162,9 @@ msgid "%count result(s) found"
 msgstr "%count resultaten"
 
 #: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-popup.html.twig:94
-msgid "Confirm selection"
-msgstr "Bevestig selectie"
+#: themes/contrib/gent_base/templates/core/layout/region--filters.html.twig:37
+msgid "Show results"
+msgstr "Toon resultaten"
 
 #: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-popup.html.twig:103
 msgid "%count items selected"
@@ -298,10 +299,6 @@ msgid ""
 msgstr ""
 "Bij selecteren of deselecteren van filters wordt de pagina automatisch "
 "herladen."
-
-#: themes/contrib/gent_base/templates/core/layout/region--filters.html.twig:37
-msgid "Show results"
-msgstr "Toon resultaten"
 
 #: themes/contrib/gent_base/templates/core/navigation/breadcrumb.html.twig:13
 msgid "Breadcrumb"
