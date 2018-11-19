@@ -30,7 +30,7 @@
     {% if entity.contactNumbers.landlines|length > 0 %}
       {% set phone = entity.contactNumbers.landlines|first.value %}
       <div class="teaser-contact-info">
-        <a href="tel:{{ phone|replace({' ':''}) }}">{{ phone }}</a>
+        <a href="tel:{{ phone|replace({' ':''}) }}" class="no-icon">{{ phone }}</a>
       </div>
     {% endif %}
 
