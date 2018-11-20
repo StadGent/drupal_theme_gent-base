@@ -13,6 +13,7 @@ use Drupal\paragraphs\Entity\Paragraph;
 use Drupal\Core\Url;
 use Drupal\Core\Link;
 use Drupal\file\Entity\File;
+use Drupal\taxonomy\Entity\Term;
 
 include __DIR__ . '/theme.inc';
 
@@ -852,4 +853,15 @@ function gent_base_preprocess_vesta(&$variables) {
 
   $variables['entity'] = $entity->getVestaValue();
   $variables['url'] = $entity->toUrl();
+  
+  $variables['related'] = [];
+
+  /* @var $keyword Gent\Services\Vesta\Value\Keyword */
+  foreach ($entity->getVestaValue()->getKeywords() as &$keyword) {
+    $terms = \Drupal::entityManager()->getStorage('taxonomy_term')->loadByProperties([
+      'field_vesta_id' => $keyword->getId()
+    ]);
+
+    $variables['related'][] = reset($terms);
+  }
 }
