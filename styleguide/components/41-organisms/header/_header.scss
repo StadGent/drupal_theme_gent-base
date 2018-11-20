@@ -5,10 +5,10 @@ header.header {
 
   // first row
   > .content-container {
-    margin-left: -1.2rem;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    margin-left: -1.2rem;
 
     > * {
       margin-left: 1.2rem;
