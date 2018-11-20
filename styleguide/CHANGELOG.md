@@ -14,6 +14,7 @@ NOTE: Refer to upcoming changes in our README.md under "Roadmap"
 ### Updated
 
 * DTGB-634: cta block variants
+* DTGB-637: header margins
 
 ## [3.0.0-alpha.9]
 
