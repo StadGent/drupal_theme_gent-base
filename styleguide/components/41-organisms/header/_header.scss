@@ -5,9 +5,14 @@ header.header {
 
   // first row
   > .content-container {
+    margin-left: -1.2rem;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+
+    > * {
+      margin-left: 1.2rem;
+    }
 
     .site-logo {
       margin-right: auto;
@@ -107,15 +112,12 @@ header.header {
 
     .mijn-gent-block {
       max-width: 10rem;
-      margin-left: 1.2rem;
     }
 
     // Align main menu with site logo and breadcrumb.
     nav.menu {
-      margin-left: 1.2rem;
 
       @include tablet {
-        margin-left: 0;
         padding-left: .2rem;
       }
     }
