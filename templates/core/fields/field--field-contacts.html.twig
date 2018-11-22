@@ -45,12 +45,6 @@
   ]
 %}
 
-{% if not label_hidden %}
-  <div{{ title_attributes.addClass(title_classes) }}>{{ label }}</div>
-{% endif %}
-
-<ul class="main-contacts">
-  {%- for contact in contacts -%}
-    <li>{{ contact.content }}</li>
-  {% endfor %}
-</ul>
+{%- for contact in contacts -%}
+  <li{{ attributes }}>{{ contact.content }}</li>
+{% endfor %}
