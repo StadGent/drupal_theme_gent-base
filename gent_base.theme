@@ -402,13 +402,12 @@ function gent_base_preprocess_field__field_contacts(&$variables) {
   if (count($contacts) > 2) {
     foreach ($contacts as $key => $contact) {
       $variables["items"][$key]["content"]["#view_mode"] = 'teaser_tiny';
-      $variables['contacts'][] = $variables["items"][$key];
     }
   }
   else {
-    $variables['attributes']['class'][] = 'teaser';
-    $variables['attributes']['class'][] = 'teaser-contact';
-    $variables['contacts'] = $variables["items"];
+    foreach ($contacts as $key => $contact) {
+      $variables["items"][$key]['attributes']->addClass('teaser', 'teaser-contact');
+    }
   }
 }
 
@@ -425,6 +424,14 @@ function gent_base_preprocess_field__field_responsible_person(&$variables) {
  * Implements hook_preprocess_HOOK().
  */
 function gent_base_preprocess_field__field_contact_categories(&$variables) {
+  $contacts = $variables['element']['#object']->field_contacts->count();
+  $contact_categories = $variables['items'];
+  if ($contacts <= 2) {
+    foreach ($contact_categories as $key => $category) {
+      $variables["items"][$key]['attributes']->addClass('teaser', 'teaser-contact');
+    }
+  }
+
   foreach ($variables['items'] as $key => $item) {
     $variables["items"][$key]["content"]["#options"]['attributes']['class'][] = 'standalone-link';
   }
