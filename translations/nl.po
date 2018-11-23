@@ -43,8 +43,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2018-11-19 15:11+0100\n"
-"PO-Revision-Date: 2018-11-19 15:11+0100\n"
+"POT-Creation-Date: 2018-11-23 10:12+0100\n"
+"PO-Revision-Date: 2018-11-23 10:13+0100\n"
 "Last-Translator: Helena Standaert <helena.standaert@digipolis.gent>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
 "Language: nl\n"
@@ -106,7 +106,7 @@ msgstr "Er is 1 ander document beschikbaar"
 msgid "There are @count other documents available"
 msgstr "Er zijn @count andere documenten beschikbaar"
 
-#: themes/contrib/gent_base/gent_base.theme:840
+#: themes/contrib/gent_base/gent_base.theme:858
 msgid "@category - All"
 msgstr "@category - Alle"
 
@@ -198,7 +198,7 @@ msgid "More info"
 msgstr "Meer informatie"
 
 #: themes/contrib/gent_base/templates/core/block/block--article-aside-top.html.twig:38
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:138
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:141
 msgid "Also interesting"
 msgstr "Ook nog interessant"
 
@@ -393,39 +393,39 @@ msgid "Through the <a href=\":url\">chat</a>"
 msgstr "Via de <a href=\":url\">chat</a>"
 
 #: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:106
-msgid "Contact"
-msgstr "Contact"
+msgid "Additional information"
+msgstr "Bijkomende informatie"
 
 #: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:109
 msgid "Contacts"
 msgstr "Contacten"
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:116
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:119
 #: themes/contrib/gent_base/templates/custom/nodes/node--terrain--default.html.twig:9
 msgid "Location"
 msgstr "Locatie"
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:120
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:123
 msgid "Authorized persons"
 msgstr "Bevoegde personen"
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:130
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:133
 msgid "Documents"
 msgstr "Documenten"
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:142
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:145
 msgid "Similar articles"
 msgstr "Vergelijkbare artikels"
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:149
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:152
 msgid "More info about"
 msgstr "Bekijk meer over"
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:154
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:157
 msgid "Related Linked Open Data"
 msgstr "Gerelateerde Linked Open Data"
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:165
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:168
 msgid "More news and events"
 msgstr "Meer nieuws en evenementen"
 
@@ -454,3 +454,5 @@ msgstr "Aanbod en mogelijkheden"
 msgid "More info and opening hours"
 msgstr "Meer info en openingsuren"
 
+#~ msgid "Contact"
+#~ msgstr "Contact"
