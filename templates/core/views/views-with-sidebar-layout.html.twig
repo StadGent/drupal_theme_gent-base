@@ -78,20 +78,22 @@
       </span>
     </h1>
 
-    <button type="button" class="button button-primary icon-filter result__show-filters modal-trigger" aria-expanded="false" aria-controls="filter">
-      {{ 'Show filters'|t }}
-    </button>
 
-    {% if header %}
-      <div class="view-header">
-        {{ title_prefix }}
-        {% if title %}
-          {{ title }}
-        {% endif %}
-        {{ title_suffix }}
-        {{ header }}
-      </div>
-    {% endif %}
+    <div class="filter__result-count">
+      {% if header %}
+          {{ title_prefix }}
+          {% if title %}
+            {{ title }}
+          {% endif %}
+          {{ title_suffix }}
+          {{ header }}
+      {% endif %}
+
+      <button type="button" class="button button-secondary icon-filter result__show-filters modal-trigger" aria-expanded="false" aria-controls="filter">
+        {{ 'Filters'|t }}
+      </button>
+    </div>
+
 
     <div class="filter-results">
       {% if rows %}

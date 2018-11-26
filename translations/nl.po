@@ -43,8 +43,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2018-11-20 13:15+0100\n"
-"PO-Revision-Date: 2018-11-20 13:16+0100\n"
+"POT-Creation-Date: 2018-11-22 13:52+0100\n"
+"PO-Revision-Date: 2018-11-22 13:53+0100\n"
 "Last-Translator: Helena Standaert <helena.standaert@digipolis.gent>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
 "Language: nl\n"
@@ -188,10 +188,10 @@ msgstr[1] "Er zijn @count resultaten"
 msgid "You have selected"
 msgstr "U filterde op"
 
-#: themes/contrib/gent_base/templates/contrib/facets/facets-summary-item-list.html.twig:60
-#: themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig:82
-msgid "Show filters"
-msgstr "Toon filters"
+#: themes/contrib/gent_base/templates/contrib/facets/facets-summary-item-list.html.twig:63
+#: themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig:93
+msgid "Filters"
+msgstr "Filters"
 
 #: themes/contrib/gent_base/templates/contrib/paragraphs/timeline/paragraph--timeline-item--alt.html.twig:45
 msgid "More info"
