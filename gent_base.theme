@@ -406,7 +406,7 @@ function gent_base_preprocess_field__field_contacts(&$variables) {
   }
   else {
     foreach ($contacts as $key => $contact) {
-      $variables["items"][$key]['attributes']->addClass('teaser', 'teaser-contact');
+      $variables['items'][$key]['attributes']->addClass('teaser', 'teaser-contact');
     }
   }
 }
@@ -428,12 +428,12 @@ function gent_base_preprocess_field__field_contact_categories(&$variables) {
   $contact_categories = $variables['items'];
   if ($contacts <= 2) {
     foreach ($contact_categories as $key => $category) {
-      $variables["items"][$key]['attributes']->addClass('teaser', 'teaser-contact');
+      $variables['items'][$key]['attributes']->addClass('teaser', 'teaser-contact');
     }
   }
 
   foreach ($variables['items'] as $key => $item) {
-    $variables["items"][$key]["content"]["#options"]['attributes']['class'][] = 'standalone-link';
+    $variables['items'][$key]['content']['#options']['attributes']['class'][] = 'standalone-link';
   }
 }
 
