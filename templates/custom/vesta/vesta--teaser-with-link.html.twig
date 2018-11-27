@@ -18,9 +18,7 @@
 
 <article{{ attributes.addClass('teaser-content') }}>
   <div class="content__bottom">
-    <h4 id="{{ entity.id }}" class="teaser-title-link">
-      <a href="{{ url }}" class="standalone-link">{{ entity.name }}</a>
-    </h4>
+    <a href="{{ url }}" class="teaser-title-link standalone-link">{{ entity.name }}</a>
 
     <p>
       {% if entity.postalAddress|render %}
