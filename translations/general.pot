@@ -172,8 +172,8 @@ msgstr[1] ""
 msgid "You have selected"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/contrib/facets/facets-summary-item-list.html.twig:60 themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig:82
-msgid "Show filters"
+#: themes/contrib/gent_base/templates/contrib/facets/facets-summary-item-list.html.twig:63 themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig:93
+msgid "Filters"
 msgstr ""
 
 #: themes/contrib/gent_base/templates/contrib/paragraphs/timeline/paragraph--timeline-item--alt.html.twig:45

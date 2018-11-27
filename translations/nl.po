@@ -188,10 +188,10 @@ msgstr[1] "Er zijn @count resultaten"
 msgid "You have selected"
 msgstr "U filterde op"
 
-#: themes/contrib/gent_base/templates/contrib/facets/facets-summary-item-list.html.twig:60
-#: themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig:82
-msgid "Show filters"
-msgstr "Toon filters"
+#: themes/contrib/gent_base/templates/contrib/facets/facets-summary-item-list.html.twig:63
+#: themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig:93
+msgid "Filters"
+msgstr "Filters"
 
 #: themes/contrib/gent_base/templates/contrib/paragraphs/timeline/paragraph--timeline-item--alt.html.twig:45
 msgid "More info"
@@ -453,6 +453,3 @@ msgstr "Aanbod en mogelijkheden"
 #: themes/contrib/gent_base/templates/custom/vesta/vesta--teaser.html.twig:39
 msgid "More info and opening hours"
 msgstr "Meer info en openingsuren"
-
-#~ msgid "Contact"
-#~ msgstr "Contact"

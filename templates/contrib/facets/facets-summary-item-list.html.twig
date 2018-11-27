@@ -57,8 +57,11 @@
         {{ clearlink }}
       </span>
     </div>
-    <button type="button" class="button button-primary icon-filter result__show-filters modal-trigger" aria-expanded="false" aria-controls="filter">{{ 'Show filters'|t }}</button>
-    {{ count }}
+
+    <div class="filter__result-count">
+      {{ count }}
+      <button type="button" class="button button-secondary icon-filter result__show-filters modal-trigger" aria-expanded="false" aria-controls="filter">{{ 'Filters'|t }}</button>
+    </div>
   {%- else -%}
     {{- empty -}}
   {%- endif -%}
