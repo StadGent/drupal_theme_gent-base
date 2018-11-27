@@ -1,3 +1,5 @@
+$frs-handle-size: 1.4rem;
+
 .form-item.facets-widget-range_slider {
   .pips-preview {
     font-size: .8rem;
@@ -17,7 +19,7 @@
     @include theme('border-color', 'color-primary--lighten-4', 'ui-slider-widget-background-color');
 
     height: 0;
-    margin: 1.5rem 0 2rem;
+    margin: 1.5rem #{$frs-handle-size / 2} 2rem;
     border: 2px solid;
   }
 
@@ -32,11 +34,12 @@
   .ui-slider-handle {
     @include theme('background-color', 'color-primary', 'ui-slider-handle-background-color');
 
-    top: -.7rem;
-    width: 1.4rem;
-    height: 1.4rem;
+    top: -$frs-handle-size / 2;
+    width: $frs-handle-size;
+    height: $frs-handle-size;
     border-radius: 100%;
     border: 0;
     cursor: pointer;
+    margin-left: -$frs-handle-size / 2;
   }
 }

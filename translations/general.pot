@@ -9,7 +9,7 @@
 #  themes/contrib/gent_base/starterkit/starterkit.info.yml: n/a
 #  themes/contrib/gent_base/templates/contrib/dg-auth/dg-auth-block.html.twig: n/a
 #  themes/contrib/gent_base/templates/contrib/dg_blocks/block--dg-blocks-gentinfo-block.html.twig: n/a
-#  themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-with-filter.html.twig: n/a
+#  themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-popup.html.twig: n/a
 #  themes/contrib/gent_base/templates/contrib/paragraphs/timeline/paragraph--timeline-item--alt.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/layout/region--filters.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig: n/a
@@ -18,6 +18,7 @@
 #  themes/contrib/gent_base/templates/contrib/facets/facets-summary-item-list.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/block/block--article-aside-top.html.twig: n/a
 #  themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig: n/a
+#  themes/contrib/gent_base/templates/custom/vesta/vesta.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/block/block--system-branding-block.html.twig: n/a
@@ -39,12 +40,13 @@
 #  themes/contrib/gent_base/templates/custom/nodes/node--event--teaser.html.twig: n/a
 #  themes/contrib/gent_base/templates/custom/nodes/node--news--teaser.html.twig: n/a
 #  themes/contrib/gent_base/templates/custom/nodes/node--person--full.html.twig: n/a
+#  themes/contrib/gent_base/templates/custom/vesta/vesta--teaser.html.twig: n/a
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2018-11-06 08:40+0100\n"
+"POT-Creation-Date: 2018-11-22 13:52+0100\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -77,23 +79,23 @@ msgstr ""
 msgid "Fill in the color scheme primary HEX color to be used in your project, leave empty for the default color scheme. This setting is only used for displaying the favicon correctly on Android + Windows phones and Apple's Touch Bar enabled computers."
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:341
+#: themes/contrib/gent_base/gent_base.theme:342
 msgid "programme"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:346
+#: themes/contrib/gent_base/gent_base.theme:347
 msgid "timeline"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:387
+#: themes/contrib/gent_base/gent_base.theme:388
 msgid "There is 1 other document available"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:390
+#: themes/contrib/gent_base/gent_base.theme:391
 msgid "There are @count other documents available"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:836
+#: themes/contrib/gent_base/gent_base.theme:841
 msgid "@category - All"
 msgstr ""
 
@@ -129,31 +131,31 @@ msgstr ""
 msgid "Chat with Gentinfo"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-with-filter.html.twig:46 themes/contrib/gent_base/templates/contrib/paragraphs/timeline/paragraph--timeline-item--alt.html.twig:10 themes/contrib/gent_base/templates/core/layout/region--filters.html.twig:27 themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig:54
+#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-popup.html.twig:46 themes/contrib/gent_base/templates/contrib/paragraphs/timeline/paragraph--timeline-item--alt.html.twig:10 themes/contrib/gent_base/templates/core/layout/region--filters.html.twig:27 themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig:54
 msgid "Close"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-with-filter.html.twig:56
+#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-popup.html.twig:56
 msgid "Filter the list below"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-with-filter.html.twig:62
+#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-popup.html.twig:62
 msgid "There is no filter applied."
 msgstr ""
 
-#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-with-filter.html.twig:64
+#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-popup.html.twig:64
 msgid "%count result(s) found"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-with-filter.html.twig:94
-msgid "Confirm selection"
+#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-popup.html.twig:94 themes/contrib/gent_base/templates/core/layout/region--filters.html.twig:37
+msgid "Show results"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-with-filter.html.twig:103
+#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-popup.html.twig:103
 msgid "%count items selected"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-with-filter.html.twig:108
+#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-popup.html.twig:108
 msgid "Select ..."
 msgstr ""
 
@@ -171,15 +173,15 @@ msgstr[1] ""
 msgid "You have selected"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/contrib/facets/facets-summary-item-list.html.twig:60 themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig:82
-msgid "Show filters"
+#: themes/contrib/gent_base/templates/contrib/facets/facets-summary-item-list.html.twig:63 themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig:93
+msgid "Filters"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/contrib/paragraphs/timeline/paragraph--timeline-item--alt.html.twig:44
+#: themes/contrib/gent_base/templates/contrib/paragraphs/timeline/paragraph--timeline-item--alt.html.twig:45
 msgid "More info"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/block/block--article-aside-top.html.twig:38 themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:138
+#: themes/contrib/gent_base/templates/core/block/block--article-aside-top.html.twig:38 themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:138 themes/contrib/gent_base/templates/custom/vesta/vesta.html.twig:127
 msgid "Also interesting"
 msgstr ""
 
@@ -269,10 +271,6 @@ msgstr ""
 
 #: themes/contrib/gent_base/templates/core/layout/region--filters.html.twig:33 themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig:59
 msgid "When selecting or deselecting filters, the page is automatically reloaded."
-msgstr ""
-
-#: themes/contrib/gent_base/templates/core/layout/region--filters.html.twig:37
-msgid "Show results"
 msgstr ""
 
 #: themes/contrib/gent_base/templates/core/navigation/breadcrumb.html.twig:13
@@ -407,11 +405,31 @@ msgstr ""
 msgid "Posted on"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--person--full.html.twig:14
+#: themes/contrib/gent_base/templates/custom/nodes/node--person--full.html.twig:14 themes/contrib/gent_base/templates/custom/vesta/vesta.html.twig:31
 msgid "Contact details"
 msgstr ""
 
 #: themes/contrib/gent_base/templates/custom/nodes/node--terrain--default.html.twig:4;24
 msgid "Park offer"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/custom/vesta/vesta--teaser.html.twig:39
+msgid "More info and opening hours"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/custom/vesta/vesta.html.twig:27
+msgid "@name - openinghours and addresses"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/custom/vesta/vesta.html.twig:83
+msgid "(Fax)"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/custom/vesta/vesta.html.twig:119
+msgid "Extra information"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/custom/vesta/vesta.html.twig:130
+msgid "View all locations from"
 msgstr ""
 
