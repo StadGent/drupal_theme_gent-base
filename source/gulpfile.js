@@ -1,14 +1,10 @@
 'use strict';
 
 var gulp = require('gulp');
-var sourcemaps = require('gulp-sourcemaps');
-var copy = require('gulp-contrib-copy');
 var rename = require('gulp-rename');
 var eslint = require('gulp-eslint');
-var es = require('event-stream');
 var minify = require('gulp-minify');
 var del = require('del');
-var sequence = require('run-sequence');
 var plumber = require('gulp-plumber');
 
 var globalConfig = {
@@ -25,7 +21,7 @@ var globalConfig = {
  *
  */
 gulp.task('js:build', function() {
-  gulp.src(globalConfig.scripts_src_dir + '/**/*.js')
+  return gulp.src(globalConfig.scripts_src_dir + '/**/*.js')
     .pipe(plumber())
     .pipe(rename({dirname: ''}))
     .pipe(minify({
@@ -43,7 +39,7 @@ gulp.task('js:build', function() {
  *
  */
 gulp.task('js:dist', function() {
-  gulp.src(globalConfig.scripts_src_dir + '/**/*.js')
+  return gulp.src(globalConfig.scripts_src_dir + '/**/*.js')
     .pipe(plumber())
     .pipe(rename({
       dirname: '',
@@ -72,9 +68,41 @@ gulp.task('js:validate', function() {
  *
  * This deletes the build directory before recompiling.
  */
-gulp.task('build:clean', function(cb) {
+gulp.task('build:clean', function() {
   return del(globalConfig.build_dir + '/**', {force:true});
 });
+
+/*
+ *
+ * Validate task:
+ * Usage:
+ *  gulp validate
+ *
+ *  Used to validate JS code.
+ *
+ */
+gulp.task('validate', gulp.series('js:validate'));
+
+/*
+ * Compile the theme.
+ * Usage:
+ *  gulp compile
+ *
+ *  Used build to build JS code.
+ */
+gulp.task('compile', gulp.series('js:build'));
+gulp.task('compile:dev', gulp.series('js:dist'));
+
+/*
+ *
+ * Build task:
+ * Usage:
+ *  gulp build
+ *
+ *  Used to validate and build production ready code.
+ *
+ */
+gulp.task('build', gulp.parallel('validate', 'compile'));
 
 /*
  *
@@ -86,46 +114,4 @@ gulp.task('build:clean', function(cb) {
  * Used for local development to compile and validate after every change.
  *
  */
-gulp.task('default', function (done) {
-  sequence(['validate', 'compile'], done);
-});
-
-
-/*
- *
- * Validate task:
- * Usage:
- *  gulp validate
- *
- *  Used to validate JS code.
- *
- */
-gulp.task('validate', ['js:validate']);
-
-/*
- * Compile the theme.
- * Usage:
- *  gulp compile
- *
- *  Used build to build JS code.
- */
-gulp.task('compile', function (done) {
-  sequence(['js:build'], done);
-});
-
-gulp.task('compile:dev', function (done) {
-  sequence(['js:dist'], done);
-});
-
-/*
- *
- * Build task:
- * Usage:
- *  gulp build
- *
- *  Used to validate and build production ready code.
- *
- */
-gulp.task('build', function (done) {
-  sequence(['validate', 'compile'], done);
-});
+gulp.task('default', gulp.parallel('validate', 'compile'));
