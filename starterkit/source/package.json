@@ -35,7 +35,7 @@
     "build": "gulp build"
   },
   "engines": {
-    "node": ">=4.0.0"
+    "node": ">=10.14.0"
   },
   "private": true,
   "dependencies": {}
