@@ -38,19 +38,6 @@
  */
 #}
 
-{%
-  set title_classes = [
-    'field__label',
-    label_display == 'visually_hidden' ? 'visually-hidden',
-  ]
-%}
-
-{% if not label_hidden %}
-  <div{{ title_attributes.addClass(title_classes) }}>{{ label }}</div>
-{% endif %}
-
-<ul class="main-contacts">
-  {%- for contact in contacts -%}
-    <li>{{ contact.content }}</li>
-  {% endfor %}
-</ul>
+{%- for item in items -%}
+  <li{{ item.attributes }}>{{ item.content }}</li>
+{% endfor %}
