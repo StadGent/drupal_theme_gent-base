@@ -1,0 +1,78 @@
+{#
+/**
+ * @file
+ * Template for the Opening Hours : OpenNow formatter.
+ *
+ * Available variables:
+ * - preview_widget : Contains the preview widget.
+ * - widgets : The widgets to show.
+ * - service_id : The opening hours Service ID.
+ * - channel_id : The opening hours Channel ID.
+ * - date : The date to show the widget for.
+ *
+ * @see template_preprocess_vg_social_link()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{{ attach_library('gent_base/opening_hours') }}
+
+<div class="openinghours-wrapper">
+  <h3 class="openinghours-channel-title" data-service="{{ service_id }}" data-channel="{{ channel_id }}"></h3>
+
+  {% if preview_widget %}
+    <div
+        class="openinghours-widget"
+        data-service="{{ service_id }}"
+        data-channel="{{ channel_id }}"
+        data-type="{{ preview_widget.type }}"
+        {% if date %} data-date="{{ date }}"{% endif %}
+    ></div>
+  {% endif %}
+
+  {% if widgets|length > 1 %}
+  <div class="accordion">
+    <h4>
+      <button aria-controls="accordion--single--content--1" aria-expanded="false" class="accordion--button">{{ 'All opening hours'|t }}</button>
+    </h4>
+
+    <div id="accordion--single--content--1" class="accordion--content">
+      <div class="tabs" data-tabs>
+        <ul role="tablist">
+          {% for widget in widgets %}
+            <li role="presentation">
+              <a href="#{{ widget.type ~ '-' ~ service_id ~ channel_id}}"
+                 aria-controls="{{ service_id ~ channel_id ~ '-' ~ widget.type }}"
+                 role="tab"
+                 {% if loop.first %}aria-selected="true"{% endif %}
+              >{{ widget.label }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+
+        {% for widget in widgets %}
+          <div role="tabpanel" id="{{ widget.type ~ '-' ~ service_id ~ channel_id}}">
+            <div
+                class="openinghours openinghours-widget"
+                data-service="{{ service_id }}"
+                data-channel="{{ channel_id }}"
+                data-type="{{ widget.type }}"
+                {% if date %} data-date="{{ date }}"{% endif %}
+            ></div>
+          </div>
+        {% endfor %}
+
+      </div>
+    </div>
+  </div>
+  {% else %}
+    <div
+        class="openinghours openinghours-widget"
+        data-service="{{ service_id }}"
+        data-channel="{{ channel_id }}"
+        data-type="{{ widgets[0].type }}"
+        {% if date %} data-date="{{ date }}"{% endif %}
+    ></div>
+  {% endif %}
+</div>
