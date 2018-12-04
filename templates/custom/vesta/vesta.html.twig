@@ -121,6 +121,7 @@
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum imperdiet vestibulum ex, id tincidunt nulla porttitor nec. Cras aliquam interdum felis, nec efficitur quam varius sit amet. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut nec gravida tellus, quis pulvinar enim. Proin ut lectus dui. Pellentesque maximus orci quis aliquet bibendum. Fusce vestibulum velit a tellus fermentum, in laoreet est pharetra.</p>
 </article>
 
+{% if related|length > 0 %}
 <aside class="top">
   <div class="related-box">
     <div class="related-box-content">
@@ -128,12 +129,12 @@
 
       <div class="related-box-content-column">
         <h3>{{ 'View all locations from'|t }}</h3>
-        {% if related|length > 0 %}
+
           {% for keyword in related %}
             <a href="{{ path('entity.taxonomy_term.canonical', {'taxonomy_term': keyword.tid.value }) }}" class="tag">{{ keyword.name.value }}</a>
           {% endfor %}
-        {% endif %}
       </div>
     </div>
   </div>
 </aside>
+{% endif %}
