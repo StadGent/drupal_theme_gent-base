@@ -19,13 +19,15 @@
 {{ attach_library('gent_base/opening_hours') }}
 
 <div class="openinghours-wrapper">
-  <h3 class="openinghours-channel-title" data-service="{{ service_id }}" data-channel="{{ channel_id }}"></h3>
+  {% if display_title %}
+    <h3 class="openinghours-channel-title" data-service="{{ service_id }}" data-channel="{{ channel_id }}"></h3>
+  {% endif %}
 
   {% if preview_widget %}
     <div
         class="openinghours-widget"
         data-service="{{ service_id }}"
-        data-channel="{{ channel_id }}"
+        {% if not single_widget %}data-channel="{{ channel_id }}"{% endif %}
         data-type="{{ preview_widget.type }}"
         {% if date %} data-date="{{ date }}"{% endif %}
     ></div>
@@ -56,7 +58,7 @@
             <div
                 class="openinghours openinghours-widget"
                 data-service="{{ service_id }}"
-                data-channel="{{ channel_id }}"
+                {% if not single_widget %}data-channel="{{ channel_id }}"{% endif %}
                 data-type="{{ widget.type }}"
                 {% if date %} data-date="{{ date }}"{% endif %}
             ></div>
@@ -70,7 +72,7 @@
     <div
         class="openinghours openinghours-widget"
         data-service="{{ service_id }}"
-        data-channel="{{ channel_id }}"
+        {% if not single_widget %}data-channel="{{ channel_id }}"{% endif %}
         data-type="{{ widgets[0].type }}"
         {% if date %} data-date="{{ date }}"{% endif %}
     ></div>

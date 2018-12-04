@@ -80,4 +80,5 @@ opening_hours:
     styleguide/build/styleguide/js/opening-hours-month-widget.functions-min.js: { minified: true }
     build/js/opening-hours.bindings-min.js: { minified: true }
   dependencies:
+    - gent_base/accordion
     - gent_base/tabs
