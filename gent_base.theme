@@ -599,7 +599,7 @@ function gent_base_preprocess_paragraph__timeline_item__alt(&$variables) {
  */
 function gent_base_preprocess_paragraph__contact(&$variables) {
   $paragraph = $variables['elements']['#paragraph'];
-  if (isset($paragraph->field_contact)) {
+  if (isset($paragraph->get('field_contact')->entity)) {
     $variables['vesta_entity'] = $paragraph->get('field_contact')->entity->getVestaValue();
     $variables['vesta_url'] = $paragraph->get('field_contact')->entity->toUrl();
   }
