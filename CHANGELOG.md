@@ -2,6 +2,12 @@
 
 All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
+## [Unreleased]
+
+### Added
+
+* DTGB-649: Added theming for contact paragraph.
+
 ## [8.x-3.0-alpha.10]
 
 ### Changed

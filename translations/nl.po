@@ -43,8 +43,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2018-11-23 10:12+0100\n"
-"PO-Revision-Date: 2018-11-23 10:13+0100\n"
+"POT-Creation-Date: 2018-12-05 10:51+0100\n"
+"PO-Revision-Date: 2018-12-05 10:53+0100\n"
 "Last-Translator: Helena Standaert <helena.standaert@digipolis.gent>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
 "Language: nl\n"
@@ -90,23 +90,23 @@ msgstr ""
 "favicon correct in te stellen voor Android + Windows telefoons en voor "
 "Apple's computers met Touch Bar."
 
-#: themes/contrib/gent_base/gent_base.theme:342
+#: themes/contrib/gent_base/gent_base.theme:341
 msgid "programme"
 msgstr "programma"
 
-#: themes/contrib/gent_base/gent_base.theme:347
+#: themes/contrib/gent_base/gent_base.theme:346
 msgid "timeline"
 msgstr "tijdslijn"
 
-#: themes/contrib/gent_base/gent_base.theme:388
+#: themes/contrib/gent_base/gent_base.theme:387
 msgid "There is 1 other document available"
 msgstr "Er is 1 ander document beschikbaar"
 
-#: themes/contrib/gent_base/gent_base.theme:391
+#: themes/contrib/gent_base/gent_base.theme:390
 msgid "There are @count other documents available"
 msgstr "Er zijn @count andere documenten beschikbaar"
 
-#: themes/contrib/gent_base/gent_base.theme:858
+#: themes/contrib/gent_base/gent_base.theme:870
 msgid "@category - All"
 msgstr "@category - Alle"
 
@@ -193,12 +193,31 @@ msgstr "U filterde op"
 msgid "Filters"
 msgstr "Filters"
 
+#: themes/contrib/gent_base/templates/contrib/opening_hours/opening-hours-widget.html.twig:39
+#, fuzzy
+#| msgid "More info and opening hours"
+msgid "All opening hours"
+msgstr "Meer info en openingsuren"
+
+#: themes/contrib/gent_base/templates/contrib/paragraphs/contact/paragraph--contact.html.twig:68
+msgid "Call @phone"
+msgstr "Bel naar @phone"
+
+#: themes/contrib/gent_base/templates/contrib/paragraphs/contact/paragraph--contact.html.twig:78
+msgid "Send an email to @emailAddress"
+msgstr "Stuur een email naar @emailAddress"
+
+#: themes/contrib/gent_base/templates/contrib/paragraphs/contact/paragraph--contact.html.twig:85
+msgid "View all contact info"
+msgstr "Bekijk alle contactgegevens"
+
 #: themes/contrib/gent_base/templates/contrib/paragraphs/timeline/paragraph--timeline-item--alt.html.twig:45
 msgid "More info"
 msgstr "Meer informatie"
 
 #: themes/contrib/gent_base/templates/core/block/block--article-aside-top.html.twig:38
 #: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:141
+#: themes/contrib/gent_base/templates/custom/vesta/vesta.html.twig:129
 msgid "Also interesting"
 msgstr "Ook nog interessant"
 
@@ -401,7 +420,7 @@ msgid "Contacts"
 msgstr "Contacten"
 
 #: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:119
-#: themes/contrib/gent_base/templates/custom/nodes/node--terrain--default.html.twig:9
+#: themes/contrib/gent_base/templates/custom/nodes/node--terrain--default.html.twig:14
 msgid "Location"
 msgstr "Locatie"
 
@@ -447,7 +466,7 @@ msgstr "Gepost op"
 msgid "Contact details"
 msgstr "Contactgegevens"
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--terrain--default.html.twig:4;24
+#: themes/contrib/gent_base/templates/custom/nodes/node--terrain--default.html.twig:4;9
 msgid "Park offer"
 msgstr "Aanbod en mogelijkheden"
 
@@ -463,10 +482,10 @@ msgstr "@name - Openingsuren en adressen"
 msgid "(Fax)"
 msgstr "(Fax)"
 
-#: themes/contrib/gent_base/templates/custom/vesta/vesta.html.twig:119
+#: themes/contrib/gent_base/templates/custom/vesta/vesta.html.twig:121
 msgid "Extra information"
 msgstr "Extra informatie"
 
-#: themes/contrib/gent_base/templates/custom/vesta/vesta.html.twig:130
+#: themes/contrib/gent_base/templates/custom/vesta/vesta.html.twig:132
 msgid "View all locations from"
 msgstr "Bekijk alle locaties van"

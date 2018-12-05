@@ -594,6 +594,20 @@ function gent_base_preprocess_paragraph__timeline_item__alt(&$variables) {
 /**
  * Implements hook_preprocess_HOOK().
  *
+ * Isolate one of the selected images for the teaser (before opening the
+ * modal). Currently, this'll be the first image of the gallery.
+ */
+function gent_base_preprocess_paragraph__contact(&$variables) {
+  $paragraph = $variables['elements']['#paragraph'];
+  if (isset($paragraph->get('field_contact')->entity)) {
+    $variables['vesta_entity'] = $paragraph->get('field_contact')->entity->getVestaValue();
+    $variables['vesta_url'] = $paragraph->get('field_contact')->entity->toUrl();
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ *
  * Provide a 'gallery_full' image style URL to the image template,
  * this is the url used in the lightbox implementation.
  */
@@ -871,14 +885,17 @@ function gent_base_preprocess_vesta(&$variables) {
   $variables['entity'] = $entity->getVestaValue();
   $variables['url'] = $entity->toUrl();
 
-  $variables['related'] = [];
+  if ($variables['elements']['#view_mode'] === 'full') {
+    $variables['related'] = [];
 
-  /* @var $keyword Gent\Services\Vesta\Value\Keyword */
-  foreach ($entity->getVestaValue()->getKeywords() as &$keyword) {
-    $terms = \Drupal::entityManager()->getStorage('taxonomy_term')->loadByProperties([
-      'field_vesta_id' => $keyword->getId(),
-    ]);
+    /* @var $keyword Gent\Services\Vesta\Value\Keyword */
+    $termStorage = \Drupal::entityManager()->getStorage('taxonomy_term');
+    foreach ($entity->getVestaValue()->getKeywords() as &$keyword) {
+      $terms = $termStorage->loadByProperties([
+        'field_vesta_id' => $keyword->getId(),
+      ]);
 
-    $variables['related'][] = reset($terms);
+      $variables['related'][] = reset($terms);
+    }
   }
 }
