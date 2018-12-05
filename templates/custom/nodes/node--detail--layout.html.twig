@@ -153,10 +153,7 @@
               {{ content.field_tags }}
             {% endif %}
 
-            {% if content.field_opendata_link|render|striptags|trim is not empty %}
-              <h3>{{ 'Related Linked Open Data'|t }}</h3>
-              {{ content.field_opendata_link }}
-            {% endif %}
+            {{ content.field_opendata_link }}
           </div>
         </div>
       </div>
