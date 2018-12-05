@@ -4,6 +4,10 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 ## [Unreleased]
 
+### Added
+
+* DTGB-632: Added styling for opening hours widgets
+
 ### Changed
 
 * DTGB-540: Replaced typekit by google fonts.
