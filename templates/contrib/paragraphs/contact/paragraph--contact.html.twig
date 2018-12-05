@@ -58,7 +58,9 @@
       {% endblock %}
 
       {% block content %}
-        <p>{{- content.field_description -}}</p>
+        {% if content.field_description|render|striptags|trim is not empty %}
+          <p>{{- content.field_description -}}</p>
+        {% endif %}
 
         <ul class="links">
           {% if type == 'tel' and vesta_entity.contactNumbers.landlines|length > 0 %}
