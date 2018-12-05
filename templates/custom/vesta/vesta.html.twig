@@ -133,8 +133,11 @@
           {% for keyword in related %}
             <a href="{{ path('entity.taxonomy_term.canonical', {'taxonomy_term': keyword.tid.value }) }}" class="tag">{{ keyword.name.value }}</a>
           {% endfor %}
+
+        {{ content.field_opendata_link }}
       </div>
     </div>
   </div>
 </aside>
 {% endif %}
+
