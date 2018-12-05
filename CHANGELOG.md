@@ -6,7 +6,10 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 ### Added
 
+* DTGB-649: Added theming for contact paragraph.
 * DTGB-632: Added styling for opening hours widgets
+
+## [8.x-3.0-alpha.10]
 
 ### Changed
 
@@ -124,6 +127,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 * **Updated to gent_styleguide version 2.6.13**
 
+[8.x-3.0-alpha.10]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-alpha.7...8.x-3.0-alpha.10
 [8.x-3.0-alpha.7]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-alpha.6...8.x-3.0-alpha.7
 [8.x-3.0-alpha.6]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-alpha.5...8.x-3.0-alpha.6
 [8.x-3.0-alpha.5]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-alpha.4...8.x-3.0-alpha.5
