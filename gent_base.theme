@@ -599,8 +599,10 @@ function gent_base_preprocess_paragraph__timeline_item__alt(&$variables) {
  */
 function gent_base_preprocess_paragraph__contact(&$variables) {
   $paragraph = $variables['elements']['#paragraph'];
-  $variables['vesta_entity'] = $paragraph->get('field_contact')->entity->getVestaValue();
-  $variables['vesta_url'] = $paragraph->get('field_contact')->entity->toUrl();
+  if (isset($paragraph->field_contact)) {
+    $variables['vesta_entity'] = $paragraph->get('field_contact')->entity->getVestaValue();
+    $variables['vesta_url'] = $paragraph->get('field_contact')->entity->toUrl();
+  }
 }
 
 /**
