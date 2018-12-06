@@ -8,7 +8,6 @@ var eslint = require('gulp-eslint');
 var es = require('event-stream');
 var minify = require('gulp-minify');
 var del = require('del');
-var sequence = require('run-sequence');
 var plumber = require('gulp-plumber');
 
 var globalConfig = {
@@ -25,7 +24,7 @@ var globalConfig = {
  *
  */
 gulp.task('js:build', function() {
-  gulp.src(globalConfig.scripts_src_dir + '/**/*.js')
+  return gulp.src(globalConfig.scripts_src_dir + '/**/*.js')
     .pipe(plumber())
     .pipe(rename({dirname: ''}))
     .pipe(minify({
@@ -43,7 +42,7 @@ gulp.task('js:build', function() {
  *
  */
 gulp.task('js:dist', function() {
-  gulp.src(globalConfig.scripts_src_dir + '/**/*.js')
+  return gulp.src(globalConfig.scripts_src_dir + '/**/*.js')
     .pipe(plumber())
     .pipe(rename({
       dirname: '',
@@ -78,21 +77,6 @@ gulp.task('build:clean', function(cb) {
 
 /*
  *
- * Default tasks:
- * Usage:
- *  gulp
- *  gulp watch
- *
- * Used for local development to compile and validate after every change.
- *
- */
-gulp.task('default', function (done) {
-  sequence(['validate', 'compile'], done);
-});
-
-
-/*
- *
  * Validate task:
  * Usage:
  *  gulp validate
@@ -100,7 +84,7 @@ gulp.task('default', function (done) {
  *  Used to validate JS code.
  *
  */
-gulp.task('validate', ['js:validate']);
+gulp.task('validate', gulp.parallel('js:validate'));
 
 /*
  * Compile the theme.
@@ -109,13 +93,9 @@ gulp.task('validate', ['js:validate']);
  *
  *  Used build to build JS code.
  */
-gulp.task('compile', function (done) {
-  sequence(['js:build'], done);
-});
+gulp.task('compile', gulp.parallel('js:build'));
 
-gulp.task('compile:dev', function (done) {
-  sequence(['js:dist'], done);
-});
+gulp.task('compile:dev', gulp.parallel('js:dist'));
 
 /*
  *
@@ -126,6 +106,16 @@ gulp.task('compile:dev', function (done) {
  *  Used to validate and build production ready code.
  *
  */
-gulp.task('build', function (done) {
-  sequence(['validate', 'compile'], done);
-});
+gulp.task('build', gulp.parallel('validate', 'compile'));
+
+/*
+ *
+ * Default tasks:
+ * Usage:
+ *  gulp
+ *  gulp watch
+ *
+ * Used for local development to compile and validate after every change.
+ *
+ */
+gulp.task('default', gulp.parallel('build'));
