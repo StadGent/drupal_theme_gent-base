@@ -7,7 +7,6 @@
 
   Drupal.behaviors.gentBaseLoadOpeningHours = {
     attach: function (context, settings) {
-      this.initMonthWidgets();
       this.determineAccordionVisibility();
     },
 
@@ -28,17 +27,6 @@
           widget.addEventListener('change', eventHandler);
         }
       });
-    },
-
-    initMonthWidgets: function () {
-      if (!OpeningHoursMonthWidget) { // eslint-disable-line no-undef
-        return;
-      }
-
-      var selected = document.querySelectorAll('.openinghours-widget[data-type="month"]');
-      for (var i = selected.length; i--;) {
-        new OpeningHoursMonthWidget(selected[i]); // eslint-disable-line no-undef
-      }
     }
   };
 })(Drupal);
