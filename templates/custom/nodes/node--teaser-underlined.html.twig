@@ -64,36 +64,45 @@
  *   is an administrator.
  *
  * @see template_preprocess_node()
- *
- * @todo Remove the id attribute (or make it a class), because if that gets
- *   rendered twice on a page this is invalid CSS for example: two lists
- *   in different view modes.
  */
 #}
 {%
   set classes = [
-    'teaser-content'
+    'teaser-content',
+    'node',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
   ]
 %}
 {{ attach_library('classy/node') }}
-<article{{ attributes.addClass(classes) }}>
 
-  <div{{ content_attributes.addClass('content__bottom') }}>
-    {{ title_prefix }}
-    {% if not page %}
-      <h3{{ title_attributes }}>
-        {{ label }}
-      </h3>
-    {% endif %}
-    {{ title_suffix }}
+{% block content %}
+  <article{{ attributes.addClass(classes) }}>
 
-    {{ content|without('field_teaser_image') }}
-  </div>
+    <div{{ content_attributes.addClass('content__bottom') }}>
+      {{ title_prefix }}
+      {% if not page %}
+        <h3{{ title_attributes }}>
+          {{ label }}
+        </h3>
+      {% endif %}
+      {{ title_suffix }}
 
-  {% if content.field_teaser_image|render|trim is not empty %}
-    <div class="content__top">
-     {{ content.field_teaser_image }}
+      {{ content|without('field_teaser_image') }}
     </div>
-  {% endif %}
 
-</article>
+    {% if content.field_teaser_image|render|trim is not empty %}
+      <div class="content__top">
+        {{ content.field_teaser_image }}
+      </div>
+    {% endif %}
+
+  </article>
+{% endblock %}
+
+{% block overlay_link %}
+  <a href="{{ url }}" class="teaser-overlay-link" tabindex="-1" aria-hidden="true">{{ label }}</a>
+{% endblock %}
