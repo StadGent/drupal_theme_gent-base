@@ -556,24 +556,6 @@ function gent_base_preprocess_views_view(&$variables) {
 /**
  * Implements hook_preprocess_HOOK().
  *
- * Add standalone-link class to read more links.
- */
-function gent_base_preprocess_views_view__block_topic_subitems(&$variables) {
-  if (isset($variables['rows'][0])) {
-    $node = \Drupal::routeMatch()->getParameter('node');
-    $show_images = $node->field_show_images->value === '1';
-
-    foreach ($variables['rows'][0]['#rows'] as &$row) {
-      if (!$show_images && isset($row['#node']->field_teaser_image)) {
-        unset($row['#node']->field_teaser_image);
-      }
-    }
-  }
-}
-
-/**
- * Implements hook_preprocess_HOOK().
- *
  * If a image paragraph contains multiple images,
  * the view mode of the images is changed to 'gallery_multiple'.
  */
