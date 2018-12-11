@@ -72,29 +72,28 @@
 #}
 {%
   set classes = [
-    'teaser-content',
-    'node',
-    'node--type-' ~ node.bundle|clean_class,
-    node.isPromoted() ? 'node--promoted',
-    node.isSticky() ? 'node--sticky',
-    not node.isPublished() ? 'node--unpublished',
-    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+    'teaser-content'
   ]
 %}
 {{ attach_library('classy/node') }}
 <article{{ attributes.addClass(classes) }}>
 
   <div{{ content_attributes.addClass('content__bottom') }}>
-    <h3{{ title_attributes }}>{{ label }}</h3>
+    {{ title_prefix }}
+    {% if not page %}
+      <h3{{ title_attributes }}>
+        {{ label }}
+      </h3>
+    {% endif %}
+    {{ title_suffix }}
 
     {{ content|without('field_teaser_image') }}
   </div>
 
   {% if content.field_teaser_image|render|trim is not empty %}
     <div class="content__top">
-      {{ content.field_teaser_image }}
+     {{ content.field_teaser_image }}
     </div>
   {% endif %}
 
 </article>
-<a href="{{ url }}" class="teaser-overlay-link" tabindex="-1" aria-hidden="true">{{ label }}</a>
