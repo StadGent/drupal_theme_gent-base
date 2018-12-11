@@ -10,6 +10,11 @@ NOTE: Refer to upcoming changes in our README.md under "Roadmap"
 
 * DTGB-649: contact block variants
 * DTGB-650: multiple cta-block wrapper
+* DTGB-651: Links on topic overview page
+
+### Updated
+
+* DTGB-651: Topic teaser styling
 
 ## [3.0.0-alpha.10]
 
