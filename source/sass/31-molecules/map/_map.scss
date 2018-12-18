@@ -9,7 +9,7 @@ $map-text-color: color('dark-gray');
 .map {
   &-container {
     position: relative;
-    min-height: $map-button-size * 10;
+    min-height: $map-button-size * 5;
     overflow: hidden;
 
     &__map {
@@ -35,6 +35,10 @@ $map-text-color: color('dark-gray');
         background-image: url('#{$styleguide-dir}/img/svg/layers.svg');
       }
 
+      &.ol-geolocation > button {
+        background-image: url('#{$styleguide-dir}/img/svg/target.svg');
+      }
+
       &.ol-full-screen > button {
         background-image: url('#{$styleguide-dir}/img/svg/fullscreen-enter.svg');
 
@@ -56,7 +60,7 @@ $map-text-color: color('dark-gray');
       > button {
         width: $map-button-size;
         height: $map-button-size;
-        margin-bottom: .4rem;
+        margin: 0 0 .4rem;
         border: 0;
         background: $map-button-background no-repeat center center;
         background-size: 24px 24px;
