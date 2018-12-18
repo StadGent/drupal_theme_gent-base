@@ -95,13 +95,7 @@
       {% endblock %}
 
       {% block content %}
-        {% if node.bundle() == 'event' %}
-          <div class="event">
-            <span>{{ content.field_event_date }}</span>
-          </div>
-        {% endif %}
-
-        {{ content|without('field_teaser_image', 'og_audience', 'field_event_date') }}
+        {{ content|without('field_teaser_image', 'og_audience') }}
       {% endblock %}
     </div>
   {% endblock %}
@@ -114,25 +108,20 @@
       %}
         <div class="content__top">
 
-        {% if node.bundle() == 'event' %}
-          <span class="teaser-label">
-            <i class="icon-calendar"></i>
-            <span>{{ 'Event'|t }}</span>
-          </span>
-        {% endif %}
+        {% block image %}
+          {% if node.hasField('field_teaser_image') %}
+            <div class="figure-wrapper">
+              <figure>
+                <div class="image-wrapper">
+                  {{ content.field_teaser_image }}
+                </div>
+              </figure>
+              <div class="accolade-inverse bottom-left"></div>
+            </div>
+          {% endif %}
 
-        {% if node.hasField('field_teaser_image') %}
-          <div class="figure-wrapper">
-            <figure>
-              <div class="image-wrapper">
-                {{ content.field_teaser_image }}
-              </div>
-            </figure>
-            <div class="accolade-inverse bottom-left"></div>
-          </div>
-        {% endif %}
-
-        {{ content.og_audience }}
+          {{ content.og_audience }}
+        {% endblock %}
         </div>
       {% endif %}
   {% endblock %}
