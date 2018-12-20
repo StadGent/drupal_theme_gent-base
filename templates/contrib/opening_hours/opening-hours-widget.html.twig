@@ -18,8 +18,7 @@
  */
 #}
 
-{% set widgetId = 'openinghours' ~ service_id ~ (channel_id ? '-' ~ channel_id)  %}
-{% set accordionId = 'accordion' ~ service_id ~ (channel_id ? '-' ~ channel_id)  %}
+{% set accordionId = 'accordion-' ~ widget_id  %}
 
 <div class="openinghours-wrapper">
   {% if display_title %}
@@ -52,7 +51,7 @@
               <a
                   href="#"
                   role="tab"
-                  aria-controls="{{ widgetId }}"
+                  aria-controls="{{ widget_id }}"
                   aria-selected="{{ loop.first ? 'true' : 'false' }}"
                   data-widget="{{ widget.type }}"
               >
@@ -63,7 +62,7 @@
   {% endif %}
 
         <div
-            id="{{ widgetId }}"
+            id="{{ widget_id }}"
             class="openinghours openinghours-widget"
             role="tabpanel"
             data-type="{{ widgets[0].type }}"
@@ -77,6 +76,6 @@
   {% if widgets|length > 1 %}
       </div>
     </div>
-  {% endif %}
   </div>
+  {% endif %}
 </div>
