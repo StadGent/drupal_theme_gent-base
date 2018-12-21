@@ -77,31 +77,56 @@
     view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
   ]
 %}
+
 {{ attach_library('classy/node') }}
 
-{% block content %}
-  <article{{ attributes.addClass(classes) }}>
+<article{{ attributes.addClass(classes) }}>
 
+  {% block bottom %}
     <div{{ content_attributes.addClass('content__bottom') }}>
-      {{ title_prefix }}
-      {% if not page %}
-        <h3{{ title_attributes }}>
-          {{ label }}
-        </h3>
-      {% endif %}
-      {{ title_suffix }}
+      {% block title %}
+        {{ title_prefix }}
+        {% if not page %}
+          <h3{{ title_attributes }}>
+            {{ label }}
+          </h3>
+        {% endif %}
+        {{ title_suffix }}
+      {% endblock %}
 
-      {{ content|without('field_teaser_image') }}
+      {% block content %}
+        {{ content|without('field_teaser_image', 'og_audience') }}
+      {% endblock %}
     </div>
+  {% endblock %}
 
-    {% if content.field_teaser_image|render|trim is not empty %}
-      <div class="content__top">
-        {{ content.field_teaser_image }}
-      </div>
-    {% endif %}
+  {% block top %}
+      {% if
+        node.hasField('field_teaser_image') or
+        node.hasField('og_audience') or
+        node.bundle() == 'event'
+      %}
+        <div class="content__top">
 
-  </article>
-{% endblock %}
+        {% block image %}
+          {% if node.hasField('field_teaser_image') %}
+            <div class="figure-wrapper">
+              <figure>
+                <div class="image-wrapper">
+                  {{ content.field_teaser_image }}
+                </div>
+              </figure>
+              <div class="accolade-inverse bottom-left"></div>
+            </div>
+          {% endif %}
+
+          {{ content.og_audience }}
+        {% endblock %}
+        </div>
+      {% endif %}
+  {% endblock %}
+
+</article>
 
 {% block overlay_link %}
   <a href="{{ url }}" class="teaser-overlay-link" tabindex="-1" aria-hidden="true">{{ label }}</a>
