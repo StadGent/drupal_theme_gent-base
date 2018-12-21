@@ -10,6 +10,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 * DTGB-651: Added teaser theming for infopage.
 * DTGB-651: Added theming for topic.
 * DTGB-651: Added teaser theming for topic_link.
+* DTGB-632: Added styling for opening hours widgets
 
 ## [8.x-3.0-alpha.10]
 
