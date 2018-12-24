@@ -58,6 +58,13 @@
               <div class="checkbox-filter__selected"></div>
             </div>
 
+            <p>
+              <strong class="checkbox-filter__result-placeholder">{{ 'There is no filter applied.'|t }}</strong>
+              <strong aria-live="polite" class="checkbox-filter__result-wrapper">
+                {{ '%count result(s) found'|t({'%count': '#'}) }}
+              </strong>
+            </p>
+
             <div{{ attributes.addClass('links checkbox-filter__checkboxes') }}>
               {%- for item in items -%}
                 {# Multi-level filters #}

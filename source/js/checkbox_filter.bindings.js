@@ -17,6 +17,7 @@
           checkboxes: '.facet-item.checkbox',
           hiddenTagText: 'Remove tag',
           countSpan: '.checkbox-filter__count-wrapper em',
+          resultSpan: '.checkbox-filter__result-wrapper em',
           onRemoveTag: function (checkbox) {
             jQuery(checkbox).trigger('change.facets');
           }
