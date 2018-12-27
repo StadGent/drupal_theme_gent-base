@@ -16,15 +16,19 @@
 #  themes/contrib/gent_base/templates/contrib/facets/facets-item-list--range-slider.html.twig: n/a
 #  themes/contrib/gent_base/templates/contrib/facets/facets-summary-count.html.twig: n/a
 #  themes/contrib/gent_base/templates/contrib/facets/facets-summary-item-list.html.twig: n/a
+#  themes/contrib/gent_base/templates/contrib/paragraphs/contact/paragraph--contact.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/block/block--article-aside-top.html.twig: n/a
 #  themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig: n/a
+#  themes/contrib/gent_base/templates/custom/vesta/vesta.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/block/block--sg-search-403-search-block.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/block/block--sg-search-404-search-block.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/block/block--system-branding-block.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/content-edit/filter-tips.html.twig: n/a
+#  themes/contrib/gent_base/templates/core/fields/field--field-opendata-link.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/fields/field--media--field-src-audio-description.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/fields/field--node--field-images.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/fields/field--paragraph--field-image.html.twig: n/a
+#  themes/contrib/gent_base/templates/core/fields/field--node--field-url--topic-link.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/form/fieldset.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/form/form-element-label.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/form/form.html.twig: n/a
@@ -94,7 +98,7 @@ msgstr ""
 msgid "There are @count other documents available"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:840
+#: themes/contrib/gent_base/gent_base.theme:890
 msgid "@category - All"
 msgstr ""
 
@@ -172,11 +176,23 @@ msgstr ""
 msgid "Filters"
 msgstr ""
 
+#: themes/contrib/gent_base/templates/contrib/paragraphs/contact/paragraph--contact.html.twig:70
+msgid "Call @phone"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/contrib/paragraphs/contact/paragraph--contact.html.twig:80
+msgid "Send an email to @emailAddress"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/contrib/paragraphs/contact/paragraph--contact.html.twig:87
+msgid "View all contact info"
+msgstr ""
+
 #: themes/contrib/gent_base/templates/contrib/paragraphs/timeline/paragraph--timeline-item--alt.html.twig:45
 msgid "More info"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/block/block--article-aside-top.html.twig:38 themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:138
+#: themes/contrib/gent_base/templates/core/block/block--article-aside-top.html.twig:38 themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:145 themes/contrib/gent_base/templates/custom/vesta/vesta.html.twig:137
 msgid "Also interesting"
 msgstr ""
 
@@ -236,12 +252,20 @@ msgstr ""
 msgid "Text Formats"
 msgstr ""
 
+#: themes/contrib/gent_base/templates/core/fields/field--field-opendata-link.html.twig:51
+msgid "Related Linked Open Data"
+msgstr ""
+
 #: themes/contrib/gent_base/templates/core/fields/field--media--field-src-audio-description.html.twig:44
 msgid "Watch this video with audio descripiton"
 msgstr ""
 
 #: themes/contrib/gent_base/templates/core/fields/field--node--field-images.html.twig:65 themes/contrib/gent_base/templates/core/fields/field--paragraph--field-image.html.twig:65
 msgid "Show all photos"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/core/fields/field--node--field-url--topic-link.html.twig:42
+msgid "Visit this website"
 msgstr ""
 
 #: themes/contrib/gent_base/templates/core/form/fieldset.html.twig:59 themes/contrib/gent_base/templates/core/form/form-element-label.html.twig:31
@@ -353,38 +377,34 @@ msgid "Through the <a href=\":url\">chat</a>"
 msgstr ""
 
 #: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:106
-msgid "Contact"
+msgid "Additional information"
 msgstr ""
 
 #: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:109
 msgid "Contacts"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:116 themes/contrib/gent_base/templates/custom/nodes/node--terrain--default.html.twig:14
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:123 themes/contrib/gent_base/templates/custom/nodes/node--terrain--default.html.twig:14
 msgid "Location"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:120
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:127
 msgid "Authorized persons"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:130
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:137
 msgid "Documents"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:142
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:149
 msgid "Similar articles"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:149
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:156
 msgid "More info about"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:154
-msgid "Related Linked Open Data"
-msgstr ""
-
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:165
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:169
 msgid "More news and events"
 msgstr ""
 
@@ -400,7 +420,7 @@ msgstr ""
 msgid "Posted on"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--person--full.html.twig:14
+#: themes/contrib/gent_base/templates/custom/nodes/node--person--full.html.twig:14 themes/contrib/gent_base/templates/custom/vesta/vesta.html.twig:31
 msgid "Contact details"
 msgstr ""
 
@@ -408,7 +428,23 @@ msgstr ""
 msgid "Park offer"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/custom/vesta/vesta--teaser.html.twig:39
+#: themes/contrib/gent_base/templates/custom/vesta/vesta--teaser.html.twig:37
 msgid "More info and opening hours"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/custom/vesta/vesta.html.twig:27
+msgid "@name - openinghours and addresses"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/custom/vesta/vesta.html.twig:89
+msgid "(Fax)"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/custom/vesta/vesta.html.twig:127
+msgid "Extra information"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/custom/vesta/vesta.html.twig:140
+msgid "View all locations from"
 msgstr ""
 

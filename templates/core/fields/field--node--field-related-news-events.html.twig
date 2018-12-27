@@ -53,14 +53,9 @@
   <div{{ title_attributes.addClass(title_classes) }}>{{ label }}</div>
 {% endif %}
 
-{% if items|length > 1 %}
-  <ul{{ attributes }}>
-    {% for item in items %}
-      <li{{ item.attributes.addClass('teaser teaser-article') }}>{{ item.content }}</li>
-    {% endfor %}
-  </ul>
-{% else %}
+
+<ul{{ attributes }}>
   {% for item in items %}
-    {{ item.content }}
+    <li{{ item.attributes.addClass('teaser teaser-article') }}>{{ item.content }}</li>
   {% endfor %}
-{% endif %}
+</ul>

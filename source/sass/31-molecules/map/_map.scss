@@ -1,0 +1,221 @@
+// ===
+// DG Maps
+// ===
+$map-padding: .8rem;
+$map-button-size: 2.2rem;
+$map-button-background: color('white');
+$map-text-color: color('dark-gray');
+
+.map {
+  &-container {
+    position: relative;
+    min-height: $map-button-size * 5;
+    overflow: hidden;
+
+    &__map {
+      width: 100%;
+    }
+
+    &__side-panel {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 15rem;
+      height: 100%;
+      padding: 1.75rem 1.9rem;
+      background: rgba(255, 255, 255, .8);
+      overflow: hidden;
+      z-index: 200;
+    }
+
+    .ol-control {
+      padding: 0;
+
+      &:hover {
+        background: transparent;
+      }
+
+      &.ol-base-layer-switcher > button {
+        background-image: url('#{$styleguide-dir}/img/svg/layers.svg');
+      }
+
+      &.ol-geolocation > button {
+        background-image: url('#{$styleguide-dir}/img/svg/target.svg');
+      }
+
+      &.ol-full-screen > button {
+        background-image: url('#{$styleguide-dir}/img/svg/fullscreen-enter.svg');
+
+        &.ol-full-screen-true {
+          background-image: url('#{$styleguide-dir}/img/svg/fullscreen-exit.svg');
+        }
+      }
+
+      &.ol-zoom > button {
+        &.ol-zoom-in {
+          background-image: url('#{$styleguide-dir}/img/svg/plus.svg');
+        }
+
+        &.ol-zoom-out {
+          background-image: url('#{$styleguide-dir}/img/svg/minus.svg');
+        }
+      }
+
+      > button {
+        width: $map-button-size;
+        height: $map-button-size;
+        margin: 0 0 .4rem;
+        border: 0;
+        background: $map-button-background no-repeat center center;
+        background-size: 24px 24px;
+        color: $map-text-color;
+        font-size: 0;
+        box-shadow: 0 8px 12px 0 rgba(0, 125, 179, .06);
+        cursor: pointer;
+      }
+    }
+
+    .ol-geocoder {
+      width: 10rem;
+      margin: 0;
+
+      @include tablet {
+        width: 15rem;
+      }
+
+      input {
+        height: $map-button-size;
+        background: $map-button-background;
+      }
+    }
+
+    .ol-scale-line {
+      background: transparent;
+      z-index: 400;
+
+      &-inner {
+        position: relative;
+        border-width: 0 0 2px;
+        border-color: $map-text-color;
+        color: $map-text-color;
+        font-size: .6rem;
+        line-height: 1rem;
+
+        &::before,
+        &::after {
+          position: absolute;
+          bottom: 0;
+          width: 2px;
+          height: 5px;
+          background: $map-text-color;
+          content: "";
+        }
+
+        &::before {
+          left: 0;
+        }
+
+        &::after {
+          right: 0;
+        }
+      }
+    }
+
+    .ol-base-layer-switcher {
+      .layer {
+        > label {
+          width: $map-button-size;
+          height: $map-button-size;
+          background-size: auto $map-button-size;
+          opacity: inherit;
+        }
+
+        &-osm > label {
+          background-position: (-$map-button-size*4) 0;
+        }
+
+        &-agiv_grb > label { // scss-lint:disable
+          background-position: (-$map-button-size*3) 0;
+        }
+
+        &-orthophoto > label {
+          background-position: (-$map-button-size*2) 0;
+        }
+
+        &-citymap > label {
+          background-position: (-$map-button-size) 0;
+        }
+      }
+    }
+
+    .gcd-txt-result {
+      > li {
+        > a {
+          display: flex;
+          flex-wrap: wrap;
+          padding: 0;
+          line-height: $default-line-height;
+          text-decoration: none;
+
+          .gcd-road:first-child {
+            flex-basis: 100%;
+          }
+
+          .gcd-city {
+            font-size: 1em;
+
+            &::before {
+              content: ", "
+            }
+          }
+
+          > br {
+            display: none;
+          }
+
+          &:hover,
+          &:focus {
+            background: transparent;
+          }
+        }
+      }
+    }
+  }
+
+  &-region {
+    &--right-top {
+      top: $map-padding;
+      right: $map-padding;
+    }
+
+    &--right-top-left {
+      top: $map-padding;
+      right: $map-padding;
+
+      ~ .map-region--right-top {
+        top: $map-button-size + ($map-padding * 2);
+      }
+
+      @include tablet {
+        right: $map-button-size + ($map-padding * 2);
+
+        ~ .map-region--right-top {
+          top: $map-padding;
+        }
+      }
+    }
+
+    &--right-bottom {
+      right: $map-padding;
+      bottom: $map-padding;
+
+      .ol-control button {
+        margin-bottom: 0;
+      }
+    }
+
+    &--right-bottom-left {
+      bottom: $map-padding;
+    }
+  }
+}
