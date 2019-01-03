@@ -1,0 +1,17 @@
+<div class="frequently-visited box box-top">
+  <div class="inner-box">
+    <h2>{{ is_front ? 'Frequently visited subjects'|t : 'What are you looking for?'|t }}</h2>
+    <p>{{ is_front ? 'The topics that are most frequently sought for within the City website'|t : 'Enter one or more search terms in the search field above.'|t }}</p>
+
+    {% if not is_front %}
+      <h3>{{ 'Frequently visited'|t }}</h3>
+    {% endif %}
+    <ul class="inline">
+      {% for tag, url in tags %}
+        <li>
+          <a href="{{ url }}" class="tag">{{ tag }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
