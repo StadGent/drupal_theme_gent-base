@@ -49,7 +49,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2018-12-11 11:24+0100\n"
+"POT-Creation-Date: 2018-12-27 08:34+0100\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -138,16 +138,12 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-popup.html.twig:56
+#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-popup.html.twig:58
 msgid "Filter the list below"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-popup.html.twig:62
-msgid "There is no filter applied."
-msgstr ""
-
-#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-popup.html.twig:64
-msgid "%count result(s) found"
+#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-popup.html.twig:63
+msgid "%count filter(s) found"
 msgstr ""
 
 #: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-popup.html.twig:94 themes/contrib/gent_base/templates/core/layout/region--filters.html.twig:37
