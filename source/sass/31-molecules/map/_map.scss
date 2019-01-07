@@ -11,6 +11,10 @@ $map-text-color: color('dark-gray');
     position: relative;
     min-height: $map-button-size * 5;
     overflow: hidden;
+    
+    .vesta & {
+      height: 22rem;
+    }
 
     &__map {
       width: 100%;
