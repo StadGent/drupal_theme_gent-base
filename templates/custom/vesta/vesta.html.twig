@@ -134,6 +134,13 @@
       {{ entity.extraInfo|raw }}
     </section>
   {% endif %}
+
+  {% if content.field_coordinates|render is not empty %}
+    <section>
+      <h2>{{ 'Location'|t }}</h2>
+      {{ content.field_coordinates }}
+    </section>
+  {% endif %}
 </article>
 
 {% if related|length > 0 %}
