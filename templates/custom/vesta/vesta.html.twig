@@ -23,6 +23,8 @@
   ]
 %}
 
+{{ attach_library('gent_base/opening_hours') }}
+
 <article{{ attributes.addClass(classes) }}>
   <h1>{{ '@name - openinghours and addresses'|t({'@name': entity.name}) }}</h1>
 
@@ -123,6 +125,8 @@
       </div>
     </div>
   </div>
+
+  {{ content.field_opening_hours }}
 
   {% if entity.extraInfo %}
     <section>
