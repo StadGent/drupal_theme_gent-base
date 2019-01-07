@@ -313,14 +313,6 @@ msgstr "galerij openen"
 msgid "Filter the results"
 msgstr "Filter de resultaten"
 
-#: themes/contrib/gent_base/templates/core/layout/region--filters.html.twig:33
-#: themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig:59
-msgid ""
-"When selecting or deselecting filters, the page is automatically reloaded."
-msgstr ""
-"Bij selecteren of deselecteren van filters wordt de pagina automatisch "
-"herladen."
-
 #: themes/contrib/gent_base/templates/core/navigation/breadcrumb.html.twig:13
 msgid "Breadcrumb"
 msgstr "Kruimelpad"

@@ -292,10 +292,6 @@ msgstr ""
 msgid "Filter the results"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/layout/region--filters.html.twig:33 themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig:59
-msgid "When selecting or deselecting filters, the page is automatically reloaded."
-msgstr ""
-
 #: themes/contrib/gent_base/templates/core/navigation/breadcrumb.html.twig:13
 msgid "Breadcrumb"
 msgstr ""
