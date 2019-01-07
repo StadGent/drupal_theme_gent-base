@@ -59,7 +59,7 @@
               <div class="form-item checkbox-filter__filter__search-wrapper">
                 <input type="search" id="checkboxes__filter_id_{{ facet.id }}" class="checkbox-filter__filter">
 
-                <p aria-live="polite" class="checkbox-filter__result-wrapper">
+                <p aria-live="polite" aria-atomic="true" class="checkbox-filter__result-wrapper">
                   {{ '%count filter(s) found'|t({'%count': '#'}) }}
                 </p>
               </div>
