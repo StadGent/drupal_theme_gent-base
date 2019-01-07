@@ -49,11 +49,11 @@
 ]
 %}
 
-{% if not label_hidden %}
-  <h2{{ title_attributes.addClass(title_classes) }}>{{ label }}</h2>
-{% endif %}
-
 <div class="opening-hours-accordion">
+  {% if not label_hidden %}
+    <h2{{ title_attributes.addClass(title_classes) }}>{{ label }}</h2>
+  {% endif %}
+
   {% for item in items %}
     <div class="opening-hours-accordion__item">
       {{ item.content }}

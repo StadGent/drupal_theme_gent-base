@@ -27,7 +27,6 @@ filter:
   dependencies:
     - gent_base/global_js
     - gent_base/modal
-    - facets_range_widget/slider
 
 modal:
   version: 1.x
@@ -56,8 +55,6 @@ facet_range_slider:
   js:
     build/js/facet_range_slider.bindings-min.js: { minified: true }
   dependencies:
-    - core/drupal
-    - core/jquery.ui.slider
     - facets_range_widget/slider
 
 checkbox_filter:
