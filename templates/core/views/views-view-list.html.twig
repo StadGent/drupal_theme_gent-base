@@ -25,15 +25,17 @@
     <h2>{{ title }}</h2>
   {% endif %}
 
-  <{{ list.type }}{{ list.attributes }}>
+  {% if rows is not empty %}
+    <{{ list.type }}{{ list.attributes }}>
 
-  {% for row in rows %}
-    <li{{ row.attributes }}>
-      {{- row.content -}}
-    </li>
-  {% endfor %}
+    {% for row in rows %}
+      <li{{ row.attributes }}>
+        {{- row.content -}}
+      </li>
+    {% endfor %}
 
-  </{{ list.type }}>
+    </{{ list.type }}>
+  {% endif %} 
 
 {% if attributes -%}
   </div>
