@@ -6,12 +6,15 @@
     {% if not is_front %}
       <h3>{{ 'Frequently visited'|t }}</h3>
     {% endif %}
-    <ul class="inline">
+
+    {% if tags is not empty %}
+      <ul class="inline">
       {% for tag, url in tags %}
         <li>
           <a href="{{ url }}" class="tag">{{ tag }}</a>
         </li>
       {% endfor %}
-    </ul>
+      </ul>
+    {% endif %}
   </div>
 </div>
