@@ -23,6 +23,7 @@ function gent_base_form_alter(&$form, FormStateInterface $form_state, $form_id) 
   // As defined by the Gent styleguide.
   $system_forms = [
     'content_moderation_entity_moderation_form',
+    'views_exposed_form',
   ];
 
   if (in_array($form_id, $system_forms)) {
