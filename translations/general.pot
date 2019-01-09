@@ -152,7 +152,7 @@ msgid "Show results"
 msgstr ""
 
 #: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-popup.html.twig:106
-msgid "%count items selected"
+msgid "%count item(s) selected"
 msgstr ""
 
 #: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-popup.html.twig:111
