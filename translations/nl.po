@@ -163,8 +163,8 @@ msgid "Show results"
 msgstr "Toon resultaten"
 
 #: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-popup.html.twig:106
-msgid "%count items selected"
-msgstr "%count items geselecteerd"
+msgid "%count item(s) selected"
+msgstr "%count item(s) geselecteerd"
 
 #: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-popup.html.twig:111
 msgid "Select ..."
