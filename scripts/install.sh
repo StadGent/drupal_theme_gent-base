@@ -37,7 +37,7 @@ echo "Minifying images...";
 
 echo "Executing - style guide - postinstall script...";
 cd scripts;
-sh ./postinstall.sh;
+node ./postinstall.js;
 
 echo "Building gent_base...";
 cd ../../source;

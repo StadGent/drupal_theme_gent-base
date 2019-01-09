@@ -1,0 +1,45 @@
+{#
+/**
+ * @file vesta.html.twig
+ * Default theme implementation to present Vesta data.
+ *
+ * This template is used when viewing Vesta pages.
+ *
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ * - attributes: HTML attributes for the container element.
+ *
+ * @see template_preprocess_vesta()
+ *
+ * @ingroup themeable
+ */
+#}
+
+<article{{ attributes.addClass('teaser-content') }}>
+  <div class="content__bottom">
+    <a href="{{ url }}" class="teaser-title-link standalone-link">{{ entity.name }}</a>
+
+    <p>
+      {% if entity.postalAddress|render %}
+        {{ entity.postalAddress.street }} {{ entity.postalAddress.houseNumber }}{{ entity.postalAddress.box ? '/' ~ entity.postalAddress.box  }},
+        {{ entity.postalAddress.postalCode }} {{ entity.postalAddress.city }}
+      {% endif %}
+    </p>
+
+    {% if entity.contactNumbers.landlines|length > 0 or entity.emailAddresses|length > 0 %}
+      <ul class="teaser-contact-info">
+        {% if entity.contactNumbers.landlines|length > 0 %}
+          {% set phone = entity.contactNumbers.landlines|first.value %}
+          <li><a href="tel:{{ phone|replace({' ':''}) }}" class="no-icon">{{ phone }}</a></li>
+        {% endif %}
+
+        {% if entity.emailAddresses|length > 0 %}
+          {% set emailAddress = entity.emailAddresses|first.value %}
+          <li><a href="mailto:{{ emailAddress|replace({' ':''}) }}" class="no-icon">{{ emailAddress }}</a></li>
+        {% endif %}
+      </ul>
+    {% endif %}
+  </div>
+</article>
+<a href="{{ url }}" class="teaser-overlay-link" tabindex="-1" aria-hidden="true">{{ entity.name }}</a>

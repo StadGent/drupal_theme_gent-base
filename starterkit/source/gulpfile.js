@@ -12,7 +12,6 @@ var imagemin = require('gulp-imagemin');
 var pngquant = require('imagemin-pngquant');
 var minify = require('gulp-minify');
 var del = require('del');
-var sequence = require('run-sequence');
 var plumber = require('gulp-plumber');
 
 var globalConfig = {
@@ -36,7 +35,7 @@ var globalConfig = {
  *
  */
 gulp.task('styles:build', function() {
-  gulp.src(globalConfig.sass_dir + '/**/*.s+(a|c)ss')
+  return gulp.src(globalConfig.sass_dir + '/**/*.s+(a|c)ss')
     .pipe(plumber())
     .pipe(sassGlob())
     .pipe(sourcemaps.init())
@@ -71,7 +70,7 @@ gulp.task('styles:build', function() {
  *
  */
 gulp.task('styles:dist', function() {
-  gulp.src(globalConfig.sass_dir + '/**/*.s+(a|c)ss')
+  return gulp.src(globalConfig.sass_dir + '/**/*.s+(a|c)ss')
     .pipe(plumber())
     .pipe(sassGlob())
     .pipe(sourcemaps.init())
@@ -110,7 +109,7 @@ gulp.task('styles:validate', function() {
  *
  */
 gulp.task('styles:watch', function() {
-  gulp.watch(globalConfig.sass_dir + '/**/*.scss', ['styles:dist', 'styles:validate']);
+  return gulp.watch(globalConfig.sass_dir + '/**/*.scss', gulp.parallel('styles:dist', 'styles:validate'));
 });
 
 /*
@@ -121,7 +120,7 @@ gulp.task('styles:watch', function() {
  *
  */
 gulp.task('js:build', function() {
-  gulp.src(globalConfig.scripts_src_dir + '/**/*.js')
+  return gulp.src(globalConfig.scripts_src_dir + '/**/*.js')
     .pipe(plumber())
     .pipe(rename({dirname: ''}))
     .pipe(minify({
@@ -139,7 +138,7 @@ gulp.task('js:build', function() {
  *
  */
 gulp.task('js:dist', function() {
-  gulp.src(globalConfig.scripts_src_dir + '/**/*.js')
+  return gulp.src(globalConfig.scripts_src_dir + '/**/*.js')
     .pipe(plumber())
     .pipe(rename({
       dirname: '',
@@ -169,7 +168,7 @@ gulp.task('js:validate', function() {
  *
  */
 gulp.task('js:watch', function() {
-  gulp.watch(globalConfig.scripts_src_dir + '/**/*.js', ['js:dist', 'js:validate']);
+  return gulp.watch(globalConfig.scripts_src_dir + '/**/*.js', gulp.parallel('js:dist', 'js:validate'));
 });
 
 /*
@@ -177,14 +176,20 @@ gulp.task('js:watch', function() {
  * Minify images.
  *
  */
-gulp.task('images:minify', ['styles:build'], function(cb) {
-  gulp.src([globalConfig.img_src_dir + '/**/*.png', globalConfig.img_src_dir + '/**/*.jpg', globalConfig.img_src_dir + '/**/*.gif', globalConfig.img_src_dir + '/**/*.jpeg', globalConfig.img_src_dir + '/**/*.svg'])
+gulp.task('images:minify', gulp.series('styles:build', function(cb) {
+  gulp.src([
+    globalConfig.img_src_dir + '/**/*.png',
+    globalConfig.img_src_dir + '/**/*.jpg',
+    globalConfig.img_src_dir + '/**/*.gif',
+    globalConfig.img_src_dir + '/**/*.jpeg',
+    globalConfig.img_src_dir + '/**/*.svg'
+  ])
     .pipe(imagemin({
       progressive: true,
       use: [pngquant()]
     }))
     .pipe(gulp.dest(globalConfig.img_min_dir)).on('end', cb).on('error', cb);
-});
+}));
 
 /*
  * Clean build directory.
@@ -197,19 +202,6 @@ gulp.task('build:clean', function(cb) {
 
 /*
  *
- * Default tasks:
- * Usage:
- *  gulp
- *  gulp watch
- *
- * Used for local development to compile and validate after every change.
- *
- */
-gulp.task('default', ['styles:watch', 'js:watch']);
-gulp.task('watch', ['default']);
-
-/*
- *
  * Validate task:
  * Usage:
  *  gulp validate
@@ -217,7 +209,7 @@ gulp.task('watch', ['default']);
  *  Used to only validate the SCSS and JS code.
  *
  */
-gulp.task('validate', ['styles:validate', 'js:validate']);
+gulp.task('validate', gulp.parallel('styles:validate', 'js:validate'));
 
 /*
  * Compile the theme.
@@ -226,13 +218,8 @@ gulp.task('validate', ['styles:validate', 'js:validate']);
  *
  *  Used build the SCSS and JS code. This also minifies images.
  */
-gulp.task('compile', function (done) {
-  sequence('build:clean', ['styles:build', 'js:build', 'images:minify'], done);
-});
-
-gulp.task('compile:dev', function (done) {
-  sequence('build:clean', ['styles:dist', 'js:dist', 'images:minify'], done);
-});
+gulp.task('compile', gulp.series('build:clean', gulp.parallel('styles:build', 'js:build', 'images:minify')));
+gulp.task('compile:dev', gulp.series('build:clean', gulp.parallel('styles:dist', 'js:dist', 'images:minify')));
 
 /*
  *
@@ -243,6 +230,17 @@ gulp.task('compile:dev', function (done) {
  *  Used to validate and build production ready code.
  *
  */
-gulp.task('build', function (done) {
-  sequence('build:clean', ['validate', 'compile'], done);
-});
+gulp.task('build', gulp.series('build:clean', gulp.parallel('validate', 'compile')));
+
+/*
+ *
+ * Default tasks:
+ * Usage:
+ *  gulp
+ *  gulp watch
+ *
+ * Used for local development to compile and validate after every change.
+ *
+ */
+gulp.task('default', gulp.parallel('styles:watch', 'js:watch'));
+gulp.task('watch', gulp.series('default'));
