@@ -5,4 +5,12 @@
     flex-shrink: 1;
     width: 22rem;
   }
+
+  .form-actions {
+    flex-shrink: 0;
+  }
+
+  input[type='text'] {
+    @extend %search-input;
+  }
 }
