@@ -61,17 +61,17 @@
         </ul>
   {% endif %}
 
-        <div
-            id="{{ widget_id }}"
-            class="openinghours openinghours-widget"
-            role="tabpanel"
-            data-type="{{ widgets[0].type }}"
-            data-service="{{ service_id }}"
-            {% if not single_widget %}data-channel="{{ channel_id }}"{% endif %}
-            {% if date %} data-date="{{ date }}"{% endif %}
-            {% if from %} data-from="{{ from }}"{% endif %}
-            {% if until %} data-until="{{ until }}"{% endif %}
-        ></div>
+        <div id="{{ widget_id }}" role="tabpanel">
+          <div
+              class="openinghours openinghours-widget"
+              data-type="{{ widgets[0].type }}"
+              data-service="{{ service_id }}"
+              {% if not single_widget %}data-channel="{{ channel_id }}"{% endif %}
+              {% if date %} data-date="{{ date }}"{% endif %}
+              {% if from %} data-from="{{ from }}"{% endif %}
+              {% if until %} data-until="{{ until }}"{% endif %}
+          ></div>
+        </div>
 
   {% if widgets|length > 1 %}
       </div>
