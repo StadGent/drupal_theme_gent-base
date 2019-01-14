@@ -23,6 +23,8 @@
   ]
 %}
 
+{{ attach_library('gent_base/opening_hours') }}
+
 <article{{ attributes.addClass(classes) }}>
   <h1>{{ '@name - openinghours and addresses'|t({'@name': entity.name}) }}</h1>
 
@@ -124,10 +126,19 @@
     </div>
   </div>
 
+  {{ content.field_opening_hours }}
+
   {% if entity.extraInfo %}
     <section>
       <h2>{{ 'Extra information'|t }}</h2>
       {{ entity.extraInfo|raw }}
+    </section>
+  {% endif %}
+
+  {% if content.field_coordinates|render is not empty %}
+    <section>
+      <h2>{{ 'Location'|t }}</h2>
+      {{ content.field_coordinates }}
     </section>
   {% endif %}
 </article>

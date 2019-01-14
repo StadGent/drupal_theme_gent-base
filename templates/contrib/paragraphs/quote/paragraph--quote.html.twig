@@ -6,19 +6,21 @@
       'quote',
     ]
   %}
-  <div{{ attributes.addClass(classes) }}>
-    <blockquote>
-      {% block content %}
-        <div class="content">
-          <p>{{ content.field_quote|render|striptags('<br>')|trim|raw }}</p>
-        </div>
-      {% endblock %}
-      <footer>
-        {{ content.field_author|render|striptags|trim }}
-        {% if content.field_position|render|striptags|trim is not empty %}
-          , {{ content.field_position|render|striptags|trim }}
-        {% endif %}
-      </footer>
-    </blockquote>
+  <div class="quote-wrapper">
+    <div{{ attributes.addClass(classes) }}>
+      <blockquote>
+        {% block content %}
+          <div class="content">
+            <p>{{ content.field_quote|render|striptags('<br>')|trim|raw }}</p>
+          </div>
+        {% endblock %}
+        <footer>
+          {{ content.field_author|render|striptags|trim }}
+          {% if content.field_position|render|striptags|trim is not empty %}
+            , {{ content.field_position|render|striptags|trim }}
+          {% endif %}
+        </footer>
+      </blockquote>
+    </div>
   </div>
 {% endblock paragraph %}

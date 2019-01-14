@@ -30,7 +30,7 @@
   {% endif %}
   {% if items or empty %}
     {%- if title is not empty -%}
-      <label for="{{ facet.id }}">{{ title }}</label>
+      <legend for="{{ facet.id }}">{{ title }}</legend>
     {%- endif -%}
 
     {%- if items -%}

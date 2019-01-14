@@ -9,8 +9,12 @@ $map-text-color: color('dark-gray');
 .map {
   &-container {
     position: relative;
-    min-height: $map-button-size * 10;
+    min-height: $map-button-size * 5;
     overflow: hidden;
+    
+    .vesta & {
+      height: 22rem;
+    }
 
     &__map {
       width: 100%;
@@ -31,8 +35,16 @@ $map-text-color: color('dark-gray');
     .ol-control {
       padding: 0;
 
+      &:hover {
+        background: transparent;
+      }
+
       &.ol-base-layer-switcher > button {
         background-image: url('#{$styleguide-dir}/img/svg/layers.svg');
+      }
+
+      &.ol-geolocation > button {
+        background-image: url('#{$styleguide-dir}/img/svg/target.svg');
       }
 
       &.ol-full-screen > button {
@@ -56,7 +68,7 @@ $map-text-color: color('dark-gray');
       > button {
         width: $map-button-size;
         height: $map-button-size;
-        margin-bottom: .4rem;
+        margin: 0 0 .4rem;
         border: 0;
         background: $map-button-background no-repeat center center;
         background-size: 24px 24px;
