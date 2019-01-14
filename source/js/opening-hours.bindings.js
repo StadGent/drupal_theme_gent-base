@@ -8,6 +8,7 @@
   Drupal.behaviors.gentBaseLoadOpeningHours = {
     attach: function (context, settings) {
       this.determineAccordionVisibility();
+      this.resizeOnTabChange();
     },
 
     /**
@@ -27,6 +28,23 @@
           widget.addEventListener('change', eventHandler);
         }
       });
+    },
+
+    /**
+     * Fix for dynamic tab content:
+     * when content of the opening-hours-accordion content changes, the height of the accordion/tabs might change,
+     * so a resize needs to be triggered in order to display all content properly
+     */
+    resizeOnTabChange: function () {
+      var widgets = document.querySelectorAll('.opening-hours-accordion .openinghours-widget');
+
+      for (var i = widgets.length; i--;) {
+        widgets[i].addEventListener('change', function (e) {
+          var evt = window.document.createEvent('UIEvents');
+          evt.initUIEvent('resize', true, false, window, 0);
+          window.dispatchEvent(evt);
+        });
+      }
     }
   };
 })(Drupal);
