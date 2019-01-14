@@ -9,7 +9,7 @@
   .form-actions {
     flex-shrink: 0;
   }
-
+  
   input[type='text'] {
     @extend %search-input;
   }
