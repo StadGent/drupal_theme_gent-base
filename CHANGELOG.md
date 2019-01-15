@@ -17,6 +17,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 ### Updated
 
 * DTGB-655: Updated copy in checkbox-popup facet widget.
+* DTGB-660: Added gentinfo logo to the gentinfo-island.
 
 ## [8.x-3.0-alpha.10]
 
