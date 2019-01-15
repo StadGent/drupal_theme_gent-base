@@ -52,22 +52,23 @@
               <h3>{{ title }}</h3>
             {%- endif -%}
 
+            <div class="checkbox-filter__selected"></div>
+
             <div class="form-item">
               <label for="checkboxes__filter_id_{{ facet.id }}">{{ 'Filter the list below'|t }}</label>
-              <input type="search" id="checkboxes__filter_id_{{ facet.id }}" class="checkbox-filter__filter">
-              <div class="checkbox-filter__selected"></div>
-            </div>
+              <div class="form-item checkbox-filter__filter__search-wrapper">
+                <input type="search" id="checkboxes__filter_id_{{ facet.id }}" class="checkbox-filter__filter">
 
-            <p>
-              <strong class="checkbox-filter__result-placeholder">{{ 'There is no filter applied.'|t }}</strong>
-              <strong aria-live="polite" class="checkbox-filter__result-wrapper">
-                {{ '%count result(s) found'|t({'%count': '#'}) }}
-              </strong>
-            </p>
+                <p aria-live="polite" aria-atomic="true" class="checkbox-filter__result-wrapper">
+                  {{ '%count filter(s) found'|t({'%count': '#'}) }}
+                </p>
+              </div>
+            </div>
 
             <div{{ attributes.addClass('links checkbox-filter__checkboxes') }}>
               {%- for item in items -%}
                 {# Multi-level filters #}
+
                 {% if (item.value.children) %}
                   </div>
 
@@ -78,11 +79,13 @@
                     </div>
 
                     {% for child in item.value.children['#items'] %}
-                      <div class="facet-item checkbox">{{ child }}</div>
+                      {% if child['#title']['#count'] > 0 %}
+                        <div class="facet-item checkbox">{{ child }}</div>
+                      {% endif %}
                     {% endfor %}
 
                 {# Single-level filters #}
-                {% else %}
+                {% elseif item.value['#title']['#count'] > 0 %}
                   <div{{ item.attributes.addClass('checkbox') }}>{{ item.value }}</div>
                 {% endif %}
               {%- endfor -%}
@@ -100,7 +103,7 @@
 
       <p class="checkbox-filter__count-wrapper hidden">
         <strong>
-          {{ '%count items selected'|t({'%count': 0}) }}
+          {{ '%count item(s) selected'|t({'%count': 0}) }}
         </strong>
       </p>
 

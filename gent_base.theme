@@ -12,7 +12,6 @@ use Drupal\image\Entity\ImageStyle;
 use Drupal\paragraphs\Entity\Paragraph;
 use Drupal\Core\Url;
 use Drupal\Core\Link;
-use Drupal\file\Entity\File;
 
 include __DIR__ . '/theme.inc';
 
@@ -24,6 +23,7 @@ function gent_base_form_alter(&$form, FormStateInterface $form_state, $form_id) 
   // As defined by the Gent styleguide.
   $system_forms = [
     'content_moderation_entity_moderation_form',
+    'views_exposed_form',
   ];
 
   if (in_array($form_id, $system_forms)) {
@@ -232,6 +232,20 @@ function gent_base_preprocess_block(&$variables) {
 
     default:
       break;
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function gent_base_preprocess_block__views_search_form_header(&$variables) {
+  $form = &$variables['content'];
+
+  if ($form['#form_id'] === 'views_exposed_form') {
+    $form['search']['#theme_wrappers'] = [];
+    $form['search']['#value'] = NULL;
+    $form['search']['#required'] = TRUE;
+    $form['actions']['#theme_wrappers'] = [];
   }
 }
 
@@ -449,23 +463,33 @@ function gent_base_preprocess_field__node__contact(&$variables) {
 /**
  * Implements hook_preprocess_HOOK().
  */
+function gent_base_preprocess_media__document(&$variables) {
+  if (isset($variables['name']) && isset($variables['content']['field_media_file'])) {
+    $index = 0;
+    while (isset($variables['content']['field_media_file'][$index])) {
+      $variables['content']['field_media_file'][$index]['#description'] = $variables['name'];
+
+      $index++;
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
 function gent_base_preprocess_file_link(&$variables) {
   if ($variables) {
     $options = [];
     $file = $variables['file'];
-    $file_entity = ($file instanceof File) ? $file : File::load($file->fid);
-    $filename = $file->getFilename();
-    $filenameParts = explode('.', $filename);
-
-    $url = file_create_url($file_entity->getFileUri());
-    $link_text = $file_entity->getFilename();
+    $filenameParts = explode('.', $file->getFilename());
+    $url = file_create_url($file->getFileUri());
 
     $variables['file_size'] = format_size($file->getSize());
     $variables['file_type'] = $filenameParts[count($filenameParts) - 1];
     $options['attributes']['class'][] = 'standalone-link';
     $options['attributes']['download'][] = 'download';
 
-    $variables['link'] = Link::fromTextAndUrl($link_text, Url::fromUri($url, $options));
+    $variables['link'] = Link::fromTextAndUrl($variables['description'], Url::fromUri($url, $options));
   }
 }
 

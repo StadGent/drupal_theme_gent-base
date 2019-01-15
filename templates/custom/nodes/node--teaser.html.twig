@@ -64,51 +64,70 @@
  *   is an administrator.
  *
  * @see template_preprocess_node()
- *
- * @todo Remove the id attribute (or make it a class), because if that gets
- *   rendered twice on a page this is invalid CSS for example: two lists
- *   in different view modes.
  */
 #}
 {%
   set classes = [
-  'teaser-content',
-  'node',
-  'node--type-' ~ node.bundle|clean_class,
-  node.isPromoted() ? 'node--promoted',
-  node.isSticky() ? 'node--sticky',
-  not node.isPublished() ? 'node--unpublished',
-  view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
-]
+    'teaser-content',
+    'node',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+  ]
 %}
+
 {{ attach_library('classy/node') }}
-<div class="teaser teaser-article">
-  <article{{ attributes.addClass(classes) }}>
 
+<article{{ attributes.addClass(classes) }}>
+
+  {% block bottom %}
     <div{{ content_attributes.addClass('content__bottom') }}>
-      <h3{{ title_attributes }}>{{ label }}</h3>
+      {% block title %}
+        {{ title_prefix }}
+        {% if not page %}
+          <h3{{ title_attributes }}>
+            {{ label }}
+          </h3>
+        {% endif %}
+        {{ title_suffix }}
+      {% endblock %}
 
-      {% if display_submitted %}
-        <time{{ author_attributes.addClass('published') }}>
-          {{ 'Posted on'|t }} {{ date|dg_format_date('text') }}
-        </time>
+      {% block content %}
+        {{ content|without('field_teaser_image', 'og_audience') }}
+      {% endblock %}
+    </div>
+  {% endblock %}
+
+  {% block top %}
+      {% if
+        node.hasField('field_teaser_image') or
+        node.hasField('og_audience') or
+        node.bundle() == 'event'
+      %}
+        <div class="content__top">
+
+        {% block image %}
+          {% if node.hasField('field_teaser_image') %}
+            <div class="figure-wrapper">
+              <figure>
+                <div class="image-wrapper">
+                  {{ content.field_teaser_image }}
+                </div>
+              </figure>
+              <div class="accolade-inverse bottom-left"></div>
+            </div>
+          {% endif %}
+
+          {{ content.og_audience }}
+        {% endblock %}
+        </div>
       {% endif %}
+  {% endblock %}
 
-      {{ content|without('field_teaser_image', 'og_audience') }}
-    </div>
+</article>
 
-    <div class="content__top">
-      <div class="figure-wrapper">
-        <figure>
-          <div class="image-wrapper">
-            {{ content.field_teaser_image }}
-          </div>
-        </figure>
-        <div class="accolade-inverse bottom-left"></div>
-      </div>
-      {{ content.og_audience }}
-    </div>
-
-  </article>
+{% block overlay_link %}
   <a href="{{ url }}" class="teaser-overlay-link" tabindex="-1" aria-hidden="true">{{ label }}</a>
-</div>
+{% endblock %}

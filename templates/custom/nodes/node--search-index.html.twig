@@ -72,25 +72,32 @@
 #}
 {%
   set classes = [
-    'teaser-content',
-    'node',
-    'node--type-' ~ node.bundle|clean_class,
-    node.isPromoted() ? 'node--promoted',
-    node.isSticky() ? 'node--sticky',
-    not node.isPublished() ? 'node--unpublished',
-    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
-  ]
+  'node',
+  'node--type-' ~ node.bundle|clean_class,
+  node.isPromoted() ? 'node--promoted',
+  node.isSticky() ? 'node--sticky',
+  not node.isPublished() ? 'node--unpublished',
+  view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+  'teaser-content'
+]
 %}
 {{ attach_library('classy/node') }}
-<div class="teaser teaser-topic">
-  <article{{ attributes.addClass(classes) }}>
+<article{{ attributes.addClass(classes) }}>
+  <div class="content__bottom">
+    {{ title_prefix }}
+    {% if not page %}
+      <h3{{ title_attributes }}>
+        {{ label }}
+      </h3>
+    {% endif %}
+    {{ title_suffix }}
 
-    <div{{ content_attributes.addClass('content__bottom') }}>
-      <h3{{ title_attributes }}>{{ label }}</h3>
+    <span class="tag">{{ node.type.entity.label }}</span>
+    {{ content.og_audience }}
 
-      {{ content }}
+    <div{{ content_attributes.addClass('node__content') }}>
+      {{ content|without('og_audience') }}
     </div>
-
-  </article>
-  <a href="{{ url }}" class="teaser-overlay-link" tabindex="-1" aria-hidden="true">{{ label }}</a>
-</div>
+  </div>
+</article>
+<a href="{{ url }}" class="teaser-overlay-link" tabindex="-1" aria-hidden="true">{{ label }}</a>
