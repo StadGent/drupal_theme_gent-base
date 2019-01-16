@@ -28,7 +28,7 @@
     </p>
 
     {% if entity.contactNumbers.landlines|length > 0 or entity.emailAddresses|length > 0 %}
-      <ul class="teaser-contact-info">
+      <ul class="teaser-links">
         {% if entity.contactNumbers.landlines|length > 0 %}
           {% set phone = entity.contactNumbers.landlines|first.value %}
           <li><a href="tel:{{ phone|replace({' ':''}) }}" class="no-icon">{{ phone }}</a></li>
