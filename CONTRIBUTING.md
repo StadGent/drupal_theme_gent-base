@@ -49,7 +49,6 @@ The structure of our base theme is defined like this:
 │   │   ├── 21-atoms/
 │   │   ├── 31-molecules/
 │   │   ├── 41-organisms/
-│   │   ├── 51-templates/
 │   │   ├── 61-layouts/
 │   │   ├── 71-pages/
 │   │   ├── _preview-hamburger-menu.twig

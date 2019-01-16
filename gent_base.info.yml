@@ -13,9 +13,6 @@ regions:
   footer: Footer
 libraries:
   - gent_base/global_js
-  - gent_base/accordion
-  - gent_base/image-collections
-  - gent_base/image-wall
   - gent_base/menu
 # Unset all theming features.
 features:
