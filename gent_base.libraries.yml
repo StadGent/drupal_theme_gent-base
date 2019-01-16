@@ -49,6 +49,8 @@ image-wall:
     styleguide/public/styleguide/vendor/imagesloaded/imagesloaded.pkgd.min.js: { minified: true }
     styleguide/public/styleguide/vendor/masonry-layout/dist/masonry.pkgd.min.js: { minified: true }
     build/js/image-wall.bindings-min.js: { minified: true }
+  dependencies:
+    - gent_base/image-collections
 
 facet_range_slider:
   version: 1.x
