@@ -100,6 +100,44 @@ $map-text-color: color('dark-gray');
           font-size: 1.5em;
         }
       }
+
+      .category {
+        margin-bottom: .5rem;
+        border: 0;
+        font-size: .7rem;
+
+        &__label {
+          padding: 0;
+          background: transparent;
+          color: inherit;
+          text-transform: none;
+        }
+
+        &__count {
+          display: none;
+        }
+      }
+
+      details {
+        ::-webkit-details-marker {
+          display: none;
+        }
+
+        .category__label {
+          @include icon(plus);
+          cursor: pointer;
+
+          &::before {
+            margin-right: .4rem;
+          }
+        }
+      }
+
+      .layer label {
+        display: block;
+        padding-right: 0;
+        padding-left: 1.4rem;
+      }
     }
 
     .ol-geocoder {

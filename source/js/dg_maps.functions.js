@@ -16,6 +16,7 @@
 
     /**
      * The categories definitions.
+     *
      * @private
      * @type {Object}
      */
@@ -23,6 +24,7 @@
 
     /**
      * The url to the group layer icon.
+     *
      * @private
      * @type {string}
      */
@@ -30,6 +32,7 @@
 
     /**
      * The layer legend.
+     *
      * @private
      * @type {Object}
      */
@@ -63,6 +66,87 @@
       target: options.target
     });
 
+  };
+
+  /**
+   * Renders a data layer as list item.
+   *
+   * @param {ol.layer.Layer} layer Layer to be rendered.
+   * @return {Element} The layer as list item.
+   * @private
+   */
+  originalPrototype.renderLayer_ = function (layer) {
+    var layerId = layer.get('id');
+
+    var li = document.createElement('li');
+    li.className = 'layer layer-' + layerId;
+
+    var lyrId = Drupal.dgMaps.uuid();
+
+    var inputWrapper = document.createElement('div');
+    inputWrapper.className = 'checkbox';
+
+    var input = document.createElement('input');
+    input.type = 'checkbox';
+    input.id = lyrId;
+    input.checked = layer.get('visible');
+    input.onchange = function (e) {
+      this.setVisible_(layer, e.target.checked);
+    }.bind(this);
+    input.setAttribute('data-layer-id', layerId);
+    inputWrapper.appendChild(input);
+
+    // TODO grey out layers which are not in range (not visible in extent).
+    // TODO also add event to check if changes.
+
+    var label = document.createElement('label');
+    label.htmlFor = lyrId;
+    label.innerHTML = layer.get('title');
+    inputWrapper.appendChild(label);
+
+    li.appendChild(inputWrapper);
+
+    // Add layer legend icon(s).
+    // If more than one, add group icon + icon list.
+    // If single, add icon to layer label & skip icon description.
+    var legendData = this.getLegend(layerId);
+    if (legendData.length > 0) {
+      // Always use the group legend item icon to prepend it to the layer label.
+      var layerIcon = (legendData.length === 1) ? legendData[0] : this.layerGroupIcon_;
+
+      var legendIcon = document.createElement('img');
+      legendIcon.className = 'layer__icon';
+      legendIcon.src = layerIcon.url;
+      legendIcon.alt = layerIcon.label ? layerIcon.label : '';
+      label.insertBefore(legendIcon, label.firstChild);
+
+      // Add the rest of the legend items to a child container.
+      if (legendData.length > 1) {
+        var legendContainer = document.createElement('div');
+        legendContainer.className = 'legend';
+
+        for (var j = 0; j < legendData.length; j++) {
+          var legendItemContainer = document.createElement('div');
+          legendItemContainer.className = 'legend__item';
+          legendContainer.appendChild(legendItemContainer);
+
+          var legendItemIcon = document.createElement('img');
+          legendItemIcon.className = 'legend__item__icon';
+          legendItemIcon.src = legendData[j].url;
+          legendItemIcon.alt = legendData[j].label ? legendData[j].label : '';
+          legendItemContainer.appendChild(legendItemIcon);
+
+          var legendItemLabel = document.createElement('span');
+          legendItemIcon.className = 'legend__item__label';
+          legendItemLabel.innerHTML = legendData[j].label ? legendData[j].label : '';
+          legendItemContainer.appendChild(legendItemLabel);
+        }
+
+        li.appendChild(legendContainer);
+      }
+    }
+
+    return li;
   };
 
   Drupal.dgMaps.ol.control.DataLayerSwitcher.prototype = originalPrototype;
