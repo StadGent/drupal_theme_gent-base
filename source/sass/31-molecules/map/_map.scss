@@ -6,6 +6,19 @@ $map-button-size: 2.2rem;
 $map-button-background: color('white');
 $map-text-color: color('dark-gray');
 
+%map-button {
+  width: $map-button-size;
+  height: $map-button-size;
+  margin: 0 0 .4rem;
+  border: 0;
+  background: $map-button-background no-repeat center center;
+  background-size: 24px 24px;
+  color: $map-text-color;
+  font-size: 0;
+  box-shadow: 0 8px 12px 0 rgba(0, 125, 179, .06);
+  cursor: pointer;
+}
+
 .map {
   &-container {
     position: relative;
@@ -66,16 +79,26 @@ $map-text-color: color('dark-gray');
       }
 
       > button {
-        width: $map-button-size;
-        height: $map-button-size;
-        margin: 0 0 .4rem;
-        border: 0;
-        background: $map-button-background no-repeat center center;
-        background-size: 24px 24px;
-        color: $map-text-color;
-        font-size: 0;
-        box-shadow: 0 8px 12px 0 rgba(0, 125, 179, .06);
-        cursor: pointer;
+        @extend %map-button;
+      }
+    }
+
+    .ol-data-layer-switcher {
+      padding: .8rem;
+
+      h2 {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: .8rem;
+
+        > button {
+          width: auto;
+          height: auto;
+          background: transparent;
+          color: inherit;
+          font-size: 1.5em;
+        }
       }
     }
 
@@ -220,6 +243,54 @@ $map-text-color: color('dark-gray');
 
     &--right-bottom-left {
       bottom: $map-padding;
+    }
+
+    &--collapsible {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      border: 0;
+
+      background: color('white');
+      z-index: 20;
+    }
+
+    &-button {
+      @extend %map-button;
+      @include icon(hamburger);
+      @include icon(chevron-down, after);
+
+      display: flex;
+      align-items: center;
+
+      position: absolute;
+      top: $map-padding;
+      left: $map-padding;
+
+      font-size: 0;
+      z-index: 10;
+
+      &::before {
+        font-size: 1.2rem;
+      }
+
+      @include tablet {
+        width: auto;
+        font-size: .8rem;
+        font-weight: 600;
+        padding: .4rem .8rem;
+
+        &::before {
+          font-size: 0;
+        }
+
+        &::after {
+          font-size: 1rem;
+          margin-left: .4rem;
+        }
+      }
     }
   }
 }

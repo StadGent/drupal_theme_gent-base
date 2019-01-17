@@ -1,0 +1,44 @@
+{{ attach_library('gent_base/maps') }}
+
+{% block map %}
+  <div id="{{ map_id }}__container" class="map-container clearfix">
+    {% if content.left %}
+      {% set region = { 'name': 'left', 'content': content.left, 'settings': regions.left } %}
+      {% include "@gent_base/contrib/dg_maps/dg-maps-map-region.html.twig" with region %}
+    {% endif %}
+
+    <div id="{{ map_id }}" class="map-container__map{% if content.left %} map-container__map--has-left-region{% endif %} clearfix">
+      {% if content.right_top %}
+        {% set region = { 'name': 'right-top', 'content': content.right_top, 'settings': regions.right_top } %}
+        {% include "@gent_base/contrib/dg_maps/dg-maps-map-region.html.twig" with region %}
+      {% endif %}
+
+      {% if content.right_top_left %}
+        {% set region = { 'name': 'right-top-left', 'content': content.right_top_left, 'settings': regions.right_top_left } %}
+        {% include "@gent_base/contrib/dg_maps/dg-maps-map-region.html.twig" with region %}
+      {% endif %}
+
+      {% if content.right_bottom %}
+        {% set region = { 'name': 'right-bottom', 'content': content.right_bottom, 'settings': regions.right_bottom } %}
+        {% include "@gent_base/contrib/dg_maps/dg-maps-map-region.html.twig" with region %}
+      {% endif %}
+
+      {% if content.right_bottom_left %}
+        {% set region = { 'name': 'right-bottom-left', 'content': content.right_bottom_left, 'settings': regions.right_bottom_left } %}
+        {% include "@gent_base/contrib/dg_maps/dg-maps-map-region.html.twig" with region %}
+      {% endif %}
+    </div>
+  </div>
+
+  {% if content.container_bottom %}
+    {% set region = { 'name': 'container-bottom', 'content': content.container_bottom, 'settings': regions.container_bottom } %}
+    {% include "@gent_base/contrib/dg_maps/dg-maps-map-region.html.twig" with region %}
+  {% endif %}
+{% endblock %}
+
+{% block popup %}
+  <div id="{{ map_id }}__popup" class="ol-popup" style="display: none;" tabindex="-1">
+    <div id="{{ map_id }}__popup-content" class="ol-popup__content"></div>
+    <button id="{{ map_id }}__popup-closer" class="ol-popup__closer" aria-label="{{ 'Close'|t }}"></button>
+  </div>
+{% endblock %}

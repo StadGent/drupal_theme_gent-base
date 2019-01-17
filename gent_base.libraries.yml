@@ -80,3 +80,12 @@ opening_hours:
   dependencies:
     - gent_base/accordion
     - gent_base/tabs
+
+maps:
+  version: 1.x
+  js:
+    source/js/dg_maps.functions.js: { minified: false }
+  dependencies:
+    - gent_base/accordion
+    - gent_base/accordion
+    - dg_maps/behavior.data_layer_switcher
