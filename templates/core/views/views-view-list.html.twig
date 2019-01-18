@@ -17,16 +17,26 @@
  */
 #}
 
-{% if title %}
-  <h2>{{ title }}</h2>
+{% if attributes -%}
+  <div{{ attributes }}>
 {% endif %}
 
-<{{ list.type }}{{ list.attributes }}>
+  {% if title %}
+    <h2>{{ title }}</h2>
+  {% endif %}
 
-{% for row in rows %}
-  <li{{ row.attributes }}>
-    {{- row.content -}}
-  </li>
-{% endfor %}
+  {% if rows is not empty %}
+    <{{ list.type }}{{ list.attributes }}>
 
-</{{ list.type }}>
+    {% for row in rows %}
+      <li{{ row.attributes }}>
+        {{- row.content -}}
+      </li>
+    {% endfor %}
+
+    </{{ list.type }}>
+  {% endif %} 
+
+{% if attributes -%}
+  </div>
+{% endif %}

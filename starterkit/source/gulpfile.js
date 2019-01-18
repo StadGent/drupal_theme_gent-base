@@ -176,7 +176,7 @@ gulp.task('js:watch', function() {
  * Minify images.
  *
  */
-gulp.task('images:minify', gulp.series('styles:build'), function(cb) {
+gulp.task('images:minify', gulp.series('styles:build', function(cb) {
   gulp.src([
     globalConfig.img_src_dir + '/**/*.png',
     globalConfig.img_src_dir + '/**/*.jpg',
@@ -189,7 +189,7 @@ gulp.task('images:minify', gulp.series('styles:build'), function(cb) {
       use: [pngquant()]
     }))
     .pipe(gulp.dest(globalConfig.img_min_dir)).on('end', cb).on('error', cb);
-});
+}));
 
 /*
  * Clean build directory.

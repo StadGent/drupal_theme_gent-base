@@ -14,8 +14,7 @@ module.exports = {
   context: {
     link: '#',
     text: 'Link text',
-    aria_label: null,
-    aria_labelledby: null
+    aria_label: null
   },
   variants: [
     {
@@ -80,6 +79,16 @@ module.exports = {
         link: '#',
         modifier: 'standalone-link',
         download: true
+      }
+    },
+    {
+      name: 'standalone-back',
+      preview: '@preview',
+      handle: 'link',
+      context: {
+        link: '#',
+        text: 'back',
+        modifier: 'standalone-link back'
       }
     },
     {

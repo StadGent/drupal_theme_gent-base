@@ -1,6 +1,7 @@
 <div class="sidebar-layout filter">
   {% set modalContent %}
     <h2>Filter the results</h2>
+
     <form action="#result">
       <div class="form-item">
         {% include '@label' with {
@@ -8,10 +9,11 @@
           "for": "id_name",
           "label_optional": "Optional"
         } %}
-        {% include '@input-text'
+        {% include '@input'
           with {
-          "textfield_id": "id_name",
-          "textfield_name": "name"
+          "type": "text",
+          "id": "id_name",
+          "name": "name"
         } %}
       </div>
       <div class="form-item">
@@ -20,10 +22,11 @@
           "for": "id_category",
           "label_optional": "Optional"
         } %}
-        {% include '@input-text'
+        {% include '@input'
           with {
-          "textfield_id": "id_category",
-          "textfield_name": "category"
+          "type": "text",
+          "id": "id_category",
+          "name": "category"
         } %}
       </div>
       {% include '@checkbox-with-filter'
@@ -39,10 +42,11 @@
           "for": "id_type",
           "label_optional": "Optional"
         } %}
-        {% include '@input-text'
+        {% include '@input'
           with {
-          "textfield_id": "id_type",
-          "textfield_name": "type"
+          "type": "text",
+          "id": "id_type",
+          "name": "type"
         } %}
       </div>
       <button type="submit" class="button button-primary filter__submit">Show result</button>
@@ -86,13 +90,14 @@
 
     <ul class="filter__results">
       {% for key, result in results %}
-        {% include '@teaser-search' with {
+        {% include '@teaser' with {
+          "type": 'teaser-search',
           "teaser_uid": result.teaser_uid,
-          "teaser_paragraph_text": result.teaser_paragraph_text,
-          "teaser_title": result.teaser_title,
-          "teaser_link_text": result.teaser_link_text,
-          "teaser_link_link": result.teaser_link_link,
-          "teaser_tag": result.teaser_tag
+          "paragraph_text": result.paragraph_text,
+          "title": result.title,
+          "link_text": result.link_text,
+          "link": result.link,
+          "tag": result.tag
         } %}
       {% endfor %}
     </ul>

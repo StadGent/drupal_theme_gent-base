@@ -23,6 +23,8 @@
   ]
 %}
 
+{{ attach_library('gent_base/opening_hours') }}
+
 <article{{ attributes.addClass(classes) }}>
   <h1>{{ '@name - openinghours and addresses'|t({'@name': entity.name}) }}</h1>
 
@@ -30,97 +32,118 @@
     <div class="inner-box">
       <h2>{{ 'Contact details'|t }}</h2>
 
-      <ul class="icon-list">
-        {# address #}
-        {% if entity.postalAddress|render %}
-          {% spaceless %}
-            <li>
-              <i class="icon-marker" aria-hidden="true"></i>
-              <span>
-                <strong>{{ entity.name }}</strong>
-                &mdash;
-                {{ entity.postalAddress.street }} {{ entity.postalAddress.houseNumber }}{{ entity.postalAddress.box ? '/' ~ entity.postalAddress.box  }},
-                {{ entity.postalAddress.postalCode }} {{ entity.postalAddress.city }}
-              </span>
-            </li>
-          {% endspaceless %}
-        {% endif %}
+      <div class="contact-details-column">
+        <ul class="icon-list">
+          {# address #}
+          {% if entity.postalAddress|render %}
+            {% spaceless %}
+              <li>
+                <i class="icon-marker" aria-hidden="true"></i>
+                <span>
+                  <strong>{{ entity.name }}</strong>
+                  &mdash;
+                  {{ entity.postalAddress.street }} {{ entity.postalAddress.houseNumber }}{{ entity.postalAddress.box ? '/' ~ entity.postalAddress.box  }},
+                  {{ entity.postalAddress.postalCode }} {{ entity.postalAddress.city }}
+                </span>
+              </li>
+            {% endspaceless %}
+          {% endif %}
 
-        {# landlines #}
-        {% set landlines = entity.contactNumbers.landlines.getIterator() %}
-        {% if landlines|length > 0 %}
-          {% for landline in landlines %}
-            <li>
-              <i class="icon-normalphone" aria-hidden="true"></i>
-              <span>
-                <a href="tel:{{ landline.value }}" alt="Person tel">{{ landline.value }}</a>
-              </span>
-            </li>
-          {% endfor %}
-        {% endif %}
+          {# landlines #}
+          {% set landlines = entity.contactNumbers.landlines.getIterator() %}
+          {% if landlines|length > 0 %}
+            {% for landline in landlines %}
+              <li>
+                <i class="icon-normalphone" aria-hidden="true"></i>
+                <span>
+                  <a href="tel:{{ landline.value }}">{{ landline.value }}</a>
+                  {% if landline.note is not empty %}
+                    {{ landline.note }}
+                  {% endif %}
+                </span>
+              </li>
+            {% endfor %}
+          {% endif %}
 
-        {# cellulars #}
-        {% set cellulars = entity.contactNumbers.cellulars.getIterator() %}
-        {% if cellulars|length > 0 %}
-          {% for cellular in cellulars %}
-            <li>
-              <i class="icon-phone" aria-hidden="true"></i>
-              <span>
-                <a href="tel:{{ cellular.value }}">{{ cellular.value }}</a>
-              </span>
-            </li>
-          {% endfor %}
-        {% endif %}
+          {# cellulars #}
+          {% set cellulars = entity.contactNumbers.cellulars.getIterator() %}
+          {% if cellulars|length > 0 %}
+            {% for cellular in cellulars %}
+              <li>
+                <i class="icon-phone" aria-hidden="true"></i>
+                <span>
+                  <a href="tel:{{ cellular.value }}">{{ cellular.value }}</a>
+                  {% if cellular.note is not empty %}
+                    {{ cellular.note }}
+                  {% endif %}
+                </span>
+              </li>
+            {% endfor %}
+          {% endif %}
 
-        {# faxes #}
-        {% set faxes = entity.contactNumbers.faxes.getIterator() %}
-        {% if faxes|length > 0 %}
-          {% for fax in faxes %}
-            <li>
-              <i class="icon-fax" aria-hidden="true"></i>
-              <span>
-                <a href="tel:{{ fax.value }}">{{ fax.value }}</a>
-                {{ '(Fax)'|t }}
-              </span>
-            </li>
-          {% endfor %}
-        {% endif %}
+          {# faxes #}
+          {% set faxes = entity.contactNumbers.faxes.getIterator() %}
+          {% if faxes|length > 0 %}
+            {% for fax in faxes %}
+              <li>
+                <i class="icon-fax" aria-hidden="true"></i>
+                <span>
+                  <a href="tel:{{ fax.value }}">{{ fax.value }}</a>
+                  {{ '(Fax)'|t }}
+                </span>
+              </li>
+            {% endfor %}
+          {% endif %}
 
-        {# emailAddresses #}
-        {% set emailAddresses = entity.emailAddresses.getIterator() %}
-        {% if emailAddresses|length > 0 %}
-          {% for email in emailAddresses %}
-            <li>
-              <i class="icon-envelope" aria-hidden="true"></i>
-              <span>
-                <a href="mailto:{{ email.value }}">{{ email.value }}</a>
-              </span>
-            </li>
-          {% endfor %}
-        {% endif %}
+          {# emailAddresses #}
+          {% set emailAddresses = entity.emailAddresses.getIterator() %}
+          {% if emailAddresses|length > 0 %}
+            {% for email in emailAddresses %}
+              <li>
+                <i class="icon-envelope" aria-hidden="true"></i>
+                <span>
+                  <a href="mailto:{{ email.value }}">{{ email.value }}</a>
+                </span>
+              </li>
+            {% endfor %}
+          {% endif %}
 
-        {# websites #}
-        {% set websites = entity.websites.getIterator() %}
-        {% if websites|length > 0 %}
-          {% for website in websites %}
-            <li>
-              <i class="icon-external-link" aria-hidden="true"></i>
-              <span>
-                <a href="{{ website }}" class="no-icon" target="_blank">{{ website }}</a>
-              </span>
-            </li>
-          {% endfor %}
-        {% endif %}
+          {# websites #}
+          {% set websites = entity.websites.getIterator() %}
+          {% if websites|length > 0 %}
+            {% for website in websites %}
+              <li>
+                <i class="icon-external-link" aria-hidden="true"></i>
+                <span>
+                  <a href="{{ website }}" class="no-icon" target="_blank">{{ website }}</a>
+                </span>
+              </li>
+            {% endfor %}
+          {% endif %}
 
-      </ul>
+        </ul>
+      </div>
     </div>
   </div>
 
-  <h2>{{ 'Extra information'|t }}</h2>
-  {# @TODO: replace this dummy content by real data coming from VESTA #}
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum imperdiet vestibulum ex, id tincidunt nulla porttitor nec. Cras aliquam interdum felis, nec efficitur quam varius sit amet. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut nec gravida tellus, quis pulvinar enim. Proin ut lectus dui. Pellentesque maximus orci quis aliquet bibendum. Fusce vestibulum velit a tellus fermentum, in laoreet est pharetra.</p>
+  {{ content.field_opening_hours }}
+
+  {% if entity.extraInfo %}
+    <section>
+      <h2>{{ 'Extra information'|t }}</h2>
+      {{ entity.extraInfo|raw }}
+    </section>
+  {% endif %}
+
+  {% if content.field_coordinates|render is not empty %}
+    <section>
+      <h2>{{ 'Location'|t }}</h2>
+      {{ content.field_coordinates }}
+    </section>
+  {% endif %}
 </article>
 
+{% if related|length > 0 %}
 <aside class="top">
   <div class="related-box">
     <div class="related-box-content">
@@ -128,12 +151,15 @@
 
       <div class="related-box-content-column">
         <h3>{{ 'View all locations from'|t }}</h3>
-        {% if related|length > 0 %}
+
           {% for keyword in related %}
             <a href="{{ path('entity.taxonomy_term.canonical', {'taxonomy_term': keyword.tid.value }) }}" class="tag">{{ keyword.name.value }}</a>
           {% endfor %}
-        {% endif %}
+
+        {{ content.field_opendata_link }}
       </div>
     </div>
   </div>
 </aside>
+{% endif %}
+
