@@ -8,13 +8,13 @@
     {% endif %}
 
     <div id="{{ map_id }}" class="map-container__map{% if content.left %} map-container__map--has-left-region{% endif %} clearfix">
-      {% if content.right_top %}
-        {% set region = { 'name': 'right-top', 'content': content.right_top, 'settings': regions.right_top } %}
+      {% if content.right_top_left %}
+        {% set region = { 'name': 'right-top-left', 'content': content.right_top_left, 'settings': regions.right_top_left } %}
         {% include "@gent_base/contrib/dg_maps/dg-maps-map-region.html.twig" with region %}
       {% endif %}
 
-      {% if content.right_top_left %}
-        {% set region = { 'name': 'right-top-left', 'content': content.right_top_left, 'settings': regions.right_top_left } %}
+      {% if content.right_top %}
+        {% set region = { 'name': 'right-top', 'content': content.right_top, 'settings': regions.right_top } %}
         {% include "@gent_base/contrib/dg_maps/dg-maps-map-region.html.twig" with region %}
       {% endif %}
 

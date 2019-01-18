@@ -138,6 +138,14 @@ $map-text-color: color('dark-gray');
         padding-right: 0;
         padding-left: 1.4rem;
       }
+
+      .checkbox {
+        margin: 0;
+      }
+
+      .legend {
+        padding-left: 2rem;
+      }
     }
 
     .ol-geocoder {
@@ -211,6 +219,22 @@ $map-text-color: color('dark-gray');
           background-position: (-$map-button-size) 0;
         }
       }
+    }
+
+    .gcd-txt-reset {
+      display: none;
+    }
+
+    .gcd-txt-glass {
+      display: block;
+      width: 1.2rem;
+      height: 1.2rem;
+      position: absolute;
+      right: .4rem;
+      top: 50%;
+      margin-top: -.6rem;
+      background: svg-as-background('search', color('cyan-wcag'), 24, 24) no-repeat center center;
+      z-index: 11;
     }
 
     .gcd-txt-result {
