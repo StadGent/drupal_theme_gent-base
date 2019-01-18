@@ -1,5 +1,25 @@
 {{ attach_library('gent_base/maps') }}
+{{ attach_library('gent_base/tabs') }}
 
+
+{% if content.container_bottom %}
+<div class="tabs light" data-tabs>
+  <ul role="tablist">
+      <li role="presentation">
+        <a role="tab" href="#map" aria-controls="map">
+          {{ 'Map'|t }}
+        </a>
+      </li>
+      <li role="presentation">
+        <a role="tab" href="#list" aria-controls="list">
+          {{ 'List'|t }}
+        </a>
+      </li>
+  </ul>
+  <div role="tabpanel" id="map">
+{% endif %}
+
+{# Map #}
 {% block map %}
   <div id="{{ map_id }}__container" class="map-container clearfix">
     {% if content.left %}
@@ -29,12 +49,21 @@
       {% endif %}
     </div>
   </div>
-
-  {% if content.container_bottom %}
-    {% set region = { 'name': 'container-bottom', 'content': content.container_bottom, 'settings': regions.container_bottom } %}
-    {% include "@gent_base/contrib/dg_maps/dg-maps-map-region.html.twig" with region %}
-  {% endif %}
 {% endblock %}
+
+{% if content.container_bottom %}
+  </div>
+
+  <div role="tabpanel" id="list">
+    {% set region = { 'name': 'container-bottom', 'content': content.container_bottom, 'settings': regions.container_bottom } %}
+    {% include "@dg_maps/dg-maps-map-region.html.twig" with region %}
+  </div>
+
+  </div>
+</div>
+{% endif %}
+
+
 
 {% block popup %}
   <div id="{{ map_id }}__popup" class="ol-popup" style="display: none;" tabindex="-1">
