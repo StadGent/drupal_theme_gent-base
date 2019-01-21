@@ -929,6 +929,7 @@ function gent_base_preprocess_vesta(&$variables) {
  */
 function gent_base_preprocess_dg_maps_map(&$variables) {
   $variables['#attached']['drupalSettings']['gent_base']['dg_maps'] = [
+    'img_base' => drupal_get_path('theme', 'gent_base') . '/source/img/',
     'legend_title' => t('View on the map'),
   ];
 }
