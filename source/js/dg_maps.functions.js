@@ -1,4 +1,4 @@
-/* global ol */
+/* global ol, drupalSettings */
 /**
  * @file
  * DG Maps functionality extensions.
@@ -40,7 +40,6 @@
 
     var element = document.createElement('div');
     element.className = 'ol-data-layer-switcher ' + ol.css.CLASS_SELECTABLE + ' ' + ol.css.CLASS_CONTROL;
-    
 
     var title = drupalSettings.gent_base.dg_maps.legend_title;
 
@@ -51,7 +50,7 @@
       this.toggle = document.createElement('button');
       this.toggle.setAttribute('data-toggle-region', 'left');
       this.iconIcon = document.createElement('i');
-      this.iconIcon.className = "icon-chevron-left";
+      this.iconIcon.className = 'icon-chevron-left';
       this.toggle.appendChild(this.iconIcon);
       this.title.appendChild(this.toggle);
       element.appendChild(this.title);
@@ -150,6 +149,21 @@
   };
 
   Drupal.dgMaps.ol.control.DataLayerSwitcher.prototype = originalPrototype;
+
+  var _initRegion = Drupal.dgMaps.initRegions;
+
+  /**
+   * Performs region initialisation.
+   * @param {Object} map - The map.
+   * @param {jQuery} mapElement - The map container element.
+   */
+  Drupal.dgMaps.initRegions = function (map, mapElement) {
+    _initRegion(map, mapElement);
+
+    // Close the legend by default
+    var mapContainer = mapElement.parents('.map-container');
+    mapContainer.find('button[data-toggle-region="left"]').first().click();
+  };
 
 })(jQuery, Drupal);
 
