@@ -246,6 +246,8 @@ function gent_base_preprocess_block__views_search_form_header(&$variables) {
     $form['search']['#value'] = NULL;
     $form['search']['#required'] = TRUE;
     $form['actions']['#theme_wrappers'] = [];
+
+    $form['#prefix'] = '<a href="' . $form['#action'] . '" class="search--link" title="' . t('Search') . '">' . t('Search') . '</a>';
   }
 }
 
