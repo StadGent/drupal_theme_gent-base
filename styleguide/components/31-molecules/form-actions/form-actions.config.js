@@ -2,6 +2,7 @@
 
 module.exports = {
   title: 'Form actions',
+  hidden: true,
   status: 'beta',
   handle: 'form-actions',
   preview: '@preview-description-list',
