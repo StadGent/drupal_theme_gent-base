@@ -6,9 +6,36 @@ NOTE: Refer to upcoming changes in our README.md under "Roadmap"
 
 ## [Unreleased]
 
+### Added
+
+* DTGB-675: Removed obsolete components in an attempt to make this style guide
+  more generic.
+  
+  IMPORTANT: This is a breaking change! 
+  
+  
+    * Label (hidden)
+    * Field message (hidden)
+    * Form actions (hidden)
+    
+    
+    * Crisis communication block
+    * Frequently Visited
+    * Contact box
+    * Extra articles
+    * Feedback form
+    * Help block
+    * Related box
+    * Search block 
+    
+   If you have any of these components in your project you might need to adjust 
+   some theming / templating.
+
+### Updated
+
 * DTGB-665: Refactored pages to only show layouts. This shouldn't affect any
   custom projects.
-
+  
 ## [3.0.0-alpha11]
 
 ### Added
