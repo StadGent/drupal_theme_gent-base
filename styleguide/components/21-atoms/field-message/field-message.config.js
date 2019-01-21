@@ -3,6 +3,7 @@
 module.exports = {
   title: 'Field message',
   name: 'field-message',
+  hidden: true,
   status: 'ready',
   default: 'field-message-error',
   handle: 'field-message',
