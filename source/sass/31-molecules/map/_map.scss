@@ -356,3 +356,31 @@ $map-text-color: color('dark-gray');
     }
   }
 }
+
+.ol-list-features__list {
+  columns: auto 3;
+  list-style: none;
+  margin-left: 0;
+
+  &__item {
+    background: url("../../../../contrib/gent_base/styleguide/public/styleguide/img/iconfont/marker.svg") no-repeat left top .3rem;
+    background-size: 1rem 1rem;
+    padding-left: 1.5rem;
+    font-size: .8rem;
+
+    &__title {
+      display: inline;
+      font-weight: 600;
+
+      &:not(:empty) + .ol-list-features__list__item__description:not(:empty)::before {
+        content: "\2014";
+        padding: 0 1ch;
+      }
+    }
+
+    &__description {
+      display: inline;
+      font-weight: 400;
+    }
+  }
+}
