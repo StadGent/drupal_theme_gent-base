@@ -2,10 +2,6 @@
 
 All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
-## [Unreleased]
-* DTGB-665: Refactored pages to only show layouts. This shouldn't affect any
-  custom projects.
-
 ## [8.x-3.0-alpha11]
 
 ### Added
