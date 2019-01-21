@@ -133,10 +133,14 @@ $map-text-color: color('dark-gray');
         }
       }
 
-      .layer label {
-        display: block;
-        padding-right: 0;
-        padding-left: 1.4rem;
+      .layer {
+        font-size: .7rem;
+
+        label {
+          display: block;
+          padding-right: 0;
+          padding-left: 1.4rem;
+        }
       }
 
       .checkbox {
