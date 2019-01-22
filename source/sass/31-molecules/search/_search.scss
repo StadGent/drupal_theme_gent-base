@@ -1,16 +1,13 @@
 .search {
   flex-wrap: nowrap;
-
-  .form-item-search {
-    flex-shrink: 1;
-    width: 22rem;
-  }
+  max-width: 27rem;
 
   .form-actions {
     flex-shrink: 0;
   }
-  
+
   input[type='text'] {
+    background-color: color('white');
     @extend %search-input;
   }
 }
