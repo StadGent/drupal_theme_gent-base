@@ -10,6 +10,8 @@
 
   /**
    * Override dgMaps DataLayerSwitcher
+   *
+   * @param opt_options
    */
   Drupal.dgMaps.ol.control.DataLayerSwitcher = function (opt_options) {
     var options = opt_options || {};
@@ -183,7 +185,7 @@
       anchor: [0.5, 0.5],
       anchorXUnits: 'fraction',
       anchorYUnits: 'fraction',
-      src: drupalSettings.path.baseUrl +  drupalSettings.gent_base.dg_maps.img_base + 'map-marker.svg',
+      src: drupalSettings.path.baseUrl + drupalSettings.gent_base.dg_maps.img_base + 'map-marker.svg',
       size: [44, 44],
       imgSize: [44, 44],
       scale: .9
