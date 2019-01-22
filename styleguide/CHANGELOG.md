@@ -27,6 +27,8 @@ NOTE: Refer to upcoming changes in our README.md under "Roadmap"
     * Help block
     * Related box
     * Search block 
+    * Removed page templates (this should not break any projects as these are 
+      only use for documenting the style guide.
     
    If you have any of these components in your project you might need to adjust 
    some theming / templating.
