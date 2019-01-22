@@ -6,7 +6,7 @@ NOTE: Refer to upcoming changes in our README.md under "Roadmap"
 
 ## [Unreleased]
 
-### Added
+### Removed 
 
 * DTGB-675: Removed obsolete components in an attempt to make this style guide
   more generic.
