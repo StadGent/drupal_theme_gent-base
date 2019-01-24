@@ -121,8 +121,8 @@ gulp.task('build', gulp.parallel('validate', 'compile'));
  *  gulp watch
  *
  * Used for local development to compile and validate after every change.
- *;
+ *
  */
 gulp.task('default', gulp.series('js:watch'));
-gulp.task('watch', gulp.series('default'))
+gulp.task('watch', gulp.series('default'));
 
