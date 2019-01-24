@@ -83,6 +83,74 @@ $map-text-color: color('dark-gray');
       }
     }
 
+    .ol-data-layer-switcher {
+      padding: .8rem;
+
+      h2 {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: .8rem;
+
+        > button {
+          width: auto;
+          height: auto;
+          background: transparent;
+          color: inherit;
+          font-size: 1.5em;
+        }
+      }
+
+      .category {
+        margin-bottom: .5rem;
+        border: 0;
+        font-size: .7rem;
+
+        &__label {
+          padding: 0;
+          background: transparent;
+          color: inherit;
+          text-transform: none;
+        }
+
+        &__count {
+          display: none;
+        }
+      }
+
+      details {
+        ::-webkit-details-marker {
+          display: none;
+        }
+
+        .category__label {
+          @include icon(plus);
+          cursor: pointer;
+
+          &::before {
+            margin-right: .4rem;
+          }
+        }
+      }
+
+      .layer {
+        font-size: .7rem;
+
+        label {
+          display: block;
+          padding-right: 0;
+          padding-left: 1.4rem;
+        }
+      }
+
+      .checkbox {
+        margin: 0;
+      }
+
+      .legend {
+        padding-left: 2rem;
+      }
+    }
 
     .ol-geocoder {
       width: 10rem;
@@ -206,6 +274,70 @@ $map-text-color: color('dark-gray');
       }
     }
 
+    // ===
+    // Popup
+    // ===
+    .ol-popup {
+      @include theme('box-shadow', 'color-tertiary--lighten-3', 'popup-shadow', '0 2px 12px 0');
+      right: -2px;
+      bottom: -2px;
+      left: -2px;
+      height: auto;
+      max-height: 12.5rem;
+      padding: 2rem 1rem;
+      border: 0;
+      font-size: .8rem;
+      filter: none;
+
+      @include tablet {
+        width: 18rem;
+        max-height: none;
+        margin-bottom: $accolade-height;
+        margin-left: -$accolade-width*.6;
+        border-radius: border-radius('radius-1');
+
+        &::before {
+          position: absolute;
+          left: $accolade-width/2;
+          width: $accolade-width;
+          height: $accolade-height;
+          transform: rotate(180deg);
+          background: transparent svg-as-background('accolade', color('white'), $accolade-width, $accolade-height) no-repeat top;
+          background-size: 100%;
+          content: '';
+        }
+
+        &::before,
+        &::after {
+          border: 0;
+        }
+      }
+
+
+      &__closer {
+        display: none;
+        top: .4rem;
+        right: .4rem;
+        width: 1.6rem;
+        height: 1.6rem;
+        background: transparent svg-as-background('cross', color('dark-gray'), 22.5, 22.5) no-repeat center;
+
+        &::after {
+          content: '';
+        }
+
+
+        @include tablet {
+          display: block;
+        }
+      }
+
+      &__title:not(:empty) {
+        @extend %h3;
+        margin-bottom: 0;
+      }
+    }
+
     .ol-overlay-container {
       height: auto;
     }
@@ -297,3 +429,30 @@ $map-text-color: color('dark-gray');
   }
 }
 
+.ol-list-features__list {
+  columns: auto 3;
+  list-style: none;
+  margin-left: 0;
+
+  &__item {
+    background: url("../../../../contrib/gent_base/styleguide/public/styleguide/img/iconfont/marker.svg") no-repeat left top .3rem;
+    background-size: 1rem 1rem;
+    padding-left: 1.5rem;
+    font-size: .8rem;
+
+    &__title {
+      display: inline;
+      font-weight: 600;
+
+      &:not(:empty) + .ol-list-features__list__item__description:not(:empty)::before {
+        content: "\2014";
+        padding: 0 1ch;
+      }
+    }
+
+    &__description {
+      display: inline;
+      font-weight: 400;
+    }
+  }
+}
