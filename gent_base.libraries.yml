@@ -85,6 +85,7 @@ maps:
   version: 1.x
   js:
     build/js/dg_maps.functions-min.js: { minified: true }
+    build/js/dg_maps.bindings-min.js: { minified: true }
   dependencies:
     - gent_base/tabs
     - dg_maps/behavior.data_layer_switcher
