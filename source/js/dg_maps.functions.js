@@ -11,7 +11,8 @@
   /**
    * Override dgMaps DataLayerSwitcher
    *
-   * @param opt_options
+   * @param {Object} opt_options
+   *  An object with options for the data layer switcher.
    */
   Drupal.dgMaps.ol.control.DataLayerSwitcher = function (opt_options) {
     var options = opt_options || {};
