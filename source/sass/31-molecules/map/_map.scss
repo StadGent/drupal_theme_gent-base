@@ -24,7 +24,7 @@ $map-text-color: color('dark-gray');
     position: relative;
     min-height: $map-button-size * 5;
     overflow: hidden;
-    
+
     .vesta & {
       height: 22rem;
     }
@@ -95,10 +95,10 @@ $map-text-color: color('dark-gray');
         > button {
           width: auto;
           height: auto;
+          min-height: 1em;
           background: transparent;
           color: inherit;
           font-size: 1.5em;
-          min-height: 1em;
         }
       }
 
@@ -232,11 +232,11 @@ $map-text-color: color('dark-gray');
 
     .gcd-txt-glass {
       display: block;
+      position: absolute;
+      top: 50%;
+      right: .4rem;
       width: 1.2rem;
       height: 1.2rem;
-      position: absolute;
-      right: .4rem;
-      top: 50%;
       margin-top: -.6rem;
       background: svg-as-background('search', color('cyan-wcag'), 24, 24) no-repeat center center;
       z-index: 11;
@@ -259,7 +259,7 @@ $map-text-color: color('dark-gray');
             font-size: 1em;
 
             &::before {
-              content: ", "
+              content: ", ";
             }
           }
 
@@ -285,7 +285,7 @@ $map-text-color: color('dark-gray');
       left: -2px;
       height: auto;
       max-height: 12.5rem;
-      padding: 2rem 1rem;
+      padding: .8rem 1rem;
       border: 0;
       font-size: .8rem;
       filter: none;
@@ -295,6 +295,7 @@ $map-text-color: color('dark-gray');
         max-height: none;
         margin-bottom: $accolade-height;
         margin-left: -$accolade-width*.6;
+        padding: 2rem 1rem;
         border-radius: border-radius('radius-1');
 
         &::before {
@@ -398,11 +399,13 @@ $map-text-color: color('dark-gray');
       @include icon(chevron-down, after);
 
       display: flex;
-      align-items: center;
 
       position: absolute;
       top: $map-padding;
       left: $map-padding;
+
+      align-items: center;
+
 
       font-size: 0;
       z-index: 10;
@@ -413,17 +416,17 @@ $map-text-color: color('dark-gray');
 
       @include tablet {
         width: auto;
+        padding: .4rem .8rem;
         font-size: .8rem;
         font-weight: 600;
-        padding: .4rem .8rem;
 
         &::before {
           font-size: 0;
         }
 
         &::after {
-          font-size: 1rem;
           margin-left: .4rem;
+          font-size: 1rem;
         }
       }
     }
@@ -431,14 +434,17 @@ $map-text-color: color('dark-gray');
 }
 
 .ol-list-features__list {
-  columns: auto 3;
-  list-style: none;
   margin-left: 0;
+  list-style: none;
+
+  @include tablet {
+    columns: auto 3;
+  }
 
   &__item {
+    padding-left: 1.5rem;
     background: url("../../../../contrib/gent_base/styleguide/public/styleguide/img/iconfont/marker.svg") no-repeat left top .3rem;
     background-size: 1rem 1rem;
-    padding-left: 1.5rem;
     font-size: .8rem;
 
     &__title {
@@ -446,8 +452,8 @@ $map-text-color: color('dark-gray');
       font-weight: 600;
 
       &:not(:empty) + .ol-list-features__list__item__description:not(:empty)::before {
-        content: "\2014";
         padding: 0 1ch;
+        content: "\2014";
       }
     }
 
