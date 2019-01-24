@@ -165,7 +165,16 @@
 
     // Close the legend by default
     var mapContainer = mapElement.parents('.map-container');
-    mapContainer.find('button[data-toggle-region="left"]').first().click();
+    var legendToggle = mapContainer.find('button[data-toggle-region="left"]');
+    
+    legendToggle
+      .on('click', function() {
+        var region = $('.' + this.getAttribute('aria-controls'));
+        legendToggle.attr('aria-expanded', region.is(':visible'));
+      })
+      .first().click();
+    
+    
   };
 
 

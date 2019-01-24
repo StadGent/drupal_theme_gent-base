@@ -84,7 +84,7 @@ opening_hours:
 maps:
   version: 1.x
   js:
-    source/js/dg_maps.functions.js: { minified: false }
+    build/js/dg_maps.functions-min.js: { minified: true }
   dependencies:
     - gent_base/tabs
     - dg_maps/behavior.data_layer_switcher
