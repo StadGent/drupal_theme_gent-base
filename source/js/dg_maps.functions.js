@@ -11,7 +11,8 @@
   /**
    * Override dgMaps DataLayerSwitcher
    *
-   * @param opt_options
+   * @param {Object} opt_options
+   *  An object with options for the data layer switcher.
    */
   Drupal.dgMaps.ol.control.DataLayerSwitcher = function (opt_options) {
     var options = opt_options || {};
@@ -164,7 +165,14 @@
 
     // Close the legend by default
     var mapContainer = mapElement.parents('.map-container');
-    mapContainer.find('button[data-toggle-region="left"]').first().click();
+    var legendToggle = mapContainer.find('button[data-toggle-region="left"]');
+
+    legendToggle
+      .on('click', function () {
+        var region = $('.' + this.getAttribute('aria-controls'));
+        legendToggle.attr('aria-expanded', region.is(':visible'));
+      })
+      .first().click();
   };
 
 
