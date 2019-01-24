@@ -1,0 +1,64 @@
+// ===
+// Map flyout
+// ===
+
+.ol-popup {
+  @include theme('box-shadow', 'color-tertiary--lighten-3', 'popup-shadow', '0 2px 12px 0');
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  height: auto;
+  max-height: 12.5rem;
+  padding: 2rem 1rem;
+  border: 0;
+  font-size: .8rem;
+  filter: none;
+
+  @include tablet {
+    width: 18rem;
+    max-height: none;
+    margin-bottom: $accolade-height;
+    margin-left: -$accolade-width*.6;
+    border-radius: border-radius('radius-1');
+
+    &::before {
+      position: absolute;
+      left: $accolade-width/2;
+      width: $accolade-width;
+      height: $accolade-height;
+      transform: rotate(180deg);
+      background: transparent svg-as-background('accolade', color('white'), $accolade-width, $accolade-height) no-repeat top;
+      background-size: 100%;
+      content: '';
+    }
+
+    &::before,
+    &::after {
+      border: 0;
+    }
+  }
+
+
+  &__closer {
+    display: none;
+    top: .4rem;
+    right: .4rem;
+    width: 1.6rem;
+    height: 1.6rem;
+    background: transparent svg-as-background('cross', color('dark-gray'), 22.5, 22.5) no-repeat center;
+
+    &::after {
+      content: '';
+    }
+
+
+    @include tablet {
+      display: block;
+    }
+  }
+
+  &__title:not(:empty) {
+    @extend %h3;
+    margin-bottom: 0;
+  }
+}
