@@ -2,6 +2,12 @@
 
 All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
+## [Unreleased]
+
+### Added
+
+* DTGB-491: Added [`dg_maps`](https://github.com/digipolisgent/drupal_module_dg-maps) theming
+
 ## [8.x-3.0-alpha11]
 
 ### Added

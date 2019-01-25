@@ -64,6 +64,15 @@ gulp.task('js:validate', function() {
 });
 
 /*
+ *
+ * Watch JS files For Changes.
+ *
+ */
+gulp.task('js:watch', function() {
+  return gulp.watch(globalConfig.scripts_src_dir + '/**/*.js', gulp.series('js:dist'));
+});
+
+/*
  * Clean build directory.
  *
  * This deletes the build directory before recompiling.
@@ -114,4 +123,6 @@ gulp.task('build', gulp.parallel('validate', 'compile'));
  * Used for local development to compile and validate after every change.
  *
  */
-gulp.task('default', gulp.parallel('validate', 'compile'));
+gulp.task('default', gulp.series('js:watch'));
+gulp.task('watch', gulp.series('default'));
+
