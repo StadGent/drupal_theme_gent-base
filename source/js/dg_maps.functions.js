@@ -174,31 +174,5 @@
       })
       .first().click();
   };
-
-
-  /**
-   * Override Icon style.
-   */
-  Drupal.dgMaps.style.icon = new ol.style.Style({
-    geometry: function (feature) {
-      var geometryType = feature.getGeometry().getType();
-      if (geometryType === 'Point') {
-        return feature.getGeometry();
-      }
-
-      var center = ol.extent.getCenter(feature.getGeometry().getExtent());
-      return new ol.geom.Point(center);
-    },
-    image: new ol.style.Icon(/** @type {olx.style.IconOptions} */ ({
-      anchor: [0.5, 0.5],
-      anchorXUnits: 'fraction',
-      anchorYUnits: 'fraction',
-      src: drupalSettings.path.baseUrl + drupalSettings.gent_base.dg_maps.img_base + 'map-marker.svg',
-      size: [44, 44],
-      imgSize: [44, 44],
-      scale: .9
-    }))
-  });
-
 })(jQuery, Drupal);
 
