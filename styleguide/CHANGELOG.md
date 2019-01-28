@@ -6,6 +6,19 @@ NOTE: Refer to upcoming changes in our README.md under "Roadmap"
 
 ## [Unreleased]
 
+* DTGB-665: Refactored pages to only show layouts. This shouldn't affect any
+  custom projects.
+  
+### Added
+
+* DTGB-673: Added Gent Info component.
+  
+### Updated 
+
+* DTGB-676: Exposed modal open and close functions.
+
+## [3.0.0-alpha11]
+
 ### Added
 
 * DTGB-649: contact block variants
@@ -20,6 +33,16 @@ NOTE: Refer to upcoming changes in our README.md under "Roadmap"
 * DTGB-651: Topic teaser styling
 * DTGB-656: Border-width of tag
 * DTGB-655: Updated copy in checkbox-with-filter popup
+* DTGB-604: removed font-size increase on +1920px screens
+* DTGB-660: Added gentinfo logo to the gentinfo-island.
+
+### Changed
+
+* DTGB-648: Refactored form fields
+
+### Removed
+
+* DTGB-648: Field description (replaced by variant of field message)
 
 ## [3.0.0-alpha.10]
 
@@ -395,6 +418,10 @@ IMPORTANT: Updating this style guide through composer is DEPRECATED! The next
   * Changed styling for the Form Steps molecule.
   * Added themify for the Form Steps molecule.
 
+[3.0.0-alpha11]: https://github.com/StadGent/fractal_styleguide_gent-base/compare/3.0.0-alpha.10...3.0.0-alpha11
+[3.0.0-alpha.10]: https://github.com/StadGent/fractal_styleguide_gent-base/compare/3.0.0-alpha.9...3.0.0-alpha.10
+[3.0.0-alpha.9]: https://github.com/StadGent/fractal_styleguide_gent-base/compare/3.0.0-alpha.8...3.0.0-alpha.9
+[3.0.0-alpha.8]: https://github.com/StadGent/fractal_styleguide_gent-base/compare/3.0.0-alpha.7...3.0.0-alpha.8
 [3.0.0-alpha.7]: https://github.com/StadGent/fractal_styleguide_gent-base/compare/3.0.0-alpha.6...3.0.0-alpha.7
 [3.0.0-alpha.6]: https://github.com/StadGent/fractal_styleguide_gent-base/compare/3.0.0-alpha.5...3.0.0-alpha.6
 [3.0.0-alpha.5]: https://github.com/StadGent/fractal_styleguide_gent-base/compare/3.0.0-alpha.4...3.0.0-alpha.5

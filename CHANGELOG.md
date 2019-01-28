@@ -6,6 +6,12 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 ### Added
 
+* DTGB-491: Added [`dg_maps`](https://github.com/digipolisgent/drupal_module_dg-maps) theming
+
+## [8.x-3.0-alpha11]
+
+### Added
+
 * DTGB-649: Added theming for contact paragraph.
 * DTGB-651: Added teaser theming for infopage.
 * DTGB-651: Added theming for topic.
@@ -17,6 +23,10 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 ### Updated
 
 * DTGB-655: Updated copy in checkbox-popup facet widget.
+
+### Removed
+
+* DTGB-611: Removed some libraries from `gent_base.info.yml`. (They'll have to be attached to the template from now on).
 
 ## [8.x-3.0-alpha.10]
 
@@ -136,6 +146,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 * **Updated to gent_styleguide version 2.6.13**
 
+[8.x-3.0-alpha11]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-alpha.10...8.x-3.0-alpha11
 [8.x-3.0-alpha.10]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-alpha.7...8.x-3.0-alpha.10
 [8.x-3.0-alpha.7]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-alpha.6...8.x-3.0-alpha.7
 [8.x-3.0-alpha.6]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-alpha.5...8.x-3.0-alpha.6

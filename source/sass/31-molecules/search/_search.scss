@@ -1,8 +1,13 @@
 .search {
   flex-wrap: nowrap;
+  max-width: 27rem;
 
-  .form-item-search {
-    flex-shrink: 1;
-    width: 22rem;
+  .form-actions {
+    flex-shrink: 0;
+  }
+
+  input[type='text'] {
+    background-color: color('white');
+    @extend %search-input;
   }
 }

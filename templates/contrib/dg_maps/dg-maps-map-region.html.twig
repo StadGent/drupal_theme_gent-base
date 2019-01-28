@@ -1,0 +1,20 @@
+{% set region_classes = [
+'map-region',
+'map-region--' ~ name,
+] %}
+
+{% if settings.collapsed %}
+  {% set region_classes = region_classes|merge(['map-region--collapsible']) %}
+{% endif %}
+
+{% set hide_on_mobile = settings.hide_on_mobile ? ' hide-on-mobile' : '' %}
+
+{% if settings.collapsed %}
+  <button type="button" class="map-region-button {{ hide_on_mobile }}" data-toggle-region="{{ name }}" aria-expanded="true" aria-controls="{{ 'map-region--' ~ name }}">
+    {{ 'View on the map'|t }}
+  </button>
+{% endif %}
+
+<div class="{{ region_classes|join(' ') }}{{ hide_on_mobile }}" data-region="{{ name }}">
+  {{ content }}
+</div>
