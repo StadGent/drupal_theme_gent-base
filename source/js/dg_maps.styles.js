@@ -47,9 +47,6 @@
    * @return {ol.style.Style} Style.
    */
   Drupal.dgMaps.style.spiderfier = function () {
-    // TODO is there a cleaner way to handle support both
-    // ol.FeatureStyleFunction() as ol.StyleFunction().
-
     // Support for ol.StyleFunction() callback where feature to style is the
     // first argument. (set on vector layer)
     var feature;
@@ -105,31 +102,6 @@
 
     var color = '0, 125, 179';
     var radius = 20 + (size.toString().length - 1) * 4;
-    console.log(radius); // eslint-disable-line
-
-    // return [
-    //   new ol.style.Style({
-    //     image: new ol.style.Circle({
-    //       radius: radius + 4,
-    //       stroke: new ol.style.Stroke({
-    //         color: 'rgba(' + color + ', 0.25)',
-    //         width: 4
-    //       })
-    //     })
-    //   }),
-    //   new ol.style.Style({
-    //     image: icon('cluster'),
-    //     text: new ol.style.Text({
-    //       text: size.toString(),
-    //       fill: new ol.style.Fill({
-    //         color: '#23333a'
-    //       }),
-    //       font: '600 16px "Fira Sans",sans-serif',
-    //       textAlign: 'center',
-    //       offsetX: '-1'
-    //     })
-    //   })
-    // ];
 
     return [
       new ol.style.Style({
@@ -166,9 +138,6 @@
    * @return {ol.style.Style} Style.
    */
   Drupal.dgMaps.style.route = function () {
-    // TODO is there a cleaner way to handle support both
-    // ol.FeatureStyleFunction() as ol.StyleFunction().
-
     // Support for ol.StyleFunction() callback where feature to style is the
     // first argument. (set on vector layer)
     var feature;
