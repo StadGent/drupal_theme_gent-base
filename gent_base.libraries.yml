@@ -55,7 +55,7 @@ image-wall:
 facet_range_slider:
   version: 1.x
   js:
-    build/js/facet_range_slider.bindings-min.js: { minified: true }
+    build/js/facet_range_slider.bindings-min.js: { minified: true, attributes: { defer: true } }
   dependencies:
     - facets_range_widget/slider
 
