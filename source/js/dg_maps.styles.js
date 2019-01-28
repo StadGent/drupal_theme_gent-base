@@ -9,24 +9,15 @@
   Drupal.dgMaps = Drupal.dgMaps || {};
   Drupal.dgMaps.style = Drupal.dgMaps.style || {};
 
-  function icon (name) {
-    var path = drupalSettings.path.baseUrl + drupalSettings.gent_base.dg_maps.img_base
+  function icon(name) {
+    var path = drupalSettings.path.baseUrl + drupalSettings.gent_base.dg_maps.img_base;
 
-    if(name) {
-      switch(name) {
+    if (name) {
+      switch (name) {
         case 'marker':
           return new ol.style.Icon(/** @type {olx.style.IconOptions} */ ({
             anchor: [0.5, 0.5],
             src: path + 'map-marker.svg',
-            size: [44, 44],
-            imgSize: [44, 44],
-            scale: .9
-          }));
-
-        case 'cluster':
-          return new ol.style.Icon(/** @type {olx.style.IconOptions} */ ({
-            anchor: [0.5, 0.5],
-            src: path + 'map-marker-blank.svg',
             size: [44, 44],
             imgSize: [44, 44],
             scale: .9
@@ -112,18 +103,62 @@
     var features = feature.get('features') || [];
     var size = features.length;
 
-    return new ol.style.Style({
-      image: icon('cluster'),
-      text: new ol.style.Text({
-        text: size.toString(),
-        fill: new ol.style.Fill({
-          color: '#23333a'
+    var color = '0, 125, 179';
+    var radius = 20 + (size.toString().length - 1) * 4;
+    console.log(radius); // eslint-disable-line
+
+    // return [
+    //   new ol.style.Style({
+    //     image: new ol.style.Circle({
+    //       radius: radius + 4,
+    //       stroke: new ol.style.Stroke({
+    //         color: 'rgba(' + color + ', 0.25)',
+    //         width: 4
+    //       })
+    //     })
+    //   }),
+    //   new ol.style.Style({
+    //     image: icon('cluster'),
+    //     text: new ol.style.Text({
+    //       text: size.toString(),
+    //       fill: new ol.style.Fill({
+    //         color: '#23333a'
+    //       }),
+    //       font: '600 16px "Fira Sans",sans-serif',
+    //       textAlign: 'center',
+    //       offsetX: '-1'
+    //     })
+    //   })
+    // ];
+
+    return [
+      new ol.style.Style({
+        image: new ol.style.Circle({
+          radius: radius,
+          stroke: new ol.style.Stroke({
+            color: 'rgba(' + color + ', 0.25)',
+            width: 6
+          })
+        })
+      }),
+      new ol.style.Style({
+        image: new ol.style.Circle({
+          radius: radius - 2,
+          fill: new ol.style.Fill({
+            color: 'rgba(' + color + ', 1)'
+          })
         }),
-        font: '600 16px "Fira Sans",sans-serif',
-        textAlign: 'center',
-        offsetX: '-1'
+        text: new ol.style.Text({
+          text: size.toString(),
+          fill: new ol.style.Fill({
+            color: '#fff'
+          }),
+          font: '600 16px "Fira Sans",sans-serif',
+          textAlign: 'center',
+          offsetY: '2'
+        })
       })
-    })
+    ];
   };
 
   /**
