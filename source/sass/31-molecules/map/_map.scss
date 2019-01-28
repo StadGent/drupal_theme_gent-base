@@ -323,6 +323,7 @@ $map-text-color: color('dark-gray');
         width: 1.6rem;
         height: 1.6rem;
         background: transparent svg-as-background('cross', color('dark-gray'), 22.5, 22.5) no-repeat center;
+        cursor: pointer;
 
         &::after {
           content: '';
