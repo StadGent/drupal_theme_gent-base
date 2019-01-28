@@ -90,3 +90,7 @@ maps:
   dependencies:
     - gent_base/tabs
     - dg_maps/behavior.data_layer_switcher
+    - dg_maps/style.icon
+    - dg_maps/style.spiderfier
+    - dg_maps/style.cluster
+    - dg_maps/style.route
