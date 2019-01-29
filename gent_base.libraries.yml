@@ -55,7 +55,7 @@ image-wall:
 facet_range_slider:
   version: 1.x
   js:
-    build/js/facet_range_slider.bindings-min.js: { minified: true }
+    build/js/facet_range_slider.bindings-min.js: { minified: true, attributes: { defer: true } }
   dependencies:
     - facets_range_widget/slider
 
@@ -85,7 +85,12 @@ maps:
   version: 1.x
   js:
     build/js/dg_maps.functions-min.js: { minified: true }
+    build/js/dg_maps.styles-min.js: { minified: true }
     build/js/dg_maps.bindings-min.js: { minified: true }
   dependencies:
     - gent_base/tabs
     - dg_maps/behavior.data_layer_switcher
+    - dg_maps/style.icon
+    - dg_maps/style.spiderfier
+    - dg_maps/style.cluster
+    - dg_maps/style.route
