@@ -84,20 +84,27 @@
 {{ attach_library('classy/node') }}
 <article{{ attributes.addClass(classes) }}>
   <div class="content__bottom">
-    {{ title_prefix }}
-    {% if not page %}
-      <h3{{ title_attributes }}>
-        {{ label }}
-      </h3>
-    {% endif %}
-    {{ title_suffix }}
+    {% block title %}
+      {{ title_prefix }}
+      {% if not page %}
+        <h3{{ title_attributes }}>
+          {{ label }}
+        </h3>
+      {% endif %}
+      {{ title_suffix }}
+    {% endblock %}
 
-    <span class="tag">{{ node.type.entity.label }}</span>
-    {{ content.og_audience }}
+    {% block content %}
+      <span class="tag">{{ node.type.entity.label }}</span>
+      {{ content.og_audience }}
 
-    <div{{ content_attributes.addClass('node__content') }}>
-      {{ content|without('og_audience') }}
-    </div>
+      <div{{ content_attributes.addClass('node__content') }}>
+        {{ content|without('og_audience') }}
+      </div>
+    {% endblock %}
   </div>
 </article>
+
+{% block overlay_link %}
 <a href="{{ url }}" class="teaser-overlay-link" tabindex="-1" aria-hidden="true">{{ label }}</a>
+{% endblock %}
