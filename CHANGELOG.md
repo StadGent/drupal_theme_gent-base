@@ -7,6 +7,13 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 ### Added
 
 * DTGB-491: Added [`dg_maps`](https://github.com/digipolisgent/drupal_module_dg-maps) theming
+* Tabs/local tasks theming
+    > :warning: The tabs block should ideally be placed in the admin region. 
+
+
+### Removed
+
+* DTGB-683: Frequently visited.
 
 ## [8.x-3.0-alpha11]
 
