@@ -1,0 +1,15 @@
+.local-tasks {
+  @extend %list-no-style;
+  @include theme('background-color', 'color-primary--lighten-5', 'info-box-background');
+
+  padding: .3rem .3rem 0;
+
+  @include tablet {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  li {
+    margin: 0 .3rem .3rem;
+  }
+}
