@@ -11,6 +11,10 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
     > :warning: The tabs block should ideally be placed in the admin region. 
 
 
+### Removed
+
+* DTGB-683: Frequently visited.
+
 ## [8.x-3.0-alpha11]
 
 ### Added
