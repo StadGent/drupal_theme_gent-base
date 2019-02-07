@@ -50,6 +50,11 @@
   'container'
 ]
 %}
+
+{% block admin %}
+  {{ page.admin }}
+{% endblock %}
+
 <div {{ attributes.addClass(classes) }}>
   {% block header %}
     <header class="header">
