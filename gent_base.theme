@@ -629,8 +629,7 @@ function gent_base_preprocess_paragraph__timeline_item__alt(&$variables) {
 /**
  * Implements hook_preprocess_HOOK().
  *
- * Isolate one of the selected images for the teaser (before opening the
- * modal). Currently, this'll be the first image of the gallery.
+ * Add vesta info to the variables array.
  */
 function gent_base_preprocess_paragraph__contact(&$variables) {
   $paragraph = $variables['elements']['#paragraph'];
