@@ -71,10 +71,14 @@
  */
 #}
 
-{% if content|render is not empty %}
-  <figure class="hero">
-    <div class="image-wrapper" data-ratio="4:1">
-      {{ content }}
-    </div>
-  </figure>
-{% endif %}
+{% block wrapper %}
+  {% if content|render is not empty %}
+    <figure class="hero">
+      <div class="image-wrapper" data-ratio="4:1">
+        {% block content %}
+          {{ content }}
+        {% endblock %}
+      </div>
+    </figure>
+  {% endif %}
+{% endblock %}
