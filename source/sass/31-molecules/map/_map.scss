@@ -290,7 +290,7 @@ $map-text-color: color('dark-gray');
       font-size: .8rem;
       filter: none;
 
-      @include tablet {
+      @include breakpoint($bp-tablet+1) {
         width: 18rem;
         max-height: none;
         margin-bottom: $accolade-height;
