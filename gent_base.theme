@@ -319,7 +319,16 @@ function gent_base_preprocess_fieldset(&$variables) {
  * Implements hook_preprocess_menu_local_task().
  */
 function gent_base_preprocess_menu_local_task(&$variables) {
-  $variables['link']['#options']['attributes']['class'][] = 'button button-primary';
+  $variables['link']['#options']['attributes']['class'][] = 'button';
+  $variables['link']['#options']['attributes']['class'][] = 'button-small';
+
+  if (isset($variables['is_active']) && $variables['is_active']) {
+    $variables['link']['#options']['attributes']['class'][] = 'button-primary';
+  }
+  else {
+    $variables['link']['#options']['attributes']['class'][] = 'button-secondary';
+  }
+
 }
 
 /**
@@ -620,8 +629,7 @@ function gent_base_preprocess_paragraph__timeline_item__alt(&$variables) {
 /**
  * Implements hook_preprocess_HOOK().
  *
- * Isolate one of the selected images for the teaser (before opening the
- * modal). Currently, this'll be the first image of the gallery.
+ * Add vesta info to the variables array.
  */
 function gent_base_preprocess_paragraph__contact(&$variables) {
   $paragraph = $variables['elements']['#paragraph'];
@@ -924,4 +932,14 @@ function gent_base_preprocess_vesta(&$variables) {
       $variables['related'][] = reset($terms);
     }
   }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function gent_base_preprocess_dg_maps_map(&$variables) {
+  $variables['#attached']['drupalSettings']['gent_base']['dg_maps'] = [
+    'img_base' => drupal_get_path('theme', 'gent_base') . '/source/img/',
+    'legend_title' => t('View on the map'),
+  ];
 }

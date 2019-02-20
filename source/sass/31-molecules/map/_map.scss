@@ -6,12 +6,25 @@ $map-button-size: 2.2rem;
 $map-button-background: color('white');
 $map-text-color: color('dark-gray');
 
+%map-button {
+  width: $map-button-size;
+  height: $map-button-size;
+  margin: 0 0 .4rem;
+  border: 0;
+  background: $map-button-background no-repeat center center;
+  background-size: 24px 24px;
+  color: $map-text-color;
+  font-size: 0;
+  box-shadow: 0 8px 12px 0 rgba(0, 125, 179, .06);
+  cursor: pointer;
+}
+
 .map {
   &-container {
     position: relative;
     min-height: $map-button-size * 5;
     overflow: hidden;
-    
+
     .vesta & {
       height: 22rem;
     }
@@ -66,16 +79,77 @@ $map-text-color: color('dark-gray');
       }
 
       > button {
-        width: $map-button-size;
-        height: $map-button-size;
-        margin: 0 0 .4rem;
+        @extend %map-button;
+      }
+    }
+
+    .ol-data-layer-switcher {
+      padding: .8rem;
+
+      h2 {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: .8rem;
+
+        > button {
+          width: auto;
+          height: auto;
+          min-height: 1em;
+          background: transparent;
+          color: inherit;
+          font-size: 1.5em;
+        }
+      }
+
+      .category {
+        margin-bottom: .5rem;
         border: 0;
-        background: $map-button-background no-repeat center center;
-        background-size: 24px 24px;
-        color: $map-text-color;
-        font-size: 0;
-        box-shadow: 0 8px 12px 0 rgba(0, 125, 179, .06);
-        cursor: pointer;
+        font-size: .7rem;
+
+        &__label {
+          padding: 0;
+          background: transparent;
+          color: inherit;
+          text-transform: none;
+        }
+
+        &__count {
+          display: none;
+        }
+      }
+
+      details {
+        ::-webkit-details-marker {
+          display: none;
+        }
+
+        .category__label {
+          @include icon(plus);
+          cursor: pointer;
+
+          &::before {
+            margin-right: .4rem;
+          }
+        }
+      }
+
+      .layer {
+        font-size: .7rem;
+
+        label {
+          display: block;
+          padding-right: 0;
+          padding-left: 1.4rem;
+        }
+      }
+
+      .checkbox {
+        margin: 0;
+      }
+
+      .legend {
+        padding-left: 2rem;
       }
     }
 
@@ -152,6 +226,22 @@ $map-text-color: color('dark-gray');
       }
     }
 
+    .gcd-txt-reset {
+      display: none;
+    }
+
+    .gcd-txt-glass {
+      display: block;
+      position: absolute;
+      top: 50%;
+      right: .4rem;
+      width: 1.2rem;
+      height: 1.2rem;
+      margin-top: -.6rem;
+      background: svg-as-background('search', color('cyan-wcag'), 24, 24) no-repeat center center;
+      z-index: 11;
+    }
+
     .gcd-txt-result {
       > li {
         > a {
@@ -169,7 +259,7 @@ $map-text-color: color('dark-gray');
             font-size: 1em;
 
             &::before {
-              content: ", "
+              content: ", ";
             }
           }
 
@@ -183,6 +273,76 @@ $map-text-color: color('dark-gray');
           }
         }
       }
+    }
+
+    // ===
+    // Popup
+    // ===
+    .ol-popup {
+      @include theme('box-shadow', 'color-tertiary--lighten-3', 'popup-shadow', '0 2px 12px 0');
+      right: -2px;
+      bottom: -2px;
+      left: -2px;
+      height: auto;
+      max-height: 12.5rem;
+      padding: .8rem 1rem;
+      border: 0;
+      font-size: .8rem;
+      filter: none;
+
+      @include tablet {
+        width: 18rem;
+        max-height: none;
+        margin-bottom: $accolade-height;
+        margin-left: -$accolade-width*.6;
+        padding: 2rem 1rem;
+        border-radius: border-radius('radius-1');
+
+        &::before {
+          position: absolute;
+          left: $accolade-width/2;
+          width: $accolade-width;
+          height: $accolade-height;
+          transform: rotate(180deg);
+          background: transparent svg-as-background('accolade', color('white'), $accolade-width, $accolade-height) no-repeat top;
+          background-size: 100%;
+          content: '';
+        }
+
+        &::before,
+        &::after {
+          border: 0;
+        }
+      }
+
+
+      &__closer {
+        display: none;
+        top: .4rem;
+        right: .4rem;
+        width: 1.6rem;
+        height: 1.6rem;
+        background: transparent svg-as-background('cross', color('dark-gray'), 22.5, 22.5) no-repeat center;
+        cursor: pointer;
+
+        &::after {
+          content: '';
+        }
+
+
+        @include tablet {
+          display: block;
+        }
+      }
+
+      &__title:not(:empty) {
+        @extend %h3;
+        margin-bottom: 0;
+      }
+    }
+
+    .ol-overlay-container {
+      height: auto;
     }
   }
 
@@ -220,6 +380,87 @@ $map-text-color: color('dark-gray');
 
     &--right-bottom-left {
       bottom: $map-padding;
+    }
+
+    &--collapsible {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      border: 0;
+
+      background: color('white');
+      z-index: 20;
+    }
+
+    &-button {
+      @extend %map-button;
+      @include icon(hamburger);
+      @include icon(chevron-down, after);
+
+      display: flex;
+
+      position: absolute;
+      top: $map-padding;
+      left: $map-padding;
+
+      align-items: center;
+
+
+      font-size: 0;
+      z-index: 10;
+
+      &::before {
+        font-size: 1.2rem;
+      }
+
+      @include tablet {
+        width: auto;
+        padding: .4rem .8rem;
+        font-size: .8rem;
+        font-weight: 600;
+
+        &::before {
+          font-size: 0;
+        }
+
+        &::after {
+          margin-left: .4rem;
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}
+
+.ol-list-features__list {
+  margin-left: 0;
+  list-style: none;
+
+  @include tablet {
+    columns: auto 3;
+  }
+
+  &__item {
+    padding-left: 1.5rem;
+    background: url("../../../../contrib/gent_base/styleguide/public/styleguide/img/iconfont/marker.svg") no-repeat left top .3rem;
+    background-size: 1rem 1rem;
+    font-size: .8rem;
+
+    &__title {
+      display: inline;
+      font-weight: 600;
+
+      &:not(:empty) + .ol-list-features__list__item__description:not(:empty)::before {
+        padding: 0 1ch;
+        content: "\2014";
+      }
+    }
+
+    &__description {
+      display: inline;
+      font-weight: 400;
     }
   }
 }
