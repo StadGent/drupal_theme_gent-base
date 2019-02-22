@@ -1,4 +1,4 @@
-/* global ol, drupalSettings */
+/* global ol, drupalSettings, Mustache */
 /**
  * @file
  * DG Maps functionality extensions.
@@ -187,12 +187,15 @@
       features = [feature];
     }
 
-    var template, title, description;
+    var template;
+    var title;
+    var description;
+
     for (var i = 0; i < features.length; i++) {
       title = this.getTitleTemplateOutput_(features[i], layerId);
       description = this.getDescriptionTemplateOutput_(features[i], layerId);
 
-      if(!title && !description) {
+      if (!title && !description) {
         continue;
       }
 
