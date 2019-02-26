@@ -1,4 +1,3 @@
-/* global ol, drupalSettings */
 /**
  * @file
  * DG Maps functionality extensions.

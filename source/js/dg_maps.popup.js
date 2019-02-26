@@ -1,4 +1,4 @@
-/* global ol, drupalSettings */
+/* global Mustache */
 /**
  * @file
  * DG Maps functionality extensions.

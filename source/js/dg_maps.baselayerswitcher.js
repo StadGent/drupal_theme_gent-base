@@ -1,4 +1,4 @@
-/* global ol, drupalSettings */
+/* global ol */
 /**
  * @file
  * DG Maps functionality extensions.
@@ -45,7 +45,7 @@
       if (!this_.panel.contains(e.toElement || e.relatedTarget)) {
         this_.hidePanel();
       }
-    };;
+    };
 
     ol.control.Control.call(this, {
       element: element,
