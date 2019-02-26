@@ -84,7 +84,10 @@ opening_hours:
 maps:
   version: 1.x
   js:
-    build/js/dg_maps.functions-min.js: { minified: true }
+    build/js/dg_maps.datalayerswitcher-min.js: { minified: true }
+    build/js/dg_maps.regions-min.js: { minified: true }
+    build/js/dg_maps.baselayerswitcher-min.js: { minified: true }
+    build/js/dg_maps.popup-min.js: { minified: true }
     build/js/dg_maps.styles-min.js: { minified: true }
     build/js/dg_maps.bindings-min.js: { minified: true }
   dependencies:

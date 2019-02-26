@@ -1,4 +1,4 @@
-/* global ol, drupalSettings, Mustache */
+/* global ol, drupalSettings */
 /**
  * @file
  * DG Maps functionality extensions.
@@ -152,67 +152,5 @@
   };
 
   Drupal.dgMaps.ol.control.DataLayerSwitcher.prototype = originalPrototype;
-
-  var _initRegion = Drupal.dgMaps.initRegions;
-
-  /**
-   * Performs region initialisation.
-   * @param {Object} map - The map.
-   * @param {jQuery} mapElement - The map container element.
-   */
-  Drupal.dgMaps.initRegions = function (map, mapElement) {
-    _initRegion(map, mapElement);
-
-    // Close the legend by default
-    var mapContainer = mapElement.parents('.map-container');
-    var legendToggle = mapContainer.find('button[data-toggle-region="left"]');
-
-    legendToggle
-      .on('click', function () {
-        var region = $('.' + this.getAttribute('aria-controls'));
-        legendToggle.attr('aria-expanded', region.is(':visible'));
-      })
-      .first().click();
-  };
-
-  /**
-   * Adds a feature as popup item to the internal popup items storage.
-   * @param {ol.Feature} feature The feature to add.
-   * @param {string} layerId The layer id the feature is from.
-   * @api
-   */
-  Drupal.dgMaps.ol.interaction.Popup.prototype.addFeature = function (feature, layerId) {
-    var features = feature.get('features');
-    if (typeof features === 'undefined') {
-      features = [feature];
-    }
-
-    var template;
-    var title;
-    var description;
-
-    for (var i = 0; i < features.length; i++) {
-      title = this.getTitleTemplateOutput_(features[i], layerId);
-      description = this.getDescriptionTemplateOutput_(features[i], layerId);
-
-      if (!title && !description) {
-        continue;
-      }
-
-      template = '<div class="ol-popup-item">';
-
-      if (title) {
-        template += '<div class="ol-popup__title">' + title + '</div>';
-      }
-
-      if (description) {
-        template += '<div class="ol-popup__description">' + description + '</div>';
-      }
-
-      template += '</div>';
-      this.info_.push(Mustache.render(template, features[i].getProperties()));
-    }
-  };
-
 })(jQuery, Drupal);
 
