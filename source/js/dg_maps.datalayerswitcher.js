@@ -98,9 +98,6 @@
     input.setAttribute('data-layer-id', layerId);
     inputWrapper.appendChild(input);
 
-    // TODO grey out layers which are not in range (not visible in extent).
-    // TODO also add event to check if changes.
-
     var label = document.createElement('label');
     label.htmlFor = lyrId;
     label.innerHTML = layer.get('title');
