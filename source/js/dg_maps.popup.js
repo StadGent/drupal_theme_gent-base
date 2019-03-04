@@ -59,7 +59,7 @@
     this.popupContainer_.scrollIntoView({
       block: 'nearest',
       behavior: 'smooth'
-    })
+    });
   };
 })(jQuery, Drupal);
 
