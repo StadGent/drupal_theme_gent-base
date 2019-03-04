@@ -284,7 +284,7 @@ $map-text-color: color('dark-gray');
       bottom: -2px;
       left: -2px;
       height: auto;
-      max-height: 12.5rem;
+      max-height: 100%;
       padding: .8rem 1rem;
       border: 0;
       font-size: .8rem;
@@ -292,7 +292,6 @@ $map-text-color: color('dark-gray');
 
       @include breakpoint($bp-tablet+1) {
         width: 18rem;
-        max-height: none;
         margin-bottom: $accolade-height;
         margin-left: -$accolade-width*.6;
         padding: 2rem 1rem;
@@ -317,7 +316,6 @@ $map-text-color: color('dark-gray');
 
 
       &__closer {
-        display: none;
         top: .4rem;
         right: .4rem;
         width: 1.6rem;
@@ -327,11 +325,6 @@ $map-text-color: color('dark-gray');
 
         &::after {
           content: '';
-        }
-
-
-        @include tablet {
-          display: block;
         }
       }
 
