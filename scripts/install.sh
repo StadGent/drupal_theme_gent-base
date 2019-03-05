@@ -15,4 +15,5 @@ mkdir ../build && mkdir ../build/js;
 echo "Building gent_base...";
 cd ../source;
 yarn install;
+cp -R ./node_modules/gent_styleguide/build/styleguide ../build;
 ./node_modules/.bin/gulp build;
