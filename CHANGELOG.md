@@ -14,6 +14,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 ### Removed
 
 * DTGB-683: Frequently visited.
+* DTGB-700: [Styleguide](https://github.com/StadGent/fractal_styleguide_gent-base) as a part of gent-base. It is integrated as an npm dependency now.
 
 ## [8.x-3.0-alpha11]
 

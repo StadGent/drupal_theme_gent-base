@@ -444,7 +444,7 @@ $map-text-color: color('dark-gray');
 
   &__item {
     padding-left: 1.5rem;
-    background: url("../../../../contrib/gent_base/styleguide/public/styleguide/img/iconfont/marker.svg") no-repeat left top .3rem;
+    background: url("#{$styleguide-dir}/img/iconfont/marker.svg") no-repeat left top .3rem;
     background-size: 1rem 1rem;
     font-size: .8rem;
 

@@ -25,6 +25,4 @@
 <!--- If you're unsure about any of these, don't hesitate to ask. We're here to help! -->
 - [ ] I have read the **CONTRIBUTING** document.
 - [ ] I have updated the documentation accordingly.
-- [ ] I have updated the style guide CHANGELOG accordingly.
 - [ ] I have updated the gent_base CHANGELOG accordingly.
-- [ ] I have ran gulp axe on the compiled files and found no errors.
