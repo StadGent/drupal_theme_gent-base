@@ -500,7 +500,11 @@ function gent_base_preprocess_file_link(&$variables) {
     $options['attributes']['class'][] = 'standalone-link';
     $options['attributes']['download'][] = 'download';
 
-    $variables['link'] = Link::fromTextAndUrl($variables['description'], Url::fromUri($url, $options));
+    // Use the filename as label if no description is set.
+    $label = !empty($variables['description'])
+      ? $variables['description']
+      : $file->getFilename();
+    $variables['link'] = Link::fromTextAndUrl($label, Url::fromUri($url, $options));
   }
 }
 
