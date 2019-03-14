@@ -48,30 +48,18 @@
  * @ingroup themeable
  */
 #}
-{%
-  set classes = [
-    'js-form-item',
-    'form-item',
-    'js-form-type-' ~ type|clean_class,
-    'form-item-' ~ name|clean_class,
-    'js-form-item-' ~ name|clean_class,
-    type|clean_class,
-    title_display not in ['after', 'before'] ? 'form-no-label',
-    disabled == 'disabled' ? 'form-disabled',
-    errors ? 'form-item--error',
-  ]
-%}
-{%
-  set description_classes = [
-    'description',
-    description_display == 'invisible' ? 'visually-hidden',
-  ]
-%}
-{%
-  set information_classes = ['field-message']
-%}
+{% set classes = [
+  type|clean_class,
+  title_display not in ['after', 'before'] ? 'form-no-label',
+  disabled == 'disabled' ? 'form-disabled',
+  errors ? 'form-item--error',
+] %}
+{% set description_classes = [
+  'description',
+  description_display == 'invisible' ? 'visually-hidden',
+] %}
+{% set information_classes = ['field-message'] %}
 <div{{ attributes.addClass(classes) }}>
-
   {% if label_display in ['before', 'invisible'] %}
     <div class="form-label">
       {{ label }}
@@ -83,28 +71,16 @@
       {{ information.content }}
       <div class="accolade"></div>
     </div>
-  {%  endif %}
+  {% endif %}
 
-  <div class="form-columns">
-    <div class="form-item-column">
-      {% if prefix is not empty %}
-        <span class="field-prefix">{{ prefix }}</span>
-      {% endif %}
-      {{ children }}
-      {% if suffix is not empty %}
-        <span class="field-suffix">{{ suffix }}</span>
-      {% endif %}
-      {% if label_display == 'after' %}
-        {{ label }}
-      {% endif %}
-    </div>
-    {% if errors %}
-      <div class="form-item-column">
-        <div class="field-message error">
-          {{ errors }}
-          <div class="accolade"></div>
-        </div>
-      </div>
-    {% endif %}
-  </div>
+  {% if prefix is not empty %}
+    <span class="field-prefix">{{ prefix }}</span>
+  {% endif %}
+  {{ children }}
+  {% if suffix is not empty %}
+    <span class="field-suffix">{{ suffix }}</span>
+  {% endif %}
+  {% if label_display == 'after' %}
+    {{ label }}
+  {% endif %}
 </div>

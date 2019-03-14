@@ -2,6 +2,13 @@
 
 All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
+## [Unreleased]
+
+### Added
+
+* SGD8-546: Theming for webforms.
+
+
 ## [8.x-3.0-beta1]
 
 ### Added

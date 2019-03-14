@@ -10,6 +10,19 @@ use Drupal\media\Entity\Media;
 use Drupal\paragraphs\Entity\Paragraph;
 
 /**
+ * Returns a list of form_id's of the system forms.
+ *
+ * @return array
+ *   An array with form_id values.
+ */
+function _gent_base_get_system_forms() {
+  return [
+    'content_moderation_entity_moderation_form',
+    'views_exposed_form',
+  ];
+}
+
+/**
  * Check to see if a given view mode exists.
  *
  * @param string $key
@@ -94,4 +107,54 @@ function _gent_base_get_entity_reference_file_data(&$variables, $field) {
 function _gent_base_get_timeline_display(Paragraph $entity) {
   $isProgram = $entity->get('field_timeline_as_program')->value;
   return ($isProgram === '1') ? 'alt' : 'normal';
+}
+
+/**
+ * Adds the step title to the step for webforms with multiple pages.
+ *
+ * @param array $form
+ *   Render array for the form.
+ */
+function _gent_base_add_webform_step_title(array &$form) {
+  foreach ($form['elements'] as $key => &$step) {
+    if ($key[0] === '#') {
+      continue;
+    }
+    // Count input fields.
+    $input_count = 0;
+    foreach ($step as &$field) {
+      if (isset($field['#type'])) {
+        if (in_array($field['#type'], [
+          'checkbox',
+          'checkboxes',
+          'date',
+          'email',
+          'file',
+          'number',
+          'password',
+          'radio',
+          'radios',
+          'select',
+          'textarea',
+          'textfield',
+          'url',
+        ])) {
+          $input_count++;
+        }
+      }
+
+    }
+
+    // Generate the markup.
+    $html = '<h2>' . $step['#title'] . '</h2>';
+
+    if ($input_count > 0) {
+      $html .= '<p class="form-disclaimer">' . t('Fill in all fields unless otherwise stated') . '</p>';
+    }
+
+    array_unshift($step, [
+      '#markup' => $html,
+      '#parents' => [],
+    ]);
+  }
 }

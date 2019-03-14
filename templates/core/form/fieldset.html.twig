@@ -31,49 +31,47 @@
   ]
 %}
 
-<fieldset{{ attributes.addClass(classes) }}>
-  {%
-    set legend_span_classes = [
-      'fieldset-legend',
-      required ? 'js-form-required',
-      required ? 'form-required',
-      required == 0 ? 'label-optional',
-    ]
-  %}
+{% set legend_span_classes = [
+  required == 0 ? 'label-optional',
+] %}
 
-  {%
-  set information_classes = ['field-description', 'col-desktop-6']
-  %}
-  {% if information %}
-    <div class="row">
-      <div{{ information.attributes.addClass(information_classes) }}>
-        {{ information.content }}
-      </div>
-    </div>
-  {%  endif %}
+{%
+  set information_classes = ['field-message']
+%}
 
-  {#  Always wrap fieldset legends in a <span> for CSS positioning. #}
+<fieldset{{ attributes.addClass(classes).removeClass('fieldgroup') }}>
+
   <legend{{ legend.attributes }}>
     {{ legend.title }}
     {% if required == 0 and fieldset_optional != 1 %}
       <span{{ legend_span.attributes.addClass(legend_span_classes) }}>({{ 'Optional'|t }})</span>
     {% endif %}
   </legend>
-  <div class="fieldset-wrapper">
+
+  {% if information %}
+    <div{{ information.attributes.addClass(information_classes) }}>
+      {{ information.content }}
+    </div>
+  {%  endif %}
+
+  <div class="form-columns">
+    <div class="form-item-column">
+      {% if prefix %}
+        <span class="field-prefix">{{ prefix }}</span>
+      {% endif %}
+      {{ children }}
+      {% if suffix %}
+        <span class="field-suffix">{{ suffix }}</span>
+      {% endif %}
+    </div>
+
     {% if errors %}
-      <div class="form-item--error-message">
-        <strong>{{ errors }}</strong>
+      <div class="form-item-column">
+        <div class="field-message error">
+          {{ errors }}
+          <div class="accolade"></div>
+        </div>
       </div>
-    {% endif %}
-    {% if prefix %}
-      <span class="field-prefix">{{ prefix }}</span>
-    {% endif %}
-    {{ children }}
-    {% if suffix %}
-      <span class="field-suffix">{{ suffix }}</span>
-    {% endif %}
-    {% if description.content %}
-      <div{{ description.attributes.addClass('description') }}>{{ description.content }}</div>
     {% endif %}
   </div>
 </fieldset>
