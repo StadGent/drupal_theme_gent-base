@@ -15,31 +15,41 @@
 
       var selected = document.querySelectorAll('.js-map-tabs');
       for (var s = selected.length; s--;) {
-        allieTabs.init(selected[s], {
-          changeTab: function (tab, tabs, tabpanels, component, init) {
-            for (var i = tabs.length; i > 0; i--) {
-              tabs[i - 1].setAttribute('aria-selected', false);
-              tabs[i - 1].tabIndex = -1;
-            }
+        Drupal.behaviors.gentBaseLoadDGMaps.initTabs(selected[s]);
+      }
+    },
 
-            tab.setAttribute('aria-selected', true);
-            tab.tabIndex = 0;
+    /**
+     * Init the tabs behavior.
+     *
+     * @param {HTMLElement} element
+     *   The element to apply tabs to.
+     */
+    initTabs: function(element) {
+      allieTabs.init(element, {
+        changeTab: function (tab, tabs, tabpanels, component, init) {
+          for (var i = tabs.length; i > 0; i--) {
+            tabs[i - 1].setAttribute('aria-selected', false);
+            tabs[i - 1].tabIndex = -1;
+          }
 
-            for (var x = tabpanels.length; x > 0; x--) {
-              tabpanels[x - 1].setAttribute('aria-hidden', true);
-            }
+          tab.setAttribute('aria-selected', true);
+          tab.tabIndex = 0;
 
-            var tabpanel = component.querySelector(tab.hash);
-            if (tabpanel) {
-              tabpanel.setAttribute('aria-hidden', false);
+          for (var x = tabpanels.length; x > 0; x--) {
+            tabpanels[x - 1].setAttribute('aria-hidden', true);
+          }
 
-              if (!init) {
-                tab.focus();
-              }
+          var tabpanel = component.querySelector(tab.hash);
+          if (tabpanel) {
+            tabpanel.setAttribute('aria-hidden', false);
+
+            if (!init) {
+              tab.focus();
             }
           }
-        });
-      }
+        }
+      });
     }
   };
 })(Drupal);

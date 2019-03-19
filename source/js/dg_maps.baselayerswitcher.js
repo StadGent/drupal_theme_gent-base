@@ -8,7 +8,6 @@
 
   var originalPrototype = Drupal.dgMaps.ol.control.BaseLayerSwitcher.prototype;
 
-
   /**
    * Base Layer Switcher control.
    *
@@ -17,7 +16,6 @@
    * @param {Object=} opt_options Control options.
    */
   Drupal.dgMaps.ol.control.BaseLayerSwitcher = function (opt_options) {
-
     var options = opt_options || {};
 
     this.hiddenClassName = 'ol-base-layer-switcher ol-unselectable ol-control';

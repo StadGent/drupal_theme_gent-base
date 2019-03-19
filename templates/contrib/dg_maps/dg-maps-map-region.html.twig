@@ -1,6 +1,6 @@
 {% set region_classes = [
-'map-region',
-'map-region--' ~ name,
+  'map-region',
+  name ? 'map-region--' ~ name,
 ] %}
 
 {% if settings.collapsed %}
