@@ -54,8 +54,17 @@
     </div>
   {%  endif %}
 
+  {% if errors and not has_columns %}
+    <div class="field-message error">
+      {{ errors }}
+      <div class="accolade"></div>
+    </div>
+  {% endif %}
+
+  {% if has_columns %}
   <div class="form-columns">
     <div class="form-item-column">
+  {% endif %}
       {% if prefix %}
         <span class="field-prefix">{{ prefix }}</span>
       {% endif %}
@@ -63,15 +72,19 @@
       {% if suffix %}
         <span class="field-suffix">{{ suffix }}</span>
       {% endif %}
+    {% if has_columns %}
     </div>
+    {% endif %}
 
-    {% if errors %}
-      <div class="form-item-column">
+    {% if has_columns %}
+    <div class="form-item-column">
+      {% if errors %}
         <div class="field-message error">
           {{ errors }}
           <div class="accolade"></div>
         </div>
-      </div>
-    {% endif %}
+      {% endif %}
+    </div>
   </div>
+  {% endif %}
 </fieldset>

@@ -48,17 +48,24 @@
  * @ingroup themeable
  */
 #}
+
+{% set option_elements = [
+  'checkboxes',
+  'radios'
+] %}
+
 {%
   set classes = [
-    'js-form-item',
-    'form-item',
+    parent_type not in option_elements ? 'js-form-item',
+    parent_type not in option_elements ? 'form-item',
     'js-form-type-' ~ type|clean_class,
-    'form-item-' ~ name|clean_class,
-    'js-form-item-' ~ name|clean_class,
+    parent_type not in option_elements ? 'form-item-' ~ name|clean_class,
+    parent_type not in option_elements ? 'js-form-item-' ~ name|clean_class,
     type|clean_class,
     title_display not in ['after', 'before'] ? 'form-no-label',
     disabled == 'disabled' ? 'form-disabled',
     errors ? 'form-item--error',
+    stacked ? 'stacked'
   ]
 %}
 {%
@@ -85,8 +92,10 @@
     </div>
   {%  endif %}
 
+  {% if not in_fieldset %}
   <div class="form-columns">
-    <div class="form-item-column">
+    <div class="{{ has_row ? 'form-row' : 'form-item-column' }}">
+  {% endif %}
       {% if prefix is not empty %}
         <span class="field-prefix">{{ prefix }}</span>
       {% endif %}
@@ -97,7 +106,10 @@
       {% if label_display == 'after' %}
         {{ label }}
       {% endif %}
+
+    {% if not in_fieldset %}
     </div>
+    {% endif %}
     {% if errors %}
       <div class="form-item-column">
         <div class="field-message error">
@@ -106,5 +118,8 @@
         </div>
       </div>
     {% endif %}
+
+  {% if not in_fieldset %}
   </div>
+  {% endif %}
 </div>

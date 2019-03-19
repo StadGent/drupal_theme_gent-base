@@ -110,6 +110,43 @@ function _gent_base_get_timeline_display(Paragraph $entity) {
 }
 
 /**
+ * Count the number of input fields in a render array.
+ *
+ * @param array $array
+ *   Render array to loop over.
+ *
+ * @return int
+ *   The number of input fields counted.
+ */
+function _gent_base_count_input_fields(array $array) {
+  $input_count = 0;
+  foreach ($array as &$field) {
+    if (is_array($field) && isset($field['#type'])) {
+      if (in_array($field['#type'], [
+        'checkbox',
+        'checkboxes',
+        'date',
+        'email',
+        'file',
+        'number',
+        'password',
+        'radio',
+        'radios',
+        'select',
+        'textarea',
+        'textfield',
+        'url',
+        'webform_address',
+      ])) {
+        $input_count++;
+      }
+    }
+  }
+
+  return $input_count;
+}
+
+/**
  * Adds the step title to the step for webforms with multiple pages.
  *
  * @param array $form
@@ -120,35 +157,10 @@ function _gent_base_add_webform_step_title(array &$form) {
     if ($key[0] === '#') {
       continue;
     }
-    // Count input fields.
-    $input_count = 0;
-    foreach ($step as &$field) {
-      if (isset($field['#type'])) {
-        if (in_array($field['#type'], [
-          'checkbox',
-          'checkboxes',
-          'date',
-          'email',
-          'file',
-          'number',
-          'password',
-          'radio',
-          'radios',
-          'select',
-          'textarea',
-          'textfield',
-          'url',
-        ])) {
-          $input_count++;
-        }
-      }
-
-    }
-
     // Generate the markup.
     $html = '<h2>' . $step['#title'] . '</h2>';
 
-    if ($input_count > 0) {
+    if (_gent_base_count_input_fields($step) > 0) {
       $html .= '<p class="form-disclaimer">' . t('Fill in all fields unless otherwise stated') . '</p>';
     }
 
@@ -156,5 +168,72 @@ function _gent_base_add_webform_step_title(array &$form) {
       '#markup' => $html,
       '#parents' => [],
     ]);
+  }
+}
+
+/**
+ * Loop webform elements and add theming parameters for the desired elements.
+ *
+ * @param array $elements
+ *   Build array for the elements that have to be altered.
+ */
+function _gent_base_loop_webform_elements(array &$elements) {
+  foreach ($elements as &$element) {
+    if (!is_array($element) || !isset($element['#type'])) {
+      continue;
+    }
+
+    switch ($element['#type']) {
+      case 'checkboxes':
+      case 'radios':
+        $element['#has_columns'] = TRUE;
+        foreach (array_keys($element['#options']) as $key) {
+          $element[$key]['#parent_type'] = $element['#type'];
+          $element[$key]['#in_fieldset'] = TRUE;
+        }
+        break;
+
+      case 'webform_email_confirm':
+        $element['#has_columns'] = TRUE;
+        foreach ($element as $key => &$field) {
+          if ($key[0] === '#') {
+            continue;
+          }
+
+          $element[$key]['#parent_type'] = $element['#type'];
+          $field['#in_fieldset'] = TRUE;
+        }
+        break;
+
+      case 'webform_checkboxes_other':
+      case 'webform_radios_other':
+        _gent_base_loop_webform_elements($element);
+
+        $element['#has_columns'] = TRUE;
+        $element['other']['#parent_type'] = $element['#type'];
+        $element['other']['#in_fieldset'] = TRUE;
+        break;
+
+      case 'datetime':
+        $element['#has_row'] = TRUE;
+
+        foreach (['date', 'time'] as $key) {
+          $element[$key]['#stacked'] = TRUE;
+        }
+        break;
+
+      case 'webform_select_other':
+        $element['#has_columns'] = TRUE;
+        $element['select']['#parent_type'] = $element['#type'];
+        $element['select']['#in_fieldset'] = TRUE;
+        $element['other']['#parent_type'] = $element['#type'];
+        $element['other']['#in_fieldset'] = TRUE;
+
+        break;
+
+      case 'fieldset':
+        _gent_base_loop_webform_elements($element);
+        break;
+    }
   }
 }

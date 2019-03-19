@@ -14,9 +14,6 @@
   <!-- Exclude Node modules. -->
   <exclude-pattern type="relative">^source/node_modules/*</exclude-pattern>
 
-  <!-- Exclude Styleguide. -->
-  <exclude-pattern type="relative">^styleguide/*</exclude-pattern>
-
   <!-- Exclude third party code. -->
   <exclude-pattern type="relative">^vendor/*</exclude-pattern>
 

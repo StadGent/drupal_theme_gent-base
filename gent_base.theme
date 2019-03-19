@@ -38,8 +38,24 @@ function gent_base_form_alter(&$form, FormStateInterface $form_state, $form_id) 
   }
 
   if (isset($form['#entity_type']) && $form['#entity_type'] === 'webform_submission') {
-    $form['#after_build'][] = '_gent_base_webform_after_build';
+    $form['#pre_render'][] = '_gent_base_webform_pre_render';
+    $form['#after_build'][] = '_gent_base_webform_multistep_after_build';
   }
+}
+
+/**
+ * Pre-render function for webforms.
+ *
+ * @param array $form
+ *   Build array for the form.
+ *
+ * @return mixed
+ *   Altered build array.
+ */
+function _gent_base_webform_pre_render(array $form) {
+  _gent_base_loop_webform_elements($form['elements']);
+
+  return $form;
 }
 
 /**
@@ -53,7 +69,7 @@ function gent_base_form_alter(&$form, FormStateInterface $form_state, $form_id) 
  * @return mixed
  *   Altered render array.
  */
-function _gent_base_webform_after_build(array $form, FormStateInterface $form_state) {
+function _gent_base_webform_multistep_after_build(array $form, FormStateInterface $form_state) {
   if (!isset($form['progress'])) {
     return $form;
   }
@@ -349,6 +365,22 @@ function gent_base_preprocess_form_element(&$variables) {
   if (isset($element['#description'])) {
     $element['#information'] = $element['#description'];
   }
+
+  if (isset($element['#in_fieldset'])) {
+    $variables['in_fieldset'] = $element['#in_fieldset'];
+  }
+
+  if (isset($element['#parent_type'])) {
+    $variables['parent_type'] = $element['#parent_type'];
+  }
+
+  if (isset($element['#stacked'])) {
+    $variables['stacked'] = $element['#stacked'];
+  }
+
+  if (isset($element['#has_row'])) {
+    $variables['has_row'] = $element['#has_row'];
+  }
 }
 
 /**
@@ -362,8 +394,13 @@ function gent_base_preprocess_webform_element_help(&$variables) {
  * Implements hook_preprocess_fieldset().
  */
 function gent_base_preprocess_fieldset(&$variables) {
-  if ($variables['element']['#type'] == 'fieldset' && empty($variables['element']['#required'])) {
+  $element = &$variables['element'];
+  if ($element['#type'] == 'fieldset' && empty($element['#required'])) {
     $variables['fieldset_optional'] = TRUE;
+  }
+
+  if (isset($element['#has_columns'])) {
+    $variables['has_columns'] = $element['#has_columns'];
   }
 }
 
