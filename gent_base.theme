@@ -53,7 +53,10 @@ function gent_base_form_alter(&$form, FormStateInterface $form_state, $form_id) 
  *   Altered build array.
  */
 function _gent_base_webform_pre_render(array $form) {
-  _gent_base_loop_webform_elements($form['elements']);
+
+  if (isset($form['elements'])) {
+    _gent_base_loop_webform_elements($form['elements']);
+  }
 
   return $form;
 }
