@@ -25,7 +25,7 @@
      * @param {HTMLElement} element
      *   The element to apply tabs to.
      */
-    initTabs: function(element) {
+    initTabs: function (element) {
       allieTabs.init(element, {
         changeTab: function (tab, tabs, tabpanels, component, init) {
           for (var i = tabs.length; i > 0; i--) {
