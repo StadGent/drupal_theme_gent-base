@@ -369,21 +369,10 @@ function gent_base_preprocess_form_element(&$variables) {
     $element['#information'] = $element['#description'];
   }
 
-  if (isset($element['#in_fieldset'])) {
-    $variables['in_fieldset'] = $element['#in_fieldset'];
-  }
-
-  if (isset($element['#parent_type'])) {
-    $variables['parent_type'] = $element['#parent_type'];
-  }
-
-  if (isset($element['#stacked'])) {
-    $variables['stacked'] = $element['#stacked'];
-  }
-
-  if (isset($element['#has_row'])) {
-    $variables['has_row'] = $element['#has_row'];
-  }
+  $variables['in_fieldset'] = $element['#in_fieldset'] ?? NULL;
+  $variables['parent_type'] = $element['#parent_type'] ?? NULL;
+  $variables['stacked'] = $element['#stacked'] ?? NULL;
+  $variables['has_row'] = $element['#has_row'] ?? NULL;
 }
 
 /**
@@ -398,13 +387,11 @@ function gent_base_preprocess_webform_element_help(&$variables) {
  */
 function gent_base_preprocess_fieldset(&$variables) {
   $element = &$variables['element'];
-  if ($element['#type'] == 'fieldset' && empty($element['#required'])) {
+  if ($element['#type'] === 'fieldset' && empty($element['#required'])) {
     $variables['fieldset_optional'] = TRUE;
   }
 
-  if (isset($element['#has_columns'])) {
-    $variables['has_columns'] = $element['#has_columns'];
-  }
+  $variables['has_columns'] = $element['#has_columns'] ?? NULL;
 }
 
 /**

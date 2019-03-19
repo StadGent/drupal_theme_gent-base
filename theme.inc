@@ -5,6 +5,7 @@
  * Helper functions to support theming in the Gent Base theme.
  */
 
+use Drupal\Core\Render\Element;
 use Drupal\file\Entity\File;
 use Drupal\media\Entity\Media;
 use Drupal\paragraphs\Entity\Paragraph;
@@ -120,27 +121,33 @@ function _gent_base_get_timeline_display(Paragraph $entity) {
  */
 function _gent_base_count_input_fields(array $array) {
   $input_count = 0;
+  $fields_types = [
+    'checkbox',
+    'checkboxes',
+    'date',
+    'email',
+    'file',
+    'number',
+    'password',
+    'radio',
+    'radios',
+    'select',
+    'textarea',
+    'textfield',
+    'url',
+    'webform_address',
+  ];
+
   foreach ($array as &$field) {
-    if (is_array($field) && isset($field['#type'])) {
-      if (in_array($field['#type'], [
-        'checkbox',
-        'checkboxes',
-        'date',
-        'email',
-        'file',
-        'number',
-        'password',
-        'radio',
-        'radios',
-        'select',
-        'textarea',
-        'textfield',
-        'url',
-        'webform_address',
-      ])) {
-        $input_count++;
-      }
+    if (!is_array($field) || !isset($field['#type'])) {
+      continue;
     }
+
+    if (!in_array($field['#type'], $fields_types)) {
+      continue;
+    }
+
+    $input_count++;
   }
 
   return $input_count;
@@ -153,10 +160,13 @@ function _gent_base_count_input_fields(array $array) {
  *   Render array for the form.
  */
 function _gent_base_add_webform_step_title(array &$form) {
-  foreach ($form['elements'] as $key => &$step) {
-    if ($key[0] === '#') {
+  foreach (Element::children($form['elements']) as $key) {
+    $step = &$form['elements'][$key];
+
+    if ($step['#type'] !== 'container') {
       continue;
     }
+
     // Generate the markup.
     $html = '<h2>' . $step['#title'] . '</h2>';
 
@@ -178,62 +188,130 @@ function _gent_base_add_webform_step_title(array &$form) {
  *   Build array for the elements that have to be altered.
  */
 function _gent_base_loop_webform_elements(array &$elements) {
-  foreach ($elements as &$element) {
+  $children = Element::children($elements);
+
+  if ($children === ['elements']) {
+    _gent_base_loop_webform_elements($elements['elements']);
+    return;
+  }
+
+  foreach ($children as $key) {
+    $element = &$elements[$key];
     if (!is_array($element) || !isset($element['#type'])) {
       continue;
     }
 
-    switch ($element['#type']) {
-      case 'checkboxes':
-      case 'radios':
-        $element['#has_columns'] = TRUE;
-        foreach (array_keys($element['#options']) as $key) {
-          $element[$key]['#parent_type'] = $element['#type'];
-          $element[$key]['#in_fieldset'] = TRUE;
-        }
-        break;
-
-      case 'webform_email_confirm':
-        $element['#has_columns'] = TRUE;
-        foreach ($element as $key => &$field) {
-          if ($key[0] === '#') {
-            continue;
-          }
-
-          $element[$key]['#parent_type'] = $element['#type'];
-          $field['#in_fieldset'] = TRUE;
-        }
-        break;
-
-      case 'webform_checkboxes_other':
-      case 'webform_radios_other':
-        _gent_base_loop_webform_elements($element);
-
-        $element['#has_columns'] = TRUE;
-        $element['other']['#parent_type'] = $element['#type'];
-        $element['other']['#in_fieldset'] = TRUE;
-        break;
-
-      case 'datetime':
-        $element['#has_row'] = TRUE;
-
-        foreach (['date', 'time'] as $key) {
-          $element[$key]['#stacked'] = TRUE;
-        }
-        break;
-
-      case 'webform_select_other':
-        $element['#has_columns'] = TRUE;
-        $element['select']['#parent_type'] = $element['#type'];
-        $element['select']['#in_fieldset'] = TRUE;
-        $element['other']['#parent_type'] = $element['#type'];
-        $element['other']['#in_fieldset'] = TRUE;
-
-        break;
-
-      case 'fieldset':
-        _gent_base_loop_webform_elements($element);
-        break;
-    }
+    _gent_base_loop_webform_elements_options($element);
+    _gent_base_loop_webform_elements_options_other($element);
+    _gent_base_loop_webform_elements_email_confirm($element);
+    _gent_base_loop_webform_elements_datetime($element);
+    _gent_base_loop_webform_elements_select_other($element);
+    _gent_base_loop_webform_group($element);
   }
+}
+
+/**
+ * Add template variables for option elements.
+ *
+ * @param array $element
+ *   Build array a form element.
+ */
+function _gent_base_loop_webform_elements_options(array &$element) {
+  $optionTypes = ['checkboxes', 'radios'];
+  if (!isset($element['#type']) || !in_array($element['#type'], $optionTypes)) {
+    return;
+  }
+
+  $element['#has_columns'] = TRUE;
+  foreach (array_keys($element['#options']) as $key) {
+    $element[$key]['#parent_type'] = $element['#type'];
+    $element[$key]['#in_fieldset'] = TRUE;
+  }
+}
+
+/**
+ * Add template variables for option elements with an _other_ field.
+ *
+ * @param array $element
+ *   Build array a form element.
+ */
+function _gent_base_loop_webform_elements_options_other(array &$element) {
+  $optionTypes = ['webform_checkboxes_other', 'webform_radios_other'];
+  if (!isset($element['#type']) || !in_array($element['#type'], $optionTypes)) {
+    return;
+  }
+
+  _gent_base_loop_webform_elements($element);
+
+  $element['#has_columns'] = TRUE;
+  $element['other']['#parent_type'] = $element['#type'];
+  $element['other']['#in_fieldset'] = TRUE;
+}
+
+/**
+ * Add template variables for email_confirm elements.
+ *
+ * @param array $element
+ *   Build array a form element.
+ */
+function _gent_base_loop_webform_elements_email_confirm(array &$element) {
+  if (!isset($element['#type']) || $element['#type'] !== 'webform_email_confirm') {
+    return;
+  }
+
+  $element['#has_columns'] = TRUE;
+  foreach (Element::children($element) as $key) {
+    $element[$key]['#parent_type'] = $element['#type'];
+    $element[$key]['#in_fieldset'] = TRUE;
+  }
+}
+
+/**
+ * Add template variables for datetime elements.
+ *
+ * @param array $element
+ *   Build array a form element.
+ */
+function _gent_base_loop_webform_elements_datetime(array &$element) {
+  if (!isset($element['#type']) || $element['#type'] !== 'datetime') {
+    return;
+  }
+
+  $element['#has_row'] = TRUE;
+  foreach (['date', 'time'] as $key) {
+    $element[$key]['#stacked'] = TRUE;
+  }
+}
+
+/**
+ * Add template variables for select elements with an _other_ field.
+ *
+ * @param array $element
+ *   Build array a form element.
+ */
+function _gent_base_loop_webform_elements_select_other(array &$element) {
+  if (!isset($element['#type']) || $element['#type'] !== 'webform_select_other') {
+    return;
+  }
+
+  $element['#has_columns'] = TRUE;
+  $element['select']['#parent_type'] = $element['#type'];
+  $element['select']['#in_fieldset'] = TRUE;
+  $element['other']['#parent_type'] = $element['#type'];
+  $element['other']['#in_fieldset'] = TRUE;
+}
+
+/**
+ * Add template variables for groups.
+ *
+ * @param array $element
+ *   Build array a form element.
+ */
+function _gent_base_loop_webform_group(array &$element) {
+  $groupTypes = ['container', 'fieldset'];
+  if (!isset($element['#type']) || !in_array($element['#type'], $groupTypes)) {
+    return;
+  }
+
+  _gent_base_loop_webform_elements($element);
 }
