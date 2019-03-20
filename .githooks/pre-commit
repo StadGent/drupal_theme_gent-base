@@ -3,27 +3,33 @@
 # Pre-commit hooks.
 #
 
-# Exit on any error.
-#set -e
+#!/bin/bash
+BRANCH_NAME=$(git branch | grep '*' | sed 's/* //')
 
-# We'll only runchecks on changes that are a part of this commit.
-# So let's stash others.
-git stash -q --keep-index
-
-# First, we check code quality.
-echo 'Checking PHP code style...'
-vendor/bin/phpcs -p --report=full
-PHPCS_EC=$?
-
-# We're done with checks, we can unstash changes.
-git stash pop -q
-
-# Exit if any error codes.
-let "ERROR = $PHPCS_EC"
-if [ "${ERROR}" -ne "0" ]
+if [[ $BRANCH_NAME != *"no branch"* ]]
 then
-  echo "Commit aborted."
-  exit ${ERROR}
-fi
+  # Exit on any error.
+  #set -e
 
-echo "All good!"
+  # We'll only runchecks on changes that are a part of this commit.
+  # So let's stash others.
+  git stash -q --keep-index
+
+  # First, we check code quality.
+  echo 'Checking PHP code style...'
+  vendor/bin/phpcs -p --report=full
+  PHPCS_EC=$?
+
+  # We're done with checks, we can unstash changes.
+  git stash pop -q
+
+  # Exit if any error codes.
+  let "ERROR = $PHPCS_EC"
+  if [ "${ERROR}" -ne "0" ]
+  then
+    echo "Commit aborted."
+    exit ${ERROR}
+  fi
+
+  echo "All good!"
+fi

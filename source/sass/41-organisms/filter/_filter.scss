@@ -21,7 +21,7 @@
 .result__show-filters.modal-trigger {
   display:  none;
 
-  @media (max-width: 769px) {
+  @media (max-width: $bp-desktop) {
     .sidebar-layout.filter & {
       display: flex;
     }
@@ -31,7 +31,7 @@
 .filter-show-results-button {
   display: block;
 
-  @media (min-width: 769px) {
+  @media (min-width: $bp-desktop) {
     display: none;
   }
 

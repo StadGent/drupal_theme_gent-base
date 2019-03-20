@@ -1,5 +1,0 @@
-# Quote
-
-## General
-
-## Web accessibility
