@@ -375,7 +375,7 @@ axe-core@^3.0.1, axe-core@^3.1.2:
   resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-3.2.2.tgz#b06d6e9ae4636d706068843272bfaeed3fe97362"
   integrity sha512-gAy4kMSPpuRJV3mwictJqlg5LhE84Vw2CydKdC4tvrLhR6+G3KW51zbL/vYujcLA2jvWOq3HMHrVeNuw+mrLVA==
 
-axe-webdriverjs@^2.0.0:
+axe-webdriverjs@^2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/axe-webdriverjs/-/axe-webdriverjs-2.2.0.tgz#4a63cd301b9b193207a03a3181e3be9cd6f15285"
   integrity sha512-ckGIk3VaYkpXeESKSYYnPArSajlCVr+18wNFmBvms0H12thS5WaKK8nwtOzeN93SZB+EFn2M19VsGTy07XKxCw==
@@ -1854,9 +1854,9 @@ genfun@^5.0.0:
   integrity sha512-KGDOARWVga7+rnB3z9Sd2Letx515owfk0hSxHGuqjANb1M+x2bGZGqHLiozPsYMdM2OubeMni/Hpwmjq6qIUhA==
 
 gent_styleguide@^3.0.0-alpha11:
-  version "3.0.0-beta2"
-  resolved "https://registry.yarnpkg.com/gent_styleguide/-/gent_styleguide-3.0.0-beta2.tgz#a5a78ae81eaad11ab2d3b7e29f899dcb242441db"
-  integrity sha512-0Xmzlvsgvabhq8f5CxYAZL1SpZeWiukP50l7gaSqMdBVRS4fVpzDpU8lr77H4rXRh4QTTAWL0Z/b5tT73rU3Tw==
+  version "3.0.0-beta4"
+  resolved "https://registry.yarnpkg.com/gent_styleguide/-/gent_styleguide-3.0.0-beta4.tgz#59db99fed7e6a0c21add52b010de1613d6f05c39"
+  integrity sha512-0KMLl8pCo8821mfM/98IWJiAvCwoBxrFNMkTvJAP8BmbHZY2ApyPNa/nawkLZXtZ3oFe+tiduhfnHF7YKCLfjg==
   dependencies:
     allietabs "^1.2.2"
     baguettebox.js "^1.11.0"
@@ -2034,12 +2034,12 @@ graceful-fs@^4.0.0, graceful-fs@^4.1.11, graceful-fs@^4.1.2, graceful-fs@^4.1.6,
   integrity sha512-6uHUhOPEBgQ24HM+r6b/QwWfZq+yiFcipKFrOFiBEnWdy5sdzYoi+pJeQaPI5qOLRFqWmAXUPQNsielzdLoecA==
 
 gulp-axe-webdriver@^3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/gulp-axe-webdriver/-/gulp-axe-webdriver-3.1.0.tgz#a1d1e84610bd172138c618a7aa59d6a74bc91f06"
-  integrity sha512-DMZs+h/UTG63lLS06rRhMDK1vxap21OljIjt9rFbPPypHkymwJyIhxPDc2/FuVXk2U0MhbgCsv/I3jaITImyXA==
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/gulp-axe-webdriver/-/gulp-axe-webdriver-3.1.1.tgz#72f8172bf991ffd77d4dde26ae27110306005831"
+  integrity sha512-IgYckH+JYmDy0XGFl4nrvzGXswKJ9cE5li2MGn4+sGo8n9cS9yAX1QEQycSRxdZ7X41ryCuwyQKvKV1n8UqTQQ==
   dependencies:
     axe-core "^3.0.1"
-    axe-webdriverjs "^2.0.0"
+    axe-webdriverjs "^2.2.0"
     chalk "^1.1.3"
     chromedriver "2.41.0"
     file-url "^1.1.0"
