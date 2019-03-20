@@ -179,7 +179,7 @@ function _gent_base_add_webform_step_title(array &$form) {
       $build['disclaimer'] = [
         '#type' => 'html_tag',
         '#tag' => 'p',
-        '#value' =>  t('Fill in all fields unless otherwise stated.'),
+        '#value' => t('Fill in all fields unless otherwise stated.'),
         '#attributes' => ['class' => ['form-disclaimer']],
       ];
     }
