@@ -19,14 +19,8 @@ include __DIR__ . '/theme.inc';
  * Implements hook_form_FORM_ID_alter().
  */
 function gent_base_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-  // Setup system forms to have the "no-style" and "no-optional" styling classes
-  // As defined by the Gent styleguide.
-  $system_forms = [
-    'content_moderation_entity_moderation_form',
-    'views_exposed_form',
-  ];
 
-  if (in_array($form_id, $system_forms)) {
+  if (in_array($form_id, _gent_base_get_system_forms())) {
     $form['#attributes']['class'][] = 'no-style';
     $form['#attributes']['class'][] = 'no-optional';
   }
@@ -41,6 +35,81 @@ function gent_base_form_alter(&$form, FormStateInterface $form_state, $form_id) 
 
     $form['actions']['delete']['#attributes']['class'][] = 'delete';
     $form['actions']['delete']['#attributes']['class'][] = 'right';
+  }
+
+  if (isset($form['#entity_type']) && $form['#entity_type'] === 'webform_submission') {
+    $form['#pre_render'][] = '_gent_base_webform_pre_render';
+    $form['#after_build'][] = '_gent_base_webform_multistep_after_build';
+  }
+}
+
+/**
+ * Pre-render function for webforms.
+ *
+ * @param array $form
+ *   Build array for the form.
+ *
+ * @return mixed
+ *   Altered build array.
+ */
+function _gent_base_webform_pre_render(array $form) {
+
+  if (isset($form['elements'])) {
+    _gent_base_loop_webform_elements($form['elements']);
+  }
+
+  return $form;
+}
+
+/**
+ * After_build function form multistep webforms.
+ *
+ * @param array $form
+ *   Render array of the webform.
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ *   Current state of the form.
+ *
+ * @return mixed
+ *   Altered render array.
+ */
+function _gent_base_webform_multistep_after_build(array $form, FormStateInterface $form_state) {
+  if (!isset($form['progress'])) {
+    return $form;
+  }
+
+  _gent_base_add_webform_step_title($form);
+
+  // Modify markup.
+  $form['#attributes']['class'][] = 'form--multistep';
+  $form['elements'][] = $form['actions'];
+
+  $form['elements'] = [
+    '#type' => 'container',
+    '#parents' => [],
+    '#attributes' => [
+      'class' => [
+        'form-content',
+      ],
+    ],
+    'elements' => $form['elements'],
+  ];
+
+  unset($form['actions']);
+  return $form;
+}
+
+/**
+ * Switch places for prev/next.
+ *
+ * Implements hook_preprocess().
+ */
+function gent_base_preprocess_webform_actions(&$variables) {
+  if (isset($variables['element']['wizard_prev'])) {
+    $button = $variables['element']['wizard_prev'];
+    $button['#attributes']['class'][] = 'button-secondary';
+
+    unset($variables['element']['wizard_prev']);
+    $variables['element'][] = $button;
   }
 }
 
@@ -292,11 +361,18 @@ function gent_base_preprocess_element_information(array &$variables) {
  */
 function gent_base_preprocess_form_element(&$variables) {
   $element = &$variables['element'];
-  if (!isset($element['#help'])) {
-    return;
+  if (isset($element['#help'])) {
+    $element['#information'] = $element['#help'];
   }
 
-  $element['#information'] = $element['#help'];
+  if (isset($element['#description'])) {
+    $element['#information'] = $element['#description'];
+  }
+
+  $variables['in_fieldset'] = $element['#in_fieldset'] ?? NULL;
+  $variables['parent_type'] = $element['#parent_type'] ?? NULL;
+  $variables['stacked'] = $element['#stacked'] ?? NULL;
+  $variables['has_row'] = $element['#has_row'] ?? NULL;
 }
 
 /**
@@ -310,9 +386,12 @@ function gent_base_preprocess_webform_element_help(&$variables) {
  * Implements hook_preprocess_fieldset().
  */
 function gent_base_preprocess_fieldset(&$variables) {
-  if ($variables['element']['#type'] == 'fieldset' && empty($variables['element']['#required'])) {
+  $element = &$variables['element'];
+  if ($element['#type'] === 'fieldset' && empty($element['#required'])) {
     $variables['fieldset_optional'] = TRUE;
   }
+
+  $variables['has_columns'] = $element['#has_columns'] ?? NULL;
 }
 
 /**

@@ -1,0 +1,41 @@
+{#
+/**
+ * @file
+ * Default theme implementation to webform confirmation.
+ *
+ * Available variables:
+ * - progress: Progress bar.
+ * - attributes: A list of HTML attributes for the wrapper element.
+ * - message: Confirmation message.
+ * - back_url: URL to the previous webform submission.
+ * - back_label: Label for the back button
+ * - back_attributes: A list of HTML attributes for the back button.
+ *
+ * @see template_preprocess_webform_confirmation()
+ *
+ * @ingroup themeable
+ */
+#}
+{{ attach_library('webform/webform.confirmation') }}
+{% set classes = [
+  'messages',
+  'messages--status'
+] %}
+
+{% if progress %}
+  {{ progress }}
+{% endif %}
+
+<div{{ attributes.setAttribute('role', 'alert').setAttribute('aria-atomic', 'true').addClass(classes) }}>
+  <i class="icon-checkmark" aria-hidden="true"></i>
+
+  <div>
+    {% if message %}
+      <p>{{ message }}</p>
+    {% endif %}
+
+    {% if back %}
+      <a href="{{ back_url }}" rel="prev" title="{{ back_label }}"{{ back_attributes.addClass('standalone-link') }}>{{ back_label }}</a>
+    {% endif %}
+  </div>
+</div>
