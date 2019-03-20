@@ -4,9 +4,13 @@
 # Copyright YEAR NAME <EMAIL@ADDRESS>
 # Generated from files:
 #  themes/contrib/gent_base/theme-settings.php: n/a
+#  themes/contrib/gent_base/theme.inc: n/a
+#  themes/contrib/gent_base/templates/core/form/form.html.twig: n/a
 #  themes/contrib/gent_base/gent_base.theme: n/a
 #  themes/contrib/gent_base/templates/contrib/dg_maps/dg-maps-map-region.html.twig: n/a
 #  themes/contrib/gent_base/gent_base.info.yml: n/a
+#  themes/contrib/gent_base/build/js/dg_maps.baselayerswitcher-min.js: n/a
+#  themes/contrib/gent_base/source/js/dg_maps.baselayerswitcher.js: n/a
 #  themes/contrib/gent_base/starterkit/starterkit.info.yml: n/a
 #  themes/contrib/gent_base/templates/contrib/dg-auth/dg-auth-block.html.twig: n/a
 #  themes/contrib/gent_base/templates/contrib/dg_blocks/block--dg-blocks-gentinfo-block.html.twig: n/a
@@ -20,11 +24,13 @@
 #  themes/contrib/gent_base/templates/contrib/facets/facets-summary-item-list.html.twig: n/a
 #  themes/contrib/gent_base/templates/contrib/opening_hours/opening-hours-widget.html.twig: n/a
 #  themes/contrib/gent_base/templates/contrib/paragraphs/contact/paragraph--contact.html.twig: n/a
+#  themes/contrib/gent_base/templates/contrib/webform/webform-progress-tracker.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/block/block--article-aside-top.html.twig: n/a
 #  themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig: n/a
 #  themes/contrib/gent_base/templates/custom/vesta/vesta.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/block/block--search-help.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/block/block--system-branding-block.html.twig: n/a
+#  themes/contrib/gent_base/templates/core/content/menu-local-tasks.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/content-edit/filter-tips.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/fields/field--field-opendata-link.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/fields/field--media--field-src-audio-description.html.twig: n/a
@@ -32,7 +38,6 @@
 #  themes/contrib/gent_base/templates/core/fields/field--paragraph--field-image.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/form/fieldset.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/form/form-element-label.html.twig: n/a
-#  themes/contrib/gent_base/templates/core/form/form.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/layout/html.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/layout/page.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/navigation/breadcrumb.html.twig: n/a
@@ -49,7 +54,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2019-02-06 15:32+0100\n"
+"POT-Creation-Date: 2019-03-20 08:26+0100\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -82,31 +87,35 @@ msgstr ""
 msgid "Fill in the color scheme primary HEX color to be used in your project, leave empty for the default color scheme. This setting is only used for displaying the favicon correctly on Android + Windows phones and Apple's Touch Bar enabled computers."
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:250;250
+#: themes/contrib/gent_base/theme.inc:182 themes/contrib/gent_base/templates/core/form/form.html.twig:15
+msgid "Fill in all fields unless otherwise stated."
+msgstr ""
+
+#: themes/contrib/gent_base/gent_base.theme:319;319
 msgid "Search"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:357
+#: themes/contrib/gent_base/gent_base.theme:445
 msgid "programme"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:362
+#: themes/contrib/gent_base/gent_base.theme:450
 msgid "timeline"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:403
+#: themes/contrib/gent_base/gent_base.theme:491
 msgid "There is 1 other document available"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:406
+#: themes/contrib/gent_base/gent_base.theme:494
 msgid "There are @count other documents available"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:898
+#: themes/contrib/gent_base/gent_base.theme:989
 msgid "@category - All"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:935 themes/contrib/gent_base/templates/contrib/dg_maps/dg-maps-map-region.html.twig:14
+#: themes/contrib/gent_base/gent_base.theme:1026 themes/contrib/gent_base/templates/contrib/dg_maps/dg-maps-map-region.html.twig:14
 msgid "View on the map"
 msgstr ""
 
@@ -116,6 +125,10 @@ msgstr ""
 
 #: themes/contrib/gent_base/gent_base.info.yml:0
 msgid "Ghent base theme. Always use a subtheme of this theme."
+msgstr ""
+
+#: themes/contrib/gent_base/build/js/dg_maps.baselayerswitcher-min.js:0 themes/contrib/gent_base/source/js/dg_maps.baselayerswitcher.js:0
+msgid "Legend"
 msgstr ""
 
 #: themes/contrib/gent_base/starterkit/starterkit.info.yml:0
@@ -212,6 +225,10 @@ msgstr ""
 msgid "More info"
 msgstr ""
 
+#: themes/contrib/gent_base/templates/contrib/webform/webform-progress-tracker.html.twig:27
+msgid "Steps in this wizard"
+msgstr ""
+
 #: themes/contrib/gent_base/templates/core/block/block--article-aside-top.html.twig:38 themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:147 themes/contrib/gent_base/templates/custom/vesta/vesta.html.twig:150
 msgid "Also interesting"
 msgstr ""
@@ -222,6 +239,14 @@ msgstr ""
 
 #: themes/contrib/gent_base/templates/core/block/block--system-branding-block.html.twig:17
 msgid "Home"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/core/content/menu-local-tasks.html.twig:15
+msgid "Primary tabs"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/core/content/menu-local-tasks.html.twig:19
+msgid "Secondary tabs"
 msgstr ""
 
 #: themes/contrib/gent_base/templates/core/content-edit/filter-tips.html.twig:20
@@ -240,19 +265,15 @@ msgstr ""
 msgid "Show all photos"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/form/fieldset.html.twig:59 themes/contrib/gent_base/templates/core/form/form-element-label.html.twig:31
+#: themes/contrib/gent_base/templates/core/form/fieldset.html.twig:47 themes/contrib/gent_base/templates/core/form/form-element-label.html.twig:31
 msgid "Optional"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/form/form.html.twig:15
-msgid "Fill in all fields unless otherwise stated."
-msgstr ""
-
-#: themes/contrib/gent_base/templates/core/layout/html.html.twig:62
+#: themes/contrib/gent_base/templates/core/layout/html.html.twig:69
 msgid "Skip to main content"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/layout/page.html.twig:106
+#: themes/contrib/gent_base/templates/core/layout/page.html.twig:111
 msgid "open gallery"
 msgstr ""
 
