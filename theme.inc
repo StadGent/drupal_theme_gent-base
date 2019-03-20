@@ -168,16 +168,23 @@ function _gent_base_add_webform_step_title(array &$form) {
     }
 
     // Generate the markup.
-    $html = '<h2>' . $step['#title'] . '</h2>';
+    $build = [];
+    $build['heading'] = [
+      '#type' => 'html_tag',
+      '#tag' => 'h2',
+      '#value' => $step['#title'],
+    ];
 
     if (_gent_base_count_input_fields($step) > 0) {
-      $html .= '<p class="form-disclaimer">' . t('Fill in all fields unless otherwise stated') . '</p>';
+      $build['disclaimer'] = [
+        '#type' => 'html_tag',
+        '#tag' => 'p',
+        '#value' =>  t('Fill in all fields unless otherwise stated.'),
+        '#attributes' => ['class' => ['form-disclaimer']],
+      ];
     }
 
-    array_unshift($step, [
-      '#markup' => $html,
-      '#parents' => [],
-    ]);
+    array_unshift($step, $build);
   }
 }
 
@@ -218,7 +225,7 @@ function _gent_base_loop_webform_elements(array &$elements) {
  */
 function _gent_base_loop_webform_elements_options(array &$element) {
   $optionTypes = ['checkboxes', 'radios'];
-  if (!isset($element['#type']) || !in_array($element['#type'], $optionTypes)) {
+  if (!in_array($element['#type'], $optionTypes)) {
     return;
   }
 
@@ -237,7 +244,7 @@ function _gent_base_loop_webform_elements_options(array &$element) {
  */
 function _gent_base_loop_webform_elements_options_other(array &$element) {
   $optionTypes = ['webform_checkboxes_other', 'webform_radios_other'];
-  if (!isset($element['#type']) || !in_array($element['#type'], $optionTypes)) {
+  if (!in_array($element['#type'], $optionTypes)) {
     return;
   }
 
@@ -255,7 +262,7 @@ function _gent_base_loop_webform_elements_options_other(array &$element) {
  *   Build array a form element.
  */
 function _gent_base_loop_webform_elements_email_confirm(array &$element) {
-  if (!isset($element['#type']) || $element['#type'] !== 'webform_email_confirm') {
+  if ($element['#type'] !== 'webform_email_confirm') {
     return;
   }
 
@@ -273,7 +280,7 @@ function _gent_base_loop_webform_elements_email_confirm(array &$element) {
  *   Build array a form element.
  */
 function _gent_base_loop_webform_elements_datetime(array &$element) {
-  if (!isset($element['#type']) || $element['#type'] !== 'datetime') {
+  if ($element['#type'] !== 'datetime') {
     return;
   }
 
@@ -290,7 +297,7 @@ function _gent_base_loop_webform_elements_datetime(array &$element) {
  *   Build array a form element.
  */
 function _gent_base_loop_webform_elements_select_other(array &$element) {
-  if (!isset($element['#type']) || $element['#type'] !== 'webform_select_other') {
+  if ($element['#type'] !== 'webform_select_other') {
     return;
   }
 
@@ -309,7 +316,7 @@ function _gent_base_loop_webform_elements_select_other(array &$element) {
  */
 function _gent_base_loop_webform_group(array &$element) {
   $groupTypes = ['container', 'fieldset'];
-  if (!isset($element['#type']) || !in_array($element['#type'], $groupTypes)) {
+  if (!in_array($element['#type'], $groupTypes)) {
     return;
   }
 
