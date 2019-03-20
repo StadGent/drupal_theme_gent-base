@@ -172,6 +172,7 @@ function _gent_base_add_webform_step_title(array &$form) {
     $build['heading'] = [
       '#type' => 'html_tag',
       '#tag' => 'h2',
+      '#parents' => [],
       '#value' => $step['#title'],
     ];
 
@@ -179,12 +180,13 @@ function _gent_base_add_webform_step_title(array &$form) {
       $build['disclaimer'] = [
         '#type' => 'html_tag',
         '#tag' => 'p',
+        '#parents' => [],
         '#value' => t('Fill in all fields unless otherwise stated.'),
         '#attributes' => ['class' => ['form-disclaimer']],
       ];
     }
 
-    array_unshift($step, $build);
+    $step = array_merge($build, $step);
   }
 }
 
