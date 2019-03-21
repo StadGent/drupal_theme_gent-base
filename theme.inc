@@ -215,6 +215,7 @@ function _gent_base_loop_webform_elements(array &$elements) {
     _gent_base_loop_webform_elements_email_confirm($element);
     _gent_base_loop_webform_elements_datetime($element);
     _gent_base_loop_webform_elements_select_other($element);
+    _gent_base_loop_webform_elements_markup($element);
     _gent_base_loop_webform_group($element);
   }
 }
@@ -308,6 +309,20 @@ function _gent_base_loop_webform_elements_select_other(array &$element) {
   $element['select']['#in_fieldset'] = TRUE;
   $element['other']['#parent_type'] = $element['#type'];
   $element['other']['#in_fieldset'] = TRUE;
+}
+
+/**
+ * Add template variables for select elements with an _other_ field.
+ *
+ * @param array $element
+ *   Build array a form element.
+ */
+function _gent_base_loop_webform_elements_markup(array &$element) {
+  if ($element['#type'] !== 'webform_markup') {
+    return;
+  }
+
+  $element['#theme_wrappers'] = [];
 }
 
 /**

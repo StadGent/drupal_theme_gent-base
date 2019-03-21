@@ -16,3 +16,13 @@ textarea {
     margin-right: .4rem;
   }
 }
+
+.form-item-column {
+  .form-item > .field-message {
+    max-width: none;
+  }
+
+  .field-message {
+    margin-bottom: .4rem;
+  }
+}
