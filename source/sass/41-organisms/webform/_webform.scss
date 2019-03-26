@@ -31,7 +31,9 @@
   }
 
   li.completed .progress-title > span {
-    position: relative;
-    top: -.5em;
+    @include desktop {
+      position: relative;
+      top: -.5em;
+    }
   }
 }

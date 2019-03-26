@@ -22,8 +22,14 @@
   'messages--status'
 ] %}
 
+
 {% if progress %}
-  {{ progress }}
+  {% set pageTitle = progress['#webform'].pages[progress['#current_page']]['#title'] %}
+
+  <div class="form form--multistep">
+    {{ progress }}
+    <div class="form-content">
+      <h2>{{ pageTitle }}</h2>
 {% endif %}
 
 <div{{ attributes.setAttribute('role', 'alert').setAttribute('aria-atomic', 'true').addClass(classes) }}>
@@ -39,3 +45,8 @@
     {% endif %}
   </div>
 </div>
+
+{% if progress %}
+    </div>
+  </div>
+{% endif %}
