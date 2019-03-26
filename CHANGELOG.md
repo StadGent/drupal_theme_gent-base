@@ -7,6 +7,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 ### Added
 
 * SGD8-546: Theming for webforms.
+* SGD8-546: Theming for default drupal throbber.
 
 ## [8.x-3.0-beta1]
 
