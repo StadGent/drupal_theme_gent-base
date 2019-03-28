@@ -12,34 +12,8 @@ rm -rf ../build;
 echo "Recreating gent_base 'build' directory...";
 mkdir ../build && mkdir ../build/js;
 
-echo "Building - style guide - in gent_base...";
-cd ../styleguide;
-yarn install;
-
-echo "Generating iconfont...";
-./node_modules/.bin/gulp iconfont;
-
-echo "Generating spot images...";
-./node_modules/.bin/gulp spotimages;
-
-echo "Copy public files to build...";
-mkdir build;
-cp -rf ./public/** ./build;
-
-echo "Extracting styles...";
-./node_modules/.bin/gulp styles:extract;
-
-echo "Building JS...";
-./node_modules/.bin/gulp js:build;
-
-echo "Minifying images...";
-./node_modules/.bin/gulp images:minify;
-
-echo "Executing - style guide - postinstall script...";
-cd scripts;
-node ./postinstall.js;
-
 echo "Building gent_base...";
-cd ../../source;
+cd ../source;
 yarn install;
+cp -R ./node_modules/gent_styleguide/build/styleguide ../build;
 ./node_modules/.bin/gulp build;

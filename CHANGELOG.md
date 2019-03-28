@@ -6,14 +6,29 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 ### Added
 
-* DTGB-491: Added [`dg_maps`](https://github.com/digipolisgent/drupal_module_dg-maps) theming
-* Tabs/local tasks theming
-    > :warning: The tabs block should ideally be placed in the admin region. 
+* SGD8-546: Theming for webforms.
+* SGD8-546: Theming for default drupal throbber.
 
+## [8.x-3.0-beta1]
+
+### Added
+
+* DTGB-491: Added
+  [`dg_maps`](https://github.com/digipolisgent/drupal_module_dg-maps) theming.
+
+* Tabs/local tasks theming.
+    > :warning: The tabs block should ideally be placed in the admin region. 
 
 ### Removed
 
 * DTGB-683: Frequently visited.
+* DTGB-700:
+  [Styleguide](https://github.com/StadGent/fractal_styleguide_gent-base) as a
+  part of gent-base. It is integrated as an npm dependency now.
+
+### Fixed
+
+* DTGB-706: Fixed missing document link text when no file description is set.
 
 ## [8.x-3.0-alpha11]
 
@@ -153,6 +168,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 * **Updated to gent_styleguide version 2.6.13**
 
+[8.x-3.0-beta1]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-alpha11...8.x-3.0-beta1
 [8.x-3.0-alpha11]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-alpha.10...8.x-3.0-alpha11
 [8.x-3.0-alpha.10]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-alpha.7...8.x-3.0-alpha.10
 [8.x-3.0-alpha.7]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-alpha.6...8.x-3.0-alpha.7
