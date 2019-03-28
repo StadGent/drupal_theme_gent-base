@@ -9,6 +9,14 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 * SGD8-546: Theming for webforms.
 * SGD8-546: Theming for default drupal throbber.
 
+### Updated
+
+* SGD8-828: Template suggestion for forms (they're now composed of 
+  "hook--form_id") instead of the element ID
+
+  > This should not be breaking since the element ID and form ID are identical
+    in 99% of the cases. 
+
 ## [8.x-3.0-beta1]
 
 ### Added
