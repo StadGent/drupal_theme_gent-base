@@ -23,6 +23,7 @@ $map-text-color: color('dark-gray');
   &-container {
     position: relative;
     min-height: $map-button-size * 5;
+    max-height: calc(100vh - 2rem);
     overflow: hidden;
 
     .vesta & {
@@ -284,7 +285,6 @@ $map-text-color: color('dark-gray');
       bottom: -2px;
       left: -2px;
       height: auto;
-      max-height: 100%;
       padding: .8rem 1rem;
       border: 0;
       font-size: .8rem;
