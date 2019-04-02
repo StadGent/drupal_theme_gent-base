@@ -12,6 +12,11 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 ### Updated
 
 * DTGB-652: Maps theming on mobile devices.
+* SGD8-828: Template suggestion for forms (they're now composed of
+  "hook--form_id") instead of the element ID
+
+  > This should not be breaking since the element ID and form ID are identical
+    in 99% of the cases.
 
 ## [8.x-3.0-beta1]
 
@@ -21,7 +26,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
   [`dg_maps`](https://github.com/digipolisgent/drupal_module_dg-maps) theming.
 
 * Tabs/local tasks theming.
-    > :warning: The tabs block should ideally be placed in the admin region. 
+    > :warning: The tabs block should ideally be placed in the admin region.
 
 ### Removed
 

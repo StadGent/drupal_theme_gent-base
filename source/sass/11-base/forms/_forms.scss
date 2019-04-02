@@ -26,3 +26,8 @@ textarea {
     margin-bottom: .4rem;
   }
 }
+
+.form-description {
+  @include theme('color', 'color-tertiary--lighten-1', 'form-description-color');
+  font-size: .6rem;
+}
