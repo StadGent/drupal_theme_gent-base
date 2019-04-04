@@ -253,6 +253,17 @@ function gent_base_preprocess_entity_property(&$variables) {
         gent_base_set_entity_property_content($variables, '');
         if (!empty($result['node'])) {
           $nodes = node_load_multiple(array_keys($result['node']));
+
+          // Sort nodes as original.
+          $sorted_nodes = array();
+          $property_value = $property->value();
+          $property_value = array_flip($property_value);
+          foreach ($nodes as $node) {
+            $sorted_nodes[$property_value[$node->field_vesta_id[LANGUAGE_NONE][0]['value']]] = $node;
+          }
+          ksort($sorted_nodes);
+          $nodes = $sorted_nodes;
+
           $rendered_nodes = array();
           node_view_multiple($nodes);
           foreach ($nodes as $node) {
