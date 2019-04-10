@@ -73,6 +73,12 @@ tabs:
   js:
     build/styleguide/vendor/allietabs/allieTabs.js: { minified: true }
 
+tables:
+  version: 1.x
+  js:
+    build/js/table-mobile.functions-min.js: { minified: true }
+    build/js/table-mobile.bindings-min.js: { minified: true }
+
 opening_hours:
   version: 1.x
   js:
