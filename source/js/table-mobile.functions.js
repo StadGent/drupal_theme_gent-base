@@ -54,7 +54,7 @@
       tableList = document.createElement('div');
       tableList.classList.add('table-list');
       tableList.setAttribute('aria-labelledby', 'list-description');
-      element.parentNode.insertBefore(tableList, null);
+      element.parentNode.insertBefore(tableList, element.nextSibling);
 
       addList();
     };
