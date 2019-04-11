@@ -23,7 +23,7 @@
 
       > span {
         @include theme('color', 'color-primary', 'link-color');
-        @include link-background('color-primary--lighten-4', 'link-background-color', false);
+        @include link-background('color-primary', 'color-primary--lighten-4', 'link-underline-color', 'link-background-color');
         margin: 0;
         padding: 0;
       }
