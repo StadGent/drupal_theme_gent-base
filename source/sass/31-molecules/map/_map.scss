@@ -26,6 +26,10 @@ $map-text-color: color('dark-gray');
     max-height: calc(100vh - 2rem);
     overflow: hidden;
 
+    .ol-full-screen-fallback & {
+      max-height: 100vh;
+    }
+
     .vesta & {
       height: 22rem;
     }
