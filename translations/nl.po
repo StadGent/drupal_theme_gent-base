@@ -476,4 +476,3 @@ msgstr "Extra informatie"
 msgid "View all locations from"
 msgstr "Bekijk alle locaties van"
 
-#~ msgid "@name - openinghours and addresses"
