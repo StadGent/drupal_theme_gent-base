@@ -10,7 +10,7 @@
    */
   Drupal.behaviors.responsiveTable = {
     attach: function (context) {
-      $('.webform-client-form').each(function () {
+      $('body', context).once('mobile-table', function () {
         // Wrap all tables in a div.
         var tables = document.querySelectorAll('table');
 
