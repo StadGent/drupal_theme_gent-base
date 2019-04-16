@@ -11,6 +11,7 @@
     attach: function (context, settings) {
 
       var tables = document.querySelectorAll('table');
+
       for (var item = 0; item < tables.length; item++) {
         var tableItem = tables[item];
 
@@ -20,24 +21,15 @@
 
         tableItem.parentNode.insertBefore(tableWrapper, tableItem);
         tableWrapper.appendChild(tableItem);
-      }
-
-      var tablesNodeList = document.querySelectorAll('.responsive-table');
-
-      // Optimise all tables with a wrapper div.responsive-table
-      for (var i = 0; i < tablesNodeList.length; i++) {
-        var table = tablesNodeList[i];
 
         // Adds accessibility support.
-        new ResponsiveTable(table, {
+        new ResponsiveTable(tableWrapper, {
           scrollableText: '(scroll to see more)'
         });
+
+        new MobileTable(tableWrapper);
       }
 
-      var selected = document.querySelectorAll('.responsive-table');
-      for (var j = selected.length; j--;) {
-        new MobileTable(selected[j]); // eslint-disable-line no-undef
-      }
     }
   };
 })(Drupal);
