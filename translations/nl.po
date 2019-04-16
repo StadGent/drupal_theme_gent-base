@@ -43,8 +43,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2019-03-20 08:26+0100\n"
-"PO-Revision-Date: 2019-03-20 08:32+0100\n"
+"POT-Creation-Date: 2019-04-16 07:09+0000\n"
+"PO-Revision-Date: 2019-04-16 09:10+0200\n"
 "Last-Translator: Helena Standaert <helena.standaert@digipolis.gent>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
 "Language: nl\n"
@@ -90,7 +90,7 @@ msgstr ""
 "favicon correct in te stellen voor Android + Windows telefoons en voor "
 "Apple's computers met Touch Bar."
 
-#: themes/contrib/gent_base/theme.inc:182
+#: themes/contrib/gent_base/theme.inc:184
 #: themes/contrib/gent_base/templates/core/form/form.html.twig:15
 msgid "Fill in all fields unless otherwise stated."
 msgstr "Alle velden zijn verplicht, tenzij ze gemarkeerd zijn als optioneel."
@@ -99,27 +99,27 @@ msgstr "Alle velden zijn verplicht, tenzij ze gemarkeerd zijn als optioneel."
 msgid "Search"
 msgstr "Zoeken"
 
-#: themes/contrib/gent_base/gent_base.theme:445
+#: themes/contrib/gent_base/gent_base.theme:446
 msgid "programme"
 msgstr "programma"
 
-#: themes/contrib/gent_base/gent_base.theme:450
+#: themes/contrib/gent_base/gent_base.theme:451
 msgid "timeline"
 msgstr "tijdslijn"
 
-#: themes/contrib/gent_base/gent_base.theme:491
+#: themes/contrib/gent_base/gent_base.theme:492
 msgid "There is 1 other document available"
 msgstr "Er is 1 ander document beschikbaar"
 
-#: themes/contrib/gent_base/gent_base.theme:494
+#: themes/contrib/gent_base/gent_base.theme:495
 msgid "There are @count other documents available"
 msgstr "Er zijn @count andere documenten beschikbaar"
 
-#: themes/contrib/gent_base/gent_base.theme:989
+#: themes/contrib/gent_base/gent_base.theme:994
 msgid "@category - All"
 msgstr "@category - Alle"
 
-#: themes/contrib/gent_base/gent_base.theme:1026
+#: themes/contrib/gent_base/gent_base.theme:1031
 #: themes/contrib/gent_base/templates/contrib/dg_maps/dg-maps-map-region.html.twig:14
 msgid "View on the map"
 msgstr "Bekijk op de kaart"
@@ -132,10 +132,13 @@ msgstr "Gent Base"
 msgid "Ghent base theme. Always use a subtheme of this theme."
 msgstr "Gent base theme. Gebruik altijd een subthema van dit thema."
 
-#: themes/contrib/gent_base/build/js/dg_maps.baselayerswitcher-min.js:0
 #: themes/contrib/gent_base/source/js/dg_maps.baselayerswitcher.js:0
 msgid "Legend"
 msgstr "Legende"
+
+#: themes/contrib/gent_base/source/js/table.bindings.js:0
+msgid "(Scroll to see more)"
+msgstr "(Scroll om meer te zien)"
 
 #: themes/contrib/gent_base/starterkit/starterkit.info.yml:0
 msgid "Starterkit Subtheme"
@@ -161,15 +164,15 @@ msgstr "Bekijk profiel"
 msgid "Chat with Gentinfo"
 msgstr "Chat met Gentinfo"
 
-#: themes/contrib/gent_base/templates/contrib/dg_maps/dg-maps-map.html.twig:10
+#: themes/contrib/gent_base/templates/contrib/dg_maps/dg-maps-map.html.twig:9
 msgid "Map"
 msgstr "Kaart"
 
-#: themes/contrib/gent_base/templates/contrib/dg_maps/dg-maps-map.html.twig:15
+#: themes/contrib/gent_base/templates/contrib/dg_maps/dg-maps-map.html.twig:14
 msgid "List"
 msgstr "Lijst"
 
-#: themes/contrib/gent_base/templates/contrib/dg_maps/dg-maps-map.html.twig:71
+#: themes/contrib/gent_base/templates/contrib/dg_maps/dg-maps-map.html.twig:70
 #: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-popup.html.twig:46
 #: themes/contrib/gent_base/templates/contrib/paragraphs/timeline/paragraph--timeline-item--alt.html.twig:10
 #: themes/contrib/gent_base/templates/core/layout/region--filters.html.twig:28
@@ -461,10 +464,6 @@ msgstr "Aanbod en mogelijkheden"
 msgid "More info and opening hours"
 msgstr "Meer info en openingsuren"
 
-#: themes/contrib/gent_base/templates/custom/vesta/vesta.html.twig:29
-msgid "@name - openinghours and addresses"
-msgstr "@name - Openingsuren en adressen"
-
 #: themes/contrib/gent_base/templates/custom/vesta/vesta.html.twig:92
 msgid "(Fax)"
 msgstr "(Fax)"
@@ -476,3 +475,6 @@ msgstr "Extra informatie"
 #: themes/contrib/gent_base/templates/custom/vesta/vesta.html.twig:153
 msgid "View all locations from"
 msgstr "Bekijk alle locaties van"
+
+#~ msgid "@name - openinghours and addresses"
+#~ msgstr "@name - Openingsuren en adressen"

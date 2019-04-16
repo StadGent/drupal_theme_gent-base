@@ -24,7 +24,7 @@
 
         // Adds accessibility support.
         new ResponsiveTable(tableWrapper, {
-          scrollableText: Drupal.t('(scroll to see more)')
+          scrollableText: Drupal.t('(Scroll to see more)')
         });
 
         new MobileTable(tableWrapper);
