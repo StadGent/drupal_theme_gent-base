@@ -35,6 +35,7 @@ scripts[] = js/masonry.min.js
 scripts[] = js/breadcrumb.min.js
 scripts[] = js/sticky.min.js
 scripts[] = js/accordion.min.js
+scripts[] = js/responsive-table.min.js
 scripts[] = js/toggle-fieldset.min.js
 scripts[] = js/alerts.min.js
 
