@@ -477,4 +477,3 @@ msgid "View all locations from"
 msgstr "Bekijk alle locaties van"
 
 #~ msgid "@name - openinghours and addresses"
-#~ msgstr "@name - Openingsuren en adressen"
