@@ -9,8 +9,8 @@
 #  themes/contrib/gent_base/gent_base.theme: n/a
 #  themes/contrib/gent_base/templates/contrib/dg_maps/dg-maps-map-region.html.twig: n/a
 #  themes/contrib/gent_base/gent_base.info.yml: n/a
-#  themes/contrib/gent_base/build/js/dg_maps.baselayerswitcher-min.js: n/a
 #  themes/contrib/gent_base/source/js/dg_maps.baselayerswitcher.js: n/a
+#  themes/contrib/gent_base/source/js/table.bindings.js: n/a
 #  themes/contrib/gent_base/starterkit/starterkit.info.yml: n/a
 #  themes/contrib/gent_base/templates/contrib/dg-auth/dg-auth-block.html.twig: n/a
 #  themes/contrib/gent_base/templates/contrib/dg_blocks/block--dg-blocks-gentinfo-block.html.twig: n/a
@@ -54,7 +54,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2019-03-20 08:26+0100\n"
+"POT-Creation-Date: 2019-04-16 07:09+0000\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -87,7 +87,7 @@ msgstr ""
 msgid "Fill in the color scheme primary HEX color to be used in your project, leave empty for the default color scheme. This setting is only used for displaying the favicon correctly on Android + Windows phones and Apple's Touch Bar enabled computers."
 msgstr ""
 
-#: themes/contrib/gent_base/theme.inc:182 themes/contrib/gent_base/templates/core/form/form.html.twig:15
+#: themes/contrib/gent_base/theme.inc:184 themes/contrib/gent_base/templates/core/form/form.html.twig:15
 msgid "Fill in all fields unless otherwise stated."
 msgstr ""
 
@@ -95,27 +95,27 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:445
+#: themes/contrib/gent_base/gent_base.theme:446
 msgid "programme"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:450
+#: themes/contrib/gent_base/gent_base.theme:451
 msgid "timeline"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:491
+#: themes/contrib/gent_base/gent_base.theme:492
 msgid "There is 1 other document available"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:494
+#: themes/contrib/gent_base/gent_base.theme:495
 msgid "There are @count other documents available"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:989
+#: themes/contrib/gent_base/gent_base.theme:994
 msgid "@category - All"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:1026 themes/contrib/gent_base/templates/contrib/dg_maps/dg-maps-map-region.html.twig:14
+#: themes/contrib/gent_base/gent_base.theme:1031 themes/contrib/gent_base/templates/contrib/dg_maps/dg-maps-map-region.html.twig:14
 msgid "View on the map"
 msgstr ""
 
@@ -127,8 +127,12 @@ msgstr ""
 msgid "Ghent base theme. Always use a subtheme of this theme."
 msgstr ""
 
-#: themes/contrib/gent_base/build/js/dg_maps.baselayerswitcher-min.js:0 themes/contrib/gent_base/source/js/dg_maps.baselayerswitcher.js:0
+#: themes/contrib/gent_base/source/js/dg_maps.baselayerswitcher.js:0
 msgid "Legend"
+msgstr ""
+
+#: themes/contrib/gent_base/source/js/table.bindings.js:0
+msgid "(Scroll to see more)"
 msgstr ""
 
 #: themes/contrib/gent_base/starterkit/starterkit.info.yml:0
@@ -155,15 +159,15 @@ msgstr ""
 msgid "Chat with Gentinfo"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/contrib/dg_maps/dg-maps-map.html.twig:10
+#: themes/contrib/gent_base/templates/contrib/dg_maps/dg-maps-map.html.twig:9
 msgid "Map"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/contrib/dg_maps/dg-maps-map.html.twig:15
+#: themes/contrib/gent_base/templates/contrib/dg_maps/dg-maps-map.html.twig:14
 msgid "List"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/contrib/dg_maps/dg-maps-map.html.twig:71 themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-popup.html.twig:46 themes/contrib/gent_base/templates/contrib/paragraphs/timeline/paragraph--timeline-item--alt.html.twig:10 themes/contrib/gent_base/templates/core/layout/region--filters.html.twig:28 themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig:54
+#: themes/contrib/gent_base/templates/contrib/dg_maps/dg-maps-map.html.twig:70 themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-popup.html.twig:46 themes/contrib/gent_base/templates/contrib/paragraphs/timeline/paragraph--timeline-item--alt.html.twig:10 themes/contrib/gent_base/templates/core/layout/region--filters.html.twig:28 themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig:54
 msgid "Close"
 msgstr ""
 
@@ -423,10 +427,6 @@ msgstr ""
 
 #: themes/contrib/gent_base/templates/custom/vesta/vesta--teaser.html.twig:43
 msgid "More info and opening hours"
-msgstr ""
-
-#: themes/contrib/gent_base/templates/custom/vesta/vesta.html.twig:29
-msgid "@name - openinghours and addresses"
 msgstr ""
 
 #: themes/contrib/gent_base/templates/custom/vesta/vesta.html.twig:92
