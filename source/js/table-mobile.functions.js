@@ -107,7 +107,8 @@
 
           if (colHeadingsNodeList.length) {
             var term = document.createElement('dt');
-            term.innerHTML = colHeadingsNodeList[j + 1].innerHTML;
+            var index = rowHeadingsNodeList.length ? j + 1 : j;
+            term.innerHTML = colHeadingsNodeList[index].innerHTML;
             defList.appendChild(term);
           }
 
