@@ -8,17 +8,23 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 * SGD8-546: Theming for webforms.
 * SGD8-546: Theming for default drupal throbber.
+* SGD8-926: Script that generates mobile version of tables.
 
 ### Updated
 
 * DTGB-652: Maps theming on mobile devices.
 * SGD8-828: Template suggestion for forms (they're now composed of
-  "hook--form_id") instead of the element ID
+  "hook--form_id") instead of the element ID.
 
   > This should not be breaking since the element ID and form ID are identical
     in 99% of the cases.
 
 * SGD8-903: Added wrapper div around all paragraphs.
+
+### Fixed
+
+* SGD8-1024: Spacing around links in status messages.
+* SGD8-187: Fullscreen not displayed over entire viewport on detail pages.
 
 ## [8.x-3.0-beta1]
 
