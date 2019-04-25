@@ -8,6 +8,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 * SGD8-546: Theming for webforms.
 * SGD8-546: Theming for default drupal throbber.
+* SGD8-926: Script that generates mobile version of tables.
 
 ### Updated
 
@@ -21,6 +22,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 ### Fixed
 
 * SGD8-1024: Spacing around links in status messages.
+* SGD8-187: Fullscreen not displayed over entire viewport on detail pages.
 
 ## [8.x-3.0-beta1]
 

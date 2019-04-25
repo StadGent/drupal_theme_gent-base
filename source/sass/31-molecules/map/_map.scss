@@ -26,6 +26,11 @@ $map-text-color: color('dark-gray');
     max-height: calc(100vh - 2rem);
     overflow: hidden;
 
+
+    &.ol-full-screen-fallback {
+      margin: 0;
+    }
+
     .ol-full-screen-fallback & {
       max-height: 100vh;
     }
@@ -293,6 +298,7 @@ $map-text-color: color('dark-gray');
       border: 0;
       font-size: .8rem;
       filter: none;
+      overflow-y: auto;
 
       @include breakpoint($bp-tablet+1) {
         width: 18rem;
