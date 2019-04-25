@@ -18,6 +18,10 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
   > This should not be breaking since the element ID and form ID are identical
     in 99% of the cases.
 
+### Fixed
+
+* SGD8-187: Fullscreen not displayed over entire viewport on detail pages.
+
 ## [8.x-3.0-beta1]
 
 ### Added
