@@ -55,6 +55,9 @@
   Drupal.dgMaps.ol.interaction.Popup.prototype.openPopup_ = function (coordinate) {
     originalFunction.apply(this, arguments); // Execute the module's function.
 
+    // Make sure the popup isn't bigger than the map viewport
+    this.popupContainer_.style.maxHeight = this.map_.viewport_.clientHeight + 'px';
+
     // When the bottom of the popup is not in the viewport, scroll down.
     this.popupContainer_.scrollIntoView({
       block: 'nearest',
@@ -62,4 +65,3 @@
     });
   };
 })(jQuery, Drupal);
-

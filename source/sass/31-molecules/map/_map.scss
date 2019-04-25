@@ -293,6 +293,7 @@ $map-text-color: color('dark-gray');
       border: 0;
       font-size: .8rem;
       filter: none;
+      overflow-y: auto;
 
       @include breakpoint($bp-tablet+1) {
         width: 18rem;
