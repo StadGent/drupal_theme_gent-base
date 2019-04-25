@@ -13,10 +13,14 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 * DTGB-652: Maps theming on mobile devices.
 * SGD8-828: Template suggestion for forms (they're now composed of
-  "hook--form_id") instead of the element ID
+  "hook--form_id") instead of the element ID.
 
   > This should not be breaking since the element ID and form ID are identical
     in 99% of the cases.
+
+### Fixed
+
+* SGD8-1024: Spacing around links in status messages.
 
 ## [8.x-3.0-beta1]
 
