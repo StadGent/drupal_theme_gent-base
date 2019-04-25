@@ -8,6 +8,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 * SGD8-546: Theming for webforms.
 * SGD8-546: Theming for default drupal throbber.
+* SGD8-926: Script that generates mobile version of tables.
 
 ### Updated
 
