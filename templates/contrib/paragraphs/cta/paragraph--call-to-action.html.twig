@@ -41,7 +41,7 @@
     {% set secondary_type = 'document' %}
   {% endif %}
 
-  <div class="cta-block box-left link">
+  <div class="cta-block box-left {{ content.field_primary_action_type|render|striptags|trim|lower == 'document' ? 'download' : 'link' }}">
     <div class="inner-box">
       <h2>{{ content.title }}</h2>
 
