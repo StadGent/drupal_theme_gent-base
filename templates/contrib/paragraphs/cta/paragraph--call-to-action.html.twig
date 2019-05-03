@@ -25,23 +25,10 @@
 
 {% block paragraph %}
 
-  {% if content.field_primary_action_type|render|striptags|trim|lower == 'link' %}
-    {% set primary_type = 'link' %}
-  {% endif %}
+  {% set primary_type = paragraph.field_primary_action_type.value %}
+  {% set secondary_type = paragraph.field_secondary_action_type.value %}
 
-  {% if content.field_primary_action_type|render|striptags|trim|lower == 'document' %}
-    {% set primary_type = 'document' %}
-  {% endif %}
-
-  {% if content.field_secondary_action_type|render|striptags|trim|lower == 'link' %}
-    {% set secondary_type = 'link' %}
-  {% endif %}
-
-  {% if content.field_secondary_action_type|render|striptags|trim|lower == 'document' %}
-    {% set secondary_type = 'document' %}
-  {% endif %}
-
-  <div class="cta-block box-left {{ content.field_primary_action_type|render|striptags|trim|lower == 'document' ? 'download' : 'link' }}">
+  <div class="cta-block box-left {{ primary_type == 'document' ? 'download' : 'link' }}">
     <div class="inner-box">
       <h2>{{ content.title }}</h2>
 
@@ -50,11 +37,11 @@
       <ul class="links">
         <li>
           {% if primary_type == 'link' %}
-            <a href="{{ content.field_primary_action_link|render|striptags|trim }}" class="button button-primary" title="{{ content.field_primary_action_title|render|striptags|trim }}">{{ content.field_primary_action_title|render|striptags|trim }}</a>
+            <a href="{{ paragraph.field_primary_action_link.value }}" class="button button-primary" title="{{ paragraph.field_primary_action_title.value }}">{{ paragraph.field_primary_action_title.value }}</a>
           {% endif %}
           {% if primary_type == 'document' %}
-            {% if content.field_primary_action_document|render|striptags|trim is not empty %}
-              <a href="{{ primary_document_file_uri }}" class="button" download>{{ content.field_primary_action_title|render|striptags|trim }}</a>
+            {% if paragraph.field_primary_action_document.value is not empty %}
+              <a href="{{ primary_document_file_uri }}" class="button" download>{{ paragraph.field_primary_action_title.value }}</a>
               {% if primary_document_size and primary_document_type %}
                 <span class="file-size">{{ primary_document_type }} ({{ primary_document_size }})</span>
               {% endif %}
@@ -63,11 +50,11 @@
         </li>
         <li>
           {% if secondary_type == 'link' %}
-            <a href="{{ content.field_secondary_action_link|render|striptags|trim }}" class="standalone-link" title="{{ content.field_secondary_action_title|render|striptags|trim }}">{{ content.field_secondary_action_title|render|striptags|trim }}</a>
+            <a href="{{ paragraph.field_secondary_action_link.value }}" class="standalone-link" title="{{ paragraph.field_secondary_action_title.value }}">{{ paragraph.field_secondary_action_title.value }}</a>
           {% endif %}
           {% if secondary_type == 'document' %}
-            {% if content.field_secondary_action_document|render|striptags|trim is not empty %}
-              <a href="{{ secondary_document_file_uri }}" class="standalone-link" download>{{ content.field_secondary_action_title|render|striptags|trim }}</a>
+            {% if paragraph.field_secondary_action_document.value is not empty %}
+              <a href="{{ secondary_document_file_uri }}" class="standalone-link" download>{{ paragraph.field_secondary_action_title.value }}</a>
               {% if secondary_document_size and secondary_document_type %}
                 <span class="file-size">{{ secondary_document_type }} ({{ secondary_document_size }})</span>
               {% endif %}
