@@ -365,7 +365,9 @@ function gent_base_preprocess_form_element(&$variables) {
     $element['#information'] = $element['#help'];
   }
 
-  if (isset($element['#description']) && isset($element['#webform'])) {
+  if (isset($element['#description']) &&
+      isset($element['#webform']) &&
+      $element['#type'] !== 'webform_image_file') {
     $element['#information'] = $element['#description'];
     unset($variables['description']);
   }

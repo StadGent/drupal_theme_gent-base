@@ -104,3 +104,9 @@ maps:
     - dg_maps/style.spiderfier
     - dg_maps/style.cluster
     - dg_maps/style.route
+
+file:
+  version: 1.x
+  js:
+    build/styleguide/js/file.functions-min.js: { minified: true }
+    build/js/file.bindings-min.js: { minified: true }
