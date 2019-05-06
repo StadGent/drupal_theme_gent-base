@@ -3,13 +3,6 @@
  * @file
  * Default theme implementation to display a paragraph.
  *
- * This template supports the field_title on the paragraphs.
- *
- * The paragraphs templates support a paragraph field_title field using the
- * heading field type (@see https://www.drupal.org/project/heading).
- * The heading field type allows adding a text title and selecting the heading
- * size.
- *
  * Available variables:
  * - paragraph: Full paragraph entity.
  *   Only method names starting with "get", "has", or "is" and a few common
@@ -45,14 +38,23 @@
  * @ingroup themeable
  */
 #}
-
+{%
+  set classes = [
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished'
+  ]
+%}
 {% block paragraph %}
-  {% block title %}
-    {% if content.field_title|render|striptags|trim is not empty %}
-      {{ content.field_title }}
-    {% endif %}
-  {% endblock %}
-  {% block content %}
-    {{ content|without('field_title') }}
-  {% endblock %}
+  <div{{attributes.addClass(classes)}}>
+    {% block title %}
+      {% if content.field_title|render|striptags|trim is not empty %}
+        {{ content.field_title }}
+      {% endif %}
+    {% endblock %}
+    {% block content %}
+      {{ content|without('field_title') }}
+    {% endblock %}
+  </div>
 {% endblock paragraph %}

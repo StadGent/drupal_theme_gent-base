@@ -1,0 +1,21 @@
+.detail-layout {
+  > .paragraph--type--map {
+    @include desktop {
+      @include set-layout('width-10', 'offset-1');
+    }
+  }
+
+  > .paragraph--type--image {
+    @include desktop {
+      @include set-layout();
+
+      >.image-gallery--wrapper {
+        @include set-layout('width-7', 'offset-2');
+
+        &.multiple {
+          @include set-layout('width-10', 'offset-1');
+        }
+      }
+    }
+  }
+}
