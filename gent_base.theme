@@ -504,17 +504,16 @@ function gent_base_preprocess_field__field_documents(&$variables) {
  */
 function gent_base_preprocess_field__field_contacts(&$variables) {
   $contacts = $variables['items'];
+  $entity = $variables['element']['#object'];
 
   // Change the view_mode of the contacts if there are more then 3 contacts.
-  if (count($contacts) > 2) {
-    foreach ($contacts as $key => $contact) {
-      $variables["items"][$key]["content"]["#view_mode"] = 'teaser_tiny';
-    }
-  }
-  else {
-    foreach ($contacts as $key => $contact) {
+  foreach ($contacts as $key => $contact) {
+    $view_mode = (count($contacts) > 2) ? 'teaser_tiny' : 'teaser_with_link';
+    if ($view_mode === 'teaser_with_link') {
       $variables['items'][$key]['attributes']->addClass('teaser', 'teaser-contact');
     }
+    $variables['items'][$key]['content']['#view_mode'] = $view_mode;
+    $variables['items'][$key]['content']['#cache']['tags'] = $entity->getCacheTags();
   }
 }
 
