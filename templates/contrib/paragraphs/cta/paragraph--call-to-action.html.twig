@@ -37,7 +37,7 @@
       <ul class="links">
         <li>
           {% if primary_type == 'link' %}
-            <a href="{{ paragraph.field_primary_action_link.value }}" class="button button-primary" title="{{ paragraph.field_primary_action_title.value }}">{{ paragraph.field_primary_action_title.value }}</a>
+            <a href="{{ paragraph.field_primary_action_link.value|first.uri }}" class="button button-primary" title="{{ paragraph.field_primary_action_title.value }}">{{ paragraph.field_primary_action_title.value }}</a>
           {% endif %}
           {% if primary_type == 'document' %}
             {% if paragraph.field_primary_action_document.value is not empty %}
