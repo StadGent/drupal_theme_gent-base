@@ -579,7 +579,7 @@ function gent_base_preprocess_file_link(&$variables) {
     $variables['file_size'] = format_size($file->getSize());
     $variables['file_type'] = $filenameParts[count($filenameParts) - 1];
     $options['attributes']['class'][] = 'standalone-link';
-    $options['attributes']['download'][] = 'download';
+    $options['attributes']['download'][] = $file->getFilename();
 
     // Use the filename as label if no description is set.
     $label = !empty($variables['description'])
