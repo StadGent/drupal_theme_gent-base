@@ -34,8 +34,11 @@
 
       <p>{{ content.field_description }}</p>
 
+      {% if secondary_type %}
       <ul class="links">
         <li>
+      {% endif %}
+
           {% if primary_type == 'link' %}
             <a href="{{ paragraph.field_primary_action_link.value|first.uri }}" class="button button-primary" title="{{ paragraph.field_primary_action_title.value }}">{{ paragraph.field_primary_action_title.value }}</a>
           {% endif %}
@@ -43,25 +46,32 @@
             {% if paragraph.field_primary_action_document.value is not empty %}
               <a href="{{ primary_document_file_uri }}" class="button" download>{{ paragraph.field_primary_action_title.value }}</a>
               {% if primary_document_size and primary_document_type %}
-                <span class="file-size">{{ primary_document_type }} ({{ primary_document_size }})</span>
+                <span class="file-size">{{ primary_document_type }}
+                  ({{ primary_document_size }})</span>
               {% endif %}
             {% endif %}
           {% endif %}
+
+      {% if secondary_type %}
         </li>
         <li>
+
           {% if secondary_type == 'link' %}
-            <a href="{{ paragraph.field_secondary_action_link.value }}" class="standalone-link" title="{{ paragraph.field_secondary_action_title.value }}">{{ paragraph.field_secondary_action_title.value }}</a>
+            <a href="{{ paragraph.field_secondary_action_link.value|first.uri }}" class="standalone-link" title="{{ paragraph.field_secondary_action_title.value }}">{{ paragraph.field_secondary_action_title.value }}</a>
           {% endif %}
           {% if secondary_type == 'document' %}
             {% if paragraph.field_secondary_action_document.value is not empty %}
               <a href="{{ secondary_document_file_uri }}" class="standalone-link" download>{{ paragraph.field_secondary_action_title.value }}</a>
               {% if secondary_document_size and secondary_document_type %}
-                <span class="file-size">{{ secondary_document_type }} ({{ secondary_document_size }})</span>
+                <span class="file-size">{{ secondary_document_type }}
+                  ({{ secondary_document_size }})</span>
               {% endif %}
             {% endif %}
           {% endif %}
+
         </li>
       </ul>
+      {% endif %}
     </div>
   </div>
 {% endblock paragraph %}
