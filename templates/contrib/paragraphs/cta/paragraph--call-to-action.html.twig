@@ -46,8 +46,7 @@
             {% if paragraph.field_primary_action_document.value is not empty %}
               <a href="{{ primary_document_file_uri }}" class="button" download>{{ paragraph.field_primary_action_title.value }}</a>
               {% if primary_document_size and primary_document_type %}
-                <span class="file-size">{{ primary_document_type }}
-                  ({{ primary_document_size }})</span>
+                <span class="file-size">{{ primary_document_type }} ({{ primary_document_size }})</span>
               {% endif %}
             {% endif %}
           {% endif %}
@@ -63,8 +62,7 @@
             {% if paragraph.field_secondary_action_document.value is not empty %}
               <a href="{{ secondary_document_file_uri }}" class="standalone-link" download>{{ paragraph.field_secondary_action_title.value }}</a>
               {% if secondary_document_size and secondary_document_type %}
-                <span class="file-size">{{ secondary_document_type }}
-                  ({{ secondary_document_size }})</span>
+                <span class="file-size">{{ secondary_document_type }} ({{ secondary_document_size }})</span>
               {% endif %}
             {% endif %}
           {% endif %}
