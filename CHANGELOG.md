@@ -29,6 +29,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 * DTGB-719: Use download icon in call-to-action paragraph.
 * SGD8-1049: Consistently print full url in call-to-action paragraphs.
 * Form steps layout in multistep forms
+* Theming for help block in detail-layout
 
 ## [8.x-3.0-beta1]
 

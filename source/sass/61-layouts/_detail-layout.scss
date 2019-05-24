@@ -1,12 +1,10 @@
 .detail-layout {
+  @include desktop {
   > .paragraph--type--map {
-    @include desktop {
       @include set-layout('width-10', 'offset-1');
-    }
   }
 
   > .paragraph--type--image {
-    @include desktop {
       @include set-layout();
 
       >.image-gallery--wrapper {
@@ -14,6 +12,18 @@
 
         &.multiple {
           @include set-layout('width-10', 'offset-1');
+        }
+      }
+    }
+
+    > .paragraph--type--block {
+      @include set-layout();
+
+      > .help-block {
+        @include set-layout('width-9', 'offset-1');
+
+        > * {
+          @include set-layout('width-7', 'offset-1', 'columns-9');
         }
       }
     }
