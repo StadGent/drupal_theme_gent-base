@@ -18,4 +18,14 @@
       }
     }
   }
+
+  // @TODO: remove this when the styleguide version is upgraded.
+  > .programme-wrapper {
+    @include full-width;
+    @include breakpoint($bp-container) {
+      margin-left: -$bp-container / 2;
+    }
+
+    max-width: $bp-container;
+  }
 }
