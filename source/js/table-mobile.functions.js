@@ -133,6 +133,10 @@
      * Add the table caption as a description to the definition lists.
      */
     var addListDescription = function () {
+      if (!caption) {
+        return;
+      }
+
       var description = document.createElement('div');
       description.classList.add('list-description');
       description.setAttribute('id', 'list-description');
