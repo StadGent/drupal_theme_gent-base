@@ -18,4 +18,16 @@
       }
     }
   }
+
+  // @TODO: remove this when the styleguide version is upgraded.
+  > .quote-wrapper {
+    > .quote {
+      width: 100%;
+      margin-left: 0;
+
+      > blockquote {
+        @include set-layout('width-9', 'offset-1');
+      }
+    }
+  }
 }

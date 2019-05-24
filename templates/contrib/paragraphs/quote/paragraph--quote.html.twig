@@ -3,11 +3,12 @@
 {% block paragraph %}
   {%
     set classes = [
-      'quote',
+      'quote-wrapper',
     ]
   %}
-  <div class="quote-wrapper">
-    <div{{ attributes.addClass(classes) }}>
+
+  <div{{ attributes.addClass(classes) }}>
+    <div class="quote">
       <blockquote>
         {% block content %}
           <div class="content">
@@ -23,4 +24,5 @@
       </blockquote>
     </div>
   </div>
+
 {% endblock paragraph %}

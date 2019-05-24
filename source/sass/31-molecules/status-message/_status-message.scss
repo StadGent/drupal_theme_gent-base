@@ -1,4 +1,9 @@
 .messages {
   background-image: none;
   box-shadow: none;
+
+  // @TODO: remove this when the styleguide version is upgraded.
+  :not([class*="icon-"]) {
+    align-self: center;
+  }
 }
