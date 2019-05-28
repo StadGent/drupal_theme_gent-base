@@ -30,6 +30,8 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 * SGD8-1049: Consistently print full url in call-to-action paragraphs.
 * Form steps layout in multistep forms
 * Theming for help block in detail-layout
+* SGD8-629: Display checkbox popup over entire width of the page.
+* SGD8-629: Bind checkbox_filter only once.
 
 ## [8.x-3.0-beta1]
 
