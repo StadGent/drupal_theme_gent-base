@@ -30,7 +30,10 @@
           <img src="{{ default_picture_url }}" alt="{{ username }}" />
           <div class="profile-info">
             <span>{{ username }}</span>
-            <a href="#" class="button button-primary button-small">{{ 'Show profile'|t }}</a>
+
+            {% if profile_url %}
+              <a href="{{ profile_url }}" class="button button-primary button-small">{{ 'Show profile'|t }}</a>
+            {% endif %}
           </div>
         </section>
         {{ menu }}

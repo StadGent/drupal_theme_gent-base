@@ -28,8 +28,9 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 * SGD8-187: Fullscreen not displayed over entire viewport on detail pages.
 * DTGB-719: Use download icon in call-to-action paragraph.
 * SGD8-1049: Consistently print full url in call-to-action paragraphs.
-* Form steps layout in multistep forms
-* Theming for help block in detail-layout
+* Form steps layout in multistep forms.
+* Theming for help block in detail-layout.
+* SGD8-1102: Added correct link to profile in dg-auth block.
 
 ## [8.x-3.0-beta1]
 
