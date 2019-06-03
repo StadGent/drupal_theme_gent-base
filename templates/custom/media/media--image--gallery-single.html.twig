@@ -26,8 +26,6 @@
   {{ title_suffix.contextual_links }}
   <figure>
     {{ content.field_media_image }}
-    {% if content.field_media_caption|render|trim is not empty %}
-      <figcaption>{{ content.field_media_caption }}</figcaption>
-    {% endif %}
+    {{ content.field_media_caption }}
   </figure>
 </a>
