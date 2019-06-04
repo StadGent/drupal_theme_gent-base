@@ -2,7 +2,7 @@
  * @file
  * Filter component binding.
  */
-(function (Drupal) {
+(function ($, Drupal) {
   'use strict';
 
   Drupal.behaviors.gentBaseLoadCheckboxFilters = {
@@ -11,18 +11,17 @@
         return;
       }
 
-      var selected = document.querySelectorAll('.checkbox-filter');
-      for (var i = selected.length; i--;) {
-        new CheckboxFilter(selected[i], { // eslint-disable-line no-undef
+      $('.checkbox-filter', context).once('checkbox-filter').each(function () {
+        new CheckboxFilter(this, { // eslint-disable-line no-undef
           checkboxes: '.facet-item.checkbox',
           hiddenTagText: 'Remove tag',
           countSpan: '.checkbox-filter__count-wrapper em',
           resultSpan: '.checkbox-filter__result-wrapper em',
           onRemoveTag: function (checkbox) {
-            jQuery(checkbox).trigger('change.facets');
+            $(checkbox).trigger('change.facets');
           }
         });
-      }
+      });
     }
   };
-})(Drupal);
+})(jQuery, Drupal);
