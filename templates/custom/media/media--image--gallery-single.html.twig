@@ -16,8 +16,8 @@
 <a{{ attributes }}
   href="{{ gallery_full_url|default(file_url(content.field_media_image.0['#item'].entity.uri.value)) }}"
   class="gallery-link"
-  {% if content.field_media_caption|render|trim is not empty %}
-  aria-label="{{ content.field_media_caption }}"
+  {% if not media.field_media_caption.isEmpty %}
+  aria-label="{{ media.field_media_caption.value }}"
   aria-describedby="image-gallery__open-gallery"
   {% else %}
   aria-labelledby="image-gallery__open-gallery"
