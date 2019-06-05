@@ -12,6 +12,7 @@ use Drupal\image\Entity\ImageStyle;
 use Drupal\paragraphs\Entity\Paragraph;
 use Drupal\Core\Url;
 use Drupal\Core\Link;
+use Drupal\webform\Entity\Webform;
 
 include __DIR__ . '/theme.inc';
 
@@ -37,8 +38,9 @@ function gent_base_form_alter(&$form, FormStateInterface $form_state, $form_id) 
     $form['actions']['delete']['#attributes']['class'][] = 'right';
   }
 
-  if (isset($form['#entity_type']) && $form['#entity_type'] === 'webform_submission') {
+  if (isset($form['#webform_id'])) {
     $form['#pre_render'][] = '_gent_base_webform_pre_render';
+    $form['#after_build'][] = '_gent_base_webform_after_build';
     $form['#after_build'][] = '_gent_base_webform_multistep_after_build';
   }
 }
@@ -62,7 +64,7 @@ function _gent_base_webform_pre_render(array $form) {
 }
 
 /**
- * After_build function form multistep webforms.
+ * After_build function for multistep webforms.
  *
  * @param array $form
  *   Render array of the webform.
@@ -95,6 +97,28 @@ function _gent_base_webform_multistep_after_build(array $form, FormStateInterfac
   ];
 
   unset($form['actions']);
+  return $form;
+}
+
+/**
+ * After_build function for webforms.
+ *
+ * @param array $form
+ *   Render array of the webform.
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ *   Current state of the form.
+ *
+ * @return mixed
+ *   Altered render array.
+ */
+function _gent_base_webform_after_build(array $form, FormStateInterface $form_state) {
+  if (isset($form['progress'])) {
+    return $form;
+  }
+
+  $webform = Webform::load($form["#webform_id"]);
+  _gent_base_add_webform_header($form['elements'], $webform->label());
+
   return $form;
 }
 

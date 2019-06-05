@@ -167,27 +167,40 @@ function _gent_base_add_webform_step_title(array &$form) {
       continue;
     }
 
-    // Generate the markup.
-    $build = [];
+    _gent_base_add_webform_header($step, $step['#title']);
+  }
+}
+
+/**
+ * Adds the step title to the step for webforms with multiple pages.
+ *
+ * @param array $form
+ *   Render array for the form.
+ */
+function _gent_base_add_webform_header(array &$form, $title = NULL) {
+  $build = [];
+
+  if (isset($title)) {
     $build['heading'] = [
       '#type' => 'html_tag',
       '#tag' => 'h2',
       '#parents' => [],
-      '#value' => $step['#title'],
+      '#value' => $title,
+    ];
+  }
+
+  if (_gent_base_count_input_fields($form) > 0) {
+    $build['disclaimer'] = [
+      '#type' => 'html_tag',
+      '#tag' => 'p',
+      '#parents' => [],
+      '#value' => t('Fill in all fields unless otherwise stated.'),
+      '#attributes' => ['class' => ['form-disclaimer']],
     ];
 
-    if (_gent_base_count_input_fields($step) > 0) {
-      $build['disclaimer'] = [
-        '#type' => 'html_tag',
-        '#tag' => 'p',
-        '#parents' => [],
-        '#value' => t('Fill in all fields unless otherwise stated.'),
-        '#attributes' => ['class' => ['form-disclaimer']],
-      ];
-    }
-
-    $step = array_merge($build, $step);
   }
+
+  $form = array_merge($build, $form);
 }
 
 /**
