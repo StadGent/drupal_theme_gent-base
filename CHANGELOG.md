@@ -21,6 +21,8 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
     in 99% of the cases.
 
 * SGD8-903: Added wrapper div around all paragraphs.
+* Attributes in `block--system-branding-block.html.twig` are now more
+  configurable.
 
 ### Fixed
 
