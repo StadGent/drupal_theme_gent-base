@@ -414,6 +414,10 @@ function gent_base_preprocess_webform_element_help(&$variables) {
  */
 function gent_base_preprocess_fieldset(&$variables) {
   $element = &$variables['element'];
+  if (isset($element['#description'])) {
+    $element['#information'] = $element['#description'];
+  }
+
   if ($element['#type'] === 'fieldset' && empty($element['#required'])) {
     $variables['fieldset_optional'] = TRUE;
   }
