@@ -112,7 +112,7 @@
         {{ label }}
       {% endif %}
 
-      {% if description_display in ['after', 'invisible'] and description.content %}
+      {% if description.content %}
         <div{{ description.attributes.addClass(description_classes) }}>
           {{ description.content }}
         </div>

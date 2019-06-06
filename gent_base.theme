@@ -370,9 +370,9 @@ function gent_base_preprocess_element_information(array &$variables) {
   $variables['information'] = NULL;
 
   if (!empty($element['#information'])) {
-    $information_attributes = [];
-    if (!empty($element['#id'])) {
-      $information_attributes['id'] = $element['#id'] . '--information';
+    $information_attributes = $element['#information_attributes'] ?? [];
+    if (!empty($element['#attributes']['id'])) {
+      $information_attributes['id'] = $element['#attributes']['id'] . '--description';
     }
 
     $variables['information']['attributes'] = new Attribute($information_attributes);
