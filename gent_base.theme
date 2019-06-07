@@ -7,6 +7,7 @@
 
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Template\Attribute;
+use Drupal\Core\Render\Element;
 use Drupal\Component\Utility\Html;
 use Drupal\image\Entity\ImageStyle;
 use Drupal\paragraphs\Entity\Paragraph;
@@ -14,7 +15,8 @@ use Drupal\Core\Url;
 use Drupal\Core\Link;
 use Drupal\webform\Entity\Webform;
 
-include __DIR__ . '/theme.inc';
+include __DIR__ . '/includes/theme.inc';
+include __DIR__ . '/includes/form.inc';
 
 /**
  * Implements hook_form_FORM_ID_alter().
@@ -40,8 +42,6 @@ function gent_base_form_alter(&$form, FormStateInterface $form_state, $form_id) 
 
   if (isset($form['#webform_id'])) {
     $form['#pre_render'][] = '_gent_base_webform_pre_render';
-    $form['#after_build'][] = '_gent_base_webform_after_build';
-    $form['#after_build'][] = '_gent_base_webform_multistep_after_build';
   }
 }
 
@@ -59,65 +59,6 @@ function _gent_base_webform_pre_render(array $form) {
   if (isset($form['elements'])) {
     _gent_base_loop_webform_elements($form['elements']);
   }
-
-  return $form;
-}
-
-/**
- * After_build function for multistep webforms.
- *
- * @param array $form
- *   Render array of the webform.
- * @param \Drupal\Core\Form\FormStateInterface $form_state
- *   Current state of the form.
- *
- * @return mixed
- *   Altered render array.
- */
-function _gent_base_webform_multistep_after_build(array $form, FormStateInterface $form_state) {
-  if (!isset($form['progress'])) {
-    return $form;
-  }
-
-  _gent_base_add_webform_step_title($form);
-
-  // Modify markup.
-  $form['#attributes']['class'][] = 'form--multistep';
-  $form['elements'][] = $form['actions'];
-
-  $form['elements'] = [
-    '#type' => 'container',
-    '#parents' => [],
-    '#attributes' => [
-      'class' => [
-        'form-content',
-      ],
-    ],
-    'elements' => $form['elements'],
-  ];
-
-  unset($form['actions']);
-  return $form;
-}
-
-/**
- * After_build function for webforms.
- *
- * @param array $form
- *   Render array of the webform.
- * @param \Drupal\Core\Form\FormStateInterface $form_state
- *   Current state of the form.
- *
- * @return mixed
- *   Altered render array.
- */
-function _gent_base_webform_after_build(array $form, FormStateInterface $form_state) {
-  if (isset($form['progress'])) {
-    return $form;
-  }
-
-  $webform = Webform::load($form["#webform_id"]);
-  _gent_base_add_webform_header($form['elements'], $webform->label());
 
   return $form;
 }
@@ -837,6 +778,10 @@ function gent_base_theme_suggestions_alter(array &$suggestions, array $variables
     }
   }
 
+  if ($original_theme_hook === 'webform' && isset($variables['element']['progress'])) {
+    $suggestions[] = $original_theme_hook . '__multistep';
+  }
+
   return $suggestions;
 }
 
@@ -1059,4 +1004,24 @@ function gent_base_preprocess_dg_maps_map(&$variables) {
     'img_base' => drupal_get_path('theme', 'gent_base') . '/source/img/',
     'legend_title' => t('View on the map'),
   ];
+}
+
+/**
+ * Implements hook_preprocess_webform().
+ */
+function gent_base_preprocess_webform(&$variables) {
+  $element = $variables['element'];
+  $children = Element::children($element);
+  $webform = Webform::load($element["#webform_id"]);
+
+  // Add elements to template variables.
+  foreach ($children as $key) {
+    $variables['content'][$key] = $element[$key];
+  }
+
+  // Add title variable.
+  $variables['title'] = $webform->label();
+
+  // Check if the form has input fields.
+  $variables['has_inputs'] = _gent_base_count_webform_inputs($element['elements']) > 0;
 }
