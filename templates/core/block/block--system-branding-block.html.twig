@@ -12,9 +12,21 @@
  * - site_slogan: Slogan for site as defined in Site information settings.
  */
 #}
+
+{% set attributes = create_attribute({
+  'href': path('<front>'),
+  'title': 'Home'|t,
+  'rel': 'home'
+}) %}
+
+{% set classes = [
+  'site-logo',
+  'subsite'
+] %}
+
 {% block content %}
   {% if site_logo %}
-    <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home" class="site-logo subsite">
+    <a {{ attributes.addClass(classes) }}>
       {{ site_name }}
     </a>
   {% endif %}
