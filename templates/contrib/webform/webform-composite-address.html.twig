@@ -1,0 +1,27 @@
+{#
+/**
+ * @file
+ * Default theme implementation of an address composite webform element.
+ *
+ * Available variables:
+ * - content: The address webform element to be output.
+ * - flexbox: Determines if Flexbox layout should be applied to the composite
+ *   element.
+ *
+ * @see template_preprocess_webform_composite_address()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{{ content.address }}
+
+{# Display city and postal_code next to each other #}
+{% if content.city and content.postal_code %}
+  <div class="form-row">
+    {{ content.postal_code|merge({'#stacked': true}) }}
+    {{ content.city|merge({'#stacked': true}) }}
+  </div>
+{% endif %}
+
+{{ content|without('address', 'city', 'postal_code') }}

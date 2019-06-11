@@ -31,3 +31,14 @@ textarea {
   @include theme('color', 'color-tertiary--lighten-1', 'form-description-color');
   font-size: .6rem;
 }
+
+.form-item .form-item.stacked {
+  &,
+  .form-columns {
+    margin-bottom: 0;
+  }
+}
+
+.field-message em.placeholder {
+  font-style: initial;
+}

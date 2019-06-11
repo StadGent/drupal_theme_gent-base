@@ -89,7 +89,7 @@
     </div>
   {% endif %}
 
-  {% if information %}
+  {% if information and label_display != 'after' %}
     <div{{ information.attributes.addClass(information_classes) }}>
       {{ information.content }}
       <div class="accolade"></div>
@@ -100,7 +100,10 @@
   <div class="form-columns">
     <div class="{{ has_row ? 'form-row' : 'form-item-column' }}">
   {% endif %}
+    {% if not has_row %}
       <div class="{{ element['#type'] }}">
+    {% endif %}
+
       {% if prefix is not empty %}
         <span class="field-prefix">{{ prefix }}</span>
       {% endif %}
@@ -112,24 +115,34 @@
         {{ label }}
       {% endif %}
 
-      {% if description_display in ['after', 'invisible'] and description.content %}
+      {% if description.content %}
         <div{{ description.attributes.addClass(description_classes) }}>
           {{ description.content }}
         </div>
       {% endif %}
+
+      {% if information and label_display == 'after' %}
+        <div{{ information.attributes.addClass(information_classes) }}>
+          {{ information.content }}
+          <div class="accolade"></div>
+        </div>
+      {% endif %}
+
+    {% if not has_row %}
       </div>
+    {% endif %}
 
     {% if not in_fieldset %}
     </div>
     {% endif %}
-    {% if errors %}
-      <div class="form-item-column">
-        <div class="field-message error">
-          {{ errors }}
-          <div class="accolade"></div>
-        </div>
-      </div>
-    {% endif %}
+    <div class="form-item-column">
+      {% if errors %}
+          <div class="field-message error">
+            {{ errors }}
+            <div class="accolade"></div>
+          </div>
+      {% endif %}
+    </div>
 
   {% if not in_fieldset %}
   </div>
