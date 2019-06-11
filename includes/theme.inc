@@ -46,7 +46,7 @@ function gent_base_is_view_mode($key) {
  *   The field to get the referenced file file size from.
  *
  * @return array|null
- *   The file size of the document in bytes.
+ *   Array containing the file_size, file_uri and file_type.
  *
  * @throws \Drupal\Core\TypedData\Exception\MissingDataException
  */

@@ -26,6 +26,7 @@ function _gent_base_count_webform_inputs(array $elements) {
       continue;
     }
 
+    // Only input elements have a #value property.
     if (!isset($field['#value'])) {
       continue;
     }
