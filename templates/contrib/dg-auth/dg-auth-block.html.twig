@@ -18,7 +18,7 @@
 
   <div class="user-logged-in">
     <button aria-expanded="false" aria-controls="mijn_gent_content" class="toggle accordion--button">
-      <span class="avatar">{{ username }}</span>
+      <span class="avatar" aria-hidden="true">{{ username }}</span>
       <span>{{ username }}</span>
     </button>
 
@@ -26,7 +26,7 @@
       <div class="content">
         <h2>{{ 'Mijn Gent'|t }}</h2>
         <section class="profile">
-          <span class="avatar">{{ username }}</span>
+          <span class="avatar" aria-hidden="true">{{ username }}</span>
           <div class="profile-info">
             <span>{{ username }}</span>
 
