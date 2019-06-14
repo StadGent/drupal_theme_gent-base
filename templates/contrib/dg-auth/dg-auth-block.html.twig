@@ -7,7 +7,6 @@
   ]
 %}
 
-
 <div{{ attributes.addClass(classes) }}>
   {% if login_link %}
     <div class="user-anonymous clearfix">
@@ -19,7 +18,7 @@
 
   <div class="user-logged-in">
     <button aria-expanded="false" aria-controls="mijn_gent_content" class="toggle accordion--button">
-      <img src="{{ default_picture_url }}" alt="{{ username }}" />
+      <span class="avatar">{{ username }}</span>
       <span>{{ username }}</span>
     </button>
 
@@ -27,7 +26,7 @@
       <div class="content">
         <h2>{{ 'Mijn Gent'|t }}</h2>
         <section class="profile">
-          <img src="{{ default_picture_url }}" alt="{{ username }}" />
+          <span class="avatar">{{ username }}</span>
           <div class="profile-info">
             <span>{{ username }}</span>
 
