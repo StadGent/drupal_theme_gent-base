@@ -35,6 +35,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 * SGD8-1102: Added correct link to profile in dg-auth block.
 * SGD8-629: Display checkbox popup over entire width of the page.
 * SGD8-629: Bind checkbox_filter only once.
+* SGD8-1102: Avatar for mijn-gent block.
 
 ## [8.x-3.0-beta1]
 
