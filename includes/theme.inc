@@ -70,7 +70,14 @@ function _gent_base_get_entity_reference_file_data(&$variables, $field) {
     return;
   }
 
-  $file = $media->get('field_media_file')->getValue();
+  // Some Drupal 7 CTA's contained a link to an image (instead of a document).
+  $file = NULL;
+  if ($media->hasField('field_media_file')) {
+    $file = $media->get('field_media_file')->getValue();
+  }
+  elseif ($media->hasField('field_media_image')) {
+    $file = $media->get('field_media_image')->getValue();
+  }
   if (empty($file[0]['target_id'])) {
     return;
   }
