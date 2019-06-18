@@ -6,6 +6,20 @@ All Notable changes to `digipolisgent/gent_base`.
 
 ## [Unreleased]
 
+## [7.x-2.12]
+### Changed
+
+* Improved accessibility of gent auth bar popup menu.
+
+## [7.x-2.11]
+### Changed
+
+* Changed tone of voice in Dutch translations.
+
+## [7.x-2.10]
+### Changed
+
+* Stuff added and fixed. See commits.
 
 ## [7.x-2.9]
 ### Changed
@@ -95,9 +109,16 @@ These changes include:
 * GENTBE-2093: Removed font-smoothing, text-rendering css rules (we don't need blurry font rendering).
 
 
-[Unreleased]: https://bitbucket.org/digipolisgent/drupal_theme_gent-base/branches/compare/7.x-2.x-dev%0D7.x-2.x
-[7.x-2.5]: https://bitbucket.org/digipolisgent/drupal_theme_gent-base/branches/compare/7.x-2.5%0D7.x-7.x-2.4#diff
-[7.x-2.4]: https://bitbucket.org/digipolisgent/drupal_theme_gent-base/branches/compare/7.x-2.4%0D7.x-7.x-2.3#diff
-[7.x-2.3]: https://bitbucket.org/digipolisgent/drupal_theme_gent-base/branches/compare/7.x-2.3%0D7.x-7.x-2.2#diff
-[7.x-2.2]: https://bitbucket.org/digipolisgent/drupal_theme_gent-base/branches/compare/7.x-2.2%0D7.x-2.1#diff
-[7.x-2.1]: https://bitbucket.org/digipolisgent/drupal_theme_gent-base/commits/tag/7.x-2.1
+[Unreleased]: https://github.com/StadGent/drupal_theme_gent-base/compare/7.x-2.x...7.x-2.x-dev
+[7.x-2.12]: https://github.com/StadGent/drupal_theme_gent-base/compare/7.x-2.11...7.x-2.12
+[7.x-2.11]: https://github.com/StadGent/drupal_theme_gent-base/compare/7.x-2.10...7.x-2.11
+[7.x-2.10]: https://github.com/StadGent/drupal_theme_gent-base/compare/7.x-2.9...7.x-2.10
+[7.x-2.9]: https://github.com/StadGent/drupal_theme_gent-base/compare/7.x-2.8...7.x-2.9
+[7.x-2.8]: https://github.com/StadGent/drupal_theme_gent-base/compare/7.x-2.7...7.x-2.8
+[7.x-2.7]: https://github.com/StadGent/drupal_theme_gent-base/compare/7.x-2.6...7.x-2.7
+[7.x-2.6]: https://github.com/StadGent/drupal_theme_gent-base/compare/7.x-2.5...7.x-2.6
+[7.x-2.5]: https://github.com/StadGent/drupal_theme_gent-base/compare/7.x-2.4...7.x-2.5
+[7.x-2.4]: https://github.com/StadGent/drupal_theme_gent-base/compare/7.x-2.3...7.x-2.4
+[7.x-2.3]: https://github.com/StadGent/drupal_theme_gent-base/compare/7.x-2.2...7.x-2.3
+[7.x-2.2]: https://github.com/StadGent/drupal_theme_gent-base/compare/7.x-2.1...7.x-2.2
+[7.x-2.1]: https://github.com/StadGent/drupal_theme_gent-base/tree/7.x-2.1
