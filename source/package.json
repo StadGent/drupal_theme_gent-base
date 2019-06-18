@@ -9,13 +9,11 @@
   "license": "ISC",
   "devDependencies": {
     "del": "^3.0.0",
-    "gulp": "^4.0.0",
-    "gulp-eslint": "^4.0.0",
+    "gulp": "^4.0.2",
+    "gulp-eslint": "^5.0.0",
     "gulp-minify": "^3.1.0",
     "gulp-plumber": "^1.1.0",
-    "gulp-rename": "^1.2.2",
-    "npm": "^5.4.2",
-    "yargs": "^8.0.2"
+    "gulp-rename": "^1.2.2"
   },
   "scripts": {
     "start": "gulp",
@@ -26,7 +24,6 @@
   },
   "private": true,
   "dependencies": {
-    "gent_styleguide": "^3.0.0-beta6",
-    "yarn": "^1.3.2"
+    "gent_styleguide": "^3.0.0-beta6"
   }
 }
