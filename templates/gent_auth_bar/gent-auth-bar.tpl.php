@@ -6,7 +6,7 @@
  */
 ?>
 <div id="gent-auth-bar" class="<?php print $classes; ?>">
-  <div class="bar-wrapper">
+  <div tabindex="0" class="bar-wrapper">
     <?php if ($login_active) : ?>
       <div class="login element-hidden">
         <a href="<?php print $login_url; ?>" class="picture-wrapper">
