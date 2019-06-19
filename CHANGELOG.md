@@ -23,6 +23,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 * SGD8-903: Added wrapper div around all paragraphs.
 * Attributes in `block--system-branding-block.html.twig` are now more
   configurable.
+* SGD8-239: Refactored call-to-action paragraph template.
 
 ### Fixed
 

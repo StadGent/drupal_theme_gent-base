@@ -929,16 +929,46 @@ function gent_base_preprocess_pager(&$variables) {
  * Implements hook_preprocess_HOOK().
  */
 function gent_base_preprocess_paragraph__call_to_action(&$variables) {
-  $primary_document_data = _gent_base_get_entity_reference_file_data($variables, 'field_primary_action_document');
-  $secondary_document_data = _gent_base_get_entity_reference_file_data($variables, 'field_secondary_action_document');
+  $paragraph = $variables['paragraph'];
+  $fields = [
+    'field_primary_action',
+    'field_secondary_action',
+  ];
 
-  $variables['primary_document_size'] = format_size($primary_document_data['file_size']);
-  $variables['primary_document_file_uri'] = file_create_url($primary_document_data['file_uri']);
-  $variables['primary_document_type'] = $primary_document_data['file_type'];
+  foreach ($fields as $i => $field) {
+    if (!$paragraph->get($field . '_type')->isEmpty()) {
+      $action = [
+        '#type' => 'link',
+        '#title' => $paragraph->get($field . '_title')->value,
+        '#attributes' => [
+          'class' => $i > 0 ? ['standalone-link'] : ['button', 'button-primary'],
+        ],
+      ];
 
-  $variables['secondary_document_size'] = format_size($secondary_document_data['file_size']);
-  $variables['secondary_document_file_uri'] = file_create_url($secondary_document_data['file_uri']);
-  $variables['secondary_document_type'] = $secondary_document_data['file_type'];
+      if ($paragraph->get($field . '_type')->value === 'link') {
+        $action['#url'] = $paragraph->get($field . '_link')->first()->getUrl();
+      }
+      else {
+        $data = _gent_base_get_entity_reference_file_data($variables, $field . '_document');
+        $action['#url'] = Url::fromUri($data['file_uri']);
+        $action['#attributes']['download'] = TRUE;
+
+        $variables['content'][$field . '_size'] = [
+          '#type' => 'html_tag',
+          '#tag' => 'span',
+          '#value' => $data['file_type'] . ' <span class="file-size">(' . $data['file_size'] . ')</span>',
+          '#attributes' => ['class' => 'file-type'],
+        ];
+      }
+
+      $variables['content'][$field] = $action;
+    }
+
+    unset($variables['content'][$field . '_link']);
+    unset($variables['content'][$field . '_document']);
+    unset($variables['content'][$field . '_type']);
+    unset($variables['content'][$field . '_title']);
+  }
 }
 
 /**
