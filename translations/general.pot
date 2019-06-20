@@ -233,7 +233,7 @@ msgstr ""
 msgid "Steps in this wizard"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/block/block--article-aside-top.html.twig:38 themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:147 themes/contrib/gent_base/templates/custom/vesta/vesta.html.twig:150
+#: themes/contrib/gent_base/templates/core/block/block--article-aside-top.html.twig:38 themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:147 themes/contrib/gent_base/templates/custom/vesta/vesta.html.twig:157
 msgid "Also interesting"
 msgstr ""
 
@@ -385,7 +385,7 @@ msgstr ""
 msgid "Contacts"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:123 themes/contrib/gent_base/templates/custom/nodes/node--terrain--default.html.twig:14 themes/contrib/gent_base/templates/custom/vesta/vesta.html.twig:140
+#: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:123 themes/contrib/gent_base/templates/custom/nodes/node--terrain--default.html.twig:14 themes/contrib/gent_base/templates/custom/vesta/vesta.html.twig:147
 msgid "Location"
 msgstr ""
 
@@ -437,7 +437,11 @@ msgstr ""
 msgid "Extra information"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/custom/vesta/vesta.html.twig:153
+#: themes/contrib/gent_base/templates/custom/vesta/vesta.html.twig:140
+msgid "Accessibility"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/custom/vesta/vesta.html.twig:160
 msgid "View all locations from"
 msgstr ""
 
