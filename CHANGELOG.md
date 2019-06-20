@@ -15,7 +15,6 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 * DTGB-652: Maps theming on mobile devices.
 * SGD8-828: Template suggestion for forms (they're now composed of
   "hook--form_id") instead of the element ID.
-  
   > This should not be breaking since the element ID and form ID are identical
     in 99% of the cases.
 * DTGB-723: Added new field to vesta template.
