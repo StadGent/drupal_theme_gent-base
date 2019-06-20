@@ -39,16 +39,18 @@
  */
 #}
 
+{% extends "paragraph.html.twig" %}
+
 {% set primary_type = paragraph.field_primary_action_type.value %}
 
-{% set classes = [
+{% set custom_classes = [
   'cta-block',
   'box-left',
   primary_type == 'document' ? 'download' : 'link'
 ] %}
 
 {% block paragraph %}
-  <div{{ attributes.addClass(classes) }}>
+  <div{{ attributes.addClass(classes).addClass(custom_classes) }}>
     <div class="inner-box">
       {% block content %}
         {{ content|without(
