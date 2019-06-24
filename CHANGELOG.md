@@ -37,6 +37,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 * SGD8-629: Bind checkbox_filter only once.
 * SGD8-1102: Avatar for mijn-gent block.
 * DTGB-722: Added missing translation configuration.
+* DTGB-724: Fixed wrappers in mijn-gent menu.
 
 ## [8.x-3.0-beta1]
 
