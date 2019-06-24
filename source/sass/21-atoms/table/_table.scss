@@ -1,5 +1,6 @@
 // @TODO: remove file when styleguide version 3.0.0-beta10 is released
-[class*="cs--"] .responsive-table {
+[class*="cs--"] .responsive-table table {
+  &,
   thead ~ tbody {
     tr:nth-child(n) td.success,
     tr.success:nth-child(n) td,
