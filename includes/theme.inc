@@ -94,8 +94,10 @@ function _gent_base_get_entity_reference_file_data(&$variables, $field) {
   $file_type = end($file_type);
   $file_type = strtoupper($file_type);
 
-  $data['file_size'] = $file_entity->getSize();
-  $data['file_uri'] = $file_entity->getFileUri();
+  $data['file_size'] = format_size($file_entity->getSize());
+  if ($wrapper = \Drupal::service('stream_wrapper_manager')->getViaUri($file_entity->getFileUri())) {
+    $data['file_uri'] = $wrapper->getExternalUrl();
+  }
   $data['file_type'] = $file_type;
 
   return $data;
