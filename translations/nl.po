@@ -485,5 +485,3 @@ msgstr "Bereikbaarheid"
 msgid "View all locations from"
 msgstr "Bekijk alle locaties van"
 
-#~ msgid "Home"
-#~ msgstr "Home"
