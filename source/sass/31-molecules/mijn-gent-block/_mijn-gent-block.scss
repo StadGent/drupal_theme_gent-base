@@ -2,4 +2,12 @@
   .login-link i {
     display: none;
   }
+
+  .avatar {
+    font-size: 0;
+
+    &::first-letter {
+      font-size: 1.2rem;
+    }
+  }
 }

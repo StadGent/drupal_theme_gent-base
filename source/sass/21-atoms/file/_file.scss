@@ -1,0 +1,10 @@
+.file {
+  padding-left: 0;
+}
+
+.form-managed-file {
+  .button--inline,
+  + .form-description {
+    margin-top: .4rem;
+  }
+}

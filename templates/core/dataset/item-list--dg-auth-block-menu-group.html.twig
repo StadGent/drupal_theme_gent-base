@@ -26,13 +26,11 @@
   {%- if title is not empty -%}
   {%- endif -%}
   {%- if items -%}
-    <section>
-      <{{ list_type }}{{ attributes.addClass('links') }}>
-      {%- for item in items -%}
-        <li{{ item.attributes }}>{{ item.value }}</li>
-      {%- endfor -%}
-      </{{ list_type }}>
-    </section>
+    <{{ list_type }}{{ attributes.addClass('links') }}>
+    {%- for item in items -%}
+      <li{{ item.attributes }}>{{ item.value }}</li>
+    {%- endfor -%}
+    </{{ list_type }}>
   {%- else -%}
     {{- empty -}}
   {%- endif -%}

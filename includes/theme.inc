@@ -10,6 +10,19 @@ use Drupal\media\Entity\Media;
 use Drupal\paragraphs\Entity\Paragraph;
 
 /**
+ * Returns a list of form_id's of the system forms.
+ *
+ * @return array
+ *   An array with form_id values.
+ */
+function _gent_base_get_system_forms() {
+  return [
+    'content_moderation_entity_moderation_form',
+    'views_exposed_form',
+  ];
+}
+
+/**
  * Check to see if a given view mode exists.
  *
  * @param string $key
@@ -33,7 +46,7 @@ function gent_base_is_view_mode($key) {
  *   The field to get the referenced file file size from.
  *
  * @return array|null
- *   The file size of the document in bytes.
+ *   Array containing the file_size, file_uri and file_type.
  *
  * @throws \Drupal\Core\TypedData\Exception\MissingDataException
  */
@@ -57,7 +70,14 @@ function _gent_base_get_entity_reference_file_data(&$variables, $field) {
     return;
   }
 
-  $file = $media->get('field_media_file')->getValue();
+  // Some Drupal 7 CTA's contained a link to an image (instead of a document).
+  $file = NULL;
+  if ($media->hasField('field_media_file')) {
+    $file = $media->get('field_media_file')->getValue();
+  }
+  elseif ($media->hasField('field_media_image')) {
+    $file = $media->get('field_media_image')->getValue();
+  }
   if (empty($file[0]['target_id'])) {
     return;
   }
@@ -74,8 +94,10 @@ function _gent_base_get_entity_reference_file_data(&$variables, $field) {
   $file_type = end($file_type);
   $file_type = strtoupper($file_type);
 
-  $data['file_size'] = $file_entity->getSize();
-  $data['file_uri'] = $file_entity->getFileUri();
+  $data['file_size'] = format_size($file_entity->getSize());
+  if ($wrapper = \Drupal::service('stream_wrapper_manager')->getViaUri($file_entity->getFileUri())) {
+    $data['file_uri'] = $wrapper->getExternalUrl();
+  }
   $data['file_type'] = $file_type;
 
   return $data;

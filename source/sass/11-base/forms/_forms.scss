@@ -1,6 +1,44 @@
+input[type="text"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="date"],
+input[type="tel"],
+input[type="email"],
+input[type="url"],
+textarea {
+  text-align: left !important;
+}
+
 .views-exposed-form { // exposed view filters
   .form-item {
     margin-bottom: 0;
     margin-right: .4rem;
   }
+}
+
+.form-item-column {
+  .form-item > .field-message {
+    max-width: none;
+  }
+
+  .field-message {
+    margin-bottom: .4rem;
+  }
+}
+
+.form-description {
+  @include theme('color', 'color-tertiary--lighten-1', 'form-description-color');
+  font-size: .6rem;
+}
+
+.form-item .form-item.stacked {
+  &,
+  .form-columns {
+    margin-bottom: 0;
+  }
+}
+
+.field-message em.placeholder {
+  font-style: initial;
 }

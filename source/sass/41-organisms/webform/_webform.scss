@@ -1,0 +1,32 @@
+.webform-wizard-pages-links {
+  display: none;
+}
+
+.webform-progress {
+  display: initial;
+  margin: initial;
+
+  .progress-title {
+    &[role="link"] {
+      padding: 0;
+      background: none;
+      font-weight: normal;
+
+      &:hover,
+      &:focus {
+        text-decoration: none;
+
+        &::before {
+          border-color: color('green', 1);
+        }
+      }
+
+      > span {
+        @include theme('color', 'color-primary', 'link-color');
+        @include link-background('color-primary', 'color-primary--lighten-4', 'link-underline-color', 'link-background-color');
+        margin: 0;
+        padding: 0;
+      }
+    }
+  }
+}

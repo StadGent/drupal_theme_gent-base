@@ -23,7 +23,17 @@ $map-text-color: color('dark-gray');
   &-container {
     position: relative;
     min-height: $map-button-size * 5;
+    max-height: calc(100vh - 2rem);
     overflow: hidden;
+
+
+    &.ol-full-screen-fallback {
+      margin: 0;
+    }
+
+    .ol-full-screen-fallback & {
+      max-height: 100vh;
+    }
 
     .vesta & {
       height: 22rem;
@@ -284,15 +294,14 @@ $map-text-color: color('dark-gray');
       bottom: -2px;
       left: -2px;
       height: auto;
-      max-height: 12.5rem;
       padding: .8rem 1rem;
       border: 0;
       font-size: .8rem;
       filter: none;
+      overflow-y: auto;
 
       @include breakpoint($bp-tablet+1) {
         width: 18rem;
-        max-height: none;
         margin-bottom: $accolade-height;
         margin-left: -$accolade-width*.6;
         padding: 2rem 1rem;
@@ -317,7 +326,6 @@ $map-text-color: color('dark-gray');
 
 
       &__closer {
-        display: none;
         top: .4rem;
         right: .4rem;
         width: 1.6rem;
@@ -327,11 +335,6 @@ $map-text-color: color('dark-gray');
 
         &::after {
           content: '';
-        }
-
-
-        @include tablet {
-          display: block;
         }
       }
 

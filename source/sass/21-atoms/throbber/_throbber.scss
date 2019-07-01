@@ -1,0 +1,14 @@
+.ajax-progress {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .throbber {
+    @include spot-image('spinner', 1.5rem);
+
+    text-indent: 200%;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: spin 2s cubic-bezier(.75, .25, .25, .75) infinite;
+  }
+}

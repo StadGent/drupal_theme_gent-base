@@ -1,51 +1,90 @@
-{% extends 'paragraph.html.twig' %}
+{#
+/**
+ * @file
+ * Default theme implementation to display a paragraph.
+ *
+ * Available variables:
+ * - paragraph: Full paragraph entity.
+ *   Only method names starting with "get", "has", or "is" and a few common
+ *   methods such as "id", "label", and "bundle" are available. For example:
+ *   - paragraph.getCreatedTime() will return the paragraph creation timestamp.
+ *   - paragraph.id(): The paragraph ID.
+ *   - paragraph.bundle(): The type of the paragraph, for example, "image" or "text".
+ *   - paragraph.getOwnerId(): The user ID of the paragraph author.
+ *   See Drupal\paragraphs\Entity\Paragraph for a full list of public properties
+ *   and methods for the paragraph object.
+ * - content: All paragraph items. Use {{ content }} to print them all,
+ *   or print a subset such as {{ content.field_example }}. Use
+ *   {{ content|without('field_example') }} to temporarily suppress the printing
+ *   of a given child element.
+ * - attributes: HTML attributes for the containing element.
+ *   The attributes.class element may contain one or more of the following
+ *   classes:
+ *   - paragraphs: The current template type (also known as a "theming hook").
+ *   - paragraphs--type-[type]: The current paragraphs type. For example, if the paragraph is an
+ *     "Image" it would result in "paragraphs--type--image". Note that the machine
+ *     name will often be in a short form of the human readable label.
+ *   - paragraphs--view-mode--[view_mode]: The View Mode of the paragraph; for example, a
+ *     preview would result in: "paragraphs--view-mode--preview", and
+ *     default: "paragraphs--view-mode--default".
+ * - view_mode: View mode; for example, "preview" or "full".
+ * - logged_in: Flag for authenticated user status. Will be true when the
+ *   current user is a logged-in member.
+ * - is_admin: Flag for admin user status. Will be true when the current user
+ *   is an administrator.
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
 
-{% block content %}
-  <li>
-    <!-- Modal -->
-    <section id="{{ paragraph.id() }}" class="modal programme-detail" tabindex="-1">
-      <div class="modal-inner">
-        <div class="modal-header">
-          <button type="button" class="button close icon-cross modal-close" data-target="{{ paragraph.id() }}">
-            <span>{{ 'Close'|t }}</span>
-          </button>
-        </div>
-        <div class="modal-content">
-          <h3>{{ content.title }}</h3>
-          <h4>{{ paragraph.getParentEntity().title.value }}</h4>
-
-          {% if content.subtitle %}
-            <p>{{ content.subtitle }}</p>
-          {% endif %}
-
-          <div class="image-gallery--wrapper multiple image-gallery--secondary">
-            {{ content.field_image }}
-          </div>
-
-          {{ content.field_text }}
-
-          {% if content.field_video|render is not empty %}
-            {{ content.field_video }}
-          {% endif %}
-
-        </div>
+<li>
+  <!-- Modal -->
+  <section id="{{ paragraph.id() }}" class="modal programme-detail" tabindex="-1">
+    <div class="modal-inner">
+      <div class="modal-header">
+        <button type="button" class="button close icon-cross modal-close" data-target="{{ paragraph.id() }}">
+          <span>{{ 'Close'|t }}</span>
+        </button>
       </div>
-      <div class="modal-overlay modal-close" data-target="{{ paragraph.id() }}"></div>
-    </section>
-    <!-- /Modal -->
+      <div class="modal-content">
+        <h3>{{ content.title }}</h3>
+        <h4>{{ paragraph.getParentEntity().title.value }}</h4>
 
-    <!-- Teaser -->
-    <div class="teaser teaser-programme">
-      <article class="teaser-content">
-        <div class="content__bottom">
-          <h3 id="uid_{{ paragraph.id() }}">{{ content.title }}</h3>
-
+        {% if content.subtitle %}
           <p>{{ content.subtitle }}</p>
+        {% endif %}
 
-          <a href="#{{ paragraph.id() }}" class="read-more standalone-link" aria-labelledby="uid_{{ paragraph.id() }}">{{ 'More info'|t }}</a>
+        <div class="image-gallery--wrapper multiple image-gallery--secondary">
+          {{ content.field_image }}
         </div>
 
-        <div class="content__top">
+        {{ content.field_text }}
+
+        {% if content.field_video|render is not empty %}
+          {{ content.field_video }}
+        {% endif %}
+
+      </div>
+    </div>
+    <div class="modal-overlay modal-close" data-target="{{ paragraph.id() }}"></div>
+  </section>
+  <!-- /Modal -->
+
+  <!-- Teaser -->
+  <div class="teaser teaser-programme">
+    <article class="teaser-content">
+      <div class="content__bottom">
+        <h3 id="uid_{{ paragraph.id() }}">{{ content.title }}</h3>
+
+        <p>{{ content.subtitle }}</p>
+
+        <a href="#{{ paragraph.id() }}" class="read-more standalone-link" aria-labelledby="uid_{{ paragraph.id() }}">{{ 'More info'|t }}</a>
+      </div>
+
+      <div class="content__top">
+        <div class="figure-wrapper">
           <figure>
             <div class="image-wrapper" data-ratio="8:5">
               {{ fake_teaser_image }}
@@ -53,14 +92,14 @@
           </figure>
           <div class="accolade-inverse bottom-left"></div>
         </div>
-      </article>
+      </div>
+    </article>
 
-      <a href="javascript:void(0);" class="teaser-overlay-link"
-         tabindex="-1"
-         aria-hidden="true"
-         aria-expanded="false"
-         aria-controls="{{ paragraph.id() }}">{{ content.title }}</a>
-    </div>
-    <!-- /Teaser -->
-  </li>
-{% endblock %}
+    <a href="javascript:void(0);" class="teaser-overlay-link"
+        tabindex="-1"
+        aria-hidden="true"
+        aria-expanded="false"
+        aria-controls="{{ paragraph.id() }}">{{ content.title }}</a>
+  </div>
+  <!-- /Teaser -->
+</li>

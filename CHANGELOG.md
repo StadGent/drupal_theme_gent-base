@@ -2,6 +2,44 @@
 
 All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
+## [8.x-3.0-beta2]
+
+### Added
+
+* SGD8-546: Theming for webforms.
+* SGD8-546: Theming for default drupal throbber.
+* SGD8-926: Script that generates mobile version of tables.
+* SGD8-1081: Hide empty facets.
+
+### Updated
+
+* DTGB-652: Maps theming on mobile devices.
+* SGD8-828: Template suggestion for forms (they're now composed of
+  "hook--form_id") instead of the element ID.
+  > This should not be breaking since the element ID and form ID are identical
+    in 99% of the cases.
+* DTGB-723: Added new field to vesta template.
+
+* SGD8-903: Added wrapper div around all paragraphs.
+* Attributes in `block--system-branding-block.html.twig` are now more
+  configurable.
+* SGD8-239: Refactored call-to-action paragraph template.
+
+### Fixed
+
+* SGD8-1024: Spacing around links in status messages.
+* SGD8-187: Fullscreen not displayed over entire viewport on detail pages.
+* DTGB-719: Use download icon in call-to-action paragraph.
+* SGD8-1049: Consistently print full url in call-to-action paragraphs.
+* Form steps layout in multistep forms.
+* Theming for help block in detail-layout.
+* SGD8-1102: Added correct link to profile in dg-auth block.
+* SGD8-629: Display checkbox popup over entire width of the page.
+* SGD8-629: Bind checkbox_filter only once.
+* SGD8-1102: Avatar for mijn-gent block.
+* DTGB-722: Added missing translation configuration.
+* DTGB-724: Fixed wrappers in mijn-gent menu.
+
 ## [8.x-3.0-beta1]
 
 ### Added
@@ -10,7 +48,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
   [`dg_maps`](https://github.com/digipolisgent/drupal_module_dg-maps) theming.
 
 * Tabs/local tasks theming.
-    > :warning: The tabs block should ideally be placed in the admin region. 
+    > :warning: The tabs block should ideally be placed in the admin region.
 
 ### Removed
 
@@ -161,6 +199,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 * **Updated to gent_styleguide version 2.6.13**
 
+[8.x-3.0-beta2]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-beta1...8.x-3.0-beta2
 [8.x-3.0-beta1]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-alpha11...8.x-3.0-beta1
 [8.x-3.0-alpha11]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-alpha.10...8.x-3.0-alpha11
 [8.x-3.0-alpha.10]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-alpha.7...8.x-3.0-alpha.10

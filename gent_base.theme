@@ -7,26 +7,23 @@
 
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Template\Attribute;
+use Drupal\Core\Render\Element;
 use Drupal\Component\Utility\Html;
 use Drupal\image\Entity\ImageStyle;
 use Drupal\paragraphs\Entity\Paragraph;
 use Drupal\Core\Url;
 use Drupal\Core\Link;
+use Drupal\webform\Entity\Webform;
 
-include __DIR__ . '/theme.inc';
+include __DIR__ . '/includes/theme.inc';
+include __DIR__ . '/includes/form.inc';
 
 /**
  * Implements hook_form_FORM_ID_alter().
  */
 function gent_base_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-  // Setup system forms to have the "no-style" and "no-optional" styling classes
-  // As defined by the Gent styleguide.
-  $system_forms = [
-    'content_moderation_entity_moderation_form',
-    'views_exposed_form',
-  ];
 
-  if (in_array($form_id, $system_forms)) {
+  if (in_array($form_id, _gent_base_get_system_forms())) {
     $form['#attributes']['class'][] = 'no-style';
     $form['#attributes']['class'][] = 'no-optional';
   }
@@ -41,6 +38,43 @@ function gent_base_form_alter(&$form, FormStateInterface $form_state, $form_id) 
 
     $form['actions']['delete']['#attributes']['class'][] = 'delete';
     $form['actions']['delete']['#attributes']['class'][] = 'right';
+  }
+
+  if (isset($form['#webform_id'])) {
+    $form['#pre_render'][] = '_gent_base_webform_pre_render';
+  }
+}
+
+/**
+ * Pre-render function for webforms.
+ *
+ * @param array $form
+ *   Build array for the form.
+ *
+ * @return mixed
+ *   Altered build array.
+ */
+function _gent_base_webform_pre_render(array $form) {
+
+  if (isset($form['elements'])) {
+    _gent_base_loop_webform_elements($form['elements']);
+  }
+
+  return $form;
+}
+
+/**
+ * Switch places for prev/next.
+ *
+ * Implements hook_preprocess().
+ */
+function gent_base_preprocess_webform_actions(&$variables) {
+  if (isset($variables['element']['wizard_prev'])) {
+    $button = $variables['element']['wizard_prev'];
+    $button['#attributes']['class'][] = 'button-secondary';
+
+    unset($variables['element']['wizard_prev']);
+    $variables['element'][] = $button;
   }
 }
 
@@ -277,9 +311,9 @@ function gent_base_preprocess_element_information(array &$variables) {
   $variables['information'] = NULL;
 
   if (!empty($element['#information'])) {
-    $information_attributes = [];
-    if (!empty($element['#id'])) {
-      $information_attributes['id'] = $element['#id'] . '--information';
+    $information_attributes = $element['#information_attributes'] ?? [];
+    if (!empty($element['#attributes']['id'])) {
+      $information_attributes['id'] = $element['#attributes']['id'] . '--description';
     }
 
     $variables['information']['attributes'] = new Attribute($information_attributes);
@@ -292,11 +326,21 @@ function gent_base_preprocess_element_information(array &$variables) {
  */
 function gent_base_preprocess_form_element(&$variables) {
   $element = &$variables['element'];
-  if (!isset($element['#help'])) {
-    return;
+  if (isset($element['#help'])) {
+    $element['#information'] = $element['#help'];
   }
 
-  $element['#information'] = $element['#help'];
+  if (isset($element['#description']) &&
+      isset($element['#webform']) &&
+      $element['#type'] !== 'webform_image_file') {
+    $element['#information'] = $element['#description'];
+    unset($variables['description']);
+  }
+
+  $variables['in_fieldset'] = $element['#in_fieldset'] ?? NULL;
+  $variables['parent_type'] = $element['#parent_type'] ?? NULL;
+  $variables['stacked'] = $element['#stacked'] ?? NULL;
+  $variables['has_row'] = $element['#has_row'] ?? NULL;
 }
 
 /**
@@ -310,9 +354,16 @@ function gent_base_preprocess_webform_element_help(&$variables) {
  * Implements hook_preprocess_fieldset().
  */
 function gent_base_preprocess_fieldset(&$variables) {
-  if ($variables['element']['#type'] == 'fieldset' && empty($variables['element']['#required'])) {
+  $element = &$variables['element'];
+  if (isset($element['#description'])) {
+    $element['#information'] = $element['#description'];
+  }
+
+  if ($element['#type'] === 'fieldset' && empty($element['#required'])) {
     $variables['fieldset_optional'] = TRUE;
   }
+
+  $variables['has_columns'] = $element['#has_columns'] ?? NULL;
 }
 
 /**
@@ -422,17 +473,16 @@ function gent_base_preprocess_field__field_documents(&$variables) {
  */
 function gent_base_preprocess_field__field_contacts(&$variables) {
   $contacts = $variables['items'];
+  $entity = $variables['element']['#object'];
 
   // Change the view_mode of the contacts if there are more then 3 contacts.
-  if (count($contacts) > 2) {
-    foreach ($contacts as $key => $contact) {
-      $variables["items"][$key]["content"]["#view_mode"] = 'teaser_tiny';
-    }
-  }
-  else {
-    foreach ($contacts as $key => $contact) {
+  foreach ($contacts as $key => $contact) {
+    $view_mode = (count($contacts) > 2) ? 'teaser_tiny' : 'teaser_with_link';
+    if ($view_mode === 'teaser_with_link') {
       $variables['items'][$key]['attributes']->addClass('teaser', 'teaser-contact');
     }
+    $variables['items'][$key]['content']['#view_mode'] = $view_mode;
+    $variables['items'][$key]['content']['#cache']['tags'] = $entity->getCacheTags();
   }
 }
 
@@ -498,7 +548,7 @@ function gent_base_preprocess_file_link(&$variables) {
     $variables['file_size'] = format_size($file->getSize());
     $variables['file_type'] = $filenameParts[count($filenameParts) - 1];
     $options['attributes']['class'][] = 'standalone-link';
-    $options['attributes']['download'][] = 'download';
+    $options['attributes']['download'][] = $file->getFilename();
 
     // Use the filename as label if no description is set.
     $label = !empty($variables['description'])
@@ -689,7 +739,11 @@ function gent_base_theme_suggestions_alter(array &$suggestions, array $variables
   $original_theme_hook = $variables['theme_hook_original'];
 
   if (isset($variables['element']['#type']) && $variables['element']['#type'] == 'form') {
-    $suggestions[] = $original_theme_hook . '__' . str_replace('-', '_', $variables['element']['#id']);
+    $suggestions[] = $original_theme_hook . '__' . str_replace('-', '_', $variables['element']['#form_id']);
+
+    if ($variables['element']['#form_id'] !== $variables['element']['#id']) {
+      $suggestions[] = $original_theme_hook . '__' . str_replace('-', '_', $variables['element']['#id']);
+    }
   }
 
   if ($original_theme_hook === 'taxonomy_term') {
@@ -722,6 +776,10 @@ function gent_base_theme_suggestions_alter(array &$suggestions, array $variables
       $suggestions[] = $original_theme_hook . '__' . $paragraph->bundle() . '__' . $sanitized_view_mode . '__' . $suggestion;
 
     }
+  }
+
+  if ($original_theme_hook === 'webform' && isset($variables['element']['progress'])) {
+    $suggestions[] = $original_theme_hook . '__multistep';
   }
 
   return $suggestions;
@@ -871,16 +929,46 @@ function gent_base_preprocess_pager(&$variables) {
  * Implements hook_preprocess_HOOK().
  */
 function gent_base_preprocess_paragraph__call_to_action(&$variables) {
-  $primary_document_data = _gent_base_get_entity_reference_file_data($variables, 'field_primary_action_document');
-  $secondary_document_data = _gent_base_get_entity_reference_file_data($variables, 'field_secondary_action_document');
+  $paragraph = $variables['paragraph'];
+  $fields = [
+    'field_primary_action',
+    'field_secondary_action',
+  ];
 
-  $variables['primary_document_size'] = format_size($primary_document_data['file_size']);
-  $variables['primary_document_file_uri'] = file_create_url($primary_document_data['file_uri']);
-  $variables['primary_document_type'] = $primary_document_data['file_type'];
+  foreach ($fields as $i => $field) {
+    if (!$paragraph->get($field . '_type')->isEmpty()) {
+      $action = [
+        '#type' => 'link',
+        '#title' => $paragraph->get($field . '_title')->value,
+        '#attributes' => [
+          'class' => $i > 0 ? ['standalone-link'] : ['button', 'button-primary'],
+        ],
+      ];
 
-  $variables['secondary_document_size'] = format_size($secondary_document_data['file_size']);
-  $variables['secondary_document_file_uri'] = file_create_url($secondary_document_data['file_uri']);
-  $variables['secondary_document_type'] = $secondary_document_data['file_type'];
+      if ($paragraph->get($field . '_type')->value === 'link') {
+        $action['#url'] = $paragraph->get($field . '_link')->first()->getUrl();
+      }
+      else {
+        $data = _gent_base_get_entity_reference_file_data($variables, $field . '_document');
+        $action['#url'] = Url::fromUri($data['file_uri']);
+        $action['#attributes']['download'] = TRUE;
+
+        $variables['content'][$field . '_size'] = [
+          '#type' => 'html_tag',
+          '#tag' => 'span',
+          '#value' => $data['file_type'] . ' <span class="file-size">(' . $data['file_size'] . ')</span>',
+          '#attributes' => ['class' => 'file-type'],
+        ];
+      }
+
+      $variables['content'][$field] = $action;
+    }
+
+    unset($variables['content'][$field . '_link']);
+    unset($variables['content'][$field . '_document']);
+    unset($variables['content'][$field . '_type']);
+    unset($variables['content'][$field . '_title']);
+  }
 }
 
 /**
@@ -946,4 +1034,24 @@ function gent_base_preprocess_dg_maps_map(&$variables) {
     'img_base' => drupal_get_path('theme', 'gent_base') . '/source/img/',
     'legend_title' => t('View on the map'),
   ];
+}
+
+/**
+ * Implements hook_preprocess_webform().
+ */
+function gent_base_preprocess_webform(&$variables) {
+  $element = $variables['element'];
+  $children = Element::children($element);
+  $webform = Webform::load($element["#webform_id"]);
+
+  // Add elements to template variables.
+  foreach ($children as $key) {
+    $variables['content'][$key] = $element[$key];
+  }
+
+  // Add title variable.
+  $variables['title'] = $webform->label();
+
+  // Check if the form has input fields.
+  $variables['has_inputs'] = _gent_base_count_webform_inputs($element['elements']) > 0;
 }

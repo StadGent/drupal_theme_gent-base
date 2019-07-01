@@ -52,7 +52,7 @@
           {% endfor %}
         </ul>
       {% else %}
-        {{ messages|first }}
+        <div>{{ messages|first }}</div>
       {% endif %}
     {% if type == 'error' %}
       </div>

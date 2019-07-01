@@ -50,9 +50,11 @@
     {% block content %}
       <div{{ attributes.addClass(classes) }} role="listitem">
         <dt class="programme-slot-title">{{ content.title }}</dt>
-        <ul class="grid-3">
-          {{ content.timeline_items }}
-        </ul>
+        <dd>
+          <ul class="grid-3">
+            {{ content.timeline_items }}
+          </ul>
+        </dd>
       </div>
     {% endblock %}
 {% endblock paragraph %}

@@ -73,6 +73,13 @@ tabs:
   js:
     build/styleguide/vendor/allietabs/allieTabs.js: { minified: true }
 
+tables:
+  version: 1.x
+  js:
+    build/styleguide/js/table.functions-min.js: { minified: true }
+    build/js/table-mobile.functions-min.js: { minified: true }
+    build/js/table.bindings-min.js: { minified: true }
+
 opening_hours:
   version: 1.x
   js:
@@ -97,3 +104,9 @@ maps:
     - dg_maps/style.spiderfier
     - dg_maps/style.cluster
     - dg_maps/style.route
+
+file:
+  version: 1.x
+  js:
+    build/styleguide/js/file.functions-min.js: { minified: true }
+    build/js/file.bindings-min.js: { minified: true }

@@ -31,7 +31,7 @@
 
 {{ attach_library('gent_base/checkbox_filter') }}
 
-<fieldset class="form-item facets-widget- {{- facet.widget.type -}} -with-filter checkbox-filter">
+<fieldset class="facets-widget- {{- facet.widget.type -}} -with-filter checkbox-filter">
   {% if items or empty %}
     {%- if title is not empty -%}
       <legend>{{ title }}</legend>
