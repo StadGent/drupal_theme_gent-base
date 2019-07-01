@@ -43,9 +43,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2019-06-26 11:04+0200\n"
-"PO-Revision-Date: 2019-06-26 11:04+0200\n"
-"Last-Translator: Helena Standaert <helena.standaert@digipolis.gent>\n"
+"POT-Creation-Date: 2019-06-27 08:24+0200\n"
+"PO-Revision-Date: 2019-06-27 08:52+0200\n"
+"Last-Translator: Maarten Segers <maarten.segers@digipolis.gent>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
@@ -215,7 +215,7 @@ msgstr[1] "Er zijn @count resultaten"
 
 #: themes/contrib/gent_base/templates/contrib/facets/facets-summary-item-list.html.twig:51
 msgid "You have selected"
-msgstr "U filterde op"
+msgstr "Je filterde op"
 
 #: themes/contrib/gent_base/templates/contrib/facets/facets-summary-item-list.html.twig:63
 #: themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig:93
@@ -268,11 +268,11 @@ msgstr ""
 
 #: themes/contrib/gent_base/templates/core/content/menu-local-tasks.html.twig:15
 msgid "Primary tabs"
-msgstr ""
+msgstr "Primaire tabs"
 
 #: themes/contrib/gent_base/templates/core/content/menu-local-tasks.html.twig:19
 msgid "Secondary tabs"
-msgstr ""
+msgstr "Secundaire tabs"
 
 #: themes/contrib/gent_base/templates/core/content-edit/filter-tips.html.twig:20
 msgid "Text Formats"
