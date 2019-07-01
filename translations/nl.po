@@ -127,10 +127,17 @@ msgstr "Gent Base"
 msgid "Ghent base theme. Always use a subtheme of this theme."
 msgstr "Gent base theme. Gebruik altijd een subthema van dit thema."
 
+#: themes/contrib/gent_base/build/js/dg_maps.baselayerswitcher-min.js:0
 #: themes/contrib/gent_base/source/js/dg_maps.baselayerswitcher.js:0
 msgid "Legend"
 msgstr "Legende"
 
+#: themes/contrib/gent_base/build/js/file.bindings-min.js:0
+#: themes/contrib/gent_base/source/js/file.bindings.js:0
+msgid "No file chosen."
+msgstr "Geen bestand geselecteerd."
+
+#: themes/contrib/gent_base/build/js/table.bindings-min.js:0
 #: themes/contrib/gent_base/source/js/table.bindings.js:0
 msgid "(Scroll to see more)"
 msgstr "(Scroll om meer te zien)"
@@ -291,7 +298,7 @@ msgstr "Optioneel"
 
 #: themes/contrib/gent_base/templates/core/form/input--file.html.twig:18
 msgid "Select your files here to upload"
-msgstr "Kies hier je bestanden om op te laden"
+msgstr "Selecteer bestanden om te uploaden"
 
 #: themes/contrib/gent_base/templates/core/layout/html.html.twig:69
 msgid "Skip to main content"
@@ -467,7 +474,7 @@ msgstr "Meer info en openingsuren"
 
 #: themes/contrib/gent_base/templates/custom/vesta/vesta.html.twig:29
 msgid "@name - openinghours and addresses"
-msgstr "@name - Openingsuren en adressen"
+msgstr "@name - openingsuren en adressen"
 
 #: themes/contrib/gent_base/templates/custom/vesta/vesta.html.twig:92
 msgid "(Fax)"
@@ -484,4 +491,3 @@ msgstr "Bereikbaarheid"
 #: themes/contrib/gent_base/templates/custom/vesta/vesta.html.twig:160
 msgid "View all locations from"
 msgstr "Bekijk alle locaties van"
-

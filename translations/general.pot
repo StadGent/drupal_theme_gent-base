@@ -7,7 +7,11 @@
 #  themes/contrib/gent_base/gent_base.theme: n/a
 #  themes/contrib/gent_base/templates/contrib/dg_maps/dg-maps-map-region.html.twig: n/a
 #  themes/contrib/gent_base/gent_base.info.yml: n/a
+#  themes/contrib/gent_base/build/js/dg_maps.baselayerswitcher-min.js: n/a
 #  themes/contrib/gent_base/source/js/dg_maps.baselayerswitcher.js: n/a
+#  themes/contrib/gent_base/build/js/file.bindings-min.js: n/a
+#  themes/contrib/gent_base/source/js/file.bindings.js: n/a
+#  themes/contrib/gent_base/build/js/table.bindings-min.js: n/a
 #  themes/contrib/gent_base/source/js/table.bindings.js: n/a
 #  themes/contrib/gent_base/starterkit/starterkit.info.yml: n/a
 #  themes/contrib/gent_base/templates/contrib/dg-auth/dg-auth-block.html.twig: n/a
@@ -124,11 +128,15 @@ msgstr ""
 msgid "Ghent base theme. Always use a subtheme of this theme."
 msgstr ""
 
-#: themes/contrib/gent_base/source/js/dg_maps.baselayerswitcher.js:0
+#: themes/contrib/gent_base/build/js/dg_maps.baselayerswitcher-min.js:0 themes/contrib/gent_base/source/js/dg_maps.baselayerswitcher.js:0
 msgid "Legend"
 msgstr ""
 
-#: themes/contrib/gent_base/source/js/table.bindings.js:0
+#: themes/contrib/gent_base/build/js/file.bindings-min.js:0 themes/contrib/gent_base/source/js/file.bindings.js:0
+msgid "No file chosen."
+msgstr ""
+
+#: themes/contrib/gent_base/build/js/table.bindings-min.js:0 themes/contrib/gent_base/source/js/table.bindings.js:0
 msgid "(Scroll to see more)"
 msgstr ""
 
