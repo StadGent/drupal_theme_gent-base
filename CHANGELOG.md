@@ -8,6 +8,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 * DTGB-725: Fixed warning when previewing newly created node with paragraphs.
 * Added extra checks for field existance in call-to-action.
+* Fix 404 error for `manifest.json` (it is renamed to `site.webmanifest`)
 
 ## [8.x-3.0-beta2]
 
