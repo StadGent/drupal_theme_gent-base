@@ -401,7 +401,12 @@ function gent_base_preprocess_field(&$variables) {
     $isProgram = FALSE;
 
     foreach ($paragraphs as $key => $paragraph) {
-      $entity = Paragraph::load($paragraph->get('target_id')->getValue());
+      $targetId = $paragraph->get('target_id')->getValue();
+      if (!$targetId) {
+        continue;
+      }
+
+      $entity = Paragraph::load($targetId);
       if ($entity) {
         $type = $entity->get('type')->getString();
 
