@@ -7,6 +7,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 ### Fixed
 
 * DTGB-725: Fixed warning when previewing newly created node with paragraphs.
+* Added extra checks for field existance in call-to-action.
 
 ## [8.x-3.0-beta2]
 
