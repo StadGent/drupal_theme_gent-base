@@ -941,6 +941,10 @@ function gent_base_preprocess_paragraph__call_to_action(&$variables) {
   ];
 
   foreach ($fields as $i => $field) {
+    if (!$paragraph->hasField($field . '_type')) {
+      break;
+    }
+
     if (!$paragraph->get($field . '_type')->isEmpty()) {
       $action = [
         '#type' => 'link',
@@ -955,6 +959,10 @@ function gent_base_preprocess_paragraph__call_to_action(&$variables) {
       }
       else {
         $data = _gent_base_get_entity_reference_file_data($variables, $field . '_document');
+        if (empty($data) || !isset($data['file_uri'])) {
+          break;
+        }
+
         $action['#url'] = Url::fromUri($data['file_uri']);
         $action['#attributes']['download'] = TRUE;
 
