@@ -236,7 +236,7 @@ msgstr "Stuur een email naar @emailAddress"
 
 #: themes/contrib/gent_base/templates/contrib/paragraphs/contact/paragraph--contact.html.twig:87
 msgid "View all contact info"
-msgstr "Bekijk alle contactgegevens"
+msgstr "Alle contactgegevens"
 
 #: themes/contrib/gent_base/templates/contrib/paragraphs/timeline/paragraph--timeline-item--alt.html.twig:83
 msgid "More info"
