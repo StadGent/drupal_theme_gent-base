@@ -103,8 +103,8 @@ msgid "timeline"
 msgstr "tijdslijn"
 
 #: themes/contrib/gent_base/gent_base.theme:463
-msgid "There is 1 other document available"
-msgstr "Er is 1 ander document beschikbaar"
+msgid "There is 1 other document"
+msgstr "Er is 1 ander document"
 
 #: themes/contrib/gent_base/gent_base.theme:466
 msgid "There are @count other documents"
