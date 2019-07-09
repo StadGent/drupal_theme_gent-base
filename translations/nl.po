@@ -444,7 +444,7 @@ msgstr "Vergelijkbare artikels"
 
 #: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:158
 msgid "More info about"
-msgstr "Bekijk meer over"
+msgstr "Lees meer over"
 
 #: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:171
 msgid "More news and events"
