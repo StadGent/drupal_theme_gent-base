@@ -107,8 +107,8 @@ msgid "There is 1 other document available"
 msgstr "Er is 1 ander document beschikbaar"
 
 #: themes/contrib/gent_base/gent_base.theme:466
-msgid "There are @count other documents available"
-msgstr "Er zijn @count andere documenten beschikbaar"
+msgid "There are @count other documents"
+msgstr "Er zijn @count andere documenten"
 
 #: themes/contrib/gent_base/gent_base.theme:998
 msgid "@category - All"
