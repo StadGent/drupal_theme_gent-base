@@ -117,7 +117,7 @@ msgstr "@category - Alle"
 #: themes/contrib/gent_base/gent_base.theme:1035
 #: themes/contrib/gent_base/templates/contrib/dg_maps/dg-maps-map-region.html.twig:14
 msgid "View on the map"
-msgstr "Bekijk op de kaart"
+msgstr "Toon op de kaart"
 
 #: themes/contrib/gent_base/gent_base.info.yml:0
 msgid "Gent Base"
