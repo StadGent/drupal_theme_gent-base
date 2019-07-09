@@ -377,8 +377,8 @@ msgid "View title"
 msgstr "Overzicht titel"
 
 #: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:17
-msgid "Can we improve something about this page?"
-msgstr "Kunnen we iets verbeteren aan deze pagina?"
+msgid "Can we improve something about this page? Let us know!"
+msgstr "Kunnen we deze pagina nog verbeteren? Laat het ons weten!"
 
 #: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:19
 msgid "You can contact Gentinfo for personal questions or complaints."
