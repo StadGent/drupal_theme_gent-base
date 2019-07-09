@@ -240,7 +240,7 @@ msgstr "Bekijk alle contactgegevens"
 
 #: themes/contrib/gent_base/templates/contrib/paragraphs/timeline/paragraph--timeline-item--alt.html.twig:83
 msgid "More info"
-msgstr "Meer informatie"
+msgstr "Meer weten"
 
 #: themes/contrib/gent_base/templates/contrib/webform/webform--multistep.html.twig:39
 #: themes/contrib/gent_base/templates/contrib/webform/webform.html.twig:34
