@@ -355,7 +355,7 @@ msgid "View title"
 msgstr ""
 
 #: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:17
-msgid "Can we improve something about this page?"
+msgid "Can we improve something about this page? Let us know!"
 msgstr ""
 
 #: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:19
