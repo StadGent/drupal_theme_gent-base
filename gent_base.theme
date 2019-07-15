@@ -1021,6 +1021,7 @@ function gent_base_preprocess_vesta(&$variables) {
   /* @var $entity Drupal\dg_vesta\Entity\Vesta */
   $entity = $variables['elements']['#vesta'];
 
+  // Because vesta entities are language undefined we need to prefix the language code.
   $locale = \Drupal::languageManager()->getCurrentLanguage()->getId();
   $variables['entity'] = $entity->getVestaValue();
   $variables['url'] = '/' . $locale . $entity->toUrl()->toString();
