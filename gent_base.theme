@@ -1021,8 +1021,9 @@ function gent_base_preprocess_vesta(&$variables) {
   /* @var $entity Drupal\dg_vesta\Entity\Vesta */
   $entity = $variables['elements']['#vesta'];
 
+  $locale = \Drupal::languageManager()->getCurrentLanguage()->getId();
   $variables['entity'] = $entity->getVestaValue();
-  $variables['url'] = $entity->toUrl();
+  $variables['url'] = '/' . $locale . $entity->toUrl()->toString();
 
   if ($variables['elements']['#view_mode'] === 'full') {
     $variables['related'] = [];
