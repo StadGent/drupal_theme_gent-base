@@ -110,3 +110,5 @@ file:
   js:
     build/styleguide/js/file.functions-min.js: { minified: true }
     build/js/file.bindings-min.js: { minified: true }
+  dependencies:
+    - drupal/drupal
