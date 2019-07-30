@@ -51,9 +51,11 @@
       <div{{ attributes.addClass(classes) }} role="listitem">
         <dt class="programme-slot-title">{{ content.title }}</dt>
         <dd>
-          <ul class="grid-3">
-            {{ content.timeline_items }}
-          </ul>
+          <div class="grid-wrapper">
+            <ul class="grid-3">
+              {{ content.timeline_items }}
+            </ul>
+          </div>
         </dd>
       </div>
     {% endblock %}
