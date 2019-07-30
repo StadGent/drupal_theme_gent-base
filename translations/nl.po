@@ -43,9 +43,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2019-06-27 08:24+0200\n"
-"PO-Revision-Date: 2019-06-27 08:52+0200\n"
-"Last-Translator: Maarten Segers <maarten.segers@digipolis.gent>\n"
+"POT-Creation-Date: 2019-07-29 15:56+0200\n"
+"PO-Revision-Date: 2019-07-29 15:57+0200\n"
+"Last-Translator: Helena Standaert <helena.standaert@digipolis.gent>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
@@ -94,27 +94,27 @@ msgstr ""
 msgid "Search"
 msgstr "Zoeken"
 
-#: themes/contrib/gent_base/gent_base.theme:417
+#: themes/contrib/gent_base/gent_base.theme:422
 msgid "programme"
 msgstr "programma"
 
-#: themes/contrib/gent_base/gent_base.theme:422
+#: themes/contrib/gent_base/gent_base.theme:427
 msgid "timeline"
 msgstr "tijdslijn"
 
-#: themes/contrib/gent_base/gent_base.theme:463
+#: themes/contrib/gent_base/gent_base.theme:468
 msgid "There is 1 other document"
 msgstr "Er is 1 ander document"
 
-#: themes/contrib/gent_base/gent_base.theme:466
+#: themes/contrib/gent_base/gent_base.theme:471
 msgid "There are @count other documents"
 msgstr "Er zijn @count andere documenten"
 
-#: themes/contrib/gent_base/gent_base.theme:998
+#: themes/contrib/gent_base/gent_base.theme:1011
 msgid "@category - All"
 msgstr "@category - Alle"
 
-#: themes/contrib/gent_base/gent_base.theme:1035
+#: themes/contrib/gent_base/gent_base.theme:1051
 #: themes/contrib/gent_base/templates/contrib/dg_maps/dg-maps-map-region.html.twig:14
 msgid "View on the map"
 msgstr "Toon op de kaart"
@@ -136,6 +136,11 @@ msgstr "Legende"
 #: themes/contrib/gent_base/source/js/file.bindings.js:0
 msgid "No file chosen."
 msgstr "Geen bestand geselecteerd."
+
+#: themes/contrib/gent_base/build/js/file.bindings-min.js:0
+#: themes/contrib/gent_base/source/js/file.bindings.js:0
+msgid "Multiple files."
+msgstr "Meerdere bestanden."
 
 #: themes/contrib/gent_base/build/js/table.bindings-min.js:0
 #: themes/contrib/gent_base/source/js/table.bindings.js:0

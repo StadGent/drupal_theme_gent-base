@@ -16,7 +16,8 @@
       var selected = document.querySelectorAll('.file');
       for (var i = selected.length; i--;) {
         new File(selected[i], {
-          emptyText: Drupal.t('No file chosen.')
+          emptyText: Drupal.t('No file chosen.'),
+          multipleText: Drupal.t('Multiple files.')
         });
       }
 
