@@ -1380,10 +1380,10 @@ gauge@~2.7.3:
     strip-ansi "^3.0.1"
     wide-align "^1.1.0"
 
-gent_styleguide@^3.0.0-beta9:
-  version "3.0.0-beta9"
-  resolved "https://registry.yarnpkg.com/gent_styleguide/-/gent_styleguide-3.0.0-beta9.tgz#6f47b5fc507ee795d42c1cc60662e35142e5b0a3"
-  integrity sha512-rh29EGKasmMuu5b1Ss5ogE2oT8hiR7Zzfk1+2zuowSPDxFEJ7R2rhkuZ+beaBxDbz5vGelGWbW42zdH549v0lg==
+gent_styleguide@3.0.0-beta10:
+  version "3.0.0-beta10"
+  resolved "https://registry.yarnpkg.com/gent_styleguide/-/gent_styleguide-3.0.0-beta10.tgz#cb06cf90ed93bc38237a7ba69a7a84b603e893b4"
+  integrity sha512-255/Pmz+dce7wmEeibwpXtrIhtaG4Xe2RlGXXGofwd1ScryKVzjOKi3KOWf8SYDLooi+ICwxHGophIje0+On1g==
   dependencies:
     allietabs "^1.2.2"
     baguettebox.js "^1.11.0"
