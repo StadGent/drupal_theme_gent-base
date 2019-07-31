@@ -4,12 +4,22 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 ## [Unreleased]
 
+### Updated
+
+* Applied styling to form-disclaimer.
+* Add twig blocks to views with sidebar layout
+
 ### Fixed
 
 * DTGB-725: Fixed warning when previewing newly created node with paragraphs.
 * Added extra checks for field existence in call-to-action.
 * Fix 404 error for `manifest.json` (it is renamed to `site.webmanifest`).
 * Theming for status messages.
+* Fixed JS error when popup feature isn't enabled in dg_maps
+
+### Removed
+
+* Removed global_js from libraries.
 
 ## [8.x-3.0-beta2]
 
