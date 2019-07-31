@@ -6,6 +6,10 @@
 (function ($, Drupal) {
   'use strict';
 
+  if (Drupal.dgMaps.ol.interaction.Popup === undefined) {
+    return;
+  }
+
   /**
    * Adds a feature as popup item to the internal popup items storage.
    * @param {ol.Feature} feature The feature to add.
