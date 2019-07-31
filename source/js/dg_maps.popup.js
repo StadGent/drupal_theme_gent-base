@@ -6,7 +6,7 @@
 (function ($, Drupal) {
   'use strict';
 
-  if (Drupal.dgMaps.ol.interaction.Popup === undefined) {
+  if (!Drupal.dgMaps.ol.interaction.Popup) {
     return;
   }
 
