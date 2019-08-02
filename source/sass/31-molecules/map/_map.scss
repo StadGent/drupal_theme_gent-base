@@ -422,7 +422,7 @@ $map-text-color: color('dark-gray');
         width: auto;
         padding: .4rem .8rem;
         font-size: .8rem;
-        font-weight: 600;
+        @include bold-text;
 
         &::before {
           font-size: 0;
@@ -453,7 +453,7 @@ $map-text-color: color('dark-gray');
 
     &__title {
       display: inline;
-      font-weight: 600;
+      @include bold-text;
 
       &:not(:empty) + .ol-list-features__list__item__description:not(:empty)::before {
         padding: 0 1ch;
