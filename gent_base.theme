@@ -477,10 +477,10 @@ function gent_base_preprocess_field__field_documents(&$variables) {
   if (isset($variables['documents_invisible'])) {
     $extra_documents_count = count($variables['documents_invisible']);
     if ($extra_documents_count === 1) {
-      $variables['documents_toggle_text'] = t('There is 1 other document available');
+      $variables['documents_toggle_text'] = t('There is 1 other document');
     }
     else {
-      $variables['documents_toggle_text'] = t('There are @count other documents available', ['@count' => $extra_documents_count]);
+      $variables['documents_toggle_text'] = t('There are @count other documents', ['@count' => $extra_documents_count]);
     }
   }
 }
@@ -1029,8 +1029,11 @@ function gent_base_preprocess_vesta(&$variables) {
   /* @var $entity Drupal\dg_vesta\Entity\Vesta */
   $entity = $variables['elements']['#vesta'];
 
+  // Because vesta entities are language undefined we need to prefix the
+  // language code.
+  $locale = \Drupal::languageManager()->getCurrentLanguage()->getId();
   $variables['entity'] = $entity->getVestaValue();
-  $variables['url'] = $entity->toUrl();
+  $variables['url'] = '/' . $locale . $entity->toUrl()->toString();
 
   if ($variables['elements']['#view_mode'] === 'full') {
     $variables['related'] = [];

@@ -59,7 +59,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2019-06-27 08:24+0200\n"
+"POT-Creation-Date: 2019-07-29 15:56+0200\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -96,27 +96,27 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:417
+#: themes/contrib/gent_base/gent_base.theme:422
 msgid "programme"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:422
+#: themes/contrib/gent_base/gent_base.theme:427
 msgid "timeline"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:463
-msgid "There is 1 other document available"
+#: themes/contrib/gent_base/gent_base.theme:468
+msgid "There is 1 other document"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:466
-msgid "There are @count other documents available"
+#: themes/contrib/gent_base/gent_base.theme:471
+msgid "There are @count other documents"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:998
+#: themes/contrib/gent_base/gent_base.theme:1011
 msgid "@category - All"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:1035 themes/contrib/gent_base/templates/contrib/dg_maps/dg-maps-map-region.html.twig:14
+#: themes/contrib/gent_base/gent_base.theme:1051 themes/contrib/gent_base/templates/contrib/dg_maps/dg-maps-map-region.html.twig:14
 msgid "View on the map"
 msgstr ""
 
@@ -134,6 +134,10 @@ msgstr ""
 
 #: themes/contrib/gent_base/build/js/file.bindings-min.js:0 themes/contrib/gent_base/source/js/file.bindings.js:0
 msgid "No file chosen."
+msgstr ""
+
+#: themes/contrib/gent_base/build/js/file.bindings-min.js:0 themes/contrib/gent_base/source/js/file.bindings.js:0
+msgid "Multiple files."
 msgstr ""
 
 #: themes/contrib/gent_base/build/js/table.bindings-min.js:0 themes/contrib/gent_base/source/js/table.bindings.js:0
@@ -355,7 +359,7 @@ msgid "View title"
 msgstr ""
 
 #: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:17
-msgid "Can we improve something about this page?"
+msgid "Can we improve something about this page? Let us know!"
 msgstr ""
 
 #: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:19

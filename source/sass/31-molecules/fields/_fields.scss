@@ -10,7 +10,7 @@
   }
 
   .field__label {
-    font-weight: bold;
+    @include bold-text;
   }
 }
 
