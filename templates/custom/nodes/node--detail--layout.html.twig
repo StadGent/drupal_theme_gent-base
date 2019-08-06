@@ -73,7 +73,8 @@
 
 {%
   set classes = [
-    'node--type-' ~ node.bundle|clean_class
+    'node--type-' ~ node.bundle|clean_class,
+    not node.isPublished() ? 'node--unpublished'
   ]
 %}
 
