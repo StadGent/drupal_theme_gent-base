@@ -7,7 +7,6 @@
 
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Template\Attribute;
-use Drupal\Core\Render\Element;
 use Drupal\Component\Utility\Html;
 use Drupal\image\Entity\ImageStyle;
 use Drupal\paragraphs\Entity\Paragraph;
@@ -17,6 +16,17 @@ use Drupal\webform\Entity\Webform;
 
 include __DIR__ . '/includes/theme.inc';
 include __DIR__ . '/includes/form.inc';
+
+/**
+ * Implements hook_theme().
+ */
+function gent_base_theme() {
+  return [
+    'gent_base_webform' => [
+      'render element' => 'form',
+    ],
+  ];
+}
 
 /**
  * Implements hook_form_FORM_ID_alter().
@@ -42,6 +52,7 @@ function gent_base_form_alter(&$form, FormStateInterface $form_state, $form_id) 
 
   if (isset($form['#webform_id'])) {
     $form['#pre_render'][] = '_gent_base_webform_pre_render';
+    $form['#theme'] = ['gent_base_webform'];
   }
 }
 
@@ -58,6 +69,20 @@ function _gent_base_webform_pre_render(array $form) {
 
   if (isset($form['elements'])) {
     _gent_base_loop_webform_elements($form['elements']);
+  }
+
+  $form['#webform'] = $webform = Webform::load($form['#webform_id']);
+
+  // Check if the form has input fields.
+  if ($webform->hasWizardPages()) {
+    $current_page = $form['progress']['#current_page'];
+
+    if ($current_page && isset($form['elements'][$current_page])) {
+      $form['#has_inputs'] = _gent_base_count_webform_inputs($form['elements'][$current_page]) > 0;
+    }
+  }
+  else {
+    $form['#has_inputs'] = _gent_base_count_webform_inputs($form['elements']) > 0;
   }
 
   return $form;
@@ -783,10 +808,6 @@ function gent_base_theme_suggestions_alter(array &$suggestions, array $variables
     }
   }
 
-  if ($original_theme_hook === 'webform' && isset($variables['element']['progress'])) {
-    $suggestions[] = $original_theme_hook . '__multistep';
-  }
-
   return $suggestions;
 }
 
@@ -1050,24 +1071,4 @@ function gent_base_preprocess_dg_maps_map(&$variables) {
     'img_base' => drupal_get_path('theme', 'gent_base') . '/source/img/',
     'legend_title' => t('View on the map'),
   ];
-}
-
-/**
- * Implements hook_preprocess_webform().
- */
-function gent_base_preprocess_webform(&$variables) {
-  $element = $variables['element'];
-  $children = Element::children($element);
-  $webform = Webform::load($element["#webform_id"]);
-
-  // Add elements to template variables.
-  foreach ($children as $key) {
-    $variables['content'][$key] = $element[$key];
-  }
-
-  // Add title variable.
-  $variables['title'] = $webform->label();
-
-  // Check if the form has input fields.
-  $variables['has_inputs'] = _gent_base_count_webform_inputs($element['elements']) > 0;
 }
