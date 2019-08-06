@@ -71,7 +71,19 @@ function _gent_base_webform_pre_render(array $form) {
     _gent_base_loop_webform_elements($form['elements']);
   }
 
-  $form['#webform'] = Webform::load($form['#webform_id']);
+  $form['#webform'] = $webform = Webform::load($form['#webform_id']);
+
+  // Check if the form has input fields.
+  if ($webform->hasWizardPages()) {
+    $currentPage = $form['progress']['#current_page'];
+
+    if ($currentPage && isset($form['elements'][$currentPage])) {
+      $form['#has_inputs'] = _gent_base_count_webform_inputs($form['elements'][$currentPage]) > 0;
+    }
+  }
+  else {
+    $form['#has_inputs'] = _gent_base_count_webform_inputs($form['elements']) > 0;
+  }
 
   return $form;
 }
