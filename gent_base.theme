@@ -75,10 +75,10 @@ function _gent_base_webform_pre_render(array $form) {
 
   // Check if the form has input fields.
   if ($webform->hasWizardPages()) {
-    $currentPage = $form['progress']['#current_page'];
+    $current_page = $form['progress']['#current_page'];
 
-    if ($currentPage && isset($form['elements'][$currentPage])) {
-      $form['#has_inputs'] = _gent_base_count_webform_inputs($form['elements'][$currentPage]) > 0;
+    if ($current_page && isset($form['elements'][$current_page])) {
+      $form['#has_inputs'] = _gent_base_count_webform_inputs($form['elements'][$current_page]) > 0;
     }
   }
   else {
