@@ -11,10 +11,10 @@
 
     &-column {
       margin-bottom: 1.6rem;
-      padding-right: 2rem;
+      padding-right: 0;
 
       @include tablet {
-        flex-basis: span(4 of 8);
+        flex-basis: span(4 of 8 set-gutters 3rem);
       }
 
       @include desktop {
