@@ -14,7 +14,7 @@
       padding-right: 0;
 
       @include tablet {
-        flex-basis: span(4sc of 8 set-gutters 3rem);
+        flex-basis: span(4 of 8 set-gutters 3rem);
       }
 
       @include desktop {
