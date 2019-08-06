@@ -7,7 +7,6 @@
 
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Template\Attribute;
-use Drupal\Core\Render\Element;
 use Drupal\Component\Utility\Html;
 use Drupal\image\Entity\ImageStyle;
 use Drupal\paragraphs\Entity\Paragraph;
@@ -19,7 +18,7 @@ include __DIR__ . '/includes/theme.inc';
 include __DIR__ . '/includes/form.inc';
 
 /**
- * Implements hook_theme()
+ * Implements hook_theme().
  */
 function gent_base_theme() {
   return [
@@ -71,6 +70,8 @@ function _gent_base_webform_pre_render(array $form) {
   if (isset($form['elements'])) {
     _gent_base_loop_webform_elements($form['elements']);
   }
+
+  $form['#webform'] = Webform::load($form['#webform_id']);
 
   return $form;
 }
