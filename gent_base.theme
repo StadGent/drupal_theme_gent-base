@@ -74,7 +74,7 @@ function _gent_base_webform_pre_render(array $form) {
   $form['#webform'] = $webform = Webform::load($form['#webform_id']);
 
   // Check if the form has input fields.
-  if ($webform->hasWizardPages()) {
+  if ($webform->hasWizardPages() && isset($form['progress'])) {
     $current_page = $form['progress']['#current_page'];
 
     if ($current_page && isset($form['elements'][$current_page])) {

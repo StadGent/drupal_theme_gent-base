@@ -2,19 +2,19 @@ menu:
   version: 1.x
   js:
     build/styleguide/js/menu.functions-min.js: { minified: true }
-    build/js/menu.bindings-min.js: { minified: true }
+    source/js/menu.bindings.js: {}
 
 accordion:
   version: 1.x
   js:
     build/styleguide/js/accordion.functions-min.js: { minified: true }
-    build/js/accordion.bindings-min.js: { minified: true }
+    source/js/accordion.bindings.js: {}
 
 filter:
   version: 1.x
   js:
-    build/js/filter.bindings-min.js: { minified: true }
-    build/js/filter.functions-min.js: { minified: true }
+    source/js/filter.bindings.js: {}
+    source/js/filter.functions.js: {}
   dependencies:
     - gent_base/modal
 
@@ -22,7 +22,7 @@ modal:
   version: 1.x
   js:
     build/styleguide/js/modal.functions-min.js: { minified: true }
-    build/js/modal.bindings-min.js: { minified: true }
+    source/js/modal.bindings.js: {}
 
 image-collections:
   version: 1.x
@@ -31,21 +31,21 @@ image-collections:
       build/styleguide/vendor/baguettebox/dist/baguetteBox.min.css: { minified: true }
   js:
     build/styleguide/vendor/baguettebox/dist/baguetteBox.min.js: { minified: true }
-    build/js/image-collections.bindings-min.js: { minified: true }
+    source/js/image-collections.bindings.js: {}
 
 image-wall:
   version: 1.x
   js:
     build/styleguide/vendor/imagesloaded/imagesloaded.pkgd.min.js: { minified: true }
     build/styleguide/vendor/masonry-layout/dist/masonry.pkgd.min.js: { minified: true }
-    build/js/image-wall.bindings-min.js: { minified: true }
+    source/js/image-wall.bindings.js: {}
   dependencies:
     - gent_base/image-collections
 
 facet_range_slider:
   version: 1.x
   js:
-    build/js/facet_range_slider.bindings-min.js: { minified: true, attributes: { defer: true } }
+    source/js/facet_range_slider.bindings.js: { attributes: { defer: true } }
   dependencies:
     - facets_range_widget/slider
 
@@ -53,7 +53,7 @@ checkbox_filter:
   version: 1.x
   js:
     build/styleguide/js/checkbox_filter.functions-min.js: { minified: true }
-    build/js/checkbox_filter.bindings-min.js: { minified: true }
+    source/js/checkbox_filter.bindings.js: {}
   dependencies:
     - gent_base/modal
 
@@ -66,15 +66,15 @@ tables:
   version: 1.x
   js:
     build/styleguide/js/table.functions-min.js: { minified: true }
-    build/js/table-mobile.functions-min.js: { minified: true }
-    build/js/table.bindings-min.js: { minified: true }
+    source/js/table-mobile.functions.js: {}
+    source/js/table.bindings.js: {}
   dependencies:
     - core/drupal
 
 opening_hours:
   version: 1.x
   js:
-    build/js/opening-hours.bindings-min.js: { minified: true }
+    source/js/opening-hours.bindings-min.js: { minified: true }
   dependencies:
     - gent_base/accordion
     - gent_base/tabs
@@ -82,12 +82,12 @@ opening_hours:
 maps:
   version: 1.x
   js:
-    build/js/dg_maps.datalayerswitcher-min.js: { minified: true }
-    build/js/dg_maps.regions-min.js: { minified: true }
-    build/js/dg_maps.baselayerswitcher-min.js: { minified: true }
-    build/js/dg_maps.popup-min.js: { minified: true }
-    build/js/dg_maps.styles-min.js: { minified: true }
-    build/js/dg_maps.bindings-min.js: { minified: true }
+    source/js/dg_maps.datalayerswitcher.js: {}
+    source/js/dg_maps.regions.js: {}
+    source/js/dg_maps.baselayerswitcher.js: {}
+    source/js/dg_maps.popup.js: {}
+    source/js/dg_maps.styles.js: {}
+    source/js/dg_maps.bindings.js: {}
   dependencies:
     - gent_base/tabs
     - dg_maps/behavior.data_layer_switcher
@@ -101,6 +101,6 @@ file:
   version: 1.x
   js:
     build/styleguide/js/file.functions-min.js: { minified: true }
-    build/js/file.bindings-min.js: { minified: true }
+    source/js/file.bindings.js: {}
   dependencies:
     - core/drupal
