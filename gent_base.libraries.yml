@@ -74,7 +74,7 @@ tables:
 opening_hours:
   version: 1.x
   js:
-    source/js/opening-hours.bindings-min.js: { minified: true }
+    source/js/opening-hours.bindings.js: {}
   dependencies:
     - gent_base/accordion
     - gent_base/tabs
