@@ -1,66 +1,28 @@
 'use strict';
 
 var gulp = require('gulp');
-var rename = require('gulp-rename');
 var eslint = require('gulp-eslint');
-var minify = require('gulp-minify');
 var del = require('del');
 var plumber = require('gulp-plumber');
 
 var globalConfig = {
   scripts_src_dir: 'js',
-  scripts_min_dir: '../build/js',
   build_dir: '../build'
 };
-
-/*
- *
- * JS files build task.
- *
- * Copies and minifies your JS files to build/js/
- *
- */
-gulp.task('js:build', function() {
-  return gulp.src(globalConfig.scripts_src_dir + '/**/*.js')
-    .pipe(plumber())
-    .pipe(rename({dirname: ''}))
-    .pipe(minify({
-      noSource: true
-    }))
-    .pipe(gulp.dest(globalConfig.scripts_min_dir));
-});
-
-/*
- *
- * JS files dist task.
- *
- * Copies your JS files to build/js/
- * No minification is done here!
- *
- */
-gulp.task('js:dist', function() {
-  return gulp.src(globalConfig.scripts_src_dir + '/**/*.js')
-    .pipe(plumber())
-    .pipe(rename({
-      dirname: '',
-      suffix: "-min",
-    }))
-    .pipe(gulp.dest(globalConfig.scripts_min_dir));
-});
 
 /*
  *
  * Validate JS files.
  *
  */
-gulp.task('js:validate', function() {
+gulp.task('js:validate', function () {
   return gulp.src(globalConfig.scripts_src_dir + '/**/*.js')
     .pipe(plumber())
     .pipe(eslint({
       configFile: './.eslintrc'
     }))
     .pipe(eslint.format())
-    .pipe(eslint.failAfterError())
+    .pipe(eslint.failAfterError());
 });
 
 /*
@@ -68,8 +30,8 @@ gulp.task('js:validate', function() {
  * Watch JS files For Changes.
  *
  */
-gulp.task('js:watch', function() {
-  return gulp.watch(globalConfig.scripts_src_dir + '/**/*.js', gulp.series('js:dist'));
+gulp.task('js:watch', function () {
+  return gulp.watch(globalConfig.scripts_src_dir + '/**/*.js', gulp.series('js:validate'));
 });
 
 /*
@@ -77,8 +39,8 @@ gulp.task('js:watch', function() {
  *
  * This deletes the build directory before recompiling.
  */
-gulp.task('build:clean', function() {
-  return del(globalConfig.build_dir + '/**', {force:true});
+gulp.task('build:clean', function () {
+  return del(globalConfig.build_dir + '/**', {force: true});
 });
 
 /*
@@ -93,16 +55,6 @@ gulp.task('build:clean', function() {
 gulp.task('validate', gulp.series('js:validate'));
 
 /*
- * Compile the theme.
- * Usage:
- *  gulp compile
- *
- *  Used build to build JS code.
- */
-gulp.task('compile', gulp.series('js:build'));
-gulp.task('compile:dev', gulp.series('js:dist'));
-
-/*
  *
  * Build task:
  * Usage:
@@ -111,7 +63,7 @@ gulp.task('compile:dev', gulp.series('js:dist'));
  *  Used to validate and build production ready code.
  *
  */
-gulp.task('build', gulp.parallel('validate', 'compile'));
+gulp.task('build', gulp.parallel('validate'));
 
 /*
  *
@@ -125,4 +77,3 @@ gulp.task('build', gulp.parallel('validate', 'compile'));
  */
 gulp.task('default', gulp.series('js:watch'));
 gulp.task('watch', gulp.series('default'));
-

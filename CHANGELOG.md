@@ -20,6 +20,8 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 ### Removed
 
 * Removed global_js from libraries.
+* No minification for JS files is done. This should be handled by drupal
+  from now on.
 
 ## [8.x-3.0-beta2]
 
