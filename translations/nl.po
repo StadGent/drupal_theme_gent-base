@@ -271,6 +271,10 @@ msgstr ""
 "Van zodra u begint te zoeken, kan u de resultaten van uw zoekopdracht hier "
 "filteren."
 
+#: themes/contrib/gent_base/templates/core/block/block--system-branding-block.html.twig:17
+msgid "Home"
+msgstr "Home"
+
 #: themes/contrib/gent_base/templates/core/content/menu-local-tasks.html.twig:15
 msgid "Primary tabs"
 msgstr "Primaire tabs"
