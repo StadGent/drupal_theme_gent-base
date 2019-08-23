@@ -4,6 +4,10 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 ## [Unreleased]
 
+### Added
+
+* Readspeaker to detail layout.
+
 ### Updated
 
 * Applied styling to form-disclaimer.
