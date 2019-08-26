@@ -19,7 +19,8 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 * Added extra checks for field existence in call-to-action.
 * Fix 404 error for `manifest.json` (it is renamed to `site.webmanifest`).
 * Theming for status messages.
-* Fixed JS error when popup feature isn't enabled in dg_maps
+* Fixed JS error when popup feature isn't enabled in dg_maps.
+* DTGB-730: Fixed fatal error when visiting page with closed webform.
 
 ### Removed
 
