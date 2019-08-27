@@ -17,10 +17,10 @@
         case 'marker':
           return new ol.style.Icon(/** @type {olx.style.IconOptions} */ ({
             anchor: [0.5, 0.5],
+            anchorXUnits: 'fraction',
+            anchorYUnits: 'fraction',
             src: path + 'map-marker.svg',
-            size: [44, 44],
-            imgSize: [44, 44],
-            scale: .9
+            imgSize: [38, 38]
           }));
       }
     }
@@ -182,4 +182,3 @@
   };
 
 })(jQuery, Drupal, drupalSettings);
-
