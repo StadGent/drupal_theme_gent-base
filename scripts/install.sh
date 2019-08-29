@@ -10,7 +10,7 @@ echo "Removing old gent_base 'build' directory...";
 rm -rf ../build;
 
 echo "Recreating gent_base 'build' directory...";
-mkdir ../build && mkdir ../build/js;
+mkdir ../build;
 
 echo "Building gent_base...";
 cd ../source;
