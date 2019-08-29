@@ -68,4 +68,19 @@
       behavior: 'smooth'
     });
   };
+
+  /**
+   * Handler for `touchmove`.
+   * This stops propagation for the touch event here.
+   * See https://github.com/openlayers/openlayers/issues/5242
+   *
+   * Touch scrolling in an overlay is prevented by ol.pointer.TouchSource.prototype.touchmove.
+   * If the overlay has set the style properties max-height and overflow: auto,
+   * the overlay is not scrollable on touch devices (iOS, Android, Chrome Dev Tools)
+   *
+   * @param {Event} inEvent The in event.
+   */
+  ol.pointer.TouchSource.prototype.touchmove = function (inEvent) { // eslint-disable-line no-undef
+    inEvent.stopPropagation();
+  };
 })(jQuery, Drupal);
