@@ -4,12 +4,14 @@
 # Copyright YEAR NAME <EMAIL@ADDRESS>
 # Generated from files:
 #  themes/contrib/gent_base/theme-settings.php: n/a
-#  themes/contrib/gent_base/theme.inc: n/a
-#  themes/contrib/gent_base/templates/core/form/form.html.twig: n/a
 #  themes/contrib/gent_base/gent_base.theme: n/a
 #  themes/contrib/gent_base/templates/contrib/dg_maps/dg-maps-map-region.html.twig: n/a
 #  themes/contrib/gent_base/gent_base.info.yml: n/a
+#  themes/contrib/gent_base/build/js/dg_maps.baselayerswitcher-min.js: n/a
 #  themes/contrib/gent_base/source/js/dg_maps.baselayerswitcher.js: n/a
+#  themes/contrib/gent_base/build/js/file.bindings-min.js: n/a
+#  themes/contrib/gent_base/source/js/file.bindings.js: n/a
+#  themes/contrib/gent_base/build/js/table.bindings-min.js: n/a
 #  themes/contrib/gent_base/source/js/table.bindings.js: n/a
 #  themes/contrib/gent_base/starterkit/starterkit.info.yml: n/a
 #  themes/contrib/gent_base/templates/contrib/dg-auth/dg-auth-block.html.twig: n/a
@@ -24,12 +26,14 @@
 #  themes/contrib/gent_base/templates/contrib/facets/facets-summary-item-list.html.twig: n/a
 #  themes/contrib/gent_base/templates/contrib/opening_hours/opening-hours-widget.html.twig: n/a
 #  themes/contrib/gent_base/templates/contrib/paragraphs/contact/paragraph--contact.html.twig: n/a
+#  themes/contrib/gent_base/templates/contrib/webform/webform--multistep.html.twig: n/a
+#  themes/contrib/gent_base/templates/contrib/webform/webform.html.twig: n/a
+#  themes/contrib/gent_base/templates/core/form/form.html.twig: n/a
 #  themes/contrib/gent_base/templates/contrib/webform/webform-progress-tracker.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/block/block--article-aside-top.html.twig: n/a
 #  themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig: n/a
 #  themes/contrib/gent_base/templates/custom/vesta/vesta.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/block/block--search-help.html.twig: n/a
-#  themes/contrib/gent_base/templates/core/block/block--system-branding-block.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/content/menu-local-tasks.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/content-edit/filter-tips.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/fields/field--field-opendata-link.html.twig: n/a
@@ -38,6 +42,7 @@
 #  themes/contrib/gent_base/templates/core/fields/field--paragraph--field-image.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/form/fieldset.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/form/form-element-label.html.twig: n/a
+#  themes/contrib/gent_base/templates/core/form/input--file.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/layout/html.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/layout/page.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/navigation/breadcrumb.html.twig: n/a
@@ -54,7 +59,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2019-04-16 07:09+0000\n"
+"POT-Creation-Date: 2019-07-29 15:56+0200\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -87,35 +92,31 @@ msgstr ""
 msgid "Fill in the color scheme primary HEX color to be used in your project, leave empty for the default color scheme. This setting is only used for displaying the favicon correctly on Android + Windows phones and Apple's Touch Bar enabled computers."
 msgstr ""
 
-#: themes/contrib/gent_base/theme.inc:184 themes/contrib/gent_base/templates/core/form/form.html.twig:15
-msgid "Fill in all fields unless otherwise stated."
-msgstr ""
-
-#: themes/contrib/gent_base/gent_base.theme:319;319
+#: themes/contrib/gent_base/gent_base.theme:284;284
 msgid "Search"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:446
+#: themes/contrib/gent_base/gent_base.theme:422
 msgid "programme"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:451
+#: themes/contrib/gent_base/gent_base.theme:427
 msgid "timeline"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:492
-msgid "There is 1 other document available"
+#: themes/contrib/gent_base/gent_base.theme:468
+msgid "There is 1 other document"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:495
-msgid "There are @count other documents available"
+#: themes/contrib/gent_base/gent_base.theme:471
+msgid "There are @count other documents"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:994
+#: themes/contrib/gent_base/gent_base.theme:1011
 msgid "@category - All"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:1031 themes/contrib/gent_base/templates/contrib/dg_maps/dg-maps-map-region.html.twig:14
+#: themes/contrib/gent_base/gent_base.theme:1051 themes/contrib/gent_base/templates/contrib/dg_maps/dg-maps-map-region.html.twig:14
 msgid "View on the map"
 msgstr ""
 
@@ -127,11 +128,19 @@ msgstr ""
 msgid "Ghent base theme. Always use a subtheme of this theme."
 msgstr ""
 
-#: themes/contrib/gent_base/source/js/dg_maps.baselayerswitcher.js:0
+#: themes/contrib/gent_base/build/js/dg_maps.baselayerswitcher-min.js:0 themes/contrib/gent_base/source/js/dg_maps.baselayerswitcher.js:0
 msgid "Legend"
 msgstr ""
 
-#: themes/contrib/gent_base/source/js/table.bindings.js:0
+#: themes/contrib/gent_base/build/js/file.bindings-min.js:0 themes/contrib/gent_base/source/js/file.bindings.js:0
+msgid "No file chosen."
+msgstr ""
+
+#: themes/contrib/gent_base/build/js/file.bindings-min.js:0 themes/contrib/gent_base/source/js/file.bindings.js:0
+msgid "Multiple files."
+msgstr ""
+
+#: themes/contrib/gent_base/build/js/table.bindings-min.js:0 themes/contrib/gent_base/source/js/table.bindings.js:0
 msgid "(Scroll to see more)"
 msgstr ""
 
@@ -147,11 +156,11 @@ msgstr ""
 msgid "Gent"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/contrib/dg-auth/dg-auth-block.html.twig:28
+#: themes/contrib/gent_base/templates/contrib/dg-auth/dg-auth-block.html.twig:27
 msgid "Mijn Gent"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/contrib/dg-auth/dg-auth-block.html.twig:33
+#: themes/contrib/gent_base/templates/contrib/dg-auth/dg-auth-block.html.twig:34
 msgid "Show profile"
 msgstr ""
 
@@ -167,7 +176,7 @@ msgstr ""
 msgid "List"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/contrib/dg_maps/dg-maps-map.html.twig:70 themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-popup.html.twig:46 themes/contrib/gent_base/templates/contrib/paragraphs/timeline/paragraph--timeline-item--alt.html.twig:10 themes/contrib/gent_base/templates/core/layout/region--filters.html.twig:28 themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig:54
+#: themes/contrib/gent_base/templates/contrib/dg_maps/dg-maps-map.html.twig:70 themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-popup.html.twig:46 themes/contrib/gent_base/templates/contrib/paragraphs/timeline/paragraph--timeline-item--alt.html.twig:48 themes/contrib/gent_base/templates/core/layout/region--filters.html.twig:28 themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig:54
 msgid "Close"
 msgstr ""
 
@@ -225,8 +234,12 @@ msgstr ""
 msgid "View all contact info"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/contrib/paragraphs/timeline/paragraph--timeline-item--alt.html.twig:45
+#: themes/contrib/gent_base/templates/contrib/paragraphs/timeline/paragraph--timeline-item--alt.html.twig:83
 msgid "More info"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/contrib/webform/webform--multistep.html.twig:39 themes/contrib/gent_base/templates/contrib/webform/webform.html.twig:34 themes/contrib/gent_base/templates/core/form/form.html.twig:15
+msgid "Fill in all fields unless otherwise stated."
 msgstr ""
 
 #: themes/contrib/gent_base/templates/contrib/webform/webform-progress-tracker.html.twig:27
@@ -239,10 +252,6 @@ msgstr ""
 
 #: themes/contrib/gent_base/templates/core/block/block--search-help.html.twig:2
 msgid "As soon as you start searching, you can filter the results of your search here."
-msgstr ""
-
-#: themes/contrib/gent_base/templates/core/block/block--system-branding-block.html.twig:17
-msgid "Home"
 msgstr ""
 
 #: themes/contrib/gent_base/templates/core/content/menu-local-tasks.html.twig:15
@@ -273,11 +282,15 @@ msgstr ""
 msgid "Optional"
 msgstr ""
 
+#: themes/contrib/gent_base/templates/core/form/input--file.html.twig:18
+msgid "Select your files here to upload"
+msgstr ""
+
 #: themes/contrib/gent_base/templates/core/layout/html.html.twig:69
 msgid "Skip to main content"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/layout/page.html.twig:111
+#: themes/contrib/gent_base/templates/core/layout/page.html.twig:113
 msgid "open gallery"
 msgstr ""
 
@@ -346,7 +359,7 @@ msgid "View title"
 msgstr ""
 
 #: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:17
-msgid "Can we improve something about this page?"
+msgid "Can we improve something about this page? Let us know!"
 msgstr ""
 
 #: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:19
@@ -429,7 +442,7 @@ msgstr ""
 msgid "More info and opening hours"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/custom/vesta/vesta--teaser.html.twig:29
+#: themes/contrib/gent_base/templates/custom/vesta/vesta.html.twig:29
 msgid "@name - openinghours and addresses"
 msgstr ""
 

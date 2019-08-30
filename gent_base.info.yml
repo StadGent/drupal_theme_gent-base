@@ -12,7 +12,6 @@ regions:
   filters: Filters
   footer: Footer
 libraries:
-  - gent_base/global_js
   - gent_base/menu
   - gent_base/tables
 # Unset all theming features.

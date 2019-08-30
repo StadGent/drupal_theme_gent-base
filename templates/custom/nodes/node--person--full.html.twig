@@ -1,6 +1,8 @@
 {% extends 'node--detail--layout.html.twig' %}
 
 {% block article_content_top %}
+  {{ readspeaker }}
+
   {% if person_job_title|render|striptags|trim is not empty or person_category|render|striptags|trim is not empty  %}
     <p class="summary-text">{{ person_job_title|render|striptags|trim }}
       {% if person_job_title|render|striptags|trim is not empty and person_category|render|striptags|trim is not empty %}-{% endif %}
@@ -55,9 +57,11 @@
         </div>
         <div class="contact-details-column">
           {% if person_image|render is not empty %}
-            <div class="image-wrapper" data-ratio="1:1">
-              {{ person_image }}
-            </div>
+            {% spaceless %}
+              <div class="image-wrapper" data-ratio="1:1">
+                {{ person_image }}
+              </div>
+            {% endspaceless %}
           {% endif %}
         </div>
       </div>

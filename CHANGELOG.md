@@ -2,6 +2,33 @@
 
 All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
+## [8.x-3.0-beta3]
+
+### Added
+
+* Readspeaker to detail layout.
+
+### Updated
+
+* Applied styling to form-disclaimer.
+* Add twig blocks to views with sidebar layout
+
+### Fixed
+
+* DTGB-725: Fixed warning when previewing newly created node with paragraphs.
+* Added extra checks for field existence in call-to-action.
+* Fix 404 error for `manifest.json` (it is renamed to `site.webmanifest`).
+* Theming for status messages.
+* Fixed JS error when popup feature isn't enabled in dg_maps.
+* DTGB-730: Fixed fatal error when visiting page with closed webform.
+* DTGB-732: Fixed scrolling bug on iOS for Openlayers popup.
+
+### Removed
+
+* Removed global_js from libraries.
+* No minification for JS files is done. This should be handled by drupal
+  from now on.
+
 ## [8.x-3.0-beta2]
 
 ### Added
@@ -199,6 +226,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 * **Updated to gent_styleguide version 2.6.13**
 
+[8.x-3.0-beta3]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-beta2...8.x-3.0-beta3
 [8.x-3.0-beta2]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-beta1...8.x-3.0-beta2
 [8.x-3.0-beta1]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-alpha11...8.x-3.0-beta1
 [8.x-3.0-alpha11]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-alpha.10...8.x-3.0-alpha11

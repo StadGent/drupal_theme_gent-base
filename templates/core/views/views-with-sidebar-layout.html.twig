@@ -46,84 +46,96 @@
 {{ attach_library('gent_base/modal') }}
 
 <div{{ attributes.addClass(classes) }}>
-  {% if exposed %}
-    <section id="filter" class="filter-section sidebar modal" tabindex="-1" aria-hidden="false">
-      <div class="modal-inner">
-        <div class="modal-header">
-          <button type="button" class="button close icon-cross modal-close" data-target="filter">
-            {{ 'Close'|t }}
-          </button>
+  {% block filters %}
+    {% if exposed %}
+      <section id="filter" class="filter-section sidebar modal" tabindex="-1" aria-hidden="false">
+        <div class="modal-inner">
+          <div class="modal-header">
+            <button type="button" class="button close icon-cross modal-close" data-target="filter">
+              {{ 'Close'|t }}
+            </button>
+          </div>
+          <div class="modal-content">
+            <h2>{{ 'Filter the results'|t }}</h2>
+            <p class="help-text">{{ 'When selecting or deselecting filters, the page is automatically reloaded.'|t }}</p>
+            {{ exposed }}
+          </div>
         </div>
-        <div class="modal-content">
-          <h2>{{ 'Filter the results'|t }}</h2>
-          <p class="help-text">{{ 'When selecting or deselecting filters, the page is automatically reloaded.'|t }}</p>
-          {{ exposed }}
-        </div>
-      </div>
-    </section>
-  {% endif %}
+      </section>
+    {% endif %}
+  {% endblock %}
+
   {% if attachment_before %}
     <div class="attachment attachment-before">
       {{ attachment_before }}
     </div>
   {% endif %}
 
+
   <div class="content result-section">
-    <h1 class="overview-title">
-      <span class="overview-title-colon">
-        {% block view_title %}
-          {{ 'View title'|t }}
-        {% endblock %}
-        <span class="colon" aria-hidden="true"></span>
-      </span>
-    </h1>
+    {% block title %}
+      <h1 class="overview-title">
+        <span class="overview-title-colon">
+          {% block view_title %}
+            {{ 'View title'|t }}
+          {% endblock %}
+          <span class="colon" aria-hidden="true"></span>
+        </span>
+      </h1>
+    {% endblock %}
 
+    {% block header %}
+      <div class="filter__result-count">
+        {% if header %}
+            {{ title_prefix }}
+            {% if title %}
+              {{ title }}
+            {% endif %}
+            {{ title_suffix }}
+            {{ header }}
+        {% endif %}
 
-    <div class="filter__result-count">
-      {% if header %}
-          {{ title_prefix }}
-          {% if title %}
-            {{ title }}
-          {% endif %}
-          {{ title_suffix }}
-          {{ header }}
+        <button type="button" class="button button-secondary icon-filter result__show-filters modal-trigger" aria-expanded="false" aria-controls="filter">
+          {{ 'Filters'|t }}
+        </button>
+      </div>
+    {% endblock %}
+
+    {% block filter %}
+      <div class="filter-results">
+        {% if rows %}
+          {{ rows }}
+        {% elseif empty %}
+          <div class="view-empty">
+            {{ empty }}
+          </div>
+        {% endif %}
+      </div>
+
+      {% if more %}
+        {{ more }}
       {% endif %}
-
-      <button type="button" class="button button-secondary icon-filter result__show-filters modal-trigger" aria-expanded="false" aria-controls="filter">
-        {{ 'Filters'|t }}
-      </button>
     </div>
+  {% endblock %}
 
-
-    <div class="filter-results">
-      {% if rows %}
-        {{ rows }}
-      {% elseif empty %}
-        <div class="view-empty">
-          {{ empty }}
-        </div>
-      {% endif %}
-    </div>
-
-    {% if more %}
-      {{ more }}
+  {% block pager %}
+    {% if pager %}
+      {{ pager }}
     {% endif %}
-  </div>
+    {% if attachment_after %}
+      <div class="attachment attachment-after">
+        {{ attachment_after }}
+      </div>
+    {% endif %}
+  {% endblock %}
 
-  {% if pager %}
-    {{ pager }}
-  {% endif %}
-  {% if attachment_after %}
-    <div class="attachment attachment-after">
-      {{ attachment_after }}
-    </div>
-  {% endif %}
-
-  {% if footer %}
-    <div class="view-footer">
-      {{ footer }}
-    </div>
-  {% endif %}
+  {% block footer %}
+    {% if footer %}
+      <div class="view-footer">
+        {{ footer }}
+      </div>
+    {% endif %}
+  {% endblock %}
   {% if feed_icons %}
     <div class="feeds">
       {{ feed_icons }}

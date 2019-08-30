@@ -7,7 +7,6 @@
 
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Template\Attribute;
-use Drupal\Core\Render\Element;
 use Drupal\Component\Utility\Html;
 use Drupal\image\Entity\ImageStyle;
 use Drupal\paragraphs\Entity\Paragraph;
@@ -17,6 +16,17 @@ use Drupal\webform\Entity\Webform;
 
 include __DIR__ . '/includes/theme.inc';
 include __DIR__ . '/includes/form.inc';
+
+/**
+ * Implements hook_theme().
+ */
+function gent_base_theme() {
+  return [
+    'gent_base_webform' => [
+      'render element' => 'form',
+    ],
+  ];
+}
 
 /**
  * Implements hook_form_FORM_ID_alter().
@@ -42,6 +52,7 @@ function gent_base_form_alter(&$form, FormStateInterface $form_state, $form_id) 
 
   if (isset($form['#webform_id'])) {
     $form['#pre_render'][] = '_gent_base_webform_pre_render';
+    $form['#theme'] = ['gent_base_webform'];
   }
 }
 
@@ -55,10 +66,23 @@ function gent_base_form_alter(&$form, FormStateInterface $form_state, $form_id) 
  *   Altered build array.
  */
 function _gent_base_webform_pre_render(array $form) {
-
-  if (isset($form['elements'])) {
-    _gent_base_loop_webform_elements($form['elements']);
+  $form['#has_inputs'] = FALSE;
+  if (empty($form['elements'])) {
+    return $form;
   }
+
+  _gent_base_loop_webform_elements($form['elements']);
+  $elements = $form['elements'];
+
+  // If this is a multistep form > get the elements of the current step.
+  $form['#webform'] = $webform = Webform::load($form['#webform_id']);
+  if ($webform->hasWizardPages() && isset($form['progress'])) {
+    $current_page = $form['progress']['#current_page'];
+    $elements = $current_page && !empty($form['elements'][$current_page])
+      ? $form['elements'][$current_page]
+      : [];
+  }
+  $form['#has_inputs'] = (bool) _gent_base_count_webform_inputs($elements);
 
   return $form;
 }
@@ -401,7 +425,12 @@ function gent_base_preprocess_field(&$variables) {
     $isProgram = FALSE;
 
     foreach ($paragraphs as $key => $paragraph) {
-      $entity = Paragraph::load($paragraph->get('target_id')->getValue());
+      $targetId = $paragraph->get('target_id')->getValue();
+      if (!$targetId) {
+        continue;
+      }
+
+      $entity = Paragraph::load($targetId);
       if ($entity) {
         $type = $entity->get('type')->getString();
 
@@ -460,10 +489,10 @@ function gent_base_preprocess_field__field_documents(&$variables) {
   if (isset($variables['documents_invisible'])) {
     $extra_documents_count = count($variables['documents_invisible']);
     if ($extra_documents_count === 1) {
-      $variables['documents_toggle_text'] = t('There is 1 other document available');
+      $variables['documents_toggle_text'] = t('There is 1 other document');
     }
     else {
-      $variables['documents_toggle_text'] = t('There are @count other documents available', ['@count' => $extra_documents_count]);
+      $variables['documents_toggle_text'] = t('There are @count other documents', ['@count' => $extra_documents_count]);
     }
   }
 }
@@ -778,10 +807,6 @@ function gent_base_theme_suggestions_alter(array &$suggestions, array $variables
     }
   }
 
-  if ($original_theme_hook === 'webform' && isset($variables['element']['progress'])) {
-    $suggestions[] = $original_theme_hook . '__multistep';
-  }
-
   return $suggestions;
 }
 
@@ -936,6 +961,10 @@ function gent_base_preprocess_paragraph__call_to_action(&$variables) {
   ];
 
   foreach ($fields as $i => $field) {
+    if (!$paragraph->hasField($field . '_type')) {
+      break;
+    }
+
     if (!$paragraph->get($field . '_type')->isEmpty()) {
       $action = [
         '#type' => 'link',
@@ -950,6 +979,10 @@ function gent_base_preprocess_paragraph__call_to_action(&$variables) {
       }
       else {
         $data = _gent_base_get_entity_reference_file_data($variables, $field . '_document');
+        if (empty($data) || !isset($data['file_uri'])) {
+          break;
+        }
+
         $action['#url'] = Url::fromUri($data['file_uri']);
         $action['#attributes']['download'] = TRUE;
 
@@ -1008,8 +1041,11 @@ function gent_base_preprocess_vesta(&$variables) {
   /* @var $entity Drupal\dg_vesta\Entity\Vesta */
   $entity = $variables['elements']['#vesta'];
 
+  // Because vesta entities are language undefined we need to prefix the
+  // language code.
+  $locale = \Drupal::languageManager()->getCurrentLanguage()->getId();
   $variables['entity'] = $entity->getVestaValue();
-  $variables['url'] = $entity->toUrl();
+  $variables['url'] = '/' . $locale . $entity->toUrl()->toString();
 
   if ($variables['elements']['#view_mode'] === 'full') {
     $variables['related'] = [];
@@ -1034,24 +1070,4 @@ function gent_base_preprocess_dg_maps_map(&$variables) {
     'img_base' => drupal_get_path('theme', 'gent_base') . '/source/img/',
     'legend_title' => t('View on the map'),
   ];
-}
-
-/**
- * Implements hook_preprocess_webform().
- */
-function gent_base_preprocess_webform(&$variables) {
-  $element = $variables['element'];
-  $children = Element::children($element);
-  $webform = Webform::load($element["#webform_id"]);
-
-  // Add elements to template variables.
-  foreach ($children as $key) {
-    $variables['content'][$key] = $element[$key];
-  }
-
-  // Add title variable.
-  $variables['title'] = $webform->label();
-
-  // Check if the form has input fields.
-  $variables['has_inputs'] = _gent_base_count_webform_inputs($element['elements']) > 0;
 }

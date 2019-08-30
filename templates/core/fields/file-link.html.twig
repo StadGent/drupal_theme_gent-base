@@ -12,14 +12,16 @@
  */
 #}
 
-{{ link }}
+<div>
+  {{ link }}
 
-<span class="file-type">
-  {{ file_type }}
+  <span class="file-type">
+    {{ file_type }}
 
-  {% if file_size %}
-    <span class="file-size">
-      ({{ file_size }})
-    </span>
-  {% endif %}
-</span>
+    {% if file_size %}
+      <span class="file-size">
+        ({{ file_size }})
+      </span>
+    {% endif %}
+  </span>
+</div>
