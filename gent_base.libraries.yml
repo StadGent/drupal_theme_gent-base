@@ -104,3 +104,9 @@ file:
     source/js/file.bindings.js: {}
   dependencies:
     - core/drupal
+
+breadcrumbs:
+  version: 1.x
+  js:
+    build/styleguide/js/breadcrumbs.functions-min.js: { minified: true }
+    source/js/breadcrumbs.bindings.js: {}
