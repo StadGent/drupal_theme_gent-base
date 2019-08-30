@@ -21,6 +21,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 * Theming for status messages.
 * Fixed JS error when popup feature isn't enabled in dg_maps.
 * DTGB-730: Fixed fatal error when visiting page with closed webform.
+* DTGB-732: Fixed scrolling bug on iOS for Openlayers popup.
 
 ### Removed
 
