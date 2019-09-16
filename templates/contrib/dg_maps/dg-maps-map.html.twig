@@ -20,7 +20,7 @@
 
 {# Map #}
 {% block map %}
-  {% set attributes = attributes.addClass('map-container').addClass('clearfix') %}
+  {% set attributes = attributes.addClass(['map-container', 'clearfix']) %}
   <div{{ attributes }}">
     {% if content.left %}
       {% set region = { 'name': 'left', 'content': content.left, 'settings': regions.left } %}
