@@ -2,7 +2,7 @@
  * @file
 * Accordion component binding.
  */
-(function (Drupal,$) {
+(function (Drupal, $) {
   'use strict';
 
   Drupal.behaviors.gentBaseLoadAccordion = {
