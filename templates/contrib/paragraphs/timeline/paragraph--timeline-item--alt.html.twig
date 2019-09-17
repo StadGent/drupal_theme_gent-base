@@ -84,14 +84,16 @@
       </div>
 
       <div class="content__top">
-        <div class="figure-wrapper">
-          <figure>
-            <div class="image-wrapper" data-ratio="8:5">
-              {{ fake_teaser_image }}
-            </div>
-          </figure>
-          <div class="accolade-inverse bottom-left"></div>
-        </div>
+        {% spaceless %}
+          <div class="figure-wrapper">
+            <figure>
+              <div class="image-wrapper" data-ratio="8:5">
+                {{ fake_teaser_image }}
+              </div>
+            </figure>
+            <div class="accolade-inverse bottom-left"></div>
+          </div>
+        {% endspaceless %}
       </div>
     </article>
 

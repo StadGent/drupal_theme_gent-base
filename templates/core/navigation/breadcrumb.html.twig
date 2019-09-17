@@ -7,11 +7,14 @@
  * - breadcrumb: Breadcrumb trail items.
  */
 #}
+
+{{ attach_library('gent_base/breadcrumbs') }}
+
 {% if breadcrumb %}
   <nav class="breadcrumb" aria-labelledby="system-breadcrumb">
     <div class="content-container">
       <h2 id="system-breadcrumb" class="visually-hidden">{{ 'Breadcrumb'|t }}</h2>
-      <ol class="breadcrumb no-style">
+      <ol class="no-style">
         {% spaceless %}
           {% for item in breadcrumb %}
             <li>
