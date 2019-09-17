@@ -10,7 +10,7 @@
       if (!Breadcrumbs) { // eslint-disable-line no-undef
         return;
       }
-      
+
       $('.breadcrumb').once('gent_base_breadcrumb').each(function () {
         new Breadcrumbs(this); // eslint-disable-line no-undef
       });
