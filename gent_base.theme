@@ -122,7 +122,7 @@ function gent_base_preprocess_page(&$variables) {
 function gent_base_preprocess_page_hero_image(&$variables) {
   $route = \Drupal::request()->get('_route');
   if ($route !== 'entity.node.canonical') {
-    $variables['attributes']['class'][] = ['overview-page'];
+    $variables['attributes']['class'][] = 'overview-page';
     return;
   }
 
