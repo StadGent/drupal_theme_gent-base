@@ -350,6 +350,8 @@ $map-text-color: color('dark-gray');
   }
 
   &-region {
+    z-index: 5;
+
     &--right-top {
       top: $map-padding;
       right: $map-padding;
