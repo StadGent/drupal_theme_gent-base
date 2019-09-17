@@ -45,11 +45,11 @@ To install and use this base theme and a subtheme of it follow these steps:
     ],
     "post-install-cmd": [
       "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
-      "cd web/themes/contrib/gent_base; composer install"
+      "@composer --working-dir=web/themes/contrib/gent_base install"
     ],
     "post-update-cmd": [
       "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
-      "cd web/themes/contrib/gent_base; composer update"
+      "@composer --working-dir=web/themes/contrib/gent_base install"
     ]
   },
   ```

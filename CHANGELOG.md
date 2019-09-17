@@ -2,7 +2,7 @@
 
 All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
-## [Unreleased]
+## [8.x-3.0-beta3]
 
 ### Added
 
@@ -23,6 +23,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 * DTGB-730: Fixed fatal error when visiting page with closed webform.
 * DTGB-741: Fixed bindings for breadcrumbs and accordion JS files.
 * DTGB-741: Fixed console issue with baselayerswitcher.
+* DTGB-732: Fixed scrolling bug on iOS for Openlayers popup.
 
 ### Removed
 
@@ -227,6 +228,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 * **Updated to gent_styleguide version 2.6.13**
 
+[8.x-3.0-beta3]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-beta2...8.x-3.0-beta3
 [8.x-3.0-beta2]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-beta1...8.x-3.0-beta2
 [8.x-3.0-beta1]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-alpha11...8.x-3.0-beta1
 [8.x-3.0-alpha11]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-alpha.10...8.x-3.0-alpha11

@@ -1,6 +1,5 @@
 {% set pageTitle = form.progress
   ? form['#webform'].pages[form.progress['#current_page']]['#title']
-  : form['#webform'].label
 %}
 
 {% if form.progress %}
@@ -11,7 +10,9 @@
     <div class="form-content">
 
 {% endif %}
-    <h2>{{ pageTitle }}</h2>
+    {% if pageTitle %}
+      <h2>{{ pageTitle }}</h2>
+    {% endif %}
 
     {% if form['#has_inputs'] %}
       <p class="form-disclaimer">{{ 'Fill in all fields unless otherwise stated.'|t }}</p>

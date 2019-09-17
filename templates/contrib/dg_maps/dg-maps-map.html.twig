@@ -20,7 +20,8 @@
 
 {# Map #}
 {% block map %}
-  <div id="{{ map_id }}__container" class="map-container clearfix">
+  {% set attributes = attributes.addClass(['map-container', 'clearfix']) %}
+  <div{{ attributes }}">
     {% if content.left %}
       {% set region = { 'name': 'left', 'content': content.left, 'settings': regions.left } %}
       {% include "@gent_base/contrib/dg_maps/dg-maps-map-region.html.twig" with region %}

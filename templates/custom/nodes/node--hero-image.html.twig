@@ -73,12 +73,14 @@
 
 {% block wrapper %}
   {% if content|render is not empty %}
-    <figure class="hero">
-      <div class="image-wrapper" data-ratio="4:1">
-        {% block content %}
-          {{ content }}
-        {% endblock %}
-      </div>
-    </figure>
+    {% spaceless %}
+      <figure class="hero">
+        <div class="image-wrapper" data-ratio="4:1">
+          {% block content %}
+            {{ content }}
+          {% endblock %}
+        </div>
+      </figure>
+    {% endspaceless %}
   {% endif %}
 {% endblock %}

@@ -35,7 +35,7 @@
 <!DOCTYPE html>
 <html{{ html_attributes }}>
   <head>
-    <head-placeholder token="{{ placeholder_token }}"></head-placeholder>
+    <head-placeholder token="{{ placeholder_token }}">
     <title>{{ head_title|safe_join(' | ') }}</title>
     {% block metadata %}
       <link rel="apple-touch-icon" sizes="180x180" href="{{ base_path }}themes/contrib/gent_base/build/styleguide/img/favicon/build/{{ cs.color }}/apple-touch-icon.png" />
@@ -57,8 +57,8 @@
       });
     </script>
 
-    <css-placeholder token="{{ placeholder_token }}"></css-placeholder>
-    <js-placeholder token="{{ placeholder_token }}"></js-placeholder>
+    <css-placeholder token="{{ placeholder_token }}">
+    <js-placeholder token="{{ placeholder_token }}">
   </head>
   <body{{ attributes.addClass(body_classes) }}>
     {#
@@ -71,6 +71,6 @@
     {{ page_top }}
     {{ page }}
     {{ page_bottom }}
-    <js-bottom-placeholder token="{{ placeholder_token }}"></js-bottom-placeholder>
+    <js-bottom-placeholder token="{{ placeholder_token }}">
   </body>
 </html>
