@@ -21,6 +21,8 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 * Theming for status messages.
 * Fixed JS error when popup feature isn't enabled in dg_maps.
 * DTGB-730: Fixed fatal error when visiting page with closed webform.
+* DTGB-741: Fixed bindings for breadcrumbs and accordion JS files.
+* DTGB-741: Fixed console issue with baselayerswitcher.
 
 ### Removed
 

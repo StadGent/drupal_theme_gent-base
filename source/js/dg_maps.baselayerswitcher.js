@@ -6,6 +6,10 @@
 (function ($, Drupal) {
   'use strict';
 
+  if (!Drupal.dgMaps.ol.control.BaseLayerSwitcher) {
+    return;
+  }
+
   var originalPrototype = Drupal.dgMaps.ol.control.BaseLayerSwitcher.prototype;
 
   /**
@@ -85,4 +89,3 @@
 
   Drupal.dgMaps.ol.control.BaseLayerSwitcher.prototype = originalPrototype;
 })(jQuery, Drupal);
-
