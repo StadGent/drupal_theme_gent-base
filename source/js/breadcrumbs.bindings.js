@@ -2,7 +2,7 @@
  * @file
  * Accordion component binding.
  */
-(function (Drupal) {
+(function (Drupal, $) {
   'use strict';
 
   Drupal.behaviors.gentBaseBreadcrumbs = {
@@ -11,11 +11,9 @@
         return;
       }
 
-      var selected = document.querySelectorAll('.breadcrumb');
-      for (var i = selected.length; i--;) {
-        new Breadcrumbs(selected[i]); // eslint-disable-line no-undef
-      }
-
+      $('.breadcrumb').once('gent_base_breadcrumb').each(function () {
+        new Breadcrumbs(this); // eslint-disable-line no-undef
+      });
     }
   };
-})(Drupal);
+})(Drupal, jQuery);
