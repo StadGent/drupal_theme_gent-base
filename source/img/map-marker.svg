@@ -1,18 +1,29 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" height="40" viewBox="0 0 40 40">
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="68px" height="68px" viewBox="0 0 68 68" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+    <title>marker</title>
+    <desc>Created with Sketch.</desc>
     <defs>
-        <circle id="b" cx="20" cy="20" r="20"/>
-        <filter id="a" width="212.5%" height="212.5%" x="-56.2%" y="-48.8%" filterUnits="objectBoundingBox">
-            <feOffset dy="3" in="SourceAlpha" result="shadowOffsetOuter1"/>
-            <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="7"/>
-            <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0.137254902 0 0 0 0 0.2 0 0 0 0 0.22745098 0 0 0 0.25 0"/>
+        <circle id="path-1" cx="20" cy="20" r="20"></circle>
+        <filter x="-56.2%" y="-48.8%" width="212.5%" height="212.5%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="3" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="7" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.137254902   0 0 0 0 0.2   0 0 0 0 0.22745098  0 0 0 0.25 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
         </filter>
-        <path id="c" d="M16 11.24a3.826 3.826 0 1 0 0 7.652 3.826 3.826 0 0 0 0-7.653m0 2.87c.527 0 .957.43.957.956 0 .527-.43.957-.957.957a.958.958 0 0 1-.957-.957c0-.527.43-.956.957-.956M16 4C9.925 4 5 8.925 5 15c0 8 11 14 11 14s11-6 11-14c0-6.075-4.925-11-11-11m0 2.87c4.483 0 8.13 3.647 8.13 8.13 0 4.393-5.024 8.612-8.13 10.647C12.892 23.61 7.87 19.392 7.87 15c0-4.483 3.647-8.13 8.13-8.13"/>
+        <path d="M16,11.2390572 C13.8870435,11.2390572 12.173913,12.9522115 12.173913,15.0651974 C12.173913,17.1781833 13.8870435,18.8913376 16,18.8913376 C18.1129565,18.8913376 19.826087,17.1781833 19.826087,15.0651974 C19.826087,12.9522115 18.1129565,11.2390572 16,11.2390572 M16,14.1086624 C16.5270435,14.1086624 16.9565217,14.5381466 16.9565217,15.0651974 C16.9565217,15.5922482 16.5270435,16.0217325 16,16.0217325 C15.4729565,16.0217325 15.0434783,15.5922482 15.0434783,15.0651974 C15.0434783,14.5381466 15.4729565,14.1086624 16,14.1086624 M16,4 C9.92513043,4 5,8.92519896 5,15.000153 C5,22.9996556 16,29 16,29 C16,29 27,22.9996556 27,15.000153 C27,8.92519896 22.0748696,4 16,4 M16,6.86960514 C20.4832174,6.86960514 24.1304348,10.5168733 24.1304348,15.000153 C24.1304348,19.392562 19.1058261,23.6118381 16,25.6473447 C12.8922609,23.609925 7.86956522,19.3916054 7.86956522,15.000153 C7.86956522,10.5168733 11.5167826,6.86960514 16,6.86960514" id="path-3"></path>
     </defs>
-    <g fill="none" fill-rule="evenodd">
-        <use fill="#000" filter="url(#a)" xlink:href="#b"/>
-        <use fill="#FFF" xlink:href="#b"/>
-        <g transform="translate(4 5)">
-            <use fill="#23333A" xlink:href="#c"/>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="atom/map/marker" transform="translate(14.000000, 11.000000)">
+            <g id="Oval">
+                <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+            </g>
+            <g id="atom/icon/map/marker" transform="translate(4.000000, 5.000000)">
+                <mask id="mask-4" fill="white">
+                    <use xlink:href="#path-3"></use>
+                </mask>
+                <use id="Fill-1" fill="#23333A" fill-rule="evenodd" xlink:href="#path-3"></use>
+            </g>
         </g>
     </g>
 </svg>
