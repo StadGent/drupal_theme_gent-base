@@ -2,6 +2,12 @@
 
 All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
+## [Unreleased]
+
+### Updated
+
+* Styling fixes for webforms.
+
 ## [8.x-3.0-beta4]
 
 ### Fixed

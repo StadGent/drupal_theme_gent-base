@@ -41,3 +41,7 @@ textarea {
 .field-message em.placeholder {
   font-style: initial;
 }
+
+.webform-type-webform-email-confirm > .form-columns .form-item-column:last-child .field-message.error {
+  margin-top: 1.2rem;
+}
