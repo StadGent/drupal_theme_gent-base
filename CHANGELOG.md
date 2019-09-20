@@ -4,10 +4,23 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 ## [Unreleased]
 
+### Updated
+
+* Styling fixes for webforms.
+
 ### Fixed
 
 * DTGB-744: Fixed Mijn Gent dropdown issue on IE.
 * DTGB-745: Fixed broken map marker.
+
+## [8.x-3.0-beta4]
+
+### Fixed
+
+* DTGB-741: Fixed bindings for breadcrumbs and accordion JS files.
+* DTGB-741: Fixed console issue with baselayerswitcher.
+* SGD8-450: Prevent map controls to be displayed on top of modals.
+
 
 ## [8.x-3.0-beta3]
 
@@ -233,6 +246,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 * **Updated to gent_styleguide version 2.6.13**
 
+[8.x-3.0-beta4]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-beta3...8.x-3.0-beta4
 [8.x-3.0-beta3]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-beta2...8.x-3.0-beta3
 [8.x-3.0-beta2]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-beta1...8.x-3.0-beta2
 [8.x-3.0-beta1]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-alpha11...8.x-3.0-beta1
