@@ -29,7 +29,7 @@
 
             headerAccordionButton.setAttribute('init', true);
             new Accordion(headerAccordion); // eslint-disable-line no-undef
-            setTimeout(function () { headerAccordionButton.click()});
+            setTimeout(function () { headerAccordionButton.click();}); // es-lint-disable-line max-nested-callbacks
           });
         }
       });
