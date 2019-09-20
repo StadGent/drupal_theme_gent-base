@@ -63,7 +63,7 @@ function _gent_base_loop_webform_elements(array &$elements) {
     _gent_base_loop_webform_elements_datetime($element);
     _gent_base_loop_webform_elements_select_other($element);
     _gent_base_loop_webform_elements_markup($element);
-    _gent_base_loop_webform_upload($element);
+    _gent_base_loop_webform_elements_upload($element);
     _gent_base_loop_webform_group($element);
   }
 }
@@ -194,7 +194,7 @@ function _gent_base_loop_webform_group(array &$element) {
  * @param array $element
  *   Build array a form element.
  */
-function _gent_base_loop_webform_upload(array &$element) {
+function _gent_base_loop_webform_elements_upload(array &$element) {
   $uploadTypes = ['webform_image_file', 'webform_document_file'];
   if (!in_array($element['#type'], $uploadTypes)) {
     return;
