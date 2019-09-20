@@ -20,7 +20,7 @@
             anchorXUnits: 'fraction',
             anchorYUnits: 'fraction',
             src: path + 'map-marker.svg',
-            imgSize: [38, 38]
+            imgSize: [68, 68]
           }));
       }
     }
