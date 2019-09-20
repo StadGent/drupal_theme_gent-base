@@ -2,6 +2,13 @@
 
 All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
+## [Unreleased]
+
+### Fixed
+
+* DTGB-744: Fixed Mijn Gent dropdown issue on IE.
+* DTGB-745: Fixed broken map marker.
+
 ## [8.x-3.0-beta3]
 
 ### Added
