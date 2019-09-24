@@ -83,7 +83,6 @@ maps:
   version: 1.x
   js:
     source/js/dg_maps.datalayerswitcher.js: {}
-    source/js/dg_maps.regions.js: {}
     source/js/dg_maps.baselayerswitcher.js: {}
     source/js/dg_maps.popup.js: {}
     source/js/dg_maps.styles.js: {}
