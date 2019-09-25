@@ -2,6 +2,17 @@
 
 All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
+## [8.x-3.0-beta6]
+
+### Updated
+
+* Show map legend by default.
+* Updated Dutch, French and German translations.
+
+### Fixed
+
+* Horizontal scroll for (large) tables.
+
 ## [8.x-3.0-beta5]
 
 ### Updated
@@ -20,7 +31,6 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 * DTGB-741: Fixed bindings for breadcrumbs and accordion JS files.
 * DTGB-741: Fixed console issue with baselayerswitcher.
 * SGD8-450: Prevent map controls to be displayed on top of modals.
-
 
 ## [8.x-3.0-beta3]
 
@@ -246,6 +256,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 * **Updated to gent_styleguide version 2.6.13**
 
+[8.x-3.0-beta6]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-beta5...8.x-3.0-beta6
 [8.x-3.0-beta5]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-beta4...8.x-3.0-beta5
 [8.x-3.0-beta4]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-beta3...8.x-3.0-beta4
 [8.x-3.0-beta3]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-beta2...8.x-3.0-beta3
