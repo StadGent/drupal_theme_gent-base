@@ -8,6 +8,10 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 * Show map legend by default.
 
+### Fixed
+
+ * Horizontal scroll for (large) tables.
+
 ## [8.x-3.0-beta5]
 
 ### Updated
@@ -26,7 +30,6 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 * DTGB-741: Fixed bindings for breadcrumbs and accordion JS files.
 * DTGB-741: Fixed console issue with baselayerswitcher.
 * SGD8-450: Prevent map controls to be displayed on top of modals.
-
 
 ## [8.x-3.0-beta3]
 
