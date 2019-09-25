@@ -16,15 +16,16 @@
         var tableItem = tables[item];
 
         // Create wrapper div and wrap it around each table
-        var table = document.createElement('div');
-        table.classList.add('responsive-table');
 
         var tableWrapper = document.createElement('div');
         tableWrapper.classList.add('table-wrapper');
-        tableWrapper.appendChild(table);
 
-        tableItem.parentNode.insertBefore(tableWrapper, tableItem);
-        table.appendChild(tableItem);
+        var table = document.createElement('div');
+        table.classList.add('responsive-table');
+        table.appendChild(tableWrapper);
+
+        tableItem.parentNode.insertBefore(table, tableItem);
+        tableWrapper.appendChild(tableItem);
 
         // Adds accessibility support.
         new ResponsiveTable(tableWrapper, {
