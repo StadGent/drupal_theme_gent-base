@@ -7,6 +7,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 ### Updated
 
 * Show map legend by default.
+* Updated Dutch, French and German translations.
 
 ### Fixed
 
