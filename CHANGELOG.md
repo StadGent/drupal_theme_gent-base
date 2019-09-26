@@ -2,6 +2,12 @@
 
 All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
+## [Unreleased]
+
+### Updated
+
+* Show map legend by default, but only on tablet or bigger.
+
 ## [8.x-3.0-beta6]
 
 ### Updated
