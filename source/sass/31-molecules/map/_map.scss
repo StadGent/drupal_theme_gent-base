@@ -134,8 +134,14 @@ $map-text-color: color('dark-gray');
           display: none;
         }
 
+        &[open] .category__label {
+          @include icon(minus);
+        }
+
         .category__label {
           @include icon(plus);
+
+          display: block;
           cursor: pointer;
 
           &::before {
