@@ -654,6 +654,7 @@ function gent_base_preprocess_node(&$variables) {
 function gent_base_preprocess_links__node(&$variables) {
   if (isset($variables['links']['node-readmore'])) {
     $readmore = &$variables['links']['node-readmore'];
+    $readmore['link']['#options']['attributes']['rel'] = NULL;
     $readmore['link']['#options']['attributes']['class'] = [
       'standalone-link',
     ];
