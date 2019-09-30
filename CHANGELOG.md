@@ -2,6 +2,12 @@
 
 All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
+## [Unreleased]
+
+### Updated
+
+* Removed rel attribute from read more links.
+
 ## [8.x-3.0-beta7]
 
 ### Updated
