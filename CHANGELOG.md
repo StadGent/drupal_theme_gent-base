@@ -8,6 +8,10 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 * Removed rel attribute from read more links.
 
+### Fixed
+
+* Olark and contact form links in feedback form.
+
 ## [8.x-3.0-beta7]
 
 ### Updated

@@ -413,8 +413,8 @@ msgid "Through the <a href=\":url\">contact form</a>"
 msgstr "Via het <a href=\":url\">contactformulier</a>"
 
 #: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:28
-msgid "Through the <a href=\":url\">chat</a>"
-msgstr "Via de <a href=\":url\">chat</a>"
+msgid "Through the <a href=\"#\" class=\"olark-toggle\">chat</a>"
+msgstr "Via de <a href=\"#\" class=\"olark-toggle\">chat</a>"
 
 #: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:108
 msgid "Additional information"
