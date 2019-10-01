@@ -23,22 +23,21 @@
 #  themes/contrib/gent_base/templates/core/layout/page.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/navigation/breadcrumb.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/navigation/pager.html.twig: n/a
-#  themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig: n/a
 #  themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig: n/a
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2019-09-25 11:33+0000\n"
-"PO-Revision-Date: 2019-09-25 13:35+0200\n"
-"Last-Translator: Maarten Segers <maarten.segers@digipolis.gent>\n"
+"POT-Creation-Date: 2019-10-01 11:00+0200\n"
+"PO-Revision-Date: 2019-10-01 11:05+0200\n"
+"Last-Translator: Helena Standaert <helena.standaert@digipolis.gent>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 2.2.3\n"
+"X-Generator: Poedit 2.2.4\n"
 
 #: themes/contrib/gent_base/theme-settings.php:21
 msgid "Gent Base settings"
@@ -96,11 +95,11 @@ msgstr "Il y a 1 autre document"
 msgid "There are @count other documents"
 msgstr "Il y a @count autres documents"
 
-#: themes/contrib/gent_base/gent_base.theme:1031
+#: themes/contrib/gent_base/gent_base.theme:1032
 msgid "@category - All"
 msgstr "@category - Tous"
 
-#: themes/contrib/gent_base/gent_base.theme:1071
+#: themes/contrib/gent_base/gent_base.theme:1072
 #: themes/contrib/gent_base/templates/contrib/dg_maps/dg-maps-map-region.html.twig:14
 msgid "View on the map"
 msgstr "Afficher sur la carte"
@@ -362,48 +361,6 @@ msgstr ""
 #: themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig:80
 msgid "View title"
 msgstr "Titre de l'aperçu"
-
-#: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:17
-msgid "Can we improve something about this page? Let us know!"
-msgstr "Pouvons-nous encore améliorer cette page ? Dites-le-nous !"
-
-#: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:19
-msgid "You can contact Gentinfo for personal questions or complaints."
-msgstr ""
-"Si vous avez des questions ou des réclamations, vous pouvez les adresser à "
-"Info Gand."
-
-#: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:21
-msgid "How to reach?"
-msgstr "Comment nous joindre ?"
-
-#: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:24
-msgid ""
-"By phone: <a href=\":tel\">09 210 10 10</a> (from monday till saturday from "
-"08:00 till 19:00)"
-msgstr ""
-"Par téléphone : <a href=\":tel\">09 210 10 10</a> (du lundi au samedi de 8 à "
-"19 heures)"
-
-#: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:25
-msgid "Send us an <a href=\":url\">email</a>"
-msgstr "Envoyez-nous un <a href=\":url\">e-mail</a>"
-
-#: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:26
-msgid ""
-"Through the <a href=\":url\">Twitter account</a> of the City of Gent (<a "
-"href=\":url\">@StadGent</a>)"
-msgstr ""
-"Via le <a href=\":url\">compte Twitter</a> de la Ville de Gand (<a href=\":"
-"url\">@StadGent</a>)"
-
-#: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:27
-msgid "Through the <a href=\":url\">contact form</a>"
-msgstr "Via le <a href=\":url\">formulaire de contact</a>"
-
-#: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:28
-msgid "Through the <a href=\"#\" class=\"olark-toggle\">chat</a>"
-msgstr "Via le <a href=\"#\" class=\"olark-toggle\">chat</a>"
 
 #: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:108
 msgid "Additional information"
