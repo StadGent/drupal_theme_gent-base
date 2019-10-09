@@ -9,6 +9,10 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 * Removed rel attribute from read more links.
 * Updated CSS classes in dg_auth block.
 
+### Fixed
+
+* Make "optional" label controllable through [State API](https://www.drupal.org/docs/8/api/state-api/).
+
 ## [8.x-3.0-beta7]
 
 ### Updated
