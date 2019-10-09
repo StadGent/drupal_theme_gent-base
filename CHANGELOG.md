@@ -7,6 +7,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 ### Updated
 
 * Removed rel attribute from read more links.
+* Updated CSS classes in dg_auth block.
 
 ## [8.x-3.0-beta7]
 
