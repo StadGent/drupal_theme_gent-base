@@ -27,12 +27,13 @@
     'js-form-item',
     'form-item',
     'js-form-wrapper',
-    'form-wrapper',
+    'form-wrapper'
   ]
 %}
 
 {% set legend_span_classes = [
-  required == 0 ? 'label-optional',
+  required ? 'js-form-required',
+  required ? 'form-required'
 ] %}
 
 {%
@@ -41,11 +42,9 @@
 
 <fieldset{{ attributes.addClass(classes).removeClass('fieldgroup') }}>
 
-  <legend{{ legend.attributes }}>
+  <legend{{ legend.attributes.addClass(legend_span_classes) }}>
     {{ legend.title }}
-    {% if required == 0 and fieldset_optional != 1 %}
-      <span{{ legend_span.attributes.addClass(legend_span_classes) }}>({{ 'Optional'|t }})</span>
-    {% endif %}
+    <span{{ legend_span.attributes.addClass('label-optional') }}>({{ 'Optional'|t }})</span>
   </legend>
 
   {% if information %}
