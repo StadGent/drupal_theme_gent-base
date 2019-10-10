@@ -47,13 +47,23 @@
       return options;
     })();
 
+    var id = (function () {
+      var base = 'list-description';
+      var elements = [].slice.call(document.querySelectorAll('[id*="' + base + '"'));
+      if (!elements.length) {
+        return base;
+      }
+
+      return base + '-' + elements.length;
+    })();
+
     /**
      * Add a wrapper div with class .table-list as next sibling to the table.
      */
     var addTableList = function () {
       tableList = document.createElement('div');
       tableList.classList.add('table-list');
-      tableList.setAttribute('aria-labelledby', 'list-description');
+      tableList.setAttribute('aria-labelledby', id);
       element.parentNode.parentNode.insertBefore(tableList, element.nextSibling);
 
       addList();
@@ -139,7 +149,7 @@
 
       var description = document.createElement('div');
       description.classList.add('list-description');
-      description.setAttribute('id', 'list-description');
+      description.setAttribute('id', id);
       description.innerHTML = caption.innerHTML;
       tableList.appendChild(description);
     };
