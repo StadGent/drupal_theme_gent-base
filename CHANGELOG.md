@@ -13,6 +13,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 * Make "optional" label controllable through [State API](https://www.drupal.org/docs/8/api/state-api/).
 * Duplicate ID's in table list descriptions.
+* DTGB-769: Fixed broken documents field accordion. 
 
 ## [8.x-3.0-beta7]
 
