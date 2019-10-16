@@ -1048,9 +1048,8 @@ function gent_base_preprocess_vesta(&$variables) {
 
   // Because vesta entities are language undefined we need to prefix the
   // language code.
-  $locale = \Drupal::languageManager()->getCurrentLanguage()->getId();
   $variables['entity'] = $entity->getVestaValue();
-  $variables['url'] = '/' . $locale . $entity->toUrl()->toString();
+  $variables['url'] = $entity->toUrl()->toString();
 
   if ($variables['elements']['#view_mode'] === 'full') {
     $variables['related'] = [];
