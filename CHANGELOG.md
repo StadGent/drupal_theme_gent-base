@@ -4,6 +4,10 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 ## [Unreleased]
 
+### Added
+
+* Template for `dg_newsletter` form.
+
 ### Updated
 
 * Removed rel attribute from read more links.
