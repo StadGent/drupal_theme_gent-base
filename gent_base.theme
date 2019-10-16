@@ -51,9 +51,10 @@ function gent_base_form_alter(&$form, FormStateInterface $form_state, $form_id) 
   }
 
   if (isset($form['#webform_id'])) {
-    $form['#pre_render'][] = '_gent_base_webform_pre_render';
     $form['#theme'] = ['gent_base_webform'];
   }
+
+  $form['#pre_render'][] = '_gent_base_form_pre_render';
 }
 
 /**
@@ -65,24 +66,27 @@ function gent_base_form_alter(&$form, FormStateInterface $form_state, $form_id) 
  * @return mixed
  *   Altered build array.
  */
-function _gent_base_webform_pre_render(array $form) {
+function _gent_base_form_pre_render(array $form) {
   $form['#has_inputs'] = FALSE;
-  if (empty($form['elements'])) {
-    return $form;
+  $elements = &$form;
+  if (!empty($form['elements'])) {
+    $elements = &$form['elements'];
   }
 
-  _gent_base_loop_webform_elements($form['elements']);
-  $elements = $form['elements'];
+  _gent_base_loop_form_elements($elements);
 
   // If this is a multistep form > get the elements of the current step.
-  $form['#webform'] = $webform = Webform::load($form['#webform_id']);
-  if ($webform->hasWizardPages() && isset($form['progress'])) {
-    $current_page = $form['progress']['#current_page'];
-    $elements = $current_page && !empty($form['elements'][$current_page])
-      ? $form['elements'][$current_page]
-      : [];
+  if (isset($form['#webform_id'])) {
+    $form['#webform'] = $webform = Webform::load($form['#webform_id']);
+    if ($webform->hasWizardPages() && isset($form['progress'])) {
+      $current_page = $form['progress']['#current_page'];
+      $elements = $current_page && !empty($form['elements'][$current_page])
+        ? $form['elements'][$current_page]
+        : [];
+    }
   }
-  $form['#has_inputs'] = (bool) _gent_base_count_webform_inputs($elements);
+
+  $form['#has_inputs'] = (bool) _gent_base_count_inputs($elements);
 
   return $form;
 }
