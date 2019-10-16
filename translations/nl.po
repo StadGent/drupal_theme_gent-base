@@ -32,7 +32,6 @@
 #  themes/contrib/gent_base/templates/core/layout/region--filters.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/navigation/breadcrumb.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/navigation/pager.html.twig: n/a
-#  themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig: n/a
 #  themes/contrib/gent_base/templates/custom/nodes/node--terrain--default.html.twig: n/a
 #  themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig: n/a
 #  themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig: n/a
@@ -43,16 +42,16 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2019-09-25 11:33+0000\n"
-"PO-Revision-Date: 2019-09-25 13:35+0200\n"
-"Last-Translator: Maarten Segers <maarten.segers@digipolis.gent>\n"
+"POT-Creation-Date: 2019-10-01 11:00+0200\n"
+"PO-Revision-Date: 2019-10-01 11:04+0200\n"
+"Last-Translator: Helena Standaert <helena.standaert@digipolis.gent>\n"
 "Language-Team: Digipolis <tbweb@gent.be>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.2.3\n"
+"X-Generator: Poedit 2.2.4\n"
 
 #: themes/contrib/gent_base/theme-settings.php:21
 msgid "Gent Base settings"
@@ -110,11 +109,11 @@ msgstr "Er is 1 ander document"
 msgid "There are @count other documents"
 msgstr "Er zijn @count andere documenten"
 
-#: themes/contrib/gent_base/gent_base.theme:1031
+#: themes/contrib/gent_base/gent_base.theme:1032
 msgid "@category - All"
 msgstr "@category - Alle"
 
-#: themes/contrib/gent_base/gent_base.theme:1071
+#: themes/contrib/gent_base/gent_base.theme:1072
 #: themes/contrib/gent_base/templates/contrib/dg_maps/dg-maps-map-region.html.twig:14
 msgid "View on the map"
 msgstr "Toon op de kaart"
@@ -375,46 +374,6 @@ msgstr ""
 #: themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig:80
 msgid "View title"
 msgstr "Overzicht titel"
-
-#: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:17
-msgid "Can we improve something about this page? Let us know!"
-msgstr "Kunnen we deze pagina nog verbeteren? Laat het ons weten!"
-
-#: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:19
-msgid "You can contact Gentinfo for personal questions or complaints."
-msgstr "Voor persoonlijke vragen of klachten kan u terecht bij Gentinfo."
-
-#: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:21
-msgid "How to reach?"
-msgstr "Hoe bereiken?"
-
-#: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:24
-msgid ""
-"By phone: <a href=\":tel\">09 210 10 10</a> (from monday till saturday from "
-"08:00 till 19:00)"
-msgstr ""
-"Telefonisch: <a href=\":tel\">09 210 10 10</a> (van maandag t.e.m. zaterdag "
-"van 8 tot 19 uur)"
-
-#: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:25
-msgid "Send us an <a href=\":url\">email</a>"
-msgstr "Stuur ons een <a href=\":url\">e-mail</a>"
-
-#: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:26
-msgid ""
-"Through the <a href=\":url\">Twitter account</a> of the City of Gent (<a "
-"href=\":url\">@StadGent</a>)"
-msgstr ""
-"Via de <a href=\":url\">Twitter-account</a> van Stad Gent (<a href=\":url"
-"\">@StadGent</a>)"
-
-#: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:27
-msgid "Through the <a href=\":url\">contact form</a>"
-msgstr "Via het <a href=\":url\">contactformulier</a>"
-
-#: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:28
-msgid "Through the <a href=\":url\">chat</a>"
-msgstr "Via de <a href=\":url\">chat</a>"
 
 #: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:108
 msgid "Additional information"

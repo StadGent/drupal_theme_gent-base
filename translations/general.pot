@@ -43,7 +43,6 @@
 #  themes/contrib/gent_base/templates/core/layout/page.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/navigation/breadcrumb.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/navigation/pager.html.twig: n/a
-#  themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig: n/a
 #  themes/contrib/gent_base/templates/custom/nodes/node--terrain--default.html.twig: n/a
 #  themes/contrib/gent_base/templates/custom/nodes/node--event--full.html.twig: n/a
 #  themes/contrib/gent_base/templates/custom/nodes/node--news--full.html.twig: n/a
@@ -55,7 +54,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2019-09-25 11:33+0000\n"
+"POT-Creation-Date: 2019-10-01 11:00+0200\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -108,11 +107,11 @@ msgstr ""
 msgid "There are @count other documents"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:1031
+#: themes/contrib/gent_base/gent_base.theme:1032
 msgid "@category - All"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:1071 themes/contrib/gent_base/templates/contrib/dg_maps/dg-maps-map-region.html.twig:14
+#: themes/contrib/gent_base/gent_base.theme:1072 themes/contrib/gent_base/templates/contrib/dg_maps/dg-maps-map-region.html.twig:14
 msgid "View on the map"
 msgstr ""
 
@@ -352,38 +351,6 @@ msgstr ""
 
 #: themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig:80
 msgid "View title"
-msgstr ""
-
-#: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:17
-msgid "Can we improve something about this page? Let us know!"
-msgstr ""
-
-#: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:19
-msgid "You can contact Gentinfo for personal questions or complaints."
-msgstr ""
-
-#: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:21
-msgid "How to reach?"
-msgstr ""
-
-#: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:24
-msgid "By phone: <a href=\":tel\">09 210 10 10</a> (from monday till saturday from 08:00 till 19:00)"
-msgstr ""
-
-#: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:25
-msgid "Send us an <a href=\":url\">email</a>"
-msgstr ""
-
-#: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:26
-msgid "Through the <a href=\":url\">Twitter account</a> of the City of Gent (<a href=\":url\">@StadGent</a>)"
-msgstr ""
-
-#: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:27
-msgid "Through the <a href=\":url\">contact form</a>"
-msgstr ""
-
-#: themes/contrib/gent_base/templates/custom/forms/form--dg-feedback-form.html.twig:28
-msgid "Through the <a href=\":url\">chat</a>"
 msgstr ""
 
 #: themes/contrib/gent_base/templates/custom/nodes/node--detail--layout.html.twig:108

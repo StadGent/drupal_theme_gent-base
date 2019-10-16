@@ -22,6 +22,10 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 * Duplicate ID's in table list descriptions.
 * DTGB-769: Fixed broken documents field accordion.
 
+### Removed
+
+* Feedback form, since this is too project-specific.
+
 ## [8.x-3.0-beta7]
 
 ### Updated
