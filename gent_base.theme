@@ -38,6 +38,10 @@ function gent_base_form_alter(&$form, FormStateInterface $form_state, $form_id) 
     $form['#attributes']['class'][] = 'no-optional';
   }
 
+  if (in_array($form_id, ['dg_newsletter_subscribe_form'])) {
+    $form['wrapper']['email_address']['#stacked'] = TRUE;
+  }
+
   // Remove button classes form delete action.
   if (isset($form['actions']['delete']['#attributes']['class'])) {
     foreach (['button', 'button--danger'] as $class) {

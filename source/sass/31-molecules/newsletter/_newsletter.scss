@@ -1,0 +1,47 @@
+.newsletter,
+.block-dg-newsletter {
+  .inner-box::before {
+    @include spot-image('newsletter-light', 7rem);
+  }
+
+  .form-wrapper:not(.form-actions) {
+    position: relative;
+
+    @include tablet {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: flex-start;
+    }
+
+    .dg-newsletter-privacy-disclaimer {
+      &,
+      > * {
+        font-weight: 600;
+      }
+    }
+
+    .dg-newsletter-intro-text,
+    .dg-newsletter-privacy-disclaimer {
+      flex-basis: 100%;
+    }
+
+    .form-item {
+      max-width: 20.5rem;
+      margin-right: .8rem;
+      margin-bottom: 0;
+    }
+
+    .form-actions {
+      flex-grow: 0;
+      margin-top: 1.24rem;
+      margin-bottom: 1rem;
+    }
+
+    .ajax-progress {
+      .message {
+        display: none;
+      }
+    }
+  }
+}
