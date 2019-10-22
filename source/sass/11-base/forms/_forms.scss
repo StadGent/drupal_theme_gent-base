@@ -45,3 +45,7 @@ textarea {
 .webform-type-webform-email-confirm > .form-columns .form-item-column:last-child .field-message.error {
   margin-top: 1.2rem;
 }
+
+.form-required .label-optional {
+  display: none;
+}

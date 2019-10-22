@@ -38,6 +38,8 @@
  */
 #}
 
+{{ attach_library('gent_base/accordion') }}
+
 {%
   set title_classes = [
     'field__label',
@@ -56,17 +58,19 @@
 </ul>
 
 {% if items|length > 2 %}
-  <h3>
-    <button class="accordion--button" aria-expanded="false" aria-controls="documents--content--{{ document_unique_id }}">
-      {{ documents_toggle_text }}
-    </button>
-  </h3>
+  <div class="accordion">
+    <h3>
+      <button class="accordion--button" aria-expanded="false" aria-controls="documents--content--{{ document_unique_id }}">
+        {{ documents_toggle_text }}
+      </button>
+    </h3>
 
-  <div class="accordion--content" id="documents--content--{{ document_unique_id }}" aria-hidden="true" hidden="true">
-    <ul class="links">
-      {% for document in documents_invisible %}
-        <li>{{ document }}</li>
-      {% endfor %}
-    </ul>
+    <div class="accordion--content" id="documents--content--{{ document_unique_id }}" aria-hidden="true" hidden="true">
+      <ul class="links">
+        {% for document in documents_invisible %}
+          <li>{{ document }}</li>
+        {% endfor %}
+      </ul>
+    </div>
   </div>
 {% endif %}

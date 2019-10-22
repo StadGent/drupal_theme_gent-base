@@ -38,6 +38,10 @@ function gent_base_form_alter(&$form, FormStateInterface $form_state, $form_id) 
     $form['#attributes']['class'][] = 'no-optional';
   }
 
+  if (in_array($form_id, ['dg_newsletter_subscribe_form'])) {
+    $form['wrapper']['email_address']['#stacked'] = TRUE;
+  }
+
   // Remove button classes form delete action.
   if (isset($form['actions']['delete']['#attributes']['class'])) {
     foreach (['button', 'button--danger'] as $class) {
@@ -51,9 +55,10 @@ function gent_base_form_alter(&$form, FormStateInterface $form_state, $form_id) 
   }
 
   if (isset($form['#webform_id'])) {
-    $form['#pre_render'][] = '_gent_base_webform_pre_render';
     $form['#theme'] = ['gent_base_webform'];
   }
+
+  $form['#pre_render'][] = '_gent_base_form_pre_render';
 }
 
 /**
@@ -65,24 +70,27 @@ function gent_base_form_alter(&$form, FormStateInterface $form_state, $form_id) 
  * @return mixed
  *   Altered build array.
  */
-function _gent_base_webform_pre_render(array $form) {
+function _gent_base_form_pre_render(array $form) {
   $form['#has_inputs'] = FALSE;
-  if (empty($form['elements'])) {
-    return $form;
+  $elements = &$form;
+  if (!empty($form['elements'])) {
+    $elements = &$form['elements'];
   }
 
-  _gent_base_loop_webform_elements($form['elements']);
-  $elements = $form['elements'];
+  _gent_base_loop_form_elements($elements);
 
   // If this is a multistep form > get the elements of the current step.
-  $form['#webform'] = $webform = Webform::load($form['#webform_id']);
-  if ($webform->hasWizardPages() && isset($form['progress'])) {
-    $current_page = $form['progress']['#current_page'];
-    $elements = $current_page && !empty($form['elements'][$current_page])
-      ? $form['elements'][$current_page]
-      : [];
+  if (isset($form['#webform_id'])) {
+    $form['#webform'] = $webform = Webform::load($form['#webform_id']);
+    if ($webform->hasWizardPages() && isset($form['progress'])) {
+      $current_page = $form['progress']['#current_page'];
+      $elements = $current_page && !empty($form['elements'][$current_page])
+        ? $form['elements'][$current_page]
+        : [];
+    }
   }
-  $form['#has_inputs'] = (bool) _gent_base_count_webform_inputs($elements);
+
+  $form['#has_inputs'] = (bool) _gent_base_count_inputs($elements);
 
   return $form;
 }
@@ -444,7 +452,7 @@ function gent_base_preprocess_field(&$variables) {
             if ($isProgram) {
               $variables['items'][$key]['content']['#prefix'] =
                 '<div class="programme-wrapper"><h2 class="visually-hidden">' . t('programme') . '</h2>' .
-                '<dl class="programme box-top"><div class="inner-box">';
+                '<dl class="programme highlight highlight--top"><div class="highlight__inner">';
             }
             else {
               $variables['items'][$key]['content']['#prefix'] =
@@ -654,6 +662,7 @@ function gent_base_preprocess_node(&$variables) {
 function gent_base_preprocess_links__node(&$variables) {
   if (isset($variables['links']['node-readmore'])) {
     $readmore = &$variables['links']['node-readmore'];
+    $readmore['link']['#options']['attributes']['rel'] = NULL;
     $readmore['link']['#options']['attributes']['class'] = [
       'standalone-link',
     ];
@@ -1043,9 +1052,8 @@ function gent_base_preprocess_vesta(&$variables) {
 
   // Because vesta entities are language undefined we need to prefix the
   // language code.
-  $locale = \Drupal::languageManager()->getCurrentLanguage()->getId();
   $variables['entity'] = $entity->getVestaValue();
-  $variables['url'] = '/' . $locale . $entity->toUrl()->toString();
+  $variables['url'] = $entity->toUrl()->toString();
 
   if ($variables['elements']['#view_mode'] === 'full') {
     $variables['related'] = [];

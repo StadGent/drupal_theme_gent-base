@@ -15,7 +15,7 @@
   Drupal.dgMaps.initRegions = function (map, mapElement) {
     _initRegion(map, mapElement);
 
-    if (!window.matchMedia('(min-width: 768px)').matches) {
+    if (!window.matchMedia('(min-width: 769px)').matches) {
       // Close the legend by default
       var mapContainer = mapElement.parents('.map-container');
       var legendToggle = mapContainer.find('button[data-toggle-region="left"]');
