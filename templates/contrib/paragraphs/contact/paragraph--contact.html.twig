@@ -48,8 +48,8 @@
 
 {% set type = paragraph.fields.field_primary_contact_type.value %}
 
-<div class="contact-block box-left {{ type }}">
-  <div class="inner-box">
+<div class="contact-block highlight highlight--left {{ type }}">
+  <div class="highlight__inner">
     {% block paragraph %}
       {% block title %}
         {% if content.title|render|striptags|trim is not empty %}

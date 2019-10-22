@@ -2,7 +2,7 @@
 
 All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
-## [Unreleased]
+## [8.x-3.0-beta8]
 
 ### Added
 
@@ -12,9 +12,9 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 * Removed rel attribute from read more links.
 * Updated CSS classes in dg_auth block.
-
 * Form elements are looped for all forms now. It is not restricted to webforms
   anymore.
+* Upgraded styleguide version to 3.0.0-beta13.
 
 ### Fixed
 
@@ -286,7 +286,8 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 * **Updated to gent_styleguide version 2.6.13**
 
-[8.x-3.0-beta7]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-beta7...8.x-3.0-beta7
+[8.x-3.0-beta8]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-beta7...8.x-3.0-beta8
+[8.x-3.0-beta7]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-beta6...8.x-3.0-beta7
 [8.x-3.0-beta6]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-beta5...8.x-3.0-beta6
 [8.x-3.0-beta5]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-beta4...8.x-3.0-beta5
 [8.x-3.0-beta4]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-beta3...8.x-3.0-beta4
