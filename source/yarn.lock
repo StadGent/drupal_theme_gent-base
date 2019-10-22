@@ -1423,9 +1423,9 @@ gauge@~2.7.3:
     wide-align "^1.1.0"
 
 gent_styleguide@^3.0.0-beta12:
-  version "3.0.0-beta13"
-  resolved "https://registry.yarnpkg.com/gent_styleguide/-/gent_styleguide-3.0.0-beta13.tgz#e34752a9229ba22bc6fc0d64eee68afb995bd0e2"
-  integrity sha512-It+RcV0L+fg+Z1SB5Iqu6w9wZoXVZisTkZYkhrb+fuEB7T7K53UK3LJ087xC4+v8b2u6maiMhwb0XpYxrPT0sQ==
+  version "3.0.0-beta14"
+  resolved "https://registry.yarnpkg.com/gent_styleguide/-/gent_styleguide-3.0.0-beta14.tgz#45db13e5aa39fa000230cc8ce47bca4a6955e1e4"
+  integrity sha512-duxfluUH3wNFf0li7huRApaecdHUpa6RNWlOb2NPQ7SnDmhSU+ZFs9Lmp4DAS6VEk0rcZAw7srQr7YVMv3OeDQ==
   dependencies:
     allietabs "^1.2.2"
     baguettebox.js "^1.11.0"
