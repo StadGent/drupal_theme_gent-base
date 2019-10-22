@@ -16,6 +16,8 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 * Form elements are looped for all forms now. It is not restricted to webforms
   anymore.
 
+* Upgraded styleguide version to 3.0.0-beta13.
+
 ### Fixed
 
 * Make "optional" label controllable through [State API](https://www.drupal.org/docs/8/api/state-api/).
