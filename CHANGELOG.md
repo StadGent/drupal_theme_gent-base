@@ -12,10 +12,8 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 * Removed rel attribute from read more links.
 * Updated CSS classes in dg_auth block.
-
 * Form elements are looped for all forms now. It is not restricted to webforms
   anymore.
-
 * Upgraded styleguide version to 3.0.0-beta13.
 
 ### Fixed
