@@ -2,6 +2,10 @@
 
 All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
+## [Unreleased]
+
+* Partner paragraph.
+
 ## [8.x-3.0-beta9]
 
 ### Updated
