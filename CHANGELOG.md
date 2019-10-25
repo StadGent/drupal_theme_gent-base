@@ -4,7 +4,14 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 ## [Unreleased]
 
+### Added
+
 * Partner paragraph.
+
+### Updated
+
+* Optimize aria attributes for image galleries.
+* Added `role="alert"` to error messages.
 
 ## [8.x-3.0-beta9]
 
