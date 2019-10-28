@@ -7,7 +7,9 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 ### Added
 
 * Partner paragraph.
+* Theme wrapper "form_element_bare".
 * ID attribute for map regions.
+* Label to close button in map legend.
 
 ### Updated
 
