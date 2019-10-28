@@ -13,6 +13,10 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 * Optimize aria attributes for image galleries.
 * Added `role="alert"` to error messages.
 
+### Fixed
+
+* Broken focus outline for map controls.
+
 ## [8.x-3.0-beta9]
 
 ### Updated

@@ -357,6 +357,7 @@ $map-text-color: color('dark-gray');
 
   &-region {
     z-index: 5;
+    overflow: visible;
 
     &--right-top {
       top: $map-padding;
