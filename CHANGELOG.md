@@ -7,6 +7,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 ### Added
 
 * Partner paragraph.
+* Theme wrapper "form_element_bare".
 
 ### Updated
 
