@@ -52,6 +52,7 @@
 
       this.toggle = document.createElement('button');
       this.toggle.setAttribute('data-toggle-region', 'left');
+      this.toggle.textContent = Drupal.t('Close');
       this.iconIcon = document.createElement('i');
       this.iconIcon.className = 'icon-chevron-left';
       this.toggle.appendChild(this.iconIcon);
@@ -150,4 +151,3 @@
 
   Drupal.dgMaps.ol.control.DataLayerSwitcher.prototype = originalPrototype;
 })(jQuery, Drupal);
-

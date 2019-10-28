@@ -8,6 +8,12 @@
 #  themes/contrib/gent_base/templates/contrib/dg_maps/dg-maps-map-region.html.twig: n/a
 #  themes/contrib/gent_base/gent_base.info.yml: n/a
 #  themes/contrib/gent_base/source/js/dg_maps.baselayerswitcher.js: n/a
+#  themes/contrib/gent_base/source/js/dg_maps.datalayerswitcher.js: n/a
+#  themes/contrib/gent_base/templates/contrib/dg_maps/dg-maps-map.html.twig: n/a
+#  themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-popup.html.twig: n/a
+#  themes/contrib/gent_base/templates/contrib/paragraphs/timeline/paragraph--timeline-item--alt.html.twig: n/a
+#  themes/contrib/gent_base/templates/core/layout/region--filters.html.twig: n/a
+#  themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig: n/a
 #  themes/contrib/gent_base/source/js/file.bindings.js: n/a
 #  themes/contrib/gent_base/source/js/table.bindings.js: n/a
 #  themes/contrib/gent_base/starterkit/starterkit.info.yml: n/a
@@ -15,11 +21,6 @@
 #  themes/contrib/gent_base/templates/core/form/form.html.twig: n/a
 #  themes/contrib/gent_base/templates/contrib/dg-auth/dg-auth-block.html.twig: n/a
 #  themes/contrib/gent_base/templates/contrib/dg_blocks/block--dg-blocks-gentinfo-block.html.twig: n/a
-#  themes/contrib/gent_base/templates/contrib/dg_maps/dg-maps-map.html.twig: n/a
-#  themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-popup.html.twig: n/a
-#  themes/contrib/gent_base/templates/contrib/paragraphs/timeline/paragraph--timeline-item--alt.html.twig: n/a
-#  themes/contrib/gent_base/templates/core/layout/region--filters.html.twig: n/a
-#  themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig: n/a
 #  themes/contrib/gent_base/templates/contrib/facets/facets-item-list--range-slider.html.twig: n/a
 #  themes/contrib/gent_base/templates/contrib/facets/facets-summary-count.html.twig: n/a
 #  themes/contrib/gent_base/templates/contrib/facets/facets-summary-item-list.html.twig: n/a
@@ -54,7 +55,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2019-10-01 11:00+0200\n"
+"POT-Creation-Date: 2019-10-28 14:57+0100\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -87,31 +88,31 @@ msgstr ""
 msgid "Fill in the color scheme primary HEX color to be used in your project, leave empty for the default color scheme. This setting is only used for displaying the favicon correctly on Android + Windows phones and Apple's Touch Bar enabled computers."
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:308;308
+#: themes/contrib/gent_base/gent_base.theme:316;316
 msgid "Search"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:446
+#: themes/contrib/gent_base/gent_base.theme:454
 msgid "programme"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:451
+#: themes/contrib/gent_base/gent_base.theme:459
 msgid "timeline"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:492
+#: themes/contrib/gent_base/gent_base.theme:500
 msgid "There is 1 other document"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:495
+#: themes/contrib/gent_base/gent_base.theme:503
 msgid "There are @count other documents"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:1032
+#: themes/contrib/gent_base/gent_base.theme:1040
 msgid "@category - All"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:1072 themes/contrib/gent_base/templates/contrib/dg_maps/dg-maps-map-region.html.twig:14
+#: themes/contrib/gent_base/gent_base.theme:1079 themes/contrib/gent_base/templates/contrib/dg_maps/dg-maps-map-region.html.twig:14
 msgid "View on the map"
 msgstr ""
 
@@ -125,6 +126,10 @@ msgstr ""
 
 #: themes/contrib/gent_base/source/js/dg_maps.baselayerswitcher.js:0
 msgid "Legend"
+msgstr ""
+
+#: themes/contrib/gent_base/source/js/dg_maps.datalayerswitcher.js:0 themes/contrib/gent_base/templates/contrib/dg_maps/dg-maps-map.html.twig:71 themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-popup.html.twig:46 themes/contrib/gent_base/templates/contrib/paragraphs/timeline/paragraph--timeline-item--alt.html.twig:48 themes/contrib/gent_base/templates/core/layout/region--filters.html.twig:28 themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig:55
+msgid "Close"
 msgstr ""
 
 #: themes/contrib/gent_base/source/js/file.bindings.js:0
@@ -173,10 +178,6 @@ msgstr ""
 
 #: themes/contrib/gent_base/templates/contrib/dg_maps/dg-maps-map.html.twig:14
 msgid "List"
-msgstr ""
-
-#: themes/contrib/gent_base/templates/contrib/dg_maps/dg-maps-map.html.twig:71 themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-popup.html.twig:46 themes/contrib/gent_base/templates/contrib/paragraphs/timeline/paragraph--timeline-item--alt.html.twig:48 themes/contrib/gent_base/templates/core/layout/region--filters.html.twig:28 themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig:55
-msgid "Close"
 msgstr ""
 
 #: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-popup.html.twig:58
@@ -273,7 +274,7 @@ msgstr ""
 msgid "Show all photos"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/form/fieldset.html.twig:47 themes/contrib/gent_base/templates/core/form/form-element-label.html.twig:31
+#: themes/contrib/gent_base/templates/core/form/fieldset.html.twig:47 themes/contrib/gent_base/templates/core/form/form-element-label.html.twig:30
 msgid "Optional"
 msgstr ""
 
