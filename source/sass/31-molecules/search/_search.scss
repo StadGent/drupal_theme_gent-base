@@ -9,6 +9,10 @@
     flex-shrink: 0;
   }
 
+  label {
+    @extend %visually-hidden;
+  }
+
   input[type='text'] {
     background-color: color('white');
     @extend %search-input;
