@@ -14,6 +14,10 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 * Optimize aria attributes for image galleries.
 * Added `role="alert"` to error messages.
 
+### Fixed
+
+* Missing label for dropdown facets.
+
 ## [8.x-3.0-beta9]
 
 ### Updated
