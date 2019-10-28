@@ -7,6 +7,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 ### Added
 
 * Partner paragraph.
+* ID attribute for map regions.
 
 ### Updated
 
