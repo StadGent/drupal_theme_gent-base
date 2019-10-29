@@ -18,6 +18,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 ### Fixed
 
+* Missing label for dropdown facets.
 * Broken focus outline for map controls.
 
 ## [8.x-3.0-beta9]
