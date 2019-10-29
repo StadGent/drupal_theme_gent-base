@@ -8,6 +8,8 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 * Partner paragraph.
 * Theme wrapper "form_element_bare".
+* ID attribute for map regions.
+* Label to close button in map legend.
 
 ### Updated
 
@@ -17,6 +19,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 ### Fixed
 
 * Missing label for dropdown facets.
+* Broken focus outline for map controls.
 
 ## [8.x-3.0-beta9]
 
