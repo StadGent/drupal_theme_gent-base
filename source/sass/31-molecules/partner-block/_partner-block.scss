@@ -1,0 +1,12 @@
+.partner-block {
+  .partners {
+    width: 100%;
+  }
+
+  .partners,
+  .single-partner {
+    a::after {
+      display: none;
+    }
+  }
+}

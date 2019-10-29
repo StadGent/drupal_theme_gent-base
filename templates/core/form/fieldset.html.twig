@@ -55,7 +55,7 @@
   {%  endif %}
 
   {% if errors and not has_columns %}
-    <div class="field-message error">
+    <div class="field-message error" role="alert">
       {{ errors }}
       <div class="accolade"></div>
     </div>
@@ -79,7 +79,7 @@
     {% if has_columns %}
     <div class="form-item-column">
       {% if errors %}
-        <div class="field-message error">
+        <div class="field-message error" role="alert">
           {{ errors }}
           <div class="accolade"></div>
         </div>

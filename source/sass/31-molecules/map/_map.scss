@@ -108,7 +108,11 @@ $map-text-color: color('dark-gray');
           min-height: 1em;
           background: transparent;
           color: inherit;
-          font-size: 1.5em;
+          font-size: 0;
+
+          i {
+            font-size: 1.2rem;
+          }
         }
       }
 
@@ -357,6 +361,7 @@ $map-text-color: color('dark-gray');
 
   &-region {
     z-index: 5;
+    overflow: visible;
 
     &--right-top {
       top: $map-padding;
