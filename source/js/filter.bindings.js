@@ -16,7 +16,7 @@
       new Modal(filter, {
         // The modal is always visible from tablet and up,
         // this is atypical.
-        resizeEvent: (open, close) => {
+        resizeEvent: function (open, close) {
           if (window.innerWidth > 960) {
             close();
             filter.setAttribute('aria-hidden', 'false');
