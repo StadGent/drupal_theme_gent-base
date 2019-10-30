@@ -16,12 +16,12 @@
       new Modal(filter, {
         // The modal is always visible from tablet and up,
         // this is atypical.
-        resizeEvent: function resizeEvent() {
-          if (window.innerWidth > 768) {
+        resizeEvent: (open, close) => {
+          if (window.innerWidth > 960) {
+            close();
             filter.setAttribute('aria-hidden', 'false');
-            document.body.style.overflow = '';
           }
-          else {
+          else if (!filter.classList.contains('visible')) {
             filter.setAttribute('aria-hidden', 'true');
           }
         }
