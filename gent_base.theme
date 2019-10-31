@@ -1087,3 +1087,13 @@ function gent_base_preprocess_dg_maps_map(&$variables) {
 function gent_base_preprocess_form_element_bare(&$variables) {
   template_preprocess_form_element($variables);
 }
+
+/**
+ * Implements hook_preprocess_image().
+ */
+function gent_base_preprocess_image(&$variables) {
+  $attributes = &$variables['attributes'];
+  if (!isset($attributes['alt']) || !$attributes['alt']) {
+    $attributes['alt'] = "";
+  }
+}
