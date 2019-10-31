@@ -1,0 +1,16 @@
+{% extends "block.html.twig" %}
+{#
+/**
+ * @file
+ * Theme override for local actions (primary admin actions.)
+ */
+#}
+{% block content %}
+  {% if content %}
+    <nav class="action-links">
+      <ul class="inline">
+        {{ content }}
+      </ul>
+    </nav>
+  {% endif %}
+{% endblock %}
