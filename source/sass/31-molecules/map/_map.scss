@@ -363,6 +363,15 @@ $map-text-color: color('dark-gray');
     z-index: 5;
     overflow: visible;
 
+    &--left {
+      // This should be applied only the exact viewport of 768px. Since the 3rd
+      // party package uses max-width instead of min-width, it is not applied to
+      // this viewport.
+      @media (width: 768px) {
+        width: 300px;
+      }
+    }
+
     &--right-top {
       top: $map-padding;
       right: $map-padding;
