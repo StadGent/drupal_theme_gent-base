@@ -2,7 +2,7 @@
 
 All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
-## [Unreleased]
+## [8.x-3.0-beta11]
 
 ### Added
 
@@ -24,6 +24,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 * Broken focus outline for map controls.
 * Modal layout for filters.
 * Fixed typo in table-mobile script that caused JS error in Safari.
+* `aria-labelledby` on mobile tables when no caption is present.
 
 ## [8.x-3.0-beta10]
 
@@ -319,7 +320,8 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 * **Updated to gent_styleguide version 2.6.13**
 
-[8.x-3.0-beta9]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-beta9...8.x-3.0-beta10
+[8.x-3.0-beta11]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-beta10...8.x-3.0-beta11
+[8.x-3.0-beta10]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-beta9...8.x-3.0-beta10
 [8.x-3.0-beta9]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-beta8...8.x-3.0-beta9
 [8.x-3.0-beta8]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-beta7...8.x-3.0-beta8
 [8.x-3.0-beta7]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-beta6...8.x-3.0-beta7

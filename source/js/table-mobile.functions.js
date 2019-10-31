@@ -46,7 +46,6 @@
 
       return options;
     })();
-
     var id = (function () {
       var base = 'list-description';
       var elements = [].slice.call(document.querySelectorAll('[id*="' + base + '"'));
@@ -63,7 +62,9 @@
     var addTableList = function () {
       tableList = document.createElement('div');
       tableList.classList.add('table-list');
-      tableList.setAttribute('aria-labelledby', id);
+      if (caption) {
+        tableList.setAttribute('aria-labelledby', id);
+      }
       element.parentNode.parentNode.insertBefore(tableList, element.nextSibling);
 
       addList();
