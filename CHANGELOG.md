@@ -10,6 +10,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 * Theme wrapper "form_element_bare".
 * ID attribute for map regions.
 * Label to close button in map legend.
+* Force `alt` attribute for images, even if it's empty.
 * Template for local actions block.
 
 ### Updated
