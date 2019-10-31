@@ -77,7 +77,7 @@
      */
     var addListItems = function (list) {
       // Get the headers of the table columns.
-      var colHeadingsNodeList = element.querySelector('table').querySelectorAll('th[scope="col"');
+      var colHeadingsNodeList = element.querySelector('table').querySelectorAll('th[scope="col"]');
       // Get the headers of the table rows.
       var rowHeadingsNodeList = element.querySelector('table').querySelectorAll('th[scope="row"]');
       // Get all rows of the table.
