@@ -25,6 +25,9 @@ function gent_base_theme() {
     'gent_base_webform' => [
       'render element' => 'form',
     ],
+    'form_element_bare' => [
+      'render element' => 'element',
+    ],
   ];
 }
 
@@ -308,10 +311,8 @@ function gent_base_preprocess_block__views_search_form_header(&$variables) {
   $form = &$variables['content'];
 
   if ($form['#form_id'] === 'views_exposed_form') {
-    $form['search']['#theme_wrappers'] = [];
     $form['search']['#value'] = NULL;
     $form['search']['#required'] = TRUE;
-    $form['actions']['#theme_wrappers'] = [];
 
     $form['#prefix'] = '<a href="' . $form['#action'] . '" class="search--link" title="' . t('Search') . '">' . t('Search') . '</a>';
   }
@@ -1078,4 +1079,21 @@ function gent_base_preprocess_dg_maps_map(&$variables) {
     'img_base' => drupal_get_path('theme', 'gent_base') . '/source/img/',
     'legend_title' => t('View on the map'),
   ];
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function gent_base_preprocess_form_element_bare(&$variables) {
+  template_preprocess_form_element($variables);
+}
+
+/**
+ * Implements hook_preprocess_image().
+ */
+function gent_base_preprocess_image(&$variables) {
+  $attributes = &$variables['attributes'];
+  if (!isset($attributes['alt']) || !$attributes['alt']) {
+    $attributes['alt'] = "";
+  }
 }

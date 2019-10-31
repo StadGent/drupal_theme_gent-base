@@ -108,7 +108,11 @@ $map-text-color: color('dark-gray');
           min-height: 1em;
           background: transparent;
           color: inherit;
-          font-size: 1.5em;
+          font-size: 0;
+
+          i {
+            font-size: 1.2rem;
+          }
         }
       }
 
@@ -357,6 +361,16 @@ $map-text-color: color('dark-gray');
 
   &-region {
     z-index: 5;
+    overflow: visible;
+
+    &--left {
+      // This should be applied only the exact viewport of 768px. Since the 3rd
+      // party package uses max-width instead of min-width, it is not applied to
+      // this viewport.
+      @media (width: 768px) {
+        width: 300px;
+      }
+    }
 
     &--right-top {
       top: $map-padding;

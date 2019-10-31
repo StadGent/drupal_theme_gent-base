@@ -2,6 +2,30 @@
 
 All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
+## [8.x-3.0-beta11]
+
+### Added
+
+* Partner paragraph.
+* Theme wrapper "form_element_bare".
+* ID attribute for map regions.
+* Label to close button in map legend.
+* Force `alt` attribute for images, even if it's empty.
+* Template for local actions block.
+
+### Updated
+
+* Optimize aria attributes for image galleries.
+* Added `role="alert"` to error messages.
+
+### Fixed
+
+* Missing label for dropdown facets.
+* Broken focus outline for map controls.
+* Modal layout for filters.
+* Fixed typo in table-mobile script that caused JS error in Safari.
+* `aria-labelledby` on mobile tables when no caption is present.
+
 ## [8.x-3.0-beta10]
 
 * Fixed unresolved dependency `bodyScrollLock`.
@@ -296,7 +320,8 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 * **Updated to gent_styleguide version 2.6.13**
 
-[8.x-3.0-beta9]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-beta9...8.x-3.0-beta10
+[8.x-3.0-beta11]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-beta10...8.x-3.0-beta11
+[8.x-3.0-beta10]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-beta9...8.x-3.0-beta10
 [8.x-3.0-beta9]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-beta8...8.x-3.0-beta9
 [8.x-3.0-beta8]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-beta7...8.x-3.0-beta8
 [8.x-3.0-beta7]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-beta6...8.x-3.0-beta7

@@ -46,7 +46,6 @@
 
       return options;
     })();
-
     var id = (function () {
       var base = 'list-description';
       var elements = [].slice.call(document.querySelectorAll('[id*="' + base + '"'));
@@ -63,7 +62,9 @@
     var addTableList = function () {
       tableList = document.createElement('div');
       tableList.classList.add('table-list');
-      tableList.setAttribute('aria-labelledby', id);
+      if (caption) {
+        tableList.setAttribute('aria-labelledby', id);
+      }
       element.parentNode.parentNode.insertBefore(tableList, element.nextSibling);
 
       addList();
@@ -77,7 +78,7 @@
      */
     var addListItems = function (list) {
       // Get the headers of the table columns.
-      var colHeadingsNodeList = element.querySelector('table').querySelectorAll('th[scope="col"');
+      var colHeadingsNodeList = element.querySelector('table').querySelectorAll('th[scope="col"]');
       // Get the headers of the table rows.
       var rowHeadingsNodeList = element.querySelector('table').querySelectorAll('th[scope="row"]');
       // Get all rows of the table.
