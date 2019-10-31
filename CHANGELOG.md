@@ -11,6 +11,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 * ID attribute for map regions.
 * Label to close button in map legend.
 * Force `alt` attribute for images, even if it's empty.
+* Template for local actions block.
 
 ### Updated
 
@@ -22,6 +23,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 * Missing label for dropdown facets.
 * Broken focus outline for map controls.
 * Modal layout for filters.
+* Fixed typo in table-mobile script that caused JS error in Safari.
 
 ## [8.x-3.0-beta10]
 
