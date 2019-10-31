@@ -24,6 +24,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 * Broken focus outline for map controls.
 * Modal layout for filters.
 * Fixed typo in table-mobile script that caused JS error in Safari.
+* `aria-labelledby` on mobile tables when no caption is present.
 
 ## [8.x-3.0-beta10]
 
