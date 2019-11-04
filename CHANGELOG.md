@@ -8,6 +8,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 * Fix JS issues when closing filter modal.
 * Unwanted underline for links in partner block.
+* Layout issue in newsletter subscribe form.
 
 ## [8.x-3.0-beta11]
 
