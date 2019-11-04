@@ -7,6 +7,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 ### Fixed
 
 * Fix JS issues when closing filter modal.
+* Unwanted underline for links in partner block.
 
 ## [8.x-3.0-beta11]
 

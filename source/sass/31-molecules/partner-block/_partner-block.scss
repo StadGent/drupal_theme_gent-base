@@ -5,8 +5,13 @@
 
   .partners,
   .single-partner {
-    a::after {
-      display: none;
+    a {
+      @include reset-link-background;
+
+      // Hide arrow icon.
+      &::after {
+        display: none;
+      }
     }
   }
 }
