@@ -12,6 +12,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 * Label to close button in map legend.
 * Force `alt` attribute for images, even if it's empty.
 * Template for local actions block.
+* Theming for the language switcher block.
 
 ### Updated
 
