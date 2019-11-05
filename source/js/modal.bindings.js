@@ -2,7 +2,7 @@
  * @file
  * Menu component binding.
  */
-(function (Drupal) {
+(function (Drupal, $) {
   'use strict';
 
   Drupal.behaviors.gentBaseLoadModal = {
@@ -11,10 +11,9 @@
         return;
       }
 
-      var selected = document.querySelectorAll('.modal:not(.has-custom-binding)');
-      for (var i = selected.length; i--;) {
-        new Modal(selected[i]); // eslint-disable-line no-undef
-      }
+      $('.modal:not(.has-custom-binding)', context).once('modal').each(function () {
+        new Modal(this); // eslint-disable-line no-undef
+      });
     }
   };
-})(Drupal);
+})(Drupal, jQuery);

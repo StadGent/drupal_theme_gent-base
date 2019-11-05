@@ -2,7 +2,7 @@
  * @file
  * Filter component binding.
  */
-(function (Drupal) {
+(function (Drupal, $) {
   'use strict';
 
   Drupal.behaviors.gentBaseLoadFilters = {
@@ -11,21 +11,23 @@
         return;
       }
 
-      var filter = document.querySelector('#filter');
-      // eslint-disable-next-line no-undef
-      new Modal(filter, {
-        // The modal is always visible from tablet and up,
-        // this is atypical.
-        resizeEvent: function (open, close) {
-          if (window.innerWidth > 960) {
-            close();
-            filter.setAttribute('aria-hidden', 'false');
+      $('#filter', context).once('filter').each(function () {
+        var self = this;
+        // eslint-disable-next-line no-undef
+        new Modal(this, {
+          // The modal is always visible from tablet and up,
+          // this is atypical.
+          resizeEvent: function (open, close) {
+            if (window.innerWidth > 960) {
+              close();
+              self.setAttribute('aria-hidden', 'false');
+            }
+            else if (!self.classList.contains('visible')) {
+              self.setAttribute('aria-hidden', 'true');
+            }
           }
-          else if (!filter.classList.contains('visible')) {
-            filter.setAttribute('aria-hidden', 'true');
-          }
-        }
+        });
       });
     }
   };
-})(Drupal);
+})(Drupal, jQuery);
