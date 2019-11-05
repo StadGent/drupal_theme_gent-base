@@ -1097,3 +1097,32 @@ function gent_base_preprocess_image(&$variables) {
     $attributes['alt'] = "";
   }
 }
+
+/**
+ * Implements hook_preprocess().
+ */
+function gent_base_preprocess_block__language_switcher(&$variables) {
+  $variables['active_language'] = \Drupal::languageManager()
+    ->getCurrentLanguage();
+}
+
+/**
+ * Implements theme_preprocess_HOOK().
+ */
+function gent_base_preprocess_links__language_block(&$variables) {
+  $currentLanguageCode = \Drupal::languageManager()
+    ->getCurrentLanguage()
+    ->getId();
+
+  foreach ($variables['links'] as $i => $link) {
+    $link['link']['#title'] = $link['text'] = $i;
+    $variables['links'][$i] = $link;
+
+    /** @var \Drupal\language\Entity\ConfigurableLanguage $linkLanguage */
+    $linkLanguage = $link['link']['#options']['language'];
+    if ($currentLanguageCode == $linkLanguage->get('id')) {
+      $variables['links']['activeLink'] = $link;
+      unset($variables['links'][$i]);
+    }
+  }
+}
