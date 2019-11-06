@@ -33,16 +33,10 @@
 #}
 
 {% if links -%}
-  {%- if links|length == 1 -%}
-    {# show only alternate language button #}
-    {{ (links|first).link }}
-  {%- else -%}
-    <ul class="content links" aria-labelledby="language-switch">
-      {% for key, item in links %}
-        {% if key is not same as("activeLink") %}
-          <li>{{ item.link }}</li>
-        {% endif %}
-      {% endfor %}
-    </ul>
-  {%- endif -%}
+  <ul class="content links" aria-labelledby="language-switch">
+    <li><strong>{{ current_language_code }}</strong></li>
+    {% for key, item in links %}
+      <li>{{ item.link }}</li>
+    {% endfor %}
+  </ul>
 {%- endif %}

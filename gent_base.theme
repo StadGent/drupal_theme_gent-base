@@ -1121,8 +1121,9 @@ function gent_base_preprocess_links__language_block(&$variables) {
     /** @var \Drupal\language\Entity\ConfigurableLanguage $linkLanguage */
     $linkLanguage = $link['link']['#options']['language'];
     if ($currentLanguageCode == $linkLanguage->get('id')) {
-      $variables['links']['activeLink'] = $link;
       unset($variables['links'][$i]);
     }
   }
+
+  $variables['current_language_code'] = $currentLanguageCode;
 }
