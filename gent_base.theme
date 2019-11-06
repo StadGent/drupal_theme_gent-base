@@ -1114,6 +1114,10 @@ function gent_base_preprocess_links__language_block(&$variables) {
     ->getCurrentLanguage()
     ->getId();
 
+  if (isset($currentLanguageCode)) {
+    $variables['current_language_code'] = $currentLanguageCode;
+  }
+
   foreach ($variables['links'] as $i => $link) {
     $link['link']['#title'] = $link['text'] = $i;
     $variables['links'][$i] = $link;
@@ -1121,8 +1125,8 @@ function gent_base_preprocess_links__language_block(&$variables) {
     /** @var \Drupal\language\Entity\ConfigurableLanguage $linkLanguage */
     $linkLanguage = $link['link']['#options']['language'];
     if ($currentLanguageCode == $linkLanguage->get('id')) {
-      $variables['links']['activeLink'] = $link;
       unset($variables['links'][$i]);
     }
   }
+
 }
