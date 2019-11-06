@@ -1114,6 +1114,10 @@ function gent_base_preprocess_links__language_block(&$variables) {
     ->getCurrentLanguage()
     ->getId();
 
+  if (isset($currentLanguageCode)) {
+    $variables['current_language_code'] = $currentLanguageCode;
+  }
+
   foreach ($variables['links'] as $i => $link) {
     $link['link']['#title'] = $link['text'] = $i;
     $variables['links'][$i] = $link;
@@ -1125,5 +1129,4 @@ function gent_base_preprocess_links__language_block(&$variables) {
     }
   }
 
-  $variables['current_language_code'] = $currentLanguageCode;
 }
