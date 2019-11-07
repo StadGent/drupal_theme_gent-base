@@ -676,8 +676,8 @@ function gent_base_preprocess_image_widget(array &$variables) {
       'image-widget',
       'js-form-managed-file',
       'form-managed-file',
-      'clearfix'
-    ]
+      'clearfix',
+    ],
   ];
 
   if (!empty($element['fids']['#value'])) {
