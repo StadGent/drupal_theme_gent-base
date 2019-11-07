@@ -30,7 +30,7 @@ function gent_base_theme() {
       'variables' => [
         'picture_element' => NULL,
         'picture_button' => NULL,
-      ] ,
+      ],
     ],
     'form_element_bare' => [
       'render element' => 'element',
@@ -589,7 +589,7 @@ function gent_base_preprocess_media__document(&$variables) {
  *   An associative array containing:
  *   - element: A render element representing the widgets.
  */
-function gent_base_preprocess_file_widget_multiple(&$variables) {
+function gent_base_preprocess_file_widget_multiple(array &$variables) {
   $element = $variables['element'];
 
   // Get our list of widgets in order (needed when the form comes back after
@@ -668,20 +668,26 @@ function gent_base_preprocess_file_widget_multiple(&$variables) {
  *   An associative array containing:
  *   - element: A render element representing the image field widget.
  */
-function gent_base_preprocess_image_widget(&$variables) {
+function gent_base_preprocess_image_widget(array &$variables) {
   $element = $variables['element'];
 
-  $variables['attributes'] = ['class' => ['image-widget', 'js-form-managed-file', 'form-managed-file', 'clearfix']];
+  $variables['attributes'] = [
+    'class' => [
+      'image-widget',
+      'js-form-managed-file',
+      'form-managed-file',
+      'clearfix'
+    ]
+  ];
 
   if (!empty($element['fids']['#value'])) {
-    $file = reset($element['#files']);
+    reset($element['#files']);
   }
 
   $variables['data'] = [];
   foreach (Element::children($element) as $child) {
     $variables['data'][$child] = $element[$child];
   }
-
 }
 
 /**
