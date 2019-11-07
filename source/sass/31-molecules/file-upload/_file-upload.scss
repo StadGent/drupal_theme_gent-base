@@ -1,0 +1,32 @@
+.form-managed-file {
+  .image-widget-data {
+    .file-type {
+      display: none;
+    }
+  }
+}
+
+.field--type-image {
+  .tag.filter input.button {
+    [class*='cs--'] & {
+      width: 1rem;
+      min-height: 0;
+      padding: 0;
+      background: transparent svg-as-background('cross', color('dark-gray'), 16, 16);
+      background-repeat: no-repeat;
+      background-position: center;
+      border: 0;
+      box-shadow: none;
+      text-indent: -9999px;
+    }
+  }
+
+  .item-list {
+    width: 50%;
+    margin-bottom: gutter();
+
+    li {
+      margin-bottom: .4rem;
+    }
+  }
+}
