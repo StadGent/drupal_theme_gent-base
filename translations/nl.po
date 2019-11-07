@@ -298,7 +298,7 @@ msgstr "Optioneel"
 
 #: themes/contrib/gent_base/templates/core/form/input--file.html.twig:18
 msgid "Select your files here to upload"
-msgstr "Selecteer bestanden om te uploaden"
+msgstr "Kies bestanden om op te laden"
 
 #: themes/contrib/gent_base/templates/core/layout/html.html.twig:69
 msgid "Skip to main content"
