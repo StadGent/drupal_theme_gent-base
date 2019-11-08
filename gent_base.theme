@@ -671,6 +671,10 @@ function gent_base_preprocess_file_widget_multiple(array &$variables) {
 function gent_base_preprocess_image_widget(array &$variables) {
   $element = $variables['element'];
 
+  if ($element['#cardinality'] == -1) {
+    $element['#title'] = t('Add new files');
+  }
+
   $variables['attributes'] = [
     'class' => [
       'image-widget',
