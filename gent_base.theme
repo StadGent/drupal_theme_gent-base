@@ -675,7 +675,6 @@ function gent_base_preprocess_image_widget(array &$variables) {
     $element['#title'] = t('Add new files');
   }
 
-
   $variables['attributes'] = [
     'class' => [
       'image-widget',
