@@ -1,7 +1,6 @@
 menu:
   version: 1.x
   js:
-    build/styleguide/js/menu.functions-min.js: { minified: true }
     source/js/menu.bindings.js: {}
 
 accordion:
