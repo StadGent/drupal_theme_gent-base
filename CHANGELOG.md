@@ -2,6 +2,12 @@
 
 All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
+## [Unreleased]
+
+### Added
+
+* Added translation for filter remove button.
+
 ## [8.x-3.0-beta12]
 
 ### Fixed
