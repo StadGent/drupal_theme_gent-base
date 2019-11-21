@@ -1422,10 +1422,10 @@ gauge@~2.7.3:
     strip-ansi "^3.0.1"
     wide-align "^1.1.0"
 
-gent_styleguide@^3.0.0-beta12:
-  version "3.0.0-beta14"
-  resolved "https://registry.yarnpkg.com/gent_styleguide/-/gent_styleguide-3.0.0-beta14.tgz#45db13e5aa39fa000230cc8ce47bca4a6955e1e4"
-  integrity sha512-duxfluUH3wNFf0li7huRApaecdHUpa6RNWlOb2NPQ7SnDmhSU+ZFs9Lmp4DAS6VEk0rcZAw7srQr7YVMv3OeDQ==
+gent_styleguide@^3.0.0-beta15:
+  version "3.0.0-beta15"
+  resolved "https://registry.yarnpkg.com/gent_styleguide/-/gent_styleguide-3.0.0-beta15.tgz#3d153d2dbfbc27b4ba4883bc561bb40fd42e4fd4"
+  integrity sha512-nZ8M9a4S+eBkfiUO3pUpqVGLnrpBpF2QllCIMMeC3uVwDHspSgMIqGdioxkkyedwwzpOStOF3CTlTuQ+1CsWsg==
   dependencies:
     allietabs "^1.2.2"
     baguettebox.js "^1.11.0"
@@ -1573,9 +1573,9 @@ graceful-fs@^4.0.0, graceful-fs@^4.1.11:
   integrity sha512-6uHUhOPEBgQ24HM+r6b/QwWfZq+yiFcipKFrOFiBEnWdy5sdzYoi+pJeQaPI5qOLRFqWmAXUPQNsielzdLoecA==
 
 graceful-fs@^4.1.2, graceful-fs@^4.1.6, graceful-fs@^4.1.9:
-  version "4.2.2"
-  resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.2.tgz#6f0952605d0140c1cfdb138ed005775b92d67b02"
-  integrity sha512-IItsdsea19BoLC7ELy13q1iJFNmd7ofZH5+X/pJr90/nRoPEX0DJo1dHDbgtYWOhJhcCgMDTOw84RZ72q6lB+Q==
+  version "4.2.3"
+  resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.3.tgz#4a12ff1b60376ef09862c2093edd908328be8423"
+  integrity sha512-a30VEBm4PEdx1dRB7MFK7BejejvCvBronbLjht+sHuGYj8PHs7M/5Z+rt5lw551vZ7yfTCj4Vuyy3mSJytDWRQ==
 
 gulp-axe-webdriver@^3.1.0:
   version "3.1.3"

@@ -12,6 +12,7 @@ use Drupal\image\Entity\ImageStyle;
 use Drupal\paragraphs\Entity\Paragraph;
 use Drupal\Core\Url;
 use Drupal\Core\Link;
+use Drupal\Core\Render\Element;
 use Drupal\webform\Entity\Webform;
 
 include __DIR__ . '/includes/theme.inc';
@@ -24,6 +25,12 @@ function gent_base_theme() {
   return [
     'gent_base_webform' => [
       'render element' => 'form',
+    ],
+    'gent_base_file_upload' => [
+      'variables' => [
+        'picture_element' => NULL,
+        'picture_button' => NULL,
+      ],
     ],
     'form_element_bare' => [
       'render element' => 'element',
@@ -574,6 +581,120 @@ function gent_base_preprocess_media__document(&$variables) {
 }
 
 /**
+ * Prepares variables for multi file form widget templates.
+ *
+ * Default template: file-widget-multiple.html.twig.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - element: A render element representing the widgets.
+ */
+function gent_base_preprocess_file_widget_multiple(array &$variables) {
+  $element = $variables['element'];
+
+  // Get our list of widgets in order (needed when the form comes back after
+  // preview or failed validation).
+  $widgets = [];
+  foreach (Element::children($element) as $key) {
+    $widgets[] = &$element[$key];
+  }
+  usort($widgets, '_field_multiple_value_form_sort_helper');
+
+  $rows = [];
+  foreach ($widgets as $key => &$widget) {
+    // Save the uploading row for last.
+    if (empty($widget['#files'])) {
+      $widget['#title'] = $element['#file_upload_title'];
+      $widget['#description'] = \Drupal::service('renderer')->renderPlain($element['#file_upload_description']);
+      continue;
+    }
+
+    // Delay rendering of the buttons, so that they can be rendered later in the
+    // "operations" column.
+    $operations_elements = [];
+    foreach (Element::children($widget) as $sub_key) {
+      if (isset($widget[$sub_key]['#type']) && $widget[$sub_key]['#type'] == 'submit') {
+        hide($widget[$sub_key]);
+        $operations_elements[] = &$widget[$sub_key];
+      }
+    }
+
+    // Delay rendering of the "Display" option and the weight selector, so that
+    // each can be rendered later in its own column.
+    if ($element['#display_field']) {
+      hide($widget['display']);
+    }
+    hide($widget['_weight']);
+
+    // Render everything else together in a column, without the normal wrappers.
+    $widget['#theme_wrappers'] = [];
+
+    // Show the buttons that had previously been marked as hidden in this
+    // preprocess function. We use show() to undo the earlier hide().
+    foreach (Element::children($operations_elements) as $key) {
+      show($operations_elements[1]);
+    }
+
+    $row = [
+      '#theme' => 'gent_base_file_upload',
+      '#picture_element' => render($widget),
+      '#picture_button' => $operations_elements,
+    ];
+
+    $rows[] = [
+      $row,
+    ];
+  }
+
+  $variables['table'] = [
+    '#theme' => 'item_list',
+    '#list_type' => 'ul',
+    '#title' => NULL,
+    '#items' => $rows,
+    '#attributes' => [
+      'class' => [
+        'inline',
+      ],
+    ],
+  ];
+}
+
+/**
+ * Prepares variables for image widget templates.
+ *
+ * Default template: image-widget.html.twig.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - element: A render element representing the image field widget.
+ */
+function gent_base_preprocess_image_widget(array &$variables) {
+  $element = $variables['element'];
+
+  if ($element['#cardinality'] == -1) {
+    $element['#title'] = t('Add new files');
+  }
+
+  $variables['attributes'] = [
+    'class' => [
+      'image-widget',
+      'js-form-managed-file',
+      'form-managed-file',
+      'clearfix',
+    ],
+  ];
+
+  if (!empty($element['fids']['#value'])) {
+    reset($element['#files']);
+  }
+
+  $variables['data'] = [];
+  foreach (Element::children($element) as $child) {
+    $variables['data'][$child] = $element[$child];
+  }
+}
+
+/**
  * Implements hook_preprocess_HOOK().
  */
 function gent_base_preprocess_file_link(&$variables) {
@@ -1096,4 +1217,37 @@ function gent_base_preprocess_image(&$variables) {
   if (!isset($attributes['alt']) || !$attributes['alt']) {
     $attributes['alt'] = "";
   }
+}
+
+/**
+ * Implements hook_preprocess().
+ */
+function gent_base_preprocess_block__language_switcher(&$variables) {
+  $variables['active_language'] = \Drupal::languageManager()
+    ->getCurrentLanguage();
+}
+
+/**
+ * Implements theme_preprocess_HOOK().
+ */
+function gent_base_preprocess_links__language_block(&$variables) {
+  $currentLanguageCode = \Drupal::languageManager()
+    ->getCurrentLanguage()
+    ->getId();
+
+  if (isset($currentLanguageCode)) {
+    $variables['current_language_code'] = $currentLanguageCode;
+  }
+
+  foreach ($variables['links'] as $i => $link) {
+    $link['link']['#title'] = $link['text'] = $i;
+    $variables['links'][$i] = $link;
+
+    /** @var \Drupal\language\Entity\ConfigurableLanguage $linkLanguage */
+    $linkLanguage = $link['link']['#options']['language'];
+    if ($currentLanguageCode == $linkLanguage->get('id')) {
+      unset($variables['links'][$i]);
+    }
+  }
+
 }

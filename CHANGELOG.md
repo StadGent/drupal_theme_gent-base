@@ -2,6 +2,21 @@
 
 All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
+## [8.x-3.0-beta13]
+
+### Added
+
+* Added translation for filter remove button.
+
+### Fixed
+
+* Fixed accordion toggle issue due to double `accordion` class.
+* Fixed map legend scrolling issue.
+
+### Updated
+
+* Upgrade styleguide version to 3.0.0-beta15.
+
 ## [8.x-3.0-beta12]
 
 ### Fixed
@@ -20,6 +35,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 * Label to close button in map legend.
 * Force `alt` attribute for images, even if it's empty.
 * Template for local actions block.
+* Theming for the language switcher block.
 
 ### Updated
 
@@ -33,6 +49,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 * Modal layout for filters.
 * Fixed typo in table-mobile script that caused JS error in Safari.
 * `aria-labelledby` on mobile tables when no caption is present.
+* Fixed file upload theming.
 
 ## [8.x-3.0-beta10]
 
@@ -328,6 +345,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 * **Updated to gent_styleguide version 2.6.13**
 
+[8.x-3.0-beta12]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-beta12...8.x-3.0-beta13
 [8.x-3.0-beta12]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-beta11...8.x-3.0-beta12
 [8.x-3.0-beta11]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-beta10...8.x-3.0-beta11
 [8.x-3.0-beta10]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-beta9...8.x-3.0-beta10
