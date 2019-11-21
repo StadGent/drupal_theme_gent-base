@@ -11,6 +11,11 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 ### Fixed
 
 * Fixed accordion toggle issue due to double `accordion` class.
+* Fixed map legend scrolling issue.
+
+### Updated
+
+* Upgrade styleguide version to 3.0.0-beta15.
 
 ## [8.x-3.0-beta12]
 
