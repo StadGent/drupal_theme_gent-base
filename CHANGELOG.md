@@ -2,7 +2,7 @@
 
 All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
-## [Unreleased]
+## [8.x-3.0-beta13]
 
 ### Added
 
@@ -345,6 +345,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 * **Updated to gent_styleguide version 2.6.13**
 
+[8.x-3.0-beta12]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-beta12...8.x-3.0-beta13
 [8.x-3.0-beta12]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-beta11...8.x-3.0-beta12
 [8.x-3.0-beta11]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-beta10...8.x-3.0-beta11
 [8.x-3.0-beta10]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-beta9...8.x-3.0-beta10
