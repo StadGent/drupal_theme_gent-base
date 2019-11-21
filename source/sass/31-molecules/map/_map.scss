@@ -417,6 +417,7 @@ $map-text-color: color('dark-gray');
 
       background: color('white');
       z-index: 20;
+      overflow-y: auto;
     }
 
     &-button {
