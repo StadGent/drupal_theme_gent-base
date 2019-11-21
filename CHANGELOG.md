@@ -8,6 +8,14 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 * Added translation for filter remove button.
 
+### Fixed
+
+* Fixed accordion toggle issue due to double `accordion` class.
+
+### Updated
+
+* Upgrade styleguide version to 3.0.0-beta15.
+
 ## [8.x-3.0-beta12]
 
 ### Fixed
