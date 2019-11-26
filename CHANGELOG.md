@@ -8,6 +8,21 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 * Fixed field description styling for certain types of fields.
 
+## [8.x-3.0-beta13]
+
+### Added
+
+* Added translation for filter remove button.
+
+### Fixed
+
+* Fixed accordion toggle issue due to double `accordion` class.
+* Fixed map legend scrolling issue.
+
+### Updated
+
+* Upgrade styleguide version to 3.0.0-beta15.
+
 ## [8.x-3.0-beta12]
 
 ### Fixed
@@ -336,6 +351,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 * **Updated to gent_styleguide version 2.6.13**
 
+[8.x-3.0-beta12]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-beta12...8.x-3.0-beta13
 [8.x-3.0-beta12]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-beta11...8.x-3.0-beta12
 [8.x-3.0-beta11]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-beta10...8.x-3.0-beta11
 [8.x-3.0-beta10]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-beta9...8.x-3.0-beta10
