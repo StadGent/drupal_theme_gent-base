@@ -2,6 +2,12 @@
 
 All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
+## [Unreleased]
+
+### Fixed
+
+* Fixed menu.bindings.js file to work with the Modal instead of a Menu reference.
+
 ## [8.x-3.0-beta13]
 
 ### Added
