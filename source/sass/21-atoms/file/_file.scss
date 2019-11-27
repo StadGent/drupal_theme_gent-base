@@ -1,5 +1,11 @@
 .file {
+  min-width: 17rem;
+  margin: 0 -.3rem;
   padding-left: 0;
+
+  &::after {
+    display: none;
+  }
 }
 
 .form-managed-file {
