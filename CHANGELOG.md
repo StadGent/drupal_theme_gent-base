@@ -9,6 +9,10 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 * Fixed menu.bindings.js file to work with the Modal instead of a Menu reference.
 * Fixed field description styling for certain types of fields.
 
+### Updated
+
+* Upgrade styleguide version to 3.0.0-beta16.
+
 ## [8.x-3.0-beta13]
 
 ### Added
