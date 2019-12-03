@@ -45,14 +45,14 @@
 
 {% set custom_classes = [
   'cta-block',
-  'highlight',
-  'highlight--left',
+  'box',
+  'box-left',
   primary_type == 'document' ? 'download' : 'link'
 ] %}
 
 {% block paragraph %}
   <div{{ attributes.addClass(classes).addClass(custom_classes) }}>
-    <div class="highlight__inner">
+    <div class="inner-box">
       <div>
       {% block content %}
         {{ content|without(
