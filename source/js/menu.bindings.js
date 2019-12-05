@@ -7,13 +7,33 @@
 
   Drupal.behaviors.gentBaseLoadMenu = {
     attach: function (context, settings) {
-      if (!Menu) { // eslint-disable-line no-undef
+      if (!Modal) { // eslint-disable-line no-undef
         return;
       }
 
-      var selected = document.querySelectorAll('nav.menu');
-      for (var i = selected.length; i--;) {
-        new Menu(selected[i]); // eslint-disable-line no-undef
+      var menu = document.querySelectorAll('.modal.menu');
+
+      var createModal = function (modal) {
+        // eslint-disable-next-line no-undef
+        new Modal(modal, {
+          // The modal is always visible from tablet and up,
+          // this is atypical.
+          resizeEvent: function (open, close) {
+            if (window.innerWidth > 960) {
+              close();
+              modal.setAttribute('aria-hidden', 'false');
+            }
+            else {
+              if (!modal.classList.contains('visible')) {
+                modal.setAttribute('aria-hidden', 'true');
+              }
+            }
+          }
+        });
+      };
+
+      for (var i = menu.length; i--;) {
+        createModal(menu[i]);
       }
     }
   };
