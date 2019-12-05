@@ -403,6 +403,10 @@ function gent_base_preprocess_fieldset(&$variables) {
     $variables['fieldset_optional'] = TRUE;
   }
 
+  if (isset($element['#has_row'])) {
+    $variables['has_row'] = $element['#has_row'] ?? NULL;
+  }
+
   $variables['has_columns'] = $element['#has_columns'] ?? NULL;
 }
 

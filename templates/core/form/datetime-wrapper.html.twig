@@ -1,0 +1,52 @@
+{#
+/**
+ * @file
+ * Theme override of a datetime form wrapper.
+ *
+ * Available variables:
+ * - content: The form element to be output, usually a datelist, or datetime.
+ * - title: The title of the form element.
+ * - title_attributes: HTML attributes for the title wrapper.
+ * - description: Description text for the form element.
+ * - required: An indicator for whether the associated form element is required.
+ *
+ * @see template_preprocess_datetime_wrapper()
+ */
+#}
+{%
+  set title_classes = [
+    'label',
+    required ? 'js-form-required',
+    required ? 'form-required',
+  ]
+%}
+
+<div class="form-item stacked">
+  {% if title %}
+    <label {{ title_attributes.addClass(title_classes) }}>{{ title }}</label>
+  {% endif %}
+
+  {% if description %}
+    <div{{ description_attributes.addClass('form-description') }}>
+      {{ description }}
+      <div class="accolade"></div>
+    </div>
+  {% endif %}
+
+  <div class="form-columns">
+
+    <div class="form-item-column">
+      {{ content }}
+    </div>
+
+    <div class="form-item-column">
+      {% if errors %}
+        <div class="field-message error" role="alert">
+          <strong>{{ errors }}</strong>
+          <div class="accolade"></div>
+        </div>
+      {% endif %}
+    </div>
+
+  </div>
+</div>

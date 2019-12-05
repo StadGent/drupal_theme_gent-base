@@ -53,6 +53,7 @@ function _gent_base_loop_form_elements(array &$elements) {
 
   foreach ($children as $key) {
     $element = &$elements[$key];
+
     if (!is_array($element) || !isset($element['#type'])) {
       continue;
     }
