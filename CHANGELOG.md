@@ -9,7 +9,11 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 * Added fix for fieldsets and datetime wrappers.
 * Added has_row option to enable fieldsets to render 2 fields next to each other.
 
-## [8.x-3.0-beta13]
+## [8.x-3.0-beta14]
+
+### Updated
+
+* Upgrade styleguide version to 3.0.0-beta16.
 
 ## [8.x-3.0-beta13]
 
