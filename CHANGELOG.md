@@ -2,6 +2,13 @@
 
 All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
+## [Unreleased]
+
+### Updated
+
+* Removed form-tag from region-filters template and added a form-tag to the 
+facet templates. This may break custom facets that rely on the form-tag. 
+
 ## [8.x-3.0-beta14]
 
 ### Fixed
