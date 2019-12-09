@@ -44,7 +44,10 @@
 
   <legend{{ legend.attributes.addClass(legend_span_classes) }}>
     {{ legend.title }}
-    <span{{ legend_span.attributes.addClass('label-optional') }}>({{ 'Optional'|t }})</span>
+
+    {% if not required %}
+      <span{{ legend_span.attributes.addClass('label-optional') }}>({{ 'Optional'|t }})</span>
+    {% endif %}
   </legend>
 
   {% if information %}

@@ -109,7 +109,7 @@
         <span class="field-prefix">{{ prefix }}</span>
       {% endif %}
 
-      {% if description.content and type != 'managed_file' %}
+      {% if description.content and type != 'managed_file' and type != 'checkbox' and  type != 'radio' %}
         <div{{ description.attributes.addClass(description_classes) }}>
           {{ description.content }}
           <div class="accolade"></div>
@@ -125,8 +125,8 @@
       {% endif %}
 
       {% if description.content %}
-        {% if type == 'managed_file' %}
-          <div class="help-text">
+        {% if type == 'managed_file' or type == 'checkbox' or type == 'radio' %}
+          <div class="form-description">
             {{ description.content }}
           </div>
         {% endif %}
