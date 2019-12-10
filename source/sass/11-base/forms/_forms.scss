@@ -49,3 +49,8 @@ textarea {
 .form-required .label-optional {
   display: none;
 }
+
+.form-checkboxes > .checkbox,
+.form-radios > .radio {
+  margin-bottom: 0;
+}
