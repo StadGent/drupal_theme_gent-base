@@ -20,6 +20,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 * Fixed field message theming for form elements and fieldsets.
 * Fixed optional label issue for fieldsets.
 * Fixed menu JS library dependency.
+* Fixed whitespace with form radios and checkboxes.
 
 ## [8.x-3.0-beta14]
 
