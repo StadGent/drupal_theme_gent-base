@@ -24,6 +24,6 @@
   },
   "private": true,
   "dependencies": {
-    "gent_styleguide": "^3.0.0-beta16"
+    "gent_styleguide": "^3.0.0-beta17"
   }
 }
