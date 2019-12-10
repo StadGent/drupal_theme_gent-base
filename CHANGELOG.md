@@ -9,6 +9,11 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 * Added fix for fieldsets and datetime wrappers.
 * Added has_row option to enable fieldsets to render 2 fields next to each other.
 
+### Updated
+
+* Removed form-tag from region-filters template and added a form-tag to the 
+facet templates. This may break custom facets that rely on the form-tag. 
+
 ## [8.x-3.0-beta14]
 
 ### Fixed
