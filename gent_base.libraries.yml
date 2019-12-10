@@ -2,6 +2,8 @@ menu:
   version: 1.x
   js:
     source/js/menu.bindings.js: {}
+  dependencies:
+    - gent_base/modal
 
 accordion:
   version: 1.x
