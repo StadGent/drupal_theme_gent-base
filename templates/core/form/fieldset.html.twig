@@ -44,47 +44,57 @@
 
   <legend{{ legend.attributes.addClass(legend_span_classes) }}>
     {{ legend.title }}
-    <span{{ legend_span.attributes.addClass('label-optional') }}>({{ 'Optional'|t }})</span>
+
+    {% if not required %}
+      <span{{ legend_span.attributes.addClass('label-optional') }}>({{ 'Optional'|t }})</span>
+    {% endif %}
   </legend>
 
-  {% if information %}
-    <div{{ information.attributes.addClass(information_classes) }}>
-      {{ information.content }}
-      <div class="accolade"></div>
-    </div>
-  {%  endif %}
-
-  {% if errors and not has_columns %}
-    <div class="field-message error" role="alert">
-      {{ errors }}
-      <div class="accolade"></div>
-    </div>
+  {% if has_row %}
+    <div class="form-row">
   {% endif %}
 
-  {% if has_columns %}
-  <div class="form-columns">
-    <div class="form-item-column">
-  {% endif %}
-      {% if prefix %}
-        <span class="field-prefix">{{ prefix }}</span>
-      {% endif %}
-      {{ children }}
-      {% if suffix %}
-        <span class="field-suffix">{{ suffix }}</span>
-      {% endif %}
-    {% if has_columns %}
-    </div>
-    {% endif %}
+      {% if information %}
+        <div{{ information.attributes.addClass(information_classes) }}>
+          {{ information.content }}
+          <div class="accolade"></div>
+        </div>
+      {%  endif %}
 
-    {% if has_columns %}
-    <div class="form-item-column">
-      {% if errors %}
+      {% if errors and not has_columns %}
         <div class="field-message error" role="alert">
           {{ errors }}
           <div class="accolade"></div>
         </div>
       {% endif %}
+
+      {% if has_columns %}
+      <div class="form-columns">
+        <div class="form-item-column">
+      {% endif %}
+          {% if prefix %}
+            <span class="field-prefix">{{ prefix }}</span>
+          {% endif %}
+          {{ children }}
+          {% if suffix %}
+            <span class="field-suffix">{{ suffix }}</span>
+          {% endif %}
+        {% if has_columns %}
+        </div>
+        {% endif %}
+
+        {% if has_columns %}
+        <div class="form-item-column">
+          {% if errors %}
+            <div class="field-message error" role="alert">
+              {{ errors }}
+              <div class="accolade"></div>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+      {% endif %}
+  {% if has_row %}
     </div>
-  </div>
   {% endif %}
 </fieldset>

@@ -2,6 +2,26 @@
 
 All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
+## [8.x-3.0-beta15]
+
+### Added
+
+* Added fix for fieldsets and datetime wrappers.
+* Added has_row option to enable fieldsets to render 2 fields next to each other.
+
+### Updated
+
+* Removed form-tag from region-filters template and added a form-tag to the
+  facet templates. This may break custom facets that rely on the form-tag.
+* Updated gent_styleguide to 3.0.0-beta17.
+
+### Fixed
+
+* Fixed field message theming for form elements and fieldsets.
+* Fixed optional label issue for fieldsets.
+* Fixed menu JS library dependency.
+* Fixed whitespace with form radios and checkboxes.
+
 ## [8.x-3.0-beta14]
 
 ### Fixed
@@ -356,6 +376,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 * **Updated to gent_styleguide version 2.6.13**
 
+[8.x-3.0-beta15]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-beta14...8.x-3.0-beta15
 [8.x-3.0-beta14]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-beta13...8.x-3.0-beta14
 [8.x-3.0-beta13]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-beta12...8.x-3.0-beta13
 [8.x-3.0-beta12]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-beta11...8.x-3.0-beta12
