@@ -29,9 +29,9 @@
     {%- if items -%}
       {%- for item in items -%}
         {% if loop.last %}
-          <footer>
+          <section>
             <a href="{{ item.value.value['#url'] }}" {{ item.attributes }}>{{ item.value.value['#title'] }}</a>
-          </footer>
+          </section>
         {% else %}
           <section{{ item.attributes }}>
             {{ item.value }}
