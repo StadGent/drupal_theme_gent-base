@@ -25,21 +25,23 @@
 {% endif %}
 
 {% if items or empty -%}
-  <div {{ wrapper_attributes.addClass('item-list') }}>
-    {%- if items -%}
-      {%- for item in items -%}
-        {% if loop.last %}
-          <section>
-            <a href="{{ item.value.value['#url'] }}" {{ item.attributes }}>{{ item.value.value['#title'] }}</a>
-          </section>
-        {% else %}
-          <section{{ item.attributes }}>
-            {{ item.value }}
-          </section>
-        {% endif %}
-      {%- endfor -%}
-    {%- else -%}
-      {{- empty -}}
-    {%- endif -%}
-  </div>
+  <article>
+    <div {{ wrapper_attributes.addClass('item-list') }}>
+      {%- if items -%}
+        {%- for item in items -%}
+          {% if loop.last %}
+            <footer>
+              <a href="{{ item.value.value['#url'] }}" {{ item.attributes }}>{{ item.value.value['#title'] }}</a>
+            </footer>
+          {% else %}
+            <section{{ item.attributes }}>
+              {{ item.value }}
+            </section>
+          {% endif %}
+        {%- endfor -%}
+      {%- else -%}
+        {{- empty -}}
+      {%- endif -%}
+    </div>
+  </article>
 {%- endif %}
