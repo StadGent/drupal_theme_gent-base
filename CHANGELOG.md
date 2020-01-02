@@ -6,7 +6,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 ### Removed
 
-* Removed pubdate attribute in time tag - supported any more.
+* Removed unsupported pubdate attribute in time tag.
 
 ## [8.x-3.0-beta15]
 
