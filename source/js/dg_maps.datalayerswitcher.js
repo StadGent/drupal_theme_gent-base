@@ -125,7 +125,13 @@
         var legendContainer = document.createElement('div');
         legendContainer.className = 'legend';
 
+
         for (var j = 0; j < legendData.length; j++) {
+          // Remove empty items from the data layer switcher list.
+          if (!legendData[j].label) {
+            continue;
+          }
+
           var legendItemContainer = document.createElement('div');
           legendItemContainer.className = 'legend__item';
           legendContainer.appendChild(legendItemContainer);
@@ -138,7 +144,7 @@
 
           var legendItemLabel = document.createElement('span');
           legendItemIcon.className = 'legend__item__label';
-          legendItemLabel.innerHTML = legendData[j].label ? legendData[j].label : '';
+          legendItemLabel.innerHTML = legendData[j].label;
           legendItemContainer.appendChild(legendItemLabel);
         }
 
