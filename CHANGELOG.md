@@ -4,6 +4,12 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 ## [Unreleased]
 
+### Fixed
+
+* Fixed empty legend items for maps.
+
+## [8.x-3.0-beta15]
+
 ### Added
 
 * Added fix for fieldsets and datetime wrappers.
