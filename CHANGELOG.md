@@ -6,7 +6,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 ### Updated
 
-* Made sure the pager preprocess hook gets called first because we rewrite the default Drupal pager.
+* Made sure the pager preprocess hook gets called first because we rewrite it.
 
 ## [8.x-3.0-beta15]
 
