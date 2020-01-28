@@ -199,10 +199,12 @@ function gent_base_preprocess_dg_auth_block(&$variables) {
  * Adds theme settings as variables to html.twig template.
  */
 function gent_base_preprocess_html(&$variables) {
-  $color = (theme_get_setting('color_scheme')) ? theme_get_setting('color_scheme') : 'cyan';
+  $color = (theme_get_setting('color_scheme')) ?
+    theme_get_setting('color_scheme') : 'cyan';
   $variables['cs']['color'] = $color;
 
-  $hex = (theme_get_setting('color_scheme_hex')) ? theme_get_setting('color_scheme_hex') : '009DE0';
+  $hex = (theme_get_setting('color_scheme_hex')) ?
+    theme_get_setting('color_scheme_hex') : '009DE0';
   $variables['cs']['hex'] = '#' . $hex;
 }
 
