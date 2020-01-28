@@ -329,6 +329,16 @@ function gent_base_preprocess_block__views_search_form_header(&$variables) {
  * Implements hook_theme_registry_alter().
  */
 function gent_base_theme_registry_alter(&$theme_registry) {
+  // Our pager preprocess hook should be called first since we rewrite the complete pager.
+  if (isset($theme_registry['pager']['preprocess functions'])) {
+    $preprocess = &$theme_registry['pager']['preprocess functions'];
+    $key = array_search('gent_base_preprocess_pager', $preprocess, TRUE);
+    if ($key !== FALSE) {
+      unset($preprocess[$key]);
+      array_unshift($preprocess, 'gent_base_preprocess_pager');
+    }
+  }
+
   // Add support for the information property on elements.
   $supported_types = ['fieldset', 'form_element'];
   foreach ($supported_types as $supported_type) {
