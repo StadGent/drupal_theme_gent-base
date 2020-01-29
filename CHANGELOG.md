@@ -6,7 +6,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 ### Added
 
-* Added theming for memnu and mobile menu due to a refactor of the style guide.
+* Added theming for menu and mobile menu due to a refactor of the style guide.
   ** Watch out! A new mobile_menu region is created with this update! **
 
 ### Updated
