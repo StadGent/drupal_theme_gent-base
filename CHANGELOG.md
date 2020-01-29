@@ -4,6 +4,11 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 ## [Unreleased]
 
+### Added
+
+* Added theming for menu and mobile menu due to a refactor of the style guide.
+  ** Watch out! A new mobile_menu region is created with this update! **
+
 ### Updated
 
 * Made sure the pager preprocess hook gets called first because we rewrite it.
