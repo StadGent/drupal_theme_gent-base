@@ -13,6 +13,10 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 * Made sure the pager preprocess hook gets called first because we rewrite it.
 
+### Fixed
+
+* Fixed missing theme facets warning.
+
 ## [8.x-3.0-beta15]
 
 ### Fixed

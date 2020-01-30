@@ -44,6 +44,11 @@ image-wall:
   dependencies:
     - gent_base/image-collections
 
+facets:
+  version: 1.x
+  dependencies:
+    - facets/drupal.facets.checkbox-widget
+
 facet_range_slider:
   version: 1.x
   js:
@@ -57,7 +62,6 @@ checkbox_filter:
     build/styleguide/js/checkbox_filter.functions-min.js: { minified: true }
     source/js/checkbox_filter.bindings.js: {}
   dependencies:
-    - facets/drupal.facets.checkbox-widget
     - gent_base/filter
 
 tabs:
