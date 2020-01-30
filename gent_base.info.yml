@@ -11,6 +11,7 @@ regions:
   content: Content
   filters: Filters
   footer: Footer
+  mobile_menu: Mobile menu
 libraries:
   - gent_base/menu
   - gent_base/tables

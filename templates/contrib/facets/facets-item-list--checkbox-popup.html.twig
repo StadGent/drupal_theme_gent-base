@@ -30,6 +30,8 @@
 } %}
 
 {{ attach_library('gent_base/checkbox_filter') }}
+{{ attach_library('gent_base/facets') }}
+
 <form>
 <fieldset class="facets-widget- {{- facet.widget.type -}} -with-filter checkbox-filter form-item">
   {% if items or empty %}
