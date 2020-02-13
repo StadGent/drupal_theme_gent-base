@@ -2,6 +2,13 @@
 
 All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
+
+## [Unreleased]
+
+### Removed
+
+* Removed unsupported pubdate attribute in time tag.
+
 ## [8.x-3.0-beta16]
 
 ### Added
@@ -42,6 +49,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 * Fixed optional label issue for fieldsets.
 * Fixed menu JS library dependency.
 * Fixed whitespace with form radios and checkboxes.
+* Fixed hidden attribute.
 
 ## [8.x-3.0-beta14]
 
