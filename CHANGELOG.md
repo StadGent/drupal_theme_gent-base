@@ -2,11 +2,33 @@
 
 All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
+
 ## [Unreleased]
 
 ### Removed
 
 * Removed unsupported pubdate attribute in time tag.
+
+## [8.x-3.0-beta16]
+
+### Added
+
+* Added theming for menu and mobile menu due to a refactor of the style guide.
+  ** Watch out! A new mobile_menu region is created with this update! **
+
+### Updated
+
+* Made sure the pager preprocess hook gets called first because we rewrite it.
+
+### Fixed
+
+* Fixed missing theme facets warning.
+
+## [8.x-3.0-beta15]
+
+### Fixed
+
+* Fixed empty legend items for maps.
 
 ## [8.x-3.0-beta15]
 
@@ -383,6 +405,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 * **Updated to gent_styleguide version 2.6.13**
 
+[8.x-3.0-beta16]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-beta15...8.x-3.0-beta16
 [8.x-3.0-beta15]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-beta14...8.x-3.0-beta15
 [8.x-3.0-beta14]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-beta13...8.x-3.0-beta14
 [8.x-3.0-beta13]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-beta12...8.x-3.0-beta13

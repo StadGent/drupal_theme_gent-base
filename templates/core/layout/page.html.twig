@@ -51,6 +51,17 @@
 ]
 %}
 
+{% set attributes = create_attribute({
+  'href': path('<front>'),
+  'title': 'Home'|t,
+  'rel': 'home'
+}) %}
+
+{% set site_logo_classes = [
+  'site-logo',
+  'subsite'
+] %}
+
 {% block admin %}
   {{ page.admin }}
 {% endblock %}
@@ -111,3 +122,26 @@
 
 </div>
 <span hidden="" id="image-gallery__open-gallery">{{ 'open gallery'|t }}</span>
+<div id="gent_base_mobile_menu" class="modal has-custom-binding menu" role="dialog" aria-modal="false" tabindex="-1" aria-hidden="true" data-gent-modal="true">
+  <div class="modal-inner">
+    <div class="modal-header">
+      <button type="button" class="button close icon-cross modal-close" data-target="gent_base_mobile_menu">
+        <span>Close</span>
+      </button>
+    </div>
+    <div class="modal-content">
+      <div class="header">
+        <a {{ attributes.addClass(site_logo_classes) }}>
+          {{ site_name }}
+        </a>
+      </div>
+
+      {% if page.mobile_menu %}
+        {{ page.mobile_menu }}
+      {% endif %}
+
+    </div>
+  </div>
+
+  <div class="modal-overlay modal-close" data-target="gent_base_mobile_menu" tabindex="-1"></div>
+</div>

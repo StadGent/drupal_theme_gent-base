@@ -199,10 +199,12 @@ function gent_base_preprocess_dg_auth_block(&$variables) {
  * Adds theme settings as variables to html.twig template.
  */
 function gent_base_preprocess_html(&$variables) {
-  $color = (theme_get_setting('color_scheme')) ? theme_get_setting('color_scheme') : 'cyan';
+  $color = (theme_get_setting('color_scheme')) ?
+    theme_get_setting('color_scheme') : 'cyan';
   $variables['cs']['color'] = $color;
 
-  $hex = (theme_get_setting('color_scheme_hex')) ? theme_get_setting('color_scheme_hex') : '009DE0';
+  $hex = (theme_get_setting('color_scheme_hex')) ?
+    theme_get_setting('color_scheme_hex') : '009DE0';
   $variables['cs']['hex'] = '#' . $hex;
 }
 
@@ -329,6 +331,17 @@ function gent_base_preprocess_block__views_search_form_header(&$variables) {
  * Implements hook_theme_registry_alter().
  */
 function gent_base_theme_registry_alter(&$theme_registry) {
+  // Our pager preprocess hook should be called first since we rewrite the
+  // complete pager.
+  if (isset($theme_registry['pager']['preprocess functions'])) {
+    $preprocess = &$theme_registry['pager']['preprocess functions'];
+    $key = array_search('gent_base_preprocess_pager', $preprocess, TRUE);
+    if ($key !== FALSE) {
+      unset($preprocess[$key]);
+      array_unshift($preprocess, 'gent_base_preprocess_pager');
+    }
+  }
+
   // Add support for the information property on elements.
   $supported_types = ['fieldset', 'form_element'];
   foreach ($supported_types as $supported_type) {
