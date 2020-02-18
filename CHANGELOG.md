@@ -5,6 +5,10 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 ## [Unreleased]
 
+### Fixed
+
+* Fixed fieldset (fieldgroup) wrongly marked as "optional".
+
 ### Removed
 
 * Removed unsupported pubdate attribute in time tag.
