@@ -412,9 +412,10 @@ function gent_base_preprocess_fieldset(&$variables) {
     $element['#information'] = $element['#description'];
   }
 
-  if ($element['#type'] === 'fieldset' && empty($element['#required'])) {
-    $variables['fieldset_optional'] = TRUE;
-  }
+  // Fieldsets themselves should not be marked as optional.
+  // Only a fieldset wrapping Radios & Checkboxes should be marked as such.
+  $variables['fieldset_optional'] = $element['#type'] !== 'fieldset'
+    && empty($element['#required']);
 
   if (isset($element['#has_row'])) {
     $variables['has_row'] = $element['#has_row'] ?? NULL;
@@ -436,7 +437,6 @@ function gent_base_preprocess_menu_local_task(&$variables) {
   else {
     $variables['link']['#options']['attributes']['class'][] = 'button-secondary';
   }
-
 }
 
 /**
