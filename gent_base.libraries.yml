@@ -10,12 +10,18 @@ accordion:
   js:
     build/styleguide/js/accordion.functions-min.js: { minified: true }
     source/js/accordion.bindings.js: {}
+  dependencies:
+    - core/jquery
+    - core/jquery.once
 
 filter:
   version: 1.x
   js:
     source/js/filter.bindings.js: {}
     source/js/filter.functions.js: {}
+  dependencies:
+    - core/jquery
+    - core/jquery.once
 
 modal:
   version: 1.x
@@ -25,6 +31,8 @@ modal:
     source/js/modal.bindings.js: { }
   dependencies:
     - gent_base/checkbox_filter
+    - core/jquery
+    - core/jquery.once
 
 image-collections:
   version: 1.x
@@ -63,6 +71,8 @@ checkbox_filter:
     source/js/checkbox_filter.bindings.js: {}
   dependencies:
     - gent_base/filter
+    - core/jquery
+    - core/jquery.once
 
 tabs:
   version: 1.x
@@ -117,3 +127,6 @@ breadcrumbs:
   js:
     build/styleguide/js/breadcrumbs.functions-min.js: { minified: true }
     source/js/breadcrumbs.bindings.js: {}
+  dependencies:
+    - core/jquery
+    - core/jquery.once
