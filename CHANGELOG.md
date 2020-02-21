@@ -5,6 +5,10 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 ## [Unreleased]
 
+### Added
+
+* Added jQuery and jQuery.once dependencies to libraries.
+
 ### Fixed
 
 * Fixed fieldset (fieldgroup) wrongly marked as "optional".
