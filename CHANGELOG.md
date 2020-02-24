@@ -12,6 +12,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 ### Fixed
 
 * Fixed fieldset (fieldgroup) wrongly marked as "optional".
+* Fixed overridden attributes.
 
 ### Removed
 

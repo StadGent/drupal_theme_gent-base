@@ -51,7 +51,7 @@
 ]
 %}
 
-{% set attributes = create_attribute({
+{% set branding_attributes = create_attribute({
   'href': path('<front>'),
   'title': 'Home'|t,
   'rel': 'home'
@@ -131,7 +131,7 @@
     </div>
     <div class="modal-content">
       <div class="header">
-        <a {{ attributes.addClass(site_logo_classes) }}>
+        <a {{ branding_attributes.addClass(site_logo_classes) }}>
           {{ site_name }}
         </a>
       </div>
