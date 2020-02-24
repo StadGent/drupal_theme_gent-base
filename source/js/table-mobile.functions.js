@@ -65,7 +65,7 @@
       if (caption) {
         tableList.setAttribute('aria-labelledby', id);
       }
-      element.parentNode.parentNode.insertBefore(tableList, element.nextSibling);
+      element.parentNode.parentNode.insertBefore(tableList, element.parentNode.nextSibling);
 
       addList();
     };

@@ -19,6 +19,11 @@
  * - prefix: The content to add before the fieldset children.
  * - suffix: The content to add after the fieldset children.
  *
+ * Extra variables:
+ * - fieldset_optional: Should the fieldset be marked as optional.
+ * - has_row: Should the fieldset be rendered as a row.
+ * - has_columns: Has the fieldset columns.
+ *
  * @see template_preprocess_fieldset()
  */
 #}
@@ -45,7 +50,7 @@
   <legend{{ legend.attributes.addClass(legend_span_classes) }}>
     {{ legend.title }}
 
-    {% if not required %}
+    {% if fieldset_optional %}
       <span{{ legend_span.attributes.addClass('label-optional') }}>({{ 'Optional'|t }})</span>
     {% endif %}
   </legend>

@@ -2,6 +2,22 @@
 
 All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
+
+## [8.x-3.0-beta17]
+
+### Added
+
+* Added jQuery and jQuery.once dependencies to libraries.
+
+### Fixed
+
+* Fixed fieldset (fieldgroup) wrongly marked as "optional".
+* Fixed overridden attributes.
+
+### Removed
+
+* Removed unsupported pubdate attribute in time tag.
+
 ## [8.x-3.0-beta16]
 
 ### Added
@@ -42,6 +58,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 * Fixed optional label issue for fieldsets.
 * Fixed menu JS library dependency.
 * Fixed whitespace with form radios and checkboxes.
+* Fixed hidden attribute.
 
 ## [8.x-3.0-beta14]
 
@@ -397,6 +414,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 * **Updated to gent_styleguide version 2.6.13**
 
+[8.x-3.0-beta17]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-beta16...8.x-3.0-beta17
 [8.x-3.0-beta16]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-beta15...8.x-3.0-beta16
 [8.x-3.0-beta15]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-beta14...8.x-3.0-beta15
 [8.x-3.0-beta14]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-beta13...8.x-3.0-beta14
