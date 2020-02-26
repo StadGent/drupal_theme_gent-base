@@ -2,6 +2,11 @@
 
 All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
+## [8.x-3.0-beta17]
+
+### Added
+
+* Require Drupal core 8.8.2 to support library dependencies #2905429.
 
 ## [8.x-3.0-beta17]
 
