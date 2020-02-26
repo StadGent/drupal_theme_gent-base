@@ -2,7 +2,7 @@
 
 All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
-## [8.x-3.0-beta17]
+## [Unreleased]
 
 ### Added
 
