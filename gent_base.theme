@@ -172,6 +172,9 @@ function gent_base_preprocess_block(&$variables) {
       break;
 
     case 'dg_blocks_links_block':
+      if (!isset($variables['content']['links']['#attributes']['class'])) {
+        $variables['content']['links']['#attributes']['class'] = [];
+      }
       array_push($variables['content']['links']['#attributes']['class'], 'dg-block-links');
       break;
 
