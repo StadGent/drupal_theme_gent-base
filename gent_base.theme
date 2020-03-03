@@ -835,7 +835,7 @@ function gent_base_preprocess_paragraph__image(&$variables) {
   if ($image_count === 1 || !gent_base_is_view_mode('paragraph.image.gallery_multiple')) {
     return;
   }
-  
+
   $variables['image_gallery_type'] = 'multiple';
   for ($i = 0; $i < $image_count; $i++) {
     $variables['content']['field_image'][$i]['#view_mode'] = 'gallery_multiple';
