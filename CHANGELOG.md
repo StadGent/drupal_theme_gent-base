@@ -2,6 +2,12 @@
 
 All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
+## [Unreleased]
+
+### Fixed
+
+* Fixed Notice: Undefined index: #items in
+`gent_base_preprocess_paragraph__image()`.
 
 ## [8.x-3.0-beta17]
 
