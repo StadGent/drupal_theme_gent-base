@@ -20,6 +20,10 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 * Fixed fieldset (fieldgroup) wrongly marked as "optional".
 * Fixed overridden attributes.
 
+### Changed
+
+* Changed created date to published date in news--full
+
 ### Removed
 
 * Removed unsupported pubdate attribute in time tag.
