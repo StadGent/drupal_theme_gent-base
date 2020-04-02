@@ -8,6 +8,12 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 * Require Drupal core 8.8.2 to support library dependencies #2905429.
 
+### Fixed
+
+* Fixed Notice: Undefined index: #items in
+`gent_base_preprocess_paragraph__image()`.
+
+
 ## [8.x-3.0-beta17]
 
 ### Added
