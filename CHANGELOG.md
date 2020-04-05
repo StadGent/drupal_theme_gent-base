@@ -2,7 +2,7 @@
 
 All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
-## [Unreleased]
+## [8.x-3.0-beta18]
 
 ### Added
 
@@ -12,6 +12,10 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 * Fixed Notice: Undefined index: #items in
 `gent_base_preprocess_paragraph__image()`.
+
+### Changed
+
+* Changed created date to published date in news--full
 
 
 ## [8.x-3.0-beta17]
@@ -24,10 +28,6 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 * Fixed fieldset (fieldgroup) wrongly marked as "optional".
 * Fixed overridden attributes.
-
-### Changed
-
-* Changed created date to published date in news--full
 
 ### Removed
 
