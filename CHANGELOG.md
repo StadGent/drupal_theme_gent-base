@@ -21,7 +21,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 ### Fixed
 
-* 
+* Modal fixed-height had a scrollable region without keyboard access. The template has been updated, make sure to add tabindex=0 on all your .modal--fixed-height templates in your project too.
 
 ### Changed
 
