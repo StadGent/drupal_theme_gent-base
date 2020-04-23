@@ -29,7 +29,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 ### Removed
 
-* 
+* Deprecated modal.functions.js has been replaced by modal/index.js from @digipolis-gent/modal as npm dependency.
 
 ## [8.x-3.0-beta17]
 
