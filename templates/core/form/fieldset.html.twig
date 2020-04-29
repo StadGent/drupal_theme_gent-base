@@ -27,23 +27,19 @@
  * @see template_preprocess_fieldset()
  */
 #}
-{%
-  set classes = [
-    has_columns ? 'js-form-item',
-    has_columns ? 'form-item',
-    'js-form-wrapper',
-    'form-wrapper'
-  ]
-%}
+{% set classes = [
+  has_columns ? 'js-form-item',
+  has_columns ? 'form-item',
+  'js-form-wrapper',
+  'form-wrapper'
+] %}
 
 {% set legend_span_classes = [
   required ? 'js-form-required',
   required ? 'form-required'
 ] %}
 
-{%
-  set information_classes = ['field-message']
-%}
+{% set information_classes = ['field-message'] %}
 
 <fieldset{{ attributes.addClass(classes).removeClass('fieldgroup') }}>
 
@@ -56,27 +52,28 @@
   </legend>
 
   {% if has_row %}
-    <div class="form-row">
-  {% endif %}
+  <div class="form-row">
+    {% endif %}
 
-      {% if information %}
-        <div{{ information.attributes.addClass(information_classes) }}>
-          {{ information.content }}
-          <div class="accolade"></div>
-        </div>
-      {%  endif %}
+    {% if information %}
+      <div{{ information.attributes.addClass(information_classes) }}>
+        {{ information.content }}
+        <div class="accolade"></div>
+      </div>
+    {% endif %}
 
-      {% if errors and not has_columns %}
-        <div class="field-message error" role="alert">
-          {{ errors }}
-          <div class="accolade"></div>
-        </div>
-      {% endif %}
+    {% if errors and not has_columns %}
+      <div class="field-message error" role="alert">
+        {{ errors }}
+        <div class="accolade"></div>
+      </div>
+    {% endif %}
 
-      {% if has_columns %}
+    {% if has_columns %}
+    <div class="form-item">
       <div class="form-columns">
         <div class="form-item-column">
-      {% endif %}
+          {% endif %}
           {% if prefix %}
             <span class="field-prefix">{{ prefix }}</span>
           {% endif %}
@@ -84,7 +81,7 @@
           {% if suffix %}
             <span class="field-suffix">{{ suffix }}</span>
           {% endif %}
-        {% if has_columns %}
+          {% if has_columns %}
         </div>
         {% endif %}
 
@@ -98,8 +95,9 @@
           {% endif %}
         </div>
       </div>
-      {% endif %}
-  {% if has_row %}
     </div>
+    {% endif %}
+    {% if has_row %}
+  </div>
   {% endif %}
 </fieldset>
