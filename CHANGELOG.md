@@ -29,6 +29,7 @@ make sure to add tabindex=0 on all your .modal--fixed-height templates in your p
 * Deprecated: ‘mijn-gent-block’ has been renamed to the more generic ‘authentication’ in order to match the 
 documentation. 
 The ‘.mijn-gent-block’ class is still functional but marked as deprecated. Please use ‘.authentication’ from now on.
+
 * Replaced box by highlight.
 
 ### Removed
