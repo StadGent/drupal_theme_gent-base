@@ -25,7 +25,8 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 ### Changed
 
-* 
+* Deprecated: ‘mijn-gent-block’ has been renamed to the more generic ‘authentication’ in order to match the documentation.
+  The ‘.mijn-gent-block’ class is still functional but marked as deprecated. Please use ‘.authentication’ from now on.
 
 ### Removed
 
