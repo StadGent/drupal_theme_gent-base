@@ -15,5 +15,7 @@ mkdir ../build;
 echo "Building gent_base...";
 cd ../source;
 yarn install;
+mkdir -p ../build/@digipolis-gent/modal;
+cp -R ./node_modules/@digipolis-gent/modal/dist/index.js ../build/@digipolis-gent/modal;
 cp -R ./node_modules/gent_styleguide/build/styleguide ../build;
 ./node_modules/.bin/gulp build;
