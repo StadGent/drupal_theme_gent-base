@@ -1427,10 +1427,10 @@ gauge@~2.7.3:
     strip-ansi "^3.0.1"
     wide-align "^1.1.0"
 
-gent_styleguide@3.0.1:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/gent_styleguide/-/gent_styleguide-3.0.1.tgz#87ff7a03eddf24e73bed291874d864f6b2f20a4d"
-  integrity sha512-Xk1+dVUUeT80pKWxMhyUF8L9SSwne4olLKv+soIGNPleUqHXJFJUeu+gotg7yeZfyDXhUZ90jFlvzfJomjkXMQ==
+gent_styleguide@3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/gent_styleguide/-/gent_styleguide-3.0.2.tgz#1207a1d96ef0d25d804670d0dc22147728d25d74"
+  integrity sha512-W7r1uPEnaJJYJM38GRj0qP4fKKlji6IAYvBjKNVNK44yF+5R1mAlMyklvTHkJpwjDg5EEY4T5RLYChyaQKgdCQ==
   dependencies:
     "@digipolis-gent/modal" "^1.0.2"
     allietabs "^1.2.2"
