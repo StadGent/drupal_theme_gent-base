@@ -4,26 +4,30 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 ## [Unreleased]
 
-### Added
-
-* Require Drupal core 8.8.2 to support library dependencies #2905429.
-
 ### Fixed
 
-* Fixed Notice: Undefined index: #items in
-`gent_base_preprocess_paragraph__image()`.
+* Fixed form-element markup.
 
-## [8.x-3.0.1]
+### Removed
+
+* Removed placement of double classes for elements: 
+checkbox and radio.
+
+## [3.0-beta18]
 
 ### Added
 
 * Extra form wrapper for items in fieldsets.
+* Require Drupal core 8.8.2 to support library dependencies #2905429.
 
 ### Fixed
 
 * Modal fixed-height had a scrollable region without keyboard access. 
 The template has been updated, make sure to add tabindex=0 on all your 
 .modal--fixed-height templates in your project too.
+
+* Fixed Notice: Undefined index: #items in
+`gent_base_preprocess_paragraph__image()`.
 
 ### Changed
 
