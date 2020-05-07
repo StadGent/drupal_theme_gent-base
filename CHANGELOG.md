@@ -6,7 +6,9 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 ### Fixed
 
+* Added links template to support different behaviour for single items.
 * Fixed form-element markup.
+* Fixed files against coding standards.
 
 ### Removed
 
