@@ -64,7 +64,7 @@
   'js-form-type-' ~ type|clean_class,
   parent_type not in option_elements ? 'form-item-' ~ name|clean_class,
   parent_type not in option_elements ? 'js-form-item-' ~ name|clean_class,
-  type|clean_class,
+  parent_type not in option_elements ? type|clean_class,
   title_display not in ['after', 'before'] ? 'form-no-label',
   disabled == 'disabled' ? 'form-disabled',
   errors ? 'form-item--error',
@@ -92,54 +92,52 @@
   {% endif %}
 
   {% if not in_fieldset %}
-  <div class="form-item">
-    <div class="form-columns">
-      <div class="{{ has_row ? 'form-row' : 'form-item-column' }}">
+  <div class="form-columns">
+    <div class="{{ has_row ? 'form-row' : 'form-item-column' }}">
+      {% endif %}
+      {% if not has_row %}
+      <div class="{{ element['#type'] }}">
         {% endif %}
-        {% if not has_row %}
-        <div class="{{ element['#type'] }}">
-          {% endif %}
 
-          {% if prefix is not empty %}
-            <span class="field-prefix">{{ prefix }}</span>
-          {% endif %}
+        {% if prefix is not empty %}
+          <span class="field-prefix">{{ prefix }}</span>
+        {% endif %}
 
-          {% if description.content and type != 'managed_file' and type != 'checkbox' and  type != 'radio' %}
-            <div{{ description.attributes.addClass(description_classes) }}>
+        {% if description.content and type != 'managed_file' and type != 'checkbox' and  type != 'radio' %}
+          <div{{ description.attributes.addClass(description_classes) }}>
+            {{ description.content }}
+            <div class="accolade"></div>
+          </div>
+        {% endif %}
+
+        {{ children }}
+        {% if suffix is not empty %}
+          <span class="field-suffix">{{ suffix }}</span>
+        {% endif %}
+        {% if label_display == 'after' %}
+          {{ label }}
+        {% endif %}
+
+        {% if description.content %}
+          {% if type == 'managed_file' or type == 'checkbox' or type == 'radio' %}
+            <div class="form-description">
               {{ description.content }}
-              <div class="accolade"></div>
             </div>
           {% endif %}
-
-          {{ children }}
-          {% if suffix is not empty %}
-            <span class="field-suffix">{{ suffix }}</span>
-          {% endif %}
-          {% if label_display == 'after' %}
-            {{ label }}
-          {% endif %}
-
-          {% if description.content %}
-            {% if type == 'managed_file' or type == 'checkbox' or type == 'radio' %}
-              <div class="form-description">
-                {{ description.content }}
-              </div>
-            {% endif %}
-          {% endif %}
-
-          {% if information and label_display == 'after' %}
-            <div{{ information.attributes.addClass(information_classes) }}>
-              {{ information.content }}
-              <div class="accolade"></div>
-            </div>
-          {% endif %}
-
-          {% if not has_row %}
-        </div>
         {% endif %}
 
-        {% if not in_fieldset %}
+        {% if information and label_display == 'after' %}
+          <div{{ information.attributes.addClass(information_classes) }}>
+            {{ information.content }}
+            <div class="accolade"></div>
+          </div>
+        {% endif %}
+
+        {% if not has_row %}
       </div>
+      {% endif %}
+
+      {% if not in_fieldset %}
     </div>
     {% endif %}
     <div class="form-item-column">
