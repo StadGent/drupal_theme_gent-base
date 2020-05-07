@@ -22,25 +22,23 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 ### Fixed
 
 * Modal fixed-height had a scrollable region without keyboard access.
-The template has been updated, make sure to add tabindex=0 on all your 
-.modal--fixed-height templates in your project too.
-
+  The template has been updated, make sure to add tabindex=0 on all your
+  .modal--fixed-height templates in your project too.
 * Fixed notice: Undefined index:
   '#items' in `gent_base_preprocess_paragraph__image()`.
 
 ### Changed
 
-* Deprecated: ‘mijn-gent-block’ has been renamed to the more generic 
-‘authentication’ in order to match the documentation.
-The ‘.mijn-gent-block’ class is still functional but marked as deprecated.
-Please use ‘.authentication’ from now on.
-
+* Deprecated: ‘mijn-gent-block’ has been renamed to the more generic
+  ‘authentication’ in order to match the documentation.
+  The ‘.mijn-gent-block’ class is still functional but marked as deprecated.
+  Please use ‘.authentication’ from now on.
 * Replaced box by highlight.
 
 ### Removed
 
-* Deprecated modal.functions.js has been replaced by modal/index.js 
-from @digipolis-gent/modal as npm dependency.
+* Deprecated modal.functions.js has been replaced by modal/index.js
+  from @digipolis-gent/modal as npm dependency.
 
 ## [8.x-3.0-beta17]
 
