@@ -7,6 +7,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 ### Added
 
 * Require Drupal core 8.8.2 to support library dependencies #2905429.
+* Added links template to support different behaviour for single items.
 
 ### Fixed
 
