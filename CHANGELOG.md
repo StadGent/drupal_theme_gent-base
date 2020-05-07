@@ -10,8 +10,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 ### Removed
 
-* Removed placement of double classes for elements:
-checkbox and radio.
+* Removed placement of double classes for elements: checkbox and radio.
 
 ## [3.0-beta18]
 
@@ -26,8 +25,8 @@ checkbox and radio.
 The template has been updated, make sure to add tabindex=0 on all your 
 .modal--fixed-height templates in your project too.
 
-* Fixed Notice: Undefined index: #items in
-`gent_base_preprocess_paragraph__image()`.
+* Fixed notice: Undefined index:
+  '#items' in `gent_base_preprocess_paragraph__image()`.
 
 ### Changed
 
