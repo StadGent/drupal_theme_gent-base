@@ -826,16 +826,19 @@ function gent_base_preprocess_views_view(&$variables) {
  * the view mode of the images is changed to 'gallery_multiple'.
  */
 function gent_base_preprocess_paragraph__image(&$variables) {
+  $variables['image_gallery_type'] = 'single';
+  if (!isset($variables['content']['field_image']['#items'])) {
+    return;
+  }
   $image_count = count($variables['content']['field_image']['#items']);
 
   if ($image_count === 1 || !gent_base_is_view_mode('paragraph.image.gallery_multiple')) {
-    $variables['image_gallery_type'] = 'single';
     return;
   }
 
+  $variables['image_gallery_type'] = 'multiple';
   for ($i = 0; $i < $image_count; $i++) {
     $variables['content']['field_image'][$i]['#view_mode'] = 'gallery_multiple';
-    $variables['image_gallery_type'] = 'multiple';
     unset($variables['content']['field_image'][$i]['#cache']['keys']);
   }
 }

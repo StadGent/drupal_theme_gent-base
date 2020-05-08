@@ -18,6 +18,11 @@
     esutils "^2.0.2"
     js-tokens "^4.0.0"
 
+"@digipolis-gent/modal@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@digipolis-gent/modal/-/modal-1.0.2.tgz#5d10e24557e6be53b4d7d9146de144d873bd5593"
+  integrity sha512-oYYT0Cv+tsO/g41S23SAQAbzD361G5uJW8EKDX8xNey/n5ILFRKs7BXLbDVMn6R3raeVHVpFifo8guhdA767TQ==
+
 abbrev@1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.1.1.tgz#f8f2c887ad10bf67f634f005b6987fed3179aac8"
@@ -29,9 +34,9 @@ acorn-jsx@^5.0.0:
   integrity sha512-HJ7CfNHrfJLlNTzIEUTj43LNWGkqpRLxm3YjAlcD0ACydk9XynzYsCBHxut+iqt+1aBXkx9UP/w/ZqMr13XIzg==
 
 acorn@^6.0.7:
-  version "6.1.1"
-  resolved "https://registry.yarnpkg.com/acorn/-/acorn-6.1.1.tgz#7d25ae05bb8ad1f9b699108e1094ecd7884adc1f"
-  integrity sha512-jPTiwtOxaHNaAPg/dmrJ/beuzLRnXtB0kQPQ8JpotKJgTB6rX6c8mlf315941pyjBSaPg8NHXS9fhP4u17DpGA==
+  version "6.4.1"
+  resolved "https://registry.yarnpkg.com/acorn/-/acorn-6.4.1.tgz#531e58ba3f51b9dacb9a6646ca4debf5b14ca474"
+  integrity sha512-ZVA9k326Nwrj3Cj9jlh3wGFutC2ZornPNARZwsNYqQYgN0EsV2d53w5RN/co65Ohn4sUAUtb1rSUAOD6XN9idA==
 
 ajv@^6.5.5:
   version "6.10.2"
@@ -1422,11 +1427,12 @@ gauge@~2.7.3:
     strip-ansi "^3.0.1"
     wide-align "^1.1.0"
 
-gent_styleguide@^3.0.0-beta17:
-  version "3.0.0-beta17"
-  resolved "https://registry.yarnpkg.com/gent_styleguide/-/gent_styleguide-3.0.0-beta17.tgz#4fb2acc3a38c6f133f3786fd8e60406d16004286"
-  integrity sha512-mTSOr5g6d5L4Ss9Mngh+dsNAuskSSFIBQJsK8hBpNvr81dp19SjDDBUJavRSW4nMyFxNnSi9VILKVAFeGzsLDg==
+gent_styleguide@3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/gent_styleguide/-/gent_styleguide-3.0.2.tgz#1207a1d96ef0d25d804670d0dc22147728d25d74"
+  integrity sha512-W7r1uPEnaJJYJM38GRj0qP4fKKlji6IAYvBjKNVNK44yF+5R1mAlMyklvTHkJpwjDg5EEY4T5RLYChyaQKgdCQ==
   dependencies:
+    "@digipolis-gent/modal" "^1.0.2"
     allietabs "^1.2.2"
     baguettebox.js "^1.11.0"
     body-scroll-lock "^2.6.4"
@@ -1438,7 +1444,7 @@ gent_styleguide@^3.0.0-beta17:
     set-value "^3.0.1"
     susy "^3.0.1"
   optionalDependencies:
-    gulp-axe-webdriver "^3.1.0"
+    gulp-axe-webdriver "^3.1.3"
 
 get-caller-file@^1.0.1:
   version "1.0.3"
@@ -1580,7 +1586,7 @@ graceful-fs@^4.1.2, graceful-fs@^4.1.6, graceful-fs@^4.1.9:
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.3.tgz#4a12ff1b60376ef09862c2093edd908328be8423"
   integrity sha512-a30VEBm4PEdx1dRB7MFK7BejejvCvBronbLjht+sHuGYj8PHs7M/5Z+rt5lw551vZ7yfTCj4Vuyy3mSJytDWRQ==
 
-gulp-axe-webdriver@^3.1.0:
+gulp-axe-webdriver@^3.1.3:
   version "3.1.3"
   resolved "https://registry.yarnpkg.com/gulp-axe-webdriver/-/gulp-axe-webdriver-3.1.3.tgz#b01e4c4f13579e8096c3ffe5b975f7bb7c7c9cf5"
   integrity sha512-7URU1viKjrl0TpmnaZEEOILWvOfcsohHAzqaysoM7CyTDbfR4DfWzZZNA1VXULjjFn7gOp18eRljJQJ+LRXpBQ==
