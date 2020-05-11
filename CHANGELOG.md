@@ -2,7 +2,7 @@
 
 All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
-## [Unreleased]
+## [3.0-beta20]
 
 ### Fixed
 
@@ -14,7 +14,13 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 * Removed placement of double classes for elements: checkbox and radio.
 
-## [3.0-beta18]
+## [3.0.2]
+
+### Updated
+
+* Update styleguide version to 3.0.2
+
+## [3.0.1]
 
 ### Added
 
