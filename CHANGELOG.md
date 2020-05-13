@@ -2,6 +2,12 @@
 
 All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
+## [Unreleased]
+
+### Added
+
+* DTGB-834: Add t filter to Close string in page.html.twig.
+
 ## [3.0-beta20]
 
 ### Fixed
