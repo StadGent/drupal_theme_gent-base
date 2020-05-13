@@ -8,6 +8,10 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 * DTGB-834: Add t filter to Close string in page.html.twig.
 
+### Fixed
+
+* DTGB-820: Updated deprecated classname inner-highlight to hightlight__inner.
+
 ## [3.0-beta20]
 
 ### Fixed
