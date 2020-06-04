@@ -47,6 +47,10 @@
         {% set region = { 'name': 'right-bottom-left', 'content': content.right_bottom_left, 'settings': regions.right_bottom_left } %}
         {% include "@gent_base/contrib/dg_maps/dg-maps-map-region.html.twig" with region %}
       {% endif %}
+
+      <div class="copyright">
+        <p>© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors</p>
+      </div>
     </div>
   </div>
 {% endblock %}
