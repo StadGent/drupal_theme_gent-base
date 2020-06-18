@@ -10,7 +10,8 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 ### Fixed
 
-* DTGB-820: Updated deprecated classname inner-highlight to hightlight__inner.
+* DTGB-820: Updated deprecated classname inner-highlight to highlight__inner.
+* DTGB-836: Fixed pager bug
 
 ## [3.0-beta20]
 
