@@ -11,6 +11,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 ### Fixed
 
 * DTGB-820: Updated deprecated classname inner-highlight to hightlight__inner.
+* SGD8-1395: Added hidden span to alt timeline item more info link
 
 ## [3.0-beta20]
 
