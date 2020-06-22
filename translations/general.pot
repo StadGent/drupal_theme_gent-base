@@ -247,6 +247,10 @@ msgstr ""
 msgid "More info"
 msgstr ""
 
+#: themes/contrib/gent_base/templates/contrib/paragraphs/timeline/paragraph--timeline-item--alt.html.twig:85
+msgid "about"
+msgstr ""
+
 #: themes/contrib/gent_base/templates/contrib/webform/webform-progress-tracker.html.twig:27
 msgid "Steps in this wizard"
 msgstr ""

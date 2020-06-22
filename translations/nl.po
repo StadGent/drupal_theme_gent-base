@@ -43,7 +43,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "POT-Creation-Date: 2019-11-19 13:54+0000\n"
-"PO-Revision-Date: 2019-11-19 14:56+0100\n"
+"PO-Revision-Date: 2020-06-22 09:16+0200\n"
 "Last-Translator: Helena Standaert <helena.standaert@digipolis.gent>\n"
 "Language-Team: Digipolis <tbweb@gent.be>\n"
 "Language: nl\n"
@@ -51,7 +51,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.2.4\n"
+"X-Generator: Poedit 2.3\n"
 
 #: themes/contrib/gent_base/theme-settings.php:21
 msgid "Gent Base settings"
@@ -255,6 +255,10 @@ msgstr "Alle contactgegevens"
 #: themes/contrib/gent_base/templates/contrib/paragraphs/timeline/paragraph--timeline-item--alt.html.twig:83
 msgid "More info"
 msgstr "Meer weten"
+
+#: themes/contrib/gent_base/templates/contrib/paragraphs/timeline/paragraph--timeline-item--alt.html.twig:85
+msgid "about"
+msgstr "over"
 
 #: themes/contrib/gent_base/templates/contrib/webform/webform-progress-tracker.html.twig:27
 msgid "Steps in this wizard"
