@@ -80,7 +80,11 @@
 
         <p>{{ content.subtitle }}</p>
 
-        <a href="#{{ paragraph.id() }}" class="read-more standalone-link" aria-labelledby="uid_{{ paragraph.id() }}">{{ 'More info'|t }}</a>
+        <a href="#{{ paragraph.id() }}" class="read-more standalone-link">{{ 'More info'|t }}
+          <span class="visually-hidden">
+            {{ 'about'|t }} {{ content.title }}
+          </span>
+        </a>
       </div>
 
       <div class="content__top">

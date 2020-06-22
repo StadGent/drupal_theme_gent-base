@@ -12,6 +12,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 * DTGB-820: Updated deprecated classname inner-highlight to highlight__inner.
 * DTGB-836: Fix pager: preprocess hook is now called last.
+* SGD8-1395: Added hidden span to alt timeline item more info link
 
 ## [3.0-beta20]
 
