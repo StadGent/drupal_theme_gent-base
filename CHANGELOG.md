@@ -15,6 +15,10 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 * SGD8-1395: Added hidden span to alt timeline item more info link
 * SGD8-1685: Removed paragraph title from program modal
 
+### Updated
+
+* Update styleguide version to 3.1.0
+
 ## [3.0-beta20]
 
 ### Fixed
