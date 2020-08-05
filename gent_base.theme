@@ -489,20 +489,6 @@ function gent_base_preprocess_field(&$variables) {
     }
   }
 
-  /**
-   * Implements hook_preprocess_field().
-   *
-   * This will check if there is a preprocess function specific for the
-   * field_name:
-   *   gent_base_theme_preprocess_field__[field_name](&$variables) {...}
-   *
-   * Example:
-   *   If the field name is field_image
-   *   the preprocessor will check if there is a
-   *   gent_base_theme_preprocess_field__field_image function and call it passing
-   *   the $variables by reference.
-   */
-
   $function = sprintf('gent_base_theme_preprocess_field__%s', $variables['field_name']);
   if (function_exists($function)) {
     call_user_func_array($function, [&$variables]);
