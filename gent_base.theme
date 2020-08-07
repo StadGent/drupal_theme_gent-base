@@ -1187,8 +1187,7 @@ function gent_base_preprocess_vesta(&$variables) {
   $variables['url'] = $entity->toUrl()->toString();
 
   // The renderable fields need to be converted to variables
-  // so we can adjust them elsewhere
-
+  // so we can adjust them elsewhere.
   $variables['name'] = $variables['entity']->getName();
   $variables['address'] = $variables['entity']->getPostalAddress();
   $variables['contactnumbers'] = $variables['entity']->getContactNumbers();
