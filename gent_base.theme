@@ -181,16 +181,7 @@ function gent_base_preprocess_container(&$variables) {
  * Implements hook_preprocess_dg_auth_block().
  */
 function gent_base_preprocess_dg_auth_block(&$variables) {
-  $variables['login_link']['#title'] = [
-    '#type' => 'html_tag',
-    '#tag' => 'span',
-    '#attributes' => [
-      'class' => [
-        'login-link',
-      ],
-    ],
-    '#value' => $variables['login_link']['#title'] . ' <i class="icon-user"></i>',
-  ];
+  $variables['login_link']['#options']['attributes']['class'][] = 'login-link';
 }
 
 /**

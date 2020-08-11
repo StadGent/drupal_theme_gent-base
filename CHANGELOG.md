@@ -17,6 +17,10 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 * SGD8-1391: fixed program overlay link after readspeaker event gets triggered
 * DTGB-801: Fixed list indentation.
 
+### Updated
+
+* Update styleguide version to 3.1.0
+
 ## [3.0-beta20]
 
 ### Fixed
