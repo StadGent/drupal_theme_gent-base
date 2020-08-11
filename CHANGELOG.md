@@ -16,6 +16,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 * SGD8-1395: Added hidden span to alt timeline item more info link
 * SGD8-1685: Removed paragraph title from program modal
 * DTGB-758: Converted the vesta renderable fields to variables.
+* DTGB-810: Fixed webform file fields description theming
 * SGD8-1391: fixed program overlay link after readspeaker event gets triggered
 * DTGB-801: Fixed list indentation.
 
