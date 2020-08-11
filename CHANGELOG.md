@@ -7,6 +7,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 ### Added
 
 * DTGB-834: Add t filter to Close string in page.html.twig.
+* DTGB-504: moved image style functionality to field level.
 
 ### Fixed
 
@@ -15,6 +16,12 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 * SGD8-1395: Added hidden span to alt timeline item more info link
 * SGD8-1685: Removed paragraph title from program modal
 * DTGB-810: Fixed webform file fields description theming
+* SGD8-1391: fixed program overlay link after readspeaker event gets triggered
+* DTGB-801: Fixed list indentation.
+
+### Updated
+
+* Update styleguide version to 3.1.0
 
 ## [3.0-beta20]
 
