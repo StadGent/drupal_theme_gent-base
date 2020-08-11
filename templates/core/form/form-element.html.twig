@@ -84,7 +84,7 @@
     </div>
   {% endif %}
 
-  {% if information and label_display != 'after' %}
+  {% if information and label_display != 'after' and type != 'webform_document_file' %}
     <div{{ information.attributes.addClass(information_classes) }}>
       {{ information.content }}
       <div class="accolade"></div>
@@ -103,7 +103,7 @@
           <span class="field-prefix">{{ prefix }}</span>
         {% endif %}
 
-        {% if description.content and type != 'managed_file' and type != 'checkbox' and  type != 'radio' %}
+        {% if description.content and type != 'managed_file' and type != 'checkbox' and  type != 'radio' and type != 'webform_image_file' %}
           <div{{ description.attributes.addClass(description_classes) }}>
             {{ description.content }}
             <div class="accolade"></div>
@@ -119,17 +119,23 @@
         {% endif %}
 
         {% if description.content %}
-          {% if type == 'managed_file' or type == 'checkbox' or type == 'radio' %}
+          {% if type == 'managed_file' or type == 'checkbox' or type == 'radio' or type == 'webform_image_file' or type == 'webform_document_file' %}
             <div class="form-description">
               {{ description.content }}
             </div>
           {% endif %}
         {% endif %}
 
-        {% if information and label_display == 'after' %}
+        {% if information and label_display == 'after' and type != 'webform_document_file' %}
           <div{{ information.attributes.addClass(information_classes) }}>
             {{ information.content }}
             <div class="accolade"></div>
+          </div>
+        {% endif %}
+
+        {% if information and type == 'webform_document_file' %}
+          <div{{ information.attributes.addClass('form-description') }}>
+            {{ information.content }}
           </div>
         {% endif %}
 
