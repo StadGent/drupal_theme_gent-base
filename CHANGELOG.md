@@ -14,6 +14,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 * DTGB-836: Fix pager: preprocess hook is now called last.
 * SGD8-1395: Added hidden span to alt timeline item more info link
 * SGD8-1685: Removed paragraph title from program modal
+* SGD8-1391: fixed program overlay link after readspeaker event gets triggered
 * DTGB-801: Fixed list indentation.
 
 ## [3.0-beta20]
