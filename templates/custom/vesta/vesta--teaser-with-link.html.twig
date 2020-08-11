@@ -18,30 +18,30 @@
 
 <article{{ attributes.addClass('teaser-content') }}>
   <div class="content__bottom">
-    <a href="{{ url }}" class="teaser-title-link standalone-link">{{ entity.name }}</a>
+    <a href="{{ url }}" class="teaser-title-link standalone-link">{{ name }}</a>
 
     {% block address %}
-    <p>
-      {% if entity.postalAddress|render %}
-        {{ entity.postalAddress.street }} {{ entity.postalAddress.houseNumber }}{{ entity.postalAddress.box ? '/' ~ entity.postalAddress.box  }},
-        {{ entity.postalAddress.postalCode }} {{ entity.postalAddress.city }}
-      {% endif %}
-    </p>
+      <p>
+        {% if address|render %}
+          {{ address.street }} {{ address.houseNumber }}{{ address.box ? '/' ~ address.box  }},
+          {{ address.postalCode }} {{ address.city }}
+        {% endif %}
+      </p>
     {% endblock %}
 
     {% block contact %}
-      {% if entity.contactNumbers.landlines|length > 0 or entity.emailAddresses|length > 0 %}
+      {% if contactnumbers.landlines|length > 0 or emailaddresses|length > 0 %}
         <ul class="teaser-links">
           {% block phone %}
-            {% if entity.contactNumbers.landlines|length > 0 %}
-              {% set phone = entity.contactNumbers.landlines|first.value %}
+            {% if contactnumbers.landlines|length > 0 %}
+              {% set phone = contactnumbers.landlines|first.value %}
               <li><a href="tel:{{ phone|replace({' ':''}) }}" class="no-icon">{{ phone }}</a></li>
             {% endif %}
           {% endblock %}
 
           {% block email %}
-            {% if entity.emailAddresses|length > 0 %}
-              {% set emailAddress = entity.emailAddresses|first.value %}
+            {% if emailaddresses|length > 0 %}
+              {% set emailAddress = emailaddresses|first.value %}
               <li><a href="mailto:{{ emailAddress|replace({' ':''}) }}" class="no-icon">{{ emailAddress }}</a></li>
             {% endif %}
           {% endblock %}
@@ -54,4 +54,4 @@
     {% endblock %}
   </div>
 </article>
-<a href="{{ url }}" class="teaser-overlay-link" tabindex="-1" aria-hidden="true">{{ entity.name }}</a>
+<a href="{{ url }}" class="teaser-overlay-link" tabindex="-1" aria-hidden="true">{{ name }}</a>
