@@ -479,6 +479,49 @@ function gent_base_preprocess_field(&$variables) {
       }
     }
   }
+
+  $function = sprintf('gent_base_theme_preprocess_field__%s', $variables['field_name']);
+  if (function_exists($function)) {
+    call_user_func_array($function, [&$variables]);
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ *
+ * If a image paragraph contains multiple images,
+ * the view mode of the images is changed to 'gallery_multiple'.
+ */
+function gent_base_preprocess_paragraph__image(&$variables) {
+  $variables['image_gallery_type'] = 'single';
+  if (!isset($variables['content']['field_image']['#items'])) {
+    return;
+  }
+  $image_count = count($variables['content']['field_image']['#items']);
+
+  if ($image_count === 1 || !gent_base_is_view_mode('paragraph.image.gallery_multiple')) {
+    return;
+  }
+
+  $variables['image_gallery_type'] = 'multiple';
+}
+
+/**
+ * Preprocessor for the image field to show a gallery.
+ *
+ * If a image field contains multiple images,
+ * the view mode of the images is changed to 'gallery_multiple'.
+ */
+function gent_base_theme_preprocess_field__field_image(&$variables) {
+  $image_count = count($variables['items']);
+  if ($image_count < 2 || !gent_base_is_view_mode('media.image.gallery_multiple')) {
+    return;
+  }
+
+  for ($i = 0; $i < $image_count; $i++) {
+    $variables['items'][$i]['content']['#view_mode'] = 'gallery_multiple';
+    unset($variables['items'][$i]['content']['#cache']['keys']);
+  }
 }
 
 /**
@@ -797,30 +840,6 @@ function gent_base_preprocess_views_view(&$variables) {
   $variables['more']['#options']['attributes']['class'] = [
     'standalone-link',
   ];
-}
-
-/**
- * Implements hook_preprocess_HOOK().
- *
- * If a image paragraph contains multiple images,
- * the view mode of the images is changed to 'gallery_multiple'.
- */
-function gent_base_preprocess_paragraph__image(&$variables) {
-  $variables['image_gallery_type'] = 'single';
-  if (!isset($variables['content']['field_image']['#items'])) {
-    return;
-  }
-  $image_count = count($variables['content']['field_image']['#items']);
-
-  if ($image_count === 1 || !gent_base_is_view_mode('paragraph.image.gallery_multiple')) {
-    return;
-  }
-
-  $variables['image_gallery_type'] = 'multiple';
-  for ($i = 0; $i < $image_count; $i++) {
-    $variables['content']['field_image'][$i]['#view_mode'] = 'gallery_multiple';
-    unset($variables['content']['field_image'][$i]['#cache']['keys']);
-  }
 }
 
 /**

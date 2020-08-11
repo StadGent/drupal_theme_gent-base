@@ -7,6 +7,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 ### Added
 
 * DTGB-834: Add t filter to Close string in page.html.twig.
+* DTGB-504: moved image style functionality to field level.
 
 ### Fixed
 
