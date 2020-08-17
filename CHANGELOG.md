@@ -2,7 +2,7 @@
 
 All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
-## [Unreleased]
+## [3.1.0]
 
 ### Added
 
@@ -20,7 +20,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 * SGD8-1391: fixed program overlay link after readspeaker event gets triggered
 * DTGB-801: Fixed list indentation.
 * DTGB-826: Fixed coding standards. Max-nested callback in accordion.bindings.js
-* DTGB-826: Fixed security vulnerabilities.
+* DTGB-838: Fixed security vulnerabilities.
 
 ### Updated
 
@@ -28,7 +28,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 ### Removed
 
-* DTGB-830: Removed temp fix accolade. Now in styleguide theming.
+* DTGB-830: Removed temp styling accolade in certain context. See STIJ-355.
 
 ## [3.0-beta20]
 
