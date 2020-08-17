@@ -20,6 +20,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 * SGD8-1391: fixed program overlay link after readspeaker event gets triggered
 * DTGB-801: Fixed list indentation.
 * DTGB-826: Fixed coding standards. Max-nested callback in accordion.bindings.js
+* DTGB-826: Fixed security vulnerabilities.
 
 ### Updated
 
