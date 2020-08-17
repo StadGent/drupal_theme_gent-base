@@ -26,6 +26,10 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 * Update styleguide version to 3.1.0
 
+### Removed
+
+* DTGB-830: Removed temp fix accolade. Now in styleguide theming.
+
 ## [3.0-beta20]
 
 ### Fixed
