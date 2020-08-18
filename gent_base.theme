@@ -181,16 +181,7 @@ function gent_base_preprocess_container(&$variables) {
  * Implements hook_preprocess_dg_auth_block().
  */
 function gent_base_preprocess_dg_auth_block(&$variables) {
-  $variables['login_link']['#title'] = [
-    '#type' => 'html_tag',
-    '#tag' => 'span',
-    '#attributes' => [
-      'class' => [
-        'login-link',
-      ],
-    ],
-    '#value' => $variables['login_link']['#title'] . ' <i class="icon-user"></i>',
-  ];
+  $variables['login_link']['#options']['attributes']['class'][] = 'login-link';
 }
 
 /**
@@ -331,17 +322,6 @@ function gent_base_preprocess_block__views_search_form_header(&$variables) {
  * Implements hook_theme_registry_alter().
  */
 function gent_base_theme_registry_alter(&$theme_registry) {
-  // Our pager preprocess hook should be called first since we rewrite the
-  // complete pager.
-  if (isset($theme_registry['pager']['preprocess functions'])) {
-    $preprocess = &$theme_registry['pager']['preprocess functions'];
-    $key = array_search('gent_base_preprocess_pager', $preprocess, TRUE);
-    if ($key !== FALSE) {
-      unset($preprocess[$key]);
-      array_unshift($preprocess, 'gent_base_preprocess_pager');
-    }
-  }
-
   // Add support for the information property on elements.
   $supported_types = ['fieldset', 'form_element'];
   foreach ($supported_types as $supported_type) {
@@ -498,6 +478,49 @@ function gent_base_preprocess_field(&$variables) {
         }
       }
     }
+  }
+
+  $function = sprintf('gent_base_theme_preprocess_field__%s', $variables['field_name']);
+  if (function_exists($function)) {
+    call_user_func_array($function, [&$variables]);
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ *
+ * If a image paragraph contains multiple images,
+ * the view mode of the images is changed to 'gallery_multiple'.
+ */
+function gent_base_preprocess_paragraph__image(&$variables) {
+  $variables['image_gallery_type'] = 'single';
+  if (!isset($variables['content']['field_image']['#items'])) {
+    return;
+  }
+  $image_count = count($variables['content']['field_image']['#items']);
+
+  if ($image_count === 1 || !gent_base_is_view_mode('paragraph.image.gallery_multiple')) {
+    return;
+  }
+
+  $variables['image_gallery_type'] = 'multiple';
+}
+
+/**
+ * Preprocessor for the image field to show a gallery.
+ *
+ * If a image field contains multiple images,
+ * the view mode of the images is changed to 'gallery_multiple'.
+ */
+function gent_base_theme_preprocess_field__field_image(&$variables) {
+  $image_count = count($variables['items']);
+  if ($image_count < 2 || !gent_base_is_view_mode('media.image.gallery_multiple')) {
+    return;
+  }
+
+  for ($i = 0; $i < $image_count; $i++) {
+    $variables['items'][$i]['content']['#view_mode'] = 'gallery_multiple';
+    unset($variables['items'][$i]['content']['#cache']['keys']);
   }
 }
 
@@ -817,30 +840,6 @@ function gent_base_preprocess_views_view(&$variables) {
   $variables['more']['#options']['attributes']['class'] = [
     'standalone-link',
   ];
-}
-
-/**
- * Implements hook_preprocess_HOOK().
- *
- * If a image paragraph contains multiple images,
- * the view mode of the images is changed to 'gallery_multiple'.
- */
-function gent_base_preprocess_paragraph__image(&$variables) {
-  $variables['image_gallery_type'] = 'single';
-  if (!isset($variables['content']['field_image']['#items'])) {
-    return;
-  }
-  $image_count = count($variables['content']['field_image']['#items']);
-
-  if ($image_count === 1 || !gent_base_is_view_mode('paragraph.image.gallery_multiple')) {
-    return;
-  }
-
-  $variables['image_gallery_type'] = 'multiple';
-  for ($i = 0; $i < $image_count; $i++) {
-    $variables['content']['field_image'][$i]['#view_mode'] = 'gallery_multiple';
-    unset($variables['content']['field_image'][$i]['#cache']['keys']);
-  }
 }
 
 /**
@@ -1196,6 +1195,17 @@ function gent_base_preprocess_vesta(&$variables) {
   // language code.
   $variables['entity'] = $entity->getVestaValue();
   $variables['url'] = $entity->toUrl()->toString();
+
+  // The renderable fields need to be converted to variables
+  // so we can adjust them elsewhere.
+  $variables['name'] = $variables['entity']->getName();
+  $variables['address'] = $variables['entity']->getPostalAddress();
+  $variables['contactnumbers'] = $variables['entity']->getContactNumbers();
+  $variables['emailaddresses'] = $variables['entity']->getEmailAddresses();
+  $variables['websites'] = $variables['entity']->getWebsites();
+  $variables['extrainfo'] = $variables['entity']->getExtrainfo();
+  $variables['accessibility'] = $variables['entity']->getAccessibility();
+  $variables['id'] = $variables['entity']->getId();
 
   if ($variables['elements']['#view_mode'] === 'full') {
     $variables['related'] = [];

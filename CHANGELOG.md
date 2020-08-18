@@ -2,6 +2,34 @@
 
 All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
+## [3.1.0]
+
+### Added
+
+* DTGB-834: Add t filter to Close string in page.html.twig.
+* DTGB-504: moved image style functionality to field level.
+
+### Fixed
+
+* DTGB-820: Updated deprecated classname inner-highlight to highlight__inner.
+* DTGB-836: Fix pager: preprocess hook is now called last.
+* SGD8-1395: Added hidden span to alt timeline item more info link
+* SGD8-1685: Removed paragraph title from program modal
+* DTGB-758: Converted the vesta renderable fields to variables.
+* DTGB-810: Fixed webform file fields description theming
+* SGD8-1391: fixed program overlay link after readspeaker event gets triggered
+* DTGB-801: Fixed list indentation.
+* DTGB-826: Fixed coding standards. Max-nested callback in accordion.bindings.js
+* DTGB-838: Fixed security vulnerabilities.
+
+### Updated
+
+* Update styleguide version to 3.1.0
+
+### Removed
+
+* DTGB-830: Removed temp styling accolade in certain context. See STIJ-355.
+
 ## [3.0-beta20]
 
 ### Fixed

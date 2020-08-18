@@ -50,7 +50,6 @@
       </div>
       <div class="modal-content">
         <h3>{{ content.title }}</h3>
-        <h4>{{ paragraph.getParentEntity().title.value }}</h4>
 
         {% if content.subtitle %}
           <p>{{ content.subtitle }}</p>
@@ -80,7 +79,11 @@
 
         <p>{{ content.subtitle }}</p>
 
-        <a href="#{{ paragraph.id() }}" class="read-more standalone-link" aria-labelledby="uid_{{ paragraph.id() }}">{{ 'More info'|t }}</a>
+        <a href="#{{ paragraph.id() }}" class="read-more standalone-link">{{ 'More info'|t }}
+          <span class="visually-hidden">
+            {{ 'about'|t }} {{ content.title }}
+          </span>
+        </a>
       </div>
 
       <div class="content__top">
@@ -97,7 +100,7 @@
       </div>
     </article>
 
-    <a href="javascript:void(0);" class="teaser-overlay-link"
+    <a href="#{{ paragraph.id() }}" class="teaser-overlay-link"
         tabindex="-1"
         aria-hidden="true"
         aria-expanded="false"

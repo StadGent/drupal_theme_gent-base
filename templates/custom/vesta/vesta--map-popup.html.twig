@@ -33,9 +33,9 @@
 
     {% if contactnumbers.landlines|length > 0 %}
       {% set phone = contactnumbers.landlines|first.value %}
-      <ul class="teaser-links">
-        <li><a href="tel:{{ phone|replace({' ':''}) }}" class="no-icon">{{ phone }}</a></li>
-      </ul>
+      <p class="phone-number">
+        <a href="tel:{{ phone|replace({' ':''}) }}" class="no-icon">{{ phone }}</a>
+      </p>
     {% endif %}
 
     {{ content.field_opening_hours }}
