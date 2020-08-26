@@ -2,6 +2,12 @@
 
 All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
+## [Unreleased]
+
+### Fixed
+
+* DTGB-842: Fixed PHP notice in preprocess_fieldset.
+
 ## [3.1.0]
 
 ### Added
