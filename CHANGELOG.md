@@ -2,6 +2,17 @@
 
 All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
+## [3.1.1]
+
+### Updated
+
+* DTGB-842: Updated @digipolis-gent/modal to 1.0.3.
+* DTGB-843: Updatad gent_styleguide to 3.1.1.
+
+### Fixed
+
+* DTGB-842: Fixed PHP notice in preprocess_fieldset.
+
 ## [3.1.0]
 
 ### Added

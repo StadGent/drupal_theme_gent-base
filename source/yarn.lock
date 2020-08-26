@@ -28,6 +28,11 @@
   resolved "https://registry.yarnpkg.com/@digipolis-gent/modal/-/modal-1.0.2.tgz#5d10e24557e6be53b4d7d9146de144d873bd5593"
   integrity sha512-oYYT0Cv+tsO/g41S23SAQAbzD361G5uJW8EKDX8xNey/n5ILFRKs7BXLbDVMn6R3raeVHVpFifo8guhdA767TQ==
 
+"@digipolis-gent/modal@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@digipolis-gent/modal/-/modal-1.0.3.tgz#d4cb75e49e8cb00a7a28680b66a365e316e9b855"
+  integrity sha512-hv/oBjn3hPThhI1opCeFuAxyatHjMXShUTG+GTKfgmtYTRKft1Lqy2xm5TjyxSwBBn3sVOB1ZhkHgh3V6Ui8AQ==
+
 acorn-jsx@^5.0.0:
   version "5.2.0"
   resolved "https://registry.yarnpkg.com/acorn-jsx/-/acorn-jsx-5.2.0.tgz#4c66069173d6fdd68ed85239fc256226182b2ebe"
@@ -1355,10 +1360,10 @@ functional-red-black-tree@^1.0.1:
   resolved "https://registry.yarnpkg.com/functional-red-black-tree/-/functional-red-black-tree-1.0.1.tgz#1b0ab3bd553b2a0d6399d29c0e3ea0b252078327"
   integrity sha1-GwqzvVU7Kg1jmdKcDj6gslIHgyc=
 
-gent_styleguide@3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/gent_styleguide/-/gent_styleguide-3.1.0.tgz#153aa141256c6c4603928746056c7272018197ea"
-  integrity sha512-HbaC2SbYoBh/XFutb5I5TPOALok2MmINnd0GrAIbP2biYjRoCE1r1lfukR9/AJ8H4L8Vp/4QCgA2Db8zE8m5AA==
+gent_styleguide@3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/gent_styleguide/-/gent_styleguide-3.1.1.tgz#3bb90f0ccf915b84bccb5700c9a7987dc987077b"
+  integrity sha512-Pvg8khc9sG9UPXVQXSkw0SjhnPgqD5R7h3rH6RDcfdkdnmApQb1tvN3Q6yCP9LHvHo16Iw0e+ykmrfHIbsquGQ==
   dependencies:
     "@digipolis-gent/modal" "^1.0.2"
     allietabs "^1.2.2"
@@ -1366,7 +1371,7 @@ gent_styleguide@3.1.0:
     body-scroll-lock "^2.6.4"
     breakpoint-sass "^2.7.1"
     imagesloaded "^4.1.4"
-    lodash "^4.17.15"
+    lodash "^4.17.20"
     lodash.template "^4.5.0"
     masonry-layout "^4.2.2"
     set-value "^3.0.1"
@@ -2204,10 +2209,15 @@ lodash.templatesettings@^4.0.0:
   dependencies:
     lodash._reinterpolate "^3.0.0"
 
-lodash@^4.17.11, lodash@^4.17.12, lodash@^4.17.14, lodash@^4.17.15:
+lodash@^4.17.11, lodash@^4.17.12, lodash@^4.17.14:
   version "4.17.19"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.19.tgz#e48ddedbe30b3321783c5b4301fbd353bc1e4a4b"
   integrity sha512-JNvd8XER9GQX0v2qJgsaN/mzFCNA5BRe/j8JN9d+tWyGLSodKQHKFicdwNYzWwI3wjRnaKPsGj1XkBjx/F96DQ==
+
+lodash@^4.17.20:
+  version "4.17.20"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.20.tgz#b44a9b6297bcb698f1c51a3545a2b3b368d59c52"
+  integrity sha512-PlhdFcillOINfeV7Ni6oF1TAEayyZBoZ8bcshTHqOYJYlrqzRK5hagpagky5o4HfCzzd1TRkXPMFq6cKk9rGmA==
 
 loud-rejection@^1.0.0:
   version "1.6.0"
