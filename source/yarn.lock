@@ -28,6 +28,11 @@
   resolved "https://registry.yarnpkg.com/@digipolis-gent/modal/-/modal-1.0.2.tgz#5d10e24557e6be53b4d7d9146de144d873bd5593"
   integrity sha512-oYYT0Cv+tsO/g41S23SAQAbzD361G5uJW8EKDX8xNey/n5ILFRKs7BXLbDVMn6R3raeVHVpFifo8guhdA767TQ==
 
+"@digipolis-gent/modal@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@digipolis-gent/modal/-/modal-1.0.3.tgz#d4cb75e49e8cb00a7a28680b66a365e316e9b855"
+  integrity sha512-hv/oBjn3hPThhI1opCeFuAxyatHjMXShUTG+GTKfgmtYTRKft1Lqy2xm5TjyxSwBBn3sVOB1ZhkHgh3V6Ui8AQ==
+
 acorn-jsx@^5.0.0:
   version "5.2.0"
   resolved "https://registry.yarnpkg.com/acorn-jsx/-/acorn-jsx-5.2.0.tgz#4c66069173d6fdd68ed85239fc256226182b2ebe"
