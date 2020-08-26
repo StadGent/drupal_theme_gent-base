@@ -2,6 +2,12 @@
 
 All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
+## [Unreleased]
+
+### Updated
+
+* DTGB-842: Updated @digipolis-gent/modal to 1.0.3.
+
 ## [3.1.0]
 
 ### Added
