@@ -17,6 +17,7 @@ use Drupal\webform\Entity\Webform;
 
 include __DIR__ . '/includes/theme.inc';
 include __DIR__ . '/includes/form.inc';
+include __DIR__ . '/includes/lazy.inc';
 
 /**
  * Implements hook_theme().
