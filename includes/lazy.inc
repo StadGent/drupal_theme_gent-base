@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file
+ * Add native lazy loading support to images.
+ */
+
 use Drupal\image\Plugin\Field\FieldType\ImageItem;
 
 /**
