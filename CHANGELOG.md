@@ -2,7 +2,13 @@
 
 All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
-## [3.1.1]
+## [Unreleased]
+
+### Added
+
+* DTGB-846: Added field_contact_categories to if statement infopage.
+
+## [3.2]
 
 ### Updated
 
