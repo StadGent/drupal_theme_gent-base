@@ -2,7 +2,13 @@
 
 All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
-## [3.1.1]
+## [Unreleased]
+
+### Added
+
+* IDPMG-44: Added oicd_menu support.
+
+## [3.2]
 
 ### Updated
 
