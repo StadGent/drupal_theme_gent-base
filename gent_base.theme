@@ -1317,3 +1317,30 @@ function gent_base_preprocess_links__language_block(&$variables) {
   }
 
 }
+
+/**
+ * Implements template_preprocess_file_upload_help().
+ *
+ * We alter the upload description to follow ghent styleguide guidelines.
+ */
+function gent_base_preprocess_file_upload_help(&$variables) {
+  $descriptions = [];
+
+  $upload_validators = $variables['upload_validators'];
+  if (isset($upload_validators['file_validate_extensions'])) {
+    $extensions = implode(', ', explode(' ', $upload_validators['file_validate_extensions'][0]));
+    $descriptions[] = t('Allowed types: @extensions.', ['@extensions' => $extensions]);
+  }
+  if (isset($upload_validators['file_validate_size'])) {
+    $descriptions[] = t('Max filesize: @size.', ['@size' => format_size($upload_validators['file_validate_size'][0])]);
+  }
+
+  if (isset($upload_validators['file_validate_image_resolution'])) {
+    $min = $upload_validators['file_validate_image_resolution'][1];
+    if ($min) {
+      $descriptions[] = t('Images must be larger than @min pixels.', ['@min' => $min]);
+    }
+  }
+
+  $variables['descriptions'] = implode(' ', $descriptions);
+}
