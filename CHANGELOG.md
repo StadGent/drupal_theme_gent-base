@@ -7,6 +7,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 ### Added
 
 * IDPMG-44: Added oicd_menu support.
+* DTGB-846: Added field_contact_categories to if statement infopage.
 
 ## [3.2]
 
