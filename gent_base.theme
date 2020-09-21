@@ -179,6 +179,9 @@ function gent_base_preprocess_container(&$variables) {
 
 /**
  * Implements hook_preprocess_dg_auth_block().
+ *
+ * This hook can be removed when OIDC authentication is adopted by all Drupal 8
+ * websites using SAML auth.
  */
 function gent_base_preprocess_dg_auth_block(&$variables) {
   $variables['login_link']['#options']['attributes']['class'][] = 'login-link';
@@ -279,6 +282,9 @@ function gent_base_preprocess_item_list__attachments(&$variables) {
 
 /**
  * Implements hook_preprocess_HOOK().
+ *
+ * This hook can be removed when OIDC authentication is adopted by all Drupal 8
+ * websites using SAML auth.
  */
 function gent_base_preprocess_item_list__dg_auth_block_menu(&$variables) {
   end($variables["items"])['attributes']['class'][] = 'button button-small button-secondary';
@@ -893,6 +899,36 @@ function gent_base_preprocess_media__image__gallery_single(&$variables) {
 }
 
 /**
+ * Implements hook_preprocess_HOOK().
+ */
+function gent_base_preprocess_oidc_menu_anonymous(&$variables) {
+  $variables['login_link']->getUrl()->mergeOptions([
+    'attributes' => [
+      'class' => ['login-link'],
+    ],
+  ]);
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function gent_base_preprocess_oidc_menu_authenticated(&$variables) {
+  $variables['logout_link']->getUrl()->mergeOptions([
+    'attributes' => [
+      'class' => ['button', 'button-small', 'button-secondary'],
+    ],
+  ]);
+
+  if ($variables['profile_link']) {
+    $variables['profile_link']->getUrl()->mergeOptions([
+      'attributes' => [
+        'class' => ['button', 'button-small', 'button-primary'],
+      ],
+    ]);
+  }
+}
+
+/**
  * Helper function to get a gallery_full image style URL.
  *
  * Provide a 'gallery_full' image style URL to the image template,
@@ -1280,4 +1316,31 @@ function gent_base_preprocess_links__language_block(&$variables) {
     }
   }
 
+}
+
+/**
+ * Implements template_preprocess_file_upload_help().
+ *
+ * We alter the upload description to follow ghent styleguide guidelines.
+ */
+function gent_base_preprocess_file_upload_help(&$variables) {
+  $descriptions = [];
+
+  $upload_validators = $variables['upload_validators'];
+  if (isset($upload_validators['file_validate_extensions'])) {
+    $extensions = implode(', ', explode(' ', $upload_validators['file_validate_extensions'][0]));
+    $descriptions[] = t('Allowed types: @extensions.', ['@extensions' => $extensions]);
+  }
+  if (isset($upload_validators['file_validate_size'])) {
+    $descriptions[] = t('Max filesize: @size.', ['@size' => format_size($upload_validators['file_validate_size'][0])]);
+  }
+
+  if (isset($upload_validators['file_validate_image_resolution'])) {
+    $min = $upload_validators['file_validate_image_resolution'][1];
+    if ($min) {
+      $descriptions[] = t('Images must be larger than @min pixels.', ['@min' => $min]);
+    }
+  }
+
+  $variables['descriptions'] = implode(' ', $descriptions);
 }

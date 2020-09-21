@@ -1,0 +1,37 @@
+{{ attach_library('gent_base/accordion') }}
+
+{% set id = 'no-hero_auth-authentication' %}
+
+<div{{ attributes.addClass(['authentication', 'accordion']) }}>
+  <button aria-expanded="false" aria-controls="{{ id }}" class="toggle accordion--button">
+    <span class="avatar">{{ username|striptags|first }}</span>
+    <span>{{ username|striptags }}</span>
+  </button>
+
+  <div id="{{ id }}" class="accordion--content" aria-hidden="true" hidden="hidden">
+    <article class="content">
+      {% if title is not empty -%}
+        <h2>{{ title }}</h2>
+      {%- endif %}
+
+      <section class="profile">
+        <span class="avatar">{{ username|striptags|first }}</span>
+        <div class="profile-info">
+          <span>{{ username }}</span>
+
+          {% if profile_link is not empty -%}
+            {{ profile_link }}
+          {%- endif %}
+        </div>
+      </section>
+
+      {% if links is not empty -%}
+        {{ links }}
+      {%- endif %}
+
+      <footer>
+        {{ logout_link }}
+      </footer>
+    </article>
+  </div>
+</div>
