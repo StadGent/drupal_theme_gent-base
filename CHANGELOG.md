@@ -7,7 +7,17 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 ### Added
 
 * DTGB-841: Added native lazy load to images.
+
+## [3.3]
+
+### Added
+
+* IDPMG-44: Added oicd_menu support.
 * DTGB-846: Added field_contact_categories to if statement infopage.
+
+### Changed
+
+* DTGB-810: Changed upload description to follow ghent styleguide guidelines.
 
 ## [3.2]
 
