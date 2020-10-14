@@ -2,6 +2,12 @@
 
 All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
+## [Unreleased]
+
+### Fixed
+
+* DTGB-848: Fixed security vulnerabilities.
+
 ## [3.3]
 
 ### Added
