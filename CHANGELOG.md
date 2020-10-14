@@ -2,6 +2,17 @@
 
 All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
+## [Unreleased]
+
+### Fixed
+
+* DTGB-847: Fixed webforms description message styling.
+* DTGB-847: Fixed overriden spacing on file element.
+
+## Removed
+
+* DTGB-847: Removed overidden styling file-upload styleguide.
+
 ## [3.3]
 
 ### Added

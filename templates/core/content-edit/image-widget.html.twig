@@ -10,7 +10,7 @@
  * @see template_preprocess_image_widget()
  */
 #}
-<div{{ attributes.addClass('file') }}>
+<div{{ attributes }}>
   <div class="image-widget-data">
     {# Render widget data without the image preview that was output already. #}
     {{ data|without('preview') }}
