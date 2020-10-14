@@ -4,6 +4,10 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 ## [Unreleased]
 
+### Added
+
+* DTGB-841: Added native lazy load to images.
+
 ### Fixed
 
 * DTGB-847: Fixed webforms description message styling.
