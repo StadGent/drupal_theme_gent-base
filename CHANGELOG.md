@@ -8,6 +8,10 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 * DTGB-848: Fixed security vulnerabilities.
 
+### Added
+
+* DTGB-841: Added native lazy load to images.
+
 ## [3.3]
 
 ### Added
