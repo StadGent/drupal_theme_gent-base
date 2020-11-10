@@ -24,7 +24,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 ## Removed
 
-* DTGB-847: Removed overidden styling file-upload styleguide.
+* DTGB-847: Removed overridden styling file-upload styleguide.
 
 ## [3.3]
 
