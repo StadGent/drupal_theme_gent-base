@@ -26,7 +26,6 @@ filter:
 modal:
   version: 1.x
   js:
-    build/styleguide/vendor/body-scroll-lock/bodyScrollLock.min.js: { minified: true }
     build/@digipolis-gent/modal/index.js: { minified: true }
     source/js/modal.bindings.js: { }
   dependencies:
