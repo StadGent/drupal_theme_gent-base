@@ -18,14 +18,6 @@
 
     > .paragraph--type--block {
       @include set-layout();
-
-      > .help-block {
-        @include set-layout('width-9', 'offset-1');
-
-        > * {
-          @include set-layout('width-7', 'offset-1', 'columns-9');
-        }
-      }
     }
   }
 

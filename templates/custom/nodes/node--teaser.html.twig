@@ -83,7 +83,7 @@
 <article{{ attributes.addClass(classes) }}>
 
   {% block bottom %}
-    <div{{ content_attributes.addClass('content__bottom') }}>
+    <div{{ content_attributes.addClass('content__second') }}>
       {% block title %}
         {{ title_prefix }}
         {% if not page %}
@@ -106,7 +106,7 @@
         node.hasField('og_audience') or
         node.bundle() == 'event'
       %}
-        <div class="content__top">
+        <div class="content__first">
 
         {% block image %}
           {% if node.hasField('field_teaser_image') %}

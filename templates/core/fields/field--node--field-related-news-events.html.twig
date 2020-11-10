@@ -39,7 +39,7 @@
 #}
 {%
   set classes = [
-    'collection',
+    'collection'
   ]
 %}
 {%
@@ -54,8 +54,8 @@
 {% endif %}
 
 
-<ul{{ attributes }}>
+<ul{{ attributes.addClass('grid-3') }}>
   {% for item in items %}
-    <li{{ item.attributes.addClass('teaser teaser-article') }}>{{ item.content }}</li>
+    <li{{ item.attributes.addClass('teaser') }}>{{ item.content }}</li>
   {% endfor %}
 </ul>

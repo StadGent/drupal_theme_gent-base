@@ -2,6 +2,30 @@
 
 All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
+## [4.0]
+
+### Added
+
+* DTGB-841: Added native lazy load to images.
+
+## Updated
+
+* DTGB-849: Updated styleguide to 4.0.2
+
+### Fixed
+
+* SGD8-1735: Fixed webforms description message styling.
+* KAG-437: Fixed overridden spacing on file element.
+* DTGB-848: Fixed security vulnerabilities.
+
+## Replaced
+
+* DTGB-849: Replaced removed/deprecated CSS classes.
+
+## Removed
+
+* DTGB-847: Removed overridden styling file-upload styleguide.
+
 ## [3.3]
 
 ### Added
@@ -12,6 +36,10 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 ### Changed
 
 * DTGB-810: Changed upload description to follow ghent styleguide guidelines.
+
+### Updated
+
+* DTGB-849: Updated gent_styleguide.
 
 ## [3.2]
 

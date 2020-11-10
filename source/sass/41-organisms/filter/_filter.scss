@@ -6,7 +6,7 @@
 }
 
 .selected-filters {
-  > a {
+  .tag-list > li > a {
     @include theme('color', 'color-tertiary', 'selected-filters-link-color');
 
     font-weight: normal;
