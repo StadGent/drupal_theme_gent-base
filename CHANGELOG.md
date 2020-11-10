@@ -20,7 +20,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 ## Replaced
 
-* DTGB-849: Replaced removed/deprecated classes. 
+* DTGB-849: Replaced removed/deprecated CSS classes. 
 
 ## Removed
 
