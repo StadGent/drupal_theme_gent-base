@@ -38,14 +38,16 @@
  */
 #}
 
-{% if not label_hidden %}
-  <div{{ title_attributes.addClass(title_classes) }}>{{ label }}</div>
-{% endif %}
+<div class="tag-list-wrapper">
+  {% if not label_hidden %}
+    <div{{ title_attributes.addClass(title_classes) }}>{{ label }}</div>
+  {% endif %}
 
-<ul class="related-box-tags">
-  {%- for item in items %}
-    {% block content %}
-      <li>{{ item.content }}</li>
-    {% endblock %}
-  {% endfor -%}
-</ul>
+  <ul class="tag-list">
+    {%- for item in items %}
+      {% block content %}
+        <li>{{ item.content }}</li>
+      {% endblock %}
+    {% endfor -%}
+  </ul>
+</div>

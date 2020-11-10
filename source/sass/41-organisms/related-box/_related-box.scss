@@ -29,13 +29,6 @@
         }
       }
 
-      ul.related-box-tags {
-        @extend %list-no-style;
-
-        display: flex;
-        flex-wrap: wrap;
-      }
-
       .tag {
         margin: 0 .8rem .8rem 0;
       }

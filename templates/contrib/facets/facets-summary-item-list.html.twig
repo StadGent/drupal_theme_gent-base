@@ -50,12 +50,16 @@
       {% if facets is not empty %}
         <h2>{{ 'You have selected'|t }}:</h2>
       {% endif %}
-      {% for facet in facets %}
-        {{ facet }}
-      {% endfor %}
-      <span class="clearlink">
-        {{ clearlink }}
-      </span>
+      <div class="tag-list-wrapper">
+        <ul class="tag-list">
+          {% for facet in facets %}
+            <li>{{ facet }}</li>
+          {% endfor %}
+          <li>
+            <span class="clearlink">{{ clearlink }}</span>
+          </li>
+        </ul>
+      </div>
     </div>
 
     <div class="filter__result-count">
