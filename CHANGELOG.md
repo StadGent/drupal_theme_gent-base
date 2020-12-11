@@ -2,12 +2,15 @@
 
 All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
-## [4.1.0]
+## [4.1.0] 
 
 ### Add
  
-* BW-133: Add support Drupal 9
-* 
+* BW-133: Add support Drupal 9.
+
+### Fix
+
+* DTGB-850: Fix wrong font as logged in user.
 
 ## [4.0]
 
