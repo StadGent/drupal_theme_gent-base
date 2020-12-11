@@ -1060,7 +1060,7 @@ function gent_base_preprocess_pager(&$variables) {
   }
   if ($i <= 0) {
     // Adjust "center" if at start of query.
-    $pager_last += + (1 - $i);
+    $pager_last += (1 - $i);
     $i = 1;
   }
 
@@ -1072,7 +1072,7 @@ function gent_base_preprocess_pager(&$variables) {
     $options = [
       'query' => $pager_manager->getUpdatedParameters($parameters, $element, 0),
     ];
-    $items['first']['href'] = \Drupal\Core\Url::fromRoute($route_name, $route_parameters, $options);
+    $items['first']['href'] = Url::fromRoute($route_name, $route_parameters, $options);
     if (isset($tags[0])) {
       $items['first']['text'] = $tags[0];
     }
@@ -1081,7 +1081,7 @@ function gent_base_preprocess_pager(&$variables) {
     $options = [
       'query' => $pager_manager->getUpdatedParameters($parameters, $element, $pager_page_array[$element] - 1),
     ];
-    $items['previous']['href'] = \Drupal\Core\Url::fromRoute($route_name, $route_parameters, $options);
+    $items['previous']['href'] = Url::fromRoute($route_name, $route_parameters, $options);
     if (isset($tags[1])) {
       $items['previous']['text'] = $tags[1];
     }
@@ -1097,7 +1097,7 @@ function gent_base_preprocess_pager(&$variables) {
       $options = [
         'query' => $pager_manager->getUpdatedParameters($parameters, $element, $i - 1),
       ];
-      $items['pages'][$i]['href'] = \Drupal\Core\Url::fromRoute($route_name, $route_parameters, $options);
+      $items['pages'][$i]['href'] = Url::fromRoute($route_name, $route_parameters, $options);
       if ($i === $pager_current) {
         $variables['current'] = $i;
       }
@@ -1114,7 +1114,7 @@ function gent_base_preprocess_pager(&$variables) {
     $options = [
       'query' => $pager_manager->getUpdatedParameters($parameters, $element, $pager_page_array[$element] + 1),
     ];
-    $items['next']['href'] = \Drupal\Core\Url::fromRoute($route_name, $route_parameters, $options);
+    $items['next']['href'] = Url::fromRoute($route_name, $route_parameters, $options);
     if (isset($tags[3])) {
       $items['next']['text'] = $tags[3];
     }
@@ -1123,7 +1123,7 @@ function gent_base_preprocess_pager(&$variables) {
     $options = [
       'query' => $pager_manager->getUpdatedParameters($parameters, $element, $pager_max - 1),
     ];
-    $items['last']['href'] = \Drupal\Core\Url::fromRoute($route_name, $route_parameters, $options);
+    $items['last']['href'] = Url::fromRoute($route_name, $route_parameters, $options);
     if (isset($tags[4])) {
       $items['last']['text'] = $tags[4];
     }
