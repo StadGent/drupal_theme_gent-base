@@ -17,7 +17,7 @@
   href="{{ gallery_full_url|default(file_url(content.field_media_image.0['#item'].entity.uri.value)) }}"
   class="gallery-link"
   aria-describedby="image-gallery__open-gallery"
-  {% if not media.field_media_caption.isEmpty %}
+  {% if not media.field_media_caption.isEmpty() %}
     aria-label="{{ media.field_media_caption.value }}"
   {% endif %}
   >
