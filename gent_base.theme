@@ -1018,6 +1018,9 @@ function gent_base_theme_suggestions_facets_result_item_alter(array &$suggestion
  * This is a guideline determined by Stad Gent!
  */
 function gent_base_preprocess_pager(&$variables) {
+  /* @var $pager_manager \Drupal\Core\Pager\PagerManagerInterface */
+  $pager_manager = \Drupal::service('pager.manager');
+
   $element = $variables['pager']['#element'];
   $parameters = $variables['pager']['#parameters'];
 
@@ -1052,37 +1055,39 @@ function gent_base_preprocess_pager(&$variables) {
   $i = $pager_first;
   if ($pager_last > $pager_max) {
     // Adjust "center" if at end of query.
-    $i = $i + ($pager_max - $pager_last);
+    $i += ($pager_max - $pager_last);
     $pager_last = $pager_max;
   }
   if ($i <= 0) {
     // Adjust "center" if at start of query.
-    $pager_last = $pager_last + (1 - $i);
+    $pager_last += (1 - $i);
     $i = 1;
   }
+
+  $items = [];
 
   // Create the "first" and "previous" links if we are not on the first page.
   if ($pager_page_array[$element] > 0) {
     $items['first'] = [];
     $options = [
-      'query' => pager_query_add_page($parameters, $element, 0),
+      'query' => $pager_manager->getUpdatedParameters($parameters, $element, 0),
     ];
-    $items['first']['href'] = \Drupal::url($route_name, $route_parameters, $options);
+    $items['first']['href'] = Url::fromRoute($route_name, $route_parameters, $options);
     if (isset($tags[0])) {
       $items['first']['text'] = $tags[0];
     }
 
     $items['previous'] = [];
     $options = [
-      'query' => pager_query_add_page($parameters, $element, $pager_page_array[$element] - 1),
+      'query' => $pager_manager->getUpdatedParameters($parameters, $element, $pager_page_array[$element] - 1),
     ];
-    $items['previous']['href'] = \Drupal::url($route_name, $route_parameters, $options);
+    $items['previous']['href'] = Url::fromRoute($route_name, $route_parameters, $options);
     if (isset($tags[1])) {
       $items['previous']['text'] = $tags[1];
     }
   }
 
-  if ($i != $pager_max) {
+  if ($i !== $pager_max) {
     // Add an ellipsis if there are further previous pages.
     if ($i > 1) {
       $variables['ellipses']['previous'] = TRUE;
@@ -1090,10 +1095,10 @@ function gent_base_preprocess_pager(&$variables) {
     // Now generate the actual pager piece.
     for (; $i <= $pager_last && $i <= $pager_max; $i++) {
       $options = [
-        'query' => pager_query_add_page($parameters, $element, $i - 1),
+        'query' => $pager_manager->getUpdatedParameters($parameters, $element, $i - 1),
       ];
-      $items['pages'][$i]['href'] = \Drupal::url($route_name, $route_parameters, $options);
-      if ($i == $pager_current) {
+      $items['pages'][$i]['href'] = Url::fromRoute($route_name, $route_parameters, $options);
+      if ($i === $pager_current) {
         $variables['current'] = $i;
       }
     }
@@ -1107,18 +1112,18 @@ function gent_base_preprocess_pager(&$variables) {
   if ($pager_page_array[$element] < ($pager_max - 1)) {
     $items['next'] = [];
     $options = [
-      'query' => pager_query_add_page($parameters, $element, $pager_page_array[$element] + 1),
+      'query' => $pager_manager->getUpdatedParameters($parameters, $element, $pager_page_array[$element] + 1),
     ];
-    $items['next']['href'] = \Drupal::url($route_name, $route_parameters, $options);
+    $items['next']['href'] = Url::fromRoute($route_name, $route_parameters, $options);
     if (isset($tags[3])) {
       $items['next']['text'] = $tags[3];
     }
 
     $items['last'] = [];
     $options = [
-      'query' => pager_query_add_page($parameters, $element, $pager_max - 1),
+      'query' => $pager_manager->getUpdatedParameters($parameters, $element, $pager_max - 1),
     ];
-    $items['last']['href'] = \Drupal::url($route_name, $route_parameters, $options);
+    $items['last']['href'] = Url::fromRoute($route_name, $route_parameters, $options);
     if (isset($tags[4])) {
       $items['last']['text'] = $tags[4];
     }
@@ -1248,7 +1253,7 @@ function gent_base_preprocess_vesta(&$variables) {
     $variables['related'] = [];
 
     /* @var $keyword Gent\Services\Vesta\Value\Keyword */
-    $termStorage = \Drupal::entityManager()->getStorage('taxonomy_term');
+    $termStorage = \Drupal::entityTypeManager()->getStorage('taxonomy_term');
     foreach ($entity->getVestaValue()->getKeywords() as &$keyword) {
       $terms = $termStorage->loadByProperties([
         'field_vesta_id' => $keyword->getId(),
@@ -1302,7 +1307,7 @@ function gent_base_preprocess_links__language_block(&$variables) {
     ->getCurrentLanguage()
     ->getId();
 
-  if (isset($currentLanguageCode)) {
+  if ($currentLanguageCode) {
     $variables['current_language_code'] = $currentLanguageCode;
   }
 
@@ -1312,7 +1317,7 @@ function gent_base_preprocess_links__language_block(&$variables) {
 
     /** @var \Drupal\language\Entity\ConfigurableLanguage $linkLanguage */
     $linkLanguage = $link['link']['#options']['language'];
-    if ($currentLanguageCode == $linkLanguage->get('id')) {
+    if ($currentLanguageCode === $linkLanguage->get('id')) {
       unset($variables['links'][$i]);
     }
   }

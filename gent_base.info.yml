@@ -2,6 +2,7 @@ name: Gent Base
 description: Ghent base theme. Always use a subtheme of this theme.
 type: theme
 core: 8.x
+core_version_requirement: ^8 || ^9
 base theme: classy
 hidden: true
 regions:

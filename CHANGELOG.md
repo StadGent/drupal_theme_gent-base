@@ -2,13 +2,27 @@
 
 All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
+## [4.1.0] 
+
+### Add
+ 
+* BW-133: Add support Drupal 9.
+
+### Update
+
+* DTGB-851: Update styleguide to 4.1.0.
+
+### Fix
+
+* DTGB-850: Fix wrong font as logged in user.
+
 ## [4.0]
 
 ### Added
 
 * DTGB-841: Added native lazy load to images.
 
-## Updated
+### Updated
 
 * DTGB-849: Updated styleguide to 4.0.2
 
@@ -18,11 +32,11 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 * KAG-437: Fixed overridden spacing on file element.
 * DTGB-848: Fixed security vulnerabilities.
 
-## Replaced
+### Replaced
 
 * DTGB-849: Replaced removed/deprecated CSS classes.
 
-## Removed
+### Removed
 
 * DTGB-847: Removed overridden styling file-upload styleguide.
 
@@ -541,6 +555,8 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 * **Updated to gent_styleguide version 2.6.13**
 
+[8.x-4.1.0]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-4.0...8.x-4.1.0
+[8.x-4.0]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.3...8.x-4.0
 [8.x-3.0-beta17]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-beta16...8.x-3.0-beta17
 [8.x-3.0-beta16]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-beta15...8.x-3.0-beta16
 [8.x-3.0-beta15]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-beta14...8.x-3.0-beta15
