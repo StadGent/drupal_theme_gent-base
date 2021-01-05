@@ -1,6 +1,7 @@
 .newsletter,
 .block-dg-newsletter {
-  .inner-box::before {
+
+  .highlight__inner::before {
     @include spot-image('newsletter-light', 7rem);
   }
 

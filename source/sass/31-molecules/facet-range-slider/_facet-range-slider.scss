@@ -3,7 +3,7 @@ $frs-handle-size: 1.4rem;
 .form-item.facets-widget-range_slider {
   .pips-preview {
     font-size: .8rem;
-    @include bold-text
+    @include bold-text;
 
     > .placeholder {
       font-style: normal;
