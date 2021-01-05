@@ -36,14 +36,7 @@ function _gent_base_add_img_attributes(array &$attributes, ImageItem $item) {
   if (!isset($attributes['loading'])) {
     $attributes['loading'] = 'lazy';
   }
-  // Tell the browser about the aspect ratio.
-  if (
-    !isset($attributes['width'])
-    && !isset($attributes['height'])
-    && ($value = $item->getValue())
-    && isset($value['width'], $value['height'])
-  ) {
-    $attributes['width'] = $value['width'];
-    $attributes['height'] = $value['height'];
-  }
+
+  // @todo check if default width and height from core respects aspect ratio
+  // image style.
 }
