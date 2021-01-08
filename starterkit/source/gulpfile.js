@@ -39,7 +39,7 @@ const includePaths = [
  *  Autoprefixer
  *
  */
-gulp.task('styles:build', function() {
+gulp.task('styles:build', function () {
   return gulp.src(globalConfig.sass_dir + '/**/*.s+(a|c)ss')
     .pipe(plumber())
     .pipe(sassGlob())
@@ -71,7 +71,7 @@ gulp.task('styles:build', function() {
  *  Autoprefixer
  *
  */
-gulp.task('styles:dist', function() {
+gulp.task('styles:dist', function () {
   return gulp.src(globalConfig.sass_dir + '/**/*.s+(a|c)ss')
     .pipe(plumber())
     .pipe(sassGlob())
@@ -92,7 +92,7 @@ gulp.task('styles:dist', function() {
  * Validate SCSS files.
  *
  */
-gulp.task('styles:validate', function() {
+gulp.task('styles:validate', function () {
   return gulp.src(globalConfig.sass_dir + '/**/*.s+(a|c)ss')
     .pipe(plumber())
     .pipe(sassLint({
@@ -107,7 +107,7 @@ gulp.task('styles:validate', function() {
  * Watch SCSS files For Changes.
  *
  */
-gulp.task('styles:watch', function() {
+gulp.task('styles:watch', function () {
   return gulp.watch(globalConfig.sass_dir + '/**/*.scss', gulp.parallel('styles:dist', 'styles:validate'));
 });
 
@@ -118,7 +118,7 @@ gulp.task('styles:watch', function() {
  * Copies and minifies your JS files to build/js/
  *
  */
-gulp.task('js:build', function() {
+gulp.task('js:build', function () {
   return gulp.src(globalConfig.scripts_src_dir + '/**/*.js')
     .pipe(plumber())
     .pipe(rename({dirname: ''}))
@@ -136,7 +136,7 @@ gulp.task('js:build', function() {
  * No minification is done here!
  *
  */
-gulp.task('js:dist', function() {
+gulp.task('js:dist', function () {
   return gulp.src(globalConfig.scripts_src_dir + '/**/*.js')
     .pipe(plumber())
     .pipe(rename({
@@ -151,7 +151,7 @@ gulp.task('js:dist', function() {
  * Validate JS files.
  *
  */
-gulp.task('js:validate', function() {
+gulp.task('js:validate', function () {
   return gulp.src(globalConfig.scripts_src_dir + '/**/*.js')
     .pipe(plumber())
     .pipe(eslint({
@@ -166,7 +166,7 @@ gulp.task('js:validate', function() {
  * Watch JS files For Changes.
  *
  */
-gulp.task('js:watch', function() {
+gulp.task('js:watch', function () {
   return gulp.watch(globalConfig.scripts_src_dir + '/**/*.js', gulp.parallel('js:dist', 'js:validate'));
 });
 
@@ -175,7 +175,7 @@ gulp.task('js:watch', function() {
  * Minify images.
  *
  */
-gulp.task('images:minify', gulp.series('styles:build', function(cb) {
+gulp.task('images:minify', gulp.series('styles:build', function (cb) {
   gulp.src([
     globalConfig.img_src_dir + '/**/*.png',
     globalConfig.img_src_dir + '/**/*.jpg',
@@ -195,7 +195,7 @@ gulp.task('images:minify', gulp.series('styles:build', function(cb) {
  *
  * This deletes the build directory before recompiling.
  */
-gulp.task('build:clean', function(cb) {
+gulp.task('build:clean', function (cb) {
   return del(globalConfig.build_dir + '/**', {force:true});
 });
 

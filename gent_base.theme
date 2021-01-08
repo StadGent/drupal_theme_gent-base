@@ -83,9 +83,10 @@ function gent_base_form_alter(&$form, FormStateInterface $form_state, $form_id) 
  */
 function _gent_base_form_pre_render(array $form) {
   $form['#has_inputs'] = FALSE;
+
   $elements = &$form;
-  if (!empty($form['elements'])) {
-    $elements = &$form['elements'];
+  if (!empty($elements['elements'])) {
+    $elements = &$elements['elements'];
   }
 
   _gent_base_loop_form_elements($elements);
@@ -1018,7 +1019,7 @@ function gent_base_theme_suggestions_facets_result_item_alter(array &$suggestion
  * This is a guideline determined by Stad Gent!
  */
 function gent_base_preprocess_pager(&$variables) {
-  /* @var $pager_manager \Drupal\Core\Pager\PagerManagerInterface */
+  /** @var \Drupal\Core\Pager\PagerManagerInterface $pager_manager */
   $pager_manager = \Drupal::service('pager.manager');
 
   $element = $variables['pager']['#element'];
@@ -1230,7 +1231,7 @@ function gent_base_preprocess_facets_item_list__checkbox_popup(&$variables) {
  * Implements hook_preprocess_HOOK().
  */
 function gent_base_preprocess_vesta(&$variables) {
-  /* @var $entity Drupal\dg_vesta\Entity\Vesta */
+  /** @var Drupal\dg_vesta\Entity\Vesta $entity */
   $entity = $variables['elements']['#vesta'];
 
   // Because vesta entities are language undefined we need to prefix the
@@ -1252,8 +1253,9 @@ function gent_base_preprocess_vesta(&$variables) {
   if ($variables['elements']['#view_mode'] === 'full') {
     $variables['related'] = [];
 
-    /* @var $keyword Gent\Services\Vesta\Value\Keyword */
     $termStorage = \Drupal::entityTypeManager()->getStorage('taxonomy_term');
+
+    /** @var Gent\Services\Vesta\Value\Keyword $keyword */
     foreach ($entity->getVestaValue()->getKeywords() as &$keyword) {
       $terms = $termStorage->loadByProperties([
         'field_vesta_id' => $keyword->getId(),

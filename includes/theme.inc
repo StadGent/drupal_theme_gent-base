@@ -56,18 +56,18 @@ function _gent_base_get_entity_reference_file_data(&$variables, $field) {
   /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
   $paragraph = $variables['elements']['#paragraph'];
   if (!$paragraph->hasField($field)) {
-    return;
+    return NULL;
   }
-  /* @var $entity \Drupal\Core\Field\Plugin\Field\FieldType\EntityReferenceItem */
+  /** @var \Drupal\Core\Field\Plugin\Field\FieldType\EntityReferenceItem|null $entity */
   $entity = $paragraph->get($field)->first();
   if (!$entity) {
-    return;
+    return NULL;
   }
 
-  /* @var $media \Drupal\media\Entity\Media */
+  /** @var \Drupal\media\Entity\Media|null $media */
   $media = Media::load($entity->get('target_id')->getValue());
   if (!$media) {
-    return;
+    return NULL;
   }
 
   // Some Drupal 7 CTA's contained a link to an image (instead of a document).
@@ -79,13 +79,13 @@ function _gent_base_get_entity_reference_file_data(&$variables, $field) {
     $file = $media->get('field_media_image')->getValue();
   }
   if (empty($file[0]['target_id'])) {
-    return;
+    return NULL;
   }
 
-  /* @var $file_entity \Drupal\file\Entity\File */
+  /** @var \Drupal\file\Entity\File|null $file_entity */
   $file_entity = File::load($file[0]['target_id']);
   if (!$file_entity) {
-    return;
+    return NULL;
   }
 
   $file_name = $file_entity->getFilename();

@@ -49,7 +49,6 @@
     }
   };
 
-
   /**
    * Shows the popup element.
    * @param {ol.Coordinate} coordinate Coordinates.

@@ -125,7 +125,6 @@
         var legendContainer = document.createElement('div');
         legendContainer.className = 'legend';
 
-
         for (var j = 0; j < legendData.length; j++) {
           // Remove empty items from the data layer switcher list.
           if (!legendData[j].label) {

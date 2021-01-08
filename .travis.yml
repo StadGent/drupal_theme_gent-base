@@ -1,14 +1,64 @@
-dist: trusty
+dist: bionic
 language: php
+sudo: false
+
 php:
-  - 7.2
   - 7.3
   - 7.4
+
+cache:
+  directories:
+    - $HOME/.composer/cache
+
+env:
+  - DRUPAL=8.9 PHPUNIT=7.5
+  - DRUPAL=9.0 PHPUNIT=8.5
+  - DRUPAL=9.1 PHPUNIT=8.5
+
+jobs:
+  fast_finish: true
+  allow_failures:
+    - php: 7.4
+
 before_install:
+  # Install various packages.
   - nvm install 10.14.2 && nvm use 10.14.2
   - npm install -g gulp-cli yarn
+
+  # Configure the authentication mechanisms.
+  - composer config -ga github-oauth.github.com $GITHUB_TOKEN
+  - composer config -ga http-basic.digipolis.repo.repman.io token $REPMAN_TOKEN
+
+  # Require Drupal core.
+  - composer require -n --no-update --sort-packages -w --dev drupal/core:~$DRUPAL.0 phpunit/phpunit:^$PHPUNIT
+
+  # Get and run the Code Climate test reporter.
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
+
 install:
-  - composer install
+  - export COMPOSER_MEMORY_LIMIT=-1
+  - composer install -n
+
 script:
-  - cd "$TRAVIS_BUILD_DIR/source" && gulp validate
-  - cd "$TRAVIS_BUILD_DIR" && vendor/bin/phpcs -p --colors
+  - vendor/bin/grumphp run -n
+  - cd source && gulp validate
+
+after_script:
+  # Run the Code Climate test reporter.
+  - ./cc-test-reporter after-build --coverage-input-type clover --exit-code $TRAVIS_TEST_RESULT
+
+  # Get and run the SonarQube scanner.
+  - SONAR_PROJECT_NAME="Drupal $(composer config name | cut -d / -f 2)"
+  - SONAR_PROJECT_KEY=web:$(echo "$TRAVIS_REPO_SLUG" | cut -d / -f 2)
+  - curl -L https://repo1.maven.org/maven2/org/sonarsource/scanner/cli/sonar-scanner-cli/4.3.0.2102/sonar-scanner-cli-4.3.0.2102.jar > sonar-scanner.jar
+  - "[ -d tests ] || mkdir tests"
+  - >
+    java -jar sonar-scanner.jar
+    -Dsonar.host.url=https://sonarqube.stad.gent
+    -Dsonar.login=$SONAR_LOGIN
+    -Dsonar.projectKey=$SONAR_PROJECT_KEY
+    -Dsonar.projectName="$SONAR_PROJECT_NAME"
+    -Dsonar.tests=tests
+    -Dsonar.php.coverage.reportPaths=build/logs/clover.xml
