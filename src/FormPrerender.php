@@ -105,7 +105,7 @@ class FormPrerender implements TrustedCallbackInterface {
   }
 
   /**
-   * Alter a checkbox or radois element.
+   * Alter a checkbox or radios element.
    *
    * @param array $element
    *   The form element.
