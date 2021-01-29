@@ -6,19 +6,23 @@ php:
   - 7.3
   - 7.4
 
-cache:
-  directories:
-    - $HOME/.composer/cache
-
 env:
-  - DRUPAL=8.9 PHPUNIT=7.5
-  - DRUPAL=9.0 PHPUNIT=8.5
-  - DRUPAL=9.1 PHPUNIT=8.5
+  global:
+    - COMPOSER_MEMORY_LIMIT=-1
+  matrix:
+    - DRUPAL=8.9 PHPUNIT=7.5
+    - DRUPAL=9.0 PHPUNIT=8.5
+    - DRUPAL=9.1 PHPUNIT=8.5
+    - DRUPAL=9.2 PHPUNIT=8.5
 
 jobs:
   fast_finish: true
   allow_failures:
     - php: 7.4
+
+cache:
+  directories:
+    - $HOME/.composer/cache
 
 before_install:
   # Install various packages.
@@ -35,7 +39,6 @@ before_install:
   - ./cc-test-reporter before-build
 
 install:
-  - export COMPOSER_MEMORY_LIMIT=-1
   - composer require -n --sort-packages -w --dev drupal/core:~$DRUPAL.0 phpunit/phpunit:^$PHPUNIT
 
 script:
