@@ -29,9 +29,6 @@ before_install:
   - composer config -ga github-oauth.github.com $GITHUB_TOKEN
   - composer config -ga http-basic.digipolis.repo.repman.io token $REPMAN_TOKEN
 
-  # Require Drupal core.
-  - composer require -n --no-update --sort-packages -w --dev drupal/core:~$DRUPAL.0 phpunit/phpunit:^$PHPUNIT
-
   # Get and run the Code Climate test reporter.
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
@@ -39,7 +36,7 @@ before_install:
 
 install:
   - export COMPOSER_MEMORY_LIMIT=-1
-  - composer install -n
+  - composer require -n --sort-packages -w --dev drupal/core:~$DRUPAL.0 phpunit/phpunit:^$PHPUNIT
 
 script:
   - vendor/bin/grumphp run -n

@@ -8,7 +8,7 @@
         "theme"
     ],
     "homepage": "https://bitbucket.org/digipolisgent/drupal_theme_gent-base",
-    "license": "GPL-2.0+",
+    "license": "GPL-2.0-or-later",
     "require": {
         "php": "^7.3"
     },
