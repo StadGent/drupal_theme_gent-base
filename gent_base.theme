@@ -8,15 +8,14 @@
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Template\Attribute;
 use Drupal\Component\Utility\Html;
+use Drupal\gent_base\FormPrerender;
 use Drupal\image\Entity\ImageStyle;
 use Drupal\paragraphs\Entity\Paragraph;
 use Drupal\Core\Url;
 use Drupal\Core\Link;
 use Drupal\Core\Render\Element;
-use Drupal\webform\Entity\Webform;
 
 include __DIR__ . '/includes/theme.inc';
-include __DIR__ . '/includes/form.inc';
 include __DIR__ . '/includes/lazy.inc';
 
 /**
@@ -43,13 +42,12 @@ function gent_base_theme() {
  * Implements hook_form_FORM_ID_alter().
  */
 function gent_base_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-
-  if (in_array($form_id, _gent_base_get_system_forms())) {
+  if (in_array($form_id, _gent_base_get_system_forms(), TRUE)) {
     $form['#attributes']['class'][] = 'no-style';
     $form['#attributes']['class'][] = 'no-optional';
   }
 
-  if (in_array($form_id, ['dg_newsletter_subscribe_form'])) {
+  if ($form_id === 'dg_newsletter_subscribe_form') {
     $form['wrapper']['email_address']['#stacked'] = TRUE;
   }
 
@@ -69,41 +67,7 @@ function gent_base_form_alter(&$form, FormStateInterface $form_state, $form_id) 
     $form['#theme'] = ['gent_base_webform'];
   }
 
-  $form['#pre_render'][] = '_gent_base_form_pre_render';
-}
-
-/**
- * Pre-render function for webforms.
- *
- * @param array $form
- *   Build array for the form.
- *
- * @return mixed
- *   Altered build array.
- */
-function _gent_base_form_pre_render(array $form) {
-  $form['#has_inputs'] = FALSE;
-  $elements = &$form;
-  if (!empty($form['elements'])) {
-    $elements = &$form['elements'];
-  }
-
-  _gent_base_loop_form_elements($elements);
-
-  // If this is a multistep form > get the elements of the current step.
-  if (isset($form['#webform_id'])) {
-    $form['#webform'] = $webform = Webform::load($form['#webform_id']);
-    if ($webform->hasWizardPages() && isset($form['progress'])) {
-      $current_page = $form['progress']['#current_page'];
-      $elements = $current_page && !empty($form['elements'][$current_page])
-        ? $form['elements'][$current_page]
-        : [];
-    }
-  }
-
-  $form['#has_inputs'] = (bool) _gent_base_count_inputs($elements);
-
-  return $form;
+  $form['#pre_render'][] = [FormPrerender::class, 'prerenderForm'];
 }
 
 /**
@@ -1018,7 +982,7 @@ function gent_base_theme_suggestions_facets_result_item_alter(array &$suggestion
  * This is a guideline determined by Stad Gent!
  */
 function gent_base_preprocess_pager(&$variables) {
-  /* @var $pager_manager \Drupal\Core\Pager\PagerManagerInterface */
+  /** @var \Drupal\Core\Pager\PagerManagerInterface $pager_manager */
   $pager_manager = \Drupal::service('pager.manager');
 
   $element = $variables['pager']['#element'];
@@ -1230,7 +1194,7 @@ function gent_base_preprocess_facets_item_list__checkbox_popup(&$variables) {
  * Implements hook_preprocess_HOOK().
  */
 function gent_base_preprocess_vesta(&$variables) {
-  /* @var $entity Drupal\dg_vesta\Entity\Vesta */
+  /** @var Drupal\dg_vesta\Entity\Vesta $entity */
   $entity = $variables['elements']['#vesta'];
 
   // Because vesta entities are language undefined we need to prefix the
@@ -1252,8 +1216,9 @@ function gent_base_preprocess_vesta(&$variables) {
   if ($variables['elements']['#view_mode'] === 'full') {
     $variables['related'] = [];
 
-    /* @var $keyword Gent\Services\Vesta\Value\Keyword */
     $termStorage = \Drupal::entityTypeManager()->getStorage('taxonomy_term');
+
+    /** @var Gent\Services\Vesta\Value\Keyword $keyword */
     foreach ($entity->getVestaValue()->getKeywords() as &$keyword) {
       $terms = $termStorage->loadByProperties([
         'field_vesta_id' => $keyword->getId(),

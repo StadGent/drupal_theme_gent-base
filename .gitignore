@@ -1,4 +1,6 @@
-node_modules
-.sass-cache
-vendor
-/build
+/build/
+/vendor/
+/.phpunit.result.cache
+/composer.lock
+node_modules/
+.sass-cache/

@@ -1,32 +1,52 @@
 {
-  "name": "gent-drupal/gent_base",
-  "homepage": "https://bitbucket.org/digipolisgent/drupal_theme_gent-base",
-  "description": "Drupal theming layer for styleguide Gent.",
-  "keywords": ["gent", "drupal", "theme"],
-  "type": "drupal-theme",
-  "license": "GPL-2.0+",
-  "minimum-stability": "dev",
-  "prefer-stable": true,
-  "authors": [
-    {
-        "name": "Jeroen Goossens",
-        "email": "jeroen.goossens@digipolis.gent"
+    "name": "gent-drupal/gent_base",
+    "type": "drupal-theme",
+    "description": "Drupal theming layer for styleguide Gent.",
+    "keywords": [
+        "gent",
+        "drupal",
+        "theme"
+    ],
+    "homepage": "https://bitbucket.org/digipolisgent/drupal_theme_gent-base",
+    "license": "GPL-2.0-or-later",
+    "require": {
+        "php": "^7.3"
+    },
+    "require-dev": {
+        "digipolisgent/qa-drupal": "~1.3.7",
+        "drupal/paragraphs": "^1.12",
+        "drupal/webform": "^6.0",
+        "gent-drupal/dg_vesta": "^1.0"
+    },
+    "config": {
+        "platform": {
+            "php": "7.3"
+        },
+        "sort-packages": true
+    },
+    "extra": {
+        "grumphp": {
+            "config-default-path": "vendor/digipolisgent/qa-drupal/configs/grumphp-extension.yml"
+        }
+    },
+    "repositories": {
+        "repman-digipolis": {
+            "type": "composer",
+            "url": "https://digipolis.repo.repman.io"
+        },
+        "drupal": {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "scripts": {
+        "post-install-cmd": [
+            "bash -c 'cd ./scripts; ./install.sh;'"
+        ],
+        "post-update-cmd": [
+            "bash -c 'cd ./scripts; ./install.sh;'"
+        ]
     }
-  ],
-  "scripts": {
-    "post-install-cmd": [
-      "bash -c 'cd ./scripts; ./install.sh;'"
-    ],
-    "post-update-cmd": [
-      "bash -c 'cd ./scripts; ./install.sh;'"
-    ],
-    "check-style": [
-      "vendor/bin/phpcs --report=full --colors -p"
-    ]
-  },
-  "require": {
-    "php": ">=7.2",
-    "drupal/coder": "^8.2",
-    "drupal/core": "^8.8.2 || ^9.0"
-  }
 }
