@@ -1358,10 +1358,10 @@ functional-red-black-tree@^1.0.1:
   resolved "https://registry.yarnpkg.com/functional-red-black-tree/-/functional-red-black-tree-1.0.1.tgz#1b0ab3bd553b2a0d6399d29c0e3ea0b252078327"
   integrity sha1-GwqzvVU7Kg1jmdKcDj6gslIHgyc=
 
-gent_styleguide@^4.1.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/gent_styleguide/-/gent_styleguide-4.1.0.tgz#11cb73f5ac18c70d00ed6323cac1471ce6a2c629"
-  integrity sha512-ZqdqbCFEiDTg4F4HPYmTeW4krNq/qJ04VXhQbBNiEdRvjqQvZE0T9hHgyR+BZyL/F+pxZAlRId7jJmZ24tmOPA==
+gent_styleguide@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/gent_styleguide/-/gent_styleguide-4.1.1.tgz#e918323aa1e82bc8bc831c1564823ae365b0d1d4"
+  integrity sha512-LTn4h33fUh6sHY2+/sKMSv07fhmaKJRTHq+QEHHTDn6niOTtlPSofsIUe1N6nXs1C6DZKOFO0FCLNZJuywH3Mg==
   dependencies:
     "@digipolis-gent/modal" "^1.0.2"
     allietabs "^1.2.2"

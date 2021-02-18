@@ -2,6 +2,12 @@
 
 All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
+## [4.1.1]
+
+### Updated
+
+* DTGB-858: Updated styleguide to 4.1.1.
+
 ## [4.1.0] 
 
 ### Add
