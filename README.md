@@ -16,9 +16,9 @@ To install and use this base theme and a subtheme of it follow these steps:
   ```
   npm -g install yarn
   ```
-* Add the `gent_base` composer package from the duplo packagist to your Drupal
-  composer.json file: By adding the post install and post update commands we
-  ensure that the gent_base theme is installed correctly and everything is
+* Add the `gent_base` php package from District09 Repman packagist to your
+  Drupal composer.json file: By adding the post install and post update commands
+  we ensure that the gent_base theme is installed correctly and everything is
   ready to use.
 
   ```
@@ -27,13 +27,13 @@ To install and use this base theme and a subtheme of it follow these steps:
           "type": "composer",
           "url": "https://packages.drupal.org/8"
       },
-      "gent-drupal": {
+      "repman-digipolis": {
           "type": "composer",
-          "url": "https://duplo.gentgrp.gent.be"
-      }
+          "url": "https://digipolis.repo.repman.io"
+      },
   },
   "require": {
-      "gent-drupal/gent_base": "8.1.0-dev"
+      "gent-drupal/gent_base": "^4.0"
   },
   "scripts": {
     "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
@@ -45,11 +45,11 @@ To install and use this base theme and a subtheme of it follow these steps:
     ],
     "post-install-cmd": [
       "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
-      "@composer --working-dir=web/themes/contrib/gent_base install"
+      "@composer --working-dir=web/themes/contrib/gent_base install -n --no-dev --no-progress"
     ],
     "post-update-cmd": [
       "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
-      "@composer --working-dir=web/themes/contrib/gent_base install"
+      "@composer --working-dir=web/themes/contrib/gent_base install -n --no-dev --no-progress"
     ]
   },
   ```
