@@ -7,12 +7,12 @@
 
   Drupal.behaviors.gentBaseLoadCheckboxFilters = {
     attach: function (context, settings) {
-      if (!CheckboxFilter) { // eslint-disable-line no-undef
+      if (!CheckboxFilterDynamic) { // eslint-disable-line no-undef
         return;
       }
 
       $('.checkbox-filter', context).once('checkbox-filter').each(function () {
-        new CheckboxFilter(this, { // eslint-disable-line no-undef
+        new CheckboxFilterDynamic(this, { // eslint-disable-line no-undef
           checkboxes: '.facet-item.checkbox',
           hiddenTagText: 'Remove tag',
           countSpan: '.checkbox-filter__count-wrapper em',
