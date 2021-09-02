@@ -4,9 +4,20 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 ## [Unreleased]
 
+## [4.3.1]
+
+### Fixed
+* Missing fs-extra module.
+
+## [4.3.0]
+
 ### Fixed
 
 * Fix outdated installation instructions.
+
+### Updated
+
+* DTGB-861: Update styleguide to version 5
 
 ## [4.2.1]
 
@@ -14,10 +25,10 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 * DTGB-858: Updated styleguide to 4.1.1.
 
-## [4.1.0] 
+## [4.1.0]
 
 ### Add
- 
+
 * BW-133: Add support Drupal 9.
 
 ### Update
@@ -567,8 +578,11 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 * **Updated to gent_styleguide version 2.6.13**
 
-[8.x-4.1.0]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-4.0...8.x-4.1.0
-[8.x-4.0]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.3...8.x-4.0
+[4.3.1]: https://github.com/StadGent/drupal_theme_gent-base/compare/4.3.0...4.3.1
+[4.3.0]: https://github.com/StadGent/drupal_theme_gent-base/compare/4.2.1...4.3.0
+[4.2.1]: https://github.com/StadGent/drupal_theme_gent-base/compare/4.1.0...4.2.1
+[4.1.0]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-4.0...8.x-4.1.0
+[4.0]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.3...8.x-4.0
 [8.x-3.0-beta17]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-beta16...8.x-3.0-beta17
 [8.x-3.0-beta16]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-beta15...8.x-3.0-beta16
 [8.x-3.0-beta15]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-beta14...8.x-3.0-beta15
