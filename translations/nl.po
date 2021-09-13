@@ -215,16 +215,16 @@ msgstr "%count filter(s) gevonden"
 
 #: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-popup.html.twig:102
 #: themes/contrib/gent_base/templates/core/layout/region--filters.html.twig:38
-msgid "Show results"
-msgstr "Toon resultaten"
+msgid "Confirm selection"
+msgstr "Bevestig selectie"
 
 #: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-popup.html.twig:111
 msgid "%count item(s) selected"
 msgstr "%count item(s) geselecteerd"
 
 #: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-popup.html.twig:116
-msgid "Select ..."
-msgstr "Selecteer …"
+msgid "Show more"
+msgstr "Toon meer"
 
 #: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--range-slider.html.twig:42
 msgid "From %min to %max year"
