@@ -25,7 +25,6 @@
   "private": true,
   "dependencies": {
     "@digipolis-gent/modal": "^1.0.3",
-    "fs-extra": "^10.0.0",
-    "gent_styleguide": "^5"
+    "gent_styleguide": "^5.0.2"
   }
 }

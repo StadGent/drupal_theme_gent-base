@@ -24,25 +24,239 @@
  * @ingroup themeable
  */
 #}
-<form>
-<fieldset class="form-item facets-widget- {{- facet.widget.type -}} ">
-  {% if facet.widget.type %}
-    {%- set attributes = attributes.addClass('item-list__' ~ facet.widget.type) %}
-  {% endif %}
-  {% if items or empty %}
-  {%- if title is not empty -%}
-    <legend>{{ title }}</legend>
-  {%- endif -%}
 
-  {%- if items -%}
-  <{{ list_type }}{{ attributes.addClass('links') }}>
-  {%- for item in items -%}
-    <li{{ item.attributes.addClass('checkbox') }}>{{ item.value }}</li>
-  {%- endfor -%}
-</{{ list_type }}>
-  {%- else -%}
-    {{- empty -}}
-    {%- endif -%}
-  {%- endif %}
-</fieldset>
+{% set modal = {
+  id: facet.id
+} %}
+
+{{ attach_library('gent_base/checkbox_filter') }}
+<form>
+  <fieldset
+    class="facets-widget- {{- facet.widget.type -}} -with-filter checkbox-filter-dynamic form-item stacked">
+    {% if items %}
+      {%- if title is not empty -%}
+        <legend>{{ title }}</legend>
+      {%- endif -%}
+      {%- if items -%}
+        <div class="form-columns">
+          <div class="form-item-column">
+            {% if items|length <= 7 %}
+            <div{{ attributes.addClass('links checkbox-filter__checkboxes') }}>
+              {%- for item in items -%}
+                {# Multi-level filters #}
+
+                {% if (item.value.children) %}
+                  </div>
+
+                  <div{{ attributes.addClass('links checkbox-filter__checkboxes') }}>
+                  <h4
+                    class="checkbox-filter__category">{{ item.value['#title']['#original'] }}</h4>
+                  <div{{ item.attributes.addClass('checkbox full-width') }}>
+                    {{ item.value|without('children') }}
+                  </div>
+
+                  {% for child in item.value.children['#items'] %}
+                    {% if child['#title']['#count'] > 0 %}
+                      <div class="facet-item checkbox">{{ child }}</div>
+                    {% endif %}
+                  {%- endfor -%}
+
+                  {# Single-level filters #}
+                {% elseif item.value['#title']['#count'] > 0 %}
+                  <div{{ item.attributes.addClass('checkbox') }}>{{ item.value }}</div>
+                {% endif %}
+              {%- endfor -%}
+              </div>
+            {% endif %}
+
+            {% if items|length > 20 %}
+              <div class="modal-preview">
+                <div{{ attributes.addClass('links checkbox-filter__checkboxes') }}>
+                  {%- for item in items|slice(0,3) -%}
+                  {# Multi-level filters #}
+
+                  {% if (item.value.children) %}
+                </div>
+
+                <div{{ attributes.addClass('links checkbox-filter__checkboxes') }}>
+                  <h4
+                    class="checkbox-filter__category">{{ item.value['#title']['#original'] }}</h4>
+                  <div{{ item.attributes.addClass('checkbox full-width') }}>
+                    {{ item.value|without('children') }}
+                  </div>
+
+                  {% for child in item.value.children['#items'] %}
+                    {% if child['#title']['#count'] > 0 %}
+                      <div class="facet-item checkbox">{{ child }}</div>
+                    {% endif %}
+                  {% endfor %}
+
+                  {# Single-level filters #}
+                  {% elseif item.value['#title']['#count'] > 0 %}
+                    <div{{ item.attributes.addClass('checkbox') }}>{{ item.value }}</div>
+                  {% endif %}
+                  {%- endfor -%}
+                </div>
+              </div>
+            {% endif %}
+
+            {% if items|length > 6 and items|length <= 20 %}
+              <div class="accordion-preview">
+                <div{{ attributes.addClass('links checkbox-filter__checkboxes') }}>
+                  {%- for item in items|slice(0,3) -%}
+                  {# Multi-level filters #}
+
+                  {% if (item.value.children) %}
+                </div>
+
+                <div{{ attributes.addClass('links checkbox-filter__checkboxes') }}>
+                  <h4
+                    class="checkbox-filter__category">{{ item.value['#title']['#original'] }}</h4>
+                  <div{{ item.attributes.addClass('checkbox full-width') }}>
+                    {{ item.value|without('children') }}
+                  </div>
+
+                  {% for child in item.value.children['#items'] %}
+                    {% if child['#title']['#count'] > 0 %}
+                      <div class="facet-item checkbox">{{ child }}</div>
+                    {% endif %}
+                  {% endfor %}
+
+                  {# Single-level filters #}
+                  {% elseif item.value['#title']['#count'] > 0 %}
+                    <div{{ item.attributes.addClass('checkbox') }}>{{ item.value }}</div>
+                  {% endif %}
+                  {%- endfor -%}
+                </div>
+              </div>
+
+              <div class="checkbox-accordion">
+                <div class="accordion--content" aria-hidden="true" hidden="hidden" id="hidden-options-more-than-6-">
+                  <div{{ attributes.addClass('links checkbox-filter__checkboxes') }}>
+                    {%- for item in items|slice(4, 6) -%}
+                    {# Multi-level filters #}
+
+                    {% if (item.value.children) %}
+                  </div>
+
+                  <div{{ attributes.addClass('links checkbox-filter__checkboxes') }}>
+                    <h4
+                      class="checkbox-filter__category">{{ item.value['#title']['#original'] }}</h4>
+                    <div{{ item.attributes.addClass('checkbox full-width') }}>
+                      {{ item.value|without('children') }}
+                    </div>
+
+                    {% for child in item.value.children['#items'] %}
+                      {% if child['#title']['#count'] > 0 %}
+                        <div class="facet-item checkbox">{{ child }}</div>
+                      {% endif %}
+                    {% endfor %}
+
+                    {# Single-level filters #}
+                    {% elseif item.value['#title']['#count'] > 0 %}
+                      <div{{ item.attributes.addClass('checkbox') }}>{{ item.value }}</div>
+                    {% endif %}
+                    {%- endfor -%}
+                  </div>
+                </div>
+                <button type="button" class="accordion--button button button-secondary button-small icon-left" aria-expanded="false" aria-controls="hidden-options-more-than-6-">
+                  {{ "Show more"|t }}
+                </button>
+              </div>
+            {% endif %}
+
+            {% if items|length > 20 %}
+              <section id="{{ modal.id }}"
+                       class="modal modal--fixed-height checkbox-filter__modal"
+                       tabindex="-1">
+                <div class="modal-inner">
+                  <div class="modal-header">
+                    <button type="button"
+                            class="button close icon-cross modal-close"
+                            data-target="{{ modal.id }}">
+                      {{ 'Close'|t }}
+                    </button>
+                  </div>
+
+                  <div class="modal-content">
+                    {%- if title is not empty -%}
+                      <h3>{{ title }}</h3>
+                    {%- endif -%}
+
+                    <div class="form-item">
+                      <label
+                        for="checkboxes__filter_id_{{ facet.id }}">{{ 'Filter the list below'|t }}</label>
+                      <div
+                        class="form-item checkbox-filter__filter__search-wrapper">
+                        <input type="search"
+                               id="checkboxes__filter_id_{{ facet.id }}"
+                               class="checkbox-filter__filter">
+
+                        <p aria-live="polite" aria-atomic="true"
+                           class="checkbox-filter__result-wrapper">
+                          {{ '%count filter(s) found'|t({'%count': items|length}) }}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div{{ attributes.addClass('links checkbox-filter__checkboxes') }}>
+                      {%- for item in items -%}
+                      {# Multi-level filters #}
+
+                      {% if (item.value.children) %}
+                    </div>
+
+                    <div{{ attributes.addClass('links checkbox-filter__checkboxes') }}>
+                      <h4
+                        class="checkbox-filter__category">{{ item.value['#title']['#original'] }}</h4>
+                      <div{{ item.attributes.addClass('checkbox full-width') }}>
+                        {{ item.value|without('children') }}
+                      </div>
+
+                      {% for child in item.value.children['#items'] %}
+                        {% if child['#title']['#count'] > 0 %}
+                          <div class="facet-item checkbox">{{ child }}</div>
+                        {% endif %}
+                      {% endfor %}
+
+                      {# Single-level filters #}
+                      {% elseif item.value['#title']['#count'] > 0 %}
+                        <div{{ item.attributes.addClass('checkbox') }}>{{ item.value }}</div>
+                      {% endif %}
+                      {%- endfor -%}
+                    </div>
+                  </div>
+
+                  <div class="modal-actions">
+                    <button type="button" class="button button-primary checkbox-filter__submit modal-close" data-target="{{ modal.id }}">
+                      {{ "Confirm selection"|t }}
+                    </button>
+                  </div>
+                </div>
+
+                <div class="modal-overlay modal-close checkbox-filter__close"
+                     data-target="{{ modal.id }}"></div>
+              </section>
+
+              <button type="button"
+                      class="button button-secondary button-small icon-left icon-search checkbox-filter__open"
+                      aria-controls="{{ modal.id }}" aria-expanded="false">
+                {% trans %}Show more{% endtrans %}
+              </button>
+            {% endif %}
+
+            <p class="checkbox-filter__count-wrapper hidden">
+              <strong>
+                {{ '%count item(s) selected'|t({'%count': items|length}) }}
+              </strong>
+            </p>
+
+          </div>
+          <div class="form-item-column"></div>
+        </div>
+      {%- else -%}
+        {{- empty -}}
+      {%- endif -%}
+    {%- endif %}
+  </fieldset>
 </form>
