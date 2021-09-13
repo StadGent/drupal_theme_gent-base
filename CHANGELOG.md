@@ -6,15 +6,22 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 ### Updated
 
-* Updated to stylgeguide 5.0.2
+* Update to stylgeguide 5.0.2
+  
+### Fixed
+
 * DTGB-862: Fix postinstall issue on jenkins
 * DTGB-863: Fix normalize conflict on header accolade
 * DTGB-852: Fix dynamic checkbox component
+  
+### Removed
+
 * DTGB-862: Remove fs-extra module again.
 
 ## [4.3.1]
 
 ### Fixed
+
 * Missing fs-extra module.
 
 ## [4.3.0]
@@ -591,18 +598,12 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 * **Updated to gent_styleguide version 2.6.13**
 
-<<<<<<< Updated upstream
+[4.3.1]: https://github.com/StadGent/drupal_theme_gent-base/compare/4.3.1...4.3.2
 [4.3.1]: https://github.com/StadGent/drupal_theme_gent-base/compare/4.3.0...4.3.1
 [4.3.0]: https://github.com/StadGent/drupal_theme_gent-base/compare/4.2.1...4.3.0
 [4.2.1]: https://github.com/StadGent/drupal_theme_gent-base/compare/4.1.0...4.2.1
 [4.1.0]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-4.0...8.x-4.1.0
 [4.0]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.3...8.x-4.0
-=======
-[8.x-4.3]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-4.2.1...8.x-4.3
-[8.x-4.2.1]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-4.1.0...8.x-4.2.1
-[8.x-4.1.0]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-4.0...8.x-4.1.0
-[8.x-4.0]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.3...8.x-4.0
->>>>>>> Stashed changes
 [8.x-3.0-beta17]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-beta16...8.x-3.0-beta17
 [8.x-3.0-beta16]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-beta15...8.x-3.0-beta16
 [8.x-3.0-beta15]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-beta14...8.x-3.0-beta15
