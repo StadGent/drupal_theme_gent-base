@@ -9,7 +9,7 @@
     attach: function (context, settings) {
       $('.checkbox-accordion', context).once('checkbox-accordion').each(function () {
         if (Accordion) { // eslint-disable-line no-undef
-          const selected = document.querySelectorAll('.checkbox-accordion');
+          let selected = document.querySelectorAll('.checkbox-accordion');
           for (let i = selected.length; i--;) {
             new Accordion(selected[i]); // eslint-disable-line no-undef
           }
@@ -18,7 +18,7 @@
 
       $('.checkbox-filter-dynamic', context).once('checkbox-filter-dynamic').each(function () {
         if (CheckboxFilterDynamic) { // eslint-disable-line no-undef
-          const selected = document.querySelectorAll('.checkbox-filter-dynamic');
+          let selected = document.querySelectorAll('.checkbox-filter-dynamic');
           for (let i = selected.length; i--;) {
             new CheckboxFilterDynamic(selected[i], { // eslint-disable-line no-undef
               checkboxes: '.facet-item.checkbox',
