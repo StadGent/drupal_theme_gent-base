@@ -25,6 +25,6 @@
   "private": true,
   "dependencies": {
     "@digipolis-gent/modal": "^1.0.3",
-    "gent_styleguide": "^5.0.2"
+    "gent_styleguide": "^5"
   }
 }

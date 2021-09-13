@@ -6,7 +6,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 ### Updated
 
-* Update to stylgeguide 5.0.2
+* Update to styleguide 5.0.2
   
 ### Fixed
 
