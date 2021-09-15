@@ -2,6 +2,12 @@
 
 All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
+## [4.3.3]
+
+### Fixed
+
+* DTGB-852: Fix dynamic checkbox component: removed duplicate entries
+
 ## [4.3.2]
 
 ### Updated
@@ -13,10 +19,6 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 * DTGB-862: Fix postinstall issue on jenkins
 * DTGB-863: Fix normalize conflict on header accolade
 * DTGB-852: Fix dynamic checkbox component
-  
-### Removed
-
-* DTGB-862: Remove fs-extra module again.
 
 ## [4.3.1]
 

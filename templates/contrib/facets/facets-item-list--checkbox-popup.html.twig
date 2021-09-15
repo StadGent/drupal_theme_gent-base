@@ -40,7 +40,7 @@
       {%- if items -%}
         <div class="form-columns">
           <div class="form-item-column">
-            {% if items|length <= 7 %}
+            {% if items|length < 7 %}
             <div{{ attributes.addClass('links checkbox-filter__checkboxes') }}>
               {%- for item in items -%}
                 {# Multi-level filters #}
@@ -157,6 +157,7 @@
                       <div{{ item.attributes.addClass('checkbox') }}>{{ item.value }}</div>
                     {% endif %}
                     {%- endfor -%}
+
                   </div>
                 </div>
                 <button type="button" class="accordion--button button button-secondary button-small icon-left" aria-expanded="false" aria-controls="hidden-options-more-than-6-">
