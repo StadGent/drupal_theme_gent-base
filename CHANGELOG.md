@@ -8,6 +8,10 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 * STIJ-393: Fix wrong padding on filter labels in filter/sidebar layout
 
+### Updated
+
+* Update to styleguide 5.0.4
+
 ## [4.3.3]
 
 ### Fixed
