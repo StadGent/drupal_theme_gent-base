@@ -39,15 +39,3 @@
     display: none;
   }
 }
-
-// Todo: fix in styleguide https://district09.atlassian.net/browse/STIJ-393
-.sidebar.filter-section {
-  form,
-  form .modal-content {
-    > fieldset {
-      > legend {
-        padding: 0;
-      }
-    }
-  }
-}
