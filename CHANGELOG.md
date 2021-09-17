@@ -2,6 +2,12 @@
 
 All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
+## [4.3.4]
+
+### Fixed
+
+* STIJ-393: Fix wrong padding on filter labels in filter/sidebar layout
+
 ## [4.3.3]
 
 ### Fixed
@@ -600,7 +606,9 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 * **Updated to gent_styleguide version 2.6.13**
 
-[4.3.1]: https://github.com/StadGent/drupal_theme_gent-base/compare/4.3.1...4.3.2
+[4.3.4]: https://github.com/StadGent/drupal_theme_gent-base/compare/4.3.3...4.3.4
+[4.3.3]: https://github.com/StadGent/drupal_theme_gent-base/compare/4.3.2...4.3.3
+[4.3.2]: https://github.com/StadGent/drupal_theme_gent-base/compare/4.3.1...4.3.2
 [4.3.1]: https://github.com/StadGent/drupal_theme_gent-base/compare/4.3.0...4.3.1
 [4.3.0]: https://github.com/StadGent/drupal_theme_gent-base/compare/4.2.1...4.3.0
 [4.2.1]: https://github.com/StadGent/drupal_theme_gent-base/compare/4.1.0...4.2.1
