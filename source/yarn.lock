@@ -55,9 +55,9 @@
   integrity sha512-8UT/J+xqCYfn3fKtOznAibsHpiuDshCb0fwgWxRazTT19Igp9ovoXMPhXyLD6m3CKQGTMHgqoxaFfMWaL40Rnw==
 
 "@types/node@*":
-  version "16.9.2"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.9.2.tgz#81f5a039d6ed1941f8cc57506c74e7c2b8fc64b9"
-  integrity sha512-ZHty/hKoOLZvSz6BtP1g7tc7nUeJhoCf3flLjh8ZEv1vFKBWHXcnMbJMyN/pftSljNyy0kNW/UqI3DccnBnZ8w==
+  version "16.9.6"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.9.6.tgz#040a64d7faf9e5d9e940357125f0963012e66f04"
+  integrity sha512-YHUZhBOMTM3mjFkXVcK+WwAcYmyhe1wL4lfqNtzI0b3qAy7yuSetnM7QJazgE5PFmgVTNGiLOgRFfJMqW7XpSQ==
 
 "@types/yauzl@^2.9.1":
   version "2.9.2"
@@ -1414,9 +1414,9 @@ functional-red-black-tree@^1.0.1:
   integrity sha1-GwqzvVU7Kg1jmdKcDj6gslIHgyc=
 
 gent_styleguide@^5:
-  version "5.0.4"
-  resolved "https://registry.yarnpkg.com/gent_styleguide/-/gent_styleguide-5.0.4.tgz#4ae94b04d019b3f4eb326dde56fb55f6bd69a94e"
-  integrity sha512-7SEELsXbLk2VuBhqq4GViVIhaXgCkGr/zuQ5wI2ubs55xfP/w8pdu/s3LBTmZKq0UYJm738HrKnKY7c9rvLo5A==
+  version "5.0.6"
+  resolved "https://registry.yarnpkg.com/gent_styleguide/-/gent_styleguide-5.0.6.tgz#58cda2b08085d68055b0d2d545ca1dc8401d3ff3"
+  integrity sha512-+KP39fFJS90QdHCtvzqv/4A+t0IVMnGfONqyh/iISVmSsCmeYlLv81raV6JlA8BSE+KkHUbdIyLPBkPl7dOraA==
   dependencies:
     "@digipolis-gent/modal" "^1.0.2"
     acorn "^8.0.1"

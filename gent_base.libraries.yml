@@ -69,6 +69,7 @@ checkbox_filter:
     build/styleguide/js/checkbox_dynamic.functions-min.js: { minified: true }
     source/js/checkbox_filter.bindings.js: {}
   dependencies:
+    - gent_base/accordion
     - gent_base/filter
     - core/jquery
     - core/jquery.once

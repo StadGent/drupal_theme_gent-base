@@ -2,6 +2,12 @@
 
 All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
+## [4.3.5]
+
+### Updated
+
+* STIJ-394: Update styleguide to 5.0.6
+
 ## [4.3.4]
 
 ### Fixed
