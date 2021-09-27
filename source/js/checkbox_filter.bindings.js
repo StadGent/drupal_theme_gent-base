@@ -8,19 +8,19 @@
   Drupal.behaviors.gentBaseLoadCheckboxFilters = {
     attach: function (context, settings) {
       $('.checkbox-accordion', context).once('checkbox-accordion').each(function () {
-        if (Accordion) { // eslint-disable-line no-undef
+        if (typeof Accordion == "undefined") {
           const selected = document.querySelectorAll('.checkbox-accordion'); /* eslint-env es6 */
           for (let i = selected.length; i--;) {
-            new Accordion(selected[i]); // eslint-disable-line no-undef
+            new Accordion(selected[i]);
           }
         }
       });
 
       $('.checkbox-filter-dynamic', context).once('checkbox-filter-dynamic').each(function () {
-        if (CheckboxFilterDynamic) { // eslint-disable-line no-undef
+        if (typeof CheckboxFilterDynamic == "undefined") {
           const selected = document.querySelectorAll('.checkbox-filter-dynamic'); /* eslint-env es6 */
           for (let i = selected.length; i--;) {
-            new CheckboxFilterDynamic(selected[i], { // eslint-disable-line no-undef
+            new CheckboxFilterDynamic(selected[i], {
               checkboxes: '.facet-item.checkbox',
               hiddenTagText: 'Remove tag',
               resultSpan: '.checkbox-filter__result-wrapper em',
