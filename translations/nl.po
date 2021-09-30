@@ -42,8 +42,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2020-09-18 15:36+0200\n"
-"PO-Revision-Date: 2020-09-18 15:39+0200\n"
+"POT-Creation-Date: 2021-09-30 10:34+0200\n"
+"PO-Revision-Date: 2021-09-30 10:36+0200\n"
 "Last-Translator: Helena Standaert <helena.standaert@digipolis.gent>\n"
 "Language-Team: Digipolis <tbweb@gent.be>\n"
 "Language: nl\n"
@@ -51,7 +51,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.3.1\n"
+"X-Generator: Poedit 2.4.2\n"
 
 #: themes/contrib/gent_base/theme-settings.php:21
 msgid "Gent Base settings"
@@ -89,48 +89,48 @@ msgstr ""
 "favicon correct in te stellen voor Android + Windows telefoons en voor "
 "Apple's computers met Touch Bar."
 
-#: themes/contrib/gent_base/gent_base.theme:319;319
+#: themes/contrib/gent_base/gent_base.theme:288;288
 msgid "Search"
 msgstr "Zoeken"
 
-#: themes/contrib/gent_base/gent_base.theme:461
+#: themes/contrib/gent_base/gent_base.theme:430
 msgid "programme"
 msgstr "programma"
 
-#: themes/contrib/gent_base/gent_base.theme:466
+#: themes/contrib/gent_base/gent_base.theme:435
 msgid "timeline"
 msgstr "tijdslijn"
 
-#: themes/contrib/gent_base/gent_base.theme:550
+#: themes/contrib/gent_base/gent_base.theme:519
 msgid "There is 1 other document"
 msgstr "Er is 1 ander document"
 
-#: themes/contrib/gent_base/gent_base.theme:553
+#: themes/contrib/gent_base/gent_base.theme:522
 msgid "There are @count other documents"
 msgstr "Er zijn @count andere documenten"
 
-#: themes/contrib/gent_base/gent_base.theme:717
+#: themes/contrib/gent_base/gent_base.theme:686
 msgid "Add new files"
 msgstr "Voeg nieuwe bestanden toe"
 
-#: themes/contrib/gent_base/gent_base.theme:1183
+#: themes/contrib/gent_base/gent_base.theme:1187
 msgid "@category - All"
 msgstr "@category - Alle"
 
-#: themes/contrib/gent_base/gent_base.theme:1233
+#: themes/contrib/gent_base/gent_base.theme:1238
 #: themes/contrib/gent_base/templates/contrib/dg_maps/dg-maps-map-region.html.twig:14
 msgid "View on the map"
 msgstr "Toon op de kaart"
 
-#: themes/contrib/gent_base/gent_base.theme:1298
+#: themes/contrib/gent_base/gent_base.theme:1303
 msgid "Allowed types: @extensions."
 msgstr "Toegestane bestandsformaten: @extensions."
 
-#: themes/contrib/gent_base/gent_base.theme:1301
+#: themes/contrib/gent_base/gent_base.theme:1306
 msgid "Max filesize: @size."
 msgstr "Maximum bestandsgrootte: @size."
 
-#: themes/contrib/gent_base/gent_base.theme:1307
+#: themes/contrib/gent_base/gent_base.theme:1312
 msgid "Images must be larger than @min pixels."
 msgstr "Afbeeldingen moeten groter zijn dan @min pixels."
 
@@ -148,7 +148,8 @@ msgstr "Legende"
 
 #: themes/contrib/gent_base/source/js/dg_maps.datalayerswitcher.js:0
 #: themes/contrib/gent_base/templates/contrib/dg_maps/dg-maps-map.html.twig:71
-#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-popup.html.twig:51
+#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-popup.html.twig:48
+#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox.html.twig:178
 #: themes/contrib/gent_base/templates/contrib/paragraphs/timeline/paragraph--timeline-item--alt.html.twig:48
 #: themes/contrib/gent_base/templates/core/layout/page.html.twig:129
 #: themes/contrib/gent_base/templates/core/layout/region--filters.html.twig:29
@@ -185,11 +186,11 @@ msgstr "Gent"
 msgid "Fill in all fields unless otherwise stated."
 msgstr "Alle velden zijn verplicht, tenzij anders aangegeven."
 
-#: themes/contrib/gent_base/templates/contrib/dg-auth/dg-auth-block.html.twig:28
+#: themes/contrib/gent_base/templates/contrib/dg-auth/dg-auth-block.html.twig:37
 msgid "Mijn Gent"
 msgstr "Mijn Gent"
 
-#: themes/contrib/gent_base/templates/contrib/dg-auth/dg-auth-block.html.twig:35
+#: themes/contrib/gent_base/templates/contrib/dg-auth/dg-auth-block.html.twig:44
 msgid "Show profile"
 msgstr "Bekijk profiel"
 
@@ -205,26 +206,37 @@ msgstr "Kaart"
 msgid "List"
 msgstr "Lijst"
 
-#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-popup.html.twig:63
+#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-popup.html.twig:60
+#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox.html.twig:189
 msgid "Filter the list below"
 msgstr "Filter onderstaande lijst"
 
-#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-popup.html.twig:68
+#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-popup.html.twig:65
+#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox.html.twig:198
 msgid "%count filter(s) found"
 msgstr "%count filter(s) gevonden"
 
-#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-popup.html.twig:102
+#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-popup.html.twig:98;98
 #: themes/contrib/gent_base/templates/core/layout/region--filters.html.twig:38
-msgid "Confirm selection"
-msgstr "Bevestig selectie"
+msgid "Show results"
+msgstr "Toon resultaten"
 
-#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-popup.html.twig:111
+#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-popup.html.twig:107
+#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox.html.twig:251
 msgid "%count item(s) selected"
 msgstr "%count item(s) geselecteerd"
 
-#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-popup.html.twig:116
+#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-popup.html.twig:112
+msgid "Select ..."
+msgstr "Selecteer …"
+
+#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox.html.twig:164;245
 msgid "Show more"
 msgstr "Toon meer"
+
+#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox.html.twig:233
+msgid "Confirm selection"
+msgstr "Bevestig selectie"
 
 #: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--range-slider.html.twig:42
 msgid "From %min to %max year"
@@ -244,7 +256,7 @@ msgstr[1] "Er zijn @count resultaten"
 msgid "You have selected"
 msgstr "Je filterde op"
 
-#: themes/contrib/gent_base/templates/contrib/facets/facets-summary-item-list.html.twig:63
+#: themes/contrib/gent_base/templates/contrib/facets/facets-summary-item-list.html.twig:67
 #: themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig:99
 msgid "Filters"
 msgstr "Filters"
@@ -285,9 +297,9 @@ msgstr "Ook interessant"
 
 #: themes/contrib/gent_base/templates/core/block/block--mainnavigation.html.twig:36
 msgid "Menu"
-msgstr "m"
+msgstr "Menu"
 
-#: themes/contrib/gent_base/templates/core/block/block--search-help.html.twig:2
+#: themes/contrib/gent_base/templates/core/block/block--search-help.html.twig:3
 msgid ""
 "As soon as you start searching, you can filter the results of your search "
 "here."
@@ -321,7 +333,7 @@ msgid "Show all photos"
 msgstr "Bekijk alle foto's"
 
 #: themes/contrib/gent_base/templates/core/form/fieldset.html.twig:50
-#: themes/contrib/gent_base/templates/core/form/form-element-label.html.twig:30
+#: themes/contrib/gent_base/templates/core/form/form-element-label.html.twig:31
 msgid "Optional"
 msgstr "Optioneel"
 
