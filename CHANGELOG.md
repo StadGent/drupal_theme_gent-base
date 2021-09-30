@@ -2,6 +2,18 @@
 
 All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
+## [4.3.6]
+
+### Fixed
+
+* Fix missing vendor folder in gent_styleguide dependency
+* Fix checkbox-popup component because checkbox-dynamic doesn't support 
+  multiple categories layout in modal
+
+### Updated
+
+* Update styleguide to 5.0.10
+
 ## [4.3.5]
 
 ### Updated

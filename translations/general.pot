@@ -11,6 +11,7 @@
 #  themes/contrib/gent_base/source/js/dg_maps.datalayerswitcher.js: n/a
 #  themes/contrib/gent_base/templates/contrib/dg_maps/dg-maps-map.html.twig: n/a
 #  themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-popup.html.twig: n/a
+#  themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox.html.twig: n/a
 #  themes/contrib/gent_base/templates/contrib/paragraphs/timeline/paragraph--timeline-item--alt.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/layout/page.html.twig: n/a
 #  themes/contrib/gent_base/templates/core/layout/region--filters.html.twig: n/a
@@ -58,7 +59,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2020-09-18 15:36+0200\n"
+"POT-Creation-Date: 2021-09-30 10:34+0200\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -91,47 +92,47 @@ msgstr ""
 msgid "Fill in the color scheme primary HEX color to be used in your project, leave empty for the default color scheme. This setting is only used for displaying the favicon correctly on Android + Windows phones and Apple's Touch Bar enabled computers."
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:319;319
+#: themes/contrib/gent_base/gent_base.theme:288;288
 msgid "Search"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:461
+#: themes/contrib/gent_base/gent_base.theme:430
 msgid "programme"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:466
+#: themes/contrib/gent_base/gent_base.theme:435
 msgid "timeline"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:550
+#: themes/contrib/gent_base/gent_base.theme:519
 msgid "There is 1 other document"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:553
+#: themes/contrib/gent_base/gent_base.theme:522
 msgid "There are @count other documents"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:717
+#: themes/contrib/gent_base/gent_base.theme:686
 msgid "Add new files"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:1183
+#: themes/contrib/gent_base/gent_base.theme:1187
 msgid "@category - All"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:1233 themes/contrib/gent_base/templates/contrib/dg_maps/dg-maps-map-region.html.twig:14
+#: themes/contrib/gent_base/gent_base.theme:1238 themes/contrib/gent_base/templates/contrib/dg_maps/dg-maps-map-region.html.twig:14
 msgid "View on the map"
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:1298
+#: themes/contrib/gent_base/gent_base.theme:1303
 msgid "Allowed types: @extensions."
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:1301
+#: themes/contrib/gent_base/gent_base.theme:1306
 msgid "Max filesize: @size."
 msgstr ""
 
-#: themes/contrib/gent_base/gent_base.theme:1307
+#: themes/contrib/gent_base/gent_base.theme:1312
 msgid "Images must be larger than @min pixels."
 msgstr ""
 
@@ -147,7 +148,7 @@ msgstr ""
 msgid "Legend"
 msgstr ""
 
-#: themes/contrib/gent_base/source/js/dg_maps.datalayerswitcher.js:0 themes/contrib/gent_base/templates/contrib/dg_maps/dg-maps-map.html.twig:71 themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-popup.html.twig:51 themes/contrib/gent_base/templates/contrib/paragraphs/timeline/paragraph--timeline-item--alt.html.twig:48 themes/contrib/gent_base/templates/core/layout/page.html.twig:129 themes/contrib/gent_base/templates/core/layout/region--filters.html.twig:29 themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig:55
+#: themes/contrib/gent_base/source/js/dg_maps.datalayerswitcher.js:0 themes/contrib/gent_base/templates/contrib/dg_maps/dg-maps-map.html.twig:71 themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-popup.html.twig:48 themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox.html.twig:178 themes/contrib/gent_base/templates/contrib/paragraphs/timeline/paragraph--timeline-item--alt.html.twig:48 themes/contrib/gent_base/templates/core/layout/page.html.twig:129 themes/contrib/gent_base/templates/core/layout/region--filters.html.twig:29 themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig:55
 msgid "Close"
 msgstr ""
 
@@ -179,11 +180,11 @@ msgstr ""
 msgid "Fill in all fields unless otherwise stated."
 msgstr ""
 
-#: themes/contrib/gent_base/templates/contrib/dg-auth/dg-auth-block.html.twig:28
+#: themes/contrib/gent_base/templates/contrib/dg-auth/dg-auth-block.html.twig:37
 msgid "Mijn Gent"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/contrib/dg-auth/dg-auth-block.html.twig:35
+#: themes/contrib/gent_base/templates/contrib/dg-auth/dg-auth-block.html.twig:44
 msgid "Show profile"
 msgstr ""
 
@@ -199,24 +200,32 @@ msgstr ""
 msgid "List"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-popup.html.twig:63
+#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-popup.html.twig:60 themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox.html.twig:189
 msgid "Filter the list below"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-popup.html.twig:68
+#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-popup.html.twig:65 themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox.html.twig:198
 msgid "%count filter(s) found"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-popup.html.twig:102 themes/contrib/gent_base/templates/core/layout/region--filters.html.twig:38
+#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-popup.html.twig:98;98 themes/contrib/gent_base/templates/core/layout/region--filters.html.twig:38
 msgid "Show results"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-popup.html.twig:111
+#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-popup.html.twig:107 themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox.html.twig:251
 msgid "%count item(s) selected"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-popup.html.twig:116
+#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox-popup.html.twig:112
 msgid "Select ..."
+msgstr ""
+
+#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox.html.twig:164;245
+msgid "Show more"
+msgstr ""
+
+#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--checkbox.html.twig:233
+msgid "Confirm selection"
 msgstr ""
 
 #: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--range-slider.html.twig:42
@@ -237,7 +246,7 @@ msgstr[1] ""
 msgid "You have selected"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/contrib/facets/facets-summary-item-list.html.twig:63 themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig:99
+#: themes/contrib/gent_base/templates/contrib/facets/facets-summary-item-list.html.twig:67 themes/contrib/gent_base/templates/core/views/views-with-sidebar-layout.html.twig:99
 msgid "Filters"
 msgstr ""
 
@@ -277,7 +286,7 @@ msgstr ""
 msgid "Menu"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/block/block--search-help.html.twig:2
+#: themes/contrib/gent_base/templates/core/block/block--search-help.html.twig:3
 msgid "As soon as you start searching, you can filter the results of your search here."
 msgstr ""
 
@@ -305,7 +314,7 @@ msgstr ""
 msgid "Show all photos"
 msgstr ""
 
-#: themes/contrib/gent_base/templates/core/form/fieldset.html.twig:50 themes/contrib/gent_base/templates/core/form/form-element-label.html.twig:30
+#: themes/contrib/gent_base/templates/core/form/fieldset.html.twig:50 themes/contrib/gent_base/templates/core/form/form-element-label.html.twig:31
 msgid "Optional"
 msgstr ""
 
