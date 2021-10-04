@@ -7,12 +7,12 @@
 
   Drupal.behaviors.gentBaseBreadcrumbs = {
     attach: function (context, settings) {
-      if (!Breadcrumbs) { // eslint-disable-line no-undef
+      if (typeof Breadcrumbs == "undefined") {
         return;
       }
 
       $('.breadcrumb').once('gent_base_breadcrumb').each(function () {
-        new Breadcrumbs(this); // eslint-disable-line no-undef
+        new Breadcrumbs(this);
       });
     }
   };

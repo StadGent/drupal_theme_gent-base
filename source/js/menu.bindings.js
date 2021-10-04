@@ -7,14 +7,13 @@
 
   Drupal.behaviors.gentBaseLoadMenu = {
     attach: function (context, settings) {
-      if (!Modal) { // eslint-disable-line no-undef
+      if (typeof Modal == "undefined") {
         return;
       }
 
       var menu = document.querySelectorAll('.modal.menu');
 
       var createModal = function (modal) {
-        // eslint-disable-next-line no-undef
         new Modal(modal, {
           // The modal is always visible from tablet and up,
           // this is atypical.

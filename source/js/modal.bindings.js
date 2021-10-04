@@ -7,12 +7,12 @@
 
   Drupal.behaviors.gentBaseLoadModal = {
     attach: function (context, settings) {
-      if (!Modal) { // eslint-disable-line no-undef
+      if (typeof Modal == "undefined") {
         return;
       }
 
       $('.modal:not(.has-custom-binding)', context).once('modal').each(function () {
-        new Modal(this); // eslint-disable-line no-undef
+        new Modal(this);
       });
     }
   };

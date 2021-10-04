@@ -7,13 +7,12 @@
 
   Drupal.behaviors.gentBaseLoadFilters = {
     attach: function (context, settings) {
-      if (!Modal) { // eslint-disable-line no-undef
+      if (typeof Modal == "undefined") {
         return;
       }
 
       $('#filter', context).once('filter').each(function () {
         var self = this;
-        // eslint-disable-next-line no-undef
         new Modal(this, {
           // The modal is always visible from tablet and up,
           // this is atypical.

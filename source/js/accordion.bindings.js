@@ -7,7 +7,7 @@
 
   Drupal.behaviors.gentBaseLoadAccordion = {
     attach: function (context, settings) {
-      if (!Accordion) { // eslint-disable-line no-undef
+      if (typeof Accordion == "undefined") {
         return;
       }
 
@@ -17,7 +17,7 @@
         var headerAccordion = document.querySelector('header .accordion');
 
         if (headerAccordion !== this) {
-          new Accordion(this); // eslint-disable-line no-undef
+          new Accordion(this);
         }
         else {
           headerAccordion.addEventListener('click', function (e) {
@@ -28,7 +28,7 @@
             }
 
             headerAccordionButton.setAttribute('init', true);
-            new Accordion(headerAccordion); // eslint-disable-line no-undef
+            new Accordion(headerAccordion);
             TimeOut(headerAccordionButton);
           });
         }

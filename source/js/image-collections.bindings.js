@@ -8,11 +8,11 @@
   Drupal.behaviors.gentBaseLoadImageCollections = {
     attach: function (context, settings) {
 
-      if (!baguetteBox) { // eslint-disable-line no-undef
+      if (typeof baguetteBox == "undefined") {
         return;
       }
 
-      baguetteBox.run('.js-lightbox', { // eslint-disable-line no-undef
+      baguetteBox.run('.js-lightbox', {
         filter: /.*/i,
         async: true,
         captions: function (element) {
