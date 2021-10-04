@@ -1,5 +1,3 @@
-/* global allieTabs */
-
 /**
  * @file
  * Filter component binding.
@@ -9,7 +7,7 @@
 
   Drupal.behaviors.gentBaseLoadDGMaps = {
     attach: function (context, settings) {
-      if (!allieTabs) { // eslint-disable-line no-undef
+      if (typeof allieTabs == "undefined") {
         return;
       }
 
