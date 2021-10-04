@@ -10,20 +10,20 @@
 
       (function () {
 
-        if (!Masonry || !imagesLoaded) { // eslint-disable-line no-undef
+        if (typeof Masonry == "undefined" || typeof imagesLoaded == "undefined") {
           return;
         }
 
         var grid = document.querySelector('.image-wall');
 
-        var msnry = new Masonry(grid, { // eslint-disable-line no-undef
+        var msnry = new Masonry(grid, {
           columnWidth: 'li:not(.hidden)',
           itemSelector: 'li',
           transitionDuration: 0,
           gutter: 24
         });
 
-        imagesLoaded(grid).on('progress', function () { // eslint-disable-line no-undef
+        imagesLoaded(grid).on('progress', function () {
           msnry.layout();
         });
 
