@@ -2,6 +2,18 @@
 
 All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
+## [4.3.8]
+
+### Fixed
+
+DTGB-865: Fix js:validate errors
+
+## [4.3.7]
+
+### Fixed
+
+DTGB-865: Fix undefined variables
+
 ## [4.3.6]
 
 ### Fixed
@@ -628,6 +640,10 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 * **Updated to gent_styleguide version 2.6.13**
 
+[4.3.8]: https://github.com/StadGent/drupal_theme_gent-base/compare/4.3.7...4.3.8
+[4.3.7]: https://github.com/StadGent/drupal_theme_gent-base/compare/4.3.6...4.3.7
+[4.3.6]: https://github.com/StadGent/drupal_theme_gent-base/compare/4.3.5...4.3.6
+[4.3.5]: https://github.com/StadGent/drupal_theme_gent-base/compare/4.3.4...4.3.5
 [4.3.4]: https://github.com/StadGent/drupal_theme_gent-base/compare/4.3.3...4.3.4
 [4.3.3]: https://github.com/StadGent/drupal_theme_gent-base/compare/4.3.2...4.3.3
 [4.3.2]: https://github.com/StadGent/drupal_theme_gent-base/compare/4.3.1...4.3.2

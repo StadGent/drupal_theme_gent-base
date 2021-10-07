@@ -7,8 +7,8 @@
 
   Drupal.behaviors.gentBaseLoadImageCollections = {
     attach: function (context, settings) {
-
-      if (typeof baguetteBox == "undefined") {
+      /* global baguetteBox */
+      if (typeof baguetteBox == 'undefined') {
         return;
       }
 

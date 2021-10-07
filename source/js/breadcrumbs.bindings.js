@@ -7,7 +7,8 @@
 
   Drupal.behaviors.gentBaseBreadcrumbs = {
     attach: function (context, settings) {
-      if (typeof Breadcrumbs == "undefined") {
+      /* global Breadcrumbs */
+      if (typeof Breadcrumbs == 'undefined') {
         return;
       }
 

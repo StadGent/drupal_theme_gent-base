@@ -7,10 +7,11 @@
 
   Drupal.behaviors.gentBaseLoadModal = {
     attach: function (context, settings) {
-      if (typeof Modal == "undefined") {
+      if (typeof Modal == 'undefined') {
         return;
       }
 
+      /* global Modal */
       $('.modal:not(.has-custom-binding)', context).once('modal').each(function () {
         new Modal(this);
       });
