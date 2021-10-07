@@ -7,13 +7,14 @@
 
   Drupal.behaviors.gentBaseLoadMenu = {
     attach: function (context, settings) {
-      if (typeof Modal == "undefined") {
+      if (typeof Modal == 'undefined') {
         return;
       }
 
       var menu = document.querySelectorAll('.modal.menu');
 
       var createModal = function (modal) {
+        /* global Modal */
         new Modal(modal, {
           // The modal is always visible from tablet and up,
           // this is atypical.

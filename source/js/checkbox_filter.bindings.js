@@ -7,8 +7,9 @@
 
   Drupal.behaviors.gentBaseLoadCheckboxFilters = {
     attach: function (context, settings) {
+      /* global Accordion */
       $('.checkbox-accordion', context).once('checkbox-accordion').each(function () {
-        if (typeof Accordion != "undefined") {
+        if (typeof Accordion != 'undefined') {
           const selected = document.querySelectorAll('.checkbox-accordion'); /* eslint-env es6 */
           for (let i = selected.length; i--;) {
             new Accordion(selected[i]);
@@ -16,8 +17,9 @@
         }
       });
 
+      /* global CheckboxFilterDynamic */
       $('.checkbox-filter-dynamic', context).once('checkbox-filter-dynamic').each(function () {
-        if (typeof CheckboxFilterDynamic != "undefined") {
+        if (typeof CheckboxFilterDynamic != 'undefined') {
           const selected = document.querySelectorAll('.checkbox-filter-dynamic'); /* eslint-env es6 */
           for (let i = selected.length; i--;) {
             new CheckboxFilterDynamic(selected[i], {

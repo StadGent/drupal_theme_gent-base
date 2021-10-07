@@ -7,7 +7,8 @@
 
   Drupal.behaviors.gentBaseLoadAccordion = {
     attach: function (context, settings) {
-      if (typeof Accordion == "undefined") {
+      /* global Accordion */
+      if (typeof Accordion == 'undefined') {
         return;
       }
 

@@ -7,7 +7,7 @@
 
   Drupal.behaviors.gentBaseLoadDGMaps = {
     attach: function (context, settings) {
-      if (typeof allieTabs == "undefined") {
+      if (typeof allieTabs == 'undefined') {
         return;
       }
 
@@ -24,6 +24,7 @@
      *   The element to apply tabs to.
      */
     initTabs: function (element) {
+      /* global allieTabs */
       allieTabs.init(element, {
         changeTab: function (tab, tabs, tabpanels, component, init) {
           for (var i = tabs.length; i > 0; i--) {

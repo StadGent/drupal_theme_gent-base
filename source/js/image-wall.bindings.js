@@ -10,12 +10,13 @@
 
       (function () {
 
-        if (typeof Masonry == "undefined" || typeof imagesLoaded == "undefined") {
+        if (typeof Masonry == 'undefined' || typeof imagesLoaded == 'undefined') {
           return;
         }
 
         var grid = document.querySelector('.image-wall');
 
+        /* global Masonry */
         var msnry = new Masonry(grid, {
           columnWidth: 'li:not(.hidden)',
           itemSelector: 'li',
@@ -23,6 +24,7 @@
           gutter: 24
         });
 
+        /* global imagesLoaded */
         imagesLoaded(grid).on('progress', function () {
           msnry.layout();
         });
