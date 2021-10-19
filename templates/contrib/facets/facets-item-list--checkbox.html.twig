@@ -133,7 +133,8 @@
               <div class="checkbox-accordion">
                 <div class="accordion--content" aria-hidden="true" hidden="hidden" id="hidden-options-more-than-6-">
                   <div{{ attributes.addClass('links checkbox-filter__checkboxes') }}>
-                    {%- for item in items|slice(3, 6) -%}
+                    {%- for item in items|slice(3, 19) -%}
+                    
                     {# Multi-level filters #}
 
                     {% if (item.value.children) %}
