@@ -102,6 +102,9 @@
               <li>
                 <i class="icon-envelope" aria-hidden="true"></i>
                 <span>
+                  {% if email.note is not empty %}
+                    {{ email.note }}:&nbsp;
+                  {% endif %}
                   <a href="mailto:{{ email.value }}">{{ email.value }}</a>
                 </span>
               </li>
