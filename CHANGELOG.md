@@ -2,17 +2,27 @@
 
 All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
+## [4.3.9]
+
+### Added
+
+* SGD8-2086: Add vesta email note (label)
+
+### Fixed
+
+* DTGB-867: Fix faulty twig array slice
+
 ## [4.3.8]
 
 ### Fixed
 
-DTGB-865: Fix js:validate errors
+* DTGB-865: Fix js:validate errors
 
 ## [4.3.7]
 
 ### Fixed
 
-DTGB-865: Fix undefined variables
+* DTGB-865: Fix undefined variables
 
 ## [4.3.6]
 
@@ -640,6 +650,7 @@ DTGB-865: Fix undefined variables
 
 * **Updated to gent_styleguide version 2.6.13**
 
+[4.3.8]: https://github.com/StadGent/drupal_theme_gent-base/compare/4.3.8...4.3.9
 [4.3.8]: https://github.com/StadGent/drupal_theme_gent-base/compare/4.3.7...4.3.8
 [4.3.7]: https://github.com/StadGent/drupal_theme_gent-base/compare/4.3.6...4.3.7
 [4.3.6]: https://github.com/StadGent/drupal_theme_gent-base/compare/4.3.5...4.3.6
