@@ -66,10 +66,9 @@ facet_range_slider:
 checkbox_filter:
   version: 1.x
   js:
-    build/styleguide/js/checkbox_dynamic.functions-min.js: { minified: true }
+    build/styleguide/js/checkbox_filter.functions-min.js: { minified: true }
     source/js/checkbox_filter.bindings.js: {}
   dependencies:
-    - gent_base/accordion
     - gent_base/filter
     - core/jquery
     - core/jquery.once
