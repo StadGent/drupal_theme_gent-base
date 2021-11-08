@@ -2,6 +2,12 @@
 
 All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
+## [4.3.10]
+
+### Fixed
+
+* Fix checkbox components by reverting update to dynamic.
+
 ## [4.3.9]
 
 ### Added
@@ -650,7 +656,8 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 * **Updated to gent_styleguide version 2.6.13**
 
-[4.3.8]: https://github.com/StadGent/drupal_theme_gent-base/compare/4.3.8...4.3.9
+[4.3.10]: https://github.com/StadGent/drupal_theme_gent-base/compare/4.3.9...4.3.10
+[4.3.9]: https://github.com/StadGent/drupal_theme_gent-base/compare/4.3.8...4.3.9
 [4.3.8]: https://github.com/StadGent/drupal_theme_gent-base/compare/4.3.7...4.3.8
 [4.3.7]: https://github.com/StadGent/drupal_theme_gent-base/compare/4.3.6...4.3.7
 [4.3.6]: https://github.com/StadGent/drupal_theme_gent-base/compare/4.3.5...4.3.6
