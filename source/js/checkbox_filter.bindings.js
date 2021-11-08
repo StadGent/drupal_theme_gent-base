@@ -7,32 +7,20 @@
 
   Drupal.behaviors.gentBaseLoadCheckboxFilters = {
     attach: function (context, settings) {
-      /* global Accordion */
-      $('.checkbox-accordion', context).once('checkbox-accordion').each(function () {
-        if (typeof Accordion != 'undefined') {
-          const selected = document.querySelectorAll('.checkbox-accordion'); /* eslint-env es6 */
-          for (let i = selected.length; i--;) {
-            new Accordion(selected[i]);
-          }
-        }
-      });
+      if (!CheckboxFilter) { // eslint-disable-line no-undef
+        return;
+      }
 
-      /* global CheckboxFilterDynamic */
-      $('.checkbox-filter-dynamic', context).once('checkbox-filter-dynamic').each(function () {
-        if (typeof CheckboxFilterDynamic != 'undefined') {
-          const selected = document.querySelectorAll('.checkbox-filter-dynamic'); /* eslint-env es6 */
-          for (let i = selected.length; i--;) {
-            new CheckboxFilterDynamic(selected[i], {
-              checkboxes: '.facet-item.checkbox',
-              hiddenTagText: 'Remove tag',
-              resultSpan: '.checkbox-filter__result-wrapper em',
-              countSpan: '.checkbox-filter__count-wrapper em',
-              onRemoveTag: function (checkbox) {
-                $(checkbox).trigger('change.facets');
-              }
-            });
+      $('.checkbox-filter', context).once('checkbox-filter').each(function () {
+        new CheckboxFilter(this, { // eslint-disable-line no-undef
+          checkboxes: '.facet-item.checkbox',
+          hiddenTagText: 'Remove tag',
+          countSpan: '.checkbox-filter__count-wrapper em',
+          resultSpan: '.checkbox-filter__result-wrapper em',
+          onRemoveTag: function (checkbox) {
+            $(checkbox).trigger('change.facets');
           }
-        }
+        });
       });
     }
   };
