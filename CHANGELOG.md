@@ -2,6 +2,12 @@
 
 All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
+## [4.3.11]
+
+### Added
+
+* GSVU-302: Add icon cart
+
 ## [4.3.10]
 
 ### Fixed
@@ -656,6 +662,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 * **Updated to gent_styleguide version 2.6.13**
 
+[4.3.11]: https://github.com/StadGent/drupal_theme_gent-base/compare/4.3.10...4.3.11
 [4.3.10]: https://github.com/StadGent/drupal_theme_gent-base/compare/4.3.9...4.3.10
 [4.3.9]: https://github.com/StadGent/drupal_theme_gent-base/compare/4.3.8...4.3.9
 [4.3.8]: https://github.com/StadGent/drupal_theme_gent-base/compare/4.3.7...4.3.8
