@@ -104,9 +104,11 @@
 
         // Add a header based on the row heading.
         if (rowHeadingsNodeList.length) {
-          var header = document.createElement(options.headingType);
-          header.innerHTML = row.querySelector('th[scope="row"]').innerHTML;
-          listItem.appendChild(header);
+          for (var k = 0; k < rowHeadingsNodeList.length; k++) {
+            var header = document.createElement(options.headingType);
+            header.textContent = rowHeadingsNodeList[k].textContent;
+            listItem.appendChild(header);
+          }
         }
 
         // Create the definition list containing all columns as dd's.
