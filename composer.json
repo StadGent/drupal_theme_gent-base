@@ -13,7 +13,7 @@
         "php": "^7.3"
     },
     "require-dev": {
-        "digipolisgent/qa-drupal": "~1.3.7",
+        "digipolisgent/qa-drupal": "~1.4",
         "drupal/paragraphs": "^1.12",
         "drupal/webform": "^6.0",
         "gent-drupal/dg_vesta": "^1.0"
@@ -22,7 +22,11 @@
         "platform": {
             "php": "7.3"
         },
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "phpro/grumphp-shim": true,
+            "ergebnis/composer-normalize": true
+        }
     },
     "extra": {
         "grumphp": {
