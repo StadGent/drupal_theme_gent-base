@@ -2,6 +2,16 @@
 
 All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
+## [Unreleased]
+
+### Changed
+
+* DTGB-868: Change minimal PHP version to 7.4.
+
+### Updated
+
+* DTGB-868: Update qa-drupal to 1.5.x.
+
 ## [4.4.0]
 
 ### Fixed
