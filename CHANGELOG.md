@@ -2,6 +2,22 @@
 
 All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
+## [4.4.0]
+
+### Fixed
+
+* DTGB-868: Fix pager to support d9
+* DTGB-869: Fix JS errors on responsive tables
+
+### Updated
+
+* Update styleguide to 5.0.15: fix STIJ-396 and STIJ-397
+* Update dev dependency: qa-drupal
+
+### Refactor
+
+* Refactor gent_base.theme file
+
 ## [4.3.11]
 
 ### Added

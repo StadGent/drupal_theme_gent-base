@@ -15,7 +15,7 @@ use Drupal\paragraphs\Entity\Paragraph;
  * @return array
  *   An array with form_id values.
  */
-function _gent_base_get_system_forms() {
+function _gent_base_get_system_forms(): array {
   return [
     'content_moderation_entity_moderation_form',
     'views_exposed_form',
@@ -50,7 +50,7 @@ function gent_base_is_view_mode($key) {
  *
  * @throws \Drupal\Core\TypedData\Exception\MissingDataException
  */
-function _gent_base_get_entity_reference_file_data(&$variables, $field) {
+function _gent_base_get_entity_reference_file_data(&$variables, $field): ?array {
   $data = [];
 
   /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
@@ -113,7 +113,7 @@ function _gent_base_get_entity_reference_file_data(&$variables, $field) {
  *   whether the alternative ('alt') or normal ('normal') display should be
  *   used.
  */
-function _gent_base_get_timeline_display(Paragraph $entity) {
+function _gent_base_get_timeline_display(Paragraph $entity): string {
   $isProgram = $entity->get('field_timeline_as_program')->value;
   return ($isProgram === '1') ? 'alt' : 'normal';
 }
