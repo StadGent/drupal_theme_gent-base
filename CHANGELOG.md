@@ -2,16 +2,6 @@
 
 All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
-## [Unreleased]
-
-### Changed
-
-* DTGB-868: Change minimal PHP version to 7.4.
-
-### Updated
-
-* DTGB-868: Update qa-drupal to 1.5.x.
-
 ## [4.4.0]
 
 ### Fixed
@@ -19,10 +9,14 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 * DTGB-868: Fix pager to support d9
 * DTGB-869: Fix JS errors on responsive tables
 
+### Changed
+
+* DTGB-868: Change minimal PHP version to 7.4.
+
 ### Updated
 
 * Update styleguide to 5.0.15: fix STIJ-396 and STIJ-397
-* Update dev dependency: qa-drupal
+* DTGB-868: Update qa-drupal to 1.5.x.
 
 ### Refactor
 
