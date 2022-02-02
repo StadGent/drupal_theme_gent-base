@@ -487,9 +487,9 @@ function gent_base_theme_preprocess_field__field_image(&$variables) {
     return;
   }
 
-  foreach ($variables['items'] as $i => $item) {
+  foreach ($variables['items'] as $i => $iValue) {
     $variables['items'][$i]['content']['#view_mode'] = 'gallery_multiple';
-    unset($variables['items'][$i]['content']['#cache']['keys']);
+    unset($iValue['content']['#cache']['keys']);
   }
 }
 
