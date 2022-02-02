@@ -2,6 +2,28 @@
 
 All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
+## Unreleased
+
+### Updated
+
+* DTGB-868: Update qa-drupal to 1.5.x.
+
+### Refactor
+
+* Refactor gent_base.theme file
+* Refactor twig files
+
+## [4.3.12]
+
+### Fixed
+
+* DTGB-868: Fix pager to support d9
+* DTGB-869: Fix JS errors on responsive tables
+
+### Updated
+
+* Update styleguide to 5.0.15: fix STIJ-396 and STIJ-397
+
 ## [4.3.11]
 
 ### Added

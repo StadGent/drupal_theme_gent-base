@@ -982,38 +982,39 @@ function gent_base_theme_suggestions_facets_result_item_alter(array &$suggestion
  * This is a guideline determined by Stad Gent!
  */
 function gent_base_preprocess_pager(&$variables) {
-  /** @var \Drupal\Core\Pager\PagerManagerInterface $pager_manager */
-  $pager_manager = \Drupal::service('pager.manager');
-
   $element = $variables['pager']['#element'];
   $parameters = $variables['pager']['#parameters'];
-
   // Implement hardcoded quantity of links.
   $quantity = 3;
   $route_name = $variables['pager']['#route_name'];
-  $route_parameters = isset($variables['pager']['#route_parameters']) ? $variables['pager']['#route_parameters'] : [];
-  global $pager_page_array, $pager_total;
+  $route_parameters = $variables['pager']['#route_parameters'] ?? [];
 
-  $total = $pager_total[$element];
+  /** @var \Drupal\Core\Pager\PagerManagerInterface $pager_manager */
+  $pager_manager = \Drupal::service('pager.manager');
+  $pager = $pager_manager->getPager($element);
 
-  // Nothing to do if there is only one page.
-  if ($pager_total[$element] <= 1) {
+  // Nothing to do if there is no pager.
+  if (!isset($pager)) {
     return;
   }
+  $pager_max = $pager->getTotalPages();
 
+  // Nothing to do if there is only one page.
+  if ($pager_max <= 1) {
+    return;
+  }
   $tags = $variables['pager']['#tags'];
-
   // Calculate various markers within this pager piece:
   // Middle is used to "center" pages around the current page.
   $pager_middle = ceil($quantity / 2);
+  $current_page = $pager->getCurrentPage();
+
   // Current is the page we are currently paged to.
-  $pager_current = $pager_page_array[$element] + 1;
+  $pager_current = $current_page + 1;
   // First is the first page listed by this pager piece (re quantity).
   $pager_first = $pager_current - $pager_middle + 1;
   // Last is the last page listed by this pager piece (re quantity).
   $pager_last = $pager_current + $quantity - $pager_middle;
-  // Max is the maximum page number.
-  $pager_max = $pager_total[$element];
 
   // Prepare for generation loop.
   $i = $pager_first;
@@ -1031,7 +1032,7 @@ function gent_base_preprocess_pager(&$variables) {
   $items = [];
 
   // Create the "first" and "previous" links if we are not on the first page.
-  if ($pager_page_array[$element] > 0) {
+  if ($current_page > 0) {
     $items['first'] = [];
     $options = [
       'query' => $pager_manager->getUpdatedParameters($parameters, $element, 0),
@@ -1043,7 +1044,7 @@ function gent_base_preprocess_pager(&$variables) {
 
     $items['previous'] = [];
     $options = [
-      'query' => $pager_manager->getUpdatedParameters($parameters, $element, $pager_page_array[$element] - 1),
+      'query' => $pager_manager->getUpdatedParameters($parameters, $element, $current_page - 1),
     ];
     $items['previous']['href'] = Url::fromRoute($route_name, $route_parameters, $options);
     if (isset($tags[1])) {
@@ -1073,10 +1074,10 @@ function gent_base_preprocess_pager(&$variables) {
   }
 
   // Create the "next" and "last" links if we are not on the last page.
-  if ($pager_page_array[$element] < ($pager_max - 1)) {
+  if ($current_page < ($pager_max - 1)) {
     $items['next'] = [];
     $options = [
-      'query' => $pager_manager->getUpdatedParameters($parameters, $element, $pager_page_array[$element] + 1),
+      'query' => $pager_manager->getUpdatedParameters($parameters, $element, $current_page + 1),
     ];
     $items['next']['href'] = Url::fromRoute($route_name, $route_parameters, $options);
     if (isset($tags[3])) {
@@ -1102,8 +1103,8 @@ function gent_base_preprocess_pager(&$variables) {
 
   // Add hardcode first and last text.
   $variables['items']['first']['text'] = '1';
-  $variables['total'] = $total;
-  $variables['items']['last']['text'] = $total;
+  $variables['total'] = $pager_max;
+  $variables['items']['last']['text'] = $pager_max;
 }
 
 /**
