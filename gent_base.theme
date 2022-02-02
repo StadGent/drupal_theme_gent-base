@@ -373,6 +373,7 @@ function gent_base_preprocess_fieldset(&$variables) {
   }
 
   $variables['has_columns'] = $element['#has_columns'] ?? NULL;
+  $variables['legend']['attributes'][] = $element['#attributes']  ?? NULL;
 }
 
 /**
