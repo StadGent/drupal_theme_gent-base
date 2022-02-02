@@ -1232,7 +1232,7 @@ function gent_base_preprocess_vesta(&$variables) {
  */
 function gent_base_preprocess_dg_maps_map(&$variables) {
   /** @var \Drupal\Core\Extension\ThemeExtensionList $pathResolver */
-  $pathResolver = \Drupal::service('extension.list.theme');
+  $pathResolver = \Drupal::service('extension.list.theme')->getPath('seven');
 
   $variables['#attached']['drupalSettings']['gent_base']['dg_maps'] = [
     'img_base' => $pathResolver->getPath('gent_base') . '/source/img/',
