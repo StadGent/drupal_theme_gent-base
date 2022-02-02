@@ -191,7 +191,7 @@ function gent_base_preprocess_item_list__steps(&$variables) {
         $item['url'] = $item['value']['#url'];
       }
 
-      $item['attributes']['class'][] = 'progress';
+      $item['attributes']['class'] = 'progress';
       if (!empty($item['value']['#active'])) {
         $item['attributes']['class'][] = 'progress-active';
       }
@@ -640,15 +640,13 @@ function gent_base_preprocess_file_widget_multiple(array &$variables) {
 
     // Show the buttons that had previously been marked as hidden in this
     // preprocess function. We use show() to undo the earlier hide().
-    foreach (Element::children($operations_elements) as $sub_key) {
+    foreach (Element::children($operations_elements) as $key) {
       show($operations_elements[1]);
     }
 
-    /** @var \Drupal\Core\Render\RendererInterface $renderer */
-    $renderer = \Drupal::service('renderer');
     $row = [
       '#theme' => 'gent_base_file_upload',
-      '#picture_element' => $renderer->render($widget),
+      '#picture_element' => render($widget),
       '#picture_button' => $operations_elements,
     ];
 
@@ -713,7 +711,7 @@ function gent_base_preprocess_file_link(&$variables) {
     $options = [];
     $file = $variables['file'];
     $filenameParts = explode('.', $file->getFilename());
-    $url = \Drupal::service('file_url_generator')->generateAbsoluteString($file->getFileUri());
+    $url = file_create_url($file->getFileUri());
 
     $variables['file_size'] = format_size($file->getSize());
     $variables['file_type'] = $filenameParts[count($filenameParts) - 1];
@@ -1231,11 +1229,8 @@ function gent_base_preprocess_vesta(&$variables) {
  * Implements hook_preprocess_dg_maps_map().
  */
 function gent_base_preprocess_dg_maps_map(&$variables) {
-  /** @var \Drupal\Core\Extension\ThemeExtensionList $pathResolver */
-  $pathResolver = \Drupal::service('extension.list.theme')->getPath('seven');
-
   $variables['#attached']['drupalSettings']['gent_base']['dg_maps'] = [
-    'img_base' => $pathResolver->getPath('gent_base') . '/source/img/',
+    'img_base' => drupal_get_path('theme', 'gent_base') . '/source/img/',
     'legend_title' => t('View on the map'),
   ];
 }
