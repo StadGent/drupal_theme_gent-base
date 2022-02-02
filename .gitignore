@@ -1,15 +1,6 @@
-# This is a package, no lock files.
-/composer.lock
-
-# Libraries.
+/build/
 /vendor/
+/.phpunit.result.cache
+/composer.lock
 node_modules/
 .sass-cache/
-
-# PHP UNIT.
-/build/
-/.phpunit.result.cache
-
-# QA-Drupal ignored files.
-/*.local.*
-/*.qa-drupal.*
