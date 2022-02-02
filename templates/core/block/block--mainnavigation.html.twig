@@ -25,15 +25,15 @@
  * @see template_preprocess_block()
  */
 #}
-{%
-  set classes = [
+{% set classes = [
   'menu',
   'block-' ~ configuration.provider|clean_class,
   'block-' ~ plugin_id|clean_class,
-]
-%}
+] %}
 <nav{{ attributes.addClass(classes) }}>
-  <button type="button" class="modal-trigger toggle" aria-expanded="false" aria-controls="gent_base_mobile_menu" aria-hidden="false">{{ 'Menu'|t }}</button>
+  <button type="button" class="modal-trigger toggle" aria-expanded="false"
+          aria-controls="gent_base_mobile_menu"
+          aria-hidden="false">{{ 'Menu'|t }}</button>
 
   {{ content }}
 </nav>

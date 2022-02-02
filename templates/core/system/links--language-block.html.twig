@@ -37,7 +37,7 @@
     {% if current_language_code %}
       <li><strong>{{ current_language_code }}</strong></li>
     {% endif %}
-    {% for key, item in links %}
+    {% for item in links %}
       <li>{{ item.link }}</li>
     {% endfor %}
   </ul>

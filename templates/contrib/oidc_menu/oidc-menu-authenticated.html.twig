@@ -3,12 +3,14 @@
 {% set id = 'no-hero_auth-authentication' %}
 
 <div{{ attributes.addClass(['authentication', 'accordion']) }}>
-  <button aria-expanded="false" aria-controls="{{ id }}" class="toggle accordion--button">
+  <button aria-expanded="false" aria-controls="{{ id }}"
+          class="toggle accordion--button">
     <span class="avatar">{{ username|striptags|first }}</span>
     <span>{{ username|striptags }}</span>
   </button>
 
-  <div id="{{ id }}" class="accordion--content" aria-hidden="true" hidden="hidden">
+  <div id="{{ id }}" class="accordion--content" aria-hidden="true"
+       hidden="hidden">
     <article class="content">
       {% if title is not empty -%}
         <h2>{{ title }}</h2>

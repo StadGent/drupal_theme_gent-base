@@ -22,13 +22,16 @@
     {% for item in items %}
       <dt class="faqfield-question">
         <h3>
-          <button class="accordion--button" aria-expanded="false" aria-controls="accordion--multiple--content--{{ unique_list_id }}--{{ loop.index }}">
+          <button class="accordion--button" aria-expanded="false"
+                  aria-controls="accordion--multiple--content--{{ unique_list_id }}--{{ loop.index }}">
             {{ item.question }}
           </button>
         </h3>
       </dt>
       <dd class="faqfield-answer">
-        <div class="accordion--content" id="accordion--multiple--content--{{ unique_list_id }}--{{ loop.index }}" aria-hidden="true" hidden="hidden">
+        <div class="accordion--content"
+             id="accordion--multiple--content--{{ unique_list_id }}--{{ loop.index }}"
+             aria-hidden="true" hidden="hidden">
           {{ item.answer }}
         </div>
       </dd>

@@ -74,11 +74,11 @@
             </li>
           {% endif %}
           {% if type == 'mail' and vesta_entity.emailAddresses|length > 0 %}
-            {% set emailAddress = vesta_entity.emailAddresses|first.value %}
+            {% set email_address = vesta_entity.emailAddresses|first.value %}
             <li>
-              <a href="mailto:{{ emailAddress }}" class="button button-primary">
+              <a href="mailto:{{ email_address }}" class="button button-primary">
                 {% trans %}
-                  Send an email to {{ emailAddress }}
+                  Send an email to {{ email_address }}
                 {% endtrans %}
               </a>
             </li>

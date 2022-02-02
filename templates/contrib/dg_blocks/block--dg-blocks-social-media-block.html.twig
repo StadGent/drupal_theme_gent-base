@@ -25,11 +25,9 @@
  * @see template_preprocess_block()
  */
 #}
-{%
-  set classes = [
-    'dg-blocks-social',
-  ]
-%}
+{% set classes = [
+  'dg-blocks-social',
+] %}
 <div{{ attributes.addClass(classes) }}>
   {{ title_prefix }}
   {% if label %}

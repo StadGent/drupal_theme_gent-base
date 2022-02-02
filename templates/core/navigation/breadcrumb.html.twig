@@ -13,7 +13,8 @@
 {% if breadcrumb %}
   <nav class="breadcrumb" aria-labelledby="system-breadcrumb">
     <div class="content-container">
-      <h2 id="system-breadcrumb" class="visually-hidden">{{ 'Breadcrumb'|t }}</h2>
+      <h2 id="system-breadcrumb"
+          class="visually-hidden">{{ 'Breadcrumb'|t }}</h2>
       <ol class="no-style">
         {% spaceless %}
           {% for item in breadcrumb %}

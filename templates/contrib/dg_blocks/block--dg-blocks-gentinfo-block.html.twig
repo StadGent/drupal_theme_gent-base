@@ -25,11 +25,9 @@
  * @see template_preprocess_block()
  */
 #}
-{%
-  set classes = [
-    'gentinfo-block',
-  ]
-%}
+{% set classes = [
+  'gentinfo-block',
+] %}
 
 <div{{ attributes.addClass(classes) }}>
   <div class="gentinfo-block-content">
@@ -43,7 +41,8 @@
     {% endblock %}
   </div>
   {% if content.gent_olark %}
-    <button type="button" class="button button-primary gentinfo-chat-button icon-chat-round olark-toggle">
+    <button type="button"
+            class="button button-primary gentinfo-chat-button icon-chat-round olark-toggle">
       {{ 'Chat with Gentinfo'|t }}
     </button>
   {% endif %}

@@ -37,17 +37,12 @@
  * @see template_preprocess_field()
  */
 #}
-{%
-  set classes = [
-    'inline',
-  ]
-%}
 
 {% if items|length > 1 %}
   <div class="partners">
-    <ul{{attributes.addClass('inline')}}>
+    <ul{{ attributes.addClass('inline') }}>
       {% for item in items %}
-        <li{{item.attributes}}>{{ item.content }}</li>
+        <li{{ item.attributes }}>{{ item.content }}</li>
       {% endfor %}
     </ul>
   </div>

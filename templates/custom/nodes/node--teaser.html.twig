@@ -66,17 +66,15 @@
  * @see template_preprocess_node()
  */
 #}
-{%
-  set classes = [
-    'teaser-content',
-    'node',
-    'node--type-' ~ node.bundle|clean_class,
-    node.isPromoted() ? 'node--promoted',
-    node.isSticky() ? 'node--sticky',
-    not node.isPublished() ? 'node--unpublished',
-    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
-  ]
-%}
+{% set classes = [
+  'teaser-content',
+  'node',
+  'node--type-' ~ node.bundle|clean_class,
+  node.isPromoted() ? 'node--promoted',
+  node.isSticky() ? 'node--sticky',
+  not node.isPublished() ? 'node--unpublished',
+  view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+] %}
 
 {{ attach_library('classy/node') }}
 
@@ -101,13 +99,8 @@
   {% endblock %}
 
   {% block top %}
-      {% if
-        node.hasField('field_teaser_image') or
-        node.hasField('og_audience') or
-        node.bundle() == 'event'
-      %}
-        <div class="content__first">
-
+    {% if node.hasField('field_teaser_image') or node.hasField('og_audience') or node.bundle() == 'event' %}
+      <div class="content__first">
         {% block image %}
           {% if node.hasField('field_teaser_image') %}
             {% spaceless %}
@@ -124,12 +117,13 @@
 
           {{ content.og_audience }}
         {% endblock %}
-        </div>
-      {% endif %}
+      </div>
+    {% endif %}
   {% endblock %}
 
 </article>
 
 {% block overlay_link %}
-  <a href="{{ url }}" class="teaser-overlay-link" tabindex="-1" aria-hidden="true">{{ label }}</a>
+  <a href="{{ url }}" class="teaser-overlay-link" tabindex="-1"
+     aria-hidden="true">{{ label }}</a>
 {% endblock %}

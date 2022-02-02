@@ -4,70 +4,73 @@
 {% if content.container_bottom %}
 <div class="tabs light js-map-tabs">
   <ul role="tablist">
-      <li role="presentation">
-        <a role="tab" href="#map" aria-controls="map">
-          {{ 'Map'|t }}
-        </a>
-      </li>
-      <li role="presentation">
-        <a role="tab" href="#list" aria-controls="list">
-          {{ 'List'|t }}
-        </a>
-      </li>
+    <li role="presentation">
+      <a role="tab" href="#map" aria-controls="map">
+        {{ 'Map'|t }}
+      </a>
+    </li>
+    <li role="presentation">
+      <a role="tab" href="#list" aria-controls="list">
+        {{ 'List'|t }}
+      </a>
+    </li>
   </ul>
   <div role="tabpanel" id="map">
-{% endif %}
-
-{# Map #}
-{% block map %}
-  {% set attributes = attributes.addClass(['map-container', 'clearfix']) %}
-  <div{{ attributes }}>
-    {% if content.left %}
-      {% set region = { 'name': 'left', 'content': content.left, 'settings': regions.left } %}
-      {% include "@gent_base/contrib/dg_maps/dg-maps-map-region.html.twig" with region %}
     {% endif %}
 
-    <div id="{{ map_id }}" class="map-container__map{% if content.left %} map-container__map--has-left-region{% endif %} clearfix">
-      {% if content.right_top_left %}
-        {% set region = { 'name': 'right-top-left', 'content': content.right_top_left, 'settings': regions.right_top_left } %}
-        {% include "@gent_base/contrib/dg_maps/dg-maps-map-region.html.twig" with region %}
-      {% endif %}
+    {# Map #}
+    {% block map %}
+      {% set attributes = attributes.addClass(['map-container', 'clearfix']) %}
+      <div{{ attributes }}>
+        {% if content.left %}
+          {% set region = {'name': 'left', 'content': content.left, 'settings': regions.left} %}
+          {% include "@gent_base/contrib/dg_maps/dg-maps-map-region.html.twig" with region %}
+        {% endif %}
 
-      {% if content.right_top %}
-        {% set region = { 'name': 'right-top', 'content': content.right_top, 'settings': regions.right_top } %}
-        {% include "@gent_base/contrib/dg_maps/dg-maps-map-region.html.twig" with region %}
-      {% endif %}
+        <div id="{{ map_id }}"
+             class="map-container__map{% if content.left %} map-container__map--has-left-region{% endif %} clearfix">
+          {% if content.right_top_left %}
+            {% set region = {'name': 'right-top-left', 'content': content.right_top_left, 'settings': regions.right_top_left} %}
+            {% include "@gent_base/contrib/dg_maps/dg-maps-map-region.html.twig" with region %}
+          {% endif %}
 
-      {% if content.right_bottom %}
-        {% set region = { 'name': 'right-bottom', 'content': content.right_bottom, 'settings': regions.right_bottom } %}
-        {% include "@gent_base/contrib/dg_maps/dg-maps-map-region.html.twig" with region %}
-      {% endif %}
+          {% if content.right_top %}
+            {% set region = {'name': 'right-top', 'content': content.right_top, 'settings': regions.right_top} %}
+            {% include "@gent_base/contrib/dg_maps/dg-maps-map-region.html.twig" with region %}
+          {% endif %}
 
-      {% if content.right_bottom_left %}
-        {% set region = { 'name': 'right-bottom-left', 'content': content.right_bottom_left, 'settings': regions.right_bottom_left } %}
-        {% include "@gent_base/contrib/dg_maps/dg-maps-map-region.html.twig" with region %}
-      {% endif %}
-    </div>
-  </div>
-{% endblock %}
+          {% if content.right_bottom %}
+            {% set region = {'name': 'right-bottom', 'content': content.right_bottom, 'settings': regions.right_bottom} %}
+            {% include "@gent_base/contrib/dg_maps/dg-maps-map-region.html.twig" with region %}
+          {% endif %}
 
-{% if content.container_bottom %}
+          {% if content.right_bottom_left %}
+            {% set region = {'name': 'right-bottom-left', 'content': content.right_bottom_left, 'settings': regions.right_bottom_left} %}
+            {% include "@gent_base/contrib/dg_maps/dg-maps-map-region.html.twig" with region %}
+          {% endif %}
+        </div>
+      </div>
+    {% endblock %}
+
+    {% if content.container_bottom %}
   </div>
 
   <div role="tabpanel" id="list">
-    {% set region = { 'name': 'container-bottom', 'content': content.container_bottom, 'settings': regions.container_bottom } %}
+    {% set region = {'name': 'container-bottom', 'content': content.container_bottom, 'settings': regions.container_bottom} %}
     {% include "@dg_maps/dg-maps-map-region.html.twig" with region %}
   </div>
 
-  </div>
 </div>
+  </div>
 {% endif %}
 
 
 
 {% block popup %}
-  <div id="{{ map_id }}__popup" class="ol-popup" style="display: none;" tabindex="-1">
+  <div id="{{ map_id }}__popup" class="ol-popup" style="display: none;"
+       tabindex="-1">
     <div id="{{ map_id }}__popup-content" class="ol-popup__content"></div>
-    <button id="{{ map_id }}__popup-closer" class="ol-popup__closer" aria-label="{{ 'Close'|t }}"></button>
+    <button id="{{ map_id }}__popup-closer" class="ol-popup__closer"
+            aria-label="{{ 'Close'|t }}"></button>
   </div>
 {% endblock %}

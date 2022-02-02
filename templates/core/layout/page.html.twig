@@ -45,11 +45,9 @@
 * @ingroup themeable
 */
 #}
-{%
-  set classes = [
+{% set classes = [
   'container'
-]
-%}
+] %}
 
 {% set branding_attributes = create_attribute({
   'href': path('<front>'),
@@ -103,12 +101,12 @@
 
         {{ page.filters }}
         {{ page.content }}
-      {% else %}
+        {% else %}
         <div class="content-container">
           {{ page.content }}
-      {% endif %}
+          {% endif %}
 
-      </div>
+        </div>
     </main>
   {% endblock %}
 
@@ -122,11 +120,14 @@
 
 </div>
 <span hidden="" id="image-gallery__open-gallery">{{ 'open gallery'|t }}</span>
-<div id="gent_base_mobile_menu" class="modal has-custom-binding menu" role="dialog" aria-modal="false" tabindex="-1" aria-hidden="true" data-gent-modal="true">
+<div id="gent_base_mobile_menu" class="modal has-custom-binding menu"
+     role="dialog" aria-modal="false" tabindex="-1" aria-hidden="true"
+     data-gent-modal="true">
   <div class="modal-inner">
     <div class="modal-header">
-      <button type="button" class="button close icon-cross modal-close" data-target="gent_base_mobile_menu">
-        <span>{{'Close'|t}}</span>
+      <button type="button" class="button close icon-cross modal-close"
+              data-target="gent_base_mobile_menu">
+        <span>{{ 'Close'|t }}</span>
       </button>
     </div>
     <div class="modal-content">
@@ -143,5 +144,6 @@
     </div>
   </div>
 
-  <div class="modal-overlay modal-close" data-target="gent_base_mobile_menu" tabindex="-1"></div>
+  <div class="modal-overlay modal-close" data-target="gent_base_mobile_menu"
+       tabindex="-1"></div>
 </div>

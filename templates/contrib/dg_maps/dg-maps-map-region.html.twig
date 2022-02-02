@@ -10,12 +10,16 @@
 {% set hide_on_mobile = settings.hide_on_mobile ? ' hide-on-mobile' : '' %}
 
 {% if settings.collapsed %}
-  <button type="button" class="map-region-button {{ hide_on_mobile }}" data-toggle-region="{{ name }}" aria-expanded="true" aria-controls="{{ 'map-region--' ~ name }}">
+  <button type="button" class="map-region-button {{ hide_on_mobile }}"
+          data-toggle-region="{{ name }}" aria-expanded="true"
+          aria-controls="{{ 'map-region--' ~ name }}">
     {{ 'View on the map'|t }}
   </button>
 {% endif %}
 
-<div {{ name ? 'id="map-region--' ~ name ~ '"' }} class="{{ region_classes|join(' ') }}{{ hide_on_mobile }}" data-region="{{ name }}">
+<div {{ name ? 'id="map-region--' ~ name ~ '"' }}
+  class="{{ region_classes|join(' ') }}{{ hide_on_mobile }}"
+  data-region="{{ name }}">
 
   {{ content }}
 </div>

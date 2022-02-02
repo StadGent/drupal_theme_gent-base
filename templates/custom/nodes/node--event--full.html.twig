@@ -9,10 +9,12 @@
           <i class="icon-calendar" aria-hidden="true"></i>
           <span>
             {% if content.field_event_date_textual|render|striptags|trim is not empty or content.field_event_date|render|striptags|trim is not empty %}
-              <time datetime="{{ event_datetime }}">{{ content.field_event_date }}</time>
+              <time
+                datetime="{{ event_datetime }}">{{ content.field_event_date }}</time>
               {{ content.field_event_date_textual }}
             {% else %}
-              <time datetime="{{ event_datetime }}">{{ content.field_event_date }}</time>
+              <time
+                datetime="{{ event_datetime }}">{{ content.field_event_date }}</time>
             {% endif %}
           </span>
         </li>
@@ -39,5 +41,6 @@
 {% block article_aside_bottom %}
   {{ parent() }}
 
-  <p class="changed-date">{{ 'Last changed'|t }}: {{ dateChanged|dg_format_date('text') }}</p>
+  <p class="changed-date">{{ 'Last changed'|t }}
+    : {{ dateChanged|dg_format_date('text') }}</p>
 {% endblock %}

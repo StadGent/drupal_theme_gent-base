@@ -41,10 +41,12 @@
 
 <li>
   <!-- Modal -->
-  <section id="{{ paragraph.id() }}" class="modal programme-detail" tabindex="-1">
+  <section id="{{ paragraph.id() }}" class="modal programme-detail"
+           tabindex="-1">
     <div class="modal-inner">
       <div class="modal-header">
-        <button type="button" class="button close icon-cross modal-close" data-target="{{ paragraph.id() }}">
+        <button type="button" class="button close icon-cross modal-close"
+                data-target="{{ paragraph.id() }}">
           <span>{{ 'Close'|t }}</span>
         </button>
       </div>
@@ -67,7 +69,8 @@
 
       </div>
     </div>
-    <div class="modal-overlay modal-close" data-target="{{ paragraph.id() }}"></div>
+    <div class="modal-overlay modal-close"
+         data-target="{{ paragraph.id() }}"></div>
   </section>
   <!-- /Modal -->
 
@@ -79,7 +82,8 @@
 
         <p>{{ content.subtitle }}</p>
 
-        <a href="#{{ paragraph.id() }}" class="read-more standalone-link">{{ 'More info'|t }}
+        <a href="#{{ paragraph.id() }}"
+           class="read-more standalone-link">{{ 'More info'|t }}
           <span class="visually-hidden">
             {{ 'about'|t }} {{ content.title }}
           </span>
@@ -101,10 +105,10 @@
     </article>
 
     <a href="#{{ paragraph.id() }}" class="teaser-overlay-link"
-        tabindex="-1"
-        aria-hidden="true"
-        aria-expanded="false"
-        aria-controls="{{ paragraph.id() }}">{{ content.title }}</a>
+       tabindex="-1"
+       aria-hidden="true"
+       aria-expanded="false"
+       aria-controls="{{ paragraph.id() }}">{{ content.title }}</a>
   </div>
   <!-- /Teaser -->
 </li>
