@@ -12,20 +12,20 @@
  * @see template_preprocess_region()
  */
 #}
-{%
-  set classes = [
+{% set classes = [
   'has-custom-binding',
   'filter-section',
   'sidebar',
   'modal',
   'modal--fixed-height',
-]
-%}
+] %}
 {% if content %}
-  <section id="filter" {{ attributes.addClass(classes) }} tabindex="-1" aria-hidden="false">
+  <section id="filter" {{ attributes.addClass(classes) }} tabindex="-1"
+           aria-hidden="false">
     <div class="modal-inner">
       <div class="modal-header">
-        <button type="button" class="button close icon-cross modal-close" data-target="filter">
+        <button type="button" class="button close icon-cross modal-close"
+                data-target="filter">
           {{ 'Close'|t }}
         </button>
       </div>
@@ -35,9 +35,12 @@
         {{ content }}
       </div>
       <div class="modal-actions">
-        <button type="button" class="button button-primary modal-close filter-show-results-button" data-target="filter">{{ 'Show results'|t }}</button>
+        <button type="button"
+                class="button button-primary modal-close filter-show-results-button"
+                data-target="filter">{{ 'Show results'|t }}</button>
       </div>
     </div>
-    <div class="modal-overlay modal-close" data-target="filter" tabindex="-1"></div>
+    <div class="modal-overlay modal-close" data-target="filter"
+         tabindex="-1"></div>
   </section>
 {% endif %}

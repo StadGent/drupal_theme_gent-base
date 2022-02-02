@@ -37,17 +37,11 @@
  * @see template_preprocess_field()
  */
 #}
-{%
-  set classes = [
-  'collection',
-]
-%}
-{%
-  set title_classes = [
+
+{% set title_classes = [
   'field__label',
   label_display == 'visually_hidden' ? 'visually-hidden',
-]
-%}
+] %}
 
 <div class="opening-hours-accordion">
   {% if not label_hidden %}

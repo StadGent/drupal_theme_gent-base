@@ -1,7 +1,8 @@
 {% extends 'node--detail--layout.html.twig' %}
 
 {% block article_content_top %}
-  <time datetime="{{ date|date('Y-m-d') }}">{{- node.published_at.value|dg_format_date('text') -}}</time>
+  <time
+    datetime="{{ date|date('Y-m-d') }}">{{- node.published_at.value|dg_format_date('text') -}}</time>
 
   {{ parent() }}
 {% endblock %}
@@ -9,5 +10,6 @@
 {% block article_aside_bottom %}
   {{ parent() }}
 
-  <p class="changed-date">{{ 'Last changed'|t }}: {{ dateChanged|dg_format_date('text') }}</p>
+  <p class="changed-date">{{ 'Last changed'|t }}
+    : {{ dateChanged|dg_format_date('text') }}</p>
 {% endblock %}

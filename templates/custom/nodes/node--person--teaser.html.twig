@@ -70,8 +70,7 @@
  *   in different view modes.
  */
 #}
-{%
-  set classes = [
+{% set classes = [
   'teaser-content',
   'node',
   'node--type-' ~ node.bundle|clean_class,
@@ -79,8 +78,7 @@
   node.isSticky() ? 'node--sticky',
   not node.isPublished() ? 'node--unpublished',
   view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
-]
-%}
+] %}
 
 {{ attach_library('classy/node') }}
 
@@ -96,7 +94,7 @@
 
     <div class="content__first">
       <div class="person-image-wrapper">
-        {{ person_image}}
+        {{ person_image }}
         <div class="accolade-inverse bottom-left"></div>
       </div>
       {% if person_tag|render|striptags|trim is not empty %}
@@ -107,5 +105,6 @@
     </div>
 
   </article>
-  <a href="{{ url }}" class="teaser-overlay-link" tabindex="-1" aria-hidden="true">{{ label }}</a>
+  <a href="{{ url }}" class="teaser-overlay-link" tabindex="-1"
+     aria-hidden="true">{{ label }}</a>
 </div>

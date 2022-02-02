@@ -40,12 +40,10 @@
 
 {{ attach_library('gent_base/accordion') }}
 
-{%
-  set title_classes = [
-    'field__label',
-    label_display == 'visually_hidden' ? 'visually-hidden',
-  ]
-%}
+{% set title_classes = [
+  'field__label',
+  label_display == 'visually_hidden' ? 'visually-hidden',
+] %}
 
 {% if not label_hidden %}
   <div{{ title_attributes.addClass(title_classes) }}>{{ label }}</div>
@@ -60,12 +58,15 @@
 {% if items|length > 2 %}
   <div class="accordion">
     <h3>
-      <button class="accordion--button" aria-expanded="false" aria-controls="documents--content--{{ document_unique_id }}">
+      <button class="accordion--button" aria-expanded="false"
+              aria-controls="documents--content--{{ document_unique_id }}">
         {{ documents_toggle_text }}
       </button>
     </h3>
 
-    <div class="accordion--content" id="documents--content--{{ document_unique_id }}" aria-hidden="true" hidden="hidden">
+    <div class="accordion--content"
+         id="documents--content--{{ document_unique_id }}" aria-hidden="true"
+         hidden="hidden">
       <ul class="links">
         {% for document in documents_invisible %}
           <li>{{ document }}</li>

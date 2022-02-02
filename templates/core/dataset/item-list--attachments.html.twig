@@ -33,19 +33,19 @@
   {%- endif -%}
 
   {%- if items -%}
-  <{{ list_type }}{{ attributes }}>
-  {%- for count,item in items -%}
-    <li{{ item.attributes }}>
-      <span class="attachment">{{ item.value }}</span>
-      {% if item.size %}
-        <span class="tag attachment-size">{{ item.size }}</span>
-      {% endif  %}
-      {% if item.type %}
-        <span class="tag attachment-type">{{ item.type }}</span>
-      {% endif %}
-    </li>
-  {%- endfor -%}
-  </{{ list_type }}>
+    <{{ list_type }}{{ attributes }}>
+    {%- for item in items -%}
+      <li {{ item.attributes }}>
+        <span class="attachment">{{ item.value }}</span>
+        {% if item.size %}
+          <span class="tag attachment-size">{{ item.size }}</span>
+        {% endif %}
+        {% if item.type %}
+          <span class="tag attachment-type">{{ item.type }}</span>
+        {% endif %}
+      </li>
+    {%- endfor -%}
+    </{{ list_type }}>
   {%- else -%}
     {{- empty -}}
   {%- endif -%}

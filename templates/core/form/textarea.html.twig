@@ -13,11 +13,9 @@
  * @see template_preprocess_textarea()
  */
 #}
-{%
-  set classes = [
+{% set classes = [
   'form-textarea',
   required ? 'required',
-]
-%}
+] %}
 
 <textarea{{ attributes.addClass(classes) }}>{{ value }}</textarea>

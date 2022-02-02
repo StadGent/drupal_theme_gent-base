@@ -70,8 +70,7 @@
  *   in different view modes.
  */
 #}
-{%
-  set classes = [
+{% set classes = [
   'node',
   'node--type-' ~ node.bundle|clean_class,
   node.isPromoted() ? 'node--promoted',
@@ -79,8 +78,7 @@
   not node.isPublished() ? 'node--unpublished',
   view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
   'teaser-content'
-]
-%}
+] %}
 {{ attach_library('classy/node') }}
 <article{{ attributes.addClass(classes) }}>
   <div class="content__second">
@@ -106,5 +104,6 @@
 </article>
 
 {% block overlay_link %}
-<a href="{{ url }}" class="teaser-overlay-link" tabindex="-1" aria-hidden="true">{{ label }}</a>
+  <a href="{{ url }}" class="teaser-overlay-link" tabindex="-1"
+     aria-hidden="true">{{ label }}</a>
 {% endblock %}

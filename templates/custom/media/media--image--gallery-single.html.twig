@@ -18,9 +18,9 @@
   class="gallery-link"
   aria-describedby="image-gallery__open-gallery"
   {% if not media.field_media_caption.isEmpty() %}
-  aria-label="{{ media.field_media_caption.value }}"
+    aria-label="{{ media.field_media_caption.value }}"
   {% endif %}
-  >
+>
   {{ title_suffix.contextual_links }}
   <figure>
     {{ content.field_media_image }}

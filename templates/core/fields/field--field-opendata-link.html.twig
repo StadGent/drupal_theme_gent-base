@@ -37,23 +37,21 @@
  * @see template_preprocess_field()
  */
 #}
-{%
-  set classes = [
-    'standalone-link',
-  ]
-%}
-{%
-  set title_classes = [
-    label_display == 'visually_hidden' ? 'visually-hidden',
-  ]
-%}
+
+{% set classes = [
+  'standalone-link',
+] %}
+
+{% set title_classes = [
+  label_display == 'visually_hidden' ? 'visually-hidden',
+] %}
 
 <h3{{ title_attributes.addClass(title_classes) }}>{{ 'Related Linked Open Data'|t }}</h3>
 
 <ul class="links">
   {% for item in items %}
     {# Add classes #}
-    {% set link = item.content|merge({ '#attributes': { 'class': classes } }) %}
+    {% set link = item.content|merge({'#attributes': {'class': classes}}) %}
 
     <li>{{ link }}</li>
   {% endfor %}
