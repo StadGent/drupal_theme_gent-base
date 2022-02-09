@@ -39,11 +39,9 @@
   required ? 'form-required'
 ] %}
 
-{% set information_classes = ['field-message'] %}
-
 <fieldset{{ attributes.addClass(classes).removeClass('fieldgroup') }}>
 
-  <legend{{ legend.attributes.addClass(legend_span_classes) }}>
+  <legend{{ information.attributes.addClass(legend_span_classes) }}>
     {{ legend.title }}
 
     {% if fieldset_optional %}
@@ -56,7 +54,7 @@
     {% endif %}
 
     {% if information %}
-      <div{{ information.attributes.addClass(information_classes) }}>
+      <div class="field-message">
         {{ information.content }}
         <div class="accolade"></div>
       </div>
