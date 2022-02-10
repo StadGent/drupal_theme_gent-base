@@ -1,7 +1,7 @@
 # Drupal 8 base theme using the styleguide of Stad Gent.
 
 This Drupal 8 theme is based on the style guide of Stad Gent.
-https://stijlgids-ma.stad.gent/
+https://stijlgids.stad.gent/
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/090c45ffd08a2370cd0d/maintainability)](https://codeclimate.com/repos/5a5c70e7f5f0e502a80009f1/maintainability)
 
