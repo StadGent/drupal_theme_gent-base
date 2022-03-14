@@ -2,6 +2,12 @@
 
 All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
+## [Unreleased]
+
+### Fixed
+
+* DTGB-871: Fix GrumpPHP error when installing in project.
+
 ## [4.4.0]
 
 ### Updated

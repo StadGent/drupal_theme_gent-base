@@ -45,8 +45,7 @@
     },
     "scripts": {
         "post-install-cmd": [
-            "bash -c 'cd ./scripts; ./install.sh;'",
-            "vendor/bin/grumphp git:init"
+            "bash -c 'cd ./scripts; ./install.sh;'"
         ],
         "post-update-cmd": [
             "bash -c 'cd ./scripts; ./install.sh;'"
