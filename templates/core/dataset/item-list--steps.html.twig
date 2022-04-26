@@ -34,8 +34,8 @@
 
   {%- if items -%}
     <div class="form-progress">
-    <{{ list_type }}{{ attributes.addClass('no-style')  }}>
-    {%- for count,item in items -%}
+    <{{ list_type }} {{ attributes.addClass('no-style') }}>
+    {%- for count, item in items -%}
       <li{{ item.attributes }}>
         {% if item.url %}
         <a href="{{ item.url }}" class="indicator">

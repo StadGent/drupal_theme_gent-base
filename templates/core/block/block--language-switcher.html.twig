@@ -28,23 +28,23 @@
 
 {{ attach_library('gent_base/accordion') }}
 
-{%
-  set classes = [
-    'block',
-    'block-' ~ configuration.provider|clean_class,
-    'block-' ~ plugin_id|clean_class,
-    'language-switcher',
-    'accordion',
-  ]
-%}
+{% set classes = [
+  'block',
+  'block-' ~ configuration.provider|clean_class,
+  'block-' ~ plugin_id|clean_class,
+  'language-switcher',
+  'accordion',
+] %}
 
 <div{{ attributes.addClass(classes) }}>
-    <button aria-controls="header_language_switcher_block" aria-expanded="false" class="toggle accordion--button">
-      {{ active_language.id|upper }}
-    </button>
+  <button aria-controls="header_language_switcher_block" aria-expanded="false"
+          class="toggle accordion--button">
+    {{ active_language.id|upper }}
+  </button>
 
   {% block content %}
-    <div id="header_language_switcher_block" class="accordion--content" aria-hidden="true" hidden="hidden">
+    <div id="header_language_switcher_block" class="accordion--content"
+         aria-hidden="true" hidden="hidden">
       {{ content }}
     </div>
   {% endblock %}

@@ -16,19 +16,18 @@
  */
 #}
 
-{%
-  set classes = [
+{% set classes = [
   'detail-layout',
   'vesta'
-]
-%}
+] %}
 
 {{ attach_library('gent_base/opening_hours') }}
 
 <article{{ attributes.addClass(classes) }}>
   <h1>{{ '@name - openinghours and addresses'|t({'@name': name}) }}</h1>
 
-  <div class="contact-details highlight highlight--top contact-details-inverted">
+  <div
+    class="contact-details highlight highlight--top contact-details-inverted">
     <div class="highlight__inner">
       <h2>{{ 'Contact details'|t }}</h2>
 
@@ -42,7 +41,7 @@
                 <span>
                   <strong>{{ name }}</strong>
                   &mdash;
-                  {{ address.street }} {{ address.houseNumber }}{{ address.box ? '/' ~ address.box  }},
+                  {{ address.street }} {{ address.houseNumber }}{{ address.box ? '/' ~ address.box }},
                   {{ address.postalCode }} {{ address.city }}
                 </span>
               </li>
@@ -96,9 +95,9 @@
           {% endif %}
 
           {# emailAddresses #}
-          {% set emailAddresses = emailaddresses.getIterator() %}
-          {% if emailAddresses|length > 0 %}
-            {% for email in emailAddresses %}
+          {% set email_addresses = emailaddresses.getIterator() %}
+          {% if email_addresses|length > 0 %}
+            {% for email in email_addresses %}
               <li>
                 <i class="icon-envelope" aria-hidden="true"></i>
                 <span>
@@ -118,7 +117,8 @@
               <li>
                 <i class="icon-external-link" aria-hidden="true"></i>
                 <span>
-                  <a href="{{ website }}" class="no-icon" target="_blank">{{ website }}</a>
+                  <a href="{{ website }}" class="no-icon"
+                     target="_blank">{{ website }}</a>
                 </span>
               </li>
             {% endfor %}
@@ -163,7 +163,9 @@
           <h3>{{ 'View all locations from'|t }}</h3>
 
           {% for keyword in related %}
-            <a href="{{ path('entity.taxonomy_term.canonical', {'taxonomy_term': keyword.tid.value }) }}" class="tag">{{ keyword.name.value }}</a>
+            <a
+              href="{{ path('entity.taxonomy_term.canonical', {'taxonomy_term': keyword.tid.value}) }}"
+              class="tag">{{ keyword.name.value }}</a>
           {% endfor %}
 
           {{ content.field_opendata_link }}

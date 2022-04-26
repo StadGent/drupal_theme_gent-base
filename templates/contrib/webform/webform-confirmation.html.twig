@@ -17,6 +17,7 @@
  */
 #}
 {{ attach_library('webform/webform.confirmation') }}
+
 {% set classes = [
   'messages',
   'messages--status'
@@ -25,29 +26,30 @@
 <h1>{{ webform.label }}</h1>
 
 {% if progress %}
-  {% set pageTitle = progress['#webform'].pages[progress['#current_page']]['#title'] %}
+  {% set page_title = progress['#webform'].pages[progress['#current_page']]['#title'] %}
 
-  <div class="form form--multistep">
-    {{ progress }}
-    <div class="form-content">
-      <h2>{{ pageTitle }}</h2>
-{% endif %}
-
-<div{{ attributes.setAttribute('role', 'alert').setAttribute('aria-atomic', 'true').addClass(classes) }}>
-  <i class="icon-checkmark" aria-hidden="true"></i>
-
-  <div>
-    {% if message %}
-      <p>{{ message }}</p>
+<div class="form form--multistep">
+  {{ progress }}
+  <div class="form-content">
+    <h2>{{ page_title }}</h2>
     {% endif %}
 
-    {% if back %}
-      <a href="{{ back_url }}" rel="prev" title="{{ back_label }}"{{ back_attributes.addClass('standalone-link') }}>{{ back_label }}</a>
-    {% endif %}
+    <div{{ attributes.setAttribute('role', 'alert').setAttribute('aria-atomic', 'true').addClass(classes) }}>
+      <i class="icon-checkmark" aria-hidden="true"></i>
+
+      <div>
+        {% if message %}
+          <p>{{ message }}</p>
+        {% endif %}
+
+        {% if back %}
+          <a href="{{ back_url }}" rel="prev"
+             title="{{ back_label }}"{{ back_attributes.addClass('standalone-link') }}>{{ back_label }}</a>
+        {% endif %}
+      </div>
+    </div>
+
+    {% if progress %}
   </div>
 </div>
-
-{% if progress %}
-    </div>
-  </div>
 {% endif %}

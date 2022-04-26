@@ -39,24 +39,22 @@
  */
 #}
 
-{%
-  set classes = [
-    'programme-slot'
-  ]
-%}
+{% set classes = [
+  'programme-slot'
+] %}
 {{ attach_library('gent_base/modal') }}
 
 {% block paragraph %}
-    {% block content %}
-      <div{{ attributes.addClass(classes) }} role="listitem">
-        <dt class="programme-slot-title">{{ content.title }}</dt>
-        <dd>
-          <div class="grid-wrapper">
-            <ul class="grid-3">
-              {{ content.timeline_items }}
-            </ul>
-          </div>
-        </dd>
-      </div>
-    {% endblock %}
+  {% block content %}
+    <div{{ attributes.addClass(classes) }} role="listitem">
+      <dt class="programme-slot-title">{{ content.title }}</dt>
+      <dd>
+        <div class="grid-wrapper">
+          <ul class="grid-3">
+            {{ content.timeline_items }}
+          </ul>
+        </div>
+      </dd>
+    </div>
+  {% endblock %}
 {% endblock paragraph %}

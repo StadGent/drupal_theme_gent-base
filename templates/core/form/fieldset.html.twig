@@ -78,7 +78,9 @@
       <div class="form-columns">
         <div class="form-item-column">
           {% endif %}
+
           {{ children }}
+
           {% if has_columns %}
         </div>
         {% endif %}
@@ -86,10 +88,10 @@
         {% if has_columns %}
         <div class="form-item-column">
           {% if errors %}
-          <div class="field-message error" role="alert">
-            {{ errors }}
-            <div class="accolade"></div>
-          </div>
+            <div class="field-message error" role="alert">
+              {{ errors }}
+              <div class="accolade"></div>
+            </div>
           {% endif %}
         </div>
       </div>

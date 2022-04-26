@@ -27,28 +27,28 @@
 {{ attach_library('gent_base/facet_range_slider') }}
 
 <form>
-<div class="form-item facets-widget- {{- facet.widget.type -}} ">
-  {% if facet.widget.type %}
-    {%- set attributes = attributes.addClass('item-list__' ~ facet.widget.type) %}
-  {% endif %}
-  {% if items or empty %}
-    {%- if title is not empty -%}
-      <h3>{{ title }}</h3>
-    {%- endif -%}
+  <div class="form-item facets-widget- {{- facet.widget.type -}} ">
+    {% if facet.widget.type %}
+      {%- set attributes = attributes.addClass('item-list__' ~ facet.widget.type) %}
+    {% endif %}
+    {% if items or empty %}
+      {%- if title is not empty -%}
+        <h3>{{ title }}</h3>
+      {%- endif -%}
 
-    {{ items.value }}
+      {{ items.value }}
 
-    <div class="pips-preview">
-      {{ 'From %min to %max year'|t({'%min': '', '%max': ''}) }}
-    </div>
+      <div class="pips-preview">
+        {{ 'From %min to %max year'|t({'%min': '', '%max': ''}) }}
+      </div>
 
-    {%- if items -%}
-      {%- for item in items -%}
-        {{ item.value }}
-      {%- endfor -%}
-    {%- else -%}
-      {{- empty -}}
-    {%- endif -%}
-  {%- endif %}
-</div>
+      {%- if items -%}
+        {%- for item in items -%}
+          {{ item.value }}
+        {%- endfor -%}
+      {%- else -%}
+        {{- empty -}}
+      {%- endif -%}
+    {%- endif %}
+  </div>
 </form>

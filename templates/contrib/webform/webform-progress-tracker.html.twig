@@ -24,17 +24,16 @@
 
 <nav class="webform-progress progress-tracker form-steps vertical">
 
-  <h2 id="form-steps-73" class="visually-hidden">{{ 'Steps in this wizard'|t }}</h2>
+  <h2 id="form-steps-73"
+      class="visually-hidden">{{ 'Steps in this wizard'|t }}</h2>
   <ol class="form-steps-list">
     {% for index, page in progress %}
       {% set is_completed = index < current_index %}
       {% set is_active = index == current_index %}
-      {%
-        set classes = [
-          is_completed ? 'completed',
-          is_active ? 'active',
-        ]
-      %}
+      {% set classes = [
+        is_completed ? 'completed',
+        is_active ? 'active',
+      ] %}
       <li{{ attributes.setAttribute('data-webform-page', page.name).setAttribute('title', page.title).setAttribute('class', '').addClass(classes) }}>
         {% if progress|length < max_pages %}
           <span class="progress-title">

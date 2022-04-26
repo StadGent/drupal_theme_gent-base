@@ -26,51 +26,57 @@
  */
 #}
 
-{%
-  set body_classes = [
-    'cs--' ~ cs.color,
-    not root_path ? 'is-frontpage'
-  ]
-%}
+{% set body_classes = [
+  'cs--' ~ cs.color,
+  not root_path ? 'is-frontpage'
+] %}
 <!DOCTYPE html>
 <html{{ html_attributes }}>
-  <head>
-    <head-placeholder token="{{ placeholder_token }}">
+<head>
+  <head-placeholder token="{{ placeholder_token }}">
     <title>{{ head_title|safe_join(' | ') }}</title>
     {% block metadata %}
-      <link rel="apple-touch-icon" sizes="180x180" href="{{ base_path }}themes/contrib/gent_base/build/styleguide/img/favicon/build/{{ cs.color }}/apple-touch-icon.png" />
-      <link rel="icon" type="image/png" sizes="32x32" href="{{ base_path }}themes/contrib/gent_base/build/styleguide/img/favicon/build/{{ cs.color }}/favicon-32x32.png" />
-      <link rel="icon" type="image/png" sizes="16x16" href="{{ base_path }}themes/contrib/gent_base/build/styleguide/img/favicon/build/{{ cs.color }}/favicon-16x16.png" />
-      <link rel="manifest" href="{{ base_path }}themes/contrib/gent_base/build/styleguide/img/favicon/build/{{ cs.color }}/site.webmanifest" />
-      <link rel="mask-icon" href="{{ base_path }}themes/contrib/gent_base/build/styleguide/img/favicon/build/{{ cs.color }}/safari-pinned-tab.svg" color="{{ cs.hex }}" />
-      <meta name="msapplication-TileColor" content="{{ cs.hex }}" />
-      <meta name="theme-color" content="{{ cs.hex }}" />
+      <link rel="apple-touch-icon" sizes="180x180"
+            href="{{ base_path }}themes/contrib/gent_base/build/styleguide/img/favicon/build/{{ cs.color }}/apple-touch-icon.png"/>
+      <link rel="icon" type="image/png" sizes="32x32"
+            href="{{ base_path }}themes/contrib/gent_base/build/styleguide/img/favicon/build/{{ cs.color }}/favicon-32x32.png"/>
+      <link rel="icon" type="image/png" sizes="16x16"
+            href="{{ base_path }}themes/contrib/gent_base/build/styleguide/img/favicon/build/{{ cs.color }}/favicon-16x16.png"/>
+      <link rel="manifest"
+            href="{{ base_path }}themes/contrib/gent_base/build/styleguide/img/favicon/build/{{ cs.color }}/site.webmanifest"/>
+      <link rel="mask-icon"
+            href="{{ base_path }}themes/contrib/gent_base/build/styleguide/img/favicon/build/{{ cs.color }}/safari-pinned-tab.svg"
+            color="{{ cs.hex }}"/>
+      <meta name="msapplication-TileColor" content="{{ cs.hex }}"/>
+      <meta name="theme-color" content="{{ cs.hex }}"/>
     {% endblock %}
 
     <!-- webfontLoader -->
-    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+    <script
+      src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
     <script>
       WebFont.load({
         google: {
-          families: ['Fira Sans:400,600,700']
+          families: ['Fira Sans:400,600,700&display=swap']
         }
       });
+
     </script>
 
     <css-placeholder token="{{ placeholder_token }}">
-    <js-placeholder token="{{ placeholder_token }}">
-  </head>
-  <body{{ attributes.addClass(body_classes) }}>
-    {#
-      Keyboard navigation/accessibility link to main content section in
-      page.html.twig.
-    #}
-    <a href="#main-content" class="skiplink">
-      {{ 'Skip to main content'|t }}
-    </a>
-    {{ page_top }}
-    {{ page }}
-    {{ page_bottom }}
-    <js-bottom-placeholder token="{{ placeholder_token }}">
-  </body>
+      <js-placeholder token="{{ placeholder_token }}">
+        </head>
+<body{{ attributes.addClass(body_classes) }}>
+{#
+Keyboard navigation/accessibility link to main content section in
+page.html.twig.
+#}
+<a href="#main-content" class="skiplink">
+  {{ 'Skip to main content'|t }}
+</a>
+{{ page_top }}
+{{ page }}
+{{ page_bottom }}
+<js-bottom-placeholder token="{{ placeholder_token }}">
+</body>
 </html>

@@ -12,7 +12,8 @@
 #}
 <form{{ attributes }}>
   {% block form_required_indicator %}
-    <p class="form-disclaimer">{{ 'Fill in all fields unless otherwise stated.'|t }}</p>
+    <p
+      class="form-disclaimer">{{ 'Fill in all fields unless otherwise stated.'|t }}</p>
   {% endblock %}
   {{ children }}
 </form>

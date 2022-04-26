@@ -71,20 +71,18 @@
 */
 #}
 
-{%
-  set classes = [
-    'node--type-' ~ node.bundle|clean_class
-  ]
-%}
+{% set classes = [
+  'node--type-' ~ node.bundle|clean_class
+] %}
 
 {{ attach_library('classy/node') }}
 
 <article{{ attributes.addClass(classes) }}>
 
   {{ title_prefix }}
-    <h1{{ title_attributes }}>
-      {{ label }}
-    </h1>
+  <h1{{ title_attributes }}>
+    {{ label }}
+  </h1>
   {{ title_suffix }}
 
   {{ readspeaker }}

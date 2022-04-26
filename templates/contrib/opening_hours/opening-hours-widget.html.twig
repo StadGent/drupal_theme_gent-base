@@ -20,62 +20,64 @@
 
 {{ attach_library('gent_base/accordion') }}
 
-{% set accordionId = 'accordion-' ~ widget_id  %}
+{% set accordion_id = 'accordion-' ~ widget_id %}
 
 <div class="openinghours-wrapper">
   {% if display_title %}
-    <h3 class="openinghours-channel-title" data-service="{{ service_id }}"{% if not single_widget %} data-channel="{{ channel_id }}"{% endif %}></h3>
+    <h3 class="openinghours-channel-title"
+        data-service="{{ service_id }}"{% if not single_widget %} data-channel="{{ channel_id }}"{% endif %}></h3>
   {% endif %}
 
   {% if preview_widget %}
     <div
-        class="openinghours-widget"
-        data-type="{{ preview_widget.type }}"
-        data-service="{{ service_id }}"
-        {% if not single_widget %}data-channel="{{ channel_id }}"{% endif %}
-        {% if date %} data-date="{{ date }}"{% endif %}
-        {% if from %} data-from="{{ from }}"{% endif %}
-        {% if until %} data-until="{{ until }}"{% endif %}
+      class="openinghours-widget"
+      data-type="{{ preview_widget.type }}"
+      data-service="{{ service_id }}"
+      {% if not single_widget %}data-channel="{{ channel_id }}"{% endif %}
+      {% if date %} data-date="{{ date }}"{% endif %}
+      {% if from %} data-from="{{ from }}"{% endif %}
+      {% if until %} data-until="{{ until }}"{% endif %}
     ></div>
   {% endif %}
 
   {% if widgets|length > 1 %}
   <div class="accordion">
     <h3>
-      <button aria-controls="{{ accordionId }}" aria-expanded="false" class="accordion--button">{{ 'All opening hours'|t }}</button>
+      <button aria-controls="{{ accordion_id }}" aria-expanded="false"
+              class="accordion--button">{{ 'All opening hours'|t }}</button>
     </h3>
 
-    <div id="{{ accordionId }}" class="accordion--content">
+    <div id="{{ accordion_id }}" class="accordion--content">
       <div class="tabs">
         <ul class="openinghours-navigation" role="tablist">
           {% for widget in widgets %}
             <li role="presentation">
               <a
-                  href="#"
-                  role="tab"
-                  aria-controls="{{ widget_id }}"
-                  aria-selected="{{ loop.first ? 'true' : 'false' }}"
-                  data-widget="{{ widget.type }}"
+                href="#"
+                role="tab"
+                aria-controls="{{ widget_id }}"
+                aria-selected="{{ loop.first ? 'true' : 'false' }}"
+                data-widget="{{ widget.type }}"
               >
                 {{ widget.label }}</a>
             </li>
           {% endfor %}
         </ul>
-  {% endif %}
+        {% endif %}
 
         <div id="{{ widget_id }}" role="tabpanel">
           <div
-              class="openinghours openinghours-widget"
-              data-type="{{ widgets[0].type }}"
-              data-service="{{ service_id }}"
-              {% if not single_widget %}data-channel="{{ channel_id }}"{% endif %}
-              {% if date %} data-date="{{ date }}"{% endif %}
-              {% if from %} data-from="{{ from }}"{% endif %}
-              {% if until %} data-until="{{ until }}"{% endif %}
+            class="openinghours openinghours-widget"
+            data-type="{{ widgets[0].type }}"
+            data-service="{{ service_id }}"
+            {% if not single_widget %}data-channel="{{ channel_id }}"{% endif %}
+            {% if date %} data-date="{{ date }}"{% endif %}
+            {% if from %} data-from="{{ from }}"{% endif %}
+            {% if until %} data-until="{{ until }}"{% endif %}
           ></div>
         </div>
 
-  {% if widgets|length > 1 %}
+        {% if widgets|length > 1 %}
       </div>
     </div>
   </div>

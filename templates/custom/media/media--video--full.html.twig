@@ -12,11 +12,9 @@
  * @ingroup themeable
  */
 #}
-{%
-set classes = [
-'video',
-]
-%}
+{% set classes = [
+  'video',
+] %}
 <div{{ attributes.addClass(classes) }}>
   {{ title_suffix.contextual_links }}
   {% if content %}

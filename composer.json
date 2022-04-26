@@ -1,26 +1,40 @@
 {
     "name": "gent-drupal/gent_base",
-    "type": "drupal-theme",
     "description": "Drupal theming layer for styleguide Gent.",
+    "license": "GPL-2.0-or-later",
+    "type": "drupal-theme",
     "keywords": [
         "gent",
         "drupal",
         "theme"
     ],
     "homepage": "https://bitbucket.org/digipolisgent/drupal_theme_gent-base",
-    "license": "GPL-2.0-or-later",
     "require": {
-        "php": "^7.3"
+        "php": "^7.4"
     },
     "require-dev": {
-        "digipolisgent/qa-drupal": "~1.3.7",
+        "digipolisgent/qa-drupal": "^1.5",
         "drupal/paragraphs": "^1.12",
         "drupal/webform": "^6.0",
         "gent-drupal/dg_vesta": "^1.0"
     },
+    "repositories": {
+        "drupal": {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        },
+        "repman-digipolis": {
+            "type": "composer",
+            "url": "https://digipolis.repo.repman.io"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "config": {
-        "platform": {
-            "php": "7.3"
+        "allow-plugins": {
+            "ergebnis/composer-normalize": true,
+            "phpro/grumphp-shim": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true
         },
         "sort-packages": true
     },
@@ -29,24 +43,20 @@
             "config-default-path": "vendor/digipolisgent/qa-drupal/configs/grumphp-extension.yml"
         }
     },
-    "repositories": {
-        "repman-digipolis": {
-            "type": "composer",
-            "url": "https://digipolis.repo.repman.io"
-        },
-        "drupal": {
-            "type": "composer",
-            "url": "https://packages.drupal.org/8"
-        }
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
     "scripts": {
         "post-install-cmd": [
             "bash -c 'cd ./scripts; ./install.sh;'"
         ],
         "post-update-cmd": [
             "bash -c 'cd ./scripts; ./install.sh;'"
-        ]
+        ],
+        "coverage": "vendor/bin/phpunit --configuration=phpunit.qa-drupal.xml --coverage-html build/coverage",
+        "grumphp": "vendor/bin/grumphp run -n",
+        "gulp-validate": "cd source && gulp validate",
+        "phpcpd": "vendor/bin/grumphp run --tasks=phpcpd",
+        "phpcs": "vendor/bin/grumphp run --tasks=phpcs",
+        "phpmd": "vendor/bin/grumphp run --tasks=phpmd",
+        "phpstan": "vendor/bin/grumphp run --tasks=phpstan",
+        "phpunit": "vendor/bin/phpunit --configuration=phpunit.qa-drupal.xml"
     }
 }

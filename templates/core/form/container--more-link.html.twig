@@ -19,11 +19,9 @@
  * @see template_preprocess_container()
  */
 #}
-{%
-  set classes = [
-    has_parent ? 'js-form-wrapper',
-    has_parent ? 'form-wrapper',
-    'grid__show-more',
-  ]
-%}
+{% set classes = [
+  has_parent ? 'js-form-wrapper',
+  has_parent ? 'form-wrapper',
+  'grid__show-more',
+] %}
 <div{{ attributes.addClass(classes) }}>{{ children }}</div>

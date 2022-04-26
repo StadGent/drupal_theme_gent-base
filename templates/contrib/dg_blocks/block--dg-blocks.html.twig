@@ -25,11 +25,9 @@
  * @see template_preprocess_block()
  */
 #}
-{%
-  set classes = [
-    'dg-block--block',
-  ]
-%}
+{% set classes = [
+  'dg-block--block',
+] %}
 <div{{ attributes.addClass(classes) }}>
   {{ title_prefix }}
   {% if label %}

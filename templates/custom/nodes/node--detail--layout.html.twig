@@ -71,21 +71,19 @@
 */
 #}
 
-{%
-  set classes = [
-    'node--type-' ~ node.bundle|clean_class,
-    not node.isPublished() ? 'node--unpublished'
-  ]
-%}
+{% set classes = [
+  'node--type-' ~ node.bundle|clean_class,
+  not node.isPublished() ? 'node--unpublished'
+] %}
 
 {{ attach_library('classy/node') }}
 
 <article{{ attributes.addClass(classes) }}>
 
   {{ title_prefix }}
-    <h1{{ title_attributes }}>
-      {{ label }}
-    </h1>
+  <h1{{ title_attributes }}>
+    {{ label }}
+  </h1>
   {{ title_suffix }}
 
   {% block article_content_top %}
@@ -114,7 +112,7 @@
                 {{ content.field_contact_categories }}
               {% endif %}
               {% if content.field_contacts|render|striptags|trim is not empty %}
-                  {{ content.field_contacts }}
+                {{ content.field_contacts }}
               {% endif %}
             </ul>
           </div>
@@ -169,7 +167,7 @@
       <div class="">
         <div class="extra-articles-content">
           <h2>{{ 'More news and events'|t }}</h2>
-            {{ content.field_related_news_events }}
+          {{ content.field_related_news_events }}
         </div>
       </div>
     {% endif %}

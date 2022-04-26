@@ -2,10 +2,17 @@
 
 All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
-## Unreleased
+## [Unreleased]
+
+### Fixed
+
+* DTGB-871: Fix GrumpPHP error when installing in project.
+
+## [4.4.0]
 
 ### Updated
 
+* DTGB-872: Add font-display swap
 * DTGB-868: Update qa-drupal to 1.5.x.
 
 ### Refactor
