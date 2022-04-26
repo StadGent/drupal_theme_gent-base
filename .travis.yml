@@ -3,10 +3,10 @@ language: php
 
 php:
   - 7.4
+  - 8.1
 
 env:
   matrix:
-    - DRUPAL=9.1 PHPUNIT=9
     - DRUPAL=9.2 PHPUNIT=9
     - DRUPAL=9.3 PHPUNIT=9
     - DRUPAL=9.4 PHPUNIT=9
