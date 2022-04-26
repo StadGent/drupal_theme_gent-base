@@ -2,25 +2,34 @@
 
 All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
+## [Unreleased]
+
+### Fixed
+
+* DTGB-871: Fix GrumpPHP error when installing in project.
+
 ## [4.4.0]
+
+### Updated
+
+* DTGB-872: Add font-display swap
+* DTGB-868: Update qa-drupal to 1.5.x.
+
+### Refactor
+
+* Refactor gent_base.theme file
+* Refactor twig files
+
+## [4.3.12]
 
 ### Fixed
 
 * DTGB-868: Fix pager to support d9
 * DTGB-869: Fix JS errors on responsive tables
 
-### Changed
-
-* DTGB-868: Change minimal PHP version to 7.4.
-
 ### Updated
 
 * Update styleguide to 5.0.15: fix STIJ-396 and STIJ-397
-* DTGB-868: Update qa-drupal to 1.5.x.
-
-### Refactor
-
-* Refactor gent_base.theme file
 
 ## [4.3.11]
 

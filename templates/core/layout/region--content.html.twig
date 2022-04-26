@@ -12,12 +12,10 @@
  * @see template_preprocess_region()
  */
 #}
-{%
-  set classes = [
+{% set classes = [
   'content',
   'result-section',
-]
-%}
+] %}
 {% if content %}
   <section{{ attributes.addClass(classes) }}>
     {{ content }}

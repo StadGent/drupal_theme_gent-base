@@ -10,12 +10,10 @@
 
 {{ attach_library('gent_base/accordion') }}
 
-{%
-  set classes = [
-    'authentication',
-    'accordion'
-  ]
-%}
+{% set classes = [
+  'authentication',
+  'accordion'
+] %}
 
 <div{{ attributes.addClass(classes) }}>
   {% if login_link %}
@@ -27,12 +25,14 @@
   {% endif %}
 
   <div class="user-logged-in">
-    <button aria-expanded="false" aria-controls="mijn_gent_content" class="toggle accordion--button">
+    <button aria-expanded="false" aria-controls="mijn_gent_content"
+            class="toggle accordion--button">
       <span class="avatar" aria-hidden="true">{{ username }}</span>
       <span>{{ username }}</span>
     </button>
 
-    <div id="mijn_gent_content" class="accordion--content" aria-hidden="true" hidden="hidden">
+    <div id="mijn_gent_content" class="accordion--content" aria-hidden="true"
+         hidden="hidden">
       <div class="content">
         <h2>{{ 'Mijn Gent'|t }}</h2>
         <section class="profile">
@@ -41,7 +41,8 @@
             <span>{{ username }}</span>
 
             {% if profile_url %}
-              <a href="{{ profile_url }}" class="button button-primary button-small user-has-profile">{{ 'Show profile'|t }}</a>
+              <a href="{{ profile_url }}"
+                 class="button button-primary button-small user-has-profile">{{ 'Show profile'|t }}</a>
             {% endif %}
           </div>
         </section>

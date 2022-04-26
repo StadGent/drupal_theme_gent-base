@@ -43,7 +43,7 @@
         }) %}
       {% else %}
         {% set count = item.value %}
-      {% endif  %}
+      {% endif %}
     {%- endfor -%}
 
     <div {{ attributes }} class="selected-filters">
@@ -64,7 +64,10 @@
 
     <div class="filter__result-count">
       {{ count }}
-      <button type="button" class="button button-secondary icon-filter result__show-filters modal-trigger" aria-expanded="false" aria-controls="filter">{{ 'Filters'|t }}</button>
+      <button type="button"
+              class="button button-secondary icon-filter result__show-filters modal-trigger"
+              aria-expanded="false"
+              aria-controls="filter">{{ 'Filters'|t }}</button>
     </div>
   {%- else -%}
     {{- empty -}}

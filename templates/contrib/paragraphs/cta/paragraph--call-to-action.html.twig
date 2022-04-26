@@ -54,32 +54,32 @@
   <div{{ attributes.addClass(classes).addClass(custom_classes) }}>
     <div class="highlight__inner">
       <div>
-      {% block content %}
-        {{ content|without(
-          'field_primary_action',
-          'field_primary_action_size',
-          'field_secondary_action',
-          'field_secondary_action_size'
-        ) }}
-      {% endblock %}
+        {% block content %}
+          {{ content|without(
+            'field_primary_action',
+            'field_primary_action_size',
+            'field_secondary_action',
+            'field_secondary_action_size'
+          ) }}
+        {% endblock %}
 
-      {% block actions %}
-        {% if content.field_secondary_action is not defined %}
-          {{ content.field_primary_action }}
-          {{ content.field_primary_action_size }}
-        {% else %}
-          <ul class="links">
-            <li>
-              {{ content.field_primary_action }}
-              {{ content.field_primary_action_size }}
-            </li>
-            <li>
-              {{ content.field_secondary_action }}
-              {{ content.field_secondary_action_size }}
-            </li>
-          </ul>
-        {% endif %}
-      {% endblock %}
+        {% block actions %}
+          {% if content.field_secondary_action is not defined %}
+            {{ content.field_primary_action }}
+            {{ content.field_primary_action_size }}
+          {% else %}
+            <ul class="links">
+              <li>
+                {{ content.field_primary_action }}
+                {{ content.field_primary_action_size }}
+              </li>
+              <li>
+                {{ content.field_secondary_action }}
+                {{ content.field_secondary_action_size }}
+              </li>
+            </ul>
+          {% endif %}
+        {% endblock %}
       </div>
     </div>
   </div>

@@ -23,7 +23,7 @@
     {% block address %}
       <p>
         {% if address|render %}
-          {{ address.street }} {{ address.houseNumber }}{{ address.box ? '/' ~ address.box  }},
+          {{ address.street }} {{ address.houseNumber }}{{ address.box ? '/' ~ address.box }},
           {{ address.postalCode }} {{ address.city }}
         {% endif %}
       </p>
@@ -35,14 +35,16 @@
           {% block phone %}
             {% if contactnumbers.landlines|length > 0 %}
               {% set phone = contactnumbers.landlines|first.value %}
-              <li><a href="tel:{{ phone|replace({' ':''}) }}" class="no-icon">{{ phone }}</a></li>
+              <li><a href="tel:{{ phone|replace({' ': ''}) }}"
+                     class="no-icon">{{ phone }}</a></li>
             {% endif %}
           {% endblock %}
 
           {% block email %}
             {% if emailaddresses|length > 0 %}
-              {% set emailAddress = emailaddresses|first.value %}
-              <li><a href="mailto:{{ emailAddress|replace({' ':''}) }}" class="no-icon">{{ emailAddress }}</a></li>
+              {% set email_address = emailaddresses|first.value %}
+              <li><a href="mailto:{{ email_address|replace({' ': ''}) }}"
+                     class="no-icon">{{ email_address }}</a></li>
             {% endif %}
           {% endblock %}
         </ul>
@@ -54,4 +56,5 @@
     {% endblock %}
   </div>
 </article>
-<a href="{{ url }}" class="teaser-overlay-link" tabindex="-1" aria-hidden="true">{{ name }}</a>
+<a href="{{ url }}" class="teaser-overlay-link" tabindex="-1"
+   aria-hidden="true">{{ name }}</a>

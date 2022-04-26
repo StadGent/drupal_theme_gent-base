@@ -25,12 +25,10 @@
  * @see template_preprocess_block()
  */
 #}
-{%
-  set classes = [
-    'block',
-    'top',
-  ]
-%}
+{% set classes = [
+  'block',
+  'top',
+] %}
 <aside{{ attributes.addClass(classes) }}>
   <div class="related-box">
     <div class="related-box-content">

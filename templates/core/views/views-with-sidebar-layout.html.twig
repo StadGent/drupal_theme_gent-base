@@ -30,8 +30,7 @@
  * @see template_preprocess_views_view()
  */
 #}
-{%
-  set classes = [
+{% set classes = [
   'view',
   'view-' ~ id|clean_class,
   'view-id-' ~ id,
@@ -39,8 +38,7 @@
   'sidebar-layout',
   'filter',
   dom_id ? 'js-view-dom-id-' ~ dom_id,
-]
-%}
+] %}
 
 {{ attach_library('gent_base/filter') }}
 {{ attach_library('gent_base/modal') }}
@@ -48,16 +46,19 @@
 <div{{ attributes.addClass(classes) }}>
   {% block filters %}
     {% if exposed %}
-      <section id="filter" class="filter-section sidebar modal" tabindex="-1" aria-hidden="false">
+      <section id="filter" class="filter-section sidebar modal" tabindex="-1"
+               aria-hidden="false">
         <div class="modal-inner">
           <div class="modal-header">
-            <button type="button" class="button close icon-cross modal-close" data-target="filter">
+            <button type="button" class="button close icon-cross modal-close"
+                    data-target="filter">
               {{ 'Close'|t }}
             </button>
           </div>
           <div class="modal-content">
             <h2>{{ 'Filter the results'|t }}</h2>
-            <p class="help-text">{{ 'When selecting or deselecting filters, the page is automatically reloaded.'|t }}</p>
+            <p
+              class="help-text">{{ 'When selecting or deselecting filters, the page is automatically reloaded.'|t }}</p>
             {{ exposed }}
           </div>
         </div>
@@ -87,35 +88,37 @@
     {% block header %}
       <div class="filter__result-count">
         {% if header %}
-            {{ title_prefix }}
-            {% if title %}
-              {{ title }}
-            {% endif %}
-            {{ title_suffix }}
-            {{ header }}
+          {{ title_prefix }}
+          {% if title %}
+            {{ title }}
+          {% endif %}
+          {{ title_suffix }}
+          {{ header }}
         {% endif %}
 
-        <button type="button" class="button button-secondary icon-filter result__show-filters modal-trigger" aria-expanded="false" aria-controls="filter">
+        <button type="button"
+                class="button button-secondary icon-filter result__show-filters modal-trigger"
+                aria-expanded="false" aria-controls="filter">
           {{ 'Filters'|t }}
         </button>
       </div>
     {% endblock %}
 
     {% block filter %}
-      <div class="filter-results">
-        {% if rows %}
-          {{ rows }}
-        {% elseif empty %}
-          <div class="view-empty">
-            {{ empty }}
-          </div>
-        {% endif %}
-      </div>
-
-      {% if more %}
-        {{ more }}
+    <div class="filter-results">
+      {% if rows %}
+        {{ rows }}
+      {% elseif empty %}
+        <div class="view-empty">
+          {{ empty }}
+        </div>
       {% endif %}
     </div>
+
+    {% if more %}
+      {{ more }}
+    {% endif %}
+  </div>
   {% endblock %}
 
   {% block pager %}

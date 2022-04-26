@@ -18,7 +18,7 @@
 
 {% set classes = [
   'teaser-content'
-]  %}
+] %}
 
 <article{{ attributes.addClass(classes) }}>
   <div class="content__second">
@@ -26,7 +26,7 @@
 
     <p>
       {% if address|render %}
-        {{ address.street }} {{ address.houseNumber }}{{ address.box ? '/' ~ address.box  }},
+        {{ address.street }} {{ address.houseNumber }}{{ address.box ? '/' ~ address.box }},
         {{ address.postalCode }} {{ address.city }}
       {% endif %}
     </p>
@@ -34,13 +34,16 @@
     {% if contactnumbers.landlines|length > 0 %}
       {% set phone = contactnumbers.landlines|first.value %}
       <p class="phone-number">
-        <a href="tel:{{ phone|replace({' ':''}) }}" class="no-icon">{{ phone }}</a>
+        <a href="tel:{{ phone|replace({' ': ''}) }}"
+           class="no-icon">{{ phone }}</a>
       </p>
     {% endif %}
 
     {{ content.field_opening_hours }}
 
-    <a href="{{ url }}" class="read-more standalone-link" aria-labelledby="{{ id }}">{{ 'More info and opening hours'|t }}</a>
+    <a href="{{ url }}" class="read-more standalone-link"
+       aria-labelledby="{{ id }}">{{ 'More info and opening hours'|t }}</a>
   </div>
 </article>
-<a href="{{ url }}" class="teaser-overlay-link" tabindex="-1" aria-hidden="true">{{ name }}</a>
+<a href="{{ url }}" class="teaser-overlay-link" tabindex="-1"
+   aria-hidden="true">{{ name }}</a>

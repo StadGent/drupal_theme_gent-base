@@ -1,4 +1,4 @@
-dist: xenial
+dist: bionic
 language: php
 
 php:
@@ -9,10 +9,10 @@ node_js:
 
 env:
   matrix:
-    - DRUPAL=8.9 PHPUNIT=7.5
-    - DRUPAL=9.0 PHPUNIT=8.5
-    - DRUPAL=9.1 PHPUNIT=8.5
-    - DRUPAL=9.2 PHPUNIT=8.5
+    - DRUPAL=9.1 PHPUNIT=9
+    - DRUPAL=9.2 PHPUNIT=9
+    - DRUPAL=9.3 PHPUNIT=9
+    - DRUPAL=9.4 PHPUNIT=9
 
 jobs:
   fast_finish: true

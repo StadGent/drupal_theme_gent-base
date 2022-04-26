@@ -1,17 +1,15 @@
-{% set pageTitle = form.progress
-  ? form['#webform'].pages[form.progress['#current_page']]['#title']
-%}
+{% set page_title = form.progress ? form['#webform'].pages[form.progress['#current_page']]['#title'] %}
 
 {% if form.progress %}
 
-  <div class="form--multistep">
-    {{ form.progress }}
+<div class="form--multistep">
+  {{ form.progress }}
 
-    <div class="form-content">
+  <div class="form-content">
 
-{% endif %}
-    {% if pageTitle %}
-      <h2>{{ pageTitle }}</h2>
+    {% endif %}
+    {% if page_title %}
+      <h2>{{ page_title }}</h2>
     {% endif %}
 
     {% if form['#has_inputs'] %}
@@ -20,7 +18,7 @@
 
     {{ form|without('progress') }}
 
-{% if form.progress %}
+    {% if form.progress %}
   </div>
 </div>
 {% endif %}

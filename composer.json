@@ -10,8 +10,7 @@
     ],
     "homepage": "https://bitbucket.org/digipolisgent/drupal_theme_gent-base",
     "require": {
-        "php": "^7.3",
-        "drupal/core": "^8.8 || ^9.0"
+        "php": "^7.4"
     },
     "require-dev": {
         "digipolisgent/qa-drupal": "^1.5",
@@ -34,7 +33,8 @@
     "config": {
         "allow-plugins": {
             "ergebnis/composer-normalize": true,
-            "phpro/grumphp-shim": true
+            "phpro/grumphp-shim": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true
         },
         "sort-packages": true
     },
@@ -45,8 +45,7 @@
     },
     "scripts": {
         "post-install-cmd": [
-            "bash -c 'cd ./scripts; ./install.sh;'",
-            "vendor/bin/grumphp git:init"
+            "bash -c 'cd ./scripts; ./install.sh;'"
         ],
         "post-update-cmd": [
             "bash -c 'cd ./scripts; ./install.sh;'"

@@ -3,7 +3,7 @@
 {% block article_content_top %}
   {{ readspeaker }}
 
-  {% if person_job_title|render|striptags|trim is not empty or person_category|render|striptags|trim is not empty  %}
+  {% if person_job_title|render|striptags|trim is not empty or person_category|render|striptags|trim is not empty %}
     <p class="summary-text">{{ person_job_title|render|striptags|trim }}
       {% if person_job_title|render|striptags|trim is not empty and person_category|render|striptags|trim is not empty %}-{% endif %}
       {{ person_category }}</p>
@@ -26,13 +26,13 @@
             {% if person_phone|render|striptags|trim is not empty %}
               <li>
                 <i class="icon-normalphone" aria-hidden="true"></i>
-                <span>{{ person_phone}}</span>
+                <span>{{ person_phone }}</span>
               </li>
             {% endif %}
             {% if person_cellphone|render|striptags|trim is not empty %}
               <li>
                 <i class="icon-phone" aria-hidden="true"></i>
-                <span>{{ person_cellphone}}</span>
+                <span>{{ person_cellphone }}</span>
               </li>
             {% endif %}
             {% if person_fax|render|striptags|trim is not empty %}
