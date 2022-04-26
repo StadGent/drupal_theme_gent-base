@@ -4,6 +4,9 @@ language: php
 php:
   - 7.4
 
+node_js:
+  - "14"
+
 env:
   matrix:
     - DRUPAL=8.9 PHPUNIT=7.5
@@ -20,7 +23,7 @@ cache:
 
 before_install:
   # Install various packages.
-  - nvm install 10.14.2 && nvm use 10.14.2
+  - nvm install 14 && nvm use 14
   - npm install -g gulp-cli yarn
 
   # Update composer to latest v2.
