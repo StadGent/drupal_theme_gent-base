@@ -2,16 +2,15 @@
 
 All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
-## Unreleased
+## [4.4.0]
 
-### Updated
+### Added
 
-* DTGB-868: Update qa-drupal to 1.5.x.
+* Add php 8.1 support.
 
-### Refactor
+### Fixed
 
-* Refactor gent_base.theme file
-* Refactor twig files
+* DTGB-871: Fix GrumpPHP error when installing in project.
 
 ## [4.3.12]
 
