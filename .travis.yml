@@ -46,7 +46,7 @@ install:
   - composer install -n --no-progress
 
 script:
-  - vendor/bin/grumphp run -n
+  # - vendor/bin/grumphp run -n We will do only code quality checks from 5.x
   - cd source && gulp validate
 
 after_script:
