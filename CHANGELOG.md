@@ -2,6 +2,20 @@
 
 All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
+## [4.4.1]
+
+### Fix
+
+* DTGB-857: Add fieldset legend attributes
+
+### Added 
+
+* DTGB-872: Add font-display swap
+
+### Updated
+
+* Update gent_styleguide to 5.0.15
+
 ## [4.4.0]
 
 ### Added
@@ -683,6 +697,9 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 * **Updated to gent_styleguide version 2.6.13**
 
+[4.4.1]: https://github.com/StadGent/drupal_theme_gent-base/compare/4.4.0...4.4.1
+[4.4.0]: https://github.com/StadGent/drupal_theme_gent-base/compare/4.3.12...4.4.0
+[4.3.12]: https://github.com/StadGent/drupal_theme_gent-base/compare/4.3.11...4.3.12
 [4.3.11]: https://github.com/StadGent/drupal_theme_gent-base/compare/4.3.10...4.3.11
 [4.3.10]: https://github.com/StadGent/drupal_theme_gent-base/compare/4.3.9...4.3.10
 [4.3.9]: https://github.com/StadGent/drupal_theme_gent-base/compare/4.3.8...4.3.9

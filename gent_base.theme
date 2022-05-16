@@ -193,7 +193,7 @@ function gent_base_preprocess_item_list__steps(&$variables) {
         $item['url'] = $item['value']['#url'];
       }
 
-      $item['attributes']['class'] = 'progress';
+      $item['attributes']['class'][] = 'progress';
       if (!empty($item['value']['#active'])) {
         $item['attributes']['class'][] = 'progress-active';
       }
