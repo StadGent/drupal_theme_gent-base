@@ -6,6 +6,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 ### Fix
 
+* DTBG-866: Fix double description on select other
 * DTGB-857: Add fieldset legend attributes
 
 ### Added 

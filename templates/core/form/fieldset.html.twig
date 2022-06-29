@@ -53,13 +53,6 @@
   <div class="form-row">
     {% endif %}
 
-    {% if information %}
-      <div class="field-message">
-        {{ information.content }}
-        <div class="accolade"></div>
-      </div>
-    {% endif %}
-
     {% if errors and not has_columns %}
       <div class="field-message error" role="alert">
         {{ errors }}
@@ -69,11 +62,14 @@
 
     {% if has_columns %}
     <div class="form-item">
-      {% if prefix %}
-        <div class="field-message">
-          {{ prefix }}
+      {% if information %}
+        <div{{ information.attributes.addClass(information_classes) }}>
+          {{ information.content }}
           <div class="accolade"></div>
         </div>
+      {% endif %}
+      {% if prefix %}
+        <span class="field-prefix">{{ prefix }}</span>
       {% endif %}
       <div class="form-columns">
         <div class="form-item-column">
