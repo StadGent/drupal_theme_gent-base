@@ -53,6 +53,15 @@
   <div class="form-row">
     {% endif %}
 
+    {% if information and not has_columns %}
+      <div class="form-item">
+        <div class="field-message">
+          {{ information.content }}
+          <div class="accolade"></div>
+        </div>
+      </div>
+    {% endif %}
+
     {% if errors and not has_columns %}
       <div class="field-message error" role="alert">
         {{ errors }}
@@ -63,7 +72,7 @@
     {% if has_columns %}
     <div class="form-item">
       {% if information %}
-        <div{{ information.attributes.addClass(information_classes) }}>
+        <div{{ information.attributes.addClass(information_classes, 'field-message') }}>
           {{ information.content }}
           <div class="accolade"></div>
         </div>
