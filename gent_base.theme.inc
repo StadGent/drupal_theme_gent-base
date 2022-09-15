@@ -42,9 +42,10 @@ function gent_base_file_formatter_table($variables) {
   $rows = array();
   foreach ($variables['items'] as $delta => $item) {
     $rows[] = array(
-      theme('file_link', array('file' => (object) $item)),
+      'data' => theme('file_link', array('file' => (object) $item)),
     );
   }
+
   return empty($rows) ? '' : theme('item_list', array(
     'items' => $rows,
     'hide_wrapper' => TRUE,

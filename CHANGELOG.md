@@ -6,6 +6,21 @@ All Notable changes to `digipolisgent/gent_base`.
 
 ## [Unreleased]
 
+## [7.x-2.15]
+### Fixed
+
+* Fix display of file "table"
+
+## [7.x-2.14]
+### Changed
+
+* Update District09 logo
+
+## [7.x-2.13]
+### Changed
+
+* Change Digipolis logo to District09
+
 ## [7.x-2.12]
 ### Changed
 
@@ -110,6 +125,9 @@ These changes include:
 
 
 [Unreleased]: https://github.com/StadGent/drupal_theme_gent-base/compare/7.x-2.x...7.x-2.x-dev
+[7.x-2.15]: https://github.com/StadGent/drupal_theme_gent-base/compare/7.x-2.14...7.x-2.15
+[7.x-2.14]: https://github.com/StadGent/drupal_theme_gent-base/compare/7.x-2.13...7.x-2.14
+[7.x-2.13]: https://github.com/StadGent/drupal_theme_gent-base/compare/7.x-2.12...7.x-2.13
 [7.x-2.12]: https://github.com/StadGent/drupal_theme_gent-base/compare/7.x-2.11...7.x-2.12
 [7.x-2.11]: https://github.com/StadGent/drupal_theme_gent-base/compare/7.x-2.10...7.x-2.11
 [7.x-2.10]: https://github.com/StadGent/drupal_theme_gent-base/compare/7.x-2.9...7.x-2.10
