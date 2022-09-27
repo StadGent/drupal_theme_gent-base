@@ -6,6 +6,7 @@
  */
 
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Render\Markup;
 use Drupal\Core\Template\Attribute;
 use Drupal\Component\Utility\Html;
 use Drupal\gent_base\FormPrerender;
@@ -374,6 +375,17 @@ function gent_base_preprocess_fieldset(&$variables) {
 
   $variables['has_columns'] = $element['#has_columns'] ?? NULL;
   $variables['prefix'] = $element['#field_prefix'] ?? NULL;
+
+  // Split up description and field prefix to 2 separate variables.
+  // See webform/src/Plugin/WebformElement/OptionsBase.php:170.
+  preg_match_all('/<div\s+class="description">(.*)<\/div>/',(string) $variables['prefix'], $matches);
+  if (isset($matches[0])) {
+    $element['#information'] = reset($matches[1]);
+    $element['#information'] = Markup::create($element['#information']);
+  }
+  if (isset($element['#information'])) {
+    $variables['prefix'] = str_replace(reset($matches[0]), '', (string) $variables['prefix']);
+  }
 }
 
 /**
