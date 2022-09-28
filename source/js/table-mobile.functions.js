@@ -105,9 +105,11 @@
         // Add a header based on the row heading.
         if (rowHeadingsNodeList.length) {
           for (var k = 0; k < rowHeadingsNodeList.length; k++) {
-            var header = document.createElement(options.headingType);
-            header.textContent = rowHeadingsNodeList[k].textContent;
-            listItem.appendChild(header);
+            if (i === k) {
+              var header = document.createElement(options.headingType);
+              header.textContent = rowHeadingsNodeList[k].textContent;
+              listItem.appendChild(header);
+            }
           }
         }
 
