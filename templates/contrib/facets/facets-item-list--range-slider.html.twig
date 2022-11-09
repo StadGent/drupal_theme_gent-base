@@ -39,7 +39,9 @@
       {{ items.value }}
 
       <div class="pips-preview">
-        {{ 'From %min to %max year'|t({'%min': '', '%max': ''}) }}
+        {% block pipscontent %}
+        {{ 'From %min to %max'|t({'%min': '', '%max': ''}) }}
+        {% endblock pipscontent %}
       </div>
 
       {%- if items -%}
