@@ -42,8 +42,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2022-11-09 10:48+0100\n"
-"PO-Revision-Date: 2022-11-09 10:50+0100\n"
+"POT-Creation-Date: 2022-11-09 16:38+0100\n"
+"PO-Revision-Date: 2022-11-09 16:40+0100\n"
 "Last-Translator: Helena Standaert <helena.standaert@digipolis.gent>\n"
 "Language-Team: Digipolis <tbweb@gent.be>\n"
 "Language: nl\n"
@@ -226,15 +226,7 @@ msgstr "%count item(s) geselecteerd"
 msgid "Select ..."
 msgstr "Selecteer …"
 
-#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--range-slider--leisure-age.html.twig:4
-msgid "From %min to %max year"
-msgstr "Van %min tot %max jaar"
-
-#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--range-slider--leisure-price.html.twig:4
-msgid "From %min to %max euro"
-msgstr "Van %min tot %max euro"
-
-#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--range-slider.html.twig:42
+#: themes/contrib/gent_base/templates/contrib/facets/facets-item-list--range-slider.html.twig:43
 msgid "From %min to %max"
 msgstr "Van %min tot %max"
 
@@ -491,9 +483,3 @@ msgstr "Bereikbaarheid"
 #: themes/contrib/gent_base/templates/custom/vesta/vesta.html.twig:163
 msgid "View all locations from"
 msgstr "Alle locaties van"
-
-#~ msgid "Show more"
-#~ msgstr "Toon meer"
-
-#~ msgid "Confirm selection"
-#~ msgstr "Bevestig selectie"
