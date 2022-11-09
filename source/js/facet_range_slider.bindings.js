@@ -51,16 +51,23 @@
      * Update copy dynamically when the user changes the value of the slider.
      */
     updateCopy: function () {
-      var minPips = document.querySelector('.pips-preview .placeholder:first-of-type');
-      var maxPips = document.querySelector('.pips-preview .placeholder:last-of-type');
-      var slider = document.querySelector('.facet-slider');
+      var facetsRangeSlider = document.querySelectorAll('.facets-widget-range_slider');
+      var minPips = $(facetsRangeSlider).find('.pips-preview .placeholder:first-of-type');
+      var maxPips = $(facetsRangeSlider).find('.pips-preview .placeholder:last-of-type');
+      var slider = $(facetsRangeSlider).find('.facet-slider');
 
-      minPips.innerHTML = $(slider).slider('values', 0);
-      maxPips.innerHTML = $(slider).slider('values', 1);
+      if (facetsRangeSlider.length > 0) {
+        for (var i = 0; i < facetsRangeSlider.length; i++) {
+          minPips[i].textContent = $(slider[i]).slider('values', 0);
+          maxPips[i].textContent = $(slider[i]).slider('values', 1);
+        }
+      }
 
-      $(slider).on('slide', function (event, ui) {
-        minPips.innerHTML = ui.values[0];
-        maxPips.innerHTML = ui.values[1];
+      $(slider).once().each(function () {
+        $(this).on('slide', function (event, ui) {
+          $(this).parents('.facets-widget-range_slider').find('.pips-preview .placeholder:first-of-type')[0].textContent = ui.values[0];
+          $(this).parents('.facets-widget-range_slider').find('.pips-preview .placeholder:last-of-type')[0].textContent = ui.values[1];
+        });
       });
     }
   };
