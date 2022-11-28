@@ -1,8 +1,10 @@
 {% extends 'node--detail--layout.html.twig' %}
 
 {% block article_content_top %}
+  {% if node.published_at is not empty %}
   <time
     datetime="{{ date|date('Y-m-d') }}">{{- node.published_at.value|dg_format_date('text') -}}</time>
+  {% endif %}
 
   {{ parent() }}
 {% endblock %}
