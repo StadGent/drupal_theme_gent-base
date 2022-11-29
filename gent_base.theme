@@ -918,7 +918,7 @@ function _get_image_style_gallery_full(&$variables) {
   $image_style = ImageStyle::load('gallery_full');
 
   if ($image_style) {
-    $entity = $variables['content']['field_media_image'][0]['#item']->entity;
+    $entity = $variables['media']->field_media_image->entity;
 
     if ($entity) {
       $file = $entity->getFileUri();
