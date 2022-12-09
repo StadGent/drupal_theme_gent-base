@@ -7,6 +7,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 ### Fixed
 
 * DTGB-871: Fix GrumpPHP error when installing in project.
+* DTGB-888: Fix fatal error when no 2nd CTA action is set.
 
 ## [4.4.0]
 
