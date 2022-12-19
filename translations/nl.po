@@ -43,7 +43,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "POT-Creation-Date: 2022-11-09 16:38+0100\n"
-"PO-Revision-Date: 2022-11-09 16:40+0100\n"
+"PO-Revision-Date: 2022-12-19 11:26+0100\n"
 "Last-Translator: Helena Standaert <helena.standaert@digipolis.gent>\n"
 "Language-Team: Digipolis <tbweb@gent.be>\n"
 "Language: nl\n"
@@ -51,7 +51,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.2\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #: themes/contrib/gent_base/theme-settings.php:21
 msgid "Gent Base settings"
@@ -258,10 +258,8 @@ msgid "Call @phone"
 msgstr "Bel naar @phone"
 
 #: themes/contrib/gent_base/templates/contrib/paragraphs/contact/paragraph--contact.html.twig:80
-#, fuzzy
-#| msgid "Send an email to @emailAddress"
 msgid "Send an email to @email_address"
-msgstr "Stuur een email naar @emailAddress"
+msgstr "Stuur een email naar @email_address"
 
 #: themes/contrib/gent_base/templates/contrib/paragraphs/contact/paragraph--contact.html.twig:87
 msgid "View all contact info"
