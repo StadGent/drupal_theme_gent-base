@@ -1540,9 +1540,9 @@ gauge@^4.0.3:
     wide-align "^1.1.5"
 
 gent_styleguide@^5:
-  version "5.0.26"
-  resolved "https://registry.yarnpkg.com/gent_styleguide/-/gent_styleguide-5.0.26.tgz#06e49a4415ed5ee56c7caf4b0d859000ee5ed52d"
-  integrity sha512-Bbf5KhB+OYnCfzzH2sK+5JECyDV98hWdEH/M4LylSfv3w+PQLxElX9QjAqy0/Ku3pQQFhtbDw4qBsC7jDn0mvg==
+  version "5.0.27"
+  resolved "https://registry.yarnpkg.com/gent_styleguide/-/gent_styleguide-5.0.27.tgz#9b3ef319d5ce038655155f4509b65b2e9f7cbf14"
+  integrity sha512-TCBzDYYzXdkyjXlCCEdIFFLB+20bVklqPeDVDAo9fRsZ4nXO5WK8t491OT2fo+G2BHJkt93+Q0hEaHV81/sC2Q==
   dependencies:
     "@digipolis-gent/modal" "^1.0.2"
     acorn "^8.0.1"
