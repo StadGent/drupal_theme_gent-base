@@ -160,11 +160,11 @@ function gent_base_preprocess_dg_auth_block(&$variables) {
  */
 function gent_base_preprocess_html(&$variables) {
   $color = (theme_get_setting('color_scheme')) ?
-    theme_get_setting('color_scheme') : 'cyan';
+    theme_get_setting('color_scheme') : 'blue';
   $variables['cs']['color'] = $color;
 
   $hex = (theme_get_setting('color_scheme_hex')) ?
-    theme_get_setting('color_scheme_hex') : '009DE0';
+    theme_get_setting('color_scheme_hex') : '005ba9';
   $variables['cs']['hex'] = '#' . $hex;
 }
 

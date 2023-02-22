@@ -1,11 +1,12 @@
 {
   "type": "module",
   "name": "gent_base",
-  "version": "5.1.0",
+  "version": "6.0.0",
   "description": "Gent Base contrib theme for Drupal 8.",
   "authors": [
     "Gert-Jan Meire <gertjan.meire@digipolis.gent>",
-    "Wim Vantomme <wim.vantomme@digipolis.gent>"
+    "Wim Vantomme <wim.vantomme@digipolis.gent>",
+    "Lennart Van Vaerenbergh <lennart.vanvaerenbergh@district09.gent>"
   ],
   "license": "ISC",
   "devDependencies": {
@@ -27,6 +28,6 @@
   "dependencies": {
     "@digipolis-gent/modal": "^1.0.4",
     "fs-extra": "^11.1.0",
-    "gent_styleguide": "^5.1.4"
+    "gent_styleguide": "^6.0.0-alpha2"
   }
 }
