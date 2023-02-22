@@ -1,13 +1,10 @@
 # Changelog
 
-All Notable changes to `digipolisgent/drupal_theme_gent-base`.
+All Notable changes to `StadGent/drupal_theme_gent-base`.
 
-## [Unreleased]
+## [5.x]
 
-### Fixed
-
-* DTGB-871: Fix GrumpPHP error when installing in project.
-* DTGB-888: Fix fatal error when no 2nd CTA action is set.
+See Github releases for more information.
 
 ## [4.4.0]
 
@@ -692,6 +689,7 @@ All Notable changes to `digipolisgent/drupal_theme_gent-base`.
 
 * **Updated to gent_styleguide version 2.6.13**
 
+[5.x]: https://github.com/StadGent/drupal_theme_gent-base/releases
 [4.3.11]: https://github.com/StadGent/drupal_theme_gent-base/compare/4.3.10...4.3.11
 [4.3.10]: https://github.com/StadGent/drupal_theme_gent-base/compare/4.3.9...4.3.10
 [4.3.9]: https://github.com/StadGent/drupal_theme_gent-base/compare/4.3.8...4.3.9

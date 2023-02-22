@@ -319,7 +319,7 @@ $map-text-color: color('dark-gray');
 
         &::before {
           position: absolute;
-          left: $accolade-width/2;
+          left: $accolade-width*0.5;
           width: $accolade-width;
           height: $accolade-height;
           transform: rotate(180deg);

@@ -6,13 +6,14 @@ php:
   - 8.1
 
 node_js:
-  - "14"
+  - "16"
+  - "18"
 
 env:
   matrix:
-    - DRUPAL=9.2 PHPUNIT=9
     - DRUPAL=9.3 PHPUNIT=9
     - DRUPAL=9.4 PHPUNIT=9
+    - DRUPAL=9.5 PHPUNIT=9
 
 jobs:
   fast_finish: true
@@ -23,8 +24,8 @@ cache:
 
 before_install:
   # Install various packages.
-  - nvm install 14 && nvm use 14
-  - npm install -g gulp-cli yarn
+  - nvm install 18 && nvm use 18
+  - npm install -g gulp-cli
 
   # Update composer to latest v2.
   - composer self-update --2

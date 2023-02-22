@@ -1,9 +1,9 @@
 'use strict';
 
-var gulp = require('gulp');
-var eslint = require('gulp-eslint');
-var del = require('del');
-var plumber = require('gulp-plumber');
+import gulp from "gulp";
+import eslint from "gulp-eslint";
+import {deleteAsync} from 'del';
+import plumber from "gulp-plumber";
 
 var globalConfig = {
   scripts_src_dir: 'js',
@@ -40,7 +40,7 @@ gulp.task('js:watch', function () {
  * This deletes the build directory before recompiling.
  */
 gulp.task('build:clean', function () {
-  return del(globalConfig.build_dir + '/**', {force: true});
+  return deleteAsync(globalConfig.build_dir + '/**', {force: true});
 });
 
 /*
