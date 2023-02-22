@@ -378,7 +378,7 @@ function gent_base_preprocess_fieldset(&$variables) {
 
   // Split up description and field prefix to 2 separate variables.
   // See webform/src/Plugin/WebformElement/OptionsBase.php:170.
-  preg_match_all('/<div\s+class="description">(.*)<\/div>/',(string) $variables['prefix'], $matches);
+  preg_match_all('/<div\s+class="description">(.*)<\/div>/', (string) $variables['prefix'], $matches);
   if (isset($matches[0])) {
     $element['#information'] = reset($matches[1]);
     $element['#information'] = Markup::create($element['#information']);
@@ -1126,6 +1126,7 @@ function gent_base_preprocess_pager(&$variables) {
  * Implements hook_preprocess_HOOK().
  */
 function gent_base_preprocess_paragraph__call_to_action(&$variables) {
+  /** @var \Drupal\paragraphs\ParagraphInterface $paragraph */
   $paragraph = $variables['paragraph'];
   $fields = [
     'field_primary_action',
@@ -1133,42 +1134,53 @@ function gent_base_preprocess_paragraph__call_to_action(&$variables) {
   ];
 
   foreach ($fields as $i => $field) {
-    if (!$paragraph->hasField($field . '_type')) {
+    // We stop extracting the links from the moment that the type is not set.
+    if (!$paragraph->hasField($field . '_type') || $paragraph->get($field . '_type')->isEmpty()) {
       break;
     }
 
-    if (!$paragraph->get($field . '_type')->isEmpty()) {
-      $action = [
-        '#type' => 'link',
-        '#title' => $paragraph->get($field . '_title')->value,
-        '#attributes' => [
-          'class' => $i > 0 ? ['standalone-link'] : ['button', 'button-primary'],
-        ],
+    $action = [
+      '#type' => 'link',
+      '#title' => $paragraph->get($field . '_title')->value,
+      '#attributes' => [
+        'class' => $i > 0 ? ['standalone-link'] : ['button', 'button-primary'],
+      ],
+    ];
+
+    // Type is link.
+    if ($paragraph->get($field . '_type')->value === 'link') {
+      /** @var \Drupal\link\LinkItemInterface|null $link */
+      $link = $paragraph->get($field . '_link')->first();
+      if (empty($link)) {
+        break;
+      }
+
+      $action['#url'] = $link->getUrl();
+    }
+    // Type is document.
+    else {
+      $data = _gent_base_get_entity_reference_file_data($variables, $field . '_document');
+      if (empty($data) || !isset($data['file_uri'])) {
+        break;
+      }
+
+      $action['#url'] = Url::fromUri($data['file_uri']);
+      $action['#attributes']['download'] = TRUE;
+
+      $variables['content'][$field . '_size'] = [
+        '#type' => 'html_tag',
+        '#tag' => 'span',
+        '#value' => $data['file_type'] . ' <span class="file-size">(' . $data['file_size'] . ')</span>',
+        '#attributes' => ['class' => 'file-type'],
       ];
-
-      if ($paragraph->get($field . '_type')->value === 'link') {
-        $action['#url'] = $paragraph->get($field . '_link')->first()->getUrl();
-      }
-      else {
-        $data = _gent_base_get_entity_reference_file_data($variables, $field . '_document');
-        if (empty($data) || !isset($data['file_uri'])) {
-          break;
-        }
-
-        $action['#url'] = Url::fromUri($data['file_uri']);
-        $action['#attributes']['download'] = TRUE;
-
-        $variables['content'][$field . '_size'] = [
-          '#type' => 'html_tag',
-          '#tag' => 'span',
-          '#value' => $data['file_type'] . ' <span class="file-size">(' . $data['file_size'] . ')</span>',
-          '#attributes' => ['class' => 'file-type'],
-        ];
-      }
-
-      $variables['content'][$field] = $action;
     }
 
+    $variables['content'][$field] = $action;
+  }
+
+  // We perform this action out of the previous loop to be sure that are all
+  // unset, even when not properly configured.
+  foreach ($fields as $field) {
     unset($variables['content'][$field . '_link']);
     unset($variables['content'][$field . '_document']);
     unset($variables['content'][$field . '_type']);
