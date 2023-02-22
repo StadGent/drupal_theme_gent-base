@@ -27,6 +27,6 @@
   "dependencies": {
     "@digipolis-gent/modal": "^1.0.4",
     "fs-extra": "^11.1.0",
-    "gent_styleguide": "^5"
+    "gent_styleguide": "^5.1.4"
   }
 }
