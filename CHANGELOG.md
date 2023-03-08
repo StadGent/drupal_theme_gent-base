@@ -6,6 +6,10 @@ All Notable changes to `StadGent/drupal_theme_gent-base`.
 
 See Github releases for more information.
 
+### Fixed
+
+- DTGB-893: Fix broken multiple image upload widget.
+
 ## [4.4.0]
 
 ### Updated
