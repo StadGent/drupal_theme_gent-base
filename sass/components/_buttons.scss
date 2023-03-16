@@ -2,66 +2,22 @@
 // Buttons.
 //
 %btn--alpha {
-  color: $white-color;
-  background-color: $alpha-link-color;
-
-  &:hover {
-    background-color: lighten($alpha-link-color, 5);
-  }
-
-  &:focus,
-  &:active {
-    background-color: $alpha-link-color;
-  }
+  @include btn--alpha;
 }
 
 %btn--beta {
-  color: #fff;
-  background-color: $beta-ui-color;
-
-  &:hover {
-    color: $white-color;
-    background-color: lighten($beta-ui-color, 5);
-  }
-
-  &:focus,
-  &:active {
-    background-color: darken($beta-ui-color, 2.5);
-  }
+  @include btn--beta;
 }
 
 %btn--beta--alt {
-  color: $beta-ui-color;
-  background-color: lighten($beta-ui-color, 50);
-  box-shadow: 0 -1px 0 0 darken($beta-ui-color, 5) inset;
-
-  &:hover {
-    background-color: $white-color;
-  }
-
-  &:focus,
-  &:active {
-    color: $beta-ui-color;
-    background-color: lighten($beta-ui-color, 50);
-    box-shadow: 0 1px 0 0 darken($beta-ui-color, 5) inset;
-  }
+  @include btn--beta--alt;
 }
 
 %btn--gamma {
-  font-weight: $alpha-font-weight;
-  color: $alpha-ui-color;
-  border: 1px solid transparent;
-
-  &:hover,
-  &:focus,
-  &:active {
-    color: $alpha-ui-color;
-    background-color: $gamma-ui-color;
-    border: 1px solid darken($gamma-ui-color, 10);
-  }
+  @include btn--gamma;
 }
 
-%btn--delta {
+@mixin btn--delta {
   @include margin-tb(1, 0);
   color: $beta-ui-color;
   background-color: $white-color;
@@ -78,59 +34,25 @@
   }
 }
 
+%btn--delta {
+  @include btn--delta;
+}
+
 %btn--epsilon {
-  color: $white-color;
-  background-color: $delta-ui-color;
-
-  &:hover {
-    color: $white-color;
-    background-color: darken($delta-ui-color, 3);
-  }
-
-  &:focus,
-  &:active {
-    color: $white-color;
-    background-color: darken($delta-ui-color, 3);
-  }
+  @include btn--epsilon;
 }
 
 %btn--zeta {
-  @include margin-tb(.8, 0);
-  color: $beta-ui-color;
-  background-color: $white-color;
-  width: 10%;
-
-  &:hover {
-    color: $beta-ui-color;
-    background-color: $white-color;
-  }
-
-  &:focus,
-  &:active {
-    color: $beta-ui-color;
-    background-color: $white-color;
-  }
+  @include btn--zeta;
 }
 
 %btn--disabled {
-  color: $disabled-color;
-  background-color: $disabled-ui-color;
-  border: 1px solid $disabled-color;
-  cursor: default;
-
-  &:hover {
-    background-color: $disabled-ui-color;
-  }
-
-  &:focus,
-  &:active {
-    background-color: $disabled-ui-color;
-  }
+  @include btn--disabled;
 }
 
 .btn,
 a.btn {
-  @extend %btn;
+  @include btn;
 }
 
 // Button sizes.
@@ -165,42 +87,42 @@ input[type='submit'].btn--inline {
 // Button variations.
 .btn--alpha,
 a.btn--alpha {
-  @extend %btn--alpha;
+  @include btn--alpha;
 }
 
 .btn--beta,
 a.btn--beta {
-  @extend %btn--beta;
+  @include btn--beta;
 }
 
 .btn--beta--alt,
 a.btn--beta--alt {
-  @extend %btn--beta--alt;
+  @include btn--beta--alt;
 }
 
 .btn--delta,
 a.btn--delta {
-  @extend %btn--delta;
+  @include btn--delta;
 }
 
 .btn--gamma,
 a.btn--gamma {
-  @extend %btn--gamma;
+  @include btn--gamma;
 }
 
 .btn--epsilon,
 a.btn--epsilon {
-  @extend %btn--epsilon;
+  @include btn--epsilon;
 }
 
 .btn--disabled,
 a.btn--disabled {
-  @extend %btn--disabled;
+  @include btn--disabled;
 }
 
 .btn--zeta,
 a.btn--zeta {
-  @extend %btn--zeta;
+  @include btn--zeta;
 }
 
 .btn--option-link {

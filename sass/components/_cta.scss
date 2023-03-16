@@ -2,7 +2,7 @@
 // Call to actions.
 //
 .cta {
-  @extend %clearfix;
+  @include clearfix;
   @include padding-tb(.5, 1.5);
 
   &:hover,
@@ -56,7 +56,7 @@
 // Legacy support for existing content
 // We should migrate this after we have an input filter
 .article-content-action {
-  @extend %clearfix;
+  @include clearfix;
   @include px-padding-lr(2, 0);
   @include margin-tb(.5, .5);
 
@@ -116,7 +116,7 @@
 }
 
 .article-content-action .icon {
-  @extend %icon-base-css;
+  @include icon-base-css;
   @include padding-tb(1.4, 1.4);
 
   display: block;
@@ -134,12 +134,12 @@
   border-radius: $beta-radius;
 }
 
-.article-content-action .icon-document::before {
-  @extend .icon-clip::before; // sass-lint:disable-line placeholder-in-extend
+.article-content-action %icon-document-before {
+  @include icon-clip-before; // sass-lint:disable-line placeholder-in-extend
 }
 
 .article-content-action-document-size {
-  @extend .filesize; // sass-lint:disable-line placeholder-in-extend
+  @include filesize; // sass-lint:disable-line placeholder-in-extend
 
   &::before {
     content: '\00a0 ';

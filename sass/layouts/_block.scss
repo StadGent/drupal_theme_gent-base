@@ -4,7 +4,7 @@
 
 // All views blocks should be cleared.
 .block-views {
-  @extend %clearfix;
+  @include clearfix;
 }
 
 // Blocks in sidebar should have margin bottom and block title should not

@@ -56,17 +56,17 @@
 
 h1,
 .h1 {
-  @extend %h1;
+  @include h1;
 }
 
 h2,
 .h2 {
-  @extend %h2;
+  @include h2;
 }
 
 h3,
 .h3 {
-  @extend %h3;
+  @include h3;
 }
 
 h4,
@@ -75,7 +75,7 @@ h5,
 .h5,
 h6,
 .h6 {
-  @extend %base-header;
+  @include base-header;
   @include text-dimensions(0, 1, 0);
   font-weight: $beta-font-weight;
 }
@@ -122,9 +122,13 @@ pre {
   }
 }
 
-.filesize {
+@mixin filesize {
   @include text-dimensions(-3, .8, 0, 0);
   color: $beta-text-color;
+}
+
+.filesize {
+  @include filesize;
 }
 
 .filetype {
@@ -317,8 +321,8 @@ a {
     position: relative;
 
     &::after {
-      @extend %icon-base-css;
-      @extend .icon-newtab::before; // sass-lint:disable-line placeholder-in-extend
+      @include icon-newtab-before; // sass-lint:disable-line placeholder-in-extend
+      @include icon-base-css;
 
       display: inline-block;
       position: relative;
@@ -337,8 +341,8 @@ a {
     position: relative;
 
     &::after {
-      @extend %icon-base-css;
-      @extend .icon-email::before; // sass-lint:disable-line placeholder-in-extend
+      @include icon-email-before; // sass-lint:disable-line placeholder-in-extend
+      @include icon-base-css;
 
       display: inline-block;
       position: relative;

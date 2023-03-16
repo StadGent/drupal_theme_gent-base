@@ -3,14 +3,14 @@
 //
 .view {
   .pager {
-    @extend %reset-list;
+    @include reset-list;
     margin-top: 1em;
   }
 }
 
 .view-grouping-header {
   h2 {
-    @extend %h3;
+    @include h3;
   }
 }
 
@@ -27,7 +27,7 @@ h2.grouped {
 
 .views-summary {
   a {
-    @extend %rounded;
+    @include rounded;
     @include px-padding-lr(.7, .7);
     @include padding-tb(.2, .2);
     text-decoration: none;

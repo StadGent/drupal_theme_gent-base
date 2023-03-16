@@ -3,7 +3,7 @@
 //
 
 // Buttons.
-%btn {
+@mixin btn {
   text-decoration: none;
   border: 0;
   border-radius: $alpha-radius;
@@ -27,6 +27,10 @@
   &:hover {
     text-decoration: none;
   }
+}
+
+%btn {
+  @include btn;
 }
 
 // Button sizes.
@@ -149,7 +153,7 @@
 }
 
 // Alerts.
-%alert {
+@mixin alert-base {
   border-width: $border;
   border-style: solid;
   margin-bottom: #{$alpha-line-height}em;
@@ -185,8 +189,12 @@
   }
 }
 
+%alert {
+  @include alert-base;
+}
+
 @mixin alert {
-  @extend %alert;
+  @include alert-base;
   @include text-color($gamma-ui-color);
 
   cursor: pointer;
@@ -200,7 +208,7 @@
 }
 
 @mixin alert-error {
-  @extend %alert;
+  @include alert-base;
   @include text-color(lighten($error-color, 30));
 
   border-color: darken($error-color, 10);
@@ -212,7 +220,7 @@
 }
 
 @mixin alert-success {
-  @extend %alert;
+  @include alert-base;
   @include text-color(lighten($success-color, 40));
 
   border-color: darken($success-color, 10);
@@ -224,7 +232,7 @@
 }
 
 @mixin alert-notice {
-  @extend %alert;
+  @include alert-base;
   @include text-color(lighten($notice-color, 30));
 
   border-color: darken($notice-color, 10);
@@ -236,8 +244,8 @@
 }
 
 // Pagination mixin.
-%pagination {
-  @extend %clearfix;
+@mixin pagination {
+  @include clearfix;
   @include horizontal-nav;
   width: 100%;
   overflow: hidden;
@@ -250,12 +258,12 @@
 
 }
 
-@mixin pagination {
-  @extend %pagination;
+%pagination {
+  @include pagination;
 }
 
 @mixin pagination-centered {
-  @extend %pagination;
+  @include pagination;
 
   .inner {
     float: left;

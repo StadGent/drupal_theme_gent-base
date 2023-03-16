@@ -34,29 +34,8 @@ $rs-progressbar-handle-color: #f39200;
   }
 }
 
-.icon-back::before { content: '\f108'; }
-.icon-download::before { content: '\f109'; }
-.icon-handle::before { content: '\f10a'; }
-.icon-pauze::before { content: '\f10b'; }
-.icon-person::before { content: '\f10c'; }
-.icon-play::before { content: '\f110'; }
-.icon-settings::before { content: '\f10d'; }
-.icon-stop::before { content: '\f10e'; }
-.icon-volume::before { content: '\f10f'; }
-
-%icon-rs {
-  display: inline-block;
-  font-family: 'readspeaker';
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  line-height: 1;
-  text-decoration: inherit;
-  text-transform: none;
-}
-
 .icon-rs {
-  @extend %icon-rs;
+  @include icon-rs;
 }
 
 // Visually hide the readspeaker icon until the header image comes in.
@@ -122,7 +101,7 @@ $rs-progressbar-handle-color: #f39200;
 }
 
 .rsbtn_gent {
-  @extend %clearfix;
+  @include clearfix;
 
   padding-left: 8px;
   padding-right: 8px;
@@ -172,7 +151,7 @@ $rs-progressbar-handle-color: #f39200;
   }
 
   .rsbutton::before {
-    @extend %icon-rs;
+    @include icon-rs;
     color: $rs-btn-color;
     transition: color .35s ease;
   }
@@ -196,13 +175,13 @@ $rs-progressbar-handle-color: #f39200;
   }
 
   .rsbutton.rsbtn_play::before {
-    @extend .icon-person::before; // sass-lint:disable-line placeholder-in-extend
+    @include icon-person-before; // sass-lint:disable-line placeholder-in-extend
     // Accommodate for the extra wide icon.
     margin-right: 16px;
   }
 
   &.rsexpanded .rsbutton.rsbtn_play::before {
-    @extend .icon-back::before; // sass-lint:disable-line placeholder-in-extend
+    @include icon-back-before; // sass-lint:disable-line placeholder-in-extend
     // Accommodate for the extra wide icon.
     margin-right: 8px;
     margin-left: 16px;
@@ -223,21 +202,21 @@ $rs-progressbar-handle-color: #f39200;
 
   // Play/pauze button.
   .rsbutton.rsbtn_pause::before {
-    @extend .icon-pauze::before; // sass-lint:disable-line placeholder-in-extend
+    @include icon-pauze-before; // sass-lint:disable-line placeholder-in-extend
   }
 
   &.rspaused .rsbutton.rsbtn_pause::before,
   &.rsstopped .rsbutton.rsbtn_pause::before {
-    @extend .icon-play::before; // sass-lint:disable-line placeholder-in-extend
+    @include icon-play-before; // sass-lint:disable-line placeholder-in-extend
   }
 
   &.rsplaying .rsbutton.rsbtn_pause::before {
-    @extend .icon-pauze::before; // sass-lint:disable-line placeholder-in-extend
+    @include icon-pauze-before; // sass-lint:disable-line placeholder-in-extend
   }
 
   // Stop button.
   .rsbutton.rsbtn_stop::before {
-    @extend .icon-stop::before; // sass-lint:disable-line placeholder-in-extend
+    @include icon-stop-before; // sass-lint:disable-line placeholder-in-extend
   }
 
   &.rsstopped .rsbutton.rsbtn_stop::before {
@@ -258,7 +237,7 @@ $rs-progressbar-handle-color: #f39200;
 
   // Progress drag handle.
   .rsbtn_progress_handle.rsimg {
-    @extend %icon-rs;
+    @include icon-rs;
 
     position: absolute;
     top: -17px;
@@ -281,7 +260,7 @@ $rs-progressbar-handle-color: #f39200;
 
   // Volume button.
   .rsbutton.rsbtn_volume::before {
-    @extend .icon-volume::before; // sass-lint:disable-line placeholder-in-extend
+    @include icon-volume-before; // sass-lint:disable-line placeholder-in-extend
   }
 
   // Volume slider container.
@@ -320,12 +299,12 @@ $rs-progressbar-handle-color: #f39200;
 
   // Download button.
   .rsbutton.rsbtn_dl::before {
-    @extend .icon-download::before; // sass-lint:disable-line placeholder-in-extend
+    @include icon-download-before; // sass-lint:disable-line placeholder-in-extend
   }
 
   // Settings button.
   .rsbutton.rsbtn_settings::before {
-    @extend .icon-settings::before; // sass-lint:disable-line placeholder-in-extend
+    @include icon-settings-before; // sass-lint:disable-line placeholder-in-extend
   }
 
   // Close button.
@@ -335,8 +314,8 @@ $rs-progressbar-handle-color: #f39200;
     border-left: 1px solid $rs-divider-color;
 
     &::before {
-      @extend %icon-base-css;
-      @extend .icon-close::before; // sass-lint:disable-line placeholder-in-extend
+      @include icon-close-before; // sass-lint:disable-line placeholder-in-extend
+      @include icon-base-css;
       font-size: 2.25rem;
       margin-top: 3px;
       margin-left: 8px;
@@ -443,8 +422,8 @@ $rs-progressbar-handle-color: #f39200;
 
   .rsform-button,
   #rslightbox_buttons a.rsdialog-button {
-    @extend %btn;
-    @extend %btn--alpha;
+    @include btn;
+    @include btn--alpha;
     @include btn-m;
 
     @include mq($bp-tablet-s) {
@@ -463,12 +442,12 @@ $rs-progressbar-handle-color: #f39200;
     color: $alpha-text-color;
 
     h1 {
-      @extend %h1;
+      @include h1;
       margin-bottom: .5rem;
     }
 
     h2 {
-      @extend %h2;
+      @include h2;
       padding-top: 0;
     }
 
@@ -487,7 +466,7 @@ $rs-progressbar-handle-color: #f39200;
     }
 
     .rsform-section > legend {
-      @extend %h2;
+      @include h2;
       padding-top: .3rem;
     }
 

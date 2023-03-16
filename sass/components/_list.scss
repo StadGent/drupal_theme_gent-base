@@ -2,29 +2,29 @@
 // Lists.
 //
 .no-bullet-list {
-  @extend %no-bullet-list;
+  @include no-bullet-list;
 }
 
 .list {
-  @extend %list;
+  @include list;
 }
 
 .link-list {
-  @extend %link-list;
+  @include link-list;
 }
 
 li.link-list__more {
-  @extend %link-list__more;
+  @include link-list-more;
 }
 
 .readmore-list-wrapper {
   @include padding-tb(.6, 0);
 
   ul {
-    @extend %link-list;
+    @include link-list;
 
     li {
-      @extend %link-list__more;
+      @include link-list-more;
     }
   }
 }
@@ -34,7 +34,7 @@ li.link-list__more {
 }
 
 ul.no-padding li {
-  @extend .hN; // sass-lint:disable-line placeholder-in-extend
+  @include reset-vertical-spacing;
   margin-bottom: 0;
 }
 

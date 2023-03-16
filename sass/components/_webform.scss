@@ -302,7 +302,7 @@
 }
 
 form.webform-client-form {
-  @extend %clearfix;
+  @include clearfix;
 
   color: $alpha-text-color;
 
@@ -373,7 +373,7 @@ form.webform-client-form {
 
     &.collapsible {
       legend::before {
-        @extend .icon-arrow-down::before; // sass-lint:disable-line placeholder-in-extend
+        @include icon-arrow-down-before; // sass-lint:disable-line placeholder-in-extend
 
         margin-right: .5em;
       }
@@ -391,7 +391,7 @@ form.webform-client-form {
       height: 2em;
 
       legend::before {
-        @extend .icon-caret::before; // sass-lint:disable-line placeholder-in-extend
+        @include icon-caret-before; // sass-lint:disable-line placeholder-in-extend
       }
 
       .fieldset-wrapper {
@@ -559,7 +559,7 @@ form.webform-client-form {
   }
 
   .option-group {
-    @extend %clearfix;
+    @include clearfix;
     @include list-nav;
 
     label {
@@ -605,8 +605,8 @@ form.webform-client-form {
 
   // Buttons
   .form-submit {
-    @extend %btn;
-    @extend %btn--alpha;
+    @include btn;
+    @include btn--alpha;
     @include btn-m;
     @include mq($bp-tablet-s) {
       @include btn-inlineblock;

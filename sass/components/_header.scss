@@ -20,7 +20,7 @@
     &.caption--inside {
       float: none;
       position: absolute;
-      left: $grid-margin * 2px;;
+      left: $grid-margin * 2px;
       bottom: 7px;
       padding: 3px;
 
@@ -120,7 +120,7 @@
   $min: 83;
   $max: 100;
   @for $i from $min through ($max - 1) {
-    @media (min-width: #{$i}em) and (max-width: #{$i + 0.999}em) {
+    @media (min-width: #{$i}em) and (max-width: #{$i + .999}em) {
       left: #{-130 + (130 * (($i - $min) / ($max - $min)))}px;
     }
   }

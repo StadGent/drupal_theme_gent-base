@@ -6,6 +6,11 @@ All Notable changes to `digipolisgent/gent_base`.
 
 ## [Unreleased]
 
+## [7.x-2.16]
+### Updated
+
+* Update to node 18, includes updating grunt, sass, ...
+
 ## [7.x-2.15]
 ### Fixed
 
@@ -72,16 +77,16 @@ All Notable changes to `digipolisgent/gent_base`.
 
 ## [7.x-2.5]
 ### Changed
-This version is mainly a refactoring of existing code. The upgrade aims to be fully backwards compatible with the 
-previous 2.x versions. 
-However, you are **strongly** encouraged to test the styling and scripts of your sub-theme after updating. 
+This version is mainly a refactoring of existing code. The upgrade aims to be fully backwards compatible with the
+previous 2.x versions.
+However, you are **strongly** encouraged to test the styling and scripts of your sub-theme after updating.
 
 These changes include:
 * All node modules and gems are pushed to their latest stable version. The ruby version was bumped to 2.3.0.
 * Libraries are now ONLY handled by bower. The make file was removed, custom libraries have been added via Bower.
-* Theme.js no longer exists. It is now rewritten for Drupal and split into separate files. Some script have been 
-   converted into behaviors. If a sub-theme uses some custom code to extend theme.js (f.e. on AJAX calls), that code 
-   might be no longer needed. 
+* Theme.js no longer exists. It is now rewritten for Drupal and split into separate files. Some script have been
+   converted into behaviors. If a sub-theme uses some custom code to extend theme.js (f.e. on AJAX calls), that code
+   might be no longer needed.
 * Code that did not belong in Gent base was moved to the projects that implemented them. Among others:
   * Templates from modules not available as building block.
   * Scripts and styling for Stad Gent elements.
@@ -125,6 +130,7 @@ These changes include:
 
 
 [Unreleased]: https://github.com/StadGent/drupal_theme_gent-base/compare/7.x-2.x...7.x-2.x-dev
+[7.x-2.16]: https://github.com/StadGent/drupal_theme_gent-base/compare/7.x-2.15...7.x-2.16
 [7.x-2.15]: https://github.com/StadGent/drupal_theme_gent-base/compare/7.x-2.14...7.x-2.15
 [7.x-2.14]: https://github.com/StadGent/drupal_theme_gent-base/compare/7.x-2.13...7.x-2.14
 [7.x-2.13]: https://github.com/StadGent/drupal_theme_gent-base/compare/7.x-2.12...7.x-2.13

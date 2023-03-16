@@ -7,7 +7,7 @@ $linkedin-color: #4875b4;
 $googleplus-color: #c63d2d;
 
 .share-links {
-  @extend %clearfix;
+  @include clearfix;
   @include padding-tb(0, 1);
   @include margin-bottom(1);
 }
@@ -29,7 +29,7 @@ $googleplus-color: #c63d2d;
 }
 
 .share-links__btn {
-  @extend %btn;
+  @include btn;
   @include btn-s;
   @include rem-margin-lr(0, 1);
 
@@ -145,7 +145,7 @@ $googleplus-color: #c63d2d;
   }
 
   .social-list {
-    @extend %no-bullet-list;
+    @include no-bullet-list;
 
     li {
       border-radius: $alpha-radius;

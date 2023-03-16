@@ -1,4 +1,37 @@
 // sass-lint:disable no-important no-ids class-name-format
+// Import the variables and settings first. These can contain settings for
+// used plugins (f.e. normalize etc).
+
+// Variables
+//
+// Styleguide 1
+@import 'loader/variables';
+
+// Plugins
+//
+// Styleguide 2
+@import 'loader/plugins';
+
+// Abstractions
+//
+// Styleguide 3
+@import 'loader/abstractions';
+
+// Base
+//
+// Styleguide 4
+@import 'loader/base';
+
+// Layouts
+//
+// Styleguide 5
+@import 'loader/layouts';
+
+// Components
+//
+// Styleguide 6
+@import 'loader/components';
+
 //
 // Print stylesheet
 //

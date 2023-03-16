@@ -1,4 +1,4 @@
-%list {
+@mixin list {
   list-style: none;
   padding-left: 0;
 
@@ -16,7 +16,11 @@
   }
 }
 
-%link-list {
+%list {
+  @include list;
+}
+
+@mixin link-list {
   margin-bottom: 0;
   padding-left: 0;
   list-style: none;
@@ -52,8 +56,12 @@
   }
 }
 
+%link-list {
+  @include link-list;
+}
+
 %social-list {
-  @extend %clearfix;
+  @include clearfix;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -70,7 +78,7 @@
   }
 
   a {
-    @extend %hide-text;
+    @include hide-text;
     display: block;
     height: 50px;
     background-color: $alpha-ui-color;
@@ -87,13 +95,17 @@
   }
 }
 
-%no-bullet-list {
+@mixin no-bullet-list {
   list-style: none;
   padding-left: 0;
   margin-bottom: 0;
 }
 
-%link-list__more {
+%no-bullet-list {
+  @include no-bullet-list;
+}
+
+@mixin link-list-more {
   text-decoration: none;
   font-weight: $beta-font-weight;
 
@@ -102,4 +114,8 @@
     font-size: .5em;
     top: .9em;
   }
+}
+
+%link-list__more {
+  @include link-list-more;
 }

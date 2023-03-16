@@ -21,7 +21,7 @@
 
 // JS behaviour classes.
 .clearfix {
-  @extend %clearfix;
+  @include clearfix;
 }
 
 .noborder {

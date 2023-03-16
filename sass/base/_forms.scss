@@ -5,7 +5,7 @@
 //
 
 form {
-  @extend %clearfix;
+  @include clearfix;
 
   .description,
   .fieldset-description {
@@ -50,7 +50,7 @@ fieldset {
 
   &.collapsible {
     legend::before {
-      @extend .icon-arrow-down::before; // sass-lint:disable-line placeholder-in-extend
+      @include icon-arrow-down-before; // sass-lint:disable-line placeholder-in-extend
       margin-right: .5em;
     }
 
@@ -67,7 +67,7 @@ fieldset {
     height: 2em;
 
     legend::before {
-      @extend .icon-caret::before; // sass-lint:disable-line placeholder-in-extend
+      @include icon-caret-before; // sass-lint:disable-line placeholder-in-extend
     }
 
     .fieldset-wrapper {
@@ -219,7 +219,7 @@ select {
 }
 
 .option-group {
-  @extend %clearfix;
+  @include clearfix;
   @include list-nav;
 
   label {
@@ -263,8 +263,8 @@ select {
 
 // Buttons.
 .form-submit {
-  @extend %btn;
-  @extend %btn--alpha;
+  @include btn;
+  @include btn--alpha;
   @include btn-m;
 
   @include mq($bp-tablet-s) {

@@ -17,7 +17,7 @@
 // </article>
 
 .media {
-  @extend %clearfix;
+  @include clearfix;
   @include margin-tb(0, 1);
 
   display: block;

@@ -1,8 +1,8 @@
 //
 // Tabs.
 //
-%tabs-horizontal {
-  @extend %no-bullet-list;
+@mixin tabs-horizontal {
+  @include no-bullet-list;
   @include padding-tb(1, 0);
   @include margin-tb(0, 1);
 
@@ -14,7 +14,7 @@
   }
 
   li {
-    @extend %rounded-1;
+    @include rounded-1;
     @include rem-margin-lr(0, 0);
     @include margin-tb(0, .2);
     @include rem-padding-lr(1, 1);
@@ -52,8 +52,12 @@
   }
 }
 
-%subtabs-horizontal {
-  @extend %no-bullet-list;
+%tabs-horizontal {
+  @include tabs-horizontal;
+}
+
+@mixin subtabs-horizontal {
+  @include no-bullet-list;
   @include margin-tb(0, 1);
 
   padding: 0;
@@ -88,4 +92,8 @@
     text-decoration: none;
     color: $alpha-ui-color;
   }
+}
+
+%subtabs-horizontal {
+  @include subtabs-horizontal;
 }

@@ -125,7 +125,7 @@ Viewport.prototype.refresh = function () {
    * Refresh the viewport.
    */
   Drupal.behaviors.initViewport = {
-    attach: function (context) {
+    attach: function () {
       Drupal.gentBase.refreshViewport();
     }
   };

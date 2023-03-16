@@ -22,7 +22,7 @@ $current-pos-color: #dd2501;
   }
 
   .header {
-    @extend %clearfix;
+    @include clearfix;
     @include text-dimensions(-4, 1);
 
     div {
@@ -36,7 +36,7 @@ $current-pos-color: #dd2501;
   }
 
   .grid {
-    @extend %clearfix;
+    @include clearfix;
     @include padding-tb(0, .5);
 
     position: relative;
@@ -79,7 +79,7 @@ $current-pos-color: #dd2501;
       width: 100%;
 
       .item {
-        @extend %clearfix;
+        @include clearfix;
         @include padding-tb(.7, 0);
 
         width: 100%;
@@ -108,7 +108,7 @@ $current-pos-color: #dd2501;
       }
 
       .bar {
-        @extend %clearfix;
+        @include clearfix;
         @include margin-tb(.5, 0);
 
         display: inline-block;

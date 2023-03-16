@@ -2,7 +2,7 @@
 // Tabs styling.
 //
 .tabs--top {
-  @extend %clearfix;
+  @include clearfix;
 
   width: 100%;
   left: 0;
@@ -100,7 +100,7 @@
 // Drupal primary tabs
 .content-tabs {
   .tabs--primary {
-    @extend %tabs-horizontal;
+    @include tabs-horizontal;
   }
 
   &.with-secondary .tabs--primary {
@@ -109,6 +109,6 @@
 
   // Drupal secondary tabs
   .tabs--secondary {
-    @extend %subtabs-horizontal;
+    @include subtabs-horizontal;
   }
 }

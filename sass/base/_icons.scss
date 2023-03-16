@@ -14,8 +14,8 @@
 }
 
 // IMPORTANT: Keep the 'icon-base-css' class. Legacy code uses is to extend from directly.
-// Use @extend %icon-base-css;.
-%icon-base-css  {
+// Use @include icon-base-css;.
+@mixin icon-base-css  {
   font-family: 'gent-icons';
   speak: none;
   font-style: normal;
@@ -25,303 +25,990 @@
   line-height: 1;
 }
 
+%icon-base-css {
+  @include icon-base-css;
+}
+
 [class^='icon-'],
 [class*=' icon-'],
 .icon-base-css {
-  @extend %icon-base-css;
+  @include icon-base-css;
 }
 
+@mixin icon-heart-before {
+  content: '\e906';
+}
+
+%icon-heart-before,
 .icon-heart::before {
-  content: "\e906";
+  @include icon-heart-before;
 }
+
+@mixin icon-cross-before {
+  content: '\e904';
+}
+
+%icon-cross-before,
 .icon-cross::before {
-  content: "\e904";
+  @include icon-cross-before;
 }
+@mixin icon-tick-before {
+  content: '\e905';
+}
+
+%icon-tick-before,
 .icon-tick::before {
-  content: "\e905";
+  @include icon-tick-before;
 }
+
+@mixin icon-house-before {
+  content: '\e903';
+}
+
+%icon-house-before,
 .icon-house::before {
-  content: "\e903";
+  @include icon-house-before;
 }
+
+@mixin icon-medal-before {
+  content: '\e900';
+}
+
+%icon-medal-before,
 .icon-medal::before {
-  content: "\e900";
+  @include icon-medal-before;
 }
+
+@mixin icon-poll-before {
+  content: '\e901';
+}
+
+%icon-poll-before,
 .icon-poll::before {
-  content: "\e901";
+  @include icon-poll-before;
 }
+
+@mixin icon-tooltip-before {
+  content: '\e902';
+}
+
+%icon-tooltip-before,
 .icon-tooltip::before {
-  content: "\e902";
+  @include icon-tooltip-before;
 }
+
+@mixin icon-bulb-before {
+  content: '\e800';
+}
+
+%icon-bulb-before,
 .icon-bulb::before {
-  content: "\e800";
+  @include icon-bulb-before;
 }
+
+@mixin icon-megaphone-before {
+  content: '\e801';
+}
+
+%icon-megaphone-before,
 .icon-megaphone::before {
-  content: "\e801";
+  @include icon-megaphone-before;
 }
+
+@mixin icon-follow-before {
+  content: '\e635';
+}
+
+%icon-follow-before,
 .icon-follow::before {
-  content: "\e635";
+  @include icon-follow-before;
 }
+
+@mixin icon-unflag-before {
+  content: '\e637';
+}
+
+%icon-unflag-before,
 .icon-unflag::before {
-  content: "\e637";
+  @include icon-unflag-before;
 }
+
+@mixin icon-trash-before {
+  content: '\e638';
+}
+
+%icon-trash-before,
 .icon-trash::before {
-  content: "\e638";
+  @include icon-trash-before;
 }
+
+@mixin icon-maximize-before {
+  content: '\e630';
+}
+
+%icon-maximize-before,
 .icon-maximize::before {
-  content: "\e630";
+  @include icon-maximize-before;
 }
+
+@mixin icon-minimize-before {
+  content: '\e631';
+}
+
+%icon-minimize-before,
 .icon-minimize::before {
-  content: "\e631";
+  @include icon-minimize-before;
 }
+
+@mixin icon-checklist-before {
+  content: '\e632';
+}
+
+%icon-checklist-before,
 .icon-checklist::before {
-  content: "\e632";
+  @include icon-checklist-before;
 }
+
+@mixin icon-flag-before {
+  content: '\e633';
+}
+
+%icon-flag-before,
 .icon-flag::before {
-  content: "\e633";
+  @include icon-flag-before;
 }
+
+@mixin icon-youtube-before {
+  content: '\e62f';
+}
+
+%icon-youtube-before,
 .icon-youtube::before {
-  content: "\e62f";
+  @include icon-youtube-before;
 }
+
+@mixin icon-forest-before {
+  content: '\e625';
+}
+
+%icon-forest-before,
 .icon-forest::before {
-  content: "\e625";
+  @include icon-forest-before;
 }
+
+@mixin icon-historical-value-before {
+  content: '\e626';
+}
+
+%icon-historical-value-before,
 .icon-historical-value::before {
-  content: "\e626";
+  @include icon-historical-value-before;
 }
+
+@mixin icon-adventure-before {
+  content: '\e61f';
+}
+
+%icon-adventure-before,
 .icon-adventure::before {
-  content: "\e61f";
+  @include icon-adventure-before;
 }
+
+@mixin icon-appliances-before {
+  content: '\e620';
+}
+
+%icon-appliances-before,
 .icon-appliances::before {
-  content: "\e620";
+  @include icon-appliances-before;
 }
+
+@mixin icon-basketball-before {
+  content: '\e621';
+}
+
+%icon-basketball-before,
 .icon-basketball::before {
-  content: "\e621";
+  @include icon-basketball-before;
 }
+
+@mixin icon-bbq-before {
+  content: '\e622';
+}
+
+%icon-bbq-before,
 .icon-bbq::before {
-  content: "\e622";
+  @include icon-bbq-before;
 }
+
+@mixin icon-fitness-before {
+  content: '\e623';
+}
+
+%icon-fitness-before,
 .icon-fitness::before {
-  content: "\e623";
+  @include icon-fitness-before;
 }
+
+@mixin icon-football-before {
+  content: '\e624';
+}
+
+%icon-football-before,
 .icon-football::before {
-  content: "\e624";
+  @include icon-football-before;
 }
+
+@mixin icon-nature-before {
+  content: '\e627';
+}
+
+%icon-nature-before,
 .icon-nature::before {
-  content: "\e627";
+  @include icon-nature-before;
 }
+
+@mixin icon-park-before {
+  content: '\e628';
+}
+
+%icon-park-before,
 .icon-park::before {
-  content: "\e628";
+  @include icon-park-before;
 }
+
+@mixin icon-petanque-before {
+  content: '\e629';
+}
+
+%icon-petanque-before,
 .icon-petanque::before {
-  content: "\e629";
+  @include icon-petanque-before;
 }
+
+@mixin icon-pingpong-before {
+  content: '\e62a';
+}
+
+%icon-pingpong-before,
 .icon-pingpong::before {
-  content: "\e62a";
+  @include icon-pingpong-before;
 }
+
+@mixin icon-playground-before {
+  content: '\e62b';
+}
+
+%icon-playground-before,
 .icon-playground::before {
-  content: "\e62b";
+  @include icon-playground-before;
 }
+
+@mixin icon-rdf-before {
+  content: '\e62c';
+}
+
+%icon-rdf-before,
 .icon-rdf::before {
-  content: "\e62c";
+  @include icon-rdf-before;
 }
+
+@mixin icon-sandpit-before {
+  content: '\e62d';
+}
+
+%icon-sandpit-before,
 .icon-sandpit::before {
-  content: "\e62d";
+  @include icon-sandpit-before;
 }
+
+@mixin icon-skateboard-before {
+  content: '\e62e';
+}
+
+%icon-skateboard-before,
 .icon-skateboard::before {
-  content: "\e62e";
+  @include icon-skateboard-before;
 }
+
+@mixin icon-flickr-before {
+  content: '\e61c';
+}
+
+%icon-flickr-before,
 .icon-flickr::before {
-  content: "\e61c";
+  @include icon-flickr-before;
 }
+
+@mixin icon-vimeo-before {
+  content: '\e61d';
+}
+
+%icon-vimeo-before,
 .icon-vimeo::before {
-  content: "\e61d";
+  @include icon-vimeo-before;
 }
+
+@mixin icon-close-before {
+  content: '\e61e';
+}
+
+%icon-close-before,
 .icon-close::before {
-  content: "\e61e";
+  @include icon-close-before;
 }
+
+@mixin icon-instagram-before {
+  content: '\e61a';
+}
+
+%icon-instagram-before,
 .icon-instagram::before {
-  content: "\e61a";
+  @include icon-instagram-before;
 }
+
+@mixin icon-googleplus-before {
+  content: '\e61b';
+}
+
+%icon-googleplus-before,
 .icon-googleplus::before {
-  content: "\e61b";
+  @include icon-googleplus-before;
 }
+
+@mixin icon-save-before {
+  content: '\e617';
+}
+
+%icon-save-before,
 .icon-save::before {
-  content: "\e617";
+  @include icon-save-before;
 }
+
+@mixin icon-edit-before {
+  content: '\e618';
+}
+
+%icon-edit-before,
 .icon-edit::before {
-  content: "\e618";
+  @include icon-edit-before;
 }
+
+@mixin icon-throbber-before {
+  content: '\e619';
+}
+
+%icon-throbber-before,
 .icon-throbber::before {
-  content: "\e619";
+  @include icon-throbber-before;
 }
+
+@mixin icon-book-before {
+  content: '\e614';
+}
+
+%icon-book-before,
 .icon-book::before {
-  content: "\e614";
+  @include icon-book-before;
 }
+
+@mixin icon-critical-before {
+  content: '\62';
+}
+
+%icon-critical-before,
 .icon-critical::before {
-  content: "\62";
+  @include icon-critical-before;
 }
+
+@mixin icon-hidden-before {
+  content: '\68';
+}
+
+%icon-hidden-before,
 .icon-hidden::before {
-  content: "\68";
+  @include icon-hidden-before;
 }
+
+@mixin icon-alert-before {
+  content: '\61';
+}
+
+%icon-alert-before,
 .icon-alert::before {
-  content: "\61";
+  @include icon-alert-before;
 }
+
+@mixin icon-menu-before {
+  content: '\3d';
+}
+
+%icon-menu-before,
 .icon-menu::before {
-  content: "\3d";
+  @include icon-menu-before;
 }
+
+@mixin icon-caret-before {
+  content: '\3e';
+}
+
+%icon-caret-before,
 .icon-caret::before {
-  content: "\3e";
+  @include icon-caret-before;
 }
+
+@mixin icon-clip-before {
+  content: '\63';
+}
+
+%icon-clip-before,
 .icon-clip::before {
-  content: "\63";
+  @include icon-clip-before;
 }
+
+@mixin icon-email-before {
+  content: '\65';
+}
+
+%icon-email-before,
 .icon-email::before {
-  content: "\65";
+  @include icon-email-before;
 }
+
+@mixin icon-loc-before {
+  content: '\70';
+}
+
+%icon-loc-before,
 .icon-loc::before {
-  content: "\70";
+  @include icon-loc-before;
 }
+
+@mixin icon-search-before {
+  content: '\73';
+}
+
+%icon-search-before,
 .icon-search::before {
-  content: "\73";
+  @include icon-search-before;
 }
+
+@mixin icon-arrow-up-before {
+  content: '\e600';
+}
+
+%icon-arrow-up-before,
 .icon-arrow-up::before {
-  content: "\e600";
+  @include icon-arrow-up-before;
 }
+
+@mixin icon-arrow-down-before {
+  content: '\e601';
+}
+
+%icon-arrow-down-before,
 .icon-arrow-down::before {
-  content: "\e601";
+  @include icon-arrow-down-before;
 }
+
+@mixin icon-form-fill-before {
+  content: '\e602';
+}
+
+%icon-form-fill-before,
 .icon-form_fill::before {
-  content: "\e602";
+  @include icon-form-fill-before;
 }
+
+@mixin icon-tag-before {
+  content: '\e603';
+}
+
+%icon-tag-before,
 .icon-tag::before {
-  content: "\e603";
+  @include icon-tag-before;
 }
+
+@mixin icon-newtab-before {
+  content: '\e604';
+}
+
+%icon-newtab-before,
 .icon-newtab::before {
-  content: "\e604";
+  @include icon-newtab-before;
 }
+
+@mixin icon-calendar-before {
+  content: '\e605';
+}
+
+%icon-calendar-before,
 .icon-calendar::before {
-  content: "\e605";
+  @include icon-calendar-before;
 }
+
+@mixin icon-user-before {
+  content: '\e606';
+}
+
+%icon-user-before,
 .icon-user::before {
-  content: "\e606";
+  @include icon-user-before;
 }
+
+@mixin icon-link-before {
+  content: '\e607';
+}
+
+%icon-link-before,
 .icon-link::before {
-  content: "\e607";
+  @include icon-link-before;
 }
+
+@mixin icon-shoppingcart-before {
+  content: '\e608';
+}
+
+%icon-shoppingcart-before,
 .icon-shoppingcart::before {
-  content: "\e608";
+  @include icon-shoppingcart-before;
 }
+
+@mixin icon-sort-before {
+  content: '\e609';
+}
+
+%icon-sort-before,
 .icon-sort::before {
-  content: "\e609";
+  @include icon-sort-before;
 }
+
+@mixin icon-list-before {
+  content: '\e60a';
+}
+
+%icon-list-before,
 .icon-list::before {
-  content: "\e60a";
+  @include icon-list-before;
 }
+
+@mixin icon-phone-before {
+  content: '\e60b';
+}
+
+%icon-phone-before,
 .icon-phone::before {
-  content: "\e60b";
+  @include icon-phone-before;
 }
+
+@mixin icon-bubble-before {
+  content: '\e60c';
+}
+
+%icon-bubble-before,
 .icon-bubble::before {
-  content: "\e60c";
+  @include icon-bubble-before;
 }
+
+@mixin icon-facebook-before {
+  content: '\e60d';
+}
+
+%icon-facebook-before,
 .icon-facebook::before {
-  content: "\e60d";
+  @include icon-facebook-before;
 }
+
+@mixin icon-plus-before {
+  content: '\e60e';
+}
+
+%icon-plus-before,
 .icon-plus::before {
-  content: "\e60e";
+  @include icon-plus-before;
 }
+
+@mixin icon-twitter-before {
+  content: '\e60f';
+}
+
+%icon-twitter-before,
 .icon-twitter::before {
-  content: "\e60f";
+  @include icon-twitter-before;
 }
+
+@mixin icon-linkedin-before {
+  content: '\e610';
+}
+
+%icon-linkedin-before,
 .icon-linkedin::before {
-  content: "\e610";
+  @include icon-linkedin-before;
 }
+
+@mixin icon-capacity-before {
+  content: '\e611';
+}
+
+%icon-capacity-before,
 .icon-capacity::before {
-  content: "\e611";
+  @include icon-capacity-before;
 }
+
+@mixin icon-location-before {
+  content: '\e612';
+}
+
+%icon-location-before,
 .icon-location::before {
-  content: "\e612";
+  @include icon-location-before;
 }
+
+@mixin icon-price-before {
+  content: '\e613';
+}
+
+%icon-price-before,
 .icon-price::before {
-  content: "\e613";
+  @include icon-price-before;
 }
+
+@mixin icon-surface-before {
+  content: '\e615';
+}
+
+%icon-surface-before,
 .icon-surface::before {
-  content: "\e615";
+  @include icon-surface-before;
 }
+
+@mixin icon-closingtime-before {
+  content: '\e616';
+}
+
+%icon-closingtime-before,
 .icon-closingtime::before {
-  content: "\e616";
+  @include icon-closingtime-before;
 }
+
+@mixin icon-outdoor-before {
+  content: '\f600';
+}
+
+%icon-outdoor-before,
 .icon-outdoor::before {
-  content: "\f600";
+  @include icon-outdoor-before;
 }
+
+@mixin icon-changingrooms-before {
+  content: '\f601';
+}
+
+%icon-changingrooms-before,
 .icon-changingrooms::before {
-  content: "\f601";
+  @include icon-changingrooms-before;
 }
+
+@mixin icon-parking-before {
+  content: '\f602';
+}
+
+%icon-parking-before,
 .icon-parking::before {
-  content: "\f602";
+  @include icon-parking-before;
 }
+
+@mixin icon-weelchair-before {
+  content: '\f603';
+}
+
+%icon-weelchair-before,
 .icon-weelchair::before {
-  content: "\f603";
+  @include icon-weelchair-before;
 }
+
+@mixin icon-tribune-before {
+  content: '\f604';
+}
+
+%icon-tribune-before,
 .icon-tribune::before {
-  content: "\f604";
+  @include icon-tribune-before;
 }
+
+@mixin icon-toilet-before {
+  content: '\f605';
+}
+
+%icon-toilet-before,
 .icon-toilet::before {
-  content: "\f605";
+  @include icon-toilet-before;
 }
+
+@mixin icon-aed-before {
+  content: '\f606';
+}
+
+%icon-aed-before,
 .icon-aed::before {
-  content: "\f606";
+  @include icon-aed-before;
 }
+
+@mixin icon-shower-before {
+  content: '\f607';
+}
+
+%icon-shower-before,
 .icon-shower::before {
-  content: "\f607";
+  @include icon-shower-before;
 }
+
+@mixin icon-addtocalendar-before {
+  content: '\f60a';
+}
+
+%icon-addtocalendar-before,
 .icon-addtocalendar::before {
-  content: "\f60a";
+  @include icon-addtocalendar-before;
 }
+
+@mixin icon-bar-before {
+  content: '\f60b';
+}
+
+%icon-bar-before,
 .icon-bar::before {
-  content: "\f60b";
+  @include icon-bar-before;
 }
+
+@mixin icon-bikeroute-before {
+  content: '\f60c';
+}
+
+%icon-bikeroute-before,
 .icon-bikeroute::before {
-  content: "\f60c";
+  @include icon-bikeroute-before;
 }
+
+@mixin icon-publictransport-before {
+  content: '\f60d';
+}
+
+%icon-publictransport-before,
 .icon-publictransport::before {
-  content: "\f60d";
+  @include icon-publictransport-before;
 }
+
+@mixin icon-directions-before {
+  content: '\f60e';
+}
+
+%icon-directions-before,
 .icon-directions::before {
-  content: "\f60e";
+  @include icon-directions-before;
 }
+
+@mixin icon-fitpoint-before {
+  content: '\e907';
+}
+
+%icon-fitpoint-before,
 .icon-fitpoint::before {
-  content: "\e907";
+  @include icon-fitpoint-before;
 }
+
+@mixin icon-parkinmaintenance-before {
+  content: '\e908';
+}
+
+%icon-parkinmaintenance-before,
 .icon-parkinmaintenance::before {
-  content: "\e908";
+  @include icon-parkinmaintenance-before;
 }
+
+@mixin icon-fitnessgear-before {
+  content: '\e909';
+}
+
+%icon-fitnessgear-before,
 .icon-fitnessgear::before {
-  content: "\e909";
+  @include icon-fitnessgear-before;
 }
+
+@mixin icon-streetworkout-before {
+  content: '\e90a';
+}
+
+%icon-streetworkout-before,
 .icon-streetworkout::before {
-  content: "\e90a";
+  @include icon-streetworkout-before;
 }
+
+@mixin icon-pannafootball-before {
+  content: '\e90b';
+}
+
+%icon-pannafootball-before,
 .icon-pannafootball::before {
-  content: "\e90b";
+  @include icon-pannafootball-before;
 }
+
+@mixin icon-neighbourhoodfootball-before {
+  content: '\e90c';
+}
+
+%icon-neighbourhoodfootball-before,
 .icon-neighbourhoodfootball::before {
-  content: "\e90c";
+  @include icon-neighbourhoodfootball-before;
 }
+
+@mixin icon-volleyball-before {
+  content: '\e90d';
+}
+
+%icon-volleyball-before,
 .icon-volleyball::before {
-  content: "\e90d";
+  @include icon-volleyball-before;
 }
+
+@mixin icon-basketball2-before {
+  content: '\e90e';
+}
+
+%icon-basketball2-before,
 .icon-basketball2::before {
-  content: "\e90e";
+  @include icon-basketball2-before;
 }
+
+@mixin icon-parking-notok-before {
+  content: '\e90f';
+}
+
+%icon-parking-notok-before,
 .icon-parking-notok::before {
-  content: "\e90f";
+  @include icon-parking-notok-before;
 }
+
+@mixin icon-parking-ok-before {
+  content: '\e910';
+}
+
+%icon-parking-ok-before,
 .icon-parking-ok::before {
-  content: "\e910";
+  @include icon-parking-ok-before;
 }
+
+@mixin icon-parking-warning-before {
+  content: '\e911';
+}
+
+%icon-parking-warning-before,
 .icon-parking-warning::before {
-  content: "\e911";
+  @include icon-parking-warning-before;
 }
+
+@mixin icon-parking2-before {
+  content: '\e912';
+}
+
+%icon-parking2-before,
 .icon-parking2::before {
-  content: "\e912";
+  @include icon-parking2-before;
+}
+
+
+@mixin icon-back-before {
+  content: '\f108';
+}
+
+%icon-back-before,
+.icon-back::before {
+  @include icon-back-before;
+}
+
+@mixin icon-download-before {
+  content: '\f109';
+}
+
+%icon-download-before,
+.icon-download::before {
+  @include icon-download-before;
+}
+
+@mixin icon-handle-before {
+  content: '\f10a';
+}
+
+%icon-handle-before,
+.icon-handle::before {
+  @include icon-handle-before;
+}
+
+@mixin icon-pauze-before {
+  content: '\f10b';
+}
+
+%icon-pauze-before,
+.icon-pauze::before {
+  @include icon-pauze-before;
+}
+
+@mixin icon-person-before {
+  content: '\f10c';
+}
+
+%icon-person-before,
+.icon-person::before {
+  @include icon-person-before;
+}
+
+@mixin icon-play-before {
+  content: '\f110';
+}
+
+%icon-play-before,
+.icon-play::before {
+  @include icon-play-before;
+}
+
+@mixin icon-settings-before {
+  content: '\f10d';
+}
+
+%icon-settings-before,
+.icon-settings::before {
+  @include icon-settings-before;
+}
+
+@mixin icon-stop-before {
+  content: '\f10e';
+}
+
+%icon-stop-before,
+.icon-stop::before {
+  @include icon-stop-before;
+}
+
+@mixin icon-volume-before {
+  content: '\f10f';
+}
+
+%icon-volume-before,
+.icon-volume::before {
+  @include icon-volume-before;
+}
+
+@mixin icon-rs {
+  display: inline-block;
+  font-family: 'readspeaker';
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-transform: none;
+}
+
+%icon-rs {
+  @include icon-rs;
 }

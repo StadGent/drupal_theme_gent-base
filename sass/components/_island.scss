@@ -305,7 +305,7 @@
   @include padding-tb(0, 1.5);
 
   h3 {
-    @extend %h2;
+    @include h2;
     padding-top: 0;
     color: $alpha-ui-color;
     transition: color .3s ease-in-out;

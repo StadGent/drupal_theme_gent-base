@@ -5,8 +5,8 @@
     list-style: none;
 
     a {
-      @extend %btn;
-      @extend .btn--alpha;
+      @include btn;
+      @include btn--alpha;
       @include btn-m;
       @include btn-inlineblock
     }

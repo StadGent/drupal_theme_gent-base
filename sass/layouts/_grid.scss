@@ -15,7 +15,7 @@
 }
 
 .l-row {
-  @extend %clearfix;
+  @include clearfix;
   @include px-padding-lr(1, 1);
   @include mq($bp-tablet-s) {
     @include px-padding-lr(2, 2);
@@ -29,6 +29,10 @@
     padding: 0;
   }
 }
+@mixin l-full {
+  @include clearfix;
+  @include grid-span(24, 1, $gutter: 0);
+}
 
 // Semantic grid classes.
 .l-full,
@@ -38,23 +42,22 @@
 .l-half,
 .l-fourth,
 .l-column {
-  @extend %clearfix;
-  @include grid-span(24, 1, $gutter: 0);
+  @include l-full;
 }
 
 // Clear full width grid spans in case we use it in the same isolation grid as others.
 .l-header,
 .l-footer {
-  @extend .l-full; // sass-lint:disable-line placeholder-in-extend
+  @include l-full; // sass-lint:disable-line placeholder-in-extend
   clear: both;
 }
 
 .l-header {
-  @extend .padding-bottom--big; // sass-lint:disable-line placeholder-in-extend
+  @include padding-bottom--big; // sass-lint:disable-line placeholder-in-extend
 }
 
 .l-footer {
-  @extend .padding-top--big; // sass-lint:disable-line placeholder-in-extend
+  @include padding-top--big; // sass-lint:disable-line placeholder-in-extend
 }
 
 

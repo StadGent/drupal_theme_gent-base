@@ -12,3 +12,6 @@ npm-debug.log
 .project
 .settings
 .idea
+.bundle
+vendor
+package-lock.json

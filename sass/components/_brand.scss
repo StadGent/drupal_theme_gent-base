@@ -151,21 +151,15 @@ nav.holder {
 }
 
 .brand__logo__inner {
-  position: absolute;
+  @include hide-text;
   top: 0;
   width: 100%;
   transition: none;
-}
-
-.brand__logo__inner {
-  @extend %hide-text;
-
   display: block;
   position: relative;
   overflow: hidden;
   height: 40px;
   padding-top: 72%;
-  width: 100%;
   background-repeat: no-repeat;
   background-position: top left;
   background-size: 100%;
@@ -195,7 +189,7 @@ nav.holder {
 }
 
 .brand__footer {
-  @extend %hide-text;
+  @include hide-text;
 
   width: 100%;
   height: 100px;
@@ -216,7 +210,7 @@ nav.holder {
 }
 
 .brand__district {
-  @extend %hide-text;
+  @include hide-text;
   @include margin-tb(0, 1);
 
   width: 177px;
