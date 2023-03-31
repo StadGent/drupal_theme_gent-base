@@ -1143,7 +1143,7 @@ function gent_base_preprocess_paragraph__call_to_action(&$variables) {
       '#type' => 'link',
       '#title' => $paragraph->get($field . '_title')->value,
       '#attributes' => [
-        'class' => $i > 0 ? ['standalone-link'] : ['button', 'button-primary'],
+        'class' => $i > 0 ? ['standalone-link'] : ['button', 'button-secondary'],
       ],
     ];
 
