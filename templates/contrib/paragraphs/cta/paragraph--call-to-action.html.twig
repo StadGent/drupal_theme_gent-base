@@ -45,15 +45,14 @@
 
 {% set custom_classes = [
   'cta-block',
-  'highlight',
-  'highlight--left',
+  'image-none',
   primary_type == 'document' ? 'download' : 'link'
 ] %}
 
 {% block paragraph %}
-  <div{{ attributes.addClass(classes).addClass(custom_classes) }}>
-    <div class="highlight__inner">
-      <div>
+  <section {{ attributes.addClass(classes).addClass(custom_classes) }}>
+    <div class="cta-block__content">
+      <div class="feature-block secondary">
         {% block content %}
           {{ content|without(
             'field_primary_action',
@@ -82,5 +81,5 @@
         {% endblock %}
       </div>
     </div>
-  </div>
+  </section>
 {% endblock %}
