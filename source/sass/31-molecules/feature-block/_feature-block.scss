@@ -1,0 +1,13 @@
+///
+/// Feature-block is a reusable element, defined in the styleguide but not
+/// as a visible element.
+///
+
+.feature-block {
+  h1,
+  h2,
+  h3,
+  h4 {
+    margin-top: 0;
+  }
+}
