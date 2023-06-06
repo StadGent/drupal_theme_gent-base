@@ -17,7 +17,7 @@
   </button>
 {% endif %}
 
-<div {{ name ? 'id="map-region--' ~ name ~ '"' }}
+<div {% if name %} id="map-region--{{ name }}" {% endif %}
   class="{{ region_classes|join(' ') }}{{ hide_on_mobile }}"
   data-region="{{ name }}">
 
