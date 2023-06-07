@@ -2,7 +2,7 @@
  * @file
 * Accordion component binding.
  */
-(function (Drupal, $) {
+(function (Drupal, $, once) {
   'use strict';
 
   Drupal.behaviors.gentBaseLoadAccordion = {
@@ -12,7 +12,12 @@
         return;
       }
 
-      $('.accordion').once('gent_base_accordion').each(function () {
+      // Once //
+      // Before: $('drupal-selector').once('once-id');
+      // Now: once('once-id', 'drupal-selector');
+
+      $(once('gent_base_accordion', '.accordion')).each(function () {
+      // $('.accordion').once('gent_base_accordion').each(function () {
 
         // Temp fix Mijn Gent block accordion.
         var headerAccordion = document.querySelector('header .accordion');
@@ -40,4 +45,4 @@
       });
     }
   };
-})(Drupal, jQuery);
+})(Drupal, jQuery, once);

@@ -17,7 +17,7 @@
 
 {{ attach_library('gent_base/accordion') }}
 
-{% spaceless %}
+{% apply spaceless %}
   <dl class="accordion">
     {% for item in items %}
       <dt class="faqfield-question">
@@ -37,4 +37,4 @@
       </dd>
     {% endfor %}
   </dl>
-{% endspaceless %}
+{% endapply %}

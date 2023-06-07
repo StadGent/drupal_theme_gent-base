@@ -2,7 +2,7 @@
  * @file
  * Accordion component binding.
  */
-(function (Drupal, $) {
+(function (Drupal, $, once) {
   'use strict';
 
   Drupal.behaviors.gentBaseBreadcrumbs = {
@@ -12,9 +12,14 @@
         return;
       }
 
-      $('.breadcrumb').once('gent_base_breadcrumb').each(function () {
+      // Once //
+      // Before: $('drupal-selector').once('once-id');
+      // Now: once('once-id', 'drupal-selector');
+
+      $(once('gent_base_breadcrumb', '.breadcrumb')).each(function () {
+      // $('.breadcrumb').once('gent_base_breadcrumb').each(function () {
         new Breadcrumbs(this);
       });
     }
   };
-})(Drupal, jQuery);
+})(Drupal, jQuery, once);

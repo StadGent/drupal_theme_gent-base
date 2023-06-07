@@ -103,7 +103,7 @@
       <div class="content__first">
         {% block image %}
           {% if node.hasField('field_teaser_image') %}
-            {% spaceless %}
+            {% apply spaceless %}
               <div class="figure-wrapper">
                 <figure>
                   <div class="image-wrapper">
@@ -112,7 +112,7 @@
                 </figure>
                 <div class="accolade-inverse bottom-left"></div>
               </div>
-            {% endspaceless %}
+            {% endapply %}
           {% endif %}
 
           {{ content.og_audience }}

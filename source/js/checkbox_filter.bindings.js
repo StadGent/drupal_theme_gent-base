@@ -2,7 +2,7 @@
  * @file
  * Filter component binding.
  */
-(function ($, Drupal) {
+(function ($, Drupal, once) {
   'use strict';
 
   Drupal.behaviors.gentBaseLoadCheckboxFilters = {
@@ -11,17 +11,23 @@
         return;
       }
 
-      $('.checkbox-filter', context).once('checkbox-filter').each(function () {
+      // Once //
+      // Before: $('drupal-selector').once('once-id');
+      // Now: once('once-id', 'drupal-selector');
+      // Or with jQuery: $(once('once-id', 'drupal-selector'));
+
+      $(once('checkbox-filter', '.checkbox-filter', context)).each(function () {
+      // $('.checkbox-filter', context).once('checkbox-filter').each(function () {
         new CheckboxFilter(this, { // eslint-disable-line no-undef
           checkboxes: '.facet-item.checkbox',
           hiddenTagText: 'Remove tag',
           countSpan: '.checkbox-filter__count-wrapper em',
           resultSpan: '.checkbox-filter__result-wrapper em',
           onRemoveTag: function (checkbox) {
-            $(checkbox).trigger('change.facets');
+            checkbox.click('change.facets');
           }
         });
       });
     }
   };
-})(jQuery, Drupal);
+})(jQuery, Drupal, once);
