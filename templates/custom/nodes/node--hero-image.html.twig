@@ -73,7 +73,7 @@
 
 {% block wrapper %}
   {% if content|render is not empty %}
-    {% spaceless %}
+    {% apply spaceless %}
       <figure class="hero">
         <div class="image-wrapper" data-ratio="4:1">
           {% block content %}
@@ -81,6 +81,6 @@
           {% endblock %}
         </div>
       </figure>
-    {% endspaceless %}
+    {% endapply %}
   {% endif %}
 {% endblock %}
