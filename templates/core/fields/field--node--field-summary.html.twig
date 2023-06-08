@@ -38,6 +38,10 @@
  */
 #}
 
-{% for item in items %}
-  <p {{ item.attributes.addClass('summary-text') }}>{{ item.content }}</p>
-{% endfor %}
+{% if items is not empty %}
+  <div class="summary-text">
+    {% for item in items %}
+      <p>{{ item.content }}</p>
+    {% endfor %}
+  </div>
+{% endif %}

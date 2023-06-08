@@ -25,4 +25,47 @@
     margin-top: 0;
     margin-bottom: 0;
   }
+
+  // This is defined in styleguide as well, but not with paragraph classes.
+  > .content-header-container {
+    & + .paragraph--type--table-of-contents,
+    & + .paragraph--type--partners {
+      position: relative;
+      z-index: 1;
+    }
+
+    &.image {
+      & + .paragraph--type--table-of-contents {
+        margin: 1rem 0 2rem;
+
+        @include tablet {
+          margin: 8rem 0 2rem;
+        }
+
+        @include desktop {
+          max-width: calc($bp-max-content - 28.5rem - 3rem);
+          margin: -11.8rem 0 5rem;
+        }
+      }
+    }
+
+    &:not(.image) {
+      & + .paragraph--type--table-of-contents,
+      & + .paragraph--type--partners {
+        @include set-layout('width-12');
+
+        margin-top: -6rem;
+      }
+
+      + .partner-block {
+        max-width: 100%;
+        padding: 1rem;
+        background-color: color('white');
+
+        @include tablet {
+          padding: 3rem;
+        }
+      }
+    }
+  }
 }
