@@ -778,6 +778,27 @@ function gent_base_preprocess_node(&$variables) {
       $variables['event_datetime'] = \Drupal::service('date.formatter')->format($event_start_date, 'custom', 'c') . '-' . \Drupal::service('date.formatter')->format($event_end_date, 'custom', 'c');
     }
   }
+
+  // Add variable to mark content headers to be overlapped by first paragraph.
+  $bundles = ['infopage', 'event', 'news'];
+  $overlappingParagraphs = [
+    'text',
+    'table_of_contents',
+    'partners',
+    'teaser',
+  ];
+
+  if (in_array($node->bundle(), $bundles)) {
+    $paragraphs = $node->get('field_paragraphs')->referencedEntities();
+
+    if (!empty($paragraphs)) {
+      /** @var \Drupal\paragraphs\Entity\Paragraph $firstParagraph */
+      $firstParagraph = reset($paragraphs);
+    }
+    if (in_array($firstParagraph->getType(), $overlappingParagraphs)) {
+      $variables['content_header_overlap'] = TRUE;
+    }
+  }
 }
 
 /**

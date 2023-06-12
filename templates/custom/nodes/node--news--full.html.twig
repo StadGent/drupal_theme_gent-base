@@ -2,7 +2,7 @@
 
 {% block article_content_top %}
   {% set header_classes = header_classes|filter((v, k) => v != 'primary') %}
-  {% set header_classes = header_classes|filter((v, k) => v != 'dark-backgroud') %}
+  {% set header_classes = header_classes|filter((v, k) => v != 'dark-background') %}
   {% set header_classes = header_classes|merge(['secondary']) %}
 
   {{ parent() }}
