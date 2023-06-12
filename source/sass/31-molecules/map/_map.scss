@@ -4,7 +4,7 @@
 $map-padding: .8rem;
 $map-button-size: 2.2rem;
 $map-button-background: color('white');
-$map-text-color: color('dark-gray');
+$map-text-color: color('gray');
 
 %map-button {
   width: $map-button-size;
@@ -258,7 +258,7 @@ $map-text-color: color('dark-gray');
       width: 1.2rem;
       height: 1.2rem;
       margin-top: -.6rem;
-      background: svg-as-background('search', color('cyan-wcag'), 24, 24) no-repeat center center;
+      background: svg-as-background('search', color('cyan'), 24, 24) no-repeat center center;
       z-index: 11;
     }
 
@@ -340,7 +340,7 @@ $map-text-color: color('dark-gray');
         right: .4rem;
         width: 1.6rem;
         height: 1.6rem;
-        background: transparent svg-as-background('cross', color('dark-gray'), 22.5, 22.5) no-repeat center;
+        background: transparent svg-as-background('cross', color('gray'), 22.5, 22.5) no-repeat center;
         cursor: pointer;
 
         &::after {

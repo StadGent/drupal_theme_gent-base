@@ -1,0 +1,32 @@
+.overview-layout {
+  // This is defined in styleguide as well, but not with paragraph classes.
+  > .content-header-container {
+    & + .paragraph--type--table-of-contents,
+    & + .paragraph--type--partners,
+    & + .paragraph--type--text {
+      position: relative;
+      z-index: 1;
+    }
+
+    &:not(.image) {
+      & + .paragraph--type--table-of-contents,
+      & + .paragraph--type--partners,
+      & + .paragraph--type--text {
+        @include set-layout('width-12');
+
+        margin-top: -6rem;
+      }
+
+      & + .partner-block,
+      & + .paragraph--type--text {
+        max-width: 100%;
+        padding: 1rem;
+        background-color: color('white');
+
+        @include tablet {
+          padding: 3rem;
+        }
+      }
+    }
+  }
+}

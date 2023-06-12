@@ -86,6 +86,10 @@
   {% set header_classes = header_classes|merge(['image']) %}
 {% endif %}
 
+{% if content_header_overlap %}
+  {% set header_classes = header_classes|merge(['overlap']) %}
+{% endif %}
+
 {{ attach_library('classy/node') }}
 
 <article{{ attributes.addClass(classes) }}>
