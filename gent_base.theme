@@ -11,6 +11,7 @@ use Drupal\Core\Template\Attribute;
 use Drupal\Component\Utility\Html;
 use Drupal\gent_base\FormPrerender;
 use Drupal\image\Entity\ImageStyle;
+use Drupal\node\NodeInterface;
 use Drupal\paragraphs\Entity\Paragraph;
 use Drupal\Core\Url;
 use Drupal\Core\Link;
@@ -779,7 +780,69 @@ function gent_base_preprocess_node(&$variables) {
     }
   }
 
-  // Add variable to mark content headers to be overlapped by first paragraph.
+  if ($variables['view_mode'] === 'full') {
+    _gent_base_preprocess_content_header_classes($variables);
+  }
+}
+
+/**
+ * Helper function to add content header classes to the node template.
+ *
+ * @param array $variables
+ *   The node template veriables.
+ */
+function _gent_base_preprocess_content_header_classes(&$variables) {
+  $bundles = ['infopage', 'event', 'news'];
+  $node = $variables['node'];
+  $classes = ['content-header-container', 'primary'];
+
+  if (!in_array($node->getType(), $bundles)) {
+    return;
+  }
+
+  // Add 'overlap' class.
+  if (_gent_base_node_has_overlapped_header(
+    $node,
+    $bundles,
+    ['text', 'table_of_contents', 'partners', 'teaser',]
+  )) {
+    $classes[] = 'overlap';
+  }
+
+  // Add event header classes.
+  if ($node->getType() === 'event') {
+    $classes[] = 'secondary';
+    if (($key = array_search('primary', $classes)) !== FALSE) {
+      unset($classes[$key]);
+    }
+  }
+
+  // Add header image class.
+  if ($node->hasField('field_header_image') && !$node->get('field_header_image')->isEmpty()) {
+    $classes[] = 'image';
+  }
+
+  if (in_array('primary', $classes)) {
+    $classes[] = 'dark-background';
+  }
+
+  $variables['header_classes'] = $classes;
+}
+
+/**
+ * Check if a node has an overlapped content header by the first paragraph.
+ *
+ * @param \Drupal\node\NodeInterface $node
+ *   The node to check.
+ * @param array $bundles
+ *   The bundles that can have overlap.
+ * @param array $validParagraphs
+ *   The paragraphs that can overlap the header when appearing on delta 0.
+ *
+ * @return bool
+ *   True if overlap occurs.
+ */
+function _gent_base_node_has_overlapped_header(NodeInterface $node, array $bundles, array $validParagraphs) {
   $bundles = ['infopage', 'event', 'news'];
   $overlappingParagraphs = [
     'text',
@@ -796,9 +859,11 @@ function gent_base_preprocess_node(&$variables) {
       $firstParagraph = reset($paragraphs);
     }
     if (in_array($firstParagraph->getType(), $overlappingParagraphs)) {
-      $variables['content_header_overlap'] = TRUE;
+      return TRUE;
     }
   }
+
+  return FALSE;
 }
 
 /**

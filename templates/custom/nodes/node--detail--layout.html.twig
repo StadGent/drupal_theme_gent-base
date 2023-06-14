@@ -76,20 +76,6 @@
   not node.isPublished() ? 'node--unpublished'
 ] %}
 
-{# Set the header classes to determine its layout #}
-{% set header_classes = [
-  'content-header-container',
-  'primary',
-  'dark-background'
-] %}
-{% if content.field_header_image[0] is not empty %}
-  {% set header_classes = header_classes|merge(['image']) %}
-{% endif %}
-
-{% if content_header_overlap %}
-  {% set header_classes = header_classes|merge(['overlap']) %}
-{% endif %}
-
 {{ attach_library('classy/node') }}
 
 <article{{ attributes.addClass(classes) }}>
