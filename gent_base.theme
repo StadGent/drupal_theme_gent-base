@@ -797,6 +797,10 @@ function _gent_base_preprocess_content_header_classes(&$variables) {
   $classes = ['content-header-container', 'primary'];
 
   if (!in_array($node->getType(), $bundles)) {
+    // Set default header classes for all content types.
+    $classes[] = 'dark-background';
+    $variables['header_classes'] = $classes;
+
     return;
   }
 
