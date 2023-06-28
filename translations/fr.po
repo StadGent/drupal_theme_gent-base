@@ -145,11 +145,19 @@ msgstr "Fermer"
 
 #: themes/contrib/gent_base/source/js/file.bindings.js:0
 msgid "No file chosen."
-msgstr "Aucun fichier choisi."
+msgstr "Aucun fichier."
+
+#: themes/contrib/gent_base/source/js/file.bindings.js:0
+msgid "No file chosen"
+msgstr "Aucun fichier"
 
 #: themes/contrib/gent_base/source/js/file.bindings.js:0
 msgid "Multiple files."
 msgstr "Plusieurs fichiers."
+
+#: themes/contrib/gent_base/source/js/file.bindings.js:0
+msgid "Multiple files"
+msgstr "Plusieurs fichiers"
 
 #: themes/contrib/gent_base/source/js/table.bindings.js:0
 msgid "(Scroll to see more)"

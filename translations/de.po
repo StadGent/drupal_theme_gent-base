@@ -118,11 +118,19 @@ msgstr "Schließen"
 
 #: themes/contrib/gent_base/source/js/file.bindings.js:0
 msgid "No file chosen."
-msgstr "Keine Datei ausgewählt."
+msgstr "Keine Datei."
+
+#: themes/contrib/gent_base/source/js/file.bindings.js:0
+msgid "No file chosen"
+msgstr "Keine Datei"
 
 #: themes/contrib/gent_base/source/js/file.bindings.js:0
 msgid "Multiple files."
 msgstr "Mehrere Dateien."
+
+#: themes/contrib/gent_base/source/js/file.bindings.js:0
+msgid "Multiple files"
+msgstr "Mehrere Dateien"
 
 #: themes/contrib/gent_base/source/js/table.bindings.js:0
 msgid "(Scroll to see more)"

@@ -158,11 +158,19 @@ msgstr "Sluiten"
 
 #: themes/contrib/gent_base/source/js/file.bindings.js:0
 msgid "No file chosen."
-msgstr "Geen bestand geselecteerd."
+msgstr "Nog geen bestand."
+
+#: themes/contrib/gent_base/source/js/file.bindings.js:0
+msgid "No file chosen"
+msgstr "Nog geen bestand"
 
 #: themes/contrib/gent_base/source/js/file.bindings.js:0
 msgid "Multiple files."
 msgstr "Meerdere bestanden."
+
+#: themes/contrib/gent_base/source/js/file.bindings.js:0
+msgid "Multiple files"
+msgstr "Meerdere bestanden"
 
 #: themes/contrib/gent_base/source/js/table.bindings.js:0
 msgid "(Scroll to see more)"
