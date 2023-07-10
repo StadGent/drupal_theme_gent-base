@@ -39,28 +39,56 @@
  */
 #}
 
-<dd>
-  <div class="timeline-slot-header">
-    <h3 class="timeline-slot-title">
-      <button aria-expanded="false"
-              aria-controls="timeline-slot-content--{{ paragraph.id() }}"
-              class="accordion--button">{{ content.title }}</button>
-    </h3>
-    <span class="timeline-slot-date">{{ content.subtitle }}</span>
-    <div class="image-gallery--wrapper multiple image-gallery--secondary">
-      {{ content.field_image }}
-    </div>
-  </div>
-  <div class="timeline-slot-content accordion--content accordion--expanded"
-       id="timeline-slot-content--{{ paragraph.id() }}" aria-hidden="false">
-    {{ content.field_text }}
+{% set classes = [
+    'timeline-slot'
+] %}
 
-    {% if content.field_video|render is not empty %}
-      <div class="video-wrapper">
-        <div class="video-inner-wrapper">
-          {{ content.field_video }}
+<div{{ attributes.addClass(classes) }} role="listitem">
+    <dt>
+        <h3 class="dt-title">TEST {{ content.title }}</h3>
+    </dt>
+    <dd class="show-desktop-only">
+        <div class="timeline-slot-content timeline-slot-content__img accordion--content" id="timeline-slot-img--{{ paragraph.id() }}" aria-hidden="true">
+            {% if content.field_image|render is not empty %}
+                <div class="image-gallery--wrapper single">
+                    {{ content.field_image }}
+                </div>
+            {% endif %}
+            {% if content.field_video|render is not empty %}
+                <div class="video-wrapper">
+                    <div class="video-inner-wrapper">
+                        {{ content.field_video }}
+                    </div>
+                </div>
+            {% endif %}
         </div>
-      </div>
-    {% endif %}
-  </div>
-</dd>
+    </dd>
+    <dd>
+        <div class="timeline-slot-header">
+            <h4 class="timeline-slot-title">
+                <button aria-expanded="false"
+                        aria-controls="timeline-slot-content--{{ paragraph.id() }}"
+                        data-controls-img="timeline-slot-img--{{ paragraph.id() }}"
+                        class="accordion--button">{{ content.subtitle }}</button>
+            </h4>
+            <span class="timeline-slot-date"></span>
+        </div>
+        <div class="timeline-slot-content accordion--content" id="timeline-slot-content--{{ paragraph.id() }}" aria-hidden="true">
+            <div class="content-image hidden-desktop">
+                {% if content.field_image|render is not empty %}
+                    <div class="image-gallery--wrapper single">
+                        {{ content.field_image }}
+                    </div>
+                {% endif %}
+                {% if content.field_video|render is not empty %}
+                    <div class="video-wrapper">
+                        <div class="video-inner-wrapper">
+                            {{ content.field_video }}
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+            {{ content.field_text }}
+        </div>
+    </dd>
+</div>
