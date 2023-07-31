@@ -43,15 +43,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "POT-Creation-Date: 2022-11-09 16:38+0100\n"
-"PO-Revision-Date: 2022-12-19 11:26+0100\n"
-"Last-Translator: Helena Standaert <helena.standaert@digipolis.gent>\n"
+"PO-Revision-Date: 2023-06-28 12:00+0200\n"
+"Last-Translator: Sven Vandevenne <sven.vandevenne@district09.gent>\n"
 "Language-Team: Digipolis <tbweb@gent.be>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.3.2\n"
 
 #: themes/contrib/gent_base/theme-settings.php:21
 msgid "Gent Base settings"
@@ -158,11 +158,19 @@ msgstr "Sluiten"
 
 #: themes/contrib/gent_base/source/js/file.bindings.js:0
 msgid "No file chosen."
-msgstr "Geen bestand geselecteerd."
+msgstr "Nog geen bestand."
+
+#: themes/contrib/gent_base/source/js/file.bindings.js:0
+msgid "No file chosen"
+msgstr "Nog geen bestand"
 
 #: themes/contrib/gent_base/source/js/file.bindings.js:0
 msgid "Multiple files."
 msgstr "Meerdere bestanden."
+
+#: themes/contrib/gent_base/source/js/file.bindings.js:0
+msgid "Multiple files"
+msgstr "Meerdere bestanden"
 
 #: themes/contrib/gent_base/source/js/table.bindings.js:0
 msgid "(Scroll to see more)"
