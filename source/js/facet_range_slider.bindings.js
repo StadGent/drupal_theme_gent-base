@@ -63,15 +63,9 @@
         }
       }
 
-      // Once //
-      // Before: $('drupal-selector').once('once-id');
-      // Now: once('once-id', 'drupal-selector');
-      // Or with jQuery: $(once('once-id', 'drupal-selector'));
-
       // TODO: make vanilla JS version of function with:
       // once(slider).each(function () {
       $(once(slider)).each(function () {
-      // $(slider).once().each(function () {
         $(this).on('slide', function (event, ui) {
           $(this).parents('.facets-widget-range_slider').find('.pips-preview .placeholder:first-of-type')[0].textContent = ui.values[0];
           $(this).parents('.facets-widget-range_slider').find('.pips-preview .placeholder:last-of-type')[0].textContent = ui.values[1];

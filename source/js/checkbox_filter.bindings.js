@@ -11,13 +11,7 @@
         return;
       }
 
-      // Once //
-      // Before: $('drupal-selector').once('once-id');
-      // Now: once('once-id', 'drupal-selector');
-      // Or with jQuery: $(once('once-id', 'drupal-selector'));
-
       $(once('checkbox-filter', '.checkbox-filter', context)).each(function () {
-      // $('.checkbox-filter', context).once('checkbox-filter').each(function () {
         new CheckboxFilter(this, { // eslint-disable-line no-undef
           checkboxes: '.facet-item.checkbox',
           hiddenTagText: 'Remove tag',

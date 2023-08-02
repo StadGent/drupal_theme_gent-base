@@ -12,12 +12,7 @@
         return;
       }
 
-      // Once //
-      // Before: $('drupal-selector').once('once-id');
-      // Now: once('once-id', 'drupal-selector');
-
       $(once('gent_base_breadcrumb', '.breadcrumb')).each(function () {
-      // $('.breadcrumb').once('gent_base_breadcrumb').each(function () {
         new Breadcrumbs(this);
       });
     }

@@ -11,12 +11,7 @@
         return;
       }
 
-      // Once //
-      // Before: $('drupal-selector').once('once-id');
-      // Now: once('once-id', 'drupal-selector');
-
       $(once('filter', '#filter', context)).each(function () {
-      // $('#filter', context).once('filter').each(function () {
         var self = this;
         /* global Modal */
         new Modal(this, {
