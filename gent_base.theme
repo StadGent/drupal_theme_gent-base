@@ -11,6 +11,7 @@ use Drupal\Core\Template\Attribute;
 use Drupal\Component\Utility\Html;
 use Drupal\gent_base\FormPrerender;
 use Drupal\image\Entity\ImageStyle;
+use Drupal\node\NodeInterface;
 use Drupal\paragraphs\Entity\Paragraph;
 use Drupal\Core\Url;
 use Drupal\Core\Link;
@@ -97,31 +98,9 @@ function gent_base_preprocess(&$variables, $hook) {
  * Implements hook_preprocess_page().
  */
 function gent_base_preprocess_page(&$variables) {
-  gent_base_preprocess_page_hero_image($variables);
-}
-
-/**
- * Helper to add the hero display of the current node to the page header.
- */
-function gent_base_preprocess_page_hero_image(&$variables) {
   $route = \Drupal::request()->get('_route');
   if ($route !== 'entity.node.canonical') {
     $variables['attributes']['class'][] = 'overview-page';
-    return;
-  }
-
-  $entity = \Drupal::request()->get('node');
-  if (!$entity->access('view')) {
-    return;
-  }
-
-  $isViewMode = gent_base_is_view_mode(
-    'node.' . $entity->bundle() . '.hero_image'
-  );
-  if ($isViewMode) {
-    $variables['hero_image'] = \Drupal::entityTypeManager()
-      ->getViewBuilder('node')
-      ->view($entity, 'hero_image');
   }
 }
 
@@ -800,6 +779,95 @@ function gent_base_preprocess_node(&$variables) {
       $variables['event_datetime'] = \Drupal::service('date.formatter')->format($event_start_date, 'custom', 'c') . '-' . \Drupal::service('date.formatter')->format($event_end_date, 'custom', 'c');
     }
   }
+
+  if ($variables['view_mode'] === 'full') {
+    _gent_base_preprocess_content_header_classes($variables);
+  }
+}
+
+/**
+ * Helper function to add content header classes to the node template.
+ *
+ * @param array $variables
+ *   The node template veriables.
+ */
+function _gent_base_preprocess_content_header_classes(&$variables) {
+  $bundles = ['infopage', 'event', 'news'];
+  $node = $variables['node'];
+  $classes = ['content-header-container', 'primary'];
+
+  if (!in_array($node->getType(), $bundles)) {
+    // Set default header classes for all content types.
+    $classes[] = 'dark-background';
+    $variables['header_classes'] = $classes;
+
+    return;
+  }
+
+  // Add 'overlap' class.
+  if (_gent_base_node_has_overlapped_header(
+    $node,
+    $bundles,
+    ['text', 'table_of_contents', 'partners', 'teaser',]
+  )) {
+    $classes[] = 'overlap';
+  }
+
+  // Add event header classes.
+  if ($node->getType() === 'event') {
+    $classes[] = 'secondary';
+    if (($key = array_search('primary', $classes)) !== FALSE) {
+      unset($classes[$key]);
+    }
+  }
+
+  // Add header image class.
+  if ($node->hasField('field_header_image') && !$node->get('field_header_image')->isEmpty()) {
+    $classes[] = 'image';
+  }
+
+  if (in_array('primary', $classes)) {
+    $classes[] = 'dark-background';
+  }
+
+  $variables['header_classes'] = $classes;
+}
+
+/**
+ * Check if a node has an overlapped content header by the first paragraph.
+ *
+ * @param \Drupal\node\NodeInterface $node
+ *   The node to check.
+ * @param array $bundles
+ *   The bundles that can have overlap.
+ * @param array $validParagraphs
+ *   The paragraphs that can overlap the header when appearing on delta 0.
+ *
+ * @return bool
+ *   True if overlap occurs.
+ */
+function _gent_base_node_has_overlapped_header(NodeInterface $node, array $bundles, array $validParagraphs) {
+  $bundles = ['infopage', 'event', 'news'];
+  $overlappingParagraphs = [
+    'text',
+    'table_of_contents',
+    'partners',
+    'teaser',
+  ];
+
+  if (in_array($node->bundle(), $bundles)) {
+    $paragraphs = $node->get('field_paragraphs')->referencedEntities();
+
+    if (!empty($paragraphs)) {
+      /** @var \Drupal\paragraphs\Entity\Paragraph $firstParagraph */
+      $firstParagraph = reset($paragraphs);
+    }
+    if (in_array($firstParagraph->getType(), $overlappingParagraphs)) {
+      return TRUE;
+    }
+  }
+
+  return FALSE;
 }
 
 /**

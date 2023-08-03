@@ -1,0 +1,25 @@
+body {
+  div.content-header-container {
+    margin-top: 0;
+    // Content header in Drupal should always break out on the sides.
+    // This breakout is provided for several layouts by the styleguide.
+    margin-right: -1rem;
+    margin-left: -1rem;
+
+    @include tablet {
+      width: calc(100% + 6.75rem * 2);
+      margin-left: -6.75rem;
+      padding-right: 6.75rem;
+      padding-left: 6.75rem;
+    }
+
+    &.accolade-title {
+      @include tablet {
+        // Set max width because the absolute title gets out of boundary.
+        .left {
+          max-width: calc(100% - (6.75rem * 2 + 1rem));
+        }
+      }
+    }
+  }
+}

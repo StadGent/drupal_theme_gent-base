@@ -38,9 +38,31 @@
  * @ingroup themeable
  */
 #}
+{% set classes = [
+  'paragraph',
+  'paragraph--type--' ~ paragraph.bundle|clean_class,
+  view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+  not paragraph.isPublished() ? 'paragraph--unpublished',
+  'cta-block',
+  'spotlight',
+  'image-left',
+]
+%}
 
 {% block paragraph %}
-  {% block content %}
-      {{ content.timeline_items }}
-  {% endblock %}
+  <section{{ attributes.addClass(classes) }}>
+    <div class="cta-block__image">
+      {{ content.field_image }}
+    </div>
+    <div class="cta-block__content">
+      <div class="feature-block primary dark-background">
+        {% block title %}
+          <h2>{{ content.title }}</h2>
+        {% endblock %}
+        {% block content %}
+          {{ content|without('title', 'field_image') }}
+        {% endblock %}
+      </div>
+    </div>
+  </section>
 {% endblock paragraph %}

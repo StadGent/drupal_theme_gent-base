@@ -79,16 +79,29 @@
 {{ attach_library('classy/node') }}
 
 <article{{ attributes.addClass(classes) }}>
-
-  {{ title_prefix }}
-  <h1{{ title_attributes }}>
-    {{ label }}
-  </h1>
-  {{ title_suffix }}
-
   {% block article_content_top %}
-    {{ readspeaker }}
-    {{ content.field_summary }}
+    <div class="{{ header_classes|join(' ') }}">
+      <div class="left">
+        {{ readspeaker }}
+
+        {{ title_prefix }}
+        <h1{{ title_attributes }}>
+          {{ label }}
+        </h1>
+        {{ title_suffix }}
+
+        {% block article_time %}
+        {% endblock %}
+
+        {{ content.field_summary }}
+      </div>
+
+      {% if content.field_header_image[0] is not empty %}
+        <div class="right">
+          {{ content.field_header_image }}
+        </div>
+      {% endif %}
+    </div>
   {% endblock %}
 
   {% block article_content_summary %}
