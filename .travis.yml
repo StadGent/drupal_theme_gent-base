@@ -40,7 +40,7 @@ before_install:
 
 install:
   # Set the proper Drupal core & PHPUnit version.
-  - composer require -n --no-update --sort-packages --dev --with-all-dependencies "drupal/core:~$DRUPAL" "phpunit/phpunit:^$PHPUNIT"
+  - composer require -n --no-update --sort-packages --dev --with-all-dependencies "drupal/core:~$DRUPAL.0" "phpunit/phpunit:^$PHPUNIT"
   # Install the module dependencies.
   - composer install -n --no-progress
 
