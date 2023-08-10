@@ -40,13 +40,13 @@ before_install:
 
 install:
   # Set the proper Drupal core & PHPUnit version.
-  - composer require -n --no-update --sort-packages --dev --with-all-dependencies "drupal/core:$DRUPAL.*" "phpunit/phpunit:$PHPUNIT.*"
+  - composer require -n --no-update --sort-packages --dev --with-all-dependencies "drupal/core:~$DRUPAL" "phpunit/phpunit:^$PHPUNIT"
   # Install the module dependencies.
   - composer install -n --no-progress
 
 script:
   - vendor/bin/grumphp run -n
-  - cd source && gulp validate
+  - cd source && gulp validate && cd ..
 
 after_script:
   # Run the Code Climate test reporter.
