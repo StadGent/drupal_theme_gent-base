@@ -1,8 +1,7 @@
-dist: bionic
+dist: jammy
 language: php
 
 php:
-  - 7.4
   - 8.1
 
 node_js:
@@ -11,7 +10,6 @@ node_js:
 
 env:
   matrix:
-    - DRUPAL=9.3 PHPUNIT=9
     - DRUPAL=9.4 PHPUNIT=9
     - DRUPAL=9.5 PHPUNIT=9
 
