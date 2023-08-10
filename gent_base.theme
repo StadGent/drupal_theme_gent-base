@@ -881,6 +881,7 @@ function gent_base_preprocess_links__node(&$variables) {
     $readmore['link']['#options']['attributes']['rel'] = NULL;
     $readmore['link']['#options']['attributes']['class'] = [
       'standalone-link',
+      'read-more',
     ];
   }
 }
@@ -893,6 +894,7 @@ function gent_base_preprocess_links__node(&$variables) {
 function gent_base_preprocess_views_view(&$variables) {
   $variables['more']['#options']['attributes']['class'] = [
     'standalone-link',
+    'read-more',
   ];
 }
 

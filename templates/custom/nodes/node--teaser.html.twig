@@ -85,12 +85,15 @@
       {% block title %}
         {{ title_prefix }}
         {% if not page %}
-          <h3{{ title_attributes }}>
-            {{ label }}
-          </h3>
+          <h4{{ title_attributes.addClass('bg-none') }}>
+            <span>{{ label }}</span>
+          </h4>
         {% endif %}
         {{ title_suffix }}
       {% endblock %}
+
+      {# Rendered as tag list. #}
+      {{ content.og_audience }}
 
       {% block content %}
         {{ content|without('field_teaser_image', 'og_audience') }}
@@ -103,19 +106,16 @@
       <div class="content__first">
         {% block image %}
           {% if node.hasField('field_teaser_image') %}
-            {% spaceless %}
+            {% apply spaceless %}
               <div class="figure-wrapper">
                 <figure>
                   <div class="image-wrapper">
                     {{ content.field_teaser_image }}
                   </div>
                 </figure>
-                <div class="accolade-inverse bottom-left"></div>
               </div>
-            {% endspaceless %}
+            {% endapply %}
           {% endif %}
-
-          {{ content.og_audience }}
         {% endblock %}
       </div>
     {% endif %}

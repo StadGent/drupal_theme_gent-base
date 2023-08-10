@@ -1,7 +1,7 @@
 {% extends 'node--teaser.html.twig' %}
 
 {% block content %}
-  <div class="event">
+  <div class="date">
     <span>{{ content.field_event_date }}</span>
   </div>
 
@@ -9,7 +9,7 @@
 {% endblock %}
 
 {% block image %}
-  <span class="teaser-label">
+  <span class="label">
     <i class="icon-calendar"></i>
     <span>{{ 'Event'|t }}</span>
   </span>
