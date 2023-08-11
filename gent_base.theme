@@ -638,11 +638,9 @@ function gent_base_preprocess_file_widget_multiple(array &$variables) {
       show($operations_elements[1]);
     }
 
-    /** @var \Drupal\Core\Render\RendererInterface $renderer */
-    $renderer = \Drupal::service('renderer');
     $row = [
       '#theme' => 'gent_base_file_upload',
-      '#picture_element' => $renderer->render($widget),
+      '#picture_element' => $widget,
       '#picture_button' => $operations_elements,
     ];
 

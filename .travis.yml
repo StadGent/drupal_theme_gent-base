@@ -1,8 +1,7 @@
-dist: bionic
+dist: jammy
 language: php
 
 php:
-  - 7.4
   - 8.1
 
 node_js:
@@ -11,7 +10,6 @@ node_js:
 
 env:
   matrix:
-    - DRUPAL=9.3 PHPUNIT=9
     - DRUPAL=9.4 PHPUNIT=9
     - DRUPAL=9.5 PHPUNIT=9
 
@@ -42,13 +40,13 @@ before_install:
 
 install:
   # Set the proper Drupal core & PHPUnit version.
-  - composer require -n --no-update --sort-packages --dev --with-all-dependencies "drupal/core:$DRUPAL.*" "phpunit/phpunit:$PHPUNIT.*"
+  - composer require -n --no-update --sort-packages --dev --with-all-dependencies "drupal/core:~$DRUPAL.0" "phpunit/phpunit:^$PHPUNIT"
   # Install the module dependencies.
   - composer install -n --no-progress
 
 script:
   - vendor/bin/grumphp run -n
-  - cd source && gulp validate
+  - cd source && gulp validate && cd ..
 
 after_script:
   # Run the Code Climate test reporter.
