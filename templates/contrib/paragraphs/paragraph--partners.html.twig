@@ -40,19 +40,32 @@
  */
 #}
 
-{% extends 'paragraph.html.twig' %}
+{% set classes = [
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished',
+    'partner-block',
+    content.field_paragraphs['#is_multiple'] ? 'partner__multiple' : 'partner__single',
+] %}
 
 {% block paragraph %}
-  {% set classes = classes|merge([
-    'highlight',
-    'partner-block'
-  ]) %}
+    <div{{ attributes.addClass(classes) }}>
+        <div class="partner-content intro">
+            <div class="intro__content">
+                {% block title %}
+                    {% if content.title|render|striptags|trim is not empty %}
+                        {{ content.title }}
+                    {% endif %}
+                {% endblock %}
 
-  {{ parent() }}
-{% endblock %}
-
-{% block content %}
-  <div class="highlight__inner">
-    {{ parent() }}
-  </div>
-{% endblock %}
+                {{ content.field_text }}
+            </div>
+        </div>
+        <div class="partner-content partners">
+            {% block content %}
+                {{ content.field_paragraphs }}
+            {% endblock %}
+        </div>
+    </div>
+{% endblock paragraph %}
