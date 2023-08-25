@@ -9,6 +9,12 @@ body {
     a {
       font-size: .65rem !important;
     }
+
+    ul {
+      li {
+        margin-bottom: 0;
+      }
+    }
   }
 
   // Fix adminimal toolbar icon issue.
