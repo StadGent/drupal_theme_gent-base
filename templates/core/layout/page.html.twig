@@ -88,18 +88,18 @@
       <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
 
       {% if page.filters %}
-      <div class="content-container sidebar-layout filter">
-        {{ attach_library('gent_base/filter') }}
-        {{ attach_library('gent_base/modal') }}
+        <div class="content-container sidebar-layout filter">
+          {{ attach_library('gent_base/filter') }}
+          {{ attach_library('gent_base/modal') }}
 
-        {{ page.filters }}
-        {{ page.content }}
-        {% else %}
+          {{ page.filters }}
+          {{ page.content }}
+        </div>
+      {% else %}
         <div class="content-container">
           {{ page.content }}
-          {% endif %}
-
         </div>
+      {% endif %}
     </main>
   {% endblock %}
 
