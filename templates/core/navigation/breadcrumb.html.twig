@@ -16,7 +16,7 @@
       <h2 id="system-breadcrumb"
           class="visually-hidden">{{ 'Breadcrumb'|t }}</h2>
       <ol class="no-style">
-        {% spaceless %}
+        {% apply spaceless %}
           {% for item in breadcrumb %}
             <li>
               {% if item.url %}
@@ -26,7 +26,7 @@
               {% endif %}
             </li>
           {% endfor %}
-        {% endspaceless %}
+        {% endapply %}
       </ol>
     </div>
   </nav>

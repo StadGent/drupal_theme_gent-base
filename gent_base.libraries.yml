@@ -12,16 +12,16 @@ accordion:
     source/js/accordion.bindings.js: {}
   dependencies:
     - core/jquery
-    - core/jquery.once
+    - core/once
 
 filter:
   version: 1.x
   js:
     source/js/filter.bindings.js: {}
-    source/js/filter.functions.js: {}
+    /themes/custom/sg_theme/build/js/filter.functions-min.js: {}
   dependencies:
     - core/jquery
-    - core/jquery.once
+    - core/once
 
 modal:
   version: 1.x
@@ -31,7 +31,7 @@ modal:
   dependencies:
     - gent_base/checkbox_filter
     - core/jquery
-    - core/jquery.once
+    - core/once
 
 image-collections:
   version: 1.x
@@ -71,7 +71,7 @@ checkbox_filter:
   dependencies:
     - gent_base/filter
     - core/jquery
-    - core/jquery.once
+    - core/once
 
 tabs:
   version: 1.x
@@ -128,4 +128,4 @@ breadcrumbs:
     source/js/breadcrumbs.bindings.js: {}
   dependencies:
     - core/jquery
-    - core/jquery.once
+    - core/once

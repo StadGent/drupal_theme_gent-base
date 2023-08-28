@@ -2,7 +2,7 @@
  * @file
  * Filter component binding.
  */
-(function (Drupal, $) {
+(function (Drupal, $, once) {
   'use strict';
 
   Drupal.behaviors.gentBaseLoadFilters = {
@@ -11,7 +11,7 @@
         return;
       }
 
-      $('#filter', context).once('filter').each(function () {
+      $(once('filter', '#filter', context)).each(function () {
         var self = this;
         /* global Modal */
         new Modal(this, {
@@ -30,4 +30,4 @@
       });
     }
   };
-})(Drupal, jQuery);
+})(Drupal, jQuery, once);

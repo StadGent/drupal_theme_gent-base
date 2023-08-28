@@ -2,7 +2,7 @@
  * @file
  * Menu component binding.
  */
-(function (Drupal, $) {
+(function (Drupal, $, once) {
   'use strict';
 
   Drupal.behaviors.gentBaseLoadModal = {
@@ -12,9 +12,9 @@
       }
 
       /* global Modal */
-      $('.modal:not(.has-custom-binding)', context).once('modal').each(function () {
+      $(once('modal', '.modal:not(.has-custom-binding)', context)).each(function () {
         new Modal(this);
       });
     }
   };
-})(Drupal, jQuery);
+})(Drupal, jQuery, once);
