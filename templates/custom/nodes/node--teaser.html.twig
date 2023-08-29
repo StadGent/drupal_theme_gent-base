@@ -82,6 +82,10 @@
 
   {% block bottom %}
     <div{{ content_attributes.addClass('content__second') }}>
+      {% if node.hasField('field_theme_icon') %}
+        <i class="icon-{{ node.field_theme_icon.value }}" aria-hidden="true"></i>
+      {% endif %}
+
       {% block title %}
         {{ title_prefix }}
         {% if not page %}
