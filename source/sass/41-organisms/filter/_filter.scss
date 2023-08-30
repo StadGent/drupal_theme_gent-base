@@ -5,23 +5,6 @@
   }
 }
 
-.selected-filters {
-  .tag-list > li > a {
-    @include theme('color', 'color-tertiary', 'selected-filters-link-color');
-
-    font-weight: normal;
-    text-decoration: none;
-
-    &:hover {
-      background: none;
-    }
-
-    &[rel=nofollow] {
-      @include reset-link-background;
-    }
-  }
-}
-
 .result__show-filters.modal-trigger {
   display:  none;
 
