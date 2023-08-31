@@ -1,0 +1,15 @@
+{% extends 'node--teaser.html.twig' %}
+
+{% block content %}
+  {{ content|without('field_teaser_image', 'og_audience', 'field_summary') }}
+{% endblock %}
+
+{% block image %}
+  <div class="tags-label-wrapper">
+    {# Rendered as tag list. #}
+    {{ content.og_audience }}
+  </div>
+
+  {% set image_ratio = '1:1' %}
+  {{ parent() }}
+{% endblock %}

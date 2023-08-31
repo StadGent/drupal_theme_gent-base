@@ -5,14 +5,19 @@
     <span>{{ content.field_event_date }}</span>
   </div>
 
-  {{ content|without('field_teaser_image', 'og_audience', 'field_event_date') }}
+  {{ content|without('field_teaser_image', 'og_audience', 'field_summary', 'field_event_date') }}
 {% endblock %}
 
 {% block image %}
-  <span class="label">
-    <i class="icon-calendar"></i>
-    <span>{{ 'Event'|t }}</span>
-  </span>
+  <div class="tags-label-wrapper">
+    <span class="label">
+      <i class="icon-calendar"></i>
+      <span>{{ 'Event'|t }}</span>
+    </span>
+    {# Rendered as tag list. #}
+    {{ content.og_audience }}
+  </div>
 
+  {% set image_ratio = '1:1' %}
   {{ parent() }}
 {% endblock %}
