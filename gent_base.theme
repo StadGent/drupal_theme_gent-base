@@ -17,6 +17,7 @@ use Drupal\paragraphs\Entity\Paragraph;
 use Drupal\Core\Url;
 use Drupal\Core\Link;
 use Drupal\Core\Render\Element;
+use Drupal\paragraphs\ParagraphInterface;
 
 include __DIR__ . '/includes/theme.inc';
 include __DIR__ . '/includes/lazy.inc';
@@ -767,7 +768,7 @@ function gent_base_preprocess_node(&$variables) {
   }
 
   // Add a datetime attribute to event dates.
-  if ($node->getType() == 'event') {
+  if ($node->getType() == 'event' && !$node->get('field_event_date')->isEmpty()) {
     $event_date = $node->get('field_event_date')->getValue()[0];
     $event_start_date = (float) strtotime($event_date['value']);
     $event_end_date = (float) strtotime($event_date['end_value']);
@@ -859,11 +860,14 @@ function _gent_base_node_has_overlapped_header(NodeInterface $node, array $bundl
     $paragraphs = $node->get('field_paragraphs')->referencedEntities();
 
     if (!empty($paragraphs)) {
-      /** @var \Drupal\paragraphs\Entity\Paragraph $firstParagraph */
+      /** @var \Drupal\paragraphs\ParagraphInterface $firstParagraph */
       $firstParagraph = reset($paragraphs);
-    }
-    if (in_array($firstParagraph->getType(), $overlappingParagraphs)) {
-      return TRUE;
+
+      if ($firstParagraph instanceof ParagraphInterface
+        && in_array($firstParagraph->getType(), $overlappingParagraphs)
+      ) {
+        return TRUE;
+      }
     }
   }
 
