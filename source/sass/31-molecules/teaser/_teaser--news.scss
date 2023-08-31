@@ -1,0 +1,8 @@
+.node--type-news.node--view-mode-teaser {
+  // Hide calendar icon for news teasers.
+  .date {
+    span::before {
+      display: none;
+    }
+  }
+}

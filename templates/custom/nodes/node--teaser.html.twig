@@ -96,10 +96,10 @@
         {{ title_suffix }}
       {% endblock %}
 
-      {# Rendered as tag list. #}
-      {{ content.og_audience }}
-
       {% block content %}
+        {# Rendered as tag list. #}
+        {{ content.og_audience }}
+
         {{ content|without('field_teaser_image', 'og_audience') }}
       {% endblock %}
     </div>
@@ -110,10 +110,13 @@
       <div class="content__first">
         {% block image %}
           {% if node.hasField('field_teaser_image') %}
+            {% if image_ratio is not defined %}
+              {% set image_ratio = '8:5' %}
+            {% endif %}
             {% apply spaceless %}
               <div class="figure-wrapper">
                 <figure>
-                  <div class="image-wrapper">
+                  <div class="image-wrapper" data-ratio="{{ image_ratio }}">
                     {{ content.field_teaser_image }}
                   </div>
                 </figure>
