@@ -41,8 +41,7 @@
 
 <li>
   <!-- Modal -->
-  <section id="{{ paragraph.id() }}" class="modal programme-detail"
-           tabindex="-1">
+  <section id="{{ paragraph.id() }}" class="modal programme-detail" tabindex="-1">
     <div class="modal-inner">
       <div class="modal-header">
         <button type="button" class="button close icon-cross modal-close"
@@ -69,16 +68,15 @@
 
       </div>
     </div>
-    <div class="modal-overlay modal-close"
-         data-target="{{ paragraph.id() }}"></div>
+    <div class="modal-overlay modal-close" data-target="{{ paragraph.id() }}"></div>
   </section>
   <!-- /Modal -->
 
   <!-- Teaser -->
-  <div class="teaser teaser--inverted">
+  <div class="teaser teaser--simple">
     <article class="teaser-content">
       <div class="content__second">
-        <h3 id="uid_{{ paragraph.id() }}">{{ content.title }}</h3>
+        <h4 id="uid_{{ paragraph.id() }}">{{ content.title }}</h4>
 
         <p>{{ content.subtitle }}</p>
 
@@ -98,7 +96,6 @@
                 {{ fake_teaser_image }}
               </div>
             </figure>
-            <div class="accolade-inverse bottom-left"></div>
           </div>
         {% endspaceless %}
       </div>
