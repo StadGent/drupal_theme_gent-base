@@ -1,38 +1,38 @@
 .overview-layout {
-  // This is defined in styleguide as well, but not with paragraph classes.
-  > .content-header-container {
-    & + .paragraph--type--table-of-contents,
-    & + .paragraph--type--partners,
-    & + .paragraph--type--text {
-      position: relative;
-      z-index: 1;
+  > div:not(.content-header-container):not(.block-system-main-block),
+  > section,
+  > aside,
+  > article {
+    margin-top: 60px;
+    margin-bottom: 60px;
+
+    @include desktop {
+      margin-top: 120px;
+      margin-bottom: 120px;
     }
+  }
 
-    &:not(.image) {
-      & + .paragraph--type--table-of-contents,
-      & + .paragraph--type--partners,
-      & + .paragraph--type--text {
-        @include set-layout('width-12');
+  .block-system-main-block {
+    margin-top: 0;
+  }
 
-        margin-top: -6rem;
-      }
+  > .uig,
+  > .block-dg-newsletter {
+    margin-top: 50px;
 
-      & + .partner-block,
-      & + .paragraph--type--text {
-        max-width: 100%;
-        padding: 1rem;
-        background-color: color('white');
-
-        @include tablet {
-          padding: 3rem;
-        }
-      }
+    @include desktop {
+      @include set-layout('width-10', 'offset-1');
     }
+  }
 
-    & ~ .paragraph--type--text {
-      & > * {
-        margin-top: 0;
-      }
+  > .partner-block {
+    @include desktop {
+      @include set-layout('width-10', 'offset-1');
     }
+  }
+
+  > .open-readspeaker-ui,
+  > .block-open-readspeaker {
+    margin-top: 0;
   }
 }

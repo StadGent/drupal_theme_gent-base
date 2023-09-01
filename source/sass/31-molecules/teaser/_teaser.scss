@@ -1,0 +1,16 @@
+.node--view-mode-teaser {
+  &.node--unpublished {
+    .content__second {
+      @include theme('background-color', 'color-error-light');
+
+      .teaser--square & {
+        background-color: transparent;
+
+        h4 span,
+        .date span {
+          @include theme('background-color', 'color-error-light');
+        }
+      }
+    }
+  }
+}

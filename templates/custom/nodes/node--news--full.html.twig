@@ -2,7 +2,7 @@
 
 {% block article_time %}
   {% if node.published_at is not empty %}
-    <time datetime="{{ date|date('Y-m-d') }}">{{- node.published_at.value|dg_format_date('text') -}}</time>
+    <time pubdate datetime="{{ date|date('Y-m-d') }}">{{- node.published_at.value|dg_format_date('text') -}}</time>
   {% endif %}
 {% endblock %}
 

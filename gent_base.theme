@@ -841,22 +841,14 @@ function _gent_base_preprocess_content_header_classes(&$variables) {
  *   The node to check.
  * @param array $bundles
  *   The bundles that can have overlap.
- * @param array $validParagraphs
+ * @param array $overlappingParagraphs
  *   The paragraphs that can overlap the header when appearing on delta 0.
  *
  * @return bool
  *   True if overlap occurs.
  */
-function _gent_base_node_has_overlapped_header(NodeInterface $node, array $bundles, array $validParagraphs) {
-  $bundles = ['infopage', 'event', 'news'];
-  $overlappingParagraphs = [
-    'text',
-    'table_of_contents',
-    'partners',
-    'teaser',
-  ];
-
-  if (in_array($node->bundle(), $bundles)) {
+function _gent_base_node_has_overlapped_header(NodeInterface $node, array $bundles, array $overlappingParagraphs) {
+  if (in_array($node->bundle(), $bundles) && $node->hasField('field_paragraphs')) {
     $paragraphs = $node->get('field_paragraphs')->referencedEntities();
 
     if (!empty($paragraphs)) {
