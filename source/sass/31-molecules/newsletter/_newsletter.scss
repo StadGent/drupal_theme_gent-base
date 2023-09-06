@@ -1,8 +1,11 @@
 .newsletter,
 .block-dg-newsletter {
+  @include medium-text();
 
-  .highlight__inner::before {
-    @include spot-image('newsletter-light', 7rem);
+  body & {
+    h2 {
+      margin-bottom: 30px;
+    }
   }
 
   .form-wrapper:not(.form-actions) {
@@ -16,10 +19,7 @@
     }
 
     .dg-newsletter-privacy-disclaimer {
-      &,
-      > * {
-        font-weight: 600;
-      }
+      margin: 30px 0;
     }
 
     .dg-newsletter-intro-text,
@@ -28,15 +28,42 @@
     }
 
     .form-item {
-      max-width: 20.5rem;
-      margin-right: .8rem;
-      margin-bottom: 0;
+      margin: 0;
+
+      @include phablet {
+        margin: 0 10px 0 0;
+        max-width: 556px;
+      }
+
+      .error {
+        .accolade {
+          &::before,
+          &::after {
+            @include theme('background-color', 'color-secondary');
+          }
+        }
+      }
     }
 
     .form-actions {
       flex-grow: 0;
-      margin-top: 1.3rem;
-      margin-bottom: 1rem;
+      width: 100%;
+      margin: 10px 0 0 0;
+
+      @include phablet {
+        width: auto;
+        margin: 36px 0 0;
+      }
+
+      input[type="submit"] {
+        align-self: flex-start;
+        width: 100%;
+        margin: 0;
+
+        @include phablet {
+          width: auto;
+        }
+      }
     }
 
     .ajax-progress {
@@ -46,9 +73,9 @@
     }
   }
 
-  input[type="submit"] {
-    min-height: 2.4rem;
-    margin-top: -.1rem;
-    font-size: .8rem;
-  }
+  //input[type="submit"] {
+  //  min-height: 2.4rem;
+  //  margin-top: -.1rem;
+  //  font-size: .8rem;
+  //}
 }

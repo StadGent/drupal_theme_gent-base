@@ -5,6 +5,7 @@
  * Functions to support theming in the Gent Base theme.
  */
 
+use Drupal\block\Entity\Block;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Render\Markup;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
@@ -53,6 +54,8 @@ function gent_base_form_alter(&$form, FormStateInterface $form_state, $form_id) 
 
   if ($form_id === 'dg_newsletter_subscribe_form') {
     $form['wrapper']['email_address']['#stacked'] = TRUE;
+    $form['wrapper']['actions']['submit']['#attributes']['class'][] = 'button-secondary';
+    $form['wrapper']['#attributes']['class'][] = 'subscribe';
   }
 
   // Remove button classes form delete action.
@@ -132,6 +135,14 @@ function gent_base_preprocess_container(&$variables) {
  */
 function gent_base_preprocess_dg_auth_block(&$variables) {
   $variables['login_link']['#options']['attributes']['class'][] = 'login-link';
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function gent_base_preprocess_block__dg_newsletter(&$variables) {
+  $block = Block::load($variables['elements']['#id']);
+  $variables['region'] = $block->getRegion();
 }
 
 /**
