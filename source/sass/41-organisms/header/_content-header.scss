@@ -1,76 +1,75 @@
+$header-side-padding: 255px;
+
 body {
   div.content-header-container {
     margin-top: 0;
     // Content header in Drupal should always break out on the sides.
     // This breakout is provided for several layouts by the styleguide.
-    margin-right: -1rem;
-    margin-left: -1rem;
+    margin-right: -20px;
+    margin-left: -20px;
 
     @include tablet {
-      width: calc(100% + 6.75rem * 2);
-      margin-left: -6.75rem;
-      padding-right: 6.75rem;
-      padding-left: 6.75rem;
+      width: calc(100% + $header-side-padding * 2);
+      margin-left: -$header-side-padding;
+      padding-right: $header-side-padding;
+      padding-left: $header-side-padding;
     }
 
     &.accolade-title {
       @include tablet {
         // Set max width because the absolute title gets out of boundary.
         .left {
-          max-width: calc(100% - (6.75rem * 2 + 1rem));
+          max-width: calc(100% - (135px * 2 + 20px));
         }
       }
     }
 
-    // POSITION THE FIRST PARAGRAPH OVERLAPPING THE CONTENT HEADER.
+    // Header that makes the first adjacent sibling element overlap.
     //
     // This is defined in styleguide as well, but not with paragraph classes.
     // The overlapping paragraph types are defined in gent_base.theme in
     // function _gent_base_node_has_overlapped_header().
-    & + .paragraph--type--table-of-contents,
-    & + .paragraph--type--partners,
-    & + .paragraph--type--text,
-    & + .paragraph--type--topic-overview {
-      position: relative;
-      z-index: 1;
-    }
-
-    &.image {
-      // Overlapping paragraphs with smaller width next to header image.
-      & + .paragraph--type--table-of-contents {
-        margin: 20px 0 40px;
-
-        @include tablet {
-          margin: 160px 0 40px;
-        }
-
-        @include desktop {
-          max-width: calc($bp-max-content - 570px - 60px);
-          margin: -236px 0 100px;
-        }
-      }
-    }
-
-    &:not(.image) {
-      // Overlapping paragraphs without white background and full width.
-      & + .paragraph--type--table-of-contents,
-      & + .paragraph--type--partners,
-      & + .paragraph--type--text,
-      & + .paragraph--type--topic-overview {
-        @include set-layout('width-12');
-
-        margin-top: -120px;
+    &.overlap {
+      & + * {
+        position: relative;
+        z-index: 1;
       }
 
-      // Add white background to several overlapping paragraphs.
-      & + .paragraph--type--partners,
-      & + .paragraph--type--text {
-        max-width: 100%;
-        padding: 20px;
-        background-color: color('white');
+      // Styling for adjacent sibling elements following headers with image.
+      &.image {
+        & + .paragraph--type--table-of-contents {
+          margin: 20px 0 40px;
 
-        @include tablet {
-          padding: 60px;
+          @include tablet {
+            margin: 160px 0 40px;
+          }
+
+          @include desktop {
+            max-width: calc($bp-max-content - 570px - 60px);
+            margin: -236px 0 100px;
+          }
+        }
+      }
+
+      // Styling for adjacent sibling elements following headers without image.
+      &:not(.image) {
+        // Overlapping paragraphs with full width.
+        & + * {
+          @include set-layout('width-12');
+
+          margin-top: -120px;
+        }
+
+        // Add white background to specific overlapping paragraphs.
+        & + .paragraph--type--partners,
+        & + .paragraph--type--text {
+          max-width: 100%;
+          padding: 20px;
+          background-color: color('white');
+
+          @include tablet {
+            padding: 60px;
+          }
         }
       }
     }

@@ -820,7 +820,7 @@ function _gent_base_preprocess_content_header_classes(&$variables) {
   if (_gent_base_node_has_overlapped_header(
     $node,
     $bundles,
-    ['text', 'table_of_contents', 'partners', 'teaser',]
+    ['text', 'table_of_contents', 'partners', 'teaser', 'news_events', 'map']
   )) {
     $classes[] = 'overlap';
   }
@@ -869,7 +869,10 @@ function _gent_base_node_has_overlapped_header(NodeInterface $node, array $bundl
       if ($firstParagraph instanceof ParagraphInterface
         && in_array($firstParagraph->getType(), $overlappingParagraphs)
       ) {
-        return TRUE;
+        $hasHeaderImage = $node->hasField('field_header_image') && !$node->get('field_header_image')->isEmpty();
+        // In combination with a header image, only table of contents can
+        // overlap with the header.
+        return !$hasHeaderImage || $firstParagraph->getType() === 'table_of_contents';
       }
     }
   }
