@@ -39,17 +39,13 @@
 #}
 
 {% if items|length > 1 %}
-  <div class="partners">
     <ul{{ attributes.addClass('inline') }}>
       {% for item in items %}
         <li{{ item.attributes }}>{{ item.content }}</li>
       {% endfor %}
     </ul>
-  </div>
 {% else %}
-  <div class="single-partner">
     {% for item in items %}
       {{ item.content }}
     {% endfor %}
-  </div>
 {% endif %}
