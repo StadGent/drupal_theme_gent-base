@@ -46,6 +46,6 @@
     </ul>
 {% else %}
     {% for item in items %}
-      <li{{ item.attributes }}>{{ item.content }}</li>
+      <div{{ item.attributes }}>{{ item.content }}</div>
     {% endfor %}
 {% endif %}

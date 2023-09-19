@@ -49,7 +49,7 @@
     view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
     not paragraph.isPublished() ? 'paragraph--unpublished',
     'partner-block',
-    content.field_paragraphs['#is_multiple'] ? 'partner__multiple' : 'partner__single',
+    single_partner ? 'partner__single' : 'partner__multiple',
 ] %}
 
 {% block paragraph %}
