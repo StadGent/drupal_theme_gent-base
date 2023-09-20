@@ -26,6 +26,7 @@ body {
 // Fix fonts on logged in pages.
 body[class*='icon-'] {
   font-family: inherit;
+  font-size: .9rem;
   font-style: inherit;
   font-variant: inherit;
   font-weight: inherit;
