@@ -44,7 +44,7 @@
   <section id="{{ paragraph.id() }}" class="modal programme-detail" tabindex="-1">
     <div class="modal-inner">
       <div class="modal-header">
-        <button type="button" class="button close icon-cross modal-close"
+        <button class="button button-secondary close icon-cross modal-close"
                 data-target="{{ paragraph.id() }}">
           <span>{{ 'Close'|t }}</span>
         </button>
@@ -73,10 +73,10 @@
   <!-- /Modal -->
 
   <!-- Teaser -->
-  <div class="teaser teaser--simple">
+  <div class="teaser teaser--background">
     <article class="teaser-content">
       <div class="content__second">
-        <h4 id="uid_{{ paragraph.id() }}">{{ content.title }}</h4>
+        <h4 class="bg-none" id="uid_{{ paragraph.id() }}"><span>{{ content.title }}</span></h4>
 
         <p>{{ content.subtitle }}</p>
 
