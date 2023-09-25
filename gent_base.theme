@@ -434,7 +434,7 @@ function gent_base_preprocess_field(&$variables) {
             if ($isProgram) {
               $variables['items'][$key]['content']['#prefix'] =
                 '<div class="programme-wrapper"><h2 class="visually-hidden">' . t('programme') . '</h2>' .
-                '<dl class="programme highlight highlight--top"><div class="highlight__inner">';
+                '<dl class="programme"><div class="programme__inner">';
             }
             else {
               $variables['items'][$key]['content']['#prefix'] =
