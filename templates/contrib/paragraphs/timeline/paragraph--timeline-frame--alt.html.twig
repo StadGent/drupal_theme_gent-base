@@ -47,7 +47,9 @@
 {% block paragraph %}
   {% block content %}
     <div{{ attributes.addClass(classes) }} role="listitem">
-      <dt class="programme-slot-title">{{ content.title }}</dt>
+      <dt class="programme-slot-title">
+          <h2>{{ content.title }}</h2>
+      </dt>
       <dd>
         <div class="grid-wrapper">
           <ul class="grid-3">
