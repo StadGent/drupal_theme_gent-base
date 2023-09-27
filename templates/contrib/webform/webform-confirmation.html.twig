@@ -32,10 +32,10 @@
   {{ progress }}
   <div class="form-content">
     <h2>{{ page_title }}</h2>
-    {% endif %}
+{% endif %}
 
     <div{{ attributes.setAttribute('role', 'alert').setAttribute('aria-atomic', 'true').addClass(classes) }}>
-      <i class="icon-checkmark" aria-hidden="true"></i>
+      <i class="icon-checkmark-circle" aria-hidden="true"></i>
 
       <div>
         {% if message %}
@@ -49,7 +49,7 @@
       </div>
     </div>
 
-    {% if progress %}
+{% if progress %}
   </div>
 </div>
 {% endif %}
