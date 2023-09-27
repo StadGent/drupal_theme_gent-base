@@ -93,7 +93,9 @@
         {% block article_time %}
         {% endblock %}
 
-        {{ content.field_summary }}
+        {% block article_summary %}
+          {{ content.field_summary }}
+        {% endblock %}
       </div>
 
       {% if content.field_header_image[0] is not empty %}
