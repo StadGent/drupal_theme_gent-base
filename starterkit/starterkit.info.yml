@@ -2,7 +2,7 @@ name: Starterkit Subtheme
 type: theme
 description: Example Subtheme based on Ghent Base.
 package: Gent
-core_version_requirement: ^8.8 || ^9
+core_version_requirement: ^9 || ^10
 libraries:
   - starterkit/global-styling
 # Unset all theming features.

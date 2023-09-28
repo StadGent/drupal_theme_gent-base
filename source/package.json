@@ -1,8 +1,8 @@
 {
   "type": "module",
   "name": "gent_base",
-  "version": "5.1.0",
-  "description": "Gent Base contrib theme for Drupal 8.",
+  "version": "5.2.2",
+  "description": "Gent Base contrib theme for Drupal 8+.",
   "authors": [
     "Gert-Jan Meire <gertjan.meire@digipolis.gent>",
     "Wim Vantomme <wim.vantomme@digipolis.gent>"
@@ -27,6 +27,6 @@
   "dependencies": {
     "@digipolis-gent/modal": "^1.0.4",
     "fs-extra": "^11.1.1",
-    "gent_styleguide": "^5.1.5"
+    "gent_styleguide": "^5.1.6"
   }
 }
