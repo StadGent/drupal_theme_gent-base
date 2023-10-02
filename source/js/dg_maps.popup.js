@@ -34,10 +34,10 @@
         continue;
       }
 
-      template = '<div class="ol-popup-item">';
+      template = '<div class="ol-popup-item teaser">';
 
       if (title) {
-        template += '<div class="ol-popup__title">' + title + '</div>';
+        template += '<div class="ol-popup__title"><h4 class="bg-none"><span>' + title + '</span></h4></div>';
       }
 
       if (description) {

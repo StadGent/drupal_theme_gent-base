@@ -1,15 +1,15 @@
 // ===
 // DG Maps
 // ===
-$map-padding: .8rem;
-$map-button-size: 2.2rem;
+$map-padding: 16px;
+$map-button-size: 44px;
 $map-button-background: color('white');
 $map-text-color: color('gray');
 
 %map-button {
   width: $map-button-size;
   height: $map-button-size;
-  margin: 0 0 .4rem;
+  margin: 0 0 8px;
   border: 0;
   background: $map-button-background no-repeat center center;
   background-size: 24px 24px;
@@ -23,7 +23,7 @@ $map-text-color: color('gray');
   &-container {
     position: relative;
     min-height: $map-button-size * 5;
-    max-height: calc(100vh - 2rem);
+    max-height: calc(100vh - 40px);
     overflow: hidden;
 
 
@@ -36,7 +36,7 @@ $map-text-color: color('gray');
     }
 
     .vesta & {
-      height: 22rem;
+      height: 440px;
     }
 
     &__map {
@@ -47,9 +47,9 @@ $map-text-color: color('gray');
       position: absolute;
       top: 0;
       left: 0;
-      width: 15rem;
+      width: 300px;
       height: 100%;
-      padding: 1.75rem 1.9rem;
+      padding: 35px 38px;
       background: rgba(255, 255, 255, .8);
       overflow: hidden;
       z-index: 200;
@@ -94,13 +94,13 @@ $map-text-color: color('gray');
     }
 
     .ol-data-layer-switcher {
-      padding: .8rem;
+      padding: 16px;
 
       h2 {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        font-size: .8rem;
+        font-size: 16px;
 
         > button {
           width: auto;
@@ -117,7 +117,7 @@ $map-text-color: color('gray');
       }
 
       .category {
-        margin-bottom: .5rem;
+        margin-bottom: 10px;
         border: 0;
         font-size: .7rem;
 
@@ -149,7 +149,7 @@ $map-text-color: color('gray');
           cursor: pointer;
 
           &::before {
-            margin-right: .4rem;
+            margin-right: 8px;
           }
         }
       }
@@ -160,7 +160,7 @@ $map-text-color: color('gray');
         label {
           display: block;
           padding-right: 0;
-          padding-left: 1.4rem;
+          padding-left: 28px;
         }
       }
 
@@ -169,16 +169,16 @@ $map-text-color: color('gray');
       }
 
       .legend {
-        padding-left: 2rem;
+        padding-left: 40px;
       }
     }
 
     .ol-geocoder {
-      width: 10rem;
+      width: 200px;
       margin: 0;
 
       @include tablet {
-        width: 15rem;
+        width: 300px;
       }
 
       input {
@@ -254,10 +254,10 @@ $map-text-color: color('gray');
       display: block;
       position: absolute;
       top: 50%;
-      right: .4rem;
-      width: 1.2rem;
-      height: 1.2rem;
-      margin-top: -.6rem;
+      right: 8px;
+      width: 24px;
+      height: 24px;
+      margin-top: -12px;
       background: svg-as-background('search', color('cyan'), 24, 24) no-repeat center center;
       z-index: 11;
     }
@@ -276,7 +276,7 @@ $map-text-color: color('gray');
           }
 
           .gcd-city {
-            font-size: 1em;
+            font-size: 1rem;
 
             &::before {
               content: ", ";
@@ -299,22 +299,22 @@ $map-text-color: color('gray');
     // Popup
     // ===
     .ol-popup {
-      @include theme('box-shadow', 'color-tertiary--lighten-3', 'popup-shadow', '0 2px 12px 0');
       right: -2px;
       bottom: -2px;
       left: -2px;
       height: auto;
-      padding: .8rem 1rem;
+      padding: 16px 20px;
       border: 0;
       font-size: .8rem;
       filter: none;
       overflow-y: auto;
+      box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.15);
 
       @include breakpoint($bp-tablet+1) {
-        width: 18rem;
+        width: 360px;
         margin-bottom: $accolade-height;
         margin-left: -$accolade-width*.6;
-        padding: 2rem 1rem;
+        padding: 40px 20px;
         border-radius: border-radius('radius-1');
 
         &::before {
@@ -336,11 +336,9 @@ $map-text-color: color('gray');
 
 
       &__closer {
-        top: .4rem;
-        right: .4rem;
-        width: 1.6rem;
-        height: 1.6rem;
-        background: transparent svg-as-background('cross', color('gray'), 22.5, 22.5) no-repeat center;
+        width: 32px;
+        height: 32px;
+        background: color('cyan-pastel') svg-as-background('cross', color('gray'), 22.5, 22.5) no-repeat center;
         cursor: pointer;
 
         &::after {
@@ -443,7 +441,7 @@ $map-text-color: color('gray');
 
       @include tablet {
         width: auto;
-        padding: .4rem .8rem;
+        padding: 8px 16px;
         font-size: .8rem;
         @include bold-text;
 
@@ -452,8 +450,8 @@ $map-text-color: color('gray');
         }
 
         &::after {
-          margin-left: .4rem;
-          font-size: 1rem;
+          margin-left: 8px;
+          font-size: 20px;
         }
       }
     }
@@ -469,9 +467,9 @@ $map-text-color: color('gray');
   }
 
   &__item {
-    padding-left: 1.5rem;
-    background: url("#{$styleguide-dir}/img/iconfont/marker.svg") no-repeat left top .3rem;
-    background-size: 1rem 1rem;
+    padding-left: 30px;
+    background: url("#{$styleguide-dir}/img/iconfont/marker.svg") no-repeat left top 6px;
+    background-size: 20px 20px;
     font-size: .8rem;
 
     &__title {
