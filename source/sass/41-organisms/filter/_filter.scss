@@ -1,7 +1,8 @@
 .filter {
-  .help-text {
-    @include theme('color', 'color-tertiary--lighten-1', 'filter-help-text-color');
-    font-size: .6rem;
+  p.help-text {
+    @include small-text();
+
+    margin-bottom: 40px;
   }
 }
 
