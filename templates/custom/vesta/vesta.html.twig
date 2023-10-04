@@ -23,109 +23,122 @@
 
 {{ attach_library('gent_base/opening_hours') }}
 
+{% block article_top %}
+{% endblock %}
+
 <article{{ attributes.addClass(classes) }}>
-  <h1>{{ '@name - openinghours and addresses'|t({'@name': name}) }}</h1>
+  {% block article_content_top %}
+    <div class="content-header-container primary dark-background">
+      <div class="left">
+        <h1{{ title_attributes }}>
+          {{ '@name - openinghours and addresses'|t({'@name': name}) }}
+        </h1>
 
-  <div
-    class="contact-details highlight highlight--top contact-details-inverted">
-    <div class="highlight__inner">
-      <h2>{{ 'Contact details'|t }}</h2>
+        {% block article_time %}
+        {% endblock %}
 
-      <div class="contact-details-column">
-        <ul class="icon-list">
-          {# address #}
-          {% if address|render %}
-            {% spaceless %}
-              <li>
-                <i class="icon-marker" aria-hidden="true"></i>
-                <span>
-                  <strong>{{ name }}</strong>
-                  &mdash;
-                  {{ address.street }} {{ address.houseNumber }}{{ address.box ? '/' ~ address.box }},
-                  {{ address.postalCode }} {{ address.city }}
-                </span>
-              </li>
-            {% endspaceless %}
-          {% endif %}
-
-          {# landlines #}
-          {% set landlines = contactnumbers.landlines.getIterator() %}
-          {% if landlines|length > 0 %}
-            {% for landline in landlines %}
-              <li>
-                <i class="icon-normalphone" aria-hidden="true"></i>
-                <span>
-                  <a href="tel:{{ landline.value }}">{{ landline.value }}</a>
-                  {% if landline.note is not empty %}
-                    {{ landline.note }}
-                  {% endif %}
-                </span>
-              </li>
-            {% endfor %}
-          {% endif %}
-
-          {# cellulars #}
-          {% set cellulars = contactnumbers.cellulars.getIterator() %}
-          {% if cellulars|length > 0 %}
-            {% for cellular in cellulars %}
-              <li>
-                <i class="icon-phone" aria-hidden="true"></i>
-                <span>
-                  <a href="tel:{{ cellular.value }}">{{ cellular.value }}</a>
-                  {% if cellular.note is not empty %}
-                    {{ cellular.note }}
-                  {% endif %}
-                </span>
-              </li>
-            {% endfor %}
-          {% endif %}
-
-          {# faxes #}
-          {% set faxes = contactnumbers.faxes.getIterator() %}
-          {% if faxes|length > 0 %}
-            {% for fax in faxes %}
-              <li>
-                <i class="icon-fax" aria-hidden="true"></i>
-                <span>
-                  <a href="tel:{{ fax.value }}">{{ fax.value }}</a>
-                  {{ '(Fax)'|t }}
-                </span>
-              </li>
-            {% endfor %}
-          {% endif %}
-
-          {# emailAddresses #}
-          {% set email_addresses = emailaddresses.getIterator() %}
-          {% if email_addresses|length > 0 %}
-            {% for email in email_addresses %}
-              <li>
-                <i class="icon-envelope" aria-hidden="true"></i>
-                <span>
-                  {% if email.note is not empty %}
-                    {{ email.note }}:&nbsp;
-                  {% endif %}
-                  <a href="mailto:{{ email.value }}">{{ email.value }}</a>
-                </span>
-              </li>
-            {% endfor %}
-          {% endif %}
-
-          {# websites #}
-          {% set websites = websites.getIterator() %}
-          {% if websites|length > 0 %}
-            {% for website in websites %}
-              <li>
-                <i class="icon-external-link" aria-hidden="true"></i>
-                <span>
-                  <a href="{{ website }}" class="no-icon"
-                     target="_blank">{{ website }}</a>
-                </span>
-              </li>
-            {% endfor %}
-          {% endif %}
-
-        </ul>
+        {% block article_summary %}
+        {% endblock %}
       </div>
+    </div>
+  {% endblock %}
+
+  {% block article_content %}
+  <div class="contact-details">
+    <div class="contact-details-column">
+      <h3>{{ 'Contact details'|t }}</h3>
+
+      <ul class="icon-list">
+        {# address #}
+        {% if address|render %}
+          {% apply spaceless %}
+            <li>
+              <i class="icon-marker" aria-hidden="true"></i>
+              <span>
+                <strong>{{ name }}</strong>
+                &mdash;
+                {{ address.street }} {{ address.houseNumber }}{{ address.box ? '/' ~ address.box }},
+                {{ address.postalCode }} {{ address.city }}
+              </span>
+            </li>
+          {% endapply %}
+        {% endif %}
+
+        {# landlines #}
+        {% set landlines = contactnumbers.landlines.getIterator() %}
+        {% if landlines|length > 0 %}
+          {% for landline in landlines %}
+            <li>
+              <i class="icon-normalphone" aria-hidden="true"></i>
+              <span>
+                <a class="no-icon$" href="tel:{{ landline.value }}">{{ landline.value }}</a>
+                {% if landline.note is not empty %}
+                  {{ landline.note }}
+                {% endif %}
+              </span>
+            </li>
+          {% endfor %}
+        {% endif %}
+
+        {# cellulars #}
+        {% set cellulars = contactnumbers.cellulars.getIterator() %}
+        {% if cellulars|length > 0 %}
+          {% for cellular in cellulars %}
+            <li>
+              <i class="icon-phone" aria-hidden="true"></i>
+              <span>
+                <a class="no-icon" href="tel:{{ cellular.value }}">{{ cellular.value }}</a>
+                {% if cellular.note is not empty %}
+                  {{ cellular.note }}
+                {% endif %}
+              </span>
+            </li>
+          {% endfor %}
+        {% endif %}
+
+        {# faxes #}
+        {% set faxes = contactnumbers.faxes.getIterator() %}
+        {% if faxes|length > 0 %}
+          {% for fax in faxes %}
+            <li>
+              <i class="icon-fax" aria-hidden="true"></i>
+              <span>
+                <a class="no-icon" href="tel:{{ fax.value }}">{{ fax.value }}</a>
+                {{ '(Fax)'|t }}
+              </span>
+            </li>
+          {% endfor %}
+        {% endif %}
+
+        {# email_addresses #}
+        {% set email_addresses = emailaddresses.getIterator() %}
+        {% if email_addresses|length > 0 %}
+          {% for email in email_addresses %}
+            <li>
+              <i class="icon-envelope" aria-hidden="true"></i>
+              <span>
+                {% if email.note is not empty %}
+                  {{ email.note|capitalize }}:&nbsp;
+                {% endif %}
+                <a class="no-icon" href="mailto:{{ email.value }}">{{ email.value }}</a>
+              </span>
+            </li>
+          {% endfor %}
+        {% endif %}
+
+        {# websites #}
+        {% set websites = websites.getIterator() %}
+        {% if websites|length > 0 %}
+          {% for website in websites %}
+            <li>
+              <i class="icon-link" aria-hidden="true"></i>
+              <span>
+                <a class="no-icon" href="{{ website }}" target="_blank">{{ website }}</a>
+              </span>
+            </li>
+          {% endfor %}
+        {% endif %}
+      </ul>
     </div>
   </div>
 
@@ -151,26 +164,29 @@
       {{ content.field_coordinates }}
     </section>
   {% endif %}
+  {% endblock %}
 </article>
 
-{% if related|length > 0 %}
-  <aside class="top">
-    <div class="related-box">
-      <div class="related-box-content">
-        <h2>{{ 'Also interesting'|t }}</h2>
+{% block article_bottom %}
+  {% if related|length > 0 %}
+    <aside class="top">
+      <div class="related-box">
+        <div class="related-box-content">
+          <h2>{{ 'Also interesting'|t }}</h2>
 
-        <div class="related-box-content-column">
-          <h3>{{ 'View all locations from'|t }}</h3>
+          <div class="related-box-content-column">
+            <h3>{{ 'View all locations from'|t }}</h3>
 
-          {% for keyword in related %}
-            <a
-              href="{{ path('entity.taxonomy_term.canonical', {'taxonomy_term': keyword.tid.value}) }}"
-              class="tag">{{ keyword.name.value }}</a>
-          {% endfor %}
+            {% for keyword in related %}
+              <a href="{{ path('entity.taxonomy_term.canonical', {'taxonomy_term': keyword.tid.value}) }}" class="tag">
+                {{ keyword.name.value }}
+              </a>
+            {% endfor %}
 
-          {{ content.field_opendata_link }}
+            {{ content.field_opendata_link }}
+          </div>
         </div>
       </div>
-    </div>
-  </aside>
-{% endif %}
+    </aside>
+  {% endif %}
+{% endblock %}

@@ -1,72 +1,72 @@
 {% extends 'node--detail--layout.html.twig' %}
 
-{% block article_content_top %}
-  {{ readspeaker }}
-
+{% block article_summary %}
   {% if person_job_title|render|striptags|trim is not empty or person_category|render|striptags|trim is not empty %}
-    <p class="summary-text">{{ person_job_title|render|striptags|trim }}
-      {% if person_job_title|render|striptags|trim is not empty and person_category|render|striptags|trim is not empty %}-{% endif %}
-      {{ person_category }}</p>
+    <div class="summary-text">
+      <p>
+        {{ person_job_title|render|striptags|trim }}
+        {% if person_job_title|render|striptags|trim is not empty and person_category|render|striptags|trim is not empty %}
+          -
+        {% endif %}
+        {{ person_category }}
+      </p>
+    </div>
   {% endif %}
 {% endblock %}
 
 {% block article_content_summary %}
-  <aside class="contact-details highlight highlight--top">
-    <div class="highlight__inner">
-      <h2>{{ 'Contact details'|t }}</h2>
-      <div class="contact-details-wrapper">
-        <div class="contact-details-column">
-          <ul class="icon-list">
-            {% if person_address|render|striptags|trim is not empty %}
-              <li>
-                <i class="icon-marker" aria-hidden="true"></i>
-                <span>{{ person_address }}</span>
-              </li>
-            {% endif %}
-            {% if person_phone|render|striptags|trim is not empty %}
-              <li>
-                <i class="icon-normalphone" aria-hidden="true"></i>
-                <span>{{ person_phone }}</span>
-              </li>
-            {% endif %}
-            {% if person_cellphone|render|striptags|trim is not empty %}
-              <li>
-                <i class="icon-phone" aria-hidden="true"></i>
-                <span>{{ person_cellphone }}</span>
-              </li>
-            {% endif %}
-            {% if person_fax|render|striptags|trim is not empty %}
-              <li>
-                <i class="icon-fax" aria-hidden="true"></i>
-                <span>{{ person_fax }}({{ 'Fax' }})</span>
-              </li>
-            {% endif %}
-            {% if person_email|render|striptags|trim is not empty %}
-              <li>
-                <i class="icon-envelope" aria-hidden="true"></i>
-                <span>{{ person_email }}</span>
-              </li>
-            {% endif %}
-            {% if person_website|render|striptags|trim is not empty %}
-              <li>
-                <i class="icon-url" aria-hidden="true"></i>
-                <span>{{ person_website }}</span>
-              </li>
-            {% endif %}
-          </ul>
-        </div>
-        <div class="contact-details-column">
-          {% if person_image|render is not empty %}
-            {% spaceless %}
-              <div class="image-wrapper" data-ratio="1:1">
-                {{ person_image }}
-              </div>
-            {% endspaceless %}
-          {% endif %}
-        </div>
-      </div>
+  <section class="contact-details">
+    <div class="contact-details-column">
+      <h3>{{ 'Contact details'|t }}</h3>
+      <ul class="icon-list">
+        {% if person_address|render|striptags|trim is not empty %}
+          <li>
+            <i class="icon-marker" aria-hidden="true"></i>
+            <span>{{ person_address }}</span>
+          </li>
+        {% endif %}
+        {% if person_phone|render|striptags|trim is not empty %}
+          <li>
+            <i class="icon-normalphone" aria-hidden="true"></i>
+            <span>{{ person_phone }}</span>
+          </li>
+        {% endif %}
+        {% if person_cellphone|render|striptags|trim is not empty %}
+          <li>
+            <i class="icon-phone" aria-hidden="true"></i>
+            <span>{{ person_cellphone }}</span>
+          </li>
+        {% endif %}
+        {% if person_fax|render|striptags|trim is not empty %}
+          <li>
+            <i class="icon-fax" aria-hidden="true"></i>
+            <span>{{ person_fax }}({{ 'Fax' }})</span>
+          </li>
+        {% endif %}
+        {% if person_email|render|striptags|trim is not empty %}
+          <li>
+            <i class="icon-envelope" aria-hidden="true"></i>
+            <span>{{ person_email }}</span>
+          </li>
+        {% endif %}
+        {% if person_website|render|striptags|trim is not empty %}
+          <li>
+            <i class="icon-url" aria-hidden="true"></i>
+            <span>{{ person_website }}</span>
+          </li>
+        {% endif %}
+      </ul>
     </div>
-  </aside>
+    <div class="contact-details-column">
+      {% if person_image|render is not empty %}
+        {% spaceless %}
+          <div class="image-wrapper" data-ratio="1:1">
+            {{ person_image }}
+          </div>
+        {% endspaceless %}
+      {% endif %}
+    </div>
+  </section>
 {% endblock %}
 
 {% block article_content_bottom %}
