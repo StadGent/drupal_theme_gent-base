@@ -5,3 +5,11 @@
 .facets-widget-dropdown label {
   display: block;
 }
+
+.facet-item__count {
+  @include theme('color', 'color-primary', 'facet-item-count-color');
+}
+
+.filter-page-label {
+  margin-bottom: 14px;
+}
