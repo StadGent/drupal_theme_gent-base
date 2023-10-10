@@ -1,7 +1,6 @@
 ul,
 ol {
   .paragraph--type--text & {
-    margin-left: 2rem;
-    margin-bottom: 1rem; // Deprecated in styleguide 6: STIJ-383
+    margin-bottom: 20px; // Deprecated in styleguide 6: STIJ-383
   }
 }
