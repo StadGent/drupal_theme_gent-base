@@ -825,8 +825,8 @@ function _gent_base_preprocess_content_header_classes(&$variables) {
     $classes[] = 'overlap';
   }
 
-  // Add event header classes.
-  if ($node->getType() === 'event') {
+  // Add secondary color class.
+  if (in_array($node->getType(), ['event', 'news'])) {
     $classes[] = 'secondary';
     if (($key = array_search('primary', $classes)) !== FALSE) {
       unset($classes[$key]);
