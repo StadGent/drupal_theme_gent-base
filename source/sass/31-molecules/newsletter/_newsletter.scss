@@ -14,7 +14,7 @@
     @include tablet {
       display: flex;
       flex-wrap: wrap;
-      align-items: flex-start;
+      align-items: flex-end;
       justify-content: flex-start;
     }
 
@@ -25,12 +25,16 @@
     .dg-newsletter-intro-text,
     .dg-newsletter-privacy-disclaimer {
       flex-basis: 100%;
+
+      p:last-child {
+        margin-bottom: 0;
+      }
     }
 
     .form-item {
       margin: 0;
 
-      @include phablet {
+      @include tablet {
         margin: 0 10px 0 0;
         max-width: 556px;
       }
@@ -45,24 +49,21 @@
       }
     }
 
+    .email {
+      width: 100%;
+
+      @include tablet {
+        max-width: 350px;
+      }
+    }
+
     .form-actions {
       flex-grow: 0;
-      width: 100%;
-      margin: 10px 0 0 0;
-
-      @include phablet {
-        width: auto;
-        margin: 36px 0 0;
-      }
+      margin: 10px 0 0;
 
       input[type="submit"] {
         align-self: flex-start;
-        width: 100%;
         margin: 0;
-
-        @include phablet {
-          width: auto;
-        }
       }
     }
 
@@ -73,9 +74,10 @@
     }
   }
 
-  //input[type="submit"] {
-  //  min-height: 2.4rem;
-  //  margin-top: -.1rem;
-  //  font-size: .8rem;
-  //}
+  .email {
+    label {
+      @include theme('color', 'color-zero');
+      @include semi-bold-text;
+    }
+  }
 }
