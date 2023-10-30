@@ -16,56 +16,58 @@
 
 {% block article_content_summary %}
   <section class="contact-details">
-    <div class="contact-details-column">
       <h3>{{ 'Contact details'|t }}</h3>
-      <ul class="icon-list">
-        {% if person_address|render|striptags|trim is not empty %}
-          <li>
-            <i class="icon-marker" aria-hidden="true"></i>
-            <span>{{ person_address }}</span>
-          </li>
-        {% endif %}
-        {% if person_phone|render|striptags|trim is not empty %}
-          <li>
-            <i class="icon-normalphone" aria-hidden="true"></i>
-            <span>{{ person_phone }}</span>
-          </li>
-        {% endif %}
-        {% if person_cellphone|render|striptags|trim is not empty %}
-          <li>
-            <i class="icon-phone" aria-hidden="true"></i>
-            <span>{{ person_cellphone }}</span>
-          </li>
-        {% endif %}
-        {% if person_fax|render|striptags|trim is not empty %}
-          <li>
-            <i class="icon-fax" aria-hidden="true"></i>
-            <span>{{ person_fax }}({{ 'Fax' }})</span>
-          </li>
-        {% endif %}
-        {% if person_email|render|striptags|trim is not empty %}
-          <li>
-            <i class="icon-envelope" aria-hidden="true"></i>
-            <span>{{ person_email }}</span>
-          </li>
-        {% endif %}
-        {% if person_website|render|striptags|trim is not empty %}
-          <li>
-            <i class="icon-url" aria-hidden="true"></i>
-            <span>{{ person_website }}</span>
-          </li>
-        {% endif %}
-      </ul>
-    </div>
-    <div class="contact-details-column">
-      {% if person_image|render is not empty %}
-        {% spaceless %}
-          <div class="image-wrapper" data-ratio="1:1">
-            {{ person_image }}
+      <div class="contact-details-columns">
+          <div class="contact-details-column">
+              <ul class="icon-list">
+                  {% if person_address|render|striptags|trim is not empty %}
+                      <li>
+                          <i class="icon-marker" aria-hidden="true"></i>
+                          <span>{{ person_address }}</span>
+                      </li>
+                  {% endif %}
+                  {% if person_phone|render|striptags|trim is not empty %}
+                      <li>
+                          <i class="icon-normalphone" aria-hidden="true"></i>
+                          <span>{{ person_phone }}</span>
+                      </li>
+                  {% endif %}
+                  {% if person_cellphone|render|striptags|trim is not empty %}
+                      <li>
+                          <i class="icon-phone" aria-hidden="true"></i>
+                          <span>{{ person_cellphone }}</span>
+                      </li>
+                  {% endif %}
+                  {% if person_fax|render|striptags|trim is not empty %}
+                      <li>
+                          <i class="icon-fax" aria-hidden="true"></i>
+                          <span>{{ person_fax }}({{ 'Fax' }})</span>
+                      </li>
+                  {% endif %}
+                  {% if person_email|render|striptags|trim is not empty %}
+                      <li>
+                          <i class="icon-envelope" aria-hidden="true"></i>
+                          <span>{{ person_email }}</span>
+                      </li>
+                  {% endif %}
+                  {% if person_website|render|striptags|trim is not empty %}
+                      <li>
+                          <i class="icon-url" aria-hidden="true"></i>
+                          <span>{{ person_website }}</span>
+                      </li>
+                  {% endif %}
+              </ul>
           </div>
-        {% endspaceless %}
-      {% endif %}
-    </div>
+          <div class="contact-details-column">
+              {% if person_image|render is not empty %}
+                  {% spaceless %}
+                      <div class="image-wrapper" data-ratio="1:1">
+                          {{ person_image }}
+                      </div>
+                  {% endspaceless %}
+              {% endif %}
+          </div>
+      </div>
   </section>
 {% endblock %}
 
