@@ -1,23 +1,26 @@
 .detail-layout {
   @include desktop {
   > .paragraph--type--map {
-      @include set-layout('width-10', 'offset-1');
+    @include col(10);
+    @include col-offset(1);
   }
 
   > .paragraph--type--image {
-      @include set-layout();
+    @include col();
 
       >.image-gallery--wrapper {
-        @include set-layout('width-7', 'offset-2');
+        @include col(7);
+        @include col-offset(2);
 
         &.multiple {
-          @include set-layout('width-10', 'offset-1');
+          @include col(10);
+          @include col-offset(1);
         }
       }
     }
 
     > .paragraph--type--block {
-      @include set-layout();
+      @include col();
     }
   }
 

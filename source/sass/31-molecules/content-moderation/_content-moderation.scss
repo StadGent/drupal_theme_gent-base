@@ -1,5 +1,6 @@
 .detail-layout {
   .content-moderation-entity-moderation-form {
-    @include set-layout('width-9', 'offset-1');
+    @include col(9);
+    @include col-offset(1);
   }
 }

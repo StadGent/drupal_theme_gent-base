@@ -21,13 +21,15 @@
     margin-top: 50px;
 
     @include desktop {
-      @include set-layout('width-10', 'offset-1');
+      @include col(10);
+      @include col-offset(1);
     }
   }
 
   > .partner-block {
     @include desktop {
-      @include set-layout('width-10', 'offset-1');
+      @include col(10);
+      @include col-offset(1);
     }
   }
 

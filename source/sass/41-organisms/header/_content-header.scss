@@ -55,7 +55,7 @@ body {
       &:not(.image) {
         // Overlapping paragraphs with full width.
         & + * {
-          @include set-layout('width-12');
+          @include col(12);
 
           margin-top: -120px;
         }
