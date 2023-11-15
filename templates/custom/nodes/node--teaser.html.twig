@@ -88,7 +88,9 @@
       {% block title %}
         {{ title_prefix }}
         {% if not page %}
-          <h3{{ title_attributes.addClass('bg-none h4') }}>{{ label }}</h3>
+          <h3{{ title_attributes.addClass('bg-none h4') }}>
+            <span>{{ label }}</span>
+          </h3>
         {% endif %}
         {{ title_suffix }}
       {% endblock %}
