@@ -23,7 +23,7 @@
 
   .item-list {
     width: 50%;
-    margin-bottom: gutter();
+    margin-bottom: $gutter-width;
 
     li {
       margin-bottom: .4rem;

@@ -90,7 +90,7 @@ fieldset {
 .form-item.text-format-wrapper {
   .filter-wrapper {
     @include tablet {
-      width: span(6 of 12 set-gutters 0);
+      @include col(6);
     }
     margin: 0;
   }
