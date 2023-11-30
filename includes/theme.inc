@@ -106,16 +106,14 @@ function _gent_base_get_entity_reference_file_data(&$variables, $field) {
 }
 
 /**
- * Get desired display of the timeline, based on field_timeline_as_program.
+ * Get desired display of the timeline, based on field_timeline_display.
  *
  * @param Drupal\paragraphs\Entity\Paragraph $entity
  *   The paragraph entity.
  *
  * @return string
- *   whether the alternative ('alt') or normal ('normal') display should be
- *   used.
+ *   which display (timeline, program or roadmap) should be used.
  */
 function _gent_base_get_timeline_display(Paragraph $entity) {
-  $isProgram = $entity->get('field_timeline_as_program')->value;
-  return ($isProgram === '1') ? 'alt' : 'normal';
+  return $entity->get('field_timeline_display')->value;
 }

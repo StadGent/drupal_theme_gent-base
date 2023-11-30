@@ -425,7 +425,7 @@ function gent_base_preprocess_field(&$variables) {
         $type = $entity->get('type')->getString();
 
         if ($type === 'timeline_frame') {
-          $isProgram = _gent_base_get_timeline_display($entity) === 'alt';
+          $isProgram = _gent_base_get_timeline_display($entity) === 'program';
 
           // It's the first timeline frame.
           if ($isTimeline === FALSE) {
