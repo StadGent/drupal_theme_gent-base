@@ -806,7 +806,7 @@ function gent_base_preprocess_node(&$variables) {
 function _gent_base_preprocess_content_header_classes(&$variables) {
   $bundles = ['infopage', 'event', 'news'];
   $node = $variables['node'];
-  $classes = ['content-header-container', 'primary', 'overlap'];
+  $classes = ['content-header-container', 'primary'];
 
   if (!in_array($node->getType(), $bundles)) {
     // Set default header classes for all content types.
