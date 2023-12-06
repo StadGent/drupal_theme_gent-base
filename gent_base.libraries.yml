@@ -15,7 +15,7 @@ accordion:
 filter:
   js:
     source/js/filter.bindings.js: {}
-    /themes/custom/sg_theme/build/js/filter.functions-min.js: {}
+    source/js/filter.functions.js: {}
   dependencies:
     - core/jquery
     - core/once
