@@ -10,12 +10,9 @@
     {{ content.og_audience }}
   </div>
 
-  {% set image_ratio = '1:1' %}
   {# twigcs use-var image_ratio #}
   {% if node.hasField('field_teaser_image') %}
-    {% if image_ratio is not defined %}
-      {% set image_ratio = '8:5' %}
-    {% endif %}
+    {% set image_ratio = '1:1' %}
     {% apply spaceless %}
       <div class="figure-wrapper">
         <figure>
