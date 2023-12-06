@@ -39,8 +39,23 @@
  */
 #}
 
+{% set items_total = content.timeline_items['#items']|length %}
+
+{% set classes = [
+    'timeline-slot',
+    items_total is odd ? 'timeline-slot-odd' : 'timeline-slot-even'
+] %}
+
 {% block paragraph %}
   {% block content %}
-      {{ content.timeline_items }}
-  {% endblock %}
-{% endblock paragraph %}
+    <div{{ attributes.addClass(classes) }} role="listitem">
+        {% if content.title %}
+        <dt>
+            <h3 class="dt-title">{{ content.title }}</h3>
+        </dt>
+        {% endif %}
+
+        {{ content.timeline_items }}
+    </div>
+    {% endblock %}
+    {% endblock paragraph %}
