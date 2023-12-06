@@ -1,40 +1,35 @@
 menu:
-  version: 1.x
   js:
     source/js/menu.bindings.js: {}
   dependencies:
     - gent_base/modal
 
 accordion:
-  version: 1.x
   js:
     build/styleguide/js/accordion.functions-min.js: { minified: true }
     source/js/accordion.bindings.js: {}
   dependencies:
     - core/jquery
-    - core/jquery.once
+    - core/once
 
 filter:
-  version: 1.x
   js:
     source/js/filter.bindings.js: {}
-    source/js/filter.functions.js: {}
+    /themes/custom/sg_theme/build/js/filter.functions-min.js: {}
   dependencies:
     - core/jquery
-    - core/jquery.once
+    - core/once
 
 modal:
-  version: 1.x
   js:
     build/@digipolis-gent/modal/index.js: { minified: true }
     source/js/modal.bindings.js: { }
   dependencies:
     - gent_base/checkbox_filter
     - core/jquery
-    - core/jquery.once
+    - core/once
 
 image-collections:
-  version: 1.x
   css:
     theme:
       build/styleguide/vendor/baguettebox/dist/baguetteBox.min.css: { minified: true }
@@ -43,7 +38,6 @@ image-collections:
     source/js/image-collections.bindings.js: {}
 
 image-wall:
-  version: 1.x
   js:
     build/styleguide/vendor/imagesloaded/imagesloaded.pkgd.min.js: { minified: true }
     build/styleguide/vendor/masonry-layout/dist/masonry.pkgd.min.js: { minified: true }
@@ -52,34 +46,29 @@ image-wall:
     - gent_base/image-collections
 
 facets:
-  version: 1.x
   dependencies:
     - facets/drupal.facets.checkbox-widget
 
 facet_range_slider:
-  version: 1.x
   js:
     source/js/facet_range_slider.bindings.js: { attributes: { defer: true } }
   dependencies:
     - facets_range_widget/slider
 
 checkbox_filter:
-  version: 1.x
   js:
     build/styleguide/js/checkbox_filter.functions-min.js: { minified: true }
     source/js/checkbox_filter.bindings.js: {}
   dependencies:
     - gent_base/filter
     - core/jquery
-    - core/jquery.once
+    - core/once
 
 tabs:
-  version: 1.x
   js:
     build/styleguide/vendor/allietabs/allieTabs.js: { minified: true }
 
 tables:
-  version: 1.x
   js:
     build/styleguide/js/table.functions-min.js: { minified: true }
     source/js/table-mobile.functions.js: {}
@@ -88,7 +77,6 @@ tables:
     - core/drupal
 
 opening_hours:
-  version: 1.x
   js:
     source/js/opening-hours.bindings.js: {}
   dependencies:
@@ -96,7 +84,6 @@ opening_hours:
     - gent_base/tabs
 
 maps:
-  version: 1.x
   js:
     source/js/dg_maps.datalayerswitcher.js: {}
     source/js/dg_maps.regions.js: {}
@@ -114,7 +101,6 @@ maps:
     - core/drupal
 
 file:
-  version: 1.x
   js:
     build/styleguide/js/file.functions-min.js: { minified: true }
     source/js/file.bindings.js: {}
@@ -122,10 +108,9 @@ file:
     - core/drupal
 
 breadcrumbs:
-  version: 1.x
   js:
     build/styleguide/js/breadcrumbs.functions-min.js: { minified: true }
     source/js/breadcrumbs.bindings.js: {}
   dependencies:
     - core/jquery
-    - core/jquery.once
+    - core/once

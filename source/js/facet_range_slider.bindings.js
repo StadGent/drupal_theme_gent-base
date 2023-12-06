@@ -2,7 +2,7 @@
  * @file
  * Accordion component binding.
  */
-(function ($, Drupal) {
+(function ($, Drupal, once) {
   'use strict';
 
   /**
@@ -63,7 +63,9 @@
         }
       }
 
-      $(slider).once().each(function () {
+      // TODO: make vanilla JS version of function with:
+      // once(slider).each(function () {
+      $(once(slider)).each(function () {
         $(this).on('slide', function (event, ui) {
           $(this).parents('.facets-widget-range_slider').find('.pips-preview .placeholder:first-of-type')[0].textContent = ui.values[0];
           $(this).parents('.facets-widget-range_slider').find('.pips-preview .placeholder:last-of-type')[0].textContent = ui.values[1];
@@ -72,4 +74,4 @@
     }
   };
 
-})(jQuery, Drupal);
+})(jQuery, Drupal, once);
