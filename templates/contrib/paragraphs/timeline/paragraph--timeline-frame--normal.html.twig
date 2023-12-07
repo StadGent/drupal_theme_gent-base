@@ -39,11 +39,13 @@
  */
 #}
 
-{% set items_total = content.timeline_items['#items']|length %}
+{% set items_total = content.counter.0 %}
+{% set reversed = content.reversed.0 %}
 
 {% set classes = [
     'timeline-slot',
-    items_total is odd ? 'timeline-slot-odd' : 'timeline-slot-even'
+    items_total is odd ? 'timeline-slot-odd' : 'timeline-slot-even',
+    reversed ? 'timeline-slot-reverse' : ''
 ] %}
 
 {% block paragraph %}
