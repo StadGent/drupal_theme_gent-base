@@ -6,7 +6,8 @@
   },
   "globals": {
     "Drupal": true,
-    "jQuery": true
+    "jQuery": true,
+    "once": true
   },
   "rules": {
     // Errors.

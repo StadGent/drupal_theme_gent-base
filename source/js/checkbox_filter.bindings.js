@@ -2,7 +2,7 @@
  * @file
  * Filter component binding.
  */
-(function ($, Drupal) {
+(function ($, Drupal, once) {
   'use strict';
 
   Drupal.behaviors.gentBaseLoadCheckboxFilters = {
@@ -11,7 +11,7 @@
         return;
       }
 
-      $('.checkbox-filter', context).once('checkbox-filter').each(function () {
+      $(once('checkbox-filter', '.checkbox-filter', context)).each(function () {
         new CheckboxFilter(this, { // eslint-disable-line no-undef
           checkboxes: '.facet-item.checkbox',
           hiddenTagText: 'Remove tag',
@@ -24,4 +24,4 @@
       });
     }
   };
-})(jQuery, Drupal);
+})(jQuery, Drupal, once);

@@ -1,0 +1,20 @@
+{% extends 'node--teaser.html.twig' %}
+
+{% block content %}
+    {{ content|without('field_teaser_image', 'og_audience', 'field_summary') }}
+{% endblock %}
+
+{% block image %}
+    <div class="tags-label-wrapper">
+        {# Rendered as tag list. #}
+        {{ content.og_audience }}
+    </div>
+
+    {% if node.hasField('field_teaser_image') %}
+        {% apply spaceless %}
+            <div class="figure-wrapper">
+                {{ content.field_teaser_image }}
+            </div>
+        {% endapply %}
+    {% endif %}
+{% endblock %}

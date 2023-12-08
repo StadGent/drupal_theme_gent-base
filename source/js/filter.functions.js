@@ -3,7 +3,7 @@
  * Checkbox-with-filter functionality
  */
 
-(function ($) {
+(function (Drupal, $) {
 
   'use strict';
 
@@ -36,4 +36,4 @@
     }
   };
 
-})(jQuery);
+})(Drupal, jQuery);
