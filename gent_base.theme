@@ -413,6 +413,9 @@ function gent_base_preprocess_field(&$variables) {
 
     $isProgram = FALSE;
     $firstTimeline = FALSE;
+    $timelineItemTotal = 0;
+    $timelineOdd = FALSE;
+    $reversed = FALSE;
 
     foreach ($paragraphs as $key => $paragraph) {
       $targetId = $paragraph->get('target_id')->getValue();
@@ -426,6 +429,17 @@ function gent_base_preprocess_field(&$variables) {
 
         if ($type === 'timeline_frame') {
           $display = _gent_base_get_timeline_display($entity);
+
+          $timelineItems = count($entity->get('timeline_items')->referencedEntities());
+          $variables['items'][$key]['content']['counter'][0] = $timelineItemTotal;
+          $timelineItemTotal += $timelineItems;
+
+          if ($timelineOdd) {
+            $reversed = !$reversed;
+          }
+
+          $timelineOdd = ($timelineItems % 2 !== 0);
+          $variables['items'][$key]['content']['reversed'][0] = $reversed;
 
           // It's the first timeline frame.
           if ($firstTimeline === FALSE) {
