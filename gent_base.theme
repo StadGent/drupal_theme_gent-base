@@ -6,18 +6,18 @@
  */
 
 use Drupal\block\Entity\Block;
+use Drupal\Component\Utility\Html;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Link;
+use Drupal\Core\Render\Element;
 use Drupal\Core\Render\Markup;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\Core\Template\Attribute;
-use Drupal\Component\Utility\Html;
+use Drupal\Core\Url;
 use Drupal\gent_base\FormPrerender;
 use Drupal\image\Entity\ImageStyle;
 use Drupal\node\NodeInterface;
 use Drupal\paragraphs\Entity\Paragraph;
-use Drupal\Core\Url;
-use Drupal\Core\Link;
-use Drupal\Core\Render\Element;
 use Drupal\paragraphs\ParagraphInterface;
 
 include __DIR__ . '/includes/theme.inc';
@@ -429,6 +429,17 @@ function gent_base_preprocess_field(&$variables) {
 
         if ($type === 'timeline_frame') {
           $display = _gent_base_get_timeline_display($entity);
+
+          $timelineItems = count($entity->get('timeline_items')->referencedEntities());
+          $variables['items'][$key]['content']['counter'][0] = $timelineItemTotal;
+          $timelineItemTotal += $timelineItems;
+
+          if ($timelineOdd) {
+            $reversed = !$reversed;
+          }
+
+          $timelineOdd = ($timelineItems % 2 !== 0);
+          $variables['items'][$key]['content']['reversed'][0] = $reversed;
 
           $timelineItems = count($entity->get('timeline_items')->referencedEntities());
           $variables['items'][$key]['content']['counter'][0] = $timelineItemTotal;

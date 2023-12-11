@@ -39,8 +39,13 @@
  */
 #}
 
+{% set items_total = content.counter.0 %}
+{% set reversed = content.reversed.0 %}
+
 {% set classes = [
-  'programme-slot'
+    'programme-slot',
+    items_total is odd ? 'timeline-slot-odd' : 'timeline-slot-even',
+    reversed ? 'timeline-slot-reverse' : ''
 ] %}
 {{ attach_library('gent_base/modal') }}
 
