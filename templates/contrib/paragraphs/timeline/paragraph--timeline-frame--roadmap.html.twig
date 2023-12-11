@@ -49,15 +49,15 @@
 ] %}
 
 {% block paragraph %}
-  {% block content %}
-    <div{{ attributes.addClass(classes) }} role="listitem">
-        {% if content.title %}
-        <dt>
-            <h3 class="dt-title">{{ content.title }}</h3>
-        </dt>
-        {% endif %}
+    {% block content %}
+        <div{{ attributes.addClass(classes) }} role="listitem">
+            {% if content.title %}
+                <dt>
+                    <h3 class="dt-title">{{ content.title }}</h3>
+                </dt>
+            {% endif %}
 
-        {{ content.timeline_items }}
-    </div>
+            {{ content.timeline_items }}
+        </div>
     {% endblock %}
-    {% endblock paragraph %}
+{% endblock paragraph %}

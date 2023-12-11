@@ -39,24 +39,25 @@
  */
 #}
 
+{% set items_total = content.counter.0 %}
+{% set reversed = content.reversed.0 %}
+
 {% set classes = [
-  'programme-slot'
+    'timeline-slot',
+    items_total is odd ? 'timeline-slot-odd' : 'timeline-slot-even',
+    reversed ? 'timeline-slot-reverse' : ''
 ] %}
-{{ attach_library('gent_base/modal') }}
 
 {% block paragraph %}
-  {% block content %}
-    <div{{ attributes.addClass(classes) }} role="listitem">
-      <dt class="programme-slot-title">
-          <h2>{{ content.title }}</h2>
-      </dt>
-      <dd>
-        <div class="grid-wrapper">
-          <ul class="grid-3">
+    {% block content %}
+        <div{{ attributes.addClass(classes) }} role="listitem">
+            {% if content.title %}
+                <dt>
+                    <h3 class="dt-title">{{ content.title }}</h3>
+                </dt>
+            {% endif %}
+
             {{ content.timeline_items }}
-          </ul>
         </div>
-      </dd>
-    </div>
-  {% endblock %}
+    {% endblock %}
 {% endblock paragraph %}

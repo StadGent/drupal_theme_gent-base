@@ -411,8 +411,8 @@ function gent_base_preprocess_field(&$variables) {
   if ($variables["element"]["#field_name"] == 'field_paragraphs') {
     $paragraphs = $variables['element']["#items"]->getIterator();
 
-    $isTimeline = FALSE;
     $isProgram = FALSE;
+    $firstTimeline = FALSE;
     $timelineItemTotal = 0;
     $timelineOdd = FALSE;
     $reversed = FALSE;
@@ -428,7 +428,18 @@ function gent_base_preprocess_field(&$variables) {
         $type = $entity->get('type')->getString();
 
         if ($type === 'timeline_frame') {
-          $isProgram = _gent_base_get_timeline_display($entity) === 'alt';
+          $display = _gent_base_get_timeline_display($entity);
+
+          $timelineItems = count($entity->get('timeline_items')->referencedEntities());
+          $variables['items'][$key]['content']['counter'][0] = $timelineItemTotal;
+          $timelineItemTotal += $timelineItems;
+
+          if ($timelineOdd) {
+            $reversed = !$reversed;
+          }
+
+          $timelineOdd = ($timelineItems % 2 !== 0);
+          $variables['items'][$key]['content']['reversed'][0] = $reversed;
 
           $timelineItems = count($entity->get('timeline_items')->referencedEntities());
           $variables['items'][$key]['content']['counter'][0] = $timelineItemTotal;
@@ -442,23 +453,31 @@ function gent_base_preprocess_field(&$variables) {
           $variables['items'][$key]['content']['reversed'][0] = $reversed;
 
           // It's the first timeline frame.
-          if ($isTimeline === FALSE) {
-            $isTimeline = TRUE;
+          if ($firstTimeline === FALSE) {
+            $firstTimeline = TRUE;
 
-            if ($isProgram) {
-              $variables['items'][$key]['content']['#prefix'] =
-                '<div class="programme-wrapper"><h2 class="visually-hidden">' . t('programme') . '</h2>' .
-                '<dl class="programme"><div class="programme__inner">';
-            }
-            else {
-              $variables['items'][$key]['content']['#prefix'] =
-                '<div class="timeline-wrapper"><h2 class="visually-hidden">' . t('timeline') . '</h2>' .
-                '<dl class="timeline accordion">';
+            switch ($display) {
+              case 'timeline':
+                $variables['items'][$key]['content']['#prefix'] =
+                  '<div class="timeline-wrapper"><h2 class="visually-hidden">' . t('timeline') . '</h2>' .
+                  '<dl class="timeline accordion">';
+                break;
+              case 'program':
+                $isProgram = TRUE;
+                $variables['items'][$key]['content']['#prefix'] =
+                  '<div class="programme-wrapper"><h2 class="visually-hidden">' . t('programme') . '</h2>' .
+                  '<dl class="programme"><div class="programme__inner">';
+                break;
+              case 'roadmap':
+                $variables['items'][$key]['content']['#prefix'] =
+                  '<div class="roadmap-wrapper"><h2 class="visually-hidden">' . t('roadmap') . '</h2>' .
+                  '<dl class="roadmap accordion">';
+                break;
             }
           }
         }
-        elseif ($isTimeline === TRUE) {
-          $isTimeline = FALSE;
+        elseif ($firstTimeline === TRUE) {
+          $firstTimeline = FALSE;
 
           if ($isProgram) {
             $variables['items'][$key - 1]['content']['#suffix'] = '</div></dl></div>';
