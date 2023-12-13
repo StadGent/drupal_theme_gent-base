@@ -15,7 +15,7 @@
 {% endblock %}
 
 {% block article_content_summary %}
-  <section class="contact-details">
+  <section class="contact-details {% if person_image|render is not empty %}contact-details--with-image{% endif %}">
       <h3>{{ 'Contact details'|t }}</h3>
       <div class="contact-details-columns">
           <div class="contact-details-column">
