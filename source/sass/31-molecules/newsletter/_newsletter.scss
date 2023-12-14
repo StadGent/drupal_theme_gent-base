@@ -59,7 +59,12 @@
 
     .form-actions {
       flex-grow: 0;
-      margin: 10px 0 0;
+      align-self: flex-start;
+      margin: 10px 10px 0 0;
+
+      @include breakpoint(555px) {
+        margin: 33px 0 0 10px;
+      }
 
       input[type="submit"] {
         align-self: flex-start;
@@ -68,9 +73,7 @@
     }
 
     .ajax-progress {
-      .message {
-        display: none;
-      }
+      display: none;
     }
   }
 
