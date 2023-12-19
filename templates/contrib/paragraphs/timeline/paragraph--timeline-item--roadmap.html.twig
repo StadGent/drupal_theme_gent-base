@@ -39,49 +39,79 @@
  */
 #}
 
-<div class="item">
-    <dd class="item__content">
-        <div class="timeline-slot-header">
-            <h4 class="timeline-slot-title">
-                <button aria-expanded="false"
-                        aria-controls="timeline-slot-content--{{ paragraph.id() }}"
-                        data-controls-img="timeline-slot-img--{{ paragraph.id() }}"
-                        class="accordion--button">{{ content.title }}</button>
-            </h4>
-            <h5 class="timeline-slot-date">{{ content.subtitle }}</h5>
-        </div>
-        <div class="timeline-slot-content accordion--content" id="timeline-slot-content--{{ paragraph.id() }}" aria-hidden="true">
-            <div class="content-image hidden-desktop">
-                {% if content.field_image|render is not empty %}
-                    <div class="image-gallery--wrapper single">
-                        {{ content.field_image }}
-                    </div>
-                {% endif %}
-                {% if content.field_video|render is not empty %}
-                    <div class="video-wrapper">
-                        <div class="video-inner-wrapper">
-                            {{ content.field_video }}
-                        </div>
-                    </div>
-                {% endif %}
-            </div>
-            {{ content.field_text }}
-        </div>
-    </dd>
-    <dd class="item__image-desktop show-desktop-only">
-        <div class="timeline-slot-content timeline-slot-content__img accordion--content" id="timeline-slot-img--{{ paragraph.id() }}" aria-hidden="true">
+{% set classes = [
+    'timeline-slot',
+] %}
+
+{% set note_type = 'important' %}
+{% set note_icon = 'icon-exclamation-circle' %}
+{% set note_text = 'Important info'|t %}
+
+{% if content.field_important_note|render == 'payment' %}
+    {% set note_type = 'payment' %}
+    {% set note_icon = 'icon-euro' %}
+    {% set note_text = 'Payment info'|t %}
+{% elseif content.field_important_note|render == 'timebound' %}
+    {% set note_type = 'timebound' %}
+    {% set note_icon = 'icon-clock' %}
+    {% set note_text = 'Time-bound info'|t %}
+{% elseif content.field_important_note|render == 'unmissable' %}
+    {% set note_type = 'unmissable' %}
+    {% set note_icon = 'icon-exclamation-circle' %}
+    {% set note_text = 'Not to be missed info'|t %}
+{% endif %}
+
+<div{{ attributes.addClass(classes) }} role="listitem">
+    <div class="item">
+    <dd class="item__image">
+        <div class="timeline-slot-content timeline-slot-content__img">
             {% if content.field_image|render is not empty %}
                 <div class="image-gallery--wrapper single">
                     {{ content.field_image }}
                 </div>
             {% endif %}
-            {% if content.field_video|render is not empty %}
-                <div class="video-wrapper">
-                    <div class="video-inner-wrapper">
-                        {{ content.field_video }}
-                    </div>
+        </div>
+    </dd>
+    <dd class="item__content">
+        <div class="timeline-slot-header">
+            <h3 class="timeline-slot-title">
+                {{ content.title }}
+            </h3>
+            <h4 class="timeline-slot-date">{{ content.subtitle }}</h4>
+        </div>
+        <div class="timeline-slot-content">
+            <div class="content-text">
+                <p class="important-note note--{{ note_type }}">
+                    <i class="{{ note_icon }}" aria-hidden="true"></i>
+                    <span>{{ note_text }}</span>
+                </p>
+
+                {{ content.field_text }}
+
+                <p class="important-note note--{{ note_type }}">
+                    <i class="{{ note_icon }}" aria-hidden="true"></i>
+                    <span>{{ note_text }}</span>
+                </p>
+            </div>
+
+            <div class="content-btn">
+                <button type="button" class="button button-primary icon-arrow-right ">
+                    CTA button
+                </button>
+            </div>
+
+            {% if content.field_paragraphs|render is not empty %}
+            <div class="accordion--link dropdown--link">
+                <button aria-controls="accordion--link--single--content--{{ paragraph.id() }}" type="button" class="accordion--button accordion--link--button" aria-expanded="false" >
+                    {{ 'More info'|t }}
+                    <i class="icon-chevron-down" aria-hidden="true"></i>
+                </button>
+                <div id="accordion--link--single--content--{{ paragraph.id() }}" class="accordion--link--content" aria-hidden="true" hidden="hidden">
+                    {{ content.field_paragraphs }}
                 </div>
+            </div>
             {% endif %}
         </div>
     </dd>
+</div>
 </div>

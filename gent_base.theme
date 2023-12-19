@@ -470,8 +470,8 @@ function gent_base_preprocess_field(&$variables) {
                 break;
               case 'roadmap':
                 $variables['items'][$key]['content']['#prefix'] =
-                  '<div class="roadmap-wrapper"><h2 class="visually-hidden">' . t('roadmap') . '</h2>' .
-                  '<dl class="roadmap accordion">';
+                  '<div class="roadmap-wrapper">' .
+                  '<dl class="roadmap">';
                 break;
             }
           }
