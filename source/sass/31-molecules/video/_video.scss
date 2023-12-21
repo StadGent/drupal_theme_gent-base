@@ -1,0 +1,10 @@
+// Hide after element added by video embed module
+.video {
+  .video-embed-field-responsive-video {
+    position: static;
+
+    &::after {
+      display: none;
+    }
+  }
+}
