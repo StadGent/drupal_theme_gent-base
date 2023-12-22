@@ -81,24 +81,15 @@
         </div>
         <div class="timeline-slot-content">
             <div class="content-text">
-                <p class="important-note note--{{ note_type }}">
-                    <i class="{{ note_icon }}" aria-hidden="true"></i>
-                    <span>{{ note_text }}</span>
-                </p>
-
+                {# Important info note is included in ckeditor styles #}
                 {{ content.field_text }}
-
-                <p class="important-note note--{{ note_type }}">
-                    <i class="{{ note_icon }}" aria-hidden="true"></i>
-                    <span>{{ note_text }}</span>
-                </p>
             </div>
 
+            {% if content.field_link|render is not empty %}
             <div class="content-btn">
-                <button type="button" class="button button-primary icon-arrow-right ">
-                    CTA button
-                </button>
+                {{ content.field_link }}
             </div>
+            {% endif %}
 
             {% if content.field_paragraphs|render is not empty %}
             <div class="accordion--link dropdown--link">
@@ -107,6 +98,7 @@
                     <i class="icon-chevron-down" aria-hidden="true"></i>
                 </button>
                 <div id="accordion--link--single--content--{{ paragraph.id() }}" class="accordion--link--content" aria-hidden="true" hidden="hidden">
+                    {# TODO: the paragraph title should be h5 and the titles of the accordion items should be h6.h3 #}
                     {{ content.field_paragraphs }}
                 </div>
             </div>

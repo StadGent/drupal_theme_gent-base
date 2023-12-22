@@ -12,7 +12,7 @@
         return;
       }
 
-      $(once('gent_base_accordion', '.accordion', context)).each(function () {
+      $(once('gent_base_accordion', '.accordion, .accordion--link', context)).each(function () {
 
         // Temp fix Mijn Gent block accordion.
         var headerAccordion = document.querySelector('header .accordion');

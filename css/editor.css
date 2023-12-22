@@ -1,0 +1,203 @@
+/*Load fonts in ckeditor*/
+@font-face {
+  font-family: "Fira Sans";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../../../../contrib/gent_base/build/styleguide/googlefonts/fira-sans-v16-latin-ext_latin-regular.eot"), local("Fira Sans"), url("../../../../contrib/gent_base/build/styleguide/googlefonts/fira-sans-v16-latin-ext_latin-regular.eot?#iefix") format("embedded-opentype"), url("../../../../contrib/gent_base/build/styleguide/googlefonts/fira-sans-v16-latin-ext_latin-regular.woff2") format("woff2"), url("../../../../contrib/gent_base/build/styleguide/googlefonts/fira-sans-v16-latin-ext_latin-regular.woff") format("woff"), url("../../../../contrib/gent_base/build/styleguide/googlefonts/fira-sans-v16-latin-ext_latin-regular.ttf") format("truetype"), url("../../../../contrib/gent_base/build/styleguide/googlefonts/fira-sans-v16-latin-ext_latin-regular.svg#FiraSans") format("svg");
+  font-display: swap
+}
+
+@font-face {
+  font-family: "Fira Sans";
+  font-style: normal;
+  font-weight: 600;
+  src: url("../../../../contrib/gent_base/build/styleguide/googlefonts/fira-sans-v16-latin-ext_latin-600.eot"), local("Fira Sans"), url("../../../../contrib/gent_base/build/styleguide/googlefonts/fira-sans-v16-latin-ext_latin-600.eot?#iefix") format("embedded-opentype"), url("../../../../contrib/gent_base/build/styleguide/googlefonts/fira-sans-v16-latin-ext_latin-600.woff2") format("woff2"), url("../../../../contrib/gent_base/build/styleguide/googlefonts/fira-sans-v16-latin-ext_latin-600.woff") format("woff"), url("../../../../contrib/gent_base/build/styleguide/googlefonts/fira-sans-v16-latin-ext_latin-600.ttf") format("truetype"), url("../../../../contrib/gent_base/build/styleguide/googlefonts/fira-sans-v16-latin-ext_latin-600.svg#FiraSans") format("svg");
+  font-display: swap
+}
+
+@font-face {
+  font-family: "Fira Sans";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../../../../contrib/gent_base/build/styleguide/googlefonts/fira-sans-v16-latin-ext_latin-700.eot"), local("Fira Sans"), url("../../../../contrib/gent_base/build/styleguide/googlefonts/fira-sans-v16-latin-ext_latin-700.eot?#iefix") format("embedded-opentype"), url("../../../../contrib/gent_base/build/styleguide/googlefonts/fira-sans-v16-latin-ext_latin-700.woff2") format("woff2"), url("../../../../contrib/gent_base/build/styleguide/googlefonts/fira-sans-v16-latin-ext_latin-700.woff") format("woff"), url("../../../../contrib/gent_base/build/styleguide/googlefonts/fira-sans-v16-latin-ext_latin-700.ttf") format("truetype"), url("../../../../contrib/gent_base/build/styleguide/googlefonts/fira-sans-v16-latin-ext_latin-700.svg#FiraSans") format("svg");
+  font-display: swap
+}
+
+@font-face {
+  font-family: "Fira Sans";
+  font-style: normal;
+  font-weight: 800;
+  src: url("../../../../contrib/gent_base/build/styleguide/googlefonts/fira-sans-v16-latin-ext_latin-800.eot"), local("Fira Sans"), url("../../../../contrib/gent_base/build/styleguide/googlefonts/fira-sans-v16-latin-ext_latin-800.eot?#iefix") format("embedded-opentype"), url("../../../../contrib/gent_base/build/styleguide/googlefonts/fira-sans-v16-latin-ext_latin-800.woff2") format("woff2"), url("../../../../contrib/gent_base/build/styleguide/googlefonts/fira-sans-v16-latin-ext_latin-800.woff") format("woff"), url("../../../../contrib/gent_base/build/styleguide/googlefonts/fira-sans-v16-latin-ext_latin-800.ttf") format("truetype"), url("../../../../contrib/gent_base/build/styleguide/googlefonts/fira-sans-v16-latin-ext_latin-800.svg#FiraSans") format("svg");
+  font-display: swap
+}
+
+@font-face{
+  font-family:"gent-icons-v6";
+  src:url("/themes/contrib/gent_base/build/styleguide/fonts/gent-icons-v6.eot?v=322");
+  src:url("/themes/contrib/gent_base/build/styleguide/fonts/gent-icons-v6.eot?#iefix?v=322") format("eot"),
+  url("/themes/contrib/gent_base/build/styleguide/fonts/gent-icons-v6.woff2?v=322") format("woff2"),
+  url("/themes/contrib/gent_base/build/styleguide/fonts/gent-icons-v6.woff?v=322") format("woff"),
+  url("/themes/contrib/gent_base/build/styleguide/fonts/gent-icons-v6.ttf?v=322") format("truetype"),
+  url("/themes/contrib/gent_base/build/styleguide/fonts/gent-icons-v6.svg#gent-icons-v6?v=322") format("svg");font-display:swap
+}
+
+.cke_editable {
+  font: 400 .9rem "Fira Sans",sans-serif;
+  line-height: 177.8%;
+}
+
+/*Colored table styling*/
+th.success,
+tr.success,
+td.success {
+  background-color: #ebf7ea;
+}
+
+th.warning,
+tr.warning,
+td.warning {
+  background-color: #feeee6;
+}
+
+th.error,
+tr.error,
+td.error {
+  background-color: #fee7eb;
+}
+
+.messages::before,
+.important-note::before {
+  margin-right: 13px;
+  font-family: "gent-icons-v6";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-size: 1.6rem;
+  font-variant: normal;
+  font-weight: normal;
+  speak: none;
+  text-decoration: none;
+  text-transform: none;
+}
+
+/*Status messages*/
+.messages {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  border-bottom: 3px solid;
+  flex-direction: column;
+  font-size: .9rem;
+  margin-bottom: 20px;
+  margin-right: 0;
+  margin-top: 20px;
+  max-width: 970px;
+  padding: 40px;
+  position: relative;
+  color: #001823;
+  border-color: #009de0;
+  background-color: #e6f8ff;
+}
+
+.messages::before {
+  display: block;
+  width: 60px;
+  margin-right: 0;
+  padding-bottom: 20px;
+  font-size: 2rem;
+  line-height: 1;
+  text-align: center;
+  color: inherit;
+}
+
+.messages p:last-child {
+  margin-bottom: 0;
+}
+
+@media (min-width: 576px) {
+  .messages {
+    padding: 60px 60px 60px 125px;
+  }
+
+  .messages::before {
+    position: absolute;
+    top: 60px;
+    left: 60px;
+  }
+}
+
+.messages--warning {
+  background-color: #fff2e5;
+  border-color: #e06c00;
+}
+
+.messages--error {
+  background-color: #ffe8ec;
+  border-color: #ea0d33;
+}
+
+.messages--status {
+  background-color: #e1fde1;
+  border-color: #2c8726;
+}
+
+.messages--info::before,
+.messages--warning::before {
+  content: "";
+}
+
+.messages--info::before {
+  color: #009de0;
+}
+
+.messages--warning::before {
+  color: #e06c00;
+}
+
+.messages--error::before {
+  content: "";
+  color: #ea0d33;
+}
+
+.messages--status::before {
+  content: "";
+  color: #2c8726;
+}
+
+/*Important note style*/
+.important-note {
+  display: flex;
+  align-items: center;
+  font-size: .9rem;
+  font-weight: 600;
+  line-height: 177.778%;
+}
+
+.note--important {
+  color: #005ba9;
+}
+
+.note--payment,
+.note--timebound {
+  color: #e06c00;
+}
+
+.note--unmissable {
+  color: #ea0d33;
+}
+
+.important-note::before {
+  line-height: 87.5%;
+}
+
+.note--important::before,
+.note--unmissable::before {
+  content: "";
+}
+
+.note--payment::before {
+  content: "";
+}
+
+.note--timebound::before {
+  content: "";
+}
