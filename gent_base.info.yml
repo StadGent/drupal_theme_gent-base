@@ -15,9 +15,11 @@ regions:
 libraries:
   - gent_base/menu
   - gent_base/tables
+
 # Unset all theming features.
 features:
   -
+
 # Removes all the classy stylesheets.
 libraries-override:
   classy/base: false
@@ -38,8 +40,17 @@ libraries-override:
     css:
       theme:
         css/better_exposed_filters.css: false
+
 stylesheets-remove:
   - core/themes/stable/css/node/node.preview.css
   - modules/contrib/video_embed_field/css/video_embed_field.responsive-video.css
+
 'interface translation project': gent_base
 'interface translation server pattern': themes/contrib/gent_base/translations/%language.po
+
+#Set specific styles for ckeditor(5)
+ckeditor_stylesheets:
+  - css/editor.css
+
+ckeditor5-stylesheets:
+  - css/editor.css

@@ -1,8 +1,6 @@
-{% extends 'paragraph.html.twig' %}
 
-{% block paragraph %}
-  {% block content %}
-    <h2>{{ content.title }}</h2>
-    {{ content.field_faq }}
-  {% endblock %}
-{% endblock paragraph %}
+{% if content.title|render|striptags|trim is not empty %}
+    {{ content.title|merge({'#attributes': {'class': 'mt-10'}}) }}
+{% endif %}
+
+{{ content.field_faq }}
