@@ -20,7 +20,9 @@
 {% endif %}
 
 {% if content.field_images|render|striptags|trim is not empty %}
-  <div class="image-gallery-wrapper multiple">
-    {{ content.field_images }}
+  <div class="paragraph--type--image">
+    <div class="image-gallery-wrapper multiple">
+      {{ content.field_images }}
+    </div>
   </div>
 {% endif %}
