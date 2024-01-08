@@ -1,6 +1,20 @@
 ul,
 ol {
+  font-size: inherit;
+
+  main & {
+    font-size: .9rem;
+  }
+
   .paragraph--type--text & {
     margin-bottom: 20px; // Deprecated in styleguide 6: STIJ-383
+  }
+
+  > li {
+    margin: inherit;
+
+    main & {
+      margin-bottom: 20px;
+    }
   }
 }
