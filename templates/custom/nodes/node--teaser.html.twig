@@ -81,7 +81,7 @@
 <article{{ attributes.addClass(classes) }}>
   {% block bottom %}
     <div{{ content_attributes.addClass('content__second') }}>
-      {% if node.hasField('field_theme_icon') %}
+      {% if node.hasField('field_theme_icon') and node.field_theme_icon is not empty %}
         <i class="icon-{{ node.field_theme_icon.value }}" aria-hidden="true"></i>
       {% endif %}
 
