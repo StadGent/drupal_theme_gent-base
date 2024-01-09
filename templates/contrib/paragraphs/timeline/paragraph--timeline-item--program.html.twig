@@ -76,7 +76,7 @@
   <div class="teaser teaser--background">
     <article class="teaser-content">
       <div class="content__second">
-        <h4 class="bg-none" id="uid_{{ paragraph.id() }}"><span>{{ content.title }}</span></h4>
+        <h3 class="bg-none h4" id="uid_{{ paragraph.id() }}"><span>{{ content.title }}</span></h3>
 
         <p>{{ content.subtitle }}</p>
 
@@ -93,7 +93,7 @@
           <div class="figure-wrapper">
             <figure>
               <div class="image-wrapper" data-ratio="8:5">
-                {{ fake_teaser_image }}
+                {{ content.field_image }}
               </div>
             </figure>
           </div>
