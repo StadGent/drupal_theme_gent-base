@@ -67,7 +67,7 @@
         <div class="timeline-slot-content timeline-slot-content__img">
             {% if content.field_image|render is not empty %}
                 <div class="image-gallery--wrapper single">
-                    {{ content.field_image }}
+                    {{ content.field_image.0 }}
                 </div>
             {% endif %}
         </div>

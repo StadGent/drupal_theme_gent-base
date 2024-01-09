@@ -56,7 +56,7 @@
           <p>{{ content.subtitle }}</p>
         {% endif %}
 
-        <div class="image-gallery--wrapper multiple image-gallery--secondary">
+        <div class="image-gallery--wrapper single image-gallery--secondary">
           {{ content.field_image }}
         </div>
 
@@ -93,7 +93,7 @@
           <div class="figure-wrapper">
             <figure>
               <div class="image-wrapper" data-ratio="8:5">
-                {{ content.field_image }}
+                {{ content.field_image.0 }}
               </div>
             </figure>
           </div>
