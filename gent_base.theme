@@ -106,19 +106,16 @@ function gent_base_preprocess_page(&$variables) {
   $route = \Drupal::request()->get('_route');
   if ($route !== 'entity.node.canonical') {
     $variables['attributes']['class'][] = 'overview-page';
+    return;
   }
+
+  gent_base_preprocess_page_hero_image($variables);
 }
 
 /**
  * Helper to add the hero display of the current node to the page header.
  */
 function gent_base_preprocess_page_hero_image(&$variables) {
-  $route = \Drupal::request()->get('_route');
-  if ($route !== 'entity.node.canonical') {
-    $variables['attributes']['class'][] = 'overview-page';
-    return;
-  }
-
   $entity = \Drupal::request()->get('node');
   if (!$entity->access('view')) {
     return;
@@ -126,7 +123,7 @@ function gent_base_preprocess_page_hero_image(&$variables) {
 
   // Since styleguide v6, we only use legacy hero images for onepagers. Other
   // content types don't use this anymore.
-  if ($entity->bundle() !== 'onepager') {
+  if ($entity->bundle() !== 'promopage') {
     return;
   }
 
