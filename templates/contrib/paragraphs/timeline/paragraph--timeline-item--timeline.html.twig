@@ -38,18 +38,27 @@
  * @ingroup themeable
  */
 #}
+
+{% if content.field_expanded.0["#markup"] == 1 %}
+    {% set expanded = "true" %}
+    {% set hidden = "false" %}
+{% else %}
+    {% set expanded = "false" %}
+    {% set hidden = "true" %}
+{% endif %}
+
 <div class="item">
     <dd class="item__content">
         <div class="timeline-slot-header">
             <h4 class="timeline-slot-title">
-                <button aria-expanded="false"
+                <button aria-expanded="{{ expanded }}"
                         aria-controls="timeline-slot-content--{{ paragraph.id() }}"
                         data-controls-img="timeline-slot-img--{{ paragraph.id() }}"
                         class="accordion--button">{{ content.title }}</button>
             </h4>
             <h5 class="timeline-slot-date">{{ content.subtitle }}</h5>
         </div>
-        <div class="timeline-slot-content accordion--content" id="timeline-slot-content--{{ paragraph.id() }}" aria-hidden="true">
+        <div class="timeline-slot-content accordion--content" id="timeline-slot-content--{{ paragraph.id() }}" aria-hidden="{{ hidden }}" style="min-height: 100%;">
             <div class="content-image hidden-desktop">
                 {% if content.field_image|render is not empty %}
                     <div class="image-gallery image-gallery--wrapper single">
