@@ -1,14 +1,19 @@
 .detail-layout {
   @include desktop {
-  > .paragraph--type--map {
-    @include col(10);
-    @include col-offset(1);
-  }
+    > div.paragraph--type--text {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
 
-  > .paragraph--type--image {
-    @include col();
+    > .paragraph--type--map {
+      @include col(10);
+      @include col-offset(1);
+    }
 
-      >.image-gallery--wrapper {
+    > .paragraph--type--image {
+      @include col();
+
+      > .image-gallery--wrapper {
         @include col(7);
         @include col-offset(2);
 
