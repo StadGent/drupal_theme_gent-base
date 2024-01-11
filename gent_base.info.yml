@@ -16,10 +16,6 @@ libraries:
   - gent_base/menu
   - gent_base/tables
 
-# Unset all theming features.
-features:
-  -
-
 # Removes all the classy stylesheets.
 libraries-override:
   classy/base: false
