@@ -11,13 +11,6 @@
   .form-wrapper:not(.form-actions) {
     position: relative;
 
-    @include tablet {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: flex-end;
-      justify-content: flex-start;
-    }
-
     .dg-newsletter-privacy-disclaimer {
       margin: 30px 0;
     }
@@ -38,15 +31,32 @@
         margin: 0 10px 0 0;
         max-width: 556px;
       }
+    }
 
-      .error {
-        .accolade {
-          &::before,
-          &::after {
-            @include theme('background-color', 'color-secondary');
-          }
+    .error {
+      .accolade {
+        &::before,
+        &::after {
+          @include theme('background-color', 'color-secondary');
         }
       }
+    }
+
+    fieldset {
+      legend {
+        @include theme('color', 'default-text-color', 'color-form-description');
+      }
+
+      &.error {
+        legend {
+          display: block;
+        }
+      }
+    }
+
+    fieldset[data-drupal-selector$="edit-interests"] {
+      flex-basis: 100%;
+      margin-top: 30px;
     }
 
     .email {
@@ -57,14 +67,16 @@
       }
     }
 
+    p[data-drupal-selector$="edit-privacy-link"] {
+      @include medium-text();
+
+      margin: 30px 0;
+    }
+
     .form-actions {
       flex-grow: 0;
       align-self: flex-start;
       margin: 10px 10px 0 0;
-
-      @include breakpoint(555px) {
-        margin: 33px 0 0 10px;
-      }
 
       input[type="submit"] {
         align-self: flex-start;
@@ -82,5 +94,17 @@
       @include theme('color', 'color-zero');
       @include semi-bold-text;
     }
+  }
+}
+
+.subscribe {
+  > *:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.sg-newsletter-subscribe-overview-form {
+  .form-disclaimer {
+    display: none;
   }
 }
