@@ -10,11 +10,11 @@ ol {
     margin-bottom: 20px; // Deprecated in styleguide 6: STIJ-383
   }
 
-  > li {
+  li {
     margin-bottom: inherit;
 
     main & {
-      margin-bottom: 20px;
+      margin-bottom: 10px;
     }
   }
 }
