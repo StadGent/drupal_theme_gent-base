@@ -1,19 +1,25 @@
 $header-side-padding: 255px;
 
 body {
+  .overview-layout,
+  .detail-layout,
+  .map-layout {
+    div.content-header-container {
+      // Content header in Drupal should always break out on the sides.
+      // This breakout is provided for several layouts by the styleguide.
+      margin-right: -20px;
+      margin-left: -20px;
+
+      @include tablet {
+        width: calc(100% + $header-side-padding * 2);
+        margin-left: -$header-side-padding;
+        padding-right: $header-side-padding;
+        padding-left: $header-side-padding;
+      }
+    }
+  }
   div.content-header-container {
     margin-top: 0;
-    // Content header in Drupal should always break out on the sides.
-    // This breakout is provided for several layouts by the styleguide.
-    margin-right: -20px;
-    margin-left: -20px;
-
-    @include tablet {
-      width: calc(100% + $header-side-padding * 2);
-      margin-left: -$header-side-padding;
-      padding-right: $header-side-padding;
-      padding-left: $header-side-padding;
-    }
 
     &.accolade-title {
       @include tablet {
