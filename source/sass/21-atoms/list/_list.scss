@@ -8,6 +8,7 @@ ol {
 
   .paragraph--type--text & {
     margin-bottom: 20px; // Deprecated in styleguide 6: STIJ-383
+    max-width: 40rem;
   }
 
   li {
