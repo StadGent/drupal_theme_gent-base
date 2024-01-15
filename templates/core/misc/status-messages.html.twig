@@ -32,15 +32,6 @@
       {% if status_headings[type] %}
         <h2 class="visually-hidden">{{ status_headings[type] }}</h2>
       {% endif %}
-      {% if type == 'status' %}
-        <i class="icon-checkmark-circle" aria-hidden="true"></i>
-      {% endif %}
-      {% if type == 'warning' %}
-        <i class="icon-exclamation-circle" aria-hidden="true"></i>
-      {% endif %}
-      {% if type == 'error' %}
-        <i class="icon-cross-circle" aria-hidden="true"></i>
-      {% endif %}
       {% if messages|length > 1 %}
         <ul class="messages__list">
           {% for message in messages %}
