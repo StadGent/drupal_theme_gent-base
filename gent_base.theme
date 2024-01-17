@@ -835,10 +835,13 @@ function gent_base_preprocess_node(&$variables) {
   // Add a datetime attribute to event dates.
   if ($node->getType() == 'event' && !$node->get('field_event_date')->isEmpty()) {
     $event_date = $node->get('field_event_date')->getValue()[0];
-    $event_start_date = (float) strtotime($event_date['value']);
-    $event_end_date = (float) strtotime($event_date['end_value']);
+    $event_start_date = $event_date['value'] ? (float) strtotime($event_date['value']) : NULL;
+    $event_end_date = $event_date['end_value'] ? (float) strtotime($event_date['end_value']) : NULL;
 
-    if ($event_start_date === $event_end_date) {
+    if (!$event_start_date && !$event_end_date) {
+      $variables['event_datetime'] = '';
+    }
+    elseif ($event_start_date && !$event_end_date || $event_start_date === $event_end_date) {
       $variables['event_datetime'] = \Drupal::service('date.formatter')->format($event_start_date, 'custom', 'c');
     }
     else {
