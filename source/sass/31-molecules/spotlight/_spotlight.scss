@@ -1,0 +1,7 @@
+//TODO: Figcaption on images in spotlight should be show (redesign needed)
+.paragraph--type--spotlight,
+.spotlight {
+  figcaption {
+    @include visually-hidden;
+  }
+}
