@@ -1,6 +1,10 @@
 .search {
   flex-wrap: nowrap;
 
+  @include desktop {
+    max-width: 25rem;
+  }
+
   .form-actions {
     flex-shrink: 0;
   }
