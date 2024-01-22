@@ -76,11 +76,17 @@
     .form-actions {
       flex-grow: 0;
       align-self: flex-start;
-      margin: 10px 10px 0 0;
+      margin: 33px 10px 0 0;
 
       input[type="submit"] {
         align-self: flex-start;
         margin: 0;
+      }
+    }
+
+    .dg-newsletter-privacy-disclaimer {
+      ~ .form-actions {
+        margin-top: 10px;
       }
     }
 
