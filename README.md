@@ -1,6 +1,6 @@
-# Drupal 8 base theme using the styleguide of Stad Gent.
+# Drupal 9/10 base theme using the styleguide of Stad Gent.
 
-This Drupal 8 theme is based on the style guide of Stad Gent.
+This Drupal 9/10 theme is based on the style guide of Stad Gent.
 https://stijlgids.stad.gent/
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/090c45ffd08a2370cd0d/maintainability)](https://codeclimate.com/repos/5a5c70e7f5f0e502a80009f1/maintainability)
@@ -12,10 +12,7 @@ published as an NPM package.
 ## Installation
 
 To install and use this base theme and a subtheme of it follow these steps:
-* There's a dependency to yarn, make sure you have it installed:
-  ```
-  npm -g install yarn
-  ```
+
 * Add the `gent_base` php package from District09 Repman packagist to your
   Drupal composer.json file: By adding the post install and post update commands
   we ensure that the gent_base theme is installed correctly and everything is
@@ -33,7 +30,7 @@ To install and use this base theme and a subtheme of it follow these steps:
       },
   },
   "require": {
-      "gent-drupal/gent_base": "^4.0"
+      "gent-drupal/gent_base": "^6.0"
   },
   "scripts": {
     "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
