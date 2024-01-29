@@ -2,6 +2,12 @@
 
 All Notable changes to `StadGent/drupal_theme_gent-base`.
 
+## [6.x]
+
+### Fixed
+
+- DTGB-901: Fix fatal error due to non existing field.
+
 ## [5.x]
 
 See Github releases for more information.
@@ -72,7 +78,7 @@ See Github releases for more information.
 ### Fixed
 
 * Fix missing vendor folder in gent_styleguide dependency
-* Fix checkbox-popup component because checkbox-dynamic doesn't support 
+* Fix checkbox-popup component because checkbox-dynamic doesn't support
   multiple categories layout in modal
 
 ### Updated
@@ -106,7 +112,7 @@ See Github releases for more information.
 ### Updated
 
 * Update to styleguide 5.0.3
-  
+
 ### Fixed
 
 * DTGB-862: Fix postinstall issue on jenkins
