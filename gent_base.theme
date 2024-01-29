@@ -798,59 +798,94 @@ function gent_base_preprocess_faqfield_definition_list_formatter(&$variables) {
 /**
  * Implements hook_preprocess_HOOK().
  */
-function gent_base_preprocess_node(&$variables) {
+function gent_base_preprocess_node(array &$variables): void {
+  /** @var \Drupal\node\NodeInterface $node */
   $node = $variables['node'];
-  $created = $node->getCreatedTime();
-  $changed = $node->getChangedTime();
+
+  // Set theming variables.
+  $variables['date'] = $node->getCreatedTime();
+  $variables['dateChanged'] = $node->getChangedTime();
 
   // Set datetime attributes on "Submitted on" label.
-  $variables['author_attributes']->setAttribute('datetime', \Drupal::service('date.formatter')
-    ->format($created, 'custom', 'c'));
-  $variables['author_attributes']->setAttribute('pubdate', 'pubdate');
+  $variables['author_attributes']
+    ->setAttribute('datetime', \Drupal::service('date.formatter')
+    ->format($variables['date'], 'custom', 'c'));
+  $variables['author_attributes']
+    ->setAttribute('pubdate', 'pubdate');
 
   // Set detail layout class on full/default view modes.
   if (isset($variables['view_mode']) && $variables['view_mode'] === 'full') {
     $variables['attributes']['class'][] = 'detail-layout';
-  }
-
-  // Set theming variables.
-  $variables['date'] = $created;
-  $variables['dateChanged'] = $changed;
-
-  // Render contact title as link.
-  if ($node->getType() == 'contact') {
-    $url = Url::fromRoute('entity.node.canonical', ['node' => $node->id()]);
-    $link_options = [
-      'attributes' => [
-        'class' => [
-          'standalone-link',
-        ],
-      ],
-    ];
-    $url->setOptions($link_options);
-    $link = Link::fromTextAndUrl($node->getTitle(), $url);
-    $variables['contact_title'] = $link;
-  }
-
-  // Add a datetime attribute to event dates.
-  if ($node->getType() == 'event' && !$node->get('field_event_date')->isEmpty()) {
-    $event_date = $node->get('field_event_date')->getValue()[0];
-    $event_start_date = $event_date['value'] ? (float) strtotime($event_date['value']) : NULL;
-    $event_end_date = $event_date['end_value'] ? (float) strtotime($event_date['end_value']) : NULL;
-
-    if (!$event_start_date && !$event_end_date) {
-      $variables['event_datetime'] = '';
-    }
-    elseif ($event_start_date && !$event_end_date || $event_start_date === $event_end_date) {
-      $variables['event_datetime'] = \Drupal::service('date.formatter')->format($event_start_date, 'custom', 'c');
-    }
-    else {
-      $variables['event_datetime'] = \Drupal::service('date.formatter')->format($event_start_date, 'custom', 'c') . '-' . \Drupal::service('date.formatter')->format($event_end_date, 'custom', 'c');
-    }
-  }
-
-  if ($variables['view_mode'] === 'full') {
     _gent_base_preprocess_content_header_classes($variables);
+  }
+
+  // Node bundle specific preprocessing.
+  $method = sprintf('gent_base_preprocess_node_%s', $node->bundle());
+  if (function_exists($method)) {
+    $method($variables);
+  }
+}
+
+/**
+ * Preprocess contact node.
+ *
+ * - Render contact title as link.
+ *
+ * @param array $variables
+ *   The node display variables.
+ */
+function gent_base_preprocess_node_contact(array &$variables): void {
+  /** @var \Drupal\node\NodeInterface $node */
+  $node = $variables['node'];
+
+  $url = Url::fromRoute('entity.node.canonical', ['node' => $node->id()]);
+  $linkOptions = [
+    'attributes' => [
+      'class' => [
+        'standalone-link',
+      ],
+    ],
+  ];
+  $url->setOptions($linkOptions);
+  $link = Link::fromTextAndUrl($node->getTitle(), $url);
+  $variables['contact_title'] = $link;
+}
+
+/**
+ * Preprocess event node.
+ *
+ * - Formats the start-end date of the event.
+ *
+ * @param array $variables
+ *   The node display variables.
+ */
+function gent_base_preprocess_node_event(array &$variables): void {
+  /** @var \Drupal\node\NodeInterface $node */
+  $node = $variables['node'];
+  if (!$node->hasField('field_event_date') || $node->get('field_event_date')->isEmpty()) {
+    return;
+  }
+
+  /** @var \Drupal\Core\Datetime\DateFormatterInterface $dateFormatter */
+  $dateFormatter = \Drupal::service('date.formatter');
+
+  $eventDate = $node->get('field_event_date')->getValue()[0];
+  $startDate = $eventDate['value']
+    ? $dateFormatter->format((float) strtotime($eventDate['value']), 'custom', 'c')
+    : NULL;
+  $endDate = $eventDate['end_value']
+    ? $dateFormatter->format((float) strtotime($eventDate['end_value']), 'custom', 'c')
+    : NULL;
+
+  $variables['event_datetime'] = '';
+  if ($startDate && $endDate) {
+    $variables['event_datetime'] = $startDate === $endDate
+      ? $startDate
+      : sprintf('%s-%s', $startDate, $eventDate);
+  }
+
+  if ($startDate && !$endDate) {
+    $variables['event_datetime'] = $startDate;
   }
 }
 
