@@ -884,7 +884,7 @@ function gent_base_preprocess_node_event(array &$variables): void {
   if ($startDate && $endDate) {
     $variables['event_datetime'] = $startDate === $endDate
       ? $startDate
-      : sprintf('%s-%s', $startDate, $eventDate);
+      : sprintf('%s-%s', $startDate, $endDate);
   }
 
   if ($startDate && !$endDate) {

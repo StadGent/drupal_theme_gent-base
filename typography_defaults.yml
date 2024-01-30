@@ -1,0 +1,32 @@
+# Copy this file to the active Drupal theme root and adjust as needed.
+set_smart_quotes: FALSE
+set_smart_dashes: FALSE
+set_smart_ellipses: FALSE
+set_smart_diacritics: FALSE
+set_smart_marks: FALSE
+set_smart_math: FALSE
+set_smart_exponents: FALSE
+set_smart_fractions: FALSE
+set_smart_ordinal_suffix: FALSE
+set_smart_ordinal_suffix_match_roman_numerals: FALSE
+set_smart_area_units: FALSE
+set_single_character_word_spacing: FALSE
+set_fraction_spacing: FALSE
+set_unit_spacing: FALSE
+set_french_punctuation_spacing: FALSE
+set_units: FALSE
+set_dash_spacing: FALSE
+set_space_collapse: FALSE
+set_dewidow: FALSE
+set_wrap_hard_hyphens: FALSE
+set_url_wrap: FALSE
+set_email_wrap: FALSE
+set_style_ampersands: FALSE
+set_style_caps: FALSE
+set_style_initial_quotes: FALSE
+set_style_numbers: FALSE
+set_style_hanging_punctuation: FALSE
+
+# These settings are also set inline in twig templates.
+set_hyphenation: TRUE
+set_min_length_hyphenation: 15

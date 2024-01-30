@@ -14,6 +14,9 @@ published as an NPM package.
 * [Twig Typography module](https://www.drupal.org/project/twig_typography):
   This module is used to apply smart hyphenation to large sized titles. See
   `paragraph--call-to-action.html.twig` as example.
+
+  Copy the typography_defaults.yml from the gent_base theme root to your custom
+  theme root and adjust if needed.
   
   See [typography settings](https://github.com/mundschenk-at/php-typography/blob/main/src/class-settings.php)
   for all possible 'set' options.
