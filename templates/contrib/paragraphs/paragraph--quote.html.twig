@@ -48,7 +48,12 @@
     <blockquote>
       {% block content %}
         <div class="content">
-          <p>{{ content.field_quote|render|striptags('<br>')|trim|raw }}</p>
+          <p>
+            {{ content.field_quote|render|striptags('<br>')|trim|raw|typography({
+              'set_min_length_hyphenation': 15,
+              'set_hyphenation_language': typography_lang
+            }) }}
+          </p>
         </div>
       {% endblock %}
       <footer>

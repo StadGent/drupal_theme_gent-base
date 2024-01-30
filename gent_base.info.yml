@@ -4,6 +4,8 @@ type: theme
 core_version_requirement: ^9 || ^10
 base theme: classy
 hidden: true
+dependencies:
+  - twig_typography:twig_typography
 regions:
   admin: Administration header
   header_top: Header top

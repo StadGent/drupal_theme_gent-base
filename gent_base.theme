@@ -9,7 +9,6 @@ use Drupal\block\Entity\Block;
 use Drupal\Component\Utility\Html;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Link;
-use Drupal\Core\Render\Element;
 use Drupal\Core\Render\Markup;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\Core\Template\Attribute;
@@ -110,6 +109,7 @@ function gent_base_preprocess_page(&$variables) {
   }
 
   gent_base_preprocess_page_hero_image($variables);
+  _gent_base_set_typography_language($variables);
 }
 
 /**
@@ -819,6 +819,9 @@ function gent_base_preprocess_node(array &$variables): void {
     _gent_base_preprocess_content_header_classes($variables);
   }
 
+  // Set typography language.
+  _gent_base_set_typography_language($variables);
+
   // Node bundle specific preprocessing.
   $method = sprintf('gent_base_preprocess_node_%s', $node->bundle());
   if (function_exists($method)) {
@@ -1297,6 +1300,13 @@ function gent_base_preprocess_pager(&$variables) {
 /**
  * Implements hook_preprocess_HOOK().
  */
+function gent_base_preprocess_paragraph(&$variables) {
+  _gent_base_set_typography_language($variables);
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
 function gent_base_preprocess_paragraph__call_to_action(&$variables) {
   /** @var \Drupal\paragraphs\ParagraphInterface $paragraph */
   $paragraph = $variables['paragraph'];
@@ -1517,4 +1527,24 @@ function gent_base_preprocess_file_upload_help(&$variables) {
   }
 
   $variables['descriptions'] = implode(' ', $descriptions);
+}
+
+/**
+ * Helper function to set twig_typography language to variables.
+ */
+function _gent_base_set_typography_language(&$variables): void {
+  static $langcode = NULL;
+
+  if (!$langcode) {
+    $langcode = \Drupal::languageManager()
+      ->getCurrentLanguage()
+      ->getId();
+
+    // Twig_typography expects specific English variant.
+    if ($langcode === 'en') {
+      $langcode = 'en-GB';
+    }
+  }
+
+  $variables['typography_lang'] = $langcode;
 }

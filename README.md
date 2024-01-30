@@ -9,6 +9,15 @@ It is included in the root of this theme inside the `styleguide` directory.
 This is also the place where the style guide code gets maintained to be 
 published as an NPM package.
 
+## Dependencies
+
+* [Twig Typography module](https://www.drupal.org/project/twig_typography):
+  This module is used to apply smart hyphenation to large sized titles. See
+  `paragraph--call-to-action.html.twig` as example.
+  
+  See [typography settings](https://github.com/mundschenk-at/php-typography/blob/main/src/class-settings.php)
+  for all possible 'set' options.
+
 ## Installation
 
 To install and use this base theme and a subtheme of it follow these steps:

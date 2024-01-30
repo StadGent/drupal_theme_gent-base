@@ -14,6 +14,11 @@
 #}
 {{ title_prefix }}
 {% if title|render|striptags|trim is not empty %}
-  <h1{{ title_attributes.addClass('overview-title') }}>{{ title }}</h1>
+  <h1{{ title_attributes.addClass('overview-title') }}>
+    {{ title|typography({
+      'set_min_length_hyphenation': 15,
+      'set_hyphenation_language': typography_lang
+    }) }}
+  </h1>
 {% endif %}
 {{ title_suffix }}

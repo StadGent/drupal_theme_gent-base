@@ -54,7 +54,12 @@
     <div class="cta-block__content">
       <div class="feature-block secondary">
         {% block content %}
+          {{ content.title|typography({
+            'set_min_length_hyphenation': 15,
+            'set_hyphenation_language': typography_lang
+          }) }}
           {{ content|without(
+            'title',
             'field_primary_action',
             'field_primary_action_size',
             'field_secondary_action',

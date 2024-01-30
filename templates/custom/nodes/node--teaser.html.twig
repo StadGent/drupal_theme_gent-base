@@ -89,7 +89,12 @@
         {{ title_prefix }}
         {% if not page %}
           <h3{{ title_attributes.addClass('bg-none h4') }}>
-            <span>{{ label }}</span>
+            <span>
+              {{ label|typography({
+                'set_min_length_hyphenation': 15,
+                'set_hyphenation_language': typography_lang
+              }) }}
+            </span>
           </h3>
         {% endif %}
         {{ title_suffix }}
