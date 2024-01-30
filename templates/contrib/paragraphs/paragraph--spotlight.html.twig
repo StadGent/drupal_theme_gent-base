@@ -57,7 +57,12 @@
     <div class="cta-block__content">
       <div class="feature-block primary dark-background">
         {% block title %}
-          <h2>{{ content.title }}</h2>
+          <h2>
+            {{ content.title|typography({
+              'set_min_length_hyphenation': 15,
+              'set_hyphenation_language': typography_lang
+            }) }}
+          </h2>
         {% endblock %}
         {% block content %}
           {{ content|without('title', 'field_image') }}

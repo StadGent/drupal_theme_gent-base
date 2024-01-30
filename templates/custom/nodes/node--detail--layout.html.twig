@@ -86,7 +86,10 @@
 
         {{ title_prefix }}
         <h1{{ title_attributes }}>
-          {{ label }}
+          {{ label|typography({
+            'set_min_length_hyphenation': 15,
+            'set_hyphenation_language': typography_lang
+          }) }}
         </h1>
         {{ title_suffix }}
 
