@@ -59,8 +59,9 @@
       margin-top: 30px;
     }
 
-    .email {
+    .form-item-email-address {
       width: 100%;
+      margin-top: 30px;
 
       @include tablet {
         max-width: 350px;
