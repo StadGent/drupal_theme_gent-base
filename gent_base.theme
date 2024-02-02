@@ -186,6 +186,13 @@ function gent_base_preprocess_html(&$variables) {
   $hex = (theme_get_setting('color_scheme_hex')) ?
     theme_get_setting('color_scheme_hex') : '005ba9';
   $variables['cs']['hex'] = '#' . $hex;
+
+  // Add unpublished body class.
+  $node = \Drupal::routeMatch()->getParameter('node');
+  if ($node && !$node->isPublished()) {
+    // Add a body class indicating that the entity is unpublished.
+    $variables['attributes']['class'][] = 'unpublished-content';
+  }
 }
 
 /**
