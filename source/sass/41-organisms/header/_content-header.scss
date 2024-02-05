@@ -1,9 +1,9 @@
 $header-side-padding: 255px;
 
-article {
-  &.overview-layout,
-  &.detail-layout,
-  &.map-layout {
+body {
+  .overview-layout,
+  .detail-layout,
+  .map-layout {
     div.content-header-container {
       // Content header in Drupal should always break out on the sides.
       // This breakout is provided for several layouts by the styleguide.
