@@ -71,7 +71,7 @@ main {
         & + .paragraph--type--partners,
         & + .paragraph--type--text {
           max-width: 100%;
-          padding: 20px;
+          padding: 20px 20px 0;
           background-color: color('white');
 
           .unpublished-content & {
@@ -79,7 +79,7 @@ main {
           }
 
           @include tablet {
-            padding: 60px;
+            padding: 60px 60px 0;
           }
         }
       }
