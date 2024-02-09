@@ -41,6 +41,8 @@
 
 {% set items_total = content.counter.0 %}
 {% set reversed = content.reversed.0 %}
+{% set first_timeframe = content.first_timeframe.0 %}
+{% set last_timeframe = content.last_timeframe.0 %}
 
 {% set classes = [
     'timeline-slot',
@@ -50,6 +52,11 @@
 
 {% block paragraph %}
     {% block content %}
+        {% if first_timeframe == TRUE %}
+        <div class="timeline-wrapper">
+            <h2 class="visually-hidden">timeline</h2>
+            <dl class="timeline accordion">
+        {% endif %}
         <div{{ attributes.addClass(classes) }} role="listitem">
             {% if content.title %}
                 <dt>
@@ -59,5 +66,9 @@
 
             {{ content.timeline_items }}
         </div>
+        {% if last_timeframe == TRUE %}
+            </dl>
+        </div>
+        {% endif %}
     {% endblock %}
 {% endblock paragraph %}
