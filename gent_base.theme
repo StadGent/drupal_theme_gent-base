@@ -606,6 +606,10 @@ function gent_base_preprocess_field__field_contacts(&$variables) {
     }
     $variables['items'][$key]['content']['#view_mode'] = $view_mode;
     $variables['items'][$key]['content']['#cache']['tags'] = $entity->getCacheTags();
+    $cache_key = array_search('teaser', $variables['items'][$key]['content']['#cache']['keys']);
+    if ($cache_key !== FALSE) {
+      $variables['items'][$key]['content']['#cache']['keys'][$cache_key] = $view_mode;
+    }
   }
 }
 
