@@ -45,11 +45,14 @@
 {% block paragraph %}
     {% block content %}
         {% if first_timeframe == TRUE %}
-        <div class="roadmap-wrapper">
+        <div {{ attributes.addClass('roadmap-wrapper') }}>
             <dl class="roadmap">
         {% endif %}
+
         <h2 class="visually-hidden">{{ content.title }}</h2>
+
         {{ content.timeline_items }}
+
         {% if last_timeframe == TRUE %}
             </dl>
         </div>

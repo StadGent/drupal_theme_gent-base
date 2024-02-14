@@ -52,7 +52,7 @@
       <div class="modal-content">
         <h3>{{ content.title }}</h3>
 
-        {% if content.subtitle %}
+        {% if content.subtitle|render is not empty %}
           <p>{{ content.subtitle }}</p>
         {% endif %}
 

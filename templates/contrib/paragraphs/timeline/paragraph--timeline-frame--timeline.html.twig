@@ -44,20 +44,14 @@
 {% set first_timeframe = content.first_timeframe.0 %}
 {% set last_timeframe = content.last_timeframe.0 %}
 
-{% set classes = [
-    'timeline-slot',
-    items_total is odd ? 'timeline-slot-odd' : 'timeline-slot-even',
-    reversed ? 'timeline-slot-reverse' : ''
-] %}
-
 {% block paragraph %}
     {% block content %}
         {% if first_timeframe == TRUE %}
-        <div class="timeline-wrapper">
+        <div{{ attributes.addClass('timeline-wrapper') }}>
             <h2 class="visually-hidden">timeline</h2>
             <dl class="timeline accordion">
         {% endif %}
-        <div{{ attributes.addClass(classes) }} role="listitem">
+        <div class="timeline-slot {{ items_total is odd ? 'timeline-slot-odd' : 'timeline-slot-even'}} {{ reversed ? 'timeline-slot-reverse' : '' }}" role="listitem">
             {% if content.title %}
                 <dt>
                     <h3 class="dt-title">{{ content.title }}</h3>
