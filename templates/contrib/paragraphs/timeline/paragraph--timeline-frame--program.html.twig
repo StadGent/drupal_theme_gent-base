@@ -39,19 +39,20 @@
  */
 #}
 
-{% set items_total = content.counter.0 %}
-{% set reversed = content.reversed.0 %}
-
-{% set classes = [
-    'programme-slot',
-    items_total is odd ? 'timeline-slot-odd' : 'timeline-slot-even',
-    reversed ? 'timeline-slot-reverse' : ''
-] %}
 {{ attach_library('gent_base/modal') }}
+
+{% set first_timeframe = content.first_timeframe.0 %}
+{% set last_timeframe = content.last_timeframe.0 %}
 
 {% block paragraph %}
   {% block content %}
-    <div{{ attributes.addClass(classes) }} role="listitem">
+    {% if first_timeframe == TRUE %}
+      <div{{ attributes.addClass('programme-wrapper') }}>
+        <h2 class="visually-hidden">programme</h2>
+        <dl class="programme">
+          <div class="programme__inner">
+    {% endif %}
+    <div class="programme-slot" role="listitem">
       <dt class="programme-slot-title">
         <h2>{{ content.title }}</h2>
       </dt>
@@ -63,5 +64,10 @@
         </div>
       </dd>
     </div>
+    {% if last_timeframe == TRUE %}
+        </div>
+      </dl>
+    </div>
+    {% endif %}
   {% endblock %}
 {% endblock paragraph %}

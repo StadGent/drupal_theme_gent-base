@@ -435,9 +435,9 @@ function gent_base_preprocess_menu_local_task(&$variables) {
  * Implements hook_preprocess_field().
  */
 function gent_base_preprocess_field(&$variables) {
-    if ($variables["element"]["#field_name"] == 'field_event_subscription_link') {
-        $variables['items'][0]['content']['#options']['attributes']['class'] = 'button button-secondary';
-    }
+  if ($variables["element"]["#field_name"] == 'field_event_subscription_link') {
+    $variables['items'][0]['content']['#options']['attributes']['class'] = 'button button-secondary';
+  }
 
   if ($variables["element"]["#field_name"] == 'field_tags' && count($variables["items"]) > 0) {
 
@@ -467,10 +467,10 @@ function gent_base_preprocess_field(&$variables) {
         $type = $entity->get('type')->getString();
 
         if ($type === 'timeline_frame') {
-          $display = _gent_base_get_timeline_display($entity);
-
           $timelineItems = count($entity->get('timeline_items')->referencedEntities());
           $variables['items'][$key]['content']['counter'][0] = $timelineItemTotal;
+          $variables['items'][$key]['content']['first_timeframe'][0] = FALSE;
+          $variables['items'][$key]['content']['last_timeframe'][0] = FALSE;
           $timelineItemTotal += $timelineItems;
 
           if ($timelineOdd) {
@@ -483,36 +483,15 @@ function gent_base_preprocess_field(&$variables) {
           // It's the first timeline frame.
           if ($firstTimeline === FALSE) {
             $firstTimeline = TRUE;
-
-            switch ($display) {
-              case 'timeline':
-                $variables['items'][$key]['content']['#prefix'] =
-                  '<div class="timeline-wrapper"><h2 class="visually-hidden">' . t('timeline') . '</h2>' .
-                  '<dl class="timeline accordion">';
-                break;
-              case 'program':
-                $isProgram = TRUE;
-                $variables['items'][$key]['content']['#prefix'] =
-                  '<div class="programme-wrapper"><h2 class="visually-hidden">' . t('programme') . '</h2>' .
-                  '<dl class="programme"><div class="programme__inner">';
-                break;
-              case 'roadmap':
-                $variables['items'][$key]['content']['#prefix'] =
-                  '<div class="roadmap-wrapper">' .
-                  '<dl class="roadmap">';
-                break;
-            }
+            $variables['items'][$key]['content']['first_timeframe'][0] = TRUE;
+          }
+          if (count($paragraphs) === $key+1) {
+            $variables['items'][$key]['content']['last_timeframe'][0] = TRUE;
           }
         }
         elseif ($firstTimeline === TRUE) {
           $firstTimeline = FALSE;
-
-          if ($isProgram) {
-            $variables['items'][$key - 1]['content']['#suffix'] = '</div></dl></div>';
-          }
-          else {
-            $variables['items'][$key - 1]['content']['#suffix'] = '</dl></div>';
-          }
+          $variables['items'][$key-1]['content']['last_timeframe'][0] = TRUE;
         }
       }
     }
