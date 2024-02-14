@@ -48,11 +48,11 @@
     {% block content %}
         {% if first_timeframe == TRUE %}
         <div{{ attributes.addClass('timeline-wrapper') }}>
-            <h2 class="visually-hidden">timeline</h2>
+            <h2 class="visually-hidden">{{ 'timeline'|t }}</h2>
             <dl class="timeline accordion">
         {% endif %}
         <div class="timeline-slot {{ items_total is odd ? 'timeline-slot-odd' : 'timeline-slot-even'}} {{ reversed ? 'timeline-slot-reverse' : '' }}" role="listitem">
-            {% if content.title %}
+            {% if content.title|render is not empty %}
                 <dt>
                     <h3 class="dt-title">{{ content.title }}</h3>
                 </dt>
