@@ -48,14 +48,18 @@
   {% block content %}
     {% if first_timeframe == TRUE %}
       <div{{ attributes.addClass('programme-wrapper') }}>
-        <h2 class="visually-hidden">programme</h2>
+        <h2 class="visually-hidden">{{ 'programme'|t }}</h2>
         <dl class="programme">
           <div class="programme__inner">
     {% endif %}
+
     <div class="programme-slot" role="listitem">
+      {% if content.title|render is not empty %}
       <dt class="programme-slot-title">
         <h2>{{ content.title }}</h2>
       </dt>
+      {% endif %}
+
       <dd>
         <div class="grid-wrapper">
           <ul class="grid-3">
@@ -64,6 +68,7 @@
         </div>
       </dd>
     </div>
+
     {% if last_timeframe == TRUE %}
         </div>
       </dl>
