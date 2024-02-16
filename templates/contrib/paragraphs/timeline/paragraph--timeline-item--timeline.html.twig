@@ -56,7 +56,9 @@
                         data-controls-img="timeline-slot-img--{{ paragraph.id() }}"
                         class="accordion--button">{{ content.title }}</button>
             </h4>
+            {% if content.subtitle|render is not empty %}
             <h5 class="timeline-slot-date">{{ content.subtitle }}</h5>
+            {% endif %}
         </div>
         <div class="timeline-slot-content accordion--content" id="timeline-slot-content--{{ paragraph.id() }}" aria-hidden="{{ hidden }}" style="min-height: 100%;">
             <div class="content-image hidden-desktop">
