@@ -1,0 +1,8 @@
+.cta-block.spotlight {
+  .cta-block__image {
+    // Flex-shrink from styleguide somehow breaks the styling in drupal, but not
+    // in styleguide. In Drupal, the spotlight image is too big because of this.
+    // @todo Fix in correct place and remove this file.
+    flex-shrink: initial;
+  }
+}
