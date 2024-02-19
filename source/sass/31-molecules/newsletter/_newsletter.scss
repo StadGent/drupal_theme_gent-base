@@ -8,11 +8,19 @@
     }
   }
 
+  *:last-child {
+    margin-bottom: 0;
+  }
+
   .form-wrapper:not(.form-actions) {
     position: relative;
 
     .dg-newsletter-privacy-disclaimer {
       margin: 30px 0;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
 
     .dg-newsletter-intro-text,
@@ -54,9 +62,13 @@
       }
     }
 
-    fieldset[data-drupal-selector$="edit-interests"] {
+    .interests {
       flex-basis: 100%;
       margin-top: 30px;
+
+      .checkbox {
+        margin-bottom: 20px;
+      }
     }
 
     .form-item-email-address {
@@ -66,12 +78,6 @@
       @include tablet {
         max-width: 350px;
       }
-    }
-
-    p[data-drupal-selector$="edit-privacy-link"] {
-      @include medium-text();
-
-      margin: 30px 0;
     }
 
     .form-actions {
@@ -85,10 +91,22 @@
       }
     }
 
-    .dg-newsletter-privacy-disclaimer {
-      ~ .form-actions {
-        margin-top: 10px;
+    .form-item-email-address + .form-actions {
+      margin-top: 10px;
+
+      @include tablet {
+        margin-top: 58px;
       }
+    }
+
+    .interests + .form-actions {
+      flex: 0 0 100%;
+    }
+
+    p[data-drupal-selector$="edit-privacy-link"] {
+      @include medium-text();
+
+      margin: 30px 0;
     }
 
     .ajax-progress {
@@ -107,11 +125,5 @@
 .subscribe {
   > *:last-child {
     margin-bottom: 0;
-  }
-}
-
-.sg-newsletter-subscribe-overview-form {
-  .form-disclaimer {
-    display: none;
   }
 }
