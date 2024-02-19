@@ -88,11 +88,5 @@ main {
         }
       }
     }
-
-    & + .paragraph--type--text {
-      & > * {
-        margin-top: 0;
-      }
-    }
   }
 }
