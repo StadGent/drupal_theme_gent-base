@@ -1,8 +1,11 @@
-.node--type-news.node--view-mode-teaser {
-  // Hide calendar icon for news teasers.
-  .date {
-    span::before {
-      display: none;
+.node--type-news {
+  &.node--view-mode-teaser,
+  &.node--view-mode-teaser-wide {
+    // Hide calendar icon for news teasers.
+    .date {
+      span::before {
+        display: none;
+      }
     }
   }
 }
