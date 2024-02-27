@@ -93,11 +93,12 @@
     {% endblock %}
 
     {% block content %}
-      <span class="tag">{{ node.type.entity.label }}</span>
-      {{ content.og_audience }}
+      <div class="tag-list-wrapper">
+        <ul class="tag-list">
+          <li><span class="tag">{{ node.type.entity.label }}</span></li>
 
-      <div{{ content_attributes.addClass('node__content') }}>
-        {{ content|without('og_audience') }}
+          {{ content }}
+        </ul>
       </div>
     {% endblock %}
   </div>
