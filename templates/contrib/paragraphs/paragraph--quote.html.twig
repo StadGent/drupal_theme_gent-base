@@ -43,6 +43,14 @@
   'quote-wrapper',
 ] %}
 
+{% set author = [] %}
+{% if content.field_author|render|striptags|trim is not empty %}
+  {% set author = author|merge([content.field_author|render|striptags|trim]) %}
+{% endif %}
+{% if content.field_position|render|striptags|trim is not empty %}
+  {% set author = author|merge([content.field_position|render|striptags|trim]) %}
+{% endif %}
+
 <div{{ attributes.addClass(classes) }}>
   <div class="quote">
     <blockquote>
@@ -56,12 +64,11 @@
           </p>
         </div>
       {% endblock %}
-      <footer>
-        {{ content.field_author|render|striptags|trim }}
-        {% if content.field_position|render|striptags|trim is not empty %}
-          , {{ content.field_position|render|striptags|trim }}
-        {% endif %}
-      </footer>
+      {% if author is not empty %}
+        <footer>
+          {{ author|join(', ') }}
+        </footer>
+      {% endif %}
     </blockquote>
   </div>
 </div>
