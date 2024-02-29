@@ -7,6 +7,7 @@ All Notable changes to `StadGent/drupal_theme_gent-base`.
 ### Fixed
 
 - DTGB-901: Fix fatal error due to non existing field.
+- DTGB-902: Fix missing twig_typography module.
 
 ## [5.x]
 
