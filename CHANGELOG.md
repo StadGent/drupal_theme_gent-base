@@ -7,6 +7,7 @@ All Notable changes to `StadGent/drupal_theme_gent-base`.
 ### Fixed
 
 - DTGB-901: Fix fatal error due to non existing field.
+- Remove word-break on language switcher links.
 
 ## [5.x]
 
