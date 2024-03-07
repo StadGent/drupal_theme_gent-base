@@ -35,8 +35,6 @@
 {% endif %}
 
     <div{{ attributes.setAttribute('role', 'alert').setAttribute('aria-atomic', 'true').addClass(classes) }}>
-      <i class="icon-checkmark-circle" aria-hidden="true"></i>
-
       <div>
         {% if message %}
           <p>{{ message }}</p>
