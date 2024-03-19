@@ -105,6 +105,7 @@ function gent_base_preprocess_page(&$variables) {
   $route = \Drupal::request()->get('_route');
   if ($route !== 'entity.node.canonical') {
     $variables['attributes']['class'][] = 'overview-page';
+    _gent_base_preprocess_page_content_region($variables);
     return;
   }
 
@@ -1517,6 +1518,21 @@ function gent_base_preprocess_file_upload_help(&$variables) {
   }
 
   $variables['descriptions'] = implode(' ', $descriptions);
+}
+
+/**
+ * Add result ID and class to content region when filters region is not empty.
+ *
+ * @param array $variables
+ *   The page variables.
+ */
+function _gent_base_preprocess_page_content_region(array &$variables): void {
+  if (empty($variables['page']['filters'])) {
+    return;
+  }
+
+  $variables['page']['content']['#attributes']['id'] = 'result';
+  $variables['page']['content']['#attributes']['class'][] = 'result-section';
 }
 
 /**
