@@ -9,6 +9,7 @@ use Drupal\block\Entity\Block;
 use Drupal\Component\Utility\Html;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Link;
+use Drupal\Core\Render\Element;
 use Drupal\Core\Render\Markup;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\Core\Template\Attribute;
@@ -451,7 +452,6 @@ function gent_base_preprocess_field(&$variables) {
   if ($variables["element"]["#field_name"] == 'field_paragraphs') {
     $paragraphs = $variables['element']["#items"]->getIterator();
 
-    $isProgram = FALSE;
     $firstTimeline = FALSE;
     $timelineItemTotal = 0;
     $timelineOdd = FALSE;
@@ -486,13 +486,13 @@ function gent_base_preprocess_field(&$variables) {
             $firstTimeline = TRUE;
             $variables['items'][$key]['content']['first_timeframe'][0] = TRUE;
           }
-          if (count($paragraphs) === $key+1) {
+          if (count($paragraphs) === $key + 1) {
             $variables['items'][$key]['content']['last_timeframe'][0] = TRUE;
           }
         }
         elseif ($firstTimeline === TRUE) {
           $firstTimeline = FALSE;
-          $variables['items'][$key-1]['content']['last_timeframe'][0] = TRUE;
+          $variables['items'][$key - 1]['content']['last_timeframe'][0] = TRUE;
         }
       }
     }
@@ -800,7 +800,7 @@ function gent_base_preprocess_node(array &$variables): void {
   // Set datetime attributes on "Submitted on" label.
   $variables['author_attributes']
     ->setAttribute('datetime', \Drupal::service('date.formatter')
-    ->format($variables['date'], 'custom', 'c'));
+      ->format($variables['date'], 'custom', 'c'));
   $variables['author_attributes']
     ->setAttribute('pubdate', 'pubdate');
 
