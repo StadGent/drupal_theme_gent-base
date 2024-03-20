@@ -4,6 +4,11 @@ All Notable changes to `StadGent/drupal_theme_gent-base`.
 
 ## [6.x]
 
+### Added
+
+- DTGB-903: Add proper ID and class to content region when on overview page
+  with filters.
+
 ### Fixed
 
 - DTGB-901: Fix fatal error due to non existing field.
