@@ -12,6 +12,7 @@ All Notable changes to `StadGent/drupal_theme_gent-base`.
 ### Fixed
 
 - DTGB-901: Fix fatal error due to non existing field.
+- DTGB-904: Fix gap in filter modal (fixed in Styleguide).
 - Remove word-break on language switcher links.
 
 ## [5.x]
