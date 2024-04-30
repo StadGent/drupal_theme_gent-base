@@ -11,7 +11,8 @@
         return;
       }
 
-      once('gent-base-menu', '.modal.menu', context).forEach(menu => {
+      once('gent-base-menu', '.modal.menu', context).forEach(function (menu) {
+        // eslint-disable-next-line no-undef
         new Modal(menu, {
           // The menu is always visible from tablet and up,
           // this is atypical.
