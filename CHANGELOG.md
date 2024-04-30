@@ -15,6 +15,7 @@ All Notable changes to `StadGent/drupal_theme_gent-base`.
 - DTGB-904: Fix gap in filter modal (fixed in Styleguide).
 - DTGB-905: Fix filters heading size and missing help text.
 - Remove word-break on language switcher links.
+- DTGB-908: Fix multiple menu-bindings execution due to other modals on page.
 
 ## [5.x]
 
