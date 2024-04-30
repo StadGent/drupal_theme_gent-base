@@ -1,6 +1,6 @@
 /**
  * @file
-* Menu component binding.
+ * Menu component binding.
  */
 (function (Drupal) {
   'use strict';
@@ -11,30 +11,23 @@
         return;
       }
 
-      var menu = document.querySelectorAll('.modal.menu');
-
-      var createModal = function (modal) {
-        /* global Modal */
-        new Modal(modal, {
-          // The modal is always visible from tablet and up,
+      once('gent-base-menu', '.modal.menu', context).forEach(menu => {
+        new Modal(menu, {
+          // The menu is always visible from tablet and up,
           // this is atypical.
           resizeEvent: function (open, close) {
             if (window.innerWidth > 960) {
               close();
-              modal.setAttribute('aria-hidden', 'false');
+              menu.setAttribute('aria-hidden', 'false');
+              return;
             }
-            else {
-              if (!modal.classList.contains('visible')) {
-                modal.setAttribute('aria-hidden', 'true');
-              }
+
+            if (!menu.classList.contains('visible')) {
+              menu.setAttribute('aria-hidden', 'true');
             }
           }
         });
-      };
-
-      for (var i = menu.length; i--;) {
-        createModal(menu[i]);
-      }
+      });
     }
   };
-})(Drupal);
+})(Drupal, once);

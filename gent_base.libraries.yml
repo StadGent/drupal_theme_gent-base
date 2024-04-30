@@ -3,6 +3,7 @@ menu:
     source/js/menu.bindings.js: {}
   dependencies:
     - gent_base/modal
+    - core/once
 
 accordion:
   js:
