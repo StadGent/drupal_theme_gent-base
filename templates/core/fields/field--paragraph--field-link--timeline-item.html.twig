@@ -39,7 +39,6 @@
 #}
 
 {% for item in items %}
-    {% set link = item.content|merge({'#attributes': {'class': 'button button-primary icon-arrow-right'}}) %}
-
+    {% set link = item.content|merge({'#attributes': {'class': 'button button-primary'}}) %}
     {{ link }}
 {% endfor %}
