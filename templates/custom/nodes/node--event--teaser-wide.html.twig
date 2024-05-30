@@ -1,0 +1,28 @@
+{% extends 'node--teaser.html.twig' %}
+
+{% block content %}
+    <div class="date">
+        <span>{{ content.field_event_date }}</span>
+    </div>
+
+    {{ content|without('field_teaser_image', 'og_audience', 'field_summary', 'field_event_date') }}
+{% endblock %}
+
+{% block image %}
+    <div class="tags-label-wrapper">
+        <span class="label">
+          <i class="icon-calendar"></i>
+          <span>{{ 'Event'|t }}</span>
+        </span>
+        {# Rendered as tag list. #}
+        {{ content.og_audience }}
+    </div>
+
+    {% if node.hasField('field_teaser_image') %}
+        {% apply spaceless %}
+            <div class="figure-wrapper">
+                {{ content.field_teaser_image }}
+            </div>
+        {% endapply %}
+    {% endif %}
+{% endblock %}
