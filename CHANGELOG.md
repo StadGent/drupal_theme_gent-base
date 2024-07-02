@@ -2,6 +2,12 @@
 
 All Notable changes to `StadGent/drupal_theme_gent-base`.
 
+## [Unreleased]
+
+### Added
+
+- DMD09LEAFL-4: Add css for leaflet maps.
+
 ## [6.x]
 
 ### Added
