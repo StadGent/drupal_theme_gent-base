@@ -1,5 +1,6 @@
-$map-button-background: color('white');
-$map-text-color: color('gray');
+$color-white: color('white');
+$color-gray: color('gray');
+$color-light-gray: color('gray-light');
 
 .leaflet-container.leaflet-touch {
   .leaflet-control-layers,
@@ -18,14 +19,14 @@ $map-text-color: color('gray');
 
   .leaflet-control-fullscreen {
     a {
-      background: color('white') url('#{$styleguide-dir}/img/svg/fullscreen-enter.svg') no-repeat 10px 10px;
+      background: $color-white url('#{$styleguide-dir}/img/svg/fullscreen-enter.svg') no-repeat 10px 10px;
     }
   }
 
   &.leaflet-fullscreen-on {
     .leaflet-control-fullscreen {
       a {
-        background: color('white') url('#{$styleguide-dir}/img/svg/fullscreen-exit.svg') no-repeat 10px 10px;
+        background: $color-white url('#{$styleguide-dir}/img/svg/fullscreen-exit.svg') no-repeat 10px 10px;
       }
     }
   }
@@ -33,7 +34,7 @@ $map-text-color: color('gray');
   .leaflet-control-locate {
     a {
       .leaflet-control-locate-location-arrow {
-        background: color('white') url('#{$styleguide-dir}/img/svg/target.svg') no-repeat 10px 10px;
+        background: $color-white url('#{$styleguide-dir}/img/svg/target.svg') no-repeat 10px 10px;
         width: 50px;
         height: 50px;
         margin: 0;
@@ -43,7 +44,7 @@ $map-text-color: color('gray');
 
   .leaflet-control-layers {
     a {
-      background: color('white') url('#{$styleguide-dir}/img/svg/layers.svg') no-repeat 10px 10px;
+      background: $color-white url('#{$styleguide-dir}/img/svg/layers.svg') no-repeat 10px 10px;
       border: 0;
     }
   }
@@ -53,7 +54,7 @@ $map-text-color: color('gray');
       box-shadow: 0 8px 12px 0 rgba(0, 125, 179, .06);
 
       span {
-        color: $map-text-color;
+        color: $color-gray;
         font-size: 2rem;
       }
 
@@ -73,7 +74,7 @@ $map-text-color: color('gray');
   .leaflet-popup-close-button {
     span {
       font-size: 1.5rem;
-      color: $map-text-color;
+      color: $color-gray;
     }
   }
 
@@ -82,7 +83,7 @@ $map-text-color: color('gray');
     border-radius: 3px;
     outline-style: none;
     transition: border-color .25s;
-    border: 1px solid color('gray-light');
-    background-color: $map-button-background;
+    border: 1px solid $color-light-gray;
+    background-color: $color-gray;
   }
 }
