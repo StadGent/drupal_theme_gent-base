@@ -9,7 +9,7 @@
       line-height: 55px;
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
-      box-shadow: 0 8px 12px 0 rgba(0, 125, 179, .06);
+      box-shadow: 0 3px 14px rgba(0, 0, 0, 0.4);
     }
   }
 
@@ -17,8 +17,8 @@
     a {
       @include theme('background-color', 'color-none', 'leaflet-map-open-fullscreen-icon-background-color');
 
-      background-image:url('#{$styleguide-dir}/img/svg/fullscreen-enter.svg');
-      background-position:10px 10px;
+      background-image: url('#{$styleguide-dir}/img/svg/fullscreen-enter.svg');
+      background-position: 10px 10px;
       background-repeat: no-repeat;
       background-size: auto;
     }
@@ -30,7 +30,7 @@
         @include theme('background-color', 'color-none', 'leaflet-map-close-fullscreen-icon-background-color');
 
         background-image: url('#{$styleguide-dir}/img/svg/fullscreen-exit.svg');
-        background-position:10px 10px;
+        background-position: 10px 10px;
         background-repeat: no-repeat;
       }
     }
@@ -42,7 +42,7 @@
         @include theme('background-color', 'color-none', 'leaflet-map-location-icon-background-color');
 
         background-image: url('#{$styleguide-dir}/img/svg/target.svg');
-        background-position:10px 10px;
+        background-position: 10px 10px;
         background-repeat: no-repeat;
         width: 50px;
         height: 50px;
@@ -56,7 +56,7 @@
       @include theme('background-color', 'color-none', 'leaflet-map-layers-icon-background-color');
 
       background-image: url('#{$styleguide-dir}/img/svg/layers.svg');
-      background-position:10px 10px;
+      background-position: 10px 10px;
       background-repeat: no-repeat;
       border: 0;
       background-size: auto;
@@ -65,7 +65,7 @@
 
   .leaflet-control-zoom {
     a {
-      box-shadow: 0 8px 12px 0 rgba(0, 125, 179, .06);
+      box-shadow: 0 3px 14px rgba(0, 0, 0, 0.4);
 
       span {
         @include theme('color', 'color-zero', 'leaflet-map-zoom-icon-color');
@@ -105,4 +105,39 @@
     border-style: solid;
     border-width: 1px;
   }
+
+  .gent-leaflet-location-icon {
+    @include theme('background-color', 'color-none', 'leaflet-map-location-icon-background-color');
+
+    border-radius: 30px;
+    box-shadow: 0 3px 14px rgba(0, 0, 0, 0.4);
+    padding: 5px;
+  }
+
+  .leaflet-popup-content-wrapper {
+    border-radius: 0
+  }
+
+  a.leaflet-popup-close-button {
+    top: 10px;
+    right: 10px;
+  }
+
+  .marker-cluster {
+    span {
+      @include theme('color', 'color-none', 'leaflet-map-marker-cluster-text-color');
+
+      font-size: 15px;
+      font-weight: bold;
+    }
+  }
+
+  .marker-cluster-small {
+    background-color: rgba(0, 91, 169, 0.3);
+
+    div {
+      background-color: rgba(0, 91, 169, 0.8);
+    }
+  }
+
 }
