@@ -6,3 +6,7 @@
   width: 1px;
   word-wrap: normal;
 }
+
+@mixin map-button-box-shadow {
+  box-shadow: 0 3px 14px rgba(0, 0, 0, .4);
+}

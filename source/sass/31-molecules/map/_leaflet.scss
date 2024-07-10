@@ -4,12 +4,13 @@
     border: 0;
 
     a {
+      @include map-button-box-shadow;
+
       width: 50px;
       height: 50px;
       line-height: 55px;
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
-      box-shadow: 0 3px 14px rgba(0, 0, 0, 0.4);
     }
   }
 
@@ -65,7 +66,7 @@
 
   .leaflet-control-zoom {
     a {
-      box-shadow: 0 3px 14px rgba(0, 0, 0, 0.4);
+      @include map-button-box-shadow;
 
       span {
         @include theme('color', 'color-zero', 'leaflet-map-zoom-icon-color');
@@ -108,9 +109,9 @@
 
   .gent-leaflet-location-icon {
     @include theme('background-color', 'color-none', 'leaflet-map-location-icon-background-color');
+    @include map-button-box-shadow;
 
     border-radius: 30px;
-    box-shadow: 0 3px 14px rgba(0, 0, 0, 0.4);
     padding: 5px;
   }
 
@@ -133,10 +134,10 @@
   }
 
   .marker-cluster-small {
-    background-color: rgba(0, 91, 169, 0.3);
+    background-color: rgba(0, 91, 169, .3);
 
     div {
-      background-color: rgba(0, 91, 169, 0.8);
+      background-color: rgba(0, 91, 169, .8);
     }
   }
 
