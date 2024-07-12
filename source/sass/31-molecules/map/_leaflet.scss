@@ -4,11 +4,11 @@
     border: 0;
 
     a {
-      @include box-shadow(0 ,3px, 14px, rgba(0, 0, 0, .4));
+      @include box-shadow(0, 3px, 14px, rgba(0, 0, 0, .4));
 
-      width: 50px;
-      height: 50px;
-      line-height: 55px;
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
     }
@@ -19,9 +19,9 @@
       @include theme('background-color', 'color-none', 'leaflet-map-open-fullscreen-icon-background-color');
 
       background-image: url('#{$styleguide-dir}/img/svg/fullscreen-enter.svg');
-      background-position: 10px 10px;
+      background-position: 8px 8px;
       background-repeat: no-repeat;
-      background-size: auto;
+      background-size: 25px 25px;
     }
   }
 
@@ -31,8 +31,9 @@
         @include theme('background-color', 'color-none', 'leaflet-map-close-fullscreen-icon-background-color');
 
         background-image: url('#{$styleguide-dir}/img/svg/fullscreen-exit.svg');
-        background-position: 10px 10px;
+        background-position: 8px 8px;
         background-repeat: no-repeat;
+        background-size: 25px 25px;
       }
     }
   }
@@ -43,10 +44,11 @@
         @include theme('background-color', 'color-none', 'leaflet-map-location-icon-background-color');
 
         background-image: url('#{$styleguide-dir}/img/svg/target.svg');
-        background-position: 10px 10px;
+        background-position: 8px 8px;
         background-repeat: no-repeat;
-        width: 50px;
-        height: 50px;
+        background-size: 25px 25px;
+        width: 40px;
+        height: 40px;
         margin: 0;
       }
     }
@@ -57,21 +59,21 @@
       @include theme('background-color', 'color-none', 'leaflet-map-layers-icon-background-color');
 
       background-image: url('#{$styleguide-dir}/img/svg/layers.svg');
-      background-position: 10px 10px;
+      background-position: 8px 8px;
       background-repeat: no-repeat;
       border: 0;
-      background-size: auto;
+      background-size: 25px 25px;
     }
   }
 
   .leaflet-control-zoom {
     a {
-      @include box-shadow(0 ,3px, 14px, rgba(0, 0, 0, .4));
+      @include box-shadow(0, 3px, 14px, rgba(0, 0, 0, .4));
 
       span {
         @include theme('color', 'color-zero', 'leaflet-map-zoom-icon-color');
 
-        font-size: 2rem;
+        font-size: 1.5rem;
       }
 
       &.leaflet-control-zoom-in {
@@ -83,6 +85,14 @@
       &.leaflet-control-zoom-out {
         border: 0;
         border-radius: 0;
+      }
+
+      &:hover, &:focus {
+        @include theme('background-color', 'color-none', 'leaflet-map-button-hover-background-color');
+
+        background-image: none;
+        background-size: unset;
+        outline: none;
       }
     }
   }
@@ -99,9 +109,12 @@
     @include theme('background-color', 'color-none', 'leaflet-map-search-box-background-color');
     @include theme('border-color', 'color-zero', 'leaflet-map-search-box-border-color');
 
+    background-image: url('#{$styleguide-dir}/img/iconfont/search.svg');
+    background-size: 25px 25px;
     color: rgb(25, 25, 25);
     border-radius: 3px;
     outline-style: none;
+    height: 30px;
     transition: border-color .25s;
     border-style: solid;
     border-width: 1px;
@@ -109,7 +122,7 @@
 
   .gent-leaflet-location-icon {
     @include theme('background-color', 'color-none', 'leaflet-map-location-icon-background-color');
-    @include box-shadow(0 ,3px, 14px, rgba(0, 0, 0, .4));
+    @include box-shadow(0, 3px, 14px, rgba(0, 0, 0, .4));
 
     border-radius: 30px;
     padding: 5px;
