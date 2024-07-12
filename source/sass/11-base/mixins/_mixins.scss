@@ -7,6 +7,6 @@
   word-wrap: normal;
 }
 
-@mixin map-button-box-shadow {
-  box-shadow: 0 3px 14px rgba(0, 0, 0, .4);
+@mixin box-shadow($horizontal,$vertical ,$blur, $rgba) {
+  box-shadow: $horizontal $vertical $blur $rgba;
 }
