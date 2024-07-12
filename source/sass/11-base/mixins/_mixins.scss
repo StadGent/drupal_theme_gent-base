@@ -7,6 +7,6 @@
   word-wrap: normal;
 }
 
-@mixin box-shadow($horizontal,$vertical ,$blur, $rgba) {
+@mixin box-shadow($horizontal, $vertical, $blur, $rgba) {
   box-shadow: $horizontal $vertical $blur $rgba;
 }
