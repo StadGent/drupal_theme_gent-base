@@ -1,5 +1,7 @@
 $color-white: color('white');
 $color-gray: color('dark-gray');
+$color-dark-blue: color('blue', -1);
+$color-light-blue: color('blue', -3);
 
 .leaflet-container.leaflet-touch {
   .leaflet-control-layers,
@@ -10,7 +12,7 @@ $color-gray: color('dark-gray');
       box-shadow: 0 3px 14px rgba(0, 0, 0, .4);
       width: 40px;
       height: 40px;
-      line-height: 40px;
+      line-height: 35px;
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
     }
@@ -139,10 +141,10 @@ $color-gray: color('dark-gray');
   }
 
   .marker-cluster-small {
-    background-color: rgba(0, 91, 169, .3);
+    background-color: $color-light-blue;
 
     div {
-      background-color: rgba(0, 91, 169, .8);
+      background-color: $color-dark-blue;
     }
   }
 
