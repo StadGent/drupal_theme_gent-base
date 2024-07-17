@@ -1,8 +1,3 @@
-$color-white: color('white');
-$color-gray: color('dark-gray');
-$color-dark-blue: color('blue', -1);
-$color-light-blue: color('blue', -3);
-
 .leaflet-container.leaflet-touch {
   .leaflet-control-layers,
   .leaflet-bar {
@@ -20,7 +15,8 @@ $color-light-blue: color('blue', -3);
 
   .leaflet-control-fullscreen {
     a {
-      background-color: $color-white;
+      @include theme('background-color', 'color-secondary', 'leaflet-map-open-fullscreen-icon-background-color');
+
       background-image: url('#{$styleguide-dir}/img/svg/fullscreen-enter.svg');
       background-position: 8px 8px;
       background-repeat: no-repeat;
@@ -31,7 +27,8 @@ $color-light-blue: color('blue', -3);
   &.leaflet-fullscreen-on {
     .leaflet-control-fullscreen {
       a {
-        background-color: $color-white;
+        @include theme('background-color', 'color-secondary', 'leaflet-map-close-fullscreen-icon-background-color');
+
         background-image: url('#{$styleguide-dir}/img/svg/fullscreen-exit.svg');
         background-position: 8px 8px;
         background-repeat: no-repeat;
@@ -43,7 +40,8 @@ $color-light-blue: color('blue', -3);
   .leaflet-control-locate {
     a {
       .leaflet-control-locate-location-arrow {
-        background-color: $color-white;
+        @include theme('background-color', 'color-secondary', 'leaflet-map-location-icon-background-color');
+
         background-image: url('#{$styleguide-dir}/img/svg/target.svg');
         background-position: 8px 8px;
         background-repeat: no-repeat;
@@ -57,7 +55,8 @@ $color-light-blue: color('blue', -3);
 
   .leaflet-control-layers {
     a {
-      background-color: $color-white;
+      @include theme('background-color', 'color-secondary', 'leaflet-map-layers-icon-background-color');
+
       background-image: url('#{$styleguide-dir}/img/svg/layers.svg');
       background-position: 8px 8px;
       background-repeat: no-repeat;
@@ -71,7 +70,8 @@ $color-light-blue: color('blue', -3);
       box-shadow: 0 3px 14px rgba(0, 0, 0, .4);
 
       span {
-        color: $color-gray;
+        @include theme('color', 'color-tertiary', 'leaflet-map-zoom-icon-color');
+
         font-size: 1.5rem;
       }
 
@@ -87,7 +87,8 @@ $color-light-blue: color('blue', -3);
       }
 
       &:hover, &:focus {
-        background-color: $color-white;
+        @include theme('background-color', 'color-secondary', 'leaflet-map-button-hover-background-color');
+
         background-image: none;
         background-size: unset;
         outline: none;
@@ -97,14 +98,16 @@ $color-light-blue: color('blue', -3);
 
   .leaflet-popup-close-button {
     span {
-      color: $color-gray;
+      @include theme('color', 'color-tertiary', 'leaflet-map-popup-close-button-color');
+
       font-size: 1.5rem;
     }
   }
 
   .ui-autocomplete-input {
-    background-color: $color-white;
-    border-color: $color-gray;
+    @include theme('background-color', 'color-secondary', 'leaflet-map-search-box-background-color');
+    @include theme('border-color', 'color-tertiary', 'leaflet-map-search-box-border-color');
+
     background-image: url('#{$styleguide-dir}/img/iconfont/search.svg');
     background-size: 25px 25px;
     color: rgb(25, 25, 25);
@@ -117,7 +120,8 @@ $color-light-blue: color('blue', -3);
   }
 
   .gent-leaflet-location-icon {
-    background-color: $color-white;
+    @include theme('background-color', 'color-secondary', 'leaflet-map-location-icon-background-color');
+
     box-shadow: 0 3px 14px rgba(0, 0, 0, .4);
     border-radius: 30px;
     padding: 5px;
@@ -134,17 +138,19 @@ $color-light-blue: color('blue', -3);
 
   .marker-cluster {
     span {
-      color: $color-white;
+      @include theme('color', 'color-secondary', 'leaflet-map-marker-cluster-text-color');
+
       font-size: 15px;
       font-weight: bold;
     }
   }
 
   .marker-cluster-small {
-    background-color: $color-light-blue;
+    @include theme('background-color', 'accolade-stroke-light', 'leaflet-map-markercluster-background-shadow');
 
     div {
-      background-color: $color-dark-blue;
+      @include theme('background-color','accolade-stroke-dark', 'leaflet-map-markercluster-background-color');
+
     }
   }
 
