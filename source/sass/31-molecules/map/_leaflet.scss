@@ -122,7 +122,7 @@
 
   .gent-leaflet-location-icon {
     @include theme('background-color', 'color-none', 'leaflet-map-location-icon-background-color');
-    @include box-shadow(0, 3px, 14px, color('gray',-3));
+    @include box-shadow(0, 3px, 14px, color('gray', -3));
 
     border-radius: 30px;
     padding: 5px;
