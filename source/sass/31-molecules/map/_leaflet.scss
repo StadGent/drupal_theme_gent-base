@@ -4,7 +4,7 @@
     border: 0;
 
     a {
-      @include box-shadow(0, 3px, 14px, color('gray',-3));
+      @include box-shadow(0, 3px, 14px, color('gray', -3));
 
       width: 40px;
       height: 40px;
