@@ -4,7 +4,7 @@
     border: 0;
 
     a {
-      @include box-shadow(0, 3px, 14px, color('gray', -3));
+      @include box-shadow();
 
       width: 40px;
       height: 40px;
@@ -68,7 +68,7 @@
 
   .leaflet-control-zoom {
     a {
-      @include box-shadow(0, 3px, 14px, color('gray', -3));
+      @include box-shadow();
 
       span {
         @include theme('color', 'color-zero', 'leaflet-map-zoom-icon-color');
@@ -122,7 +122,7 @@
 
   .gent-leaflet-location-icon {
     @include theme('background-color', 'color-none', 'leaflet-map-location-icon-background-color');
-    @include box-shadow(0, 3px, 14px, color('gray', -3));
+    @include box-shadow();
 
     border-radius: 30px;
     padding: 5px;
