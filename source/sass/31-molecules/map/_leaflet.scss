@@ -68,7 +68,7 @@
 
   .leaflet-control-zoom {
     a {
-      @include box-shadow(0, 3px, 14px, color('gray',-3));
+      @include box-shadow(0, 3px, 14px, color('gray', -3));
 
       span {
         @include theme('color', 'color-zero', 'leaflet-map-zoom-icon-color');
