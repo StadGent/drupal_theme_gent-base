@@ -38,3 +38,6 @@ mkdir -p ../build/@digipolis-gent/modal;
 cp -R ./node_modules/@digipolis-gent/modal/dist/index.js ../build/@digipolis-gent/modal;
 cp -R ./node_modules/gent_styleguide/build/styleguide ../build;
 ./node_modules/.bin/gulp build;
+
+echo "Removing gent_base 'source' directory...";
+rm -rf ../source;
