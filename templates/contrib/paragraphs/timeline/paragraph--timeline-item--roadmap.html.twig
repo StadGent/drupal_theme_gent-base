@@ -63,16 +63,16 @@
 
 <div{{ attributes.addClass(classes) }} role="listitem">
     <div class="item">
-    <dd class="item__image">
-        <div class="timeline-slot-content timeline-slot-content__img">
-            {% if content.field_image|render is not empty %}
-                <div class="image-gallery--wrapper single">
-                    {{ content.field_image.0 }}
-                </div>
-            {% endif %}
-        </div>
-    </dd>
-    <dd class="item__content">
+        {% if content.field_image|render is not empty %}
+        <dd class="item__image">
+            <div class="timeline-slot-content timeline-slot-content__img">
+                    <div class="image-gallery--wrapper single">
+                        {{ content.field_image.0 }}
+                    </div>
+            </div>
+        </dd>
+        {% endif %}
+        <dd class="item__content">
         <div class="timeline-slot-header">
             <h3 class="timeline-slot-title">
                 {{ content.title }}
@@ -105,5 +105,5 @@
             {% endif %}
         </div>
     </dd>
-</div>
+    </div>
 </div>
