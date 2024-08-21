@@ -45,11 +45,11 @@
 {% block paragraph %}
     {% block content %}
         {% if first_timeframe == TRUE %}
-        <div {{ attributes.addClass('roadmap-wrapper') }}>
+        <div class="roadmap-wrapper">
             <dl class="roadmap">
         {% endif %}
 
-        <h2>{{ content.title }}</h2>
+        <h2 {{ attributes }}>{{ content.title }}</h2>
 
         {{ content.timeline_items }}
 
