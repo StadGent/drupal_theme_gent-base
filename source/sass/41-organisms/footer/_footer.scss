@@ -1,3 +1,9 @@
 .region-footer {
   margin-top: 4rem;
 }
+
+.gentinfo-block {
+  .openinghours-widget {
+    @include theme('color', 'default-text-color', 'color-opening-hours');
+  }
+}
