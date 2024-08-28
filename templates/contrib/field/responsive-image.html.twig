@@ -16,15 +16,13 @@
 {% if output_image_tag %}
   {{ img_element }}
 {% else %}
-  <figure>
-    <picture>
-      {% if sources %}
-        {% for source_attributes in sources %}
-          <source{{ source_attributes }}/>
-        {% endfor %}
-      {% endif %}
-      {# The controlling image, with the fallback image in srcset. #}
-      {{ img_element }}
-    </picture>
-  </figure>
+  <picture>
+    {% if sources %}
+      {% for source_attributes in sources %}
+        <source{{ source_attributes }}/>
+      {% endfor %}
+    {% endif %}
+    {# The controlling image, with the fallback image in srcset. #}
+    {{ img_element }}
+  </picture>
 {% endif %}
