@@ -1,4 +1,6 @@
 .leaflet-container.leaflet-touch {
+  font-family: inherit;
+
   .leaflet-control-layers,
   .leaflet-bar {
     border: 0;
@@ -100,7 +102,8 @@
     span {
       @include theme('color', 'color-tertiary', 'leaflet-map-popup-close-button-color');
 
-      font-size: 1.5rem;
+      font-size: 1.2rem;
+      font-weight: bold;
     }
   }
 
