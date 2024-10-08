@@ -1,7 +1,7 @@
 #!/bin/bash
 
 NPM_COMMAND=(npm install)
-
+NVM_FOUND=false
 # Check if npm is installed on your system.
 if ! [ -x "$(command -v npm)" ]; then
   echo 'Error: npm is not installed. Please install npm globally to execute this script.' >&2
@@ -17,11 +17,13 @@ if [ -z "$TRAVIS" ]; then
     if [ -f ~/.nvm/nvm.sh ]; then
       echo "~/.nvm/nvm.sh found, loading it.";
       . ~/.nvm/nvm.sh;
-      NPM_COMMAND=(nvm install && nvm exec npm install);
+      NVM_FOUND=true;
+      NPM_COMMAND=(nvm exec npm install);
     fi
   else
-    echo "nvm command found."
-    NPM_COMMAND=(nvm install && nvm exec npm install);
+    echo "nvm command found."i;
+    NVM_FOUND=true
+    NPM_COMMAND=(nvm exec npm install);
   fi
 fi
 
@@ -33,6 +35,9 @@ mkdir ../build;
 
 echo "Building gent_base...";
 cd ../source;
+if [ "$NVM_FOUND" = true ] ; then
+  nvm install
+fi
 "${NPM_COMMAND[@]}"
 mkdir -p ../build/@digipolis-gent/modal;
 cp -R ./node_modules/@digipolis-gent/modal/dist/index.js ../build/@digipolis-gent/modal;
