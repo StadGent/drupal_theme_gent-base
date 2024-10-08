@@ -17,11 +17,11 @@ if [ -z "$TRAVIS" ]; then
     if [ -f ~/.nvm/nvm.sh ]; then
       echo "~/.nvm/nvm.sh found, loading it.";
       . ~/.nvm/nvm.sh;
-      NPM_COMMAND=(nvm exec npm install);
+      NPM_COMMAND=(nvm install && nvm exec npm install);
     fi
   else
     echo "nvm command found."
-    NPM_COMMAND=(nvm exec npm install);
+    NPM_COMMAND=(nvm install && nvm exec npm install);
   fi
 fi
 
