@@ -10,7 +10,8 @@
   }
 
   @include desktop {
-    > .paragraph--type--map {
+    > .paragraph--type--map,
+    > .paragraph--type--map-arcgis {
       @include col(10);
       @include col-offset(1);
     }
