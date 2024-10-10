@@ -21,7 +21,7 @@ if [ -z "$TRAVIS" ]; then
       NPM_COMMAND=(nvm exec npm install);
     fi
   else
-    echo "nvm command found."i;
+    echo "nvm command found.";
     NVM_FOUND=true
     NPM_COMMAND=(nvm exec npm install);
   fi
