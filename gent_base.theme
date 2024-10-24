@@ -183,6 +183,7 @@ function gent_base_preprocess_html(&$variables) {
 function gent_base_preprocess_item_list__steps(&$variables) {
   $items = [];
   $count = 1;
+
   foreach ($variables['items'] as &$item) {
     if (!is_array($item['value'])) {
       $item['value'] = [
@@ -194,13 +195,19 @@ function gent_base_preprocess_item_list__steps(&$variables) {
         $item['url'] = $item['value']['#url'];
       }
 
-      $item['attributes']['class'][] = 'progress';
+      // Ensure that $item['attributes'] is an Attribute object.
+      if (empty($item['attributes']) || !($item['attributes'] instanceof Attribute)) {
+        $item['attributes'] = new Attribute();
+      }
+
+      $item['attributes']->addClass('progress');
+
       if (!empty($item['value']['#active'])) {
-        $item['attributes']['class'][] = 'progress-active';
+        $item['attributes']->addClass('progress-active');
       }
 
       if (!empty($item['value']['#completed'])) {
-        $item['attributes']['class'][] = 'progress-previous';
+        $item['attributes']->addClass('progress-previous');
         $item['icon']['#markup'] = '<i class="icon icon-check"></i>';
       }
     }
