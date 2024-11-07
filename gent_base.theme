@@ -5,16 +5,16 @@
  * Functions to support theming in the Gent Base theme.
  */
 
+use Drupal\Component\Utility\Html;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Link;
+use Drupal\Core\Render\Element;
 use Drupal\Core\Render\Markup;
 use Drupal\Core\Template\Attribute;
-use Drupal\Component\Utility\Html;
+use Drupal\Core\Url;
 use Drupal\gent_base\FormPrerender;
 use Drupal\image\Entity\ImageStyle;
 use Drupal\paragraphs\Entity\Paragraph;
-use Drupal\Core\Url;
-use Drupal\Core\Link;
-use Drupal\Core\Render\Element;
 
 include __DIR__ . '/includes/theme.inc';
 include __DIR__ . '/includes/lazy.inc';
