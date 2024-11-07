@@ -386,6 +386,7 @@ function gent_base_preprocess_fieldset(&$variables) {
   // Split up description and field prefix to 2 separate variables.
   // See webform/src/Plugin/WebformElement/OptionsBase.php:170.
   preg_match_all('/<div\s+class="description">(.*)<\/div>/', (string) $variables['prefix'], $matches);
+  // @phpstan-ignore isset.expr
   if (isset($matches[0])) {
     $element['#information'] = reset($matches[1]);
     $element['#information'] = Markup::create($element['#information']);
