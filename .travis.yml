@@ -41,7 +41,7 @@ before_install:
 
 install:
   # Set the proper Drupal core & PHPUnit version.
-  - composer require -n --no-update --sort-packages --dev --with-all-dependencies "drupal/core:~$DRUPAL.0" "phpunit/phpunit:^$PHPUNIT drupal/paragraphs drupal/webform gent-drupal/dg_vesta"
+  - composer require -n --no-update --sort-packages --dev --with-all-dependencies "drupal/core:~$DRUPAL.0" "phpunit/phpunit:^$PHPUNIT" "drupal/paragraphs:^1.12" "drupal/webform:^6.0" "gent-drupal/dg_vesta:^1.0"
   # Install the module dependencies.
   - composer install -n --no-progress
 
