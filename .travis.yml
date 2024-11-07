@@ -31,7 +31,6 @@ before_install:
 
   # Configure the repository authentication mechanisms.
   - if [ "${GITHUB_TOKEN}" != "" ]; then composer config github-oauth.github.com ${GITHUB_TOKEN}; fi
-  - if [ "${REPMAN_TOKEN}" != "" ]; then composer config --global --auth http-basic.digipolis.repo.repman.io token ${REPMAN_TOKEN}; fi
 
   # Get and run the Code Climate test reporter.
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter

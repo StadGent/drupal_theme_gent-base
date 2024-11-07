@@ -13,19 +13,12 @@
         "php": "^8.1"
     },
     "require-dev": {
-        "digipolisgent/qa-drupal": "^1.6",
-        "drupal/paragraphs": "^1.12",
-        "drupal/webform": "^6.0",
-        "gent-drupal/dg_vesta": "^1.0"
+        "digipolisgent/qa-drupal": "^2"
     },
     "repositories": {
         "drupal": {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
-        },
-        "repman-digipolis": {
-            "type": "composer",
-            "url": "https://digipolis.repo.repman.io"
         }
     },
     "minimum-stability": "dev",
