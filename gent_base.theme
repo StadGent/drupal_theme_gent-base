@@ -5,7 +5,6 @@
  * Functions to support theming in the Gent Base theme.
  */
 
-use Drupal\block\Entity\Block;
 use Drupal\Component\Utility\Html;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Link;
@@ -14,6 +13,7 @@ use Drupal\Core\Render\Markup;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\Core\Template\Attribute;
 use Drupal\Core\Url;
+use Drupal\block\Entity\Block;
 use Drupal\gent_base\FormPrerender;
 use Drupal\image\Entity\ImageStyle;
 use Drupal\node\NodeInterface;
@@ -416,6 +416,7 @@ function gent_base_preprocess_fieldset(&$variables) {
   // Split up description and field prefix to 2 separate variables.
   // See webform/src/Plugin/WebformElement/OptionsBase.php:170.
   preg_match_all('/<div\s+class="description">(.*)<\/div>/', (string) $variables['prefix'], $matches);
+  // @phpstan-ignore-next-line
   if (isset($matches[0])) {
     $element['#information'] = reset($matches[1]);
     $element['#information'] = Markup::create($element['#information']);

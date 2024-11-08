@@ -31,6 +31,8 @@ before_install:
 
   # Configure the repository authentication mechanisms.
   - if [ "${GITHUB_TOKEN}" != "" ]; then composer config github-oauth.github.com ${GITHUB_TOKEN}; fi
+  - if [ "${REPMAN_TOKEN}" != "" ]; then composer config --global --auth http-basic.district09.repo.repman.io token ${REPMAN_TOKEN}; fi
+  - if [ "${REPMAN_TOKEN}" != "" ]; then composer config repositories.repman-district09 composer https://district09.repo.repman.io; fi
 
   # Get and run the Code Climate test reporter.
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
@@ -39,7 +41,7 @@ before_install:
 
 install:
   # Set the proper Drupal core & PHPUnit version.
-  - composer require -n --no-update --sort-packages --dev --with-all-dependencies "drupal/core:~$DRUPAL.0" "phpunit/phpunit:^$PHPUNIT"
+  - composer require -n --no-update --sort-packages --dev --with-all-dependencies "drupal/core:~$DRUPAL.0" "phpunit/phpunit:^$PHPUNIT" "drupal/paragraphs:^1.12" "drupal/webform:^6.0" "gent-drupal/dg_vesta:^1.0"
   # Install the module dependencies.
   - composer install -n --no-progress
 
