@@ -45,12 +45,18 @@
 
 {% set custom_classes = [
   'cta-block',
-  'image-none',
+  content.field_image|render is empty ? 'image-none' : (paragraph.field_image_horizontal_position.0.value ?? 'image-left'),
   primary_type == 'document' ? 'download' : 'link'
 ] %}
 
 {% block paragraph %}
   <section {{ attributes.addClass(classes).addClass(custom_classes) }}>
+    {% if content.field_image|render is not empty %}
+    <div class="cta-block__image">
+      {{ content.field_image }}
+    </div>
+    {% endif %}
+
     <div class="cta-block__content">
       <div class="feature-block secondary">
         {% block content %}
@@ -60,6 +66,7 @@
           }) }}
           {{ content|without(
             'title',
+            'field_image',
             'field_primary_action',
             'field_primary_action_size',
             'field_secondary_action',
