@@ -2,7 +2,13 @@
 
 {% set id = 'no-hero_auth-authentication' %}
 
-<div{{ attributes.addClass(['authentication', 'accordion']) }}>
+{% set classes = [
+    'authentication',
+    'accordion',
+    'oidc-menu--wrapper'
+] %}
+
+<div{{ attributes.addClass(classes) }}>
   <button aria-expanded="false" aria-controls="{{ id }}"
           class="toggle accordion--button">
     <span class="avatar">{{ username|striptags|first }}</span>

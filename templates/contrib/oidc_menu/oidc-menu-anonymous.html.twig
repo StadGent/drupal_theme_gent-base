@@ -1,3 +1,9 @@
-<div{{ attributes.addClass(['authentication', 'accordion']) }}>
+{% set classes = [
+    'authentication',
+    'accordion',
+    'oidc-menu--wrapper'
+] %}
+
+<div{{ attributes.addClass(classes) }}>
   {{ login_link }}
 </div>
