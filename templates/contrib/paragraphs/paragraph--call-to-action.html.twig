@@ -50,7 +50,7 @@
 ] %}
 
 {% block paragraph %}
-  <section {{ attributes.addClass(classes).addClass(custom_classes) }}>
+  <div {{ attributes.addClass(classes).addClass(custom_classes) }}>
     {% if content.field_image|render is not empty %}
     <div class="cta-block__image">
       {{ content.field_image }}
@@ -94,5 +94,5 @@
         {% endblock %}
       </div>
     </div>
-  </section>
+  </div>
 {% endblock %}

@@ -9,6 +9,11 @@
     margin-bottom: 45px;
   }
 
+  > div.paragraph.paragraph--type--call-to-action {
+    margin-top: 60px;
+    margin-bottom: 150px;
+  }
+
   @include desktop {
     > .paragraph--type--map,
     > .paragraph--type--map-arcgis {

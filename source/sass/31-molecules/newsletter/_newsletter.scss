@@ -1,6 +1,57 @@
+// Newsletter block with background image.
+.newsletter-container {
+  position: relative;
+
+  figure {
+    position: absolute;
+    top: -250px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 100%;
+    height: auto;
+    z-index: 1;
+
+    @include phablet {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 1680px;
+    }
+  }
+
+  .newsletter {
+    position: relative;
+    z-index: 2;
+  }
+
+  &.image {
+    .newsletter {
+      width: calc(100% - 40px);
+      margin-top: 300px;
+      margin-right: 20px;
+      margin-left: 20px;
+
+      @include phablet {
+        width: 100%;
+        margin-top: 0;
+        margin-right: 0;
+        margin-left: 0;
+      }
+
+      @include tablet {
+        width: 570px;
+        margin-top: 0;
+      }
+    }
+  }
+}
+
 .newsletter,
 .block-dg-newsletter {
   @include medium-text();
+
+  position: relative;
+  z-index: 2;
 
   body & {
     h2 {
