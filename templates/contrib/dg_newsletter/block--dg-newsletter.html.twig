@@ -26,18 +26,22 @@
  */
 #}
 
-{% set classes = [
+{% set container_classes = [
   'block',
   'block-' ~ configuration.provider|clean_class,
   'block-' ~ plugin_id|clean_class,
+  'newsletter-container'
+]
+%}
+{% set classes = [
   'feature-block',
   'secondary',
   'newsletter',
   'subscribe'
 ]
 %}
-<div class="newsletter-container">
-  <div{{ attributes.addClass(classes) }}>
+<div{{ attributes.addClass(container_classes) }}>
+  <div class="{{ classes|join(' ') }}">
     {{ title_prefix }}
     {% if label %}
       <h2 {{ title_attributes.addClass('h3') }}>
