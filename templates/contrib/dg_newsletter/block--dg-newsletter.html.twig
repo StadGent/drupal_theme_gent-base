@@ -41,6 +41,9 @@
 ]
 %}
 <div{{ attributes.addClass(container_classes) }}>
+  {% block container_top %}
+  {% endblock %}
+
   <div class="{{ classes|join(' ') }}">
     {{ title_prefix }}
     {% if label %}
@@ -55,4 +58,6 @@
     {% endblock %}
   </div>
 
+  {% block container_bottom %}
+  {% endblock %}
 </div>
