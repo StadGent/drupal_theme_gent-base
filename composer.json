@@ -25,9 +25,9 @@
     "prefer-stable": true,
     "config": {
         "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true,
             "ergebnis/composer-normalize": true,
-            "phpro/grumphp-shim": true,
-            "dealerdirect/phpcodesniffer-composer-installer": true
+            "phpro/grumphp-shim": true
         },
         "sort-packages": true
     },
