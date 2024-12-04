@@ -117,16 +117,15 @@
       padding: .6rem 0;
       border-top: 2px solid;
 
+      &.links-list {
+        border: 0;
+        margin-top: -1.5rem;
+        margin-left: 4.5rem;
+        padding-top: 0;
+      }
+
       .links {
         margin: 0;
-
-        ///
-        /// All links shouldn't have an indicator.
-        ///
-        a {
-          @include reset-link-background;
-          @include link-underlined;
-        }
       }
     }
 
