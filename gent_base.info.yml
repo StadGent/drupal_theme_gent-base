@@ -45,10 +45,3 @@ stylesheets-remove:
 
 'interface translation project': gent_base
 'interface translation server pattern': themes/contrib/gent_base/translations/%language.po
-
-#Set specific styles for ckeditor(5)
-ckeditor_stylesheets:
-  - css/editor.css
-
-ckeditor5-stylesheets:
-  - css/editor.css

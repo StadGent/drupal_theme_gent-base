@@ -10,6 +10,7 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Link;
 use Drupal\Core\Render\Element;
 use Drupal\Core\Render\Markup;
+use Drupal\Core\StringTranslation\ByteSizeMarkup;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\Core\Template\Attribute;
 use Drupal\Core\Url;
@@ -181,6 +182,7 @@ function gent_base_preprocess_block__dg_newsletter(&$variables) {
  * Adds theme settings as variables to html.twig template.
  */
 function gent_base_preprocess_html(&$variables) {
+  // Set theme color class. In gent_base v6, we only have a blue theme.
   $color = (theme_get_setting('color_scheme')) ?
     theme_get_setting('color_scheme') : 'blue';
   $variables['cs']['color'] = $color;
@@ -675,7 +677,7 @@ function gent_base_preprocess_file_widget_multiple(array &$variables) {
     // Save the uploading row for last.
     if (empty($widget['#files'])) {
       $widget['#title'] = $element['#file_upload_title'];
-      $widget['#description'] = \Drupal::service('renderer')->renderPlain($element['#file_upload_description']);
+      $widget['#description'] = \Drupal::service('renderer')->renderInIsolation($element['#file_upload_description']);
       continue;
     }
 
@@ -774,7 +776,7 @@ function gent_base_preprocess_file_link(&$variables) {
     $filenameParts = explode('.', $file->getFilename());
     $url = \Drupal::service('file_url_generator')->generateAbsoluteString($file->getFileUri());
 
-    $variables['file_size'] = format_size($file->getSize());
+    $variables['file_size'] = ByteSizeMarkup::create($file->getSize());
     $variables['file_type'] = $filenameParts[count($filenameParts) - 1];
     $options['attributes']['class'][] = 'standalone-link';
     $options['attributes']['download'][] = $file->getFilename();
@@ -1525,7 +1527,7 @@ function gent_base_preprocess_file_upload_help(&$variables) {
     $descriptions[] = t('Allowed types: @extensions.', ['@extensions' => $extensions]);
   }
   if (isset($upload_validators['file_validate_size'])) {
-    $descriptions[] = t('Max filesize: @size.', ['@size' => format_size($upload_validators['file_validate_size'][0])]);
+    $descriptions[] = t('Max filesize: @size.', ['@size' => ByteSizeMarkup::create($upload_validators['file_validate_size'][0])]);
   }
 
   if (isset($upload_validators['file_validate_image_resolution'])) {

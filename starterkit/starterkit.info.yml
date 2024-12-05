@@ -16,5 +16,8 @@ regions:
   content: Content
   footer: Footer
 
+ckeditor5-stylesheets:
+  - build/css/ckeditor5.css
+
 'interface translation project': starterkit
 'interface translation server pattern': themes/custom/%project/translations/%language.po
