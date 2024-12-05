@@ -36,9 +36,9 @@ To install and use this base theme and a subtheme of it follow these steps:
           "type": "composer",
           "url": "https://packages.drupal.org/8"
       },
-      "repman-digipolis": {
+      "repman-district09": {
           "type": "composer",
-          "url": "https://digipolis.repo.repman.io"
+          "url": "https://district09.repo.repman.io"
       },
   },
   "require": {
@@ -72,6 +72,32 @@ To install and use this base theme and a subtheme of it follow these steps:
   just follow the installation instructions in the `INSTALL.md` file.
 
 Done!
+
+### CKEditor in-editor styling support
+
+In combination with the ckeditor5.scss in your subtheme source/sass dir,
+also add the following hook to a custom module in order to make the in-editor
+styling work correctly:
+
+```
+/**
+ * Implements hook_preprocess_HOOK() for html.
+ */
+function MYMODULE_preprocess_html(array &$variables) {
+  // Check if the current page is using the admin theme.
+  if (\Drupal::service('router.admin_context')->isAdminRoute()) {
+    // Add a custom body class.
+    $variables['attributes']['class'][] = 'cs--blue';
+  }
+}
+```
+
+Don't forget to add the following to your subtheme info yml file:
+
+```
+ckeditor5-stylesheets:
+  - build/css/ckeditor5.css
+```
 
 ## Theming considerations
 

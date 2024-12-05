@@ -1,13 +1,13 @@
 'use strict';
 
-import gulp from "gulp";
-import eslint from "gulp-eslint";
+import gulp from 'gulp';
+import eslint from 'gulp-eslint';
 import {deleteAsync} from 'del';
-import plumber from "gulp-plumber";
+import plumber from 'gulp-plumber';
 
 var globalConfig = {
-  scripts_src_dir: 'js',
-  build_dir: '../build'
+  scriptsSrcDir: 'js',
+  buildDir: '../build',
 };
 
 /*
@@ -16,7 +16,7 @@ var globalConfig = {
  *
  */
 gulp.task('js:validate', function () {
-  return gulp.src(globalConfig.scripts_src_dir + '/**/*.js')
+  return gulp.src(globalConfig.scriptsSrcDir + '/**/*.js')
     .pipe(plumber())
     .pipe(eslint({
       configFile: './.eslintrc'
@@ -31,7 +31,7 @@ gulp.task('js:validate', function () {
  *
  */
 gulp.task('js:watch', function () {
-  return gulp.watch(globalConfig.scripts_src_dir + '/**/*.js', gulp.series('js:validate'));
+  return gulp.watch(globalConfig.scriptsSrcDir + '/**/*.js', gulp.series('js:validate'));
 });
 
 /*
@@ -40,7 +40,7 @@ gulp.task('js:watch', function () {
  * This deletes the build directory before recompiling.
  */
 gulp.task('build:clean', function () {
-  return deleteAsync(globalConfig.build_dir + '/**', {force: true});
+  return deleteAsync(globalConfig.buildDir + '/**', {force: true});
 });
 
 /*
@@ -60,7 +60,9 @@ gulp.task('validate', gulp.series('js:validate'));
  * Usage:
  *  gulp build
  *
- *  Used to validate and build production ready code.
+ * Used to validate and build production ready code.
+ * Don't add a build:clean task here, because it's already
+ * populated by the scripts/install.sh.
  *
  */
 gulp.task('build', gulp.parallel('validate'));

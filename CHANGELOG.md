@@ -22,6 +22,7 @@ All Notable changes to `StadGent/drupal_theme_gent-base`.
 - DTGB-905: Fix filters heading size and missing help text.
 - Remove word-break on language switcher links.
 - DTGB-908: Fix multiple menu-bindings execution due to other modals on page.
+- SGD8-2776: Fix CKEditor in-editor styling.
 
 ## [5.x]
 

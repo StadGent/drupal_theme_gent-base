@@ -360,8 +360,8 @@ $map-text-color: color('gray');
   }
 
   &-region {
-    z-index: 5;
     overflow: visible;
+    z-index: 5;
 
     &--left {
       // This should be applied only the exact viewport of 768px. Since the 3rd

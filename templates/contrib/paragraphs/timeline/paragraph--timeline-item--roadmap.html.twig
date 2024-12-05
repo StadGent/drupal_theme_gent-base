@@ -43,24 +43,6 @@
     'timeline-slot',
 ] %}
 
-{% set note_type = 'important' %}
-{% set note_icon = 'icon-exclamation-circle' %}
-{% set note_text = 'Important info'|t %}
-
-{% if content.field_important_note|render == 'payment' %}
-    {% set note_type = 'payment' %}
-    {% set note_icon = 'icon-euro' %}
-    {% set note_text = 'Payment info'|t %}
-{% elseif content.field_important_note|render == 'timebound' %}
-    {% set note_type = 'timebound' %}
-    {% set note_icon = 'icon-clock' %}
-    {% set note_text = 'Time-bound info'|t %}
-{% elseif content.field_important_note|render == 'unmissable' %}
-    {% set note_type = 'unmissable' %}
-    {% set note_icon = 'icon-exclamation-circle' %}
-    {% set note_text = 'Not to be missed info'|t %}
-{% endif %}
-
 <div{{ attributes.addClass(classes) }} role="listitem">
     <div class="item">
         {% if content.field_image|render is not empty %}

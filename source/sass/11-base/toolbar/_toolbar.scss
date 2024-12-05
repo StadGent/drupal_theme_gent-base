@@ -72,25 +72,21 @@ body {
       }
 
       a {
-        font-size: 0.65rem !important;
+        font-size: .65rem !important; // sass-lint:disable-line no-important
       }
     }
   }
+
   &.gin--vertical-toolbar {
-    .toolbar {
-      &-menu {
-        .menu-item {
-          .toolbar-menu {
-            .menu-item {
-              a.toolbar-icon {
-                font-size: 0.8rem;
-              }
-            }
-          }
+    .toolbar-menu .menu-item {
+      .toolbar-menu .menu-item {
+        a.toolbar-icon {
+          font-size: .8rem;
         }
       }
     }
   }
+
   // Fix adminimal toolbar icon issue.
   .toolbar-icon {
     font-family: inherit;

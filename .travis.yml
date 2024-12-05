@@ -2,16 +2,15 @@ dist: jammy
 language: php
 
 php:
-  - 8.1
+  - 8.3
 
 node_js:
-  - "16"
   - "18"
 
 env:
   matrix:
     - DRUPAL=9.4 PHPUNIT=9
-    - DRUPAL=9.5 PHPUNIT=9
+    - DRUPAL=10.3 PHPUNIT=9
 
 jobs:
   fast_finish: true
@@ -41,7 +40,7 @@ before_install:
 
 install:
   # Set the proper Drupal core & PHPUnit version.
-  - composer require -n --no-update --sort-packages --dev --with-all-dependencies "drupal/core:~$DRUPAL.0" "phpunit/phpunit:^$PHPUNIT" "drupal/paragraphs:^1.12" "drupal/webform:^6.0" "gent-drupal/dg_vesta:^1.0"
+  - composer require -n --no-update --sort-packages --dev --with-all-dependencies "drupal/core:~$DRUPAL.0" "phpunit/phpunit:^$PHPUNIT"
   # Install the module dependencies.
   - composer install -n --no-progress
 

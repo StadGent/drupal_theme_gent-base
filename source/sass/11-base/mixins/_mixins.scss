@@ -1,9 +1,9 @@
 @mixin visually-hidden {
-  position: absolute !important;
-  clip: rect(1px, 1px, 1px, 1px);
-  overflow: hidden;
-  height: 1px;
+  position: absolute !important; // sass-lint:disable-line no-important
   width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
   word-wrap: normal;
 }
 
