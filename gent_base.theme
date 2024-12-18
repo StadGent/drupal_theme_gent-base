@@ -1071,7 +1071,7 @@ function gent_base_preprocess_oidc_menu_anonymous(&$variables) {
 function gent_base_preprocess_oidc_menu_authenticated(&$variables) {
   $variables['logout_link']->getUrl()->mergeOptions([
     'attributes' => [
-      'class' => ['button', 'button-small', 'button-primary'],
+      'class' => ['button', 'button-primary', 'icon-sign-out', 'icon-left'],
     ],
   ]);
 
