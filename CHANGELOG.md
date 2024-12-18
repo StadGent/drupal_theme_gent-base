@@ -7,6 +7,7 @@ All Notable changes to `StadGent/drupal_theme_gent-base`.
 ### Added
 
 - DMD09LEAFL-4: Add css for leaflet maps.
+- SPOS-541: Add styling profile dropdown
 
 ## [6.x]
 

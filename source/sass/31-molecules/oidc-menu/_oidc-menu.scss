@@ -4,7 +4,7 @@
 
 .oidc-menu--wrapper {
   display: flex;
-  position: relative;
+  position: static;
   justify-content: flex-end;
 
   .avatar {
@@ -89,8 +89,7 @@
     @include theme('background-color', 'color-none');
 
     position: absolute;
-    top: 100%;
-    right: 0;
+    top: calc(100% - 40px);
     width: calc(100vw - 2 * #{$gutter-width});
     max-width: $bp-mobile;
     margin-top: .5rem;
@@ -98,13 +97,21 @@
     border-radius: border-radius('radius-1');
     box-shadow: 0 0 20px 0 rgba(color('gray-medium'), 0.25);
     z-index: 6;
+
+    @media (max-width: 400px) {
+      left: -20px;
+      right: -20px;
+      width: calc(100vw + 40px);
+      max-width: 400px;
+      box-shadow: 0 10px 10px 0 rgba(color('gray-medium'), 0.25);
+    }
   }
 
   .content {
     padding: 1.2rem;
 
     h2 {
-      @extend %h3;
+      @extend %h4;
     }
 
     > h2 {
@@ -126,18 +133,28 @@
 
       .links {
         margin: 0;
+
+        a {
+          font-size: .8rem;
+        }
       }
     }
 
     .profile {
       display: flex;
-      padding-bottom: 20px;
+      padding-bottom: 25px;
       border-top: 0;
 
       &-info {
         span {
+          @include bold-text;
+
           display: block;
-          font-size: .7rem;
+          font-size: .9rem;
+        }
+
+        a {
+          font-size: .8rem;
         }
       }
 
