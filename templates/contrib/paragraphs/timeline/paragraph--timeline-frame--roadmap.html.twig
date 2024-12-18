@@ -51,7 +51,7 @@
             <dl class="roadmap">
         {% endif %}
 
-        <h2 {{ attributes }}>{{ content.title }}</h2>
+        <h2 {{ attributes.addClass('roadmap-title') }}>{{ content.title }}</h2>
 
         {{ content.timeline_items }}
 
