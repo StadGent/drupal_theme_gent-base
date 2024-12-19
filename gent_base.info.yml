@@ -1,5 +1,5 @@
 name: Gent Base
-description: Ghent base theme. Always use a subtheme of this theme.
+description: Gent base theme. Always use a sub theme of this theme.
 type: theme
 core_version_requirement: ^10
 base theme: classy

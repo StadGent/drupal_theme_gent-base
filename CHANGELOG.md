@@ -2,19 +2,15 @@
 
 All Notable changes to `StadGent/drupal_theme_gent-base`.
 
-## [Unreleased]
+## [6.0.0]
 
 ### Added
 
-- DMD09LEAFL-4: Add css for leaflet maps.
-- SPOS-541: Add styling profile dropdown
-
-## [6.x]
-
-### Added
-
-- DTGB-903: Add proper ID and class to content region when on overview page
+- Support for new City of Ghent styleguide v6.
+- DTGB-903: Add proper ID and class to content region when on overview page.
   with filters.
+- DMD09LEAFL-4: Add css for leaflet maps.
+- SPOS-541: Add styling profile dropdown.
 
 ### Fixed
 
@@ -716,6 +712,7 @@ See Github releases for more information.
 
 * **Updated to gent_styleguide version 2.6.13**
 
+[6.0.0]: https://github.com/StadGent/drupal_theme_gent-base/compare/5.2.4...6.0.0
 [5.x]: https://github.com/StadGent/drupal_theme_gent-base/releases
 [4.3.11]: https://github.com/StadGent/drupal_theme_gent-base/compare/4.3.10...4.3.11
 [4.3.10]: https://github.com/StadGent/drupal_theme_gent-base/compare/4.3.9...4.3.10
@@ -758,4 +755,3 @@ See Github releases for more information.
 [8.x-3.0-alpha.3]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-alpha.2...8.x-3.0-alpha.3
 [8.x-3.0-alpha.2]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.0-alpha.1...8.x-3.0-alpha.2
 [8.x-3.0-alpha.1]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-2.10...8.x-3.0-alpha.1
-[Unreleased]: https://github.com/StadGent/drupal_theme_gent-base/compare/8.x-3.x...8.x-3.x-dev
