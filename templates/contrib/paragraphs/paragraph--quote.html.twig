@@ -45,10 +45,10 @@
 
 {% set author = [] %}
 {% if content.field_author|render|striptags|trim is not empty %}
-  {% set author = author|merge([content.field_author|render|striptags|trim]) %}
+  {% set author = author|merge([content.field_author['#markup']|default(content.field_author|render)|striptags|trim|raw]) %}
 {% endif %}
 {% if content.field_position|render|striptags|trim is not empty %}
-  {% set author = author|merge([content.field_position|render|striptags|trim]) %}
+  {% set author = author|merge([content.field_position['#markup']|default(content.field_position|render)|striptags|trim|raw]) %}
 {% endif %}
 
 <div{{ attributes.addClass(classes) }}>
@@ -66,7 +66,7 @@
       {% endblock %}
       {% if author is not empty %}
         <footer>
-          {{ author|join(', ') }}
+          {{ author|join(', ')|raw }}
         </footer>
       {% endif %}
     </blockquote>
