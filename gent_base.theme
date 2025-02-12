@@ -1083,7 +1083,7 @@ function gent_base_preprocess_oidc_menu_authenticated(&$variables) {
     ]);
   }
 
-  if ($variables['links']['custom-links']) {
+  if (isset($variables['links']['custom-links']['#items'])) {
     foreach ($variables['links']['custom-links']['#items'] as $link) {
       $link['value']['#url']->mergeOptions([
         'attributes' => [
