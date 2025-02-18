@@ -54,7 +54,7 @@ function gent_base_form_alter(&$form, FormStateInterface $form_state, $form_id) 
   }
 
   if ($form_id === 'dg_newsletter_subscribe_form') {
-    $form['wrapper']['email_address']['#stacked'] = TRUE;
+    $form['wrapper']['email_address']['#stacked'] = FALSE;
     $form['wrapper']['actions']['submit']['#attributes']['class'][] = 'button-secondary';
     $form['wrapper']['#attributes']['class'][] = 'subscribe';
   }
