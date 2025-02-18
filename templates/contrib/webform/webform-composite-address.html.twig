@@ -18,10 +18,8 @@
 
 {# Display city and postal_code next to each other #}
 {% if content.city and content.postal_code %}
-  <div class="form-row">
-    {{ content.postal_code|merge({'#stacked': true}) }}
-    {{ content.city|merge({'#stacked': true}) }}
-  </div>
+    {{ content.postal_code }}
+    {{ content.city }}
 {% endif %}
 
 {{ content|without('address', 'city', 'postal_code') }}

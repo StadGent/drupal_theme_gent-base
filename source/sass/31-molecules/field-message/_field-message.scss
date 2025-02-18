@@ -1,0 +1,4 @@
+// Field message styling
+.form-item--error-message {
+  @extend .field-message;
+}
