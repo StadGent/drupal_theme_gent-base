@@ -2,6 +2,28 @@
 
 All Notable changes to `StadGent/drupal_theme_gent-base`.
 
+## [6.0.1]
+
+### Added
+
+- SGD8-2482: Add field msg error styling for webform js error msg
+
+### Removed
+
+- SGD8-2548: Remove spotlight figcaption hiding
+
+### Updated
+
+- Update gent_styleguide to 6.0.2
+
+### Fixed
+
+- SGD8-2912: Fix double encoding in quote
+- HEAT-6798135: Fix capitalization vesta mail notes
+- Fix travis tests
+- GSVU-553: Fix warning empty profile custom links
+- SGD8-2482: Remove stacked markup from address fields
+
 ## [6.0.0]
 
 ### Added
@@ -712,6 +734,7 @@ See Github releases for more information.
 
 * **Updated to gent_styleguide version 2.6.13**
 
+[6.0.1]: https://github.com/StadGent/drupal_theme_gent-base/compare/6.0.0...6.0.1
 [6.0.0]: https://github.com/StadGent/drupal_theme_gent-base/compare/5.2.4...6.0.0
 [5.x]: https://github.com/StadGent/drupal_theme_gent-base/releases
 [4.3.11]: https://github.com/StadGent/drupal_theme_gent-base/compare/4.3.10...4.3.11
