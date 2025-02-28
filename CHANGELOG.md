@@ -8,6 +8,7 @@ All Notable changes to `StadGent/drupal_theme_gent-base`.
 
 - Update gent_styleguide to 6.0.3 to revert STIJ-444 disabled button styling
   which introduced a styling bug
+- SGD8-2936: Removed max-width for form items in newsletter
 
 ## [6.0.1]
 
