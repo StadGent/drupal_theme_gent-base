@@ -2,6 +2,13 @@
 
 All Notable changes to `StadGent/drupal_theme_gent-base`.
 
+## [6.0.2]
+
+### Fixed
+
+- Update gent_styleguide to 6.0.3 to revert STIJ-444 disabled button styling
+  which introduced a styling bug
+
 ## [6.0.1]
 
 ### Added
@@ -734,6 +741,7 @@ See Github releases for more information.
 
 * **Updated to gent_styleguide version 2.6.13**
 
+[6.0.2]: https://github.com/StadGent/drupal_theme_gent-base/compare/6.0.1...6.0.2
 [6.0.1]: https://github.com/StadGent/drupal_theme_gent-base/compare/6.0.0...6.0.1
 [6.0.0]: https://github.com/StadGent/drupal_theme_gent-base/compare/5.2.4...6.0.0
 [5.x]: https://github.com/StadGent/drupal_theme_gent-base/releases
