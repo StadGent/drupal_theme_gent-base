@@ -117,7 +117,6 @@
             {% if image_ratio is not defined %}
               {% set image_ratio = '8:5' %}
             {% endif %}
-            {% apply spaceless %}
               <div class="figure-wrapper">
                 <figure>
                   <div class="image-wrapper" data-ratio="{{ image_ratio }}">
@@ -125,7 +124,6 @@
                   </div>
                 </figure>
               </div>
-            {% endapply %}
           {% endif %}
         {% endblock %}
       </div>

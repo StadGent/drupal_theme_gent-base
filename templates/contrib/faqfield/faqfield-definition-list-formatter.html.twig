@@ -17,7 +17,6 @@
 
 {{ attach_library('gent_base/accordion') }}
 
-{% apply spaceless %}
   <dl class="accordion">
     {% for item in items %}
       <div property="mainEntity" typeof="Question">
@@ -36,4 +35,3 @@
       </div>
     {% endfor %}
   </dl>
-{% endapply %}

@@ -1,7 +1,7 @@
 name: Gent Base
 description: Gent base theme. Always use a sub theme of this theme.
 type: theme
-core_version_requirement: ^10
+core_version_requirement: ^10 || ^11
 base theme: classy
 hidden: true
 dependencies:

@@ -60,11 +60,9 @@
           </div>
           <div class="contact-details-column">
               {% if person_image|render is not empty %}
-                  {% apply spaceless %}
                       <div class="image-wrapper" data-ratio="1:1">
                           {{ person_image }}
                       </div>
-                  {% endapply %}
               {% endif %}
           </div>
       </div>
