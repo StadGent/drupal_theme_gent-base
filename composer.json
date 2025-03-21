@@ -13,12 +13,20 @@
         "php": "^8.3"
     },
     "require-dev": {
-        "digipolisgent/qa-drupal": "^2"
+        "digipolisgent/qa-drupal": "^4.0.0-alpha2"
     },
     "repositories": {
         "drupal": {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
+        },
+        "phpcpd": {
+            "type": "vcs",
+            "url": "https://github.com/systemsdk/phpcpd"
+        },
+        "cachetool": {
+            "type": "vcs",
+            "url": "https://github.com/Chris53897/cachetool.git"
         }
     },
     "minimum-stability": "dev",

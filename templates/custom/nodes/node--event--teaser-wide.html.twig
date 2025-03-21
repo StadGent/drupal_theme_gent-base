@@ -19,10 +19,8 @@
     </div>
 
     {% if node.hasField('field_teaser_image') %}
-        {% apply spaceless %}
             <div class="figure-wrapper">
                 {{ content.field_teaser_image }}
             </div>
-        {% endapply %}
     {% endif %}
 {% endblock %}
