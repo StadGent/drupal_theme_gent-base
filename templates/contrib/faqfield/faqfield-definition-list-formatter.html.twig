@@ -17,21 +17,21 @@
 
 {{ attach_library('gent_base/accordion') }}
 
-  <dl class="accordion">
-    {% for item in items %}
-      <div property="mainEntity" typeof="Question">
-        <dt class="faqfield-question" property="name">
-          <h3>
-            <button class="accordion--button" aria-expanded="false" aria-controls="accordion--multiple--content--{{ unique_list_id }}--{{ loop.index }}">
-              {{ item.question }}
-            </button>
-          </h3>
-        </dt>
-        <dd class="faqfield-answer" property="acceptedAnswer" typeof="Answer">
-          <div class="accordion--content" id="accordion--multiple--content--{{ unique_list_id }}--{{ loop.index }}" aria-hidden="true" hidden="hidden" property="text">
-            {{ item.answer }}
-          </div>
-        </dd>
-      </div>
-    {% endfor %}
-  </dl>
+<dl class="accordion">
+  {% for item in items %}
+    <div property="mainEntity" typeof="Question">
+      <dt class="faqfield-question" property="name">
+        <h3>
+          <button class="accordion--button" aria-expanded="false" aria-controls="accordion--multiple--content--{{ unique_list_id }}--{{ loop.index }}">
+            {{ item.question }}
+          </button>
+        </h3>
+      </dt>
+      <dd class="faqfield-answer" property="acceptedAnswer" typeof="Answer">
+        <div class="accordion--content" id="accordion--multiple--content--{{ unique_list_id }}--{{ loop.index }}" aria-hidden="true" hidden="hidden" property="text">
+          {{ item.answer }}
+        </div>
+      </dd>
+    </div>
+  {% endfor %}
+</dl>
