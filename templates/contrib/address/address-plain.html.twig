@@ -49,10 +49,10 @@
     {{ dependent_locality.code }},
   {% endif %}
   {% if locality.code or postal_code or administrative_area.code %}
-      {{ postal_code }} {{ locality.code -}}
-      {% if administrative_area.code %}
-        {{ administrative_area.code -}}
-      {% endif %},
+    {{ postal_code }} {{ locality.code -}}
+    {% if administrative_area.code %}
+      {{ administrative_area.code -}}
+    {% endif %},
   {% endif %}
   {{ country.name }}
 </div>

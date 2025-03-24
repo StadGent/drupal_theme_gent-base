@@ -117,13 +117,13 @@
             {% if image_ratio is not defined %}
               {% set image_ratio = '8:5' %}
             {% endif %}
-              <div class="figure-wrapper">
-                <figure>
-                  <div class="image-wrapper" data-ratio="{{ image_ratio }}">
-                    {{ content.field_teaser_image }}
-                  </div>
-                </figure>
-              </div>
+            <div class="figure-wrapper">
+              <figure>
+                <div class="image-wrapper" data-ratio="{{ image_ratio }}">
+                  {{ content.field_teaser_image }}
+                </div>
+              </figure>
+            </div>
           {% endif %}
         {% endblock %}
       </div>

@@ -11,21 +11,20 @@
 {{ attach_library('gent_base/breadcrumbs') }}
 
 {% if breadcrumb %}
-  <nav class="breadcrumb" aria-labelledby="system-breadcrumb">
-    <div class="content-container">
-      <h2 id="system-breadcrumb"
-          class="visually-hidden">{{ 'Breadcrumb'|t }}</h2>
-      <ol class="no-style">
-          {% for item in breadcrumb %}
-            <li>
-              {% if item.url %}
-                <a href="{{ item.url }}">{{ item.text }}</a>
-              {% else %}
-                <span>{{ item.text }}</span>
-              {% endif %}
-            </li>
-          {% endfor %}
-      </ol>
-    </div>
-  </nav>
+    <nav class="breadcrumb" aria-labelledby="system-breadcrumb">
+        <div class="content-container">
+            <h2 id="system-breadcrumb" class="visually-hidden">{{ 'Breadcrumb'|t }}</h2>
+            <ol class="no-style">
+                {% for item in breadcrumb %}
+                    <li>
+                        {% if item.url %}
+                            <a href="{{ item.url }}">{{ item.text }}</a>
+                        {% else %}
+                            <span>{{ item.text }}</span>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ol>
+        </div>
+    </nav>
 {% endif %}
