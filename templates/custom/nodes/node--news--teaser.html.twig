@@ -13,12 +13,12 @@
   {# twigcs use-var image_ratio #}
   {% if node.hasField('field_teaser_image') %}
     {% set image_ratio = '1:1' %}
-      <div class="figure-wrapper">
-        <figure>
-          <div class="image-wrapper" data-ratio="{{ image_ratio }}">
-            {{ content.field_teaser_image }}
-          </div>
-        </figure>
-      </div>
+    <div class="figure-wrapper">
+      <figure>
+        <div class="image-wrapper" data-ratio="{{ image_ratio }}">
+          {{ content.field_teaser_image }}
+        </div>
+      </figure>
+    </div>
   {% endif %}
 {% endblock %}
