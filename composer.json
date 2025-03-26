@@ -10,7 +10,8 @@
     ],
     "homepage": "https://bitbucket.org/digipolisgent/drupal_theme_gent-base",
     "require": {
-        "php": "^8.3"
+        "php": "^8.3",
+        "drupal/twig_typography": "^2.1"
     },
     "require-dev": {
         "digipolisgent/qa-drupal": "^4.0.0-alpha2"
