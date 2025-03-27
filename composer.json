@@ -14,7 +14,7 @@
         "drupal/twig_typography": "^2.1"
     },
     "require-dev": {
-        "digipolisgent/qa-drupal": "^4.0.0-alpha2"
+        "digipolisgent/qa-drupal": "^4.0.0-alpha5"
     },
     "repositories": {
         "drupal": {
