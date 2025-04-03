@@ -2,6 +2,12 @@
 
 All Notable changes to `StadGent/drupal_theme_gent-base`.
 
+## [6.0.3]
+
+### Fixed
+
+- SGD8-2581: Fixed opening hours spacing issue.
+
 ## [6.0.2]
 
 ### Fixed
@@ -742,6 +748,7 @@ See Github releases for more information.
 
 * **Updated to gent_styleguide version 2.6.13**
 
+[6.0.3]: https://github.com/StadGent/drupal_theme_gent-base/compare/6.0.2...6.0.3
 [6.0.2]: https://github.com/StadGent/drupal_theme_gent-base/compare/6.0.1...6.0.2
 [6.0.1]: https://github.com/StadGent/drupal_theme_gent-base/compare/6.0.0...6.0.1
 [6.0.0]: https://github.com/StadGent/drupal_theme_gent-base/compare/5.2.4...6.0.0
