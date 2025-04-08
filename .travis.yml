@@ -9,8 +9,8 @@ node_js:
 
 env:
   matrix:
-    - DRUPAL=10.3 PHPUNIT=9
     - DRUPAL=10.4 PHPUNIT=9
+    - DRUPAL=11 PHPUNIT=10
 
 jobs:
   fast_finish: true
