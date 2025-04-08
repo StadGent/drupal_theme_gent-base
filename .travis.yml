@@ -39,8 +39,6 @@ before_install:
   - ./cc-test-reporter before-build
 
 install:
-  # Set the proper Drupal core & PHPUnit version.
-  - composer require -n --no-update --sort-packages --dev --with-all-dependencies
   # Install the module dependencies.
   - composer install -n --no-progress
 
