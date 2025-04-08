@@ -955,6 +955,16 @@ function _gent_base_preprocess_content_header_classes(&$variables) {
  *   True if overlap occurs.
  */
 function _gent_base_node_has_overlapped_header(NodeInterface $node, array $bundles, array $overlappingParagraphs) {
+  // For events with a date box, the date box will always overlap the header.
+  if ($node->bundle() === 'event'
+    && $node->hasField('field_event_date')
+    && !$node->get('field_event_date')->isEmpty()
+  ) {
+    return TRUE;
+  }
+
+  // Loop through bundles and check for first paragraphs that should overlap
+  // the header box.
   if (in_array($node->bundle(), $bundles) && $node->hasField('field_paragraphs')) {
     $paragraphs = $node->get('field_paragraphs')->referencedEntities();
 
