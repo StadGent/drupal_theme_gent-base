@@ -14,7 +14,11 @@
         "drupal/twig_typography": "^2.1"
     },
     "require-dev": {
-        "digipolisgent/qa-drupal": "^4.0"
+        "digipolisgent/qa-drupal": "^4.0",
+        "drupal/core": "^10.4 || ^11.1",
+        "drupal/paragraphs": "^1.5",
+        "gent-drupal/dg_vesta": "^4.0",
+        "phpunit/phpunit": "^9 || ^10"
     },
     "repositories": {
         "drupal": {
@@ -28,6 +32,10 @@
         "cachetool": {
             "type": "vcs",
             "url": "https://github.com/Chris53897/cachetool.git"
+        },
+        "repman-district09": {
+            "type": "composer",
+            "url": "https://district09.repo.repman.io"
         }
     },
     "minimum-stability": "dev",
