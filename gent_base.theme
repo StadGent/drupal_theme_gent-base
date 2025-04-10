@@ -6,6 +6,7 @@
  */
 
 use Drupal\Component\Utility\Html;
+use Drupal\Core\Cache\CacheableMetadata;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Link;
 use Drupal\Core\Render\Element;
@@ -584,22 +585,52 @@ function gent_base_preprocess_field__field_documents(&$variables) {
 /**
  * Implements hook_preprocess_HOOK().
  */
-function gent_base_preprocess_field__field_contacts(&$variables) {
-  $contacts = $variables['items'];
+function gent_base_preprocess_field__field_contacts(array &$variables) {
+  $contacts = &$variables['items'];
   $entity = $variables['element']['#object'];
 
-  // Change the view_mode of the contacts if there are more then 3 contacts.
-  foreach ($contacts as $key => $contact) {
-    $view_mode = (count($contacts) > 2) ? 'teaser_tiny' : 'teaser_with_link';
+  $view_mode = (count($contacts) > 2) ? 'teaser_tiny' : 'teaser_with_link';
+
+  $entity_cache_metadata = CacheableMetadata::createFromObject($entity);
+
+  foreach ($contacts as &$contact) {
+    $contact['content']['#view_mode'] = $view_mode;
+
+    // Add view-specific classes.
     if ($view_mode === 'teaser_with_link') {
+      $contact['attributes']->addClass('teaser', 'teaser-contact');
+    }
+
+    // Merge cache tags and contexts from the parent entity.
+    $cache_metadata = CacheableMetadata::createFromRenderArray($contact['content']);
+    $cache_metadata = $cache_metadata->merge($entity_cache_metadata);
+    $cache_metadata->applyTo($contact['content']);
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function gent_base_preprocess_field__field_contact_categories(array &$variables) {
+  $entity = $variables['element']['#object'];
+  $contacts_count = count($variables['items']);
+  $contact_categories = $variables['items'];
+
+  if ($contacts_count <= 2) {
+    foreach ($contact_categories as $key => $category) {
       $variables['items'][$key]['attributes']->addClass('teaser', 'teaser-contact');
     }
-    $variables['items'][$key]['content']['#view_mode'] = $view_mode;
-    $variables['items'][$key]['content']['#cache']['tags'] = $entity->getCacheTags();
-    $cache_key = array_search('teaser', $variables['items'][$key]['content']['#cache']['keys']);
-    if ($cache_key !== FALSE) {
-      $variables['items'][$key]['content']['#cache']['keys'][$cache_key] = $view_mode;
-    }
+  }
+
+  foreach ($variables['items'] as &$item) {
+    // Add a class to the link.
+    $item['content']['#options']['attributes']['class'][] = 'standalone-link';
+
+    // Merge cacheability from the parent entity.
+    $entity_cache_metadata = CacheableMetadata::createFromObject($entity);
+    $item_cache_metadata = CacheableMetadata::createFromRenderArray($item['content']);
+    $item_cache_metadata = $item_cache_metadata->merge($entity_cache_metadata);
+    $item_cache_metadata->applyTo($item['content']);
   }
 }
 
@@ -607,23 +638,6 @@ function gent_base_preprocess_field__field_contacts(&$variables) {
  * Implements hook_preprocess_HOOK().
  */
 function gent_base_preprocess_field__field_responsible_person(&$variables) {
-  foreach ($variables['items'] as $key => $item) {
-    $variables["items"][$key]["content"]["#options"]['attributes']['class'][] = 'standalone-link';
-  }
-}
-
-/**
- * Implements hook_preprocess_HOOK().
- */
-function gent_base_preprocess_field__field_contact_categories(&$variables) {
-  $contacts = $variables['element']['#object']->field_contacts->count();
-  $contact_categories = $variables['items'];
-  if ($contacts <= 2) {
-    foreach ($contact_categories as $key => $category) {
-      $variables['items'][$key]['attributes']->addClass('teaser', 'teaser-contact');
-    }
-  }
-
   foreach ($variables['items'] as $key => $item) {
     $variables['items'][$key]['content']['#options']['attributes']['class'][] = 'standalone-link';
   }
