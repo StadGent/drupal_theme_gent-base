@@ -1579,7 +1579,7 @@ function _gent_base_set_typography_language(&$variables): void {
  */
 function gent_base_preprocess_opening_hours_widget(array &$variables) {
   if (!empty($variables['widgets'])) {
-    // Filter.
+    // Filter out if empty preview_widget/service_id/date.
     if (
       count($variables['widgets']) === 1 &&
       $variables['widgets'][0]['type'] === 'day' &&

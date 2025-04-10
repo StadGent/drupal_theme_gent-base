@@ -22,7 +22,7 @@
 
 {% set accordion_id = 'accordion-' ~ widget_id %}
 
-{# Toon enkel als er iets te tonen is #}
+{# Only show if there is data #}
 {% if preview_widget or (widgets|length > 0 and service_id is not empty and date is not empty) %}
     <div class="openinghours-wrapper">
         {% if display_title %}
@@ -30,7 +30,7 @@
                 data-service="{{ service_id }}"{% if not single_widget %} data-channel="{{ channel_id }}"{% endif %}></h3>
         {% endif %}
 
-        {# Preview widget tonen indien aanwezig #}
+        {# Show preview widget if available #}
         {% if preview_widget %}
             <div
                     class="openinghours-widget"
@@ -43,7 +43,7 @@
             ></div>
         {% endif %}
 
-        {# Meerdere widgets → accordionweergave #}
+        {# Multiple widgets → accordion display #}
         {% if widgets|length > 1 %}
             <div class="accordion">
                 <h3>
@@ -84,7 +84,7 @@
                 </div>
             </div>
 
-            {# Eén widget → enkel tonen als service_id en date geldig zijn #}
+            {# One widget → show only if service_id and date are valid #}
         {% elseif widgets|length == 1 and service_id is not empty and date is not empty %}
             <div id="{{ widget_id }}" role="tabpanel">
                 <div
