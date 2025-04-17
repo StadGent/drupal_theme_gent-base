@@ -3,8 +3,6 @@
  * Menu component binding.
  */
 (function (Drupal) {
-  'use strict';
-
   Drupal.behaviors.gentBaseLoadOpeningHours = {
     attach: function (context, settings) {
       this.determineAccordionVisibility();

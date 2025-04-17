@@ -3,8 +3,6 @@
  * Accordion component binding.
  */
 (function (Drupal, $, once) {
-  'use strict';
-
   Drupal.behaviors.gentBaseBreadcrumbs = {
     attach: function (context, settings) {
       /* global Breadcrumbs */

@@ -6,8 +6,6 @@
  * File component binding.
  */
 (function (Drupal) {
-  'use strict';
-
   Drupal.behaviors.gentBaseLoadFile = {
     attach: function (context, settings) {
       if (!File) {

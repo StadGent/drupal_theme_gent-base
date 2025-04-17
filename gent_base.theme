@@ -198,6 +198,15 @@ function gent_base_preprocess_html(&$variables) {
     // Add a body class indicating that the entity is unpublished.
     $variables['attributes']['class'][] = 'unpublished-content';
   }
+
+  // Add path to gent_base to variables for usage in JS.
+  $theme_handler = \Drupal::service('theme_handler');
+  if ($theme_handler->themeExists('gent_base')) {
+    $path = $theme_handler->getTheme('gent_base')->getPath();
+    $variables['#attached']['drupalSettings']['gent_base'] = [
+      'path' => $path,
+    ];
+  }
 }
 
 /**

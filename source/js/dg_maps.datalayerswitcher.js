@@ -1,11 +1,9 @@
-/* global ol, drupalSettings */
+/* global ol */
 /**
  * @file
  * DG Maps functionality extensions.
  */
 (function ($, Drupal) {
-  'use strict';
-
   var originalPrototype = Drupal.dgMaps.ol.control.DataLayerSwitcher.prototype;
 
   /**

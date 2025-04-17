@@ -4,9 +4,6 @@
  */
 
 (function (Drupal, $) {
-
-  'use strict';
-
   Drupal.facets = Drupal.facets || {};
 
   Drupal.behaviors.GentBaseLoadFilterFragments = {

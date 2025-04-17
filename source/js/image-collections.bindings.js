@@ -3,8 +3,6 @@
  * Gallery component binding.
  */
 (function (Drupal) {
-  'use strict';
-
   Drupal.behaviors.gentBaseLoadImageCollections = {
     attach: function (context, settings) {
       /* global baguetteBox */
