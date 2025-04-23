@@ -201,12 +201,10 @@ function gent_base_preprocess_html(&$variables) {
 
   // Add path to gent_base to variables for usage in JS.
   $theme_handler = \Drupal::service('theme_handler');
-  if ($theme_handler->themeExists('gent_base')) {
-    $path = $theme_handler->getTheme('gent_base')->getPath();
-    $variables['#attached']['drupalSettings']['gent_base'] = [
-      'path' => $path,
-    ];
-  }
+  $path = $theme_handler->getTheme('gent_base')->getPath();
+  $variables['#attached']['drupalSettings']['gent_base'] = [
+    'path' => $path,
+  ];
 }
 
 /**
