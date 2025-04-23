@@ -3,8 +3,6 @@
  * Menu component binding.
  */
 (function (Drupal) {
-  'use strict';
-
   Drupal.behaviors.gentBaseLoadMenu = {
     attach: function (context, settings) {
       if (typeof Modal == 'undefined') {

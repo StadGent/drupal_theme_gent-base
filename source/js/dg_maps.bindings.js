@@ -3,8 +3,6 @@
  * Filter component binding.
  */
 (function (Drupal) {
-  'use strict';
-
   Drupal.behaviors.gentBaseLoadDGMaps = {
     attach: function (context, settings) {
       if (typeof allieTabs == 'undefined') {

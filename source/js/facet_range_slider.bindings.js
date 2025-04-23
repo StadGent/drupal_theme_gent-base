@@ -3,7 +3,6 @@
  * Accordion component binding.
  */
 (function ($, Drupal, once) {
-  'use strict';
 
   /**
    * Override facet slider behavior

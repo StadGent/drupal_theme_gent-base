@@ -3,8 +3,6 @@
  * Filter component binding.
  */
 (function (Drupal, $, once) {
-  'use strict';
-
   Drupal.behaviors.gentBaseLoadFilters = {
     attach: function (context, settings) {
       if (typeof Modal == 'undefined') {

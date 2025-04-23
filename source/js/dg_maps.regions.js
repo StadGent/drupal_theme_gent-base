@@ -3,8 +3,6 @@
  * DG Maps functionality extensions.
  */
 (function ($, Drupal) {
-  'use strict';
-
   var _initRegion = Drupal.dgMaps.initRegions;
 
   /**

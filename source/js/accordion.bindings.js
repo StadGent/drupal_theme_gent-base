@@ -3,8 +3,6 @@
 * Accordion component binding.
  */
 (function (Drupal, $, once) {
-  'use strict';
-
   Drupal.behaviors.gentBaseLoadAccordion = {
     attach: function (context, settings) {
       /* global Accordion */

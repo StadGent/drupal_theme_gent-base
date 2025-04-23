@@ -3,8 +3,6 @@
  * Filter component binding.
  */
 (function ($, Drupal, once) {
-  'use strict';
-
   Drupal.behaviors.gentBaseLoadCheckboxFilters = {
     attach: function (context, settings) {
       if (!CheckboxFilter) { // eslint-disable-line no-undef
