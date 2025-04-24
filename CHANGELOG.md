@@ -4,15 +4,20 @@ All Notable changes to `StadGent/drupal_theme_gent-base`.
 
 ## [Unreleased]
 
+### Added
+- SGD8-2952: Added support for improved paragraph parent fetcher.
+- SGD8-2965: Added overlap header class to events with event date.
+- TTWEBTAKEN-297: Added support for D11.
+
+### Updated
+- SGD8-2287: Updated table bindings for new design.
+- Updated styleguide to version 6.0.7.
+- Updated qa-drupal to 4.0.0-alpha5.
+
 ### Fixed
-
-- SGD8-2952: Fix displaying paragraphs in draft revisions.
-
-## [6.0.3]
-
-### Fixed
-
+- SGD8-2957: Fixed product page contacts render cache issue.
 - SGD8-2581: Fixed opening hours spacing issue.
+- SGD8-2952: Fixed displaying paragraphs in draft revisions.
 
 ## [6.0.2]
 
