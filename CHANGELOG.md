@@ -2,6 +2,12 @@
 
 All Notable changes to `StadGent/drupal_theme_gent-base`.
 
+## [Unreleased]
+
+### Fixed
+
+- SGD8-2952: Fix displaying paragraphs in draft revisions.
+
 ## [6.0.3]
 
 ### Fixed
