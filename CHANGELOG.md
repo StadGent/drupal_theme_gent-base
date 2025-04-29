@@ -11,7 +11,7 @@ All Notable changes to `StadGent/drupal_theme_gent-base`.
 
 ### Updated
 - SGD8-2287: Updated table bindings for new design.
-- Updated styleguide to version 6.0.7.
+- Updated styleguide to version 6.0.8.
 - Updated qa-drupal to 4.0.0-alpha5.
 
 ### Fixed
