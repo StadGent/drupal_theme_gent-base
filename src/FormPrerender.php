@@ -46,7 +46,7 @@ class FormPrerender implements TrustedCallbackInterface {
    * @param int $input_counts
    *   Input counter.
    *
-   * @SuppressWarnings(PHPMD.CyclomaticComplexity)
+   * @SuppressWarnings("CyclomaticComplexity")
    */
   protected static function loopElements(array &$elements, &$input_counts = 0) {
     foreach (Element::children($elements) as $key) {
