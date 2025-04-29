@@ -991,7 +991,6 @@ function _gent_base_node_has_overlapped_header(NodeInterface $node, array $bundl
     $paragraphs = $node->get('field_paragraphs')->referencedEntities();
 
     if (!empty($paragraphs)) {
-      /** @var \Drupal\paragraphs\ParagraphInterface $firstParagraph */
       $firstParagraph = reset($paragraphs);
 
       if ($firstParagraph instanceof ParagraphInterface
@@ -1284,7 +1283,7 @@ function gent_base_preprocess_pager(&$variables) {
     }
   }
 
-  if ($i !== $pager_max) {
+  if ((int) $i !== $pager_max) {
     // Add an ellipsis if there are further previous pages.
     if ($i > 1) {
       $variables['ellipses']['previous'] = TRUE;
