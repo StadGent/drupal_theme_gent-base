@@ -20,6 +20,9 @@ All Notable changes to `StadGent/drupal_theme_gent-base`.
 - SGD8-2952: Fixed displaying paragraphs in draft revisions.
 - SGD8-2984: Fixed wrong class assignment to link field.
 
+### Removed
+- SGD8-2581: Removed preprocess opening hours widget hook.
+
 ## [6.0.2]
 
 ### Fixed

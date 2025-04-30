@@ -1571,34 +1571,6 @@ function gent_base_preprocess_file_upload_help(&$variables) {
 }
 
 /**
- * Implements hook_preprocess_HOOK().
- */
-function gent_base_preprocess_opening_hours_widget(array &$variables) {
-  if (!empty($variables['widgets'])) {
-    // Filter out if empty preview_widget/service_id/date.
-    if (
-      count($variables['widgets']) === 1 &&
-      $variables['widgets'][0]['type'] === 'day' &&
-      empty($variables['preview_widget']) &&
-      (empty($variables['service_id']) || empty($variables['date']))
-    ) {
-      $variables['widgets'] = [];
-      return;
-    }
-
-    // Optional: change labels.
-    foreach ($variables['widgets'] as &$widget) {
-      if ($widget['type'] === 'week') {
-        $widget['label'] = t('This week');
-      }
-      elseif ($widget['type'] === 'month') {
-        $widget['label'] = t('This month');
-      }
-    }
-  }
-}
-
-/**
  * Add result ID and class to content region when filters region is not empty.
  *
  * @param array $variables
