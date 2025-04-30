@@ -2,7 +2,7 @@
 
 All Notable changes to `StadGent/drupal_theme_gent-base`.
 
-## [Unreleased]
+## [6.0.3]
 
 ### Added
 - SGD8-2952: Added support for improved paragraph parent fetcher.
@@ -18,6 +18,7 @@ All Notable changes to `StadGent/drupal_theme_gent-base`.
 - SGD8-2957: Fixed product page contacts render cache issue.
 - SGD8-2581: Fixed opening hours spacing issue.
 - SGD8-2952: Fixed displaying paragraphs in draft revisions.
+- SGD8-2984: Fixed wrong class assignment to link field.
 
 ## [6.0.2]
 
