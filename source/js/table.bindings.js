@@ -134,11 +134,15 @@
           document.head.appendChild(l);
         };
 
-        loadStyle(`/${basePath}/build/styleguide/vendor/swiper/swiper-bundle.min.css`);
-        loadScript(`/${basePath}/build/styleguide/vendor/swiper/swiper-bundle.min.js`)
-          .then(() => loadScript(`/${basePath}/build/styleguide/js/table.bindings-min.js`))
+        // Lazy-load without event listeners.
+        loadStyle(`/${basePath}/build/styleguide/vendor/swiper/swiper-bundle.css`);
+        loadScript(`/${basePath}/build/styleguide/vendor/swiper/swiper-bundle.js`)
+          .then(() => loadScript(`/${basePath}/build/styleguide/js/table.bindings.js`))
           .then(() => {
-            Drupal.attachBehaviors(document, drupalSettings);
+            const newTables = document.querySelectorAll('.table-swiper-wrapper');
+            newTables.forEach((el) => {
+              Drupal.attachBehaviors(el, drupalSettings);
+            });
           });
       }
     }
