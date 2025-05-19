@@ -2,6 +2,12 @@
 
 All Notable changes to `StadGent/drupal_theme_gent-base`.
 
+## [6.0.4]
+
+### Added
+
+- Add D10 & D11 support to the starterkit.
+
 ## [6.0.3]
 
 ### Added
@@ -763,6 +769,7 @@ See Github releases for more information.
 
 * **Updated to gent_styleguide version 2.6.13**
 
+[6.0.4]: https://github.com/StadGent/drupal_theme_gent-base/compare/6.0.3...6.0.4
 [6.0.3]: https://github.com/StadGent/drupal_theme_gent-base/compare/6.0.2...6.0.3
 [6.0.2]: https://github.com/StadGent/drupal_theme_gent-base/compare/6.0.1...6.0.2
 [6.0.1]: https://github.com/StadGent/drupal_theme_gent-base/compare/6.0.0...6.0.1
