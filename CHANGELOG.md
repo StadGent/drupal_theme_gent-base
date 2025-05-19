@@ -2,6 +2,12 @@
 
 All Notable changes to `StadGent/drupal_theme_gent-base`.
 
+## [6.0.5]
+
+### Fixed
+
+- SGD8-3000: Fixed bug with Drupal behaviors breaking main menu on pages with tables.
+
 ## [6.0.4]
 
 ### Added
