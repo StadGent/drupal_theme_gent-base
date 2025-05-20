@@ -602,17 +602,23 @@ function gent_base_preprocess_field__field_contacts(array &$variables) {
   $entity_cache_metadata = CacheableMetadata::createFromObject($entity);
 
   foreach ($contacts as &$contact) {
-    $contact['content']['#view_mode'] = $view_mode;
+    $vesta_entity = $contact['content']['#vesta'];
+    $view_builder = \Drupal::entityTypeManager()->getViewBuilder($vesta_entity->getEntityTypeId());
 
-    // Add view-specific classes.
+    // Render the contact in the correct view mode.
+    $render_array = $view_builder->view($vesta_entity, $view_mode);
+
+    // Merge cache tags and contexts from the parent entity.
+    $vesta_metadata = CacheableMetadata::createFromRenderArray($render_array)->merge($entity_cache_metadata);
+    $vesta_metadata->applyTo($render_array);
+
+    // Replace the contact content with newly rendered array.
+    $contact['content'] = $render_array;
+
+    // Add view-mode-specific classes.
     if ($view_mode === 'teaser_with_link') {
       $contact['attributes']->addClass('teaser', 'teaser-contact');
     }
-
-    // Merge cache tags and contexts from the parent entity.
-    $cache_metadata = CacheableMetadata::createFromRenderArray($contact['content']);
-    $cache_metadata = $cache_metadata->merge($entity_cache_metadata);
-    $cache_metadata->applyTo($contact['content']);
   }
 }
 
