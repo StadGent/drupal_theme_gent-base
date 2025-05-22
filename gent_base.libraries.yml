@@ -72,7 +72,6 @@ tabs:
 tables:
   js:
     build/styleguide/js/table.functions-min.js: { minified: true }
-    source/js/table-mobile.functions.js: {}
     source/js/table.bindings.js: {}
   dependencies:
     - core/drupal

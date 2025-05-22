@@ -4,6 +4,10 @@ All Notable changes to `StadGent/drupal_theme_gent-base`.
 
 ## [6.0.5]
 
+### Removed
+
+- SGD8-3000: Removed previous responsive table JS in favor of Fractal's.
+
 ### Fixed
 
 - SGD8-3000: Fixed bug with Drupal behaviors breaking main menu on pages with tables.
@@ -775,6 +779,7 @@ See Github releases for more information.
 
 * **Updated to gent_styleguide version 2.6.13**
 
+[6.0.5]: https://github.com/StadGent/drupal_theme_gent-base/compare/6.0.4...6.0.5
 [6.0.4]: https://github.com/StadGent/drupal_theme_gent-base/compare/6.0.3...6.0.4
 [6.0.3]: https://github.com/StadGent/drupal_theme_gent-base/compare/6.0.2...6.0.3
 [6.0.2]: https://github.com/StadGent/drupal_theme_gent-base/compare/6.0.1...6.0.2
