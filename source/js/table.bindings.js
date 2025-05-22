@@ -47,7 +47,7 @@
             if (!columns[colIndex]) {
               columns[colIndex] = [];
             }
-            columns[colIndex].push({ el: cell.cloneNode(true), rowIndex });
+            columns[colIndex].push({el: cell.cloneNode(true), rowIndex});
           });
         });
 
