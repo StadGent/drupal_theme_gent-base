@@ -30,7 +30,6 @@
         }
 
         shouldLoadSwiper = true;
-        const numCols = rows[0].children.length;
 
         // Wrap table in responsive container.
         const wrapper = document.createElement('div');
@@ -42,10 +41,13 @@
         tableWrapper.appendChild(table);
 
         // Group cells per column.
-        const columns = Array.from({length: numCols}, () => []);
+        const columns = [];
         rows.forEach((row, rowIndex) => {
           row.querySelectorAll('th, td').forEach((cell, colIndex) => {
-            columns[colIndex].push({el: cell.cloneNode(true), rowIndex});
+            if (!columns[colIndex]) {
+              columns[colIndex] = [];
+            }
+            columns[colIndex].push({ el: cell.cloneNode(true), rowIndex });
           });
         });
 

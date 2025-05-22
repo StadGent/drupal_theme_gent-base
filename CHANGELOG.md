@@ -11,6 +11,7 @@ All Notable changes to `StadGent/drupal_theme_gent-base`.
 ### Fixed
 
 - SGD8-3000: Fixed bug with Drupal behaviors breaking main menu on pages with tables.
+- SGD8-3000: Fixed bug with colIndex push.
 - HEAT-6832177: Fix cache key for teaser_with_links.
 
 ## [6.0.4]
