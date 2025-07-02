@@ -54,6 +54,11 @@
 
     /**
      * Update copy dynamically when the user changes the value of the slider.
+     *
+     * @param {HTMLElement|Document} context
+     *  The DOM context within which to operate. This is typically passed by
+     *  Drupal.attachBehaviors() and is either `document` or an element updated
+     *  via AJAX.
      */
     updateCopy: function (context) {
       $('.facets-widget-range_slider', context).each(function () {
