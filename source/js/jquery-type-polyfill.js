@@ -5,6 +5,11 @@
  */
 
 (function ($) {
+  if (typeof window.jQuery === 'undefined') {
+    // jQuery not yet available — do nothing.
+    return;
+  }
+
   if (typeof $.type !== 'function') {
     $.type = function (obj) {
       return Object.prototype.toString.call(obj)

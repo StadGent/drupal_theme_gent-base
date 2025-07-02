@@ -2,6 +2,13 @@
 
 All Notable changes to `StadGent/drupal_theme_gent-base`.
 
+## [6.0.6]
+
+### Fixed
+
+- SGD8-2983: Fix missing JSDoc for param 'context'
+- SGD8-2983: Fix $.type polyfill script when jQuery was not yet initialized.
+
 ## [6.0.5]
 
 ### Removed
@@ -782,6 +789,7 @@ See Github releases for more information.
 
 * **Updated to gent_styleguide version 2.6.13**
 
+[6.0.6]: https://github.com/StadGent/drupal_theme_gent-base/compare/6.0.5...6.0.6
 [6.0.5]: https://github.com/StadGent/drupal_theme_gent-base/compare/6.0.4...6.0.5
 [6.0.4]: https://github.com/StadGent/drupal_theme_gent-base/compare/6.0.3...6.0.4
 [6.0.3]: https://github.com/StadGent/drupal_theme_gent-base/compare/6.0.2...6.0.3
