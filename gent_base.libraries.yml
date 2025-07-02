@@ -114,3 +114,10 @@ breadcrumbs:
   dependencies:
     - core/jquery
     - core/once
+
+jquery_polyfills:
+  js:
+    source/js/jquery-type-polyfill.js:
+      weight: -100
+  dependencies:
+    - core/jquery
