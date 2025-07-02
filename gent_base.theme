@@ -1432,6 +1432,9 @@ function gent_base_page_attachments_alter(array &$page) {
   ];
 
   $page['#attached']['html_head'][] = [$ie_edge, 'ie_edge'];
+
+  // Add jQuery backwards compatible functions since moving to jQuery 4.
+  $page['#attached']['library'][] = 'gent_base/jquery_polyfills';
 }
 
 /**

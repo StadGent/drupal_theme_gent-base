@@ -1,6 +1,6 @@
-# Drupal 10 base theme using the styleguide of Stad Gent.
+# Drupal 10/11 base theme using the styleguide of Stad Gent.
 
-This Drupal 10 theme is based on the style guide of Stad Gent.
+This Drupal 10/11 theme is based on the style guide of Stad Gent.
 https://stijlgids.stad.gent/
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/090c45ffd08a2370cd0d/maintainability)](https://codeclimate.com/repos/5a5c70e7f5f0e502a80009f1/maintainability)

@@ -1,6 +1,6 @@
 /**
  * @file
- * Accordion component binding.
+ * Facet range slider component binding.
  */
 (function ($, Drupal, once) {
 
@@ -14,10 +14,13 @@
 
         $.each(settings.facets.sliders, function (facet, settings) {
           self.addUrlFragment(facet, settings);
-          Drupal.facets.addSlider(facet, settings);
+
+          if (Drupal.facets && typeof Drupal.facets.addSlider === 'function') {
+            Drupal.facets.addSlider(facet, settings);
+          }
         });
 
-        this.updateCopy();
+        this.updateCopy(context);
       }
     },
 
@@ -35,39 +38,43 @@
         return;
       }
 
-      var $facet = document.querySelector('[id^="' + facet + '"][id$="' + facet + '"]');
-      var $modal = $facet.closest('.modal');
+      var $facet = document.querySelector('[id*="' + facet + '"]');
+      if (!$facet) {
+        return;
+      }
 
+      var $modal = $facet.closest('.modal');
       if (!$modal) {
         return;
       }
 
-      settings.url = settings.url.split('#')[0]; // Strip hash if there was one already
+      settings.url = settings.url.split('#')[0];
       settings.url += '#' + $modal.id;
     },
 
     /**
      * Update copy dynamically when the user changes the value of the slider.
      */
-    updateCopy: function () {
-      var facetsRangeSlider = document.querySelectorAll('.facets-widget-range_slider');
-      var minPips = $(facetsRangeSlider).find('.pips-preview .placeholder:first-of-type');
-      var maxPips = $(facetsRangeSlider).find('.pips-preview .placeholder:last-of-type');
-      var slider = $(facetsRangeSlider).find('.facet-slider');
+    updateCopy: function (context) {
+      $('.facets-widget-range_slider', context).each(function () {
+        const $widget = $(this);
+        const $slider = $widget.find('.facet-slider');
+        const $minPip = $widget.find('.pips-preview .placeholder:first-of-type');
+        const $maxPip = $widget.find('.pips-preview .placeholder:last-of-type');
 
-      if (facetsRangeSlider.length > 0) {
-        for (var i = 0; i < facetsRangeSlider.length; i++) {
-          minPips[i].textContent = $(slider[i]).slider('values', 0);
-          maxPips[i].textContent = $(slider[i]).slider('values', 1);
+        // Set initial values if the slider is initialized.
+        if ($slider.length && $slider.slider('instance')) {
+          const values = $slider.slider('values');
+          $minPip.text(values[0]);
+          $maxPip.text(values[1]);
         }
-      }
 
-      // TODO: make vanilla JS version of function with:
-      // once(slider).each(function () {
-      $(once('facet-range-slider', slider)).each(function () {
-        $(this).on('slide', function (event, ui) {
-          $(this).parents('.facets-widget-range_slider').find('.pips-preview .placeholder:first-of-type')[0].textContent = ui.values[0];
-          $(this).parents('.facets-widget-range_slider').find('.pips-preview .placeholder:last-of-type')[0].textContent = ui.values[1];
+        // Bind once to update values on slide.
+        $(once('facet-range-slider', $slider)).on('slide', function (event, ui) {
+          const $self = $(this);
+          const $widget = $self.closest('.facets-widget-range_slider');
+          $widget.find('.pips-preview .placeholder:first-of-type').text(ui.values[0]);
+          $widget.find('.pips-preview .placeholder:last-of-type').text(ui.values[1]);
         });
       });
     }
