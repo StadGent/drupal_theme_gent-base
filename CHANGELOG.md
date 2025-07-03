@@ -2,6 +2,13 @@
 
 All Notable changes to `StadGent/drupal_theme_gent-base`.
 
+## [6.0.7]
+
+### Fixed
+
+- SGD8-2983: Fix missing jQuery function $.type when trying to use on facets
+  page with get param list=show.
+
 ## [6.0.6]
 
 ### Fixed
@@ -789,6 +796,7 @@ See Github releases for more information.
 
 * **Updated to gent_styleguide version 2.6.13**
 
+[6.0.7]: https://github.com/StadGent/drupal_theme_gent-base/compare/6.0.6...6.0.7
 [6.0.6]: https://github.com/StadGent/drupal_theme_gent-base/compare/6.0.5...6.0.6
 [6.0.5]: https://github.com/StadGent/drupal_theme_gent-base/compare/6.0.4...6.0.5
 [6.0.4]: https://github.com/StadGent/drupal_theme_gent-base/compare/6.0.3...6.0.4
