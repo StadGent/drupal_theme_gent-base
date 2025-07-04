@@ -8,6 +8,7 @@ All Notable changes to `StadGent/drupal_theme_gent-base`.
 
 - SGD8-2983: Fix missing jQuery function $.type when trying to use on facets
   page with get param list=show.
+- SGD8-2983: Fix modal breaking when being closed with #filter in the URL.
 
 ## [6.0.6]
 
