@@ -4,6 +4,18 @@
  */
 (function ($, Drupal, once) {
 
+  // Polyfill for $.type — needed by jquery-ui-slider-pips under jQuery 4.
+  // Delete this code block when facet range slider has fixed this issue.
+  // See https://www.drupal.org/project/facets/issues/3524408.
+  if (typeof $.type !== 'function') {
+    $.type = function (obj) {
+      return Object.prototype.toString
+        .call(obj)
+        .match(/\s([a-zA-Z]+)/)[1]
+        .toLowerCase();
+    };
+  }
+
   /**
    * Override facet slider behavior
    */

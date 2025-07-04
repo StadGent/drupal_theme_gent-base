@@ -13,6 +13,8 @@
         var self = this;
         /* global Modal */
         new Modal(this, {
+          // Prevents modals breaking (visible full screen) when being closed.
+          changeHash: false,
           // The modal is always visible from tablet and up,
           // this is atypical.
           resizeEvent: function (open, close) {
