@@ -1370,7 +1370,7 @@ function gent_base_preprocess_paragraph__call_to_action(&$variables) {
 
     $action = [
       '#type' => 'link',
-      '#title' => $paragraph->get($field . '_title')->value,
+      '#title' => $paragraph->get($field . '_title')->getString(),
       '#attributes' => [
         'class' => $i > 0 ? ['standalone-link'] : ['button', 'button-secondary'],
       ],
@@ -1393,6 +1393,7 @@ function gent_base_preprocess_paragraph__call_to_action(&$variables) {
         break;
       }
 
+      $action['#title'] = $action['#title'] ?: $data['file_name'];
       $action['#url'] = Url::fromUri($data['file_uri']);
       $action['#attributes']['download'] = TRUE;
 

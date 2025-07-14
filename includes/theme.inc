@@ -102,6 +102,7 @@ function _gent_base_get_entity_reference_file_data(&$variables, $field) {
     $data['file_uri'] = $wrapper->getExternalUrl();
   }
   $data['file_type'] = $file_type;
+  $data['file_name'] = $file_name;
 
   return $data;
 }
