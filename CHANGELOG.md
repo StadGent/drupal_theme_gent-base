@@ -7,6 +7,7 @@ All Notable changes to `StadGent/drupal_theme_gent-base`.
 ### Fixed
 
 - SGD8-3032: Fix 500 error for CTA with secondary document with empty title field.
+- SGD8-2748: Fixed space between tags on related box.
 
 ## [6.0.7]
 
