@@ -2,6 +2,12 @@
 
 All Notable changes to `StadGent/drupal_theme_gent-base`.
 
+## [6.0.9]
+
+### Fixed
+
+- TTWEBTAKEN-366: Fix modal after selecting facet.
+
 ## [6.0.8]
 
 ### Fixed
