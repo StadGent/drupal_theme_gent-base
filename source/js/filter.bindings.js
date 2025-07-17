@@ -11,7 +11,7 @@
 
       $(once('filter', '#filter', context)).each(function () {
         var self = this;
-        // Decide changeHash value based on screen size
+        // Decide changeHash value based on screen size.
         var useHash = window.innerWidth <= 960;
         /* global Modal */
         new Modal(this, {
