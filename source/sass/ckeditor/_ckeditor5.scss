@@ -19,6 +19,7 @@
 @import '../../../build/styleguide/sass/11-base/fonts/icons';
 
 @import '../../../build/styleguide/sass/21-atoms/list/list';
+@import '../31-molecules/breadcrumb/breadcrumb';
 
 // Status messages. We need to copy the style to make it apply to CKeditor in the admin theme.
 // Some imports don't suffice because the selectors are not specific enough.

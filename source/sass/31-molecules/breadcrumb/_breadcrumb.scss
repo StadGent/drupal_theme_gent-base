@@ -1,0 +1,7 @@
+ol.gin-breadcrumb__list {
+  & > li {
+    &::before {
+      display: none;
+    }
+  }
+}
