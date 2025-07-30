@@ -7,6 +7,7 @@ All Notable changes to `StadGent/drupal_theme_gent-base`.
 ### Fixed
 
 - TTWEBTAKEN-366: Fix modal after selecting facet.
+- SGD8-2991: Fix nr in breadcrumb.
 
 ## [6.0.8]
 
