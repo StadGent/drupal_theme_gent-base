@@ -432,6 +432,7 @@ function gent_base_preprocess_fieldset(&$variables) {
     $element['#information'] = reset($matches[1]);
     $element['#information'] = Markup::create($element['#information']);
   }
+  /** @phpstan-ignore-next-line */
   if (isset($element['#information'])) {
     $variables['prefix'] = str_replace(reset($matches[0]), '', (string) $variables['prefix']);
   }
@@ -952,7 +953,8 @@ function _gent_base_preprocess_content_header_classes(&$variables) {
   // Add secondary color class.
   if (in_array($node->getType(), ['event', 'news'])) {
     $classes[] = 'secondary';
-    if (($key = array_search('primary', $classes)) !== FALSE) {
+    $key = array_search('primary', $classes);
+    if (is_int($key)) {
       unset($classes[$key]);
     }
   }
