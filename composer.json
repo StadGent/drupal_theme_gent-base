@@ -15,7 +15,8 @@
     },
     "require-dev": {
         "digipolisgent/qa-drupal": "^4.0",
-        "drupal/core": "^10.4 || ^11.1",
+        "drupal/core-recommended": "^10.4 || ^11.1",
+        "drupal/core-dev": "^10.4 || ^11.1",
         "drupal/paragraphs": "^1.5",
         "gent-drupal/dg_vesta": "^4.0"
     },
