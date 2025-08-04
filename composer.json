@@ -44,7 +44,8 @@
         "allow-plugins": {
             "dealerdirect/phpcodesniffer-composer-installer": true,
             "ergebnis/composer-normalize": true,
-            "phpro/grumphp-shim": true
+            "phpro/grumphp-shim": true,
+            "phpstan/extension-installer": true
         },
         "sort-packages": true
     },
