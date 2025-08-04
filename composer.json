@@ -1,6 +1,6 @@
 {
     "name": "gent-drupal/gent_base",
-    "description": "Drupal theming layer for styleguide Gent.",
+    "description": "Drupal contrib theme for styleguide Gent.",
     "license": "GPL-2.0-or-later",
     "type": "drupal-theme",
     "keywords": [
