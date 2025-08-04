@@ -13,3 +13,4 @@ node_modules/
 # QA-Drupal ignored files.
 /*.local.*
 /*.qa-drupal.*
+!phpstan.qa-drupal.neon
