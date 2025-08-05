@@ -15,9 +15,7 @@
     },
     "require-dev": {
         "digipolisgent/qa-drupal": "^4.0",
-        "drupal/core-dev": "^10.4 || ^11.1",
-        "drupal/core-recommended": "^10.4 || ^11.1",
-        "drupal/feeds": "^3.0",
+        "drupal/core": "^10.4 || ^11.1",
         "drupal/paragraphs": "^1.5",
         "gent-drupal/dg_vesta": "^4.0"
     },
@@ -45,10 +43,7 @@
         "allow-plugins": {
             "dealerdirect/phpcodesniffer-composer-installer": true,
             "ergebnis/composer-normalize": true,
-            "php-http/discovery": true,
-            "phpro/grumphp-shim": true,
-            "phpstan/extension-installer": true,
-            "tbachert/spi": true
+            "phpro/grumphp-shim": true
         },
         "sort-packages": true
     },
