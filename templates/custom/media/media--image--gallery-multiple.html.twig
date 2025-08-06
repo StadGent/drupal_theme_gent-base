@@ -22,13 +22,11 @@
   {% endif %}
 >
   {{ title_suffix.contextual_links }}
-  {% apply spaceless %}
-    <figure>
-      <div class="image-wrapper" data-ratio="8:5">
-        {{ content.field_media_image }}
-      </div>
+  <figure>
+    <div class="image-wrapper" data-ratio="8:5">
+      {{ content.field_media_image }}
+    </div>
 
-      {{ content.field_media_caption }}
-    </figure>
-  {% endapply %}
+    {{ content.field_media_caption }}
+  </figure>
 </a>

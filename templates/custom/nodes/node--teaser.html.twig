@@ -103,16 +103,14 @@
       <div class="content__first">
         {% block image %}
           {% if node.hasField('field_teaser_image') %}
-            {% apply spaceless %}
-              <div class="figure-wrapper">
-                <figure>
-                  <div class="image-wrapper">
-                    {{ content.field_teaser_image }}
-                  </div>
-                </figure>
-                <div class="accolade-inverse bottom-left"></div>
-              </div>
-            {% endapply %}
+            <div class="figure-wrapper">
+              <figure>
+                <div class="image-wrapper">
+                  {{ content.field_teaser_image }}
+                </div>
+              </figure>
+              <div class="accolade-inverse bottom-left"></div>
+            </div>
           {% endif %}
 
           {{ content.og_audience }}
