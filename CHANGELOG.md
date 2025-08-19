@@ -2,6 +2,11 @@
 
 All Notable changes to `StadGent/drupal_theme_gent-base`.
 
+## [6.0.11] Unreleased
+
+### changed
+- SGD8-2985: Changed order for Vesta teaser opening hours. 
+
 ## [6.0.10]
 
 ### Updated
