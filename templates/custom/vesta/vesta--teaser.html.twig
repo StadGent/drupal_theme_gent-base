@@ -24,6 +24,8 @@
   <div class="content__second">
     <h3 id="{{ id }}">{{ name }}</h3>
 
+    {{ content.field_opening_hours }}
+
     <p>
       {% if address|render %}
         {{ address.street }} {{ address.houseNumber }}{{ address.box ? '/' ~ address.box }},
@@ -38,8 +40,6 @@
                class="no-icon">{{ phone }}</a></li>
       </ul>
     {% endif %}
-
-    {{ content.field_opening_hours }}
 
     <a href="{{ url }}" class="read-more standalone-link"
        aria-labelledby="{{ id }}">{{ 'More info and opening hours'|t }}</a>
