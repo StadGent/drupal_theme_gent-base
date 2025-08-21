@@ -2,6 +2,11 @@
 
 All Notable changes to `StadGent/drupal_theme_gent-base`.
 
+## [6.0.11]
+
+### Updated
+- Updated styleguide to v6.0.17.
+
 ## [6.0.10]
 
 ### Updated
