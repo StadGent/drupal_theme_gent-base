@@ -4,6 +4,10 @@
 options:
   formatter: stylish
   merge-default-rules: false
+files:
+  ignore:
+    - 'components/11-base/fonts/templates/_icons.template'
+    - 'components/11-base/fonts/_icons.scss'
 rules:
   # Extends
   extends-before-mixins: 2
@@ -14,12 +18,14 @@ rules:
   mixins-before-declarations:
     - 2
     - exclude:
-      - desktop
-      - tablet
-      - phablet
-      - mobile
-      - tablet-only
-      - breakpoint
+        - desktop-and-below
+        - desktop-xl
+        - desktop
+        - mobile
+        - phablet
+        - tablet
+        - tablet-only
+        - breakpoint
 
   # Line Spacing
   one-declaration-per-line: 2
@@ -37,37 +43,40 @@ rules:
   no-duplicate-properties:
     - 2
     - exclude:
-      - padding-left
-      - padding-right
-      - padding-top
-      - padding-bottom
-      - margin-left
-      - margin-right
-      - margin-top
-      - margin-bottom
+        - display
+        - padding-left
+        - padding-right
+        - padding-top
+        - padding-bottom
+        - margin-left
+        - margin-right
+        - margin-top
+        - margin-bottom
   no-empty-rulesets: 2
+
   no-extends: 0
-  no-ids: 0
+  no-ids: 2
   no-important: 2
   no-invalid-hex: 2
   no-mergeable-selectors: 2
   no-misspelled-properties:
     - 2
     - extra-properties:
-      - 'gap'
-      - 'container-type'
-      - '*font-family'
-      - '*height'
-      - 'interpolation-mode'
-      - '*margin-left'
-      - '*vertical-align'
-      - '*width'
+        - 'aspect-ratio'
+        - 'container-type'
+        - '*font-family'
+        - 'gap'
+        - '*height'
+        - 'interpolation-mode'
+        - '*margin-left'
+        - '*vertical-align'
+        - '*width'
   no-qualifying-elements: 0
   no-trailing-zero: 2
   no-transition-all: 2
   no-url-protocols: 2
   no-vendor-prefixes: 1
-  no-warn: 2
+  no-warn: 0
   property-units: 0
 
   # Nesting
@@ -101,11 +110,11 @@ rules:
   hex-length: 2
   hex-notation: 2
   indentation: 2
-  leading-zero: false
+  leading-zero: 2
   pseudo-element: 2
   nesting-depth:
     - 2
-    - max-depth: 4
+    - max-depth: 5
   property-sort-order:
     - 2
     - order: 'smacss'

@@ -76,7 +76,7 @@ main {
         & + .paragraph--type--text {
           max-width: 100%;
           padding: 20px 20px 0;
-          background-color: color('white');
+          background-color: coloring('white');
 
           .unpublished-content & {
             background-color: $unpublished-color;

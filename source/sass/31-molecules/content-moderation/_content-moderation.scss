@@ -1,3 +1,6 @@
+@use '../../../../build/styleguide/sass/00-settings/settings' as *;
+@use '../../../../build/styleguide/sass/00-mixins/mixins' as *;
+
 .detail-layout {
   .content-moderation-entity-moderation-form {
     @include col(9);

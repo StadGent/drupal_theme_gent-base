@@ -1,3 +1,6 @@
+@use '../../../../build/styleguide/sass/00-settings/settings' as *;
+@use '../../../../build/styleguide/sass/00-mixins/mixins' as *;
+
 $frs-handle-size: 1.4rem;
 
 .form-item.facets-widget-range_slider {
@@ -17,7 +20,7 @@ $frs-handle-size: 1.4rem;
   .ui-widget.ui-widget-content {
     height: 0;
     margin: 1.5rem #{$frs-handle-size * 0.5} 2rem;
-    border: 2px solid color('gray-light');
+    border: 2px solid coloring('gray-light');
   }
 
   .ui-slider-range {

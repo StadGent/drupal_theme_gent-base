@@ -1,45 +1,49 @@
 // Import this file in a ckeditor5.scss file in your sub theme.
 // See starterkit in this theme as example.
-@import '../../../build/styleguide/sass/00-settings/vars';
-@import '../00-settings/vars';
+@use "sass:meta";
+@use '../../../build/styleguide/sass/00-settings/vars';
+@use '../00-settings/vars' as vars2;
 
-@import '../../../build/styleguide/sass/00-mixins/breakpoints/breakpoints';
-@import '../../../build/styleguide/sass/00-mixins/general/mixins';
-@import '../../../build/styleguide/sass/00-mixins/grid/grid';
-@import '../../../build/styleguide/sass/00-mixins/grid/responsive-utilities';
-@import '../../../build/styleguide/sass/00-mixins/link/link';
-@import '../../../build/styleguide/sass/00-mixins/svg/svg-icons';
-@import '../../../build/styleguide/sass/00-mixins/table/table-backgrounds';
-@import '../../../build/styleguide/sass/00-mixins/themify/themify';
+@use '../../../build/styleguide/sass/00-mixins/breakpoints/breakpoints';
+@use '../../../build/styleguide/sass/00-mixins/general/mixins';
+@use '../../../build/styleguide/sass/00-mixins/grid/grid';
+@use '../../../build/styleguide/sass/00-mixins/grid/responsive-utilities';
+@use '../../../build/styleguide/sass/00-mixins/link/link';
+@use '../../../build/styleguide/sass/00-mixins/svg/svg-icons';
+@use '../../../build/styleguide/sass/00-mixins/table/table-backgrounds';
+@use '../../../build/styleguide/sass/00-mixins/themify/themify';
 
-@import '../../../build/styleguide/sass/00-settings/colors';
-@import '../../../build/styleguide/sass/00-settings/themes';
-@import '../00-settings/colors';
+@use '../../../build/styleguide/sass/00-settings/colors';
+@use '../../../build/styleguide/sass/00-settings/themes';
+@use '../00-settings/colors' as colors2;
 
-@import '../../../build/styleguide/sass/11-base/fonts/icons';
+@use '../../../build/styleguide/sass/11-base/fonts/icons';
 
-@import '../../../build/styleguide/sass/21-atoms/list/list';
-@import '../31-molecules/breadcrumb/breadcrumb';
+@use '../../../build/styleguide/sass/21-atoms/list/list';
+@use '../31-molecules/breadcrumb/breadcrumb';
+@use "../../../build/styleguide/sass/00-settings/settings";
 
 // Status messages. We need to copy the style to make it apply to CKeditor in the admin theme.
 // Some imports don't suffice because the selectors are not specific enough.
 .ck-content {
   // Heading styling.
-  @import '../../../build/styleguide/sass/21-atoms/heading/heading';
-  @import '../../../build/styleguide/sass/21-atoms/heading/css/heading-1';
-  @import '../../../build/styleguide/sass/21-atoms/heading/css/heading-2';
-  @import '../../../build/styleguide/sass/21-atoms/heading/css/heading-3';
-  @import '../../../build/styleguide/sass/21-atoms/heading/css/heading-4';
+  @include meta.load-css('../../../build/styleguide/sass/21-atoms/heading/heading');
+  @include meta.load-css('../../../build/styleguide/sass/21-atoms/heading/css/heading-1');
+  @include meta.load-css('../../../build/styleguide/sass/21-atoms/heading/css/heading-2');
+  @include meta.load-css('../../../build/styleguide/sass/21-atoms/heading/css/heading-3');
+  @include meta.load-css('../../../build/styleguide/sass/21-atoms/heading/css/heading-4');
   // Text paragraph styling.
-  @import '../../../build/styleguide/sass/21-atoms/paragraph/paragraph';
+  @include meta.load-css('../../../build/styleguide/sass/21-atoms/paragraph/paragraph');
   // Status messages styling.
-  @import '../../../build/styleguide/sass/21-atoms/status/status';
-  @import '../../../build/styleguide/sass/31-molecules/status-message/status-message';
-  @import '../31-molecules/status-message/status-message';
+  @include meta.load-css('../../../build/styleguide/sass/21-atoms/status/status');
+  @include meta.load-css('../../../build/styleguide/sass/31-molecules/status-message/status-message');
+  @include meta.load-css('../31-molecules/status-message/status-message');
   // Important notes styling.
-  @import '../../../build/styleguide/sass/31-molecules/important-note/important-note';
+  @include meta.load-css('../../../build/styleguide/sass/31-molecules/important-note/important-note');
 
-  font: $default-font-weight $default-font-size $default-font-family;
+  & {
+    font: settings.$default-font-weight settings.$default-font-size settings.$default-font-family;
+  }
 
   // Explicit status message styling to make it specific enough to come through.
   // The styleguide css uses .messages--status{} while admin theme uses .messages.messages--status{}.
@@ -47,32 +51,32 @@
     border-radius: 0;
 
     &.messages--status {
-      border-color: color('green');
-      background-color: color('green-light');
-      color: color('gray');
+      border-color: coloring('green');
+      background-color: coloring('green-light');
+      color: coloring('gray');
 
       &::before {
-        color: color('green');
+        color: coloring('green');
       }
     }
 
     &.messages--warning {
-      border-color: color('orange');
-      background-color: color('orange-light');
-      color: color('gray');
+      border-color: coloring('orange');
+      background-color: coloring('orange-light');
+      color: coloring('gray');
 
       &::before {
-        color: color('orange');
+        color: coloring('orange');
       }
     }
 
     &.messages--error {
-      border-color: color('red');
-      background-color: color('red-light');
-      color: color('gray');
+      border-color: coloring('red');
+      background-color: coloring('red-light');
+      color: coloring('gray');
 
       &::before {
-        color: color('red');
+        color: coloring('red');
       }
     }
   }
