@@ -2,6 +2,9 @@
  * @file
  * DG Maps functionality extensions.
  */
+
+'use strict';
+
 (function ($, Drupal) {
   var _initRegion = Drupal.dgMaps.initRegions;
 

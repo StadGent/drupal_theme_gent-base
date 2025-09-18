@@ -2,6 +2,10 @@
  * @file
  * Facet range slider component binding.
  */
+
+/* global once */
+'use strict';
+
 (function ($, Drupal, once) {
 
   // Polyfill for $.type — needed by jquery-ui-slider-pips under jQuery 4.

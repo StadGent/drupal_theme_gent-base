@@ -2,6 +2,10 @@
  * @file
  * Accordion component binding.
  */
+
+/* global once */
+'use strict';
+
 (function (Drupal, $, once) {
   Drupal.behaviors.gentBaseBreadcrumbs = {
     attach: function (context, settings) {

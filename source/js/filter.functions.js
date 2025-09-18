@@ -3,6 +3,8 @@
  * Checkbox-with-filter functionality
  */
 
+'use strict';
+
 (function (Drupal, $) {
   Drupal.facets = Drupal.facets || {};
 

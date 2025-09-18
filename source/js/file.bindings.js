@@ -1,10 +1,10 @@
-// eslint-disable-next-line no-redeclare
-/* global File */
-
 /**
  * @file
  * File component binding.
  */
+
+'use strict';
+
 (function (Drupal) {
   Drupal.behaviors.gentBaseLoadFile = {
     attach: function (context, settings) {

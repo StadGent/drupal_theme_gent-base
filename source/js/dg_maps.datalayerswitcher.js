@@ -1,9 +1,12 @@
-/* global ol */
 /**
  * @file
  * DG Maps functionality extensions.
  */
-(function ($, Drupal) {
+
+/* global ol, drupalSettings */
+'use strict';
+
+(function ($, Drupal, drupalSettings) {
   var originalPrototype = Drupal.dgMaps.ol.control.DataLayerSwitcher.prototype;
 
   /**
@@ -153,4 +156,4 @@
   };
 
   Drupal.dgMaps.ol.control.DataLayerSwitcher.prototype = originalPrototype;
-})(jQuery, Drupal);
+})(jQuery, Drupal, drupalSettings);

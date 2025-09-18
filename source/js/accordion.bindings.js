@@ -2,11 +2,14 @@
  * @file
 * Accordion component binding.
  */
+
+/* global once, Accordion */
+'use strict';
+
 (function (Drupal, $, once) {
   Drupal.behaviors.gentBaseLoadAccordion = {
     attach: function (context, settings) {
-      /* global Accordion */
-      if (typeof Accordion == 'undefined') {
+      if (typeof Accordion === 'undefined') {
         return;
       }
 

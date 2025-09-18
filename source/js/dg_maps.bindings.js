@@ -2,6 +2,9 @@
  * @file
  * Filter component binding.
  */
+
+'use strict';
+
 (function (Drupal) {
   Drupal.behaviors.gentBaseLoadDGMaps = {
     attach: function (context, settings) {
