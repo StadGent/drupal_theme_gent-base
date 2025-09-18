@@ -2,6 +2,20 @@
 
 All Notable changes to `StadGent/drupal_theme_gent-base`.
 
+## [7.0.0]
+
+### changed
+- DTGB-910: Update gent_styleguide to 7.0.0
+- DTGB-910: Fix non breaking npm audit issues
+- DTGB-910: Fix Sass deprecations
+- DTGB-910: STIJ-446: Fix js validate warnings; Set node version to 22
+- DTGB-910: Fix npm deprecations where possible
+- 
+## [6.0.12]
+
+### changed
+- Update styleguide to 6.0.18
+
 ## [6.0.11]
 
 ### changed
@@ -825,6 +839,8 @@ See Github releases for more information.
 
 * **Updated to gent_styleguide version 2.6.13**
 
+[7.0.0]: https://github.com/StadGent/drupal_theme_gent-base/compare/6.0.12...7.0.0
+[6.0.12]: https://github.com/StadGent/drupal_theme_gent-base/compare/6.0.11...6.0.12
 [6.0.11]: https://github.com/StadGent/drupal_theme_gent-base/compare/6.0.10...6.0.11
 [6.0.10]: https://github.com/StadGent/drupal_theme_gent-base/compare/6.0.9...6.0.10
 [6.0.9]: https://github.com/StadGent/drupal_theme_gent-base/compare/6.0.8...6.0.9
