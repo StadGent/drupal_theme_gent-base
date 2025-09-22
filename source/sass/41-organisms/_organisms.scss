@@ -1,8 +1,8 @@
-@forward 'extra-articles-content/extra-articles-content';
-@forward 'filter/filter';
-@forward 'footer/footer';
-@forward 'header/content-header';
-@forward 'related-box/related-box';
-@forward 'spotlight/spotlight';
-@forward 'toolbar/toolbar';
-@forward 'webform/webform';
+@use 'extra-articles-content/extra-articles-content';
+@use 'filter/filter';
+@use 'footer/footer';
+@use 'header/content-header';
+@use 'related-box/related-box';
+@use 'spotlight/spotlight';
+@use 'toolbar/toolbar';
+@use 'webform/webform';

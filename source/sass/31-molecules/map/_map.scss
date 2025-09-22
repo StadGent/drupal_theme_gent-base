@@ -1,8 +1,9 @@
 @forward 'leaflet';
 
-@use '../../../../build/styleguide/sass/00-settings/settings' as *;
+@use '../../../sass/00-settings/settings' as *;
 @use '../../../../build/styleguide/sass/00-mixins/mixins' as *;
-@use '../../../../build/styleguide/sass/21-atoms/atoms' as *;
+@use '../../../../build/styleguide/sass/11-base/fonts/icons' as *;
+@use '../../../../build/styleguide/sass/21-atoms/accolade/accolade' as *;
 
 // ===
 // DG Maps
@@ -140,7 +141,7 @@ $map-text-color: coloring('gray');
       }
 
       details {
-        ::-webkit-details-marker {
+        ::-webkit-details-marker { // sass-lint:disable-line no-vendor-prefixes
           display: none;
         }
 
@@ -238,7 +239,7 @@ $map-text-color: coloring('gray');
           background-position: (-$map-button-size*4) 0;
         }
 
-        &-agiv_grb > label { // scss-lint:disable
+        &-agiv_grb > label { // sass-lint:disable-line class-name-format
           background-position: (-$map-button-size*3) 0;
         }
 
@@ -325,7 +326,7 @@ $map-text-color: coloring('gray');
 
         &::before {
           position: absolute;
-          left: $accolade-width*0.5;
+          left: $accolade-width * .5;
           width: $accolade-width;
           height: $accolade-height;
           transform: rotate(180deg);
@@ -431,27 +432,25 @@ $map-text-color: coloring('gray');
       @include icon(hamburger);
       @include icon(chevron-down, after);
 
-      display: flex;
+      & {
+        display: flex;
+        position: absolute;
+        top: $map-padding;
+        left: $map-padding;
+        align-items: center;
+        font-size: 0;
+        z-index: 10;
 
-      position: absolute;
-      top: $map-padding;
-      left: $map-padding;
-
-      align-items: center;
-
-
-      font-size: 0;
-      z-index: 10;
-
-      &::before {
-        font-size: 1.2rem;
+        &::before {
+          font-size: 1.2rem;
+        }
       }
 
       @include tablet {
+        @include bold-text;
         width: auto;
         padding: .4rem .8rem;
         font-size: .8rem;
-        @include bold-text;
 
         &::before {
           font-size: 0;
@@ -481,8 +480,8 @@ $map-text-color: coloring('gray');
     font-size: .8rem;
 
     &__title {
-      display: inline;
       @include bold-text;
+      display: inline;
 
       &:not(:empty) + .ol-list-features__list__item__description:not(:empty)::before {
         padding: 0 1ch;

@@ -1,5 +1,5 @@
-@use '../../../../build/styleguide/sass/00-settings/settings' as *;
-@use '../../../../build/styleguide/sass/00-mixins/mixins' as *;
+@use '../../../../source/sass/00-settings/settings' as *;
+@use '../../../../source/sass/00-mixins/mixins' as *;
 
 .search {
   flex-wrap: nowrap;
@@ -17,7 +17,7 @@
   }
 
   input[type='text'] {
-    background-color: coloring('white');
     @extend %search-input;
+    background-color: coloring('white');
   }
 }

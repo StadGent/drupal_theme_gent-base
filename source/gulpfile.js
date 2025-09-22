@@ -4,11 +4,42 @@ import gulp from 'gulp';
 import eslint from 'gulp-eslint';
 import {deleteAsync} from 'del';
 import plumber from 'gulp-plumber';
+import sassGlob from 'gulp-sass-glob';
+import sassLint from 'gulp-sass-lint';
+import cache from 'gulp-cached';
+import gulpif from 'gulp-if';
 
 var globalConfig = {
   scriptsSrcDir: 'js',
   buildDir: '../build',
 };
+
+let build = false;
+
+/**
+ * Get the sassFiles.
+ */
+const _sassFiles = () => {
+  return gulp.src(['sass/**/*.s+(a|c)ss'])
+    .pipe(sassGlob());
+};
+
+/**
+ * Validate SCSS files.
+ * Includes:
+ *  Sass globbing
+ *  SassLint
+ */
+gulp.task('styles:validate', () => {
+  return _sassFiles()
+    .pipe(cache('styles:validate'))
+    .pipe(sassLint({
+      configFile: './.sass-lint.yml'
+    }))
+    .pipe(gulpif(build, sassLint.failOnError()))
+    .pipe(sassLint.format())
+    .pipe(sassLint.failOnError());
+});
 
 /*
  *
@@ -49,10 +80,10 @@ gulp.task('build:clean', function () {
  * Usage:
  *  gulp validate
  *
- *  Used to validate JS code.
+ *  Used to validate SASS and JS code.
  *
  */
-gulp.task('validate', gulp.series('js:validate'));
+gulp.task('validate', gulp.parallel('styles:validate', 'js:validate'));
 
 /*
  *

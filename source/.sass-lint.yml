@@ -1,13 +1,13 @@
 # Documentation for the sass-lint Linters is available at:
 # https://github.com/sasstools/sass-lint/tree/master/docs/rules
 
+files:
+  ignore:
+    # Ignore file due to namespaces not recognized by sass-lint.
+    - 'sass/ckeditor/_ckeditor5.scss'
 options:
   formatter: stylish
   merge-default-rules: false
-files:
-  ignore:
-    - 'components/11-base/fonts/templates/_icons.template'
-    - 'components/11-base/fonts/_icons.scss'
 rules:
   # Extends
   extends-before-mixins: 2
@@ -18,14 +18,18 @@ rules:
   mixins-before-declarations:
     - 2
     - exclude:
-        - desktop-and-below
-        - desktop-xl
-        - desktop
-        - mobile
-        - phablet
-        - tablet
-        - tablet-only
-        - breakpoint
+        - 'until-mobile'
+        - 'mobile'
+        - 'until-tablet'
+        - 'tablet'
+        - 'tablet-default'
+        - 'phablet'
+        - 'between-tablet-desktop'
+        - 'until-desktop'
+        - 'desktop'
+        - 'max-content'
+        - 'breakpoint'
+        - 'mq'
 
   # Line Spacing
   one-declaration-per-line: 2
@@ -35,48 +39,33 @@ rules:
   single-line-per-selector: 2
 
   # Disallows
-  no-color-keywords: 2
-  no-color-literals: 0
-  no-css-comments: 2
+  # no-color-keywords: 2
+  # no-color-literals: 2
+  # no-css-comments: 2
   no-debug: 2
-  # We use sizes in rem followed by px for these
-  no-duplicate-properties:
-    - 2
-    - exclude:
-        - display
-        - padding-left
-        - padding-right
-        - padding-top
-        - padding-bottom
-        - margin-left
-        - margin-right
-        - margin-top
-        - margin-bottom
+  # no-duplicate-properties: 2
   no-empty-rulesets: 2
-
   no-extends: 0
-  no-ids: 2
-  no-important: 2
+  # no-ids: 2
+  # no-important: 2
   no-invalid-hex: 2
   no-mergeable-selectors: 2
   no-misspelled-properties:
     - 2
     - extra-properties:
-        - 'aspect-ratio'
-        - 'container-type'
         - '*font-family'
-        - 'gap'
         - '*height'
         - 'interpolation-mode'
         - '*margin-left'
         - '*vertical-align'
         - '*width'
+        - 'gap'
   no-qualifying-elements: 0
   no-trailing-zero: 2
   no-transition-all: 2
   no-url-protocols: 2
-  no-vendor-prefixes: 1
-  no-warn: 0
+  # no-vendor-prefixes: 2
+  no-warn: 2
   property-units: 0
 
   # Nesting
@@ -105,16 +94,15 @@ rules:
     - 2
     - style: stroustrup
     - allow-single-line: false
-  clean-import-paths: 0
+  clean-import-paths: 2
   empty-args: 0
   hex-length: 2
   hex-notation: 2
-  indentation: 2
+  # indentation: 2
   leading-zero: 2
-  pseudo-element: 2
   nesting-depth:
     - 2
-    - max-depth: 5
+    - max-depth: 4
   property-sort-order:
     - 2
     - order: 'smacss'
@@ -137,3 +125,14 @@ rules:
   # Final Items
   trailing-semicolon: 2
   final-newline: 2
+
+  # Work-around for sass-lint not having per-file/block/line rule config.
+  # @TODO: Re-enable these disabled rules. See https://www.drupal.org/node/2717117
+  indentation: 0
+  no-color-keywords: 0
+  no-color-literals: 0
+  no-css-comments: 0
+  no-duplicate-properties: 0
+  no-ids: 0
+  no-important: 0
+  no-vendor-prefixes: 0

@@ -1,11 +1,9 @@
-@use '../../../../build/styleguide/sass/00-settings/settings' as *;
-@use '../../../../build/styleguide/sass/00-mixins/mixins' as *;
+@use '../../../../source/sass/00-settings/settings' as *;
+@use '../../../../source/sass/00-mixins/mixins' as *;
+@use '../../../../build/styleguide/sass/11-base/fonts/icons' as *;
 @use '../../../../build/styleguide/sass/21-atoms/atoms' as *;
 
-/* ==========================================================================
-   OIDC Menu block
-   ========================================================================== */
-
+// OIDC Menu block.
 .oidc-menu--wrapper {
   display: flex;
   position: static;
@@ -99,15 +97,15 @@
     margin-top: .5rem;
     transition: max-height .3s ease-in-out;
     border-radius: border-radius('radius-1');
-    box-shadow: 0 0 20px 0 rgba(coloring('gray-medium'), 0.25);
+    box-shadow: 0 0 20px 0 rgba(coloring('gray-medium'), .25);
     z-index: 6;
 
     @media (max-width: 400px) {
-      left: -20px;
       right: -20px;
+      left: -20px;
       width: calc(100vw + 40px);
       max-width: 400px;
-      box-shadow: 0 10px 10px 0 rgba(coloring('gray-medium'), 0.25);
+      box-shadow: 0 10px 10px 0 rgba(coloring('gray-medium'), .25);
     }
   }
 

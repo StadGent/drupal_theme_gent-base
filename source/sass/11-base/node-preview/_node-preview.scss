@@ -1,5 +1,5 @@
-@use '../../../../build/styleguide/sass/00-settings/settings' as *;
-@use '../../../../build/styleguide/sass/00-mixins/mixins' as *;
+@use '../../../../source/sass/00-settings/settings' as *;
+@use '../../../../source/sass/00-mixins/mixins' as *;
 
 .node-preview-container {
   @include theme('background-color', 'color-primary--lighten-6', 'node-preview-background');

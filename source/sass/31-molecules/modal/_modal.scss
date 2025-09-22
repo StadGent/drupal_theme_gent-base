@@ -1,11 +1,10 @@
-@use '../../../../build/styleguide/sass/00-settings/settings' as *;
-@use '../../../../build/styleguide/sass/00-mixins/mixins' as *;
+@use '../../../../source/sass/00-settings/settings' as *;
+@use '../../../../source/sass/00-mixins/mixins' as *;
 
-/**
- * Theming for modal.
- */
+// Theming for modal.
+
 .modal.visible .modal-inner {
-  /* Add top spacing for pages with Burgerprofiel bar. */
+  // Add top spacing for pages with Burgerprofiel bar.
   .oidc-mcpf-toolbar & {
     @include tablet-and-below {
       top: 45px;

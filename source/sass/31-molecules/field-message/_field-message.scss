@@ -2,5 +2,5 @@
 
 // Field message styling
 .form-item--error-message {
-  @extend .field-message;
+  @extend .field-message; // sass-lint:disable-line placeholder-in-extend
 }

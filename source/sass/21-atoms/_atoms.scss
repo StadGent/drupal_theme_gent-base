@@ -1,5 +1,5 @@
-@forward 'file/file';
-@forward 'input/input';
-@forward 'links/main-content';
-@forward 'list/list';
-@forward 'throbber/throbber';
+@use 'file/file';
+@use 'input/input';
+@use 'links/main-content';
+@use 'list/list';
+@use 'throbber/throbber';

@@ -1,27 +1,8 @@
-// Import this file in a ckeditor5.scss file in your sub theme.
+// @use this file in a ckeditor5.scss file in your sub theme.
+// Then include the compiled css file in your theme's info file.
 // See starterkit in this theme as example.
-@use "sass:meta";
-@use '../../../build/styleguide/sass/00-settings/vars';
-@use '../00-settings/vars' as vars2;
-
-@use '../../../build/styleguide/sass/00-mixins/breakpoints/breakpoints';
-@use '../../../build/styleguide/sass/00-mixins/general/mixins';
-@use '../../../build/styleguide/sass/00-mixins/grid/grid';
-@use '../../../build/styleguide/sass/00-mixins/grid/responsive-utilities';
-@use '../../../build/styleguide/sass/00-mixins/link/link';
-@use '../../../build/styleguide/sass/00-mixins/svg/svg-icons';
-@use '../../../build/styleguide/sass/00-mixins/table/table-backgrounds';
-@use '../../../build/styleguide/sass/00-mixins/themify/themify';
-
-@use '../../../build/styleguide/sass/00-settings/colors';
-@use '../../../build/styleguide/sass/00-settings/themes';
-@use '../00-settings/colors' as colors2;
-
-@use '../../../build/styleguide/sass/11-base/fonts/icons';
-
-@use '../../../build/styleguide/sass/21-atoms/list/list';
-@use '../31-molecules/breadcrumb/breadcrumb';
-@use "../../../build/styleguide/sass/00-settings/settings";
+@use 'sass:meta';
+@use "../../../source/sass/00-settings/settings" as *;
 
 // Status messages. We need to copy the style to make it apply to CKeditor in the admin theme.
 // Some imports don't suffice because the selectors are not specific enough.
@@ -42,7 +23,7 @@
   @include meta.load-css('../../../build/styleguide/sass/31-molecules/important-note/important-note');
 
   & {
-    font: settings.$default-font-weight settings.$default-font-size settings.$default-font-family;
+    font: $default-font-weight $default-font-size $default-font-family;
   }
 
   // Explicit status message styling to make it specific enough to come through.
@@ -88,9 +69,11 @@
     &.success {
       background-color: #ebf7ea;
     }
+
     &.warning {
       background-color: #feeee6;
     }
+
     &.error {
       background-color: #fee7eb;
     }

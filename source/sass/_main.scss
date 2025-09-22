@@ -1,0 +1,25 @@
+// @use this file in your project main sass file.
+
+// Styleguide CSS.
+@use '../../build/styleguide/sass/main';
+
+// General settings and mixins.
+@use '00-settings/settings' as settings;
+
+// Base styling.
+@use '11-base/base' as base;
+
+// Atoms.
+@use '21-atoms/atoms' as atoms;
+
+// Molecules.
+@use '31-molecules/molecules' as molecules;
+
+// Organisms.
+@use '41-organisms/organisms' as organisms;
+
+// Layouts.
+@use '61-layouts/layouts' as layouts;
+
+// Pages.
+@use '71-pages/pages' as pages;

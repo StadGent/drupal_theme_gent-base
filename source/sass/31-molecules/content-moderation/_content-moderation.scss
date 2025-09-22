@@ -1,5 +1,4 @@
-@use '../../../../build/styleguide/sass/00-settings/settings' as *;
-@use '../../../../build/styleguide/sass/00-mixins/mixins' as *;
+@use '../../../../build/styleguide/sass/11-base/grid/flexbox-grid/mixins/grid-mixins' as *;
 
 .detail-layout {
   .content-moderation-entity-moderation-form {
