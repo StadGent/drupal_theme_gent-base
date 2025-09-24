@@ -1,5 +1,5 @@
-@use '../../../../source/sass/00-mixins/mixins' as *;
-@use '../../../../build/styleguide/sass/21-atoms/atoms' as *;
+@use 'gb-gs-mixins' as *;
+@use 'styleguide/sass/21-atoms/atoms' as *;
 
 .local-tasks {
   @extend %list-no-style;

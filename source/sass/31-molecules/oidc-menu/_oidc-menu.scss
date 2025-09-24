@@ -1,7 +1,7 @@
-@use '../../../../source/sass/00-settings/settings' as *;
-@use '../../../../source/sass/00-mixins/mixins' as *;
-@use '../../../../build/styleguide/sass/11-base/fonts/icons' as *;
-@use '../../../../build/styleguide/sass/21-atoms/atoms' as *;
+@use 'gb-gs-settings' as *;
+@use 'gb-gs-mixins' as *;
+@use 'styleguide/sass/11-base/fonts/icons' as *;
+@use 'styleguide/sass/21-atoms/atoms' as *;
 
 // OIDC Menu block.
 .oidc-menu--wrapper {

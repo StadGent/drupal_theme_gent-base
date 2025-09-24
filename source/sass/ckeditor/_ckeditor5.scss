@@ -8,19 +8,19 @@
 // Some imports don't suffice because the selectors are not specific enough.
 .ck-content {
   // Heading styling.
-  @include meta.load-css('../../../build/styleguide/sass/21-atoms/heading/heading');
-  @include meta.load-css('../../../build/styleguide/sass/21-atoms/heading/css/heading-1');
-  @include meta.load-css('../../../build/styleguide/sass/21-atoms/heading/css/heading-2');
-  @include meta.load-css('../../../build/styleguide/sass/21-atoms/heading/css/heading-3');
-  @include meta.load-css('../../../build/styleguide/sass/21-atoms/heading/css/heading-4');
+  @include meta.load-css('styleguide/sass/21-atoms/heading/heading');
+  @include meta.load-css('styleguide/sass/21-atoms/heading/css/heading-1');
+  @include meta.load-css('styleguide/sass/21-atoms/heading/css/heading-2');
+  @include meta.load-css('styleguide/sass/21-atoms/heading/css/heading-3');
+  @include meta.load-css('styleguide/sass/21-atoms/heading/css/heading-4');
   // Text paragraph styling.
-  @include meta.load-css('../../../build/styleguide/sass/21-atoms/paragraph/paragraph');
+  @include meta.load-css('styleguide/sass/21-atoms/paragraph/paragraph');
   // Status messages styling.
-  @include meta.load-css('../../../build/styleguide/sass/21-atoms/status/status');
-  @include meta.load-css('../../../build/styleguide/sass/31-molecules/status-message/status-message');
+  @include meta.load-css('styleguide/sass/21-atoms/status/status');
+  @include meta.load-css('styleguide/sass/31-molecules/status-message/status-message');
   @include meta.load-css('../31-molecules/status-message/status-message');
   // Important notes styling.
-  @include meta.load-css('../../../build/styleguide/sass/31-molecules/important-note/important-note');
+  @include meta.load-css('styleguide/sass/31-molecules/important-note/important-note');
 
   & {
     font: $default-font-weight $default-font-size $default-font-family;

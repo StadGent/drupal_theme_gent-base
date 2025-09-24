@@ -30,6 +30,12 @@ var globalConfig = {
   buildDir: '../build'
 };
 
+const SASS_LOAD_PATHS = [
+  '../../../contrib/gent_base/build', // Make @use 'styleguide/...' available.
+  '../../../contrib/gent_base/source/sass/modules', // Make gent_base modules available for @use.
+  '../../../contrib/gent_base/source/node_modules/breakpoint-sass/stylesheets',
+];
+
 /*
  *
  * Styles build task.
@@ -52,9 +58,7 @@ gulp.task('styles:build', function () {
     .pipe(sassLint.failOnError())
     .pipe(sass({
       outputStyle: 'compressed',
-      includePaths: [
-        '../../../contrib/gent_base/source/node_modules/breakpoint-sass/stylesheets'
-      ]
+      includePaths: SASS_LOAD_PATHS
     })).on('error', sass.logError)
     .pipe(autoprefixer())
     .pipe(postcss([calc]))
@@ -80,9 +84,7 @@ gulp.task('styles:dist', function () {
     .pipe(sourcemaps.init())
     .pipe(sass({
       outputStyle: 'compressed',
-      includePaths: [
-        '../../../contrib/gent_base/source/node_modules/breakpoint-sass/stylesheets'
-      ]
+      includePaths: SASS_LOAD_PATHS
     })).on('error', sass.logError)
     .pipe(autoprefixer())
     .pipe(sourcemaps.write())

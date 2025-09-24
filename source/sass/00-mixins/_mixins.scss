@@ -1,5 +1,5 @@
 // Combine styleguide and gent_base mixins in one file.
-@forward '../../../build/styleguide/sass/00-mixins/mixins';
+@forward 'styleguide/sass/00-mixins/mixins';
 
 @mixin visually-hidden {
   position: absolute !important; // sass-lint:disable-line no-important
