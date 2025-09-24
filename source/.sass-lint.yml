@@ -18,18 +18,18 @@ rules:
   mixins-before-declarations:
     - 2
     - exclude:
-        - 'until-mobile'
-        - 'mobile'
-        - 'until-tablet'
-        - 'tablet'
-        - 'tablet-default'
-        - 'phablet'
-        - 'between-tablet-desktop'
-        - 'until-desktop'
-        - 'desktop'
-        - 'max-content'
-        - 'breakpoint'
-        - 'mq'
+      - 'until-mobile'
+      - 'mobile'
+      - 'until-tablet'
+      - 'tablet'
+      - 'tablet-default'
+      - 'phablet'
+      - 'between-tablet-desktop'
+      - 'until-desktop'
+      - 'desktop'
+      - 'max-content'
+      - 'breakpoint'
+      - 'mq'
 
   # Line Spacing
   one-declaration-per-line: 2
@@ -53,13 +53,13 @@ rules:
   no-misspelled-properties:
     - 2
     - extra-properties:
-        - '*font-family'
-        - '*height'
-        - 'interpolation-mode'
-        - '*margin-left'
-        - '*vertical-align'
-        - '*width'
-        - 'gap'
+      - '*font-family'
+      - '*height'
+      - 'interpolation-mode'
+      - '*margin-left'
+      - '*vertical-align'
+      - '*width'
+      - 'gap'
   no-qualifying-elements: 0
   no-trailing-zero: 2
   no-transition-all: 2

@@ -1,0 +1,6 @@
+// Only include settings and mixins when needed.
+@use '../../../../source/sass/00-settings/settings' as *;
+
+.example2 {
+  max-width: $bp-mobile;
+}

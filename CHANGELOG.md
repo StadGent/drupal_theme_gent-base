@@ -4,6 +4,11 @@ All Notable changes to `StadGent/drupal_theme_gent-base`.
 
 ## [7.0.0]
 
+SASS files now use the `@use` and `@forward` method of importing
+files in one another according to the latest sass version.
+Your own SASS files need to be adjusted to include only the resources
+need by each file. See gent_base theme and the starterkit as example.
+
 ### changed
 - DTGB-910: Update gent_styleguide to 7.0.0.
 - DTGB-910: Fix non breaking npm audit issues.

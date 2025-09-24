@@ -1,0 +1,8 @@
+// Only include settings and mixins when needed.
+@use '../../../../source/sass/00-settings/settings' as *;
+@use '../../../../source/sass/00-mixins/mixins' as *;
+
+.example {
+  @include theme('background', 'color-none');
+  max-width: $bp-mobile;
+}
