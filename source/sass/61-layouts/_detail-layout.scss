@@ -1,5 +1,5 @@
 @use 'gb-gs-mixins' as *;
-@use 'styleguide/sass/11-base/grid/flexbox-grid/mixins/grid-mixins' as *;
+@use 'gent_styleguide/grid-mixins' as *;
 
 .detail-layout {
   > div.paragraph.paragraph--type--text {

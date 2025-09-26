@@ -1,6 +1,6 @@
 @use 'gb-gs-settings' as *;
 @use 'gb-gs-mixins' as *;
-@use 'styleguide/sass/11-base/fonts/icons' as *;
+@use 'gent_styleguide/icon-mixins' as *;
 @use 'styleguide/sass/21-atoms/atoms' as *;
 
 // OIDC Menu block.
@@ -121,7 +121,7 @@
     }
 
     section {
-      @include theme('border-color', 'color-primary--lighten-4', 'mijn_gent-border-color');
+      @include theme('border-color', 'color-primary-light', 'mijn_gent-border-color');
 
       padding: 12px 0;
       border-top: 2px solid;

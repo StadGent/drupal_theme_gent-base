@@ -1,5 +1,5 @@
 @use 'gb-gs-mixins' as *;
-@use 'styleguide/sass/11-base/grid/flexbox-grid/mixins/grid-mixins' as *;
+@use 'gent_styleguide/grid-mixins' as *;
 
 .overview-layout {
   > div:not(.content-header-container):not(.block-system-main-block),

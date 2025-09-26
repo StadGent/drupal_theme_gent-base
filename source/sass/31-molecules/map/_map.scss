@@ -2,8 +2,9 @@
 
 @use 'gb-gs-settings' as *;
 @use 'gb-gs-mixins' as *;
-@use 'styleguide/sass/11-base/fonts/icons' as *;
+@use 'gent_styleguide/icon-mixins' as *;
 @use 'styleguide/sass/21-atoms/accolade/accolade' as *;
+@use 'styleguide/sass/21-atoms/heading/heading-styling' as *;
 
 // ===
 // DG Maps
@@ -306,7 +307,7 @@ $map-text-color: coloring('gray');
     // Popup
     // ===
     .ol-popup {
-      @include theme('box-shadow', 'color-tertiary--lighten-3', 'popup-shadow', '0 2px 12px 0');
+      @include theme('box-shadow', 'color-tertiary-light', 'popup-shadow', '0 2px 12px 0');
       right: -2px;
       bottom: -2px;
       left: -2px;

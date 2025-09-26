@@ -1,8 +1,8 @@
 @use 'gb-gs-mixins' as *;
 
 .node-preview-container {
-  @include theme('background-color', 'color-primary--lighten-6', 'node-preview-background');
-  @include theme('border-color', 'color-primary--lighten-1', 'node-preview-border-color');
+  @include theme('background-color', 'color-tertiary-light', 'node-preview-background');
+  @include theme('border-color', 'color-primary', 'node-preview-border-color');
   @include theme('color', 'color-tertiary', 'node-preview-color');
 
   margin-bottom: 1rem;

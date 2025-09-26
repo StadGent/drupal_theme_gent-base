@@ -1,8 +1,8 @@
-@use '../../../source/sass/00-mixins/mixins' as *;
+@use 'gb-gs-mixins' as *;
 
 .sidebar.filter-section {
   > span {
-    @include theme('color', 'color-tertiary--lighten-1', 'filter_disclaimer text');
+    @include theme('color', 'color-tertiary', 'filter_disclaimer text');
 
     display:  block;
     margin-bottom: .8rem;

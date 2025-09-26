@@ -1,25 +1,30 @@
-// @use this file in your project main sass file.
+// @use this file in your project's main sass file.
+
+// General settings and mixins.
+// It is important this line is first in this file, before loading
+// styleguide's main scss file. This way we can override variables.
+@use '00-settings/settings' with (
+  // Override styleguide's $styleguide-dir variable to a Drupal path.
+  $styleguide-dir: '/themes/contrib/gent_base/build/styleguide'
+);
 
 // Styleguide CSS.
 @use 'styleguide/sass/main';
 
-// General settings and mixins.
-@use '00-settings/settings' as settings;
-
 // Base styling.
-@use '11-base/base' as base;
+@use '11-base/base';
 
 // Atoms.
-@use '21-atoms/atoms' as atoms;
+@use '21-atoms/atoms';
 
 // Molecules.
-@use '31-molecules/molecules' as molecules;
+@use '31-molecules/molecules';
 
 // Organisms.
-@use '41-organisms/organisms' as organisms;
+@use '41-organisms/organisms';
 
 // Layouts.
-@use '61-layouts/layouts' as layouts;
+@use '61-layouts/layouts';
 
 // Pages.
 @use '71-pages/pages' as pages;

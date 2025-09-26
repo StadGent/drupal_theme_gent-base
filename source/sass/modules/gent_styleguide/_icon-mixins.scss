@@ -1,6 +1,6 @@
-// // Gent_base and gent_styleguide combined settings.
+// Gent_styleguide icon mixins.
 //
 // For this file to work with @use statements, make sure this modules
 // directory is included in the SASS include paths in gulp.
 
-@forward '../00-settings/settings';
+@forward 'styleguide/sass/11-base/fonts/icons';
