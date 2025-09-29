@@ -1,5 +1,3 @@
-@forward 'styleguide/sass/00-settings/settings' with (
-  $styleguide-dir: '/themes/contrib/gent_base/build/styleguide' !default
-);
+@forward 'styleguide/sass/00-settings/settings';
 @forward 'colors';
 @forward 'vars';

@@ -2,7 +2,7 @@
 
 All Notable changes to `StadGent/drupal_theme_gent-base`.
 
-## [Unreleased]
+## [7.0.0]
 
 SASS files now use the `@use` and `@forward` method for importing
 files in one another according to the latest sass version.
@@ -17,6 +17,7 @@ See more change instructions in the gent_styleguide 7.x changelog.
 - DTGB-910: Fix Sass deprecations.
 - DTGB-910: STIJ-446: Fix js validate warnings; Set node version to 22.
 - DTGB-910: Fix npm deprecations where possible.
+- $styleguide-gb-dir does not exist anymore in favor of $styleguide-dir.
 - Change node version to 22.
 
 ## [6.0.12]
@@ -855,6 +856,7 @@ See Github releases for more information.
 
 * **Updated to gent_styleguide version 2.6.13**
 
+[7.0.0]: https://github.com/StadGent/drupal_theme_gent-base/compare/6.0.12...7.0.0
 [6.0.12]: https://github.com/StadGent/drupal_theme_gent-base/compare/6.0.11...6.0.12
 [6.0.11]: https://github.com/StadGent/drupal_theme_gent-base/compare/6.0.10...6.0.11
 [6.0.10]: https://github.com/StadGent/drupal_theme_gent-base/compare/6.0.9...6.0.10

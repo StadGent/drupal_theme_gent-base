@@ -103,9 +103,9 @@ ckeditor5-stylesheets:
 
 ### The $styleguide-dir variable
 
-This theme as well as its starter kit contains a `00-settings/_vars.scss` file
-which contains a `$styleguide-dir` variable pointing to the directory of the
-style guide within the gent_base theme for your Drupal installation.
-
-This style guide variable is necessary for the successful compilation of the
-sub theme sass code.  
+This theme overrides Styleguide's `$styleguide-dir` variable pointing to the
+directory of the style guide within the gent_base theme for your Drupal
+installation. Styleguide itself has no clue of Drupal, so we make sure in a
+Drupal context, we can find the styleguide location.
+When needed, this variable can be used to point to styleguide resources such as
+icons, fonts, images, ...

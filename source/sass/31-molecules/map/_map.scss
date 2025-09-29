@@ -71,28 +71,28 @@ $map-text-color: coloring('gray');
       }
 
       &.ol-base-layer-switcher > button {
-        background-image: url('#{$styleguide-gb-dir}/img/svg/layers.svg');
+        background-image: url('#{$styleguide-dir}/img/svg/layers.svg');
       }
 
       &.ol-geolocation > button {
-        background-image: url('#{$styleguide-gb-dir}/img/svg/target.svg');
+        background-image: url('#{$styleguide-dir}/img/svg/target.svg');
       }
 
       &.ol-full-screen > button {
-        background-image: url('#{$styleguide-gb-dir}/img/svg/fullscreen-enter.svg');
+        background-image: url('#{$styleguide-dir}/img/svg/fullscreen-enter.svg');
 
         &.ol-full-screen-true {
-          background-image: url('#{$styleguide-gb-dir}/img/svg/fullscreen-exit.svg');
+          background-image: url('#{$styleguide-dir}/img/svg/fullscreen-exit.svg');
         }
       }
 
       &.ol-zoom > button {
         &.ol-zoom-in {
-          background-image: url('#{$styleguide-gb-dir}/img/svg/plus.svg');
+          background-image: url('#{$styleguide-dir}/img/svg/plus.svg');
         }
 
         &.ol-zoom-out {
-          background-image: url('#{$styleguide-gb-dir}/img/svg/minus.svg');
+          background-image: url('#{$styleguide-dir}/img/svg/minus.svg');
         }
       }
 
@@ -476,7 +476,7 @@ $map-text-color: coloring('gray');
 
   &__item {
     padding-left: 1.5rem;
-    background: url("#{$styleguide-gb-dir}/img/iconfont/marker.svg") no-repeat left top .3rem;
+    background: url("#{$styleguide-dir}/img/iconfont/marker.svg") no-repeat left top .3rem;
     background-size: 1rem 1rem;
     font-size: .8rem;
 
