@@ -1,3 +1,6 @@
+@use 'gb-gs-settings' as *;
+@use 'gb-gs-mixins' as *;
+
 .filter {
   p.help-text {
     @include small-text();

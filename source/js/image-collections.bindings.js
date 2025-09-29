@@ -2,6 +2,9 @@
  * @file
  * Gallery component binding.
  */
+
+'use strict';
+
 (function (Drupal) {
   Drupal.behaviors.gentBaseLoadImageCollections = {
     attach: function (context, settings) {

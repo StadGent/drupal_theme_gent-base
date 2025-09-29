@@ -1,32 +1,41 @@
 'use strict';
 
-var gulp = require('gulp');
-var sass = require('gulp-sass');
-var sassGlob = require('gulp-sass-glob');
-var sourcemaps = require('gulp-sourcemaps');
-var sassLint = require('gulp-sass-lint');
-var autoprefixer = require('gulp-autoprefixer');
-var rename = require('gulp-rename');
-var eslint = require('gulp-eslint');
-var imagemin = require('gulp-imagemin');
-var pngquant = require('imagemin-pngquant');
-var minify = require('gulp-minify');
-var del = require('del');
-var plumber = require('gulp-plumber');
+import gulp from 'gulp';
+import * as dartSass from 'sass';
+import gulpSass from 'gulp-sass';
+import sassGlob from 'gulp-sass-glob';
+import sourcemaps from 'gulp-sourcemaps';
+import sassLint from 'gulp-sass-lint';
+import autoprefixer from 'gulp-autoprefixer';
+import rename from 'gulp-rename';
+import eslint from 'gulp-eslint';
+import minify from 'gulp-minify';
+import { deleteAsync } from 'del';
+import plumber from 'gulp-plumber';
+import imagemin from 'gulp-imagemin';
+import pngquant from 'imagemin-pngquant';
+import mozjpeg from 'imagemin-mozjpeg';
+import gifsicle from 'imagemin-gifsicle';
+import svgo from 'imagemin-svgo';
+import gulpif from 'gulp-if';
+
+const sass = gulpSass(dartSass);
 
 var globalConfig = {
-  scripts_src_dir: 'js',
-  scripts_min_dir: '../build/js',
-  img_src_dir: 'img',
-  img_min_dir: '../build/img',
-  sass_dir: 'sass',
-  css_dir: '../build/css',
-  build_dir: '../build'
+  scriptsSrcDir: 'js',
+  scriptsMinDir: '../build/js',
+  imgSrcDir: 'img',
+  imgMinDir: '../build/img',
+  sassDir: 'sass',
+  cssDir: '../build/css',
+  buildDir: '../build'
 };
 
-const includePaths = [
+const SASS_LOAD_PATHS = [
+  '../../../contrib/gent_base/build', // Make @use 'styleguide/...' available.
+  '../../../contrib/gent_base/source/sass/modules', // Make gent_base sass modules available for @use.
   '../../../contrib/gent_base/source/node_modules/breakpoint-sass/stylesheets',
-  '../../../contrib/gent_base/source/node_modules/susy/sass'
+  `${globalConfig.sassDir}/modules`, // Make local theme sass modules available for @use.
 ];
 
 /*
@@ -40,7 +49,7 @@ const includePaths = [
  *
  */
 gulp.task('styles:build', function () {
-  return gulp.src(globalConfig.sass_dir + '/**/*.s+(a|c)ss')
+  return gulp.src(globalConfig.sassDir + '/**/*.s+(a|c)ss')
     .pipe(plumber())
     .pipe(sassGlob())
     .pipe(sourcemaps.init())
@@ -51,13 +60,13 @@ gulp.task('styles:build', function () {
     .pipe(sassLint.failOnError())
     .pipe(sass({
       outputStyle: 'compressed',
-      includePaths
+      includePaths: SASS_LOAD_PATHS,
+      loadPaths: SASS_LOAD_PATHS,
     })).on('error', sass.logError)
-    .pipe(autoprefixer({
-      browsers: ['last 5 versions']
-    }))
+    .pipe(autoprefixer())
+    .pipe(postcss([calc]))
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest(globalConfig.css_dir))
+    .pipe(gulp.dest(globalConfig.cssDir));
 });
 
 /*
@@ -72,19 +81,18 @@ gulp.task('styles:build', function () {
  *
  */
 gulp.task('styles:dist', function () {
-  return gulp.src(globalConfig.sass_dir + '/**/*.s+(a|c)ss')
+  return gulp.src(globalConfig.sassDir + '/**/*.s+(a|c)ss')
     .pipe(plumber())
     .pipe(sassGlob())
     .pipe(sourcemaps.init())
     .pipe(sass({
-      outputStyle: 'nested',
-      includePaths
+      outputStyle: 'compressed',
+      includePaths: SASS_LOAD_PATHS,
+      loadPaths: SASS_LOAD_PATHS,
     })).on('error', sass.logError)
-    .pipe(autoprefixer({
-      browsers: ['last 5 versions']
-    }))
+    .pipe(autoprefixer())
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest(globalConfig.css_dir))
+    .pipe(gulp.dest(globalConfig.cssDir));
 });
 
 /*
@@ -93,13 +101,13 @@ gulp.task('styles:dist', function () {
  *
  */
 gulp.task('styles:validate', function () {
-  return gulp.src(globalConfig.sass_dir + '/**/*.s+(a|c)ss')
+  return gulp.src(globalConfig.sassDir + '/**/*.s+(a|c)ss')
     .pipe(plumber())
     .pipe(sassLint({
       configFile: './.sass-lint.yml'
     }))
     .pipe(sassLint.format())
-    .pipe(sassLint.failOnError())
+    .pipe(gulpif(build, sassLint.failOnError()));
 });
 
 /*
@@ -108,7 +116,11 @@ gulp.task('styles:validate', function () {
  *
  */
 gulp.task('styles:watch', function () {
-  return gulp.watch(globalConfig.sass_dir + '/**/*.scss', gulp.parallel('styles:dist', 'styles:validate'));
+  return gulp.watch([
+    globalConfig.sassDir + '/**/*.scss',
+    '../../../contrib/gent_base/source/sass/**/*.scss'
+
+  ], gulp.parallel('styles:dist', 'styles:validate'));
 });
 
 /*
@@ -136,14 +148,32 @@ gulp.task('js:build', function () {
  * No minification is done here!
  *
  */
+gulp.task('js:build', function () {
+  return gulp.src(globalConfig.scriptsSrcDir + '/**/*.js')
+    .pipe(plumber())
+    .pipe(rename({dirname: ''}))
+    .pipe(minify({
+      noSource: true
+    }))
+    .pipe(gulp.dest(globalConfig.scriptsMinDir));
+});
+
+/*
+ *
+ * JS files dist task.
+ *
+ * Copies your JS files to build/js/
+ * No minification is done here!
+ *
+ */
 gulp.task('js:dist', function () {
-  return gulp.src(globalConfig.scripts_src_dir + '/**/*.js')
+  return gulp.src(globalConfig.scriptsSrcDir + '/**/*.js')
     .pipe(plumber())
     .pipe(rename({
       dirname: '',
-      suffix: "-min",
+      suffix: '-min'
     }))
-    .pipe(gulp.dest(globalConfig.scripts_min_dir));
+    .pipe(gulp.dest(globalConfig.scriptsMinDir));
 });
 
 /*
@@ -152,13 +182,13 @@ gulp.task('js:dist', function () {
  *
  */
 gulp.task('js:validate', function () {
-  return gulp.src(globalConfig.scripts_src_dir + '/**/*.js')
+  return gulp.src(globalConfig.scriptsSrcDir + '/**/*.js')
     .pipe(plumber())
     .pipe(eslint({
       configFile: './.eslintrc'
     }))
     .pipe(eslint.format())
-    .pipe(eslint.failAfterError())
+    .pipe(gulpif(build, eslint.failAfterError()));
 });
 
 /*
@@ -167,7 +197,7 @@ gulp.task('js:validate', function () {
  *
  */
 gulp.task('js:watch', function () {
-  return gulp.watch(globalConfig.scripts_src_dir + '/**/*.js', gulp.parallel('js:dist', 'js:validate'));
+  return gulp.watch(globalConfig.scriptsSrcDir + '/**/*.js', gulp.parallel('js:dist', 'js:validate'));
 });
 
 /*
@@ -175,28 +205,37 @@ gulp.task('js:watch', function () {
  * Minify images.
  *
  */
-gulp.task('images:minify', gulp.series('styles:build', function (cb) {
-  gulp.src([
-    globalConfig.img_src_dir + '/**/*.png',
-    globalConfig.img_src_dir + '/**/*.jpg',
-    globalConfig.img_src_dir + '/**/*.gif',
-    globalConfig.img_src_dir + '/**/*.jpeg',
-    globalConfig.img_src_dir + '/**/*.svg'
-  ])
-    .pipe(imagemin({
-      progressive: true,
-      use: [pngquant()]
-    }))
-    .pipe(gulp.dest(globalConfig.img_min_dir)).on('end', cb).on('error', cb);
-}));
+gulp.task('images:minify', function () {
+  return gulp.src(globalConfig.imgSrcDir + '/**/*.{png,jpg,jpeg,gif,svg}', {
+    encoding: false,
+    base: globalConfig.imgSrcDir
+  })
+    .pipe(plumber())
+    .pipe(imagemin([
+      pngquant({ quality: [0.6, 0.8] }),
+      mozjpeg({ quality: 75, progressive: true }),
+      gifsicle({ interlaced: true }),
+      svgo({
+        plugins: [{
+          name: 'preset-default',
+          params: {
+            overrides: {
+              removeViewBox: false
+            }
+          }
+        }]
+      })
+    ]))
+    .pipe(gulp.dest(globalConfig.imgMinDir));
+});
 
 /*
  * Clean build directory.
  *
  * This deletes the build directory before recompiling.
  */
-gulp.task('build:clean', function (cb) {
-  return del(globalConfig.build_dir + '/**', {force:true});
+gulp.task('build:clean', function () {
+  return deleteAsync(globalConfig.buildDir + '/**', {force: true});
 });
 
 /*

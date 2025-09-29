@@ -1,37 +1,25 @@
-@import '../../../../contrib/gent_base/build/styleguide/sass/00-settings/reset';
+// Combine all CSS into one file.
 
-@import '../../../../contrib/gent_base/build/styleguide/sass/00-settings/vars';
-@import '../../../../contrib/gent_base/source/sass/00-settings/vars';
-@import '00-settings/vars';
+// Gent Base theme CSS.
+@use '../../../../contrib/gent_base/source/sass/main';
 
-@import '../../../../contrib/gent_base/build/styleguide/sass/00-mixins/**/*';
-@import '../../../../contrib/gent_base/source/sass/00-mixins/**/*';
-@import '00-mixins/**/*';
+// Base styling.
+@use '11-base/base';
 
-@import '../../../../contrib/gent_base/build/styleguide/sass/00-settings/colors';
-@import '../../../../contrib/gent_base/source/sass/00-settings/colors';
-@import '00-settings/colors';
+// The following lines can be included when available in your project. The
+// starterkit does not contain these files.
 
-@import '../../../../contrib/gent_base/build/styleguide/sass/02-sections/**/*';
-@import '../../../../contrib/gent_base/source/sass/02-sections/**/*';
-@import '02-sections/**/*';
+// Atoms.
+@use '21-atoms/atoms';
 
-@import '../../../../contrib/gent_base/build/styleguide/sass/11-base/**/*';
-@import '../../../../contrib/gent_base/source/sass/11-base/**/*';
-@import '11-base/**/*';
+// Molecules.
+@use '31-molecules/molecules';
 
-@import '../../../../contrib/gent_base/build/styleguide/sass/21-atoms/**/*';
-@import '../../../../contrib/gent_base/source/sass/21-atoms/**/*';
-@import '21-atoms/**/*';
+// Organisms.
+@use '41-organisms/organisms';
 
-@import '../../../../contrib/gent_base/build/styleguide/sass/31-molecules/**/*';
-@import '../../../../contrib/gent_base/source/sass/31-molecules/**/*';
-@import '31-molecules/**/*';
+// Layouts.
+@use '61-layouts/layouts';
 
-@import '../../../../contrib/gent_base/build/styleguide/sass/41-organisms/**/*';
-@import '../../../../contrib/gent_base/source/sass/41-organisms/**/*';
-@import '41-organisms/**/*';
-
-@import '../../../../contrib/gent_base/build/styleguide/sass/61-layouts/**/*';
-@import '../../../../contrib/gent_base/source/sass/61-layouts/**/*';
-@import '61-layouts/**/*';
+// Pages.
+@use '71-pages/pages';

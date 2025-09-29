@@ -1,3 +1,5 @@
+@use 'gb-gs-mixins' as *;
+
 .node--view-mode-teaser {
   &.node--unpublished {
     .content__second {

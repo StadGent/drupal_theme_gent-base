@@ -3,6 +3,9 @@
  * Table component binding.
  */
 
+/* global drupalSettings */
+'use strict';
+
 (function (Drupal, drupalSettings) {
   Drupal.behaviors.gentBaseDefineTables = {
     attach: function (context, settings) {

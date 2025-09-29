@@ -2,6 +2,9 @@
  * @file
  * Menu component binding.
  */
+
+'use strict';
+
 (function (Drupal) {
   Drupal.behaviors.gentBaseLoadOpeningHours = {
     attach: function (context, settings) {

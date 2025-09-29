@@ -1,3 +1,6 @@
+@use 'gb-gs-settings' as *;
+@use 'gb-gs-mixins' as *;
+
 .webform-wizard-pages-links {
   display: none;
 }
@@ -17,15 +20,18 @@
         text-decoration: none;
 
         &::before {
-          border-color: color('green', 1);
+          border-color: coloring('green', 1);
         }
       }
 
       > span {
         @include theme('color', 'color-primary', 'link-color');
-        @include link-background('color-primary', 'color-primary--lighten-4', 'link-underline-color', 'link-background-color');
-        margin: 0;
-        padding: 0;
+        @include link-background('color-primary', 'color-primary-light', 'link-underline-color', 'link-background-color');
+
+        & {
+          margin: 0;
+          padding: 0;
+        }
       }
     }
   }

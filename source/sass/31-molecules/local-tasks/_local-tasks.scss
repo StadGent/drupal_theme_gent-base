@@ -1,6 +1,9 @@
+@use 'gb-gs-mixins' as *;
+@use 'styleguide/sass/21-atoms/atoms' as *;
+
 .local-tasks {
   @extend %list-no-style;
-  @include theme('background-color', 'color-primary--lighten-5', 'info-box-background');
+  @include theme('background-color', 'color-tertiary-light', 'info-box-background');
 
   padding: .3rem .3rem 0;
 

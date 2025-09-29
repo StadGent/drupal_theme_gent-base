@@ -1,0 +1,6 @@
+// Gent_styleguide grid mixins.
+//
+// For this file to work with @use statements, make sure this modules
+// directory is included in the SASS include paths in gulp.
+
+@forward 'styleguide/sass/11-base/grid/flexbox-grid/mixins/grid-mixins';

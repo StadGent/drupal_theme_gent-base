@@ -1,3 +1,5 @@
+@use 'gent_styleguide/grid-mixins' as *;
+
 .detail-layout {
   .content-moderation-entity-moderation-form {
     @include col(9);

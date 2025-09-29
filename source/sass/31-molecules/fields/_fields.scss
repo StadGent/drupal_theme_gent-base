@@ -1,3 +1,6 @@
+@use 'gb-gs-mixins' as *;
+@use 'gent_styleguide/grid-mixins' as *;
+
 .form-item .form-label > label.visually-hidden {
   width: 1px;
 }
@@ -89,10 +92,11 @@ fieldset {
 
 .form-item.text-format-wrapper {
   .filter-wrapper {
+    margin: 0;
+
     @include tablet {
       @include col(6);
     }
-    margin: 0;
   }
 }
 

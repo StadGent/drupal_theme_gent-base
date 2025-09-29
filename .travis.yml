@@ -5,7 +5,7 @@ php:
   - 8.3
 
 node_js:
-  - "18"
+  - "22"
 
 env:
   matrix:
@@ -21,7 +21,7 @@ cache:
 
 before_install:
   # Install various packages.
-  - nvm install 18 && nvm use 18
+  - nvm install 22 && nvm use 22
   - npm install -g gulp-cli
 
   # Update composer to latest v2.
@@ -33,11 +33,6 @@ before_install:
   - if [ "${REPMAN_TOKEN}" != "" ]; then composer config --global --auth http-basic.district09.repo.repman.io token ${REPMAN_TOKEN}; fi
   - if [ "${REPMAN_TOKEN}" != "" ]; then composer config repositories.repman-district09 composer https://district09.repo.repman.io; fi
 
-  # Get and run the Code Climate test reporter.
-  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-  - chmod +x ./cc-test-reporter
-  - ./cc-test-reporter before-build
-
 install:
   # Install the module dependencies.
   - composer install -n --no-progress
@@ -45,21 +40,3 @@ install:
 script:
   - vendor/bin/grumphp run -n
   - cd source && gulp validate && cd ..
-
-after_script:
-  # Run the Code Climate test reporter.
-  - ./cc-test-reporter after-build --coverage-input-type clover --exit-code $TRAVIS_TEST_RESULT
-
-  # Get and run the SonarQube scanner.
-  - SONAR_PROJECT_NAME="Drupal $(composer config name | cut -d / -f 2)"
-  - SONAR_PROJECT_KEY=web:$(echo "$TRAVIS_REPO_SLUG" | cut -d / -f 2)
-  - curl -L https://repo1.maven.org/maven2/org/sonarsource/scanner/cli/sonar-scanner-cli/4.3.0.2102/sonar-scanner-cli-4.3.0.2102.jar > sonar-scanner.jar
-  - "[ -d tests ] || mkdir tests"
-  - >
-    java -jar sonar-scanner.jar
-    -Dsonar.host.url=https://sonarqube.stad.gent
-    -Dsonar.login=$SONAR_LOGIN
-    -Dsonar.projectKey=$SONAR_PROJECT_KEY
-    -Dsonar.projectName="$SONAR_PROJECT_NAME"
-    -Dsonar.tests=tests
-    -Dsonar.php.coverage.reportPaths=build/logs/clover.xml

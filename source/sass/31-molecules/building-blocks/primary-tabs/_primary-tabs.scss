@@ -1,3 +1,6 @@
+@use 'gb-gs-settings' as *;
+@use 'gb-gs-mixins' as *;
+
 .tabs.primary {
   @include theme('border-color', 'color-tertiary', 'tabs-primary-border-color');
 

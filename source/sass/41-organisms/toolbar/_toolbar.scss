@@ -1,3 +1,5 @@
+@use 'gb-gs-mixins' as *;
+
 .toolbar {
   a {
     @include reset-link-background;

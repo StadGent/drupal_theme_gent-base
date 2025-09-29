@@ -1,3 +1,8 @@
+@use 'gb-gs-settings' as *;
+@use 'gb-gs-mixins' as *;
+@use 'styleguide/sass/11-base/base/helper-classes' as *;
+@use 'styleguide/sass/31-molecules/search/search' as *;
+
 .search {
   flex-wrap: nowrap;
 
@@ -14,7 +19,7 @@
   }
 
   input[type='text'] {
-    background-color: color('white');
     @extend %search-input;
+    background-color: coloring('white');
   }
 }

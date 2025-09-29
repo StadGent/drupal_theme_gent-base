@@ -2,22 +2,43 @@
 
 All Notable changes to `StadGent/drupal_theme_gent-base`.
 
+## [Unreleased]
+
+SASS files now use the `@use` and `@forward` method for importing
+files in one another according to the latest sass version.
+Your own SASS files need to be adjusted to include only the resources
+need by each file. See gent_base theme and the starterkit as example.
+See more change instructions in the gent_styleguide 7.x changelog.
+
+### changed
+
+- DTGB-910: Update gent_styleguide to 7.0.0.
+- DTGB-910: Fix non breaking npm audit issues.
+- DTGB-910: Fix Sass deprecations.
+- DTGB-910: STIJ-446: Fix js validate warnings; Set node version to 22.
+- DTGB-910: Fix npm deprecations where possible.
+- Change node version to 22.
+
 ## [6.0.12]
 
 ### Updated
+
 - Updated styleguide to v6.0.18.
 
 ## [6.0.11]
 
 ### changed
+
 - SGD8-2985: Changed order for Vesta teaser opening hours. 
 
 ### Updated
+
 - Updated styleguide to v6.0.17.
 
 ## [6.0.10]
 
 ### Updated
+
 - Updated styleguide to v6.0.16.
 - Updated styleguide to v6.0.15.
 
@@ -72,22 +93,26 @@ All Notable changes to `StadGent/drupal_theme_gent-base`.
 ## [6.0.3]
 
 ### Added
+
 - SGD8-2952: Added support for improved paragraph parent fetcher.
 - SGD8-2965: Added overlap header class to events with event date.
 - TTWEBTAKEN-297: Added support for D11.
 
 ### Updated
+
 - SGD8-2287: Updated table bindings for new design.
 - Updated styleguide to version 6.0.8.
 - Updated qa-drupal to 4.0.0-alpha5.
 
 ### Fixed
+
 - SGD8-2957: Fixed product page contacts render cache issue.
 - SGD8-2581: Fixed opening hours spacing issue.
 - SGD8-2952: Fixed displaying paragraphs in draft revisions.
 - SGD8-2984: Fixed wrong class assignment to link field.
 
 ### Removed
+
 - SGD8-2581: Removed preprocess opening hours widget hook.
 
 ## [6.0.2]
@@ -830,6 +855,7 @@ See Github releases for more information.
 
 * **Updated to gent_styleguide version 2.6.13**
 
+[6.0.12]: https://github.com/StadGent/drupal_theme_gent-base/compare/6.0.11...6.0.12
 [6.0.11]: https://github.com/StadGent/drupal_theme_gent-base/compare/6.0.10...6.0.11
 [6.0.10]: https://github.com/StadGent/drupal_theme_gent-base/compare/6.0.9...6.0.10
 [6.0.9]: https://github.com/StadGent/drupal_theme_gent-base/compare/6.0.8...6.0.9

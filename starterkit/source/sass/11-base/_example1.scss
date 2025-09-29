@@ -1,0 +1,14 @@
+// Only include settings, mixins and other resources when needed.
+// The line below is available through the modules directory in our sass dir.
+// This loads all settings: styleguide, gent_base and our custom theme.
+@use 'starterkit/settings' as *;
+// Example to load settings only of styleguide and gent_base. This would not be
+// necessary because of the @use line above.
+@use 'gb-gs-settings' as *;
+// Example to load mixins only of styleguide and gent_base.
+@use 'gb-gs-mixins' as *;
+
+.example {
+  @include theme('background', 'color-none');
+  max-width: $bp-mobile;
+}

@@ -1,8 +1,8 @@
 {
   "type": "module",
   "name": "gent_base",
-  "version": "6.0.0",
-  "description": "Gent Base contrib theme for Drupal 8.",
+  "version": "7.0.0",
+  "description": "Gent Base contrib theme for Drupal 11.",
   "authors": [
     "Gert-Jan Meire <gertjan.meire@digipolis.gent>",
     "Wim Vantomme <wim.vantomme@digipolis.gent>",
@@ -11,23 +11,27 @@
   "license": "ISC",
   "devDependencies": {
     "del": "^7.0.0",
-    "gulp": "^4.0.2",
+    "gulp": "^5.0.1",
     "gulp-eslint": "^6.0.0",
     "gulp-minify": "^3.1.0",
     "gulp-plumber": "^1.2.1",
-    "gulp-rename": "^2.0.0"
+    "gulp-rename": "^2.0.0",
+    "gulp-cached": "^1.1.1",
+    "gulp-if": "^3.0.0",
+    "gulp-sass-glob": "^1.1.0",
+    "gulp-sass-lint": "^1.4.0"
   },
   "scripts": {
     "start": "gulp",
     "build": "gulp build"
   },
   "engines": {
-    "node": ">=4.0.0"
+    "node": ">=10.14.2"
   },
   "private": true,
   "dependencies": {
     "@digipolis-gent/modal": "^1.0.4",
     "fs-extra": "^11.1.1",
-    "gent_styleguide": "^6.0.0-beta15"
+    "gent_styleguide": "^7.0.0"
   }
 }

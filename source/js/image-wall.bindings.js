@@ -2,6 +2,9 @@
  * @file
  * Javascript binding of Masonry.
  */
+
+'use strict';
+
 (function (Drupal) {
   Drupal.behaviors.gentBaseLoadImageWall = {
     attach: function (context, settings) {

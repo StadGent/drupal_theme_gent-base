@@ -1,0 +1,6 @@
+// Only include settings, mixins and other resources when needed.
+@use 'starterkit/settings' as *;
+
+.example2 {
+  max-width: $bp-mobile;
+}

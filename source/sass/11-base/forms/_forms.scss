@@ -1,3 +1,5 @@
+@use 'gb-gs-mixins' as *;
+
 input[type="text"],
 input[type="number"],
 input[type="password"],
@@ -28,7 +30,7 @@ textarea {
 }
 
 .form-description {
-  @include theme('color', 'color-tertiary--lighten-1', 'form-description-color');
+  @include theme('color', 'color-tertiary', 'form-description-color');
   font-size: .6rem;
 }
 

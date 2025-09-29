@@ -1,3 +1,7 @@
+// Combine styleguide and gent_base mixins in one file.
+@forward 'styleguide/sass/00-mixins/mixins';
+@use 'gb-gs-settings' as *;
+
 @mixin visually-hidden {
   position: absolute !important; // sass-lint:disable-line no-important
   width: 1px;
@@ -7,6 +11,6 @@
   word-wrap: normal;
 }
 
-@mixin box-shadow($horizontal: 0, $vertical: 3px, $blur: 14px, $rgba: color('gray', -3)) {
+@mixin box-shadow($horizontal: 0, $vertical: 3px, $blur: 14px, $rgba: coloring('gray', -3)) {
   box-shadow: $horizontal $vertical $blur $rgba;
 }

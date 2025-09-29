@@ -1,3 +1,5 @@
+@use 'gb-gs-mixins' as *;
+
 .touchevents .field--type-image,
 .field--type-image {
   table {
@@ -7,8 +9,10 @@
     td {
       @include theme('border-color', 'color-tertiary', 'table-cell-border-color');
 
-      padding: .5rem 0;
-      border-bottom: 1px solid;
+      & {
+        padding: .5rem 0;
+        border-bottom: 1px solid;
+      }
     }
 
     .form-managed-file {

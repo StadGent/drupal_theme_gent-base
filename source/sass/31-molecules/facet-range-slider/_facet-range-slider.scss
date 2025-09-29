@@ -1,6 +1,9 @@
+@use 'gb-gs-settings' as *;
+@use 'gb-gs-mixins' as *;
+
 $frs-handle-size: 1.4rem;
 
-.form-item.facets-widget-range_slider {
+.form-item.facets-widget-range_slider { // sass-lint:disable-line class-name-format
   .pips-preview {
     @include small-text();
 
@@ -16,8 +19,8 @@ $frs-handle-size: 1.4rem;
 
   .ui-widget.ui-widget-content {
     height: 0;
-    margin: 1.5rem #{$frs-handle-size * 0.5} 2rem;
-    border: 2px solid color('gray-light');
+    margin: 30px #{$frs-handle-size * .5} 40px;
+    border: 2px solid coloring('gray-light');
   }
 
   .ui-slider-range {
@@ -31,10 +34,10 @@ $frs-handle-size: 1.4rem;
   .ui-slider-handle {
     @include theme('background-color', 'color-zero', 'ui-slider-handle-background-color');
 
-    top: -$frs-handle-size * 0.5;
+    top: -$frs-handle-size * .5;
     width: $frs-handle-size;
     height: $frs-handle-size;
-    margin-left: -$frs-handle-size * 0.5;
+    margin-left: -$frs-handle-size * .5;
     border: 0;
     border-radius: 100%;
     cursor: pointer;

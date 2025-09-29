@@ -3,6 +3,9 @@
  * @file
  * DG Maps functionality extensions.
  */
+
+'use strict';
+
 (function ($, Drupal) {
   if (!Drupal.dgMaps.ol.interaction.Popup) {
     return;

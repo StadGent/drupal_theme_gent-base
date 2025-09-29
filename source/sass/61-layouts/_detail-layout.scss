@@ -1,3 +1,6 @@
+@use 'gb-gs-mixins' as *;
+@use 'gent_styleguide/grid-mixins' as *;
+
 .detail-layout {
   > div.paragraph.paragraph--type--text {
     margin-top: 60px;

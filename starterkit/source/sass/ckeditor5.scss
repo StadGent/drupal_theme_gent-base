@@ -1,3 +1,3 @@
 // Import ckeditor5 in-editor styling from gent_base. Extend as needed.
 // Keep in mind to wrap all extra sass with .ck-content{...}.
-@import '../../../../contrib/gent_base/source/sass/ckeditor/ckeditor5';
+@use '../../../../contrib/gent_base/source/sass/ckeditor/ckeditor5';

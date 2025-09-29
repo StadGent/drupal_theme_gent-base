@@ -1,3 +1,5 @@
+@use 'gb-gs-mixins' as *;
+
 .ajax-progress {
   display: flex;
   align-items: center;

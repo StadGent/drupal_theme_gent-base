@@ -2,6 +2,10 @@
  * @file
  * Filter component binding.
  */
+
+/* global once */
+'use strict';
+
 (function ($, Drupal, once) {
   Drupal.behaviors.gentBaseLoadCheckboxFilters = {
     attach: function (context, settings) {

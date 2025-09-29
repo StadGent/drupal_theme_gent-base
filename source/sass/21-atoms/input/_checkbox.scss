@@ -1,3 +1,5 @@
+@use 'gb-gs-mixins' as *;
+
 .checkbox {
   .form-description {
     @include small-text();

@@ -2,7 +2,11 @@
  * @file
  * Menu component binding.
  */
-(function (Drupal) {
+
+/* global once */
+'use strict';
+
+(function (Drupal, once) {
   Drupal.behaviors.gentBaseLoadMenu = {
     attach: function (context, settings) {
       if (typeof Modal == 'undefined') {

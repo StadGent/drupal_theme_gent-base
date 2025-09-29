@@ -1,7 +1,9 @@
-/* ==========================================================================
-   OIDC Menu block
-   ========================================================================== */
+@use 'gb-gs-settings' as *;
+@use 'gb-gs-mixins' as *;
+@use 'gent_styleguide/icon-mixins' as *;
+@use 'styleguide/sass/21-atoms/atoms' as *;
 
+// OIDC Menu block.
 .oidc-menu--wrapper {
   display: flex;
   position: static;
@@ -95,15 +97,15 @@
     margin-top: .5rem;
     transition: max-height .3s ease-in-out;
     border-radius: border-radius('radius-1');
-    box-shadow: 0 0 20px 0 rgba(color('gray-medium'), 0.25);
+    box-shadow: 0 0 20px 0 rgba(coloring('gray-medium'), .25);
     z-index: 6;
 
     @media (max-width: 400px) {
-      left: -20px;
       right: -20px;
+      left: -20px;
       width: calc(100vw + 40px);
       max-width: 400px;
-      box-shadow: 0 10px 10px 0 rgba(color('gray-medium'), 0.25);
+      box-shadow: 0 10px 10px 0 rgba(coloring('gray-medium'), .25);
     }
   }
 
@@ -119,7 +121,7 @@
     }
 
     section {
-      @include theme('border-color', 'color-primary--lighten-4', 'mijn_gent-border-color');
+      @include theme('border-color', 'color-primary-light', 'mijn_gent-border-color');
 
       padding: 12px 0;
       border-top: 2px solid;

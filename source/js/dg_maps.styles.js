@@ -3,6 +3,10 @@
  * @file
  * DG Maps functionality extensions.
  */
+
+/* global drupalSettings */
+'use strict';
+
 (function ($, Drupal, drupalSettings) {
   Drupal.dgMaps = Drupal.dgMaps || {};
   Drupal.dgMaps.style = Drupal.dgMaps.style || {};

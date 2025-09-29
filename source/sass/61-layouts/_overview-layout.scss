@@ -1,3 +1,6 @@
+@use 'gb-gs-mixins' as *;
+@use 'gent_styleguide/grid-mixins' as *;
+
 .overview-layout {
   > div:not(.content-header-container):not(.block-system-main-block),
   > section,
