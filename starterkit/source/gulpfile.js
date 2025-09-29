@@ -17,6 +17,7 @@ import pngquant from 'imagemin-pngquant';
 import mozjpeg from 'imagemin-mozjpeg';
 import gifsicle from 'imagemin-gifsicle';
 import svgo from 'imagemin-svgo';
+import gulpif from 'gulp-if';
 
 const sass = gulpSass(dartSass);
 
@@ -106,7 +107,7 @@ gulp.task('styles:validate', function () {
       configFile: './.sass-lint.yml'
     }))
     .pipe(sassLint.format())
-    .pipe(sassLint.failOnError());
+    .pipe(gulpif(build, sassLint.failOnError()));
 });
 
 /*
@@ -187,7 +188,7 @@ gulp.task('js:validate', function () {
       configFile: './.eslintrc'
     }))
     .pipe(eslint.format())
-    .pipe(eslint.failAfterError());
+    .pipe(gulpif(build, eslint.failAfterError()));
 });
 
 /*
