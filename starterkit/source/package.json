@@ -8,15 +8,24 @@
   "license": "ISC",
   "devDependencies": {
     "del": "^7.0.0",
-    "gulp": "^5.0.1",
+    "gulp": "^5.0.0",
+    "gulp-autoprefixer": "^8.0.0",
     "gulp-eslint": "^6.0.0",
+    "gulp-imagemin": "^9.1.0",
     "gulp-minify": "^3.1.0",
     "gulp-plumber": "^1.2.1",
+    "gulp-postcss": "^9.0.1",
     "gulp-rename": "^2.0.0",
-    "gulp-cached": "^1.1.1",
-    "gulp-if": "^3.0.0",
+    "gulp-sass": "^6.0.1",
     "gulp-sass-glob": "^1.1.0",
-    "gulp-sass-lint": "^1.4.0"
+    "gulp-sass-lint": "^1.4.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "imagemin-gifsicle": "^7.0.0",
+    "imagemin-mozjpeg": "^10.0.0",
+    "imagemin-pngquant": "^9.0.2",
+    "imagemin-svgo": "^11.0.1",
+    "postcss-calc": "^9.0.1",
+    "sass": "^1.93.2"
   },
   "scripts": {
     "start": "gulp",

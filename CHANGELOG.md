@@ -2,6 +2,12 @@
 
 All Notable changes to `StadGent/drupal_theme_gent-base`.
 
+## [Unreleased]
+
+### Changed
+
+- DTGB-910: Make Sass @use statements more consistent.
+
 ## [7.0.0]
 
 SASS files now use the `@use` and `@forward` method for importing

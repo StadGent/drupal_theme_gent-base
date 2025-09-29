@@ -15,11 +15,11 @@ Go to the source directory.
 cd source
 ```
 
-[Install NodeJS](https://nodejs.org/en/download/) and required dev node
+[Install NodeJS](https://nodejs.org/en/download/) and required node
 packages (gulp, ...).
 
 ```
-$ yarn install --only=dev
+$ npm install
 ```
 
 You should be all set and able to run gulp tasks:

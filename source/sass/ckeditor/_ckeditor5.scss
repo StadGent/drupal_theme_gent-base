@@ -2,7 +2,7 @@
 // Then include the compiled css file in your theme's info file.
 // See starterkit in this theme as example.
 @use 'sass:meta';
-@use 'gb-gs-settings' as *;
+@use 'gent_base/source/sass/00-settings/settings' as *;
 
 // Status messages. We need to copy the style to make it apply to CKeditor in the admin theme.
 // Some imports don't suffice because the selectors are not specific enough.

@@ -12,6 +12,8 @@ import eslint from 'gulp-eslint';
 import minify from 'gulp-minify';
 import { deleteAsync } from 'del';
 import plumber from 'gulp-plumber';
+import postcss from 'gulp-postcss';
+import calc from 'postcss-calc';
 import imagemin from 'gulp-imagemin';
 import pngquant from 'imagemin-pngquant';
 import mozjpeg from 'imagemin-mozjpeg';
@@ -32,10 +34,11 @@ var globalConfig = {
 };
 
 const SASS_LOAD_PATHS = [
+  '../../../contrib/', // Make 'gent_base/...' available for @use.
   '../../../contrib/gent_base/build', // Make @use 'styleguide/...' available.
-  '../../../contrib/gent_base/source/sass/modules', // Make gent_base sass modules available for @use.
+  '../../../contrib/gent_base/source/sass/modules', // Make gent_base shortcuts available for @use.
   '../../../contrib/gent_base/source/node_modules/breakpoint-sass/stylesheets',
-  `${globalConfig.sassDir}/modules`, // Make local theme sass modules available for @use.
+  `${globalConfig.sassDir}/modules`, // Make 'sg_theme/...' available for @use.
 ];
 
 /*
