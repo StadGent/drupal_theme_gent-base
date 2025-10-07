@@ -84,7 +84,7 @@
     </div>
   {% endif %}
 
-  {% if information and label_display != 'after' and type != 'webform_document_file' %}
+  {% if information.content|render|trim is not empty and label_display != 'after' and type != 'webform_document_file' %}
     <div{{ information.attributes.addClass(information_classes) }}>
       {{ information.content }}
       <div class="accolade"></div>
@@ -126,14 +126,14 @@
           {% endif %}
         {% endif %}
 
-        {% if information and label_display == 'after' and type != 'webform_document_file' %}
+        {% if information.content|render|trim and label_display == 'after' and type != 'webform_document_file' %}
           <div{{ information.attributes.addClass(information_classes) }}>
             {{ information.content }}
             <div class="accolade"></div>
           </div>
         {% endif %}
 
-        {% if information and type == 'webform_document_file' %}
+        {% if information.content|render|trim and type == 'webform_document_file' %}
           <div{{ information.attributes.addClass('form-description') }}>
             {{ information.content }}
           </div>

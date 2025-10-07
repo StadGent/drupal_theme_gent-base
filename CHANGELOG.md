@@ -2,6 +2,12 @@
 
 All Notable changes to `StadGent/drupal_theme_gent-base`.
 
+## [7.0.2 Unreleased]
+
+### Fixed
+
+- SGD8-3044: Fix empty field message after file upload.
+
 ## [7.0.1]
 
 ### Changed
