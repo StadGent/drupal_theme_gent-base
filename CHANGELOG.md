@@ -2,7 +2,11 @@
 
 All Notable changes to `StadGent/drupal_theme_gent-base`.
 
-## [7.0.4]  Unreleased
+## [7.0.4]
+
+### Changed
+
+- SGD8-3055: Update gent_styleguide to 7.0.5.
 
 ### Fixed
 
