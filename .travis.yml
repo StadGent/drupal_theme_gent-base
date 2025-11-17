@@ -31,7 +31,6 @@ before_install:
   # Configure the repository authentication mechanisms.
   - if [ "${GITHUB_TOKEN}" != "" ]; then composer config github-oauth.github.com ${GITHUB_TOKEN}; fi
   - if [ "${REPMAN_TOKEN}" != "" ]; then composer config --global --auth http-basic.district09.repo.repman.io token ${REPMAN_TOKEN}; fi
-  - if [ "${REPMAN_TOKEN}" != "" ]; then composer config repositories.repman-district09 composer https://district09.repo.repman.io; fi
 
 install:
   # Install the module dependencies.
