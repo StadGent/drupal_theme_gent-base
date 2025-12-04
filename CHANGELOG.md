@@ -2,6 +2,18 @@
 
 All Notable changes to `StadGent/drupal_theme_gent-base`.
 
+## [7.0.6]
+
+### Fixed
+
+- SGD8-3079: Fix obsolete calendar icon on news teasers.
+
+## [7.0.5]
+
+### Changed
+
+- SGD8-3055: Update gent_styleguide to 7.0.6.
+
 ## [7.0.4]
 
 ### Changed
@@ -888,6 +900,8 @@ See Github releases for more information.
 
 * **Updated to gent_styleguide version 2.6.13**
 
+[7.0.6]: https://github.com/StadGent/drupal_theme_gent-base/compare/7.0.5...7.0.6
+[7.0.5]: https://github.com/StadGent/drupal_theme_gent-base/compare/7.0.4...7.0.5
 [7.0.4]: https://github.com/StadGent/drupal_theme_gent-base/compare/7.0.3...7.0.4
 [7.0.3]: https://github.com/StadGent/drupal_theme_gent-base/compare/7.0.2...7.0.3
 [7.0.2]: https://github.com/StadGent/drupal_theme_gent-base/compare/7.0.1...7.0.2
