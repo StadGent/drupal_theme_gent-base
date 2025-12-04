@@ -12,6 +12,7 @@
 @use 'filter-placeholder/filter-placeholder';
 @use 'language-switcher/language-switcher';
 @use 'local-tasks/local-tasks';
+@use 'map/leaflet';
 @use 'map/map';
 @use 'modal/modal';
 @use 'newsletter/newsletter';
@@ -20,4 +21,6 @@
 @use 'search/search';
 @use 'status-message/status-message';
 @use 'teaser/teaser';
+@use 'teaser/teaser--contact';
+@use 'teaser/teaser--news';
 @use 'video/video';
