@@ -30,7 +30,6 @@ textarea {
 }
 
 .form-description {
-  @include theme('color', 'color-tertiary', 'form-description-color');
   font-size: .6rem;
 }
 
