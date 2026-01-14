@@ -2,6 +2,13 @@
 
 All Notable changes to `StadGent/drupal_theme_gent-base`.
 
+## [7.1.1]
+
+### Fixed
+
+- KAG-510: Fix css property sort order.
+
+
 ## [7.1.0]
 
 ### Added
