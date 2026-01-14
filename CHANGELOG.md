@@ -2,6 +2,12 @@
 
 All Notable changes to `StadGent/drupal_theme_gent-base`.
 
+## [7.1.0]
+
+### Added
+
+- SODICRMWEB-846: Add green theme.
+
 ## [7.0.6]
 
 ### Fixed
