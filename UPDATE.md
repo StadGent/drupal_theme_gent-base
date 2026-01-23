@@ -1,11 +1,14 @@
 # Update `gent_base`
 
-This guide describes how to upgrade your project to a newer version of the `gent_base` theme.
+This guide describes how to upgrade your project to a newer version of the
+`gent_base` theme.
 
 ## Upgrade from `7.x` to `7.2.x`
 
-From `7.2.x` onwards, the styleguide no longer uses the deprecated `sass-lint` package. It has been replaced by **Stylelint**.  
-If your project uses a `gent_base` subtheme, you’ll need to update that subtheme accordingly when upgrading from `7.x` to `7.2.x` (or higher).
+From `7.2.x` onwards, the styleguide no longer uses the deprecated `sass-lint`
+package. It has been replaced by **Stylelint**. If your project uses a
+`gent_base` subtheme, you’ll need to update that subtheme accordingly when
+upgrading from `7.x` to `7.2.x` (or higher).
 
 ### 1) Update `gent_base`
 
@@ -15,7 +18,8 @@ composer require gent-drupal/gent_base:^7.2.0
 
 ### 2) Go to your subtheme source directory
 
-Open a terminal and navigate to the `source` folder of your `gent_base` subtheme:
+Open a terminal and navigate to the `source` folder of your `gent_base`
+subtheme:
 
 `web/themes/custom/[subtheme_name]/source`
 
@@ -85,7 +89,7 @@ gulp.task('styles:validate', () => {
 
 ### 7) Copy Stylelint configuration files
 
-Copy these files from the gent_base theme source directory into your subtheme 
+Copy these files from the gent_base theme source directory into your subtheme
 source directory:
 
 - `.stylelintignore`

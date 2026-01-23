@@ -2,7 +2,7 @@
 @use 'gent_styleguide/grid-mixins' as *;
 
 .overview-layout {
-  > div:not(.content-header-container):not(.block-system-main-block),
+  > div:not(.content-header-container, .block-system-main-block),
   > section,
   > aside,
   > article {

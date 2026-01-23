@@ -8,6 +8,10 @@ All Notable changes to `StadGent/drupal_theme_gent-base`.
 
 - DTGB-911: Update gent_base to Styleguide 7.2.x.
 
+### Fixed
+
+- DTGB-911: Fix SCSS issues detected by Stylelint.
+
 ## [7.1.1]
 
 ### Fixed
@@ -93,7 +97,7 @@ See more change instructions in the gent_styleguide 7.x changelog.
 
 ### changed
 
-- SGD8-2985: Changed order for Vesta teaser opening hours. 
+- SGD8-2985: Changed order for Vesta teaser opening hours.
 
 ### Updated
 

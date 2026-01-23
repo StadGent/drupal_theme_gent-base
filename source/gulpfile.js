@@ -6,7 +6,6 @@ import {deleteAsync} from 'del';
 import plumber from 'gulp-plumber';
 import sassGlob from 'gulp-sass-glob';
 import stylelint from 'gulp-stylelint-esm';
-import cache from 'gulp-cached';
 import gulpif from 'gulp-if';
 
 var globalConfig = {
@@ -39,6 +38,18 @@ gulp.task('styles:validate', () => {
       ],
       debug: false,
     }));
+});
+
+/**
+ * Watch SCSS files For Changes.
+ * Includes:
+ *  Styles:validate
+ *  Styles:dist
+ */
+gulp.task('styles:watch', () => {
+  return gulp.watch('sass/**/*.s+(a|c)ss', gulp.series(gulp.parallel(
+    'styles:validate',
+  )));
 });
 
 /*
@@ -108,5 +119,5 @@ gulp.task('build', gulp.parallel('validate'));
  * Used for local development to compile and validate after every change.
  *
  */
-gulp.task('default', gulp.series('js:watch'));
+gulp.task('default', gulp.parallel('js:watch', 'styles:watch'));
 gulp.task('watch', gulp.series('default'));

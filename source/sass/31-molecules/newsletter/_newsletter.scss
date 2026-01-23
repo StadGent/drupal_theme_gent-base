@@ -1,17 +1,19 @@
 @use 'gent_base/source/sass/00-mixins/mixins' as *;
 
+/* stylelint-disable no-descending-specificity */
+
 // Newsletter block with background image.
 .newsletter-container {
   position: relative;
 
   figure {
     position: absolute;
+    z-index: 1;
     top: -250px;
     left: 50%;
     width: 100%;
     height: auto;
     transform: translate(-50%, 0);
-    z-index: 1;
 
     @include phablet {
       top: 50%;
@@ -49,7 +51,7 @@
 
 .newsletter,
 .block-dg-newsletter {
-  @include medium-text();
+  @include medium-text;
 
   position: relative;
   z-index: 2;
@@ -167,7 +169,7 @@
     }
 
     p[data-drupal-selector$="edit-privacy-link"] {
-      @include medium-text();
+      @include medium-text;
 
       margin: 30px 0;
     }

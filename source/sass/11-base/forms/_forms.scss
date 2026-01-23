@@ -1,5 +1,7 @@
 @use 'gent_base/source/sass/00-mixins/mixins' as *;
 
+/* stylelint-disable no-descending-specificity */
+
 input[type="text"],
 input[type="number"],
 input[type="password"],
@@ -9,7 +11,8 @@ input[type="tel"],
 input[type="email"],
 input[type="url"],
 textarea {
-  text-align: left !important; // sass-lint:disable-line no-important
+  // stylelint-disable-next-line declaration-no-important
+  text-align: left !important;
 }
 
 .views-exposed-form { // exposed view filters

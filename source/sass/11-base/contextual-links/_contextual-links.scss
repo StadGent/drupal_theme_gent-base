@@ -7,13 +7,11 @@
   .trigger:hover {
     @include theme('background-color', 'color-secondary', 'contextual-link-background');
 
-    & {
-      border: 1px solid #ccc;
-      background-image: url("../../../../source/img/pencil.svg");
-      background-repeat: no-repeat;
-      background-position: center center;
-      background-size: .75rem;
-    }
+    border: 1px solid #ccc;
+    background-image: url("../../../../source/img/pencil.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: .75rem;
   }
 
   .trigger:focus,
