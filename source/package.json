@@ -10,6 +10,7 @@
   ],
   "license": "ISC",
   "devDependencies": {
+    "chokidar": "^5.0.0",
     "del": "^7.0.0",
     "gulp": "^5.0.1",
     "gulp-cached": "^1.1.1",
@@ -21,6 +22,7 @@
     "gulp-sass-glob": "^1.1.0",
     "gulp-stylelint-esm": "^3.0.0",
     "stylelint": "^16.26.1",
+    "stylelint-config-property-sort-order-smacss": "^10.0.0",
     "stylelint-config-standard-scss": "^13.1.0",
     "stylelint-order": "^6.0.4",
     "stylelint-scss": "^6.14.0"
@@ -29,6 +31,7 @@
     "build": "gulp build",
     "lint:css": "stylelint \"sass/**/*.scss\"",
     "lint:css:fix": "stylelint \"sass/**/*.scss\" --fix",
+    "lint:css:watch": "chokidar \"components/**/*.scss\" -c \"npm run lint:css\"",
     "start": "gulp"
   },
   "engines": {
@@ -38,6 +41,6 @@
   "dependencies": {
     "@digipolis-gent/modal": "^1.0.4",
     "fs-extra": "^11.1.1",
-    "gent_styleguide": "^7.2.1"
+    "gent_styleguide": "^7.2.2"
   }
 }

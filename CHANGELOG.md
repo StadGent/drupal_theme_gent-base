@@ -2,6 +2,12 @@
 
 All Notable changes to `StadGent/drupal_theme_gent-base`.
 
+## [Unreleased]
+
+### Updated
+
+- DTGB-911: Update gent_base to Styleguide 7.2.x.
+
 ## [7.1.1]
 
 ### Fixed
