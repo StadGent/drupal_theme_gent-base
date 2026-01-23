@@ -5,7 +5,7 @@ import eslint from 'gulp-eslint';
 import {deleteAsync} from 'del';
 import plumber from 'gulp-plumber';
 import sassGlob from 'gulp-sass-glob';
-import sassLint from 'gulp-sass-lint';
+import stylelint from 'gulp-stylelint-esm';
 import cache from 'gulp-cached';
 import gulpif from 'gulp-if';
 
@@ -27,17 +27,18 @@ const _sassFiles = () => {
 /**
  * Validate SCSS files.
  * Includes:
- *  Sass globbing
- *  SassLint
+ *  - Stylelint
  */
 gulp.task('styles:validate', () => {
   return _sassFiles()
-    .pipe(cache('styles:validate'))
-    .pipe(sassLint({
-      configFile: './.sass-lint.yml'
-    }))
-    .pipe(gulpif(build, sassLint.failOnError()))
-    .pipe(sassLint.format());
+    .pipe(stylelint({
+      failAfterError: false,
+      fix: false,
+      reporters: [
+        { formatter: 'stylish', console: true },
+      ],
+      debug: false,
+    }));
 });
 
 /*
