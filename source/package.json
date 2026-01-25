@@ -1,12 +1,13 @@
 {
   "type": "module",
   "name": "gent_base",
-  "version": "7.0.0",
+  "version": "7.2.0",
   "description": "Gent Base contrib theme for Drupal 11.",
   "authors": [
     "Gert-Jan Meire <gertjan.meire@digipolis.gent>",
     "Wim Vantomme <wim.vantomme@digipolis.gent>",
-    "Lennart Van Vaerenbergh <lennart.vanvaerenbergh@district09.gent>"
+    "Lennart Van Vaerenbergh <lennart.vanvaerenbergh@district09.gent>",
+    "Peter Decuyper <peter.decuyper@district09.gent>"
   ],
   "license": "ISC",
   "devDependencies": {

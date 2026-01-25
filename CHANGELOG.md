@@ -7,6 +7,11 @@ All Notable changes to `StadGent/drupal_theme_gent-base`.
 ### Updated
 
 - DTGB-911: Update gent_base to Styleguide 7.2.x.
+- DTGB-911: Update starters kit.
+
+### Changed
+
+- DTGB-911: Change sass-lint to stylelint.
 
 ### Fixed
 

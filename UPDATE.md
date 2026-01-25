@@ -23,6 +23,12 @@ subtheme:
 
 `web/themes/custom/[subtheme_name]/source`
 
+Make sure you are using the node version within the project:
+
+```shell
+nvm use
+```
+
 ### 3) Update the styleguide dependency
 
 Update the styleguide package. This should result in `7.2.2` or higher:
@@ -37,11 +43,29 @@ npm update gent_styleguide
 npm remove gulp-sass-lint
 ```
 
+or
+
+```shell
+yarn remove gulp-sass-lint
+```
+
+And delete the `.sass-lint.yml` file in the source directory.
+
 ### 5) Install Stylelint and required plugins
 
 ```shell
-npm i -D chokidar \
-  stylelint@16 \
+npm i -D stylelint@16 \
+  stylelint-scss@^6 \
+  stylelint-config-standard-scss@^13 \
+  stylelint-order@^6 \
+  stylelint-config-property-sort-order-smacss@10 \
+  gulp-stylelint-esm
+```
+
+or
+
+```shell
+yarn add -D stylelint@16 \
   stylelint-scss@^6 \
   stylelint-config-standard-scss@^13 \
   stylelint-order@^6 \
@@ -71,11 +95,12 @@ with:
 ```js
 /**
  * Validate SCSS files.
+ *
  * Includes:
  *  - Stylelint
  */
 gulp.task('styles:validate', () => {
-  return _sassFiles()
+  return gulp.src(globalConfig.sassDir + '/**/*.s+(a|c)ss')
     .pipe(stylelint({
       failAfterError: false,
       fix: false,
@@ -106,7 +131,6 @@ Add the following `lint:` scripts to `package.json`:
     "build": "gulp build",
     "lint:css": "stylelint \"sass/**/*.scss\"",
     "lint:css:fix": "stylelint \"sass/**/*.scss\" --fix",
-    "lint:css:watch": "chokidar \"components/**/*.scss\" -c \"npm run lint:css\"",
     "start": "gulp"
   }
 ```
