@@ -89,6 +89,44 @@ Add the Stylelint import:
 import stylelint from 'gulp-stylelint-esm';
 ```
 
+Find the `gulp.task('styles:build'` task and replace its implementation with
+(replace sass lint by stylelint):
+
+```js
+/**
+ * Styles build task.
+ *
+ * Includes:
+ * - Sass globbing
+ * - SCSS linting
+ * - Compresssed output style
+ * - Autoprefixer
+ */
+gulp.task('styles:build', function () {
+  return gulp.src(globalConfig.sassDir + '/**/*.s+(a|c)ss')
+    .pipe(plumber())
+    .pipe(sassGlob())
+    .pipe(sourcemaps.init())
+    .pipe(stylelint({
+      failAfterError: true,
+      fix: false,
+      reporters: [
+        { formatter: 'stylish', console: true },
+      ],
+      debug: false,
+    }))
+    .pipe(sass({
+      outputStyle: 'compressed',
+      includePaths: SASS_LOAD_PATHS,
+      loadPaths: SASS_LOAD_PATHS,
+    })).on('error', sass.logError)
+    .pipe(autoprefixer())
+    .pipe(postcss([calc]))
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest(globalConfig.cssDir));
+});
+```
+
 Then find the `gulp.task('styles:validate'` task and replace its implementation
 with:
 
@@ -153,4 +191,4 @@ Fix the remaining issues by hand.
 
 ### 10) Commit changes
 
-Commit the changes, the upgrade is now finished.
+Commit the changes, the update is now finished.

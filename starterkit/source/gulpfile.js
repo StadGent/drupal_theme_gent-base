@@ -37,7 +37,7 @@ const SASS_LOAD_PATHS = [
   '../../../contrib/gent_base/build', // Make @use 'styleguide/...' available.
   '../../../contrib/gent_base/source/sass/shortcuts', // Make gent_base shortcuts available for @use.
   '../../../contrib/gent_base/source/node_modules/breakpoint-sass/stylesheets',
-  '../../../custom/', // Make 'kag_theme/...' available for @use.
+  '../../../custom/', // Make 'my_custom_theme/...' available for @use.
 ];
 
 /**
@@ -54,11 +54,14 @@ gulp.task('styles:build', function () {
     .pipe(plumber())
     .pipe(sassGlob())
     .pipe(sourcemaps.init())
-    .pipe(sassLint({
-      configFile: './.sass-lint.yml'
+    .pipe(stylelint({
+      failAfterError: true,
+      fix: false,
+      reporters: [
+        { formatter: 'stylish', console: true },
+      ],
+      debug: false,
     }))
-    .pipe(sassLint.format())
-    .pipe(sassLint.failOnError())
     .pipe(sass({
       outputStyle: 'compressed',
       includePaths: SASS_LOAD_PATHS,
