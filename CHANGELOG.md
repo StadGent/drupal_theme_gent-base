@@ -2,7 +2,10 @@
 
 All Notable changes to `StadGent/drupal_theme_gent-base`.
 
-## [Unreleased]
+## [7.2.0]
+
+Update gent_styleguide to 7.2.x. See [UPDATE.md](./UPDATE.md) for update
+instructions.
 
 ### Updated
 
@@ -936,6 +939,9 @@ See Github releases for more information.
 
 * **Updated to gent_styleguide version 2.6.13**
 
+[7.2.0]: https://github.com/StadGent/drupal_theme_gent-base/compare/7.1.1...7.2.0
+[7.1.1]: https://github.com/StadGent/drupal_theme_gent-base/compare/7.1.0...7.1.1
+[7.1.0]: https://github.com/StadGent/drupal_theme_gent-base/compare/7.0.6...7.1.0
 [7.0.6]: https://github.com/StadGent/drupal_theme_gent-base/compare/7.0.5...7.0.6
 [7.0.5]: https://github.com/StadGent/drupal_theme_gent-base/compare/7.0.4...7.0.5
 [7.0.4]: https://github.com/StadGent/drupal_theme_gent-base/compare/7.0.3...7.0.4
