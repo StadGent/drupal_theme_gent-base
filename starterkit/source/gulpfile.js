@@ -35,7 +35,6 @@ const globalConfig = {
 const SASS_LOAD_PATHS = [
   '../../../contrib/', // Make 'gent_base/...' available for @use.
   '../../../contrib/gent_base/build', // Make @use 'styleguide/...' available.
-  '../../../contrib/gent_base/source/node_modules/breakpoint-sass/stylesheets',
   '../../../custom/', // Make 'my_custom_theme/...' available for @use.
 ];
 

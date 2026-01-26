@@ -194,15 +194,16 @@ Fix the remaining issues by hand.
 The gent_base sass provides shortcuts to use the grid, icons and buttons mixins.
 These are now deprecated.
 
-Remove the `'../../../contrib/gent_base/source/sass/shortcuts',` directory from
-the `SASS_LOAD_PATHS`:
+Remove the `'../../../contrib/gent_base/source/sass/shortcuts',` and
+`contrib/gent_base/source/node_modules/breakpoint-sass/stylesheets` directories
+from the `SASS_LOAD_PATHS`:
 
 ```scss
 const SASS_LOAD_PATHS = [
   '../../../contrib/',
   '../../../contrib/gent_base/build',
   '../../../contrib/gent_base/source/sass/shortcuts', // REMOVE THIS LINE
-  '../../../contrib/gent_base/source/node_modules/breakpoint-sass/stylesheets',
+  '../../../contrib/gent_base/source/node_modules/breakpoint-sass/stylesheets', // AND THIS LINE
   '../../../custom/',
 ];
 ```
