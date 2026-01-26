@@ -3,7 +3,8 @@
 @use 'gent_base/source/sass/00-settings/settings' as *;
 
 @mixin visually-hidden {
-  position: absolute !important; // sass-lint:disable-line no-important
+  // stylelint-disable-next-line declaration-no-important
+  position: absolute !important;
   width: 1px;
   height: 1px;
   overflow: hidden;

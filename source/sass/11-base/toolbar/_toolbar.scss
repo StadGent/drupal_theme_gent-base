@@ -72,7 +72,8 @@ body {
       }
 
       a {
-        font-size: .65rem !important; // sass-lint:disable-line no-important
+        // stylelint-disable-next-line declaration-no-important
+        font-size: .65rem !important;
       }
     }
   }

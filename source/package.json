@@ -1,29 +1,39 @@
 {
   "type": "module",
   "name": "gent_base",
-  "version": "7.0.0",
+  "version": "7.2.0",
   "description": "Gent Base contrib theme for Drupal 11.",
   "authors": [
     "Gert-Jan Meire <gertjan.meire@digipolis.gent>",
     "Wim Vantomme <wim.vantomme@digipolis.gent>",
-    "Lennart Van Vaerenbergh <lennart.vanvaerenbergh@district09.gent>"
+    "Lennart Van Vaerenbergh <lennart.vanvaerenbergh@district09.gent>",
+    "Peter Decuyper <peter.decuyper@district09.gent>"
   ],
   "license": "ISC",
   "devDependencies": {
+    "chokidar": "^5.0.0",
     "del": "^7.0.0",
     "gulp": "^5.0.1",
+    "gulp-cached": "^1.1.1",
     "gulp-eslint": "^6.0.0",
+    "gulp-if": "^3.0.0",
     "gulp-minify": "^3.1.0",
     "gulp-plumber": "^1.2.1",
     "gulp-rename": "^2.0.0",
-    "gulp-cached": "^1.1.1",
-    "gulp-if": "^3.0.0",
     "gulp-sass-glob": "^1.1.0",
-    "gulp-sass-lint": "^1.4.0"
+    "gulp-stylelint-esm": "^3.0.0",
+    "stylelint": "^16.26.1",
+    "stylelint-config-property-sort-order-smacss": "^10.0.0",
+    "stylelint-config-standard-scss": "^13.1.0",
+    "stylelint-order": "^6.0.4",
+    "stylelint-scss": "^6.14.0"
   },
   "scripts": {
-    "start": "gulp",
-    "build": "gulp build"
+    "build": "gulp build",
+    "lint:css": "stylelint \"sass/**/*.scss\"",
+    "lint:css:fix": "stylelint \"sass/**/*.scss\" --fix",
+    "lint:css:watch": "chokidar \"components/**/*.scss\" -c \"npm run lint:css\"",
+    "start": "gulp"
   },
   "engines": {
     "node": ">=10.14.2"
@@ -32,6 +42,6 @@
   "dependencies": {
     "@digipolis-gent/modal": "^1.0.4",
     "fs-extra": "^11.1.1",
-    "gent_styleguide": "^7.0.0"
+    "gent_styleguide": "^7.2.2"
   }
 }

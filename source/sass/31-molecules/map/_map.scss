@@ -1,8 +1,11 @@
 @use 'gent_base/source/sass/00-settings/settings' as *;
 @use 'gent_base/source/sass/00-mixins/mixins' as *;
-@use 'gent_styleguide/icon-mixins' as *;
+@use 'styleguide/sass/11-base/fonts/icons' as *;
+@use 'styleguide/sass/11-base/grid/flexbox-grid/mixins/grid-mixins' as *;
 @use 'styleguide/sass/21-atoms/accolade/accolade' as *;
 @use 'styleguide/sass/21-atoms/heading/heading-styling' as *;
+
+/* stylelint-disable no-descending-specificity */
 
 // ===
 // DG Maps
@@ -19,9 +22,9 @@ $map-text-color: coloring('gray');
   border: 0;
   background: $map-button-background no-repeat center center;
   background-size: 24px 24px;
+  box-shadow: 0 8px 12px 0 rgba(0, 125, 179, .06);
   color: $map-text-color;
   font-size: 0;
-  box-shadow: 0 8px 12px 0 rgba(0, 125, 179, .06);
   cursor: pointer;
 }
 
@@ -51,14 +54,14 @@ $map-text-color: coloring('gray');
 
     &__side-panel {
       position: absolute;
+      z-index: 200;
       top: 0;
       left: 0;
       width: 15rem;
       height: 100%;
       padding: 1.75rem 1.9rem;
-      background: rgba(255, 255, 255, .8);
       overflow: hidden;
-      z-index: 200;
+      background: rgba(255, 255, 255, .8);
     }
 
     .ol-control {
@@ -140,7 +143,7 @@ $map-text-color: coloring('gray');
       }
 
       details {
-        ::-webkit-details-marker { // sass-lint:disable-line no-vendor-prefixes
+        ::-webkit-details-marker {
           display: none;
         }
 
@@ -194,8 +197,8 @@ $map-text-color: coloring('gray');
     }
 
     .ol-scale-line {
-      background: transparent;
       z-index: 400;
+      background: transparent;
 
       &-inner {
         position: relative;
@@ -207,12 +210,12 @@ $map-text-color: coloring('gray');
 
         &::before,
         &::after {
+          content: "";
           position: absolute;
           bottom: 0;
           width: 2px;
           height: 5px;
           background: $map-text-color;
-          content: "";
         }
 
         &::before {
@@ -230,20 +233,20 @@ $map-text-color: coloring('gray');
         > label {
           width: $map-button-size;
           height: $map-button-size;
-          background-size: auto $map-button-size;
           opacity: inherit;
+          background-size: auto $map-button-size;
         }
 
         &-osm > label {
-          background-position: (-$map-button-size*4) 0;
+          background-position: (-$map-button-size * 4) 0;
         }
 
-        &-agiv_grb > label { // sass-lint:disable-line class-name-format
-          background-position: (-$map-button-size*3) 0;
+        &-agiv_grb > label {
+          background-position: (-$map-button-size * 3) 0;
         }
 
         &-orthophoto > label {
-          background-position: (-$map-button-size*2) 0;
+          background-position: (-$map-button-size * 2) 0;
         }
 
         &-citymap > label {
@@ -259,13 +262,13 @@ $map-text-color: coloring('gray');
     .gcd-txt-glass {
       display: block;
       position: absolute;
+      z-index: 11;
       top: 50%;
       right: .4rem;
       width: 1.2rem;
       height: 1.2rem;
       margin-top: -.6rem;
       background: svg-as-background('search', coloring('cyan'), 24, 24) no-repeat center center;
-      z-index: 11;
     }
 
     .gcd-txt-result {
@@ -284,6 +287,7 @@ $map-text-color: coloring('gray');
           .gcd-city {
             font-size: 1em;
 
+            // stylelint-disable-next-line max-nesting-depth
             &::before {
               content: ", ";
             }
@@ -306,24 +310,26 @@ $map-text-color: coloring('gray');
     // ===
     .ol-popup {
       @include theme('box-shadow', 'color-tertiary-light', 'popup-shadow', '0 2px 12px 0');
+
       right: -2px;
       bottom: -2px;
       left: -2px;
       height: auto;
       padding: .8rem 1rem;
+      overflow-y: auto;
       border: 0;
       font-size: .8rem;
       filter: none;
-      overflow-y: auto;
 
-      @include breakpoint($bp-tablet+1) {
+      @include breakpoint($bp-tablet + 1) {
         width: 18rem;
         margin-bottom: $accolade-height;
-        margin-left: -$accolade-width*.6;
+        margin-left: -$accolade-width * .6;
         padding: 2rem 1rem;
         border-radius: border-radius('radius-1');
 
         &::before {
+          content: '';
           position: absolute;
           left: $accolade-width * .5;
           width: $accolade-width;
@@ -331,7 +337,6 @@ $map-text-color: coloring('gray');
           transform: rotate(180deg);
           background: transparent svg-as-background('accolade', coloring('white'), $accolade-width, $accolade-height) no-repeat top;
           background-size: 100%;
-          content: '';
         }
 
         &::before,
@@ -356,6 +361,7 @@ $map-text-color: coloring('gray');
 
       &__title:not(:empty) {
         @extend %h3;
+
         margin-bottom: 0;
       }
     }
@@ -366,14 +372,14 @@ $map-text-color: coloring('gray');
   }
 
   &-region {
-    overflow: visible;
     z-index: 5;
+    overflow: visible;
 
     &--left {
       // This should be applied only the exact viewport of 768px. Since the 3rd
       // party package uses max-width instead of min-width, it is not applied to
       // this viewport.
-      @media (width: 768px) {
+      @media (width = 768px) {
         width: 300px;
       }
     }
@@ -415,15 +421,11 @@ $map-text-color: coloring('gray');
 
     &--collapsible {
       position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      border: 0;
-
-      background: coloring('white');
       z-index: 20;
+      inset: 0;
       overflow-y: auto;
+      border: 0;
+      background: coloring('white');
     }
 
     &-button {
@@ -431,22 +433,21 @@ $map-text-color: coloring('gray');
       @include icon(hamburger);
       @include icon(chevron-down, after);
 
-      & {
-        display: flex;
-        position: absolute;
-        top: $map-padding;
-        left: $map-padding;
-        align-items: center;
-        font-size: 0;
-        z-index: 10;
+      display: flex;
+      position: absolute;
+      z-index: 10;
+      top: $map-padding;
+      left: $map-padding;
+      align-items: center;
+      font-size: 0;
 
-        &::before {
-          font-size: 1.2rem;
-        }
+      &::before {
+        font-size: 1.2rem;
       }
 
       @include tablet {
         @include bold-text;
+
         width: auto;
         padding: .4rem .8rem;
         font-size: .8rem;
@@ -480,11 +481,13 @@ $map-text-color: coloring('gray');
 
     &__title {
       @include bold-text;
+
       display: inline;
 
+      // stylelint-disable-next-line selector-class-pattern
       &:not(:empty) + .ol-list-features__list__item__description:not(:empty)::before {
-        padding: 0 1ch;
         content: "\2014";
+        padding: 0 1ch;
       }
     }
 

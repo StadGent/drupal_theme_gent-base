@@ -28,10 +28,8 @@
         @include theme('color', 'color-primary', 'link-color');
         @include link-background('color-primary', 'color-primary-light', 'link-underline-color', 'link-background-color');
 
-        & {
-          margin: 0;
-          padding: 0;
-        }
+        margin: 0;
+        padding: 0;
       }
     }
   }

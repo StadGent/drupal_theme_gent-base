@@ -3,9 +3,10 @@
 
 $frs-handle-size: 1.4rem;
 
-.form-item.facets-widget-range_slider { // sass-lint:disable-line class-name-format
+// stylelint-disable-next-line selector-class-pattern
+.form-item.facets-widget-range_slider {
   .pips-preview {
-    @include small-text();
+    @include small-text;
 
     > .placeholder {
       font-style: normal;

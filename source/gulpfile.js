@@ -5,8 +5,7 @@ import eslint from 'gulp-eslint';
 import {deleteAsync} from 'del';
 import plumber from 'gulp-plumber';
 import sassGlob from 'gulp-sass-glob';
-import sassLint from 'gulp-sass-lint';
-import cache from 'gulp-cached';
+import stylelint from 'gulp-stylelint-esm';
 import gulpif from 'gulp-if';
 
 var globalConfig = {
@@ -27,17 +26,30 @@ const _sassFiles = () => {
 /**
  * Validate SCSS files.
  * Includes:
- *  Sass globbing
- *  SassLint
+ *  - Stylelint
  */
 gulp.task('styles:validate', () => {
   return _sassFiles()
-    .pipe(cache('styles:validate'))
-    .pipe(sassLint({
-      configFile: './.sass-lint.yml'
-    }))
-    .pipe(gulpif(build, sassLint.failOnError()))
-    .pipe(sassLint.format());
+    .pipe(stylelint({
+      failAfterError: false,
+      fix: false,
+      reporters: [
+        { formatter: 'stylish', console: true },
+      ],
+      debug: false,
+    }));
+});
+
+/**
+ * Watch SCSS files For Changes.
+ * Includes:
+ *  Styles:validate
+ *  Styles:dist
+ */
+gulp.task('styles:watch', () => {
+  return gulp.watch('sass/**/*.s+(a|c)ss', gulp.series(gulp.parallel(
+    'styles:validate',
+  )));
 });
 
 /*
@@ -107,5 +119,5 @@ gulp.task('build', gulp.parallel('validate'));
  * Used for local development to compile and validate after every change.
  *
  */
-gulp.task('default', gulp.series('js:watch'));
+gulp.task('default', gulp.parallel('js:watch', 'styles:watch'));
 gulp.task('watch', gulp.series('default'));

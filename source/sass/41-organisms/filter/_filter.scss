@@ -3,7 +3,7 @@
 
 .filter {
   p.help-text {
-    @include small-text();
+    @include small-text;
 
     margin-bottom: 40px;
   }

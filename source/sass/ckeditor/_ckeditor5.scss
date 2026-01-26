@@ -22,9 +22,7 @@
   // Important notes styling.
   @include meta.load-css('styleguide/sass/31-molecules/important-note/important-note');
 
-  & {
-    font: $default-font-weight $default-font-size $default-font-family;
-  }
+  font: $default-font-weight $default-font-size $default-font-family;
 
   // Explicit status message styling to make it specific enough to come through.
   // The styleguide css uses .messages--status{} while admin theme uses .messages.messages--status{}.

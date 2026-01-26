@@ -20,6 +20,7 @@
 
   input[type='text'] {
     @extend %search-input;
+
     background-color: coloring('white');
   }
 }

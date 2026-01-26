@@ -2,7 +2,7 @@
 
 .checkbox {
   .form-description {
-    @include small-text();
+    @include small-text;
     @include theme('color', 'default-text-color', 'color-form-description');
 
     line-height: 171.429%;
