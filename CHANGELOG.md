@@ -9,6 +9,10 @@ All Notable changes to `StadGent/drupal_theme_gent-base`.
 - DTGB-911: Update gent_base to Styleguide 7.2.x.
 - DTGB-911: Update starters kit.
 
+### Deprecated
+
+- DTGB-911: Deprecate the usage of the styleguide shortcuts.
+
 ### Changed
 
 - DTGB-911: Change sass-lint to stylelint.
@@ -16,6 +20,10 @@ All Notable changes to `StadGent/drupal_theme_gent-base`.
 ### Fixed
 
 - DTGB-911: Fix SCSS issues detected by Stylelint.
+
+### Removed
+
+- DTGB-911: Remove usage of the styleguide shortcuts.
 
 ## [7.1.1]
 

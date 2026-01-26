@@ -189,6 +189,47 @@ npm run lint:css:fix
 
 Fix the remaining issues by hand.
 
-### 10) Commit changes
+### 10) Remove usage of stylelint shortcuts
+
+The gent_base sass provides shortcuts to use the grid, icons and buttons mixins.
+These are now deprecated.
+
+Remove the `'../../../contrib/gent_base/source/sass/shortcuts',` directory from
+the `SASS_LOAD_PATHS`:
+
+```scss
+const SASS_LOAD_PATHS = [
+  '../../../contrib/',
+  '../../../contrib/gent_base/build',
+  '../../../contrib/gent_base/source/sass/shortcuts', // REMOVE THIS LINE
+  '../../../contrib/gent_base/source/node_modules/breakpoint-sass/stylesheets',
+  '../../../custom/',
+];
+```
+
+Replace the shortcuts usages by the actual files from the styleguide:
+
+Grid mixins:
+
+```scss
+-@use 'gent_styleguide/grid-mixins' as *;
++@use 'styleguide/sass/11-base/grid/flexbox-grid/mixins/grid-mixins' as *;
+```
+
+Icon mixins:
+
+```scss
+-@use 'gent_styleguide/icon-mixins' as *;
++@use 'styleguide/sass/11-base/fonts/icons' as *;
+```
+
+Button mixins (all, or use the specific files who are needed):
+
+```scss
+-@use 'gent_styleguide/button-mixins' as *;
++@use 'styleguide/sass/21-atoms/button/button' as *;
+```
+
+### 11) Commit changes
 
 Commit the changes, the update is now finished.
