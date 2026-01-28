@@ -29,15 +29,7 @@ Make sure you are using the node version within the project:
 nvm use
 ```
 
-### 3) Update the styleguide dependency
-
-Update the styleguide package. This should result in `7.2.2` or higher:
-
-```shell
-npm update gent_styleguide
-```
-
-### 4) Remove sass-lint
+### 3) Remove sass-lint
 
 ```shell
 npm remove gulp-sass-lint
@@ -51,7 +43,7 @@ yarn remove gulp-sass-lint
 
 And delete the `.sass-lint.yml` file in the source directory.
 
-### 5) Install Stylelint and required plugins
+### 4) Install Stylelint and required plugins
 
 ```shell
 npm i -D stylelint@16 \
@@ -73,7 +65,7 @@ yarn add -D stylelint@16 \
   gulp-stylelint-esm
 ```
 
-### 6) Update your gulpfile.js
+### 5) Update your gulpfile.js
 
 Edit gulpfile.js in: `web/themes/custom/[subtheme_name]/source`.
 
@@ -150,7 +142,7 @@ gulp.task('styles:validate', () => {
 });
 ```
 
-### 7) Copy Stylelint configuration files
+### 6) Copy Stylelint configuration files
 
 Copy these files from the gent_base theme source directory into your subtheme
 source directory:
@@ -160,7 +152,7 @@ source directory:
 
 Target location: `web/themes/custom/[subtheme_name]/source`.
 
-### 8) Add lint scripts to package.json
+### 7) Add lint scripts to package.json
 
 Add the following `lint:` scripts to `package.json`:
 
@@ -173,7 +165,7 @@ Add the following `lint:` scripts to `package.json`:
   }
 ```
 
-### 9) Fix issues reported by Stylelint
+### 8) Fix issues reported by Stylelint
 
 Run Stylelint to check for issues:
 
@@ -189,7 +181,7 @@ npm run lint:css:fix
 
 Fix the remaining issues by hand.
 
-### 10) Remove usage of stylelint shortcuts
+### 9) Remove usage of stylelint shortcuts
 
 The gent_base sass provides shortcuts to use the grid, icons and buttons mixins.
 These are now deprecated.
@@ -231,6 +223,6 @@ Button mixins (all, or use the specific files who are needed):
 +@use 'styleguide/sass/21-atoms/button/button' as *;
 ```
 
-### 11) Commit changes
+### 10) Commit changes
 
 Commit the changes, the update is now finished.
