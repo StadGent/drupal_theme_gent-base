@@ -17,7 +17,9 @@ regions:
   footer: Footer
 
 ckeditor5-stylesheets:
-  - build/css/ckeditor5.css
+  - /themes/contrib/gent_base/build/css/ckeditor5.css
+  # Optional: uncomment if you create source/sass/ckeditor5.project.scss.
+  # - build/css/ckeditor5.project.css
 
 'interface translation project': starterkit
 'interface translation server pattern': themes/custom/%project/translations/%language.po
