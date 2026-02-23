@@ -7,13 +7,27 @@ import plumber from 'gulp-plumber';
 import sassGlob from 'gulp-sass-glob';
 import stylelint from 'gulp-stylelint-esm';
 import gulpif from 'gulp-if';
+import * as dartSass from 'sass';
+import gulpSass from 'gulp-sass';
+import sourcemaps from 'gulp-sourcemaps';
+import autoprefixer from 'gulp-autoprefixer';
+import postcss from 'gulp-postcss';
+import calc from 'postcss-calc';
+import { normalizeCkeditorCss } from './gulp/ckeditor-css.js';
 
 var globalConfig = {
   scriptsSrcDir: 'js',
   buildDir: '../build',
+  sassDir: 'sass',
+  cssDir: '../build/css',
 };
 
 let build = false;
+const sass = gulpSass(dartSass);
+const SASS_LOAD_PATHS = [
+  '../../', // Make 'gent_base/...' available for @use.
+  '../build', // Make @use 'styleguide/...' available.
+];
 
 /**
  * Get the sassFiles.
@@ -49,7 +63,28 @@ gulp.task('styles:validate', () => {
 gulp.task('styles:watch', () => {
   return gulp.watch('sass/**/*.s+(a|c)ss', gulp.series(gulp.parallel(
     'styles:validate',
+    'styles:ckeditor',
   )));
+});
+
+/**
+ * Compile base CKEditor stylesheet for subthemes to consume directly.
+ */
+gulp.task('styles:ckeditor', function () {
+  return gulp.src(globalConfig.sassDir + '/ckeditor5.scss')
+    .pipe(plumber())
+    .pipe(sassGlob())
+    .pipe(sourcemaps.init())
+    .pipe(sass({
+      outputStyle: 'compressed',
+      includePaths: SASS_LOAD_PATHS,
+      loadPaths: SASS_LOAD_PATHS,
+    })).on('error', sass.logError)
+    .pipe(autoprefixer())
+    .pipe(postcss([calc]))
+    .pipe(normalizeCkeditorCss())
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest(globalConfig.cssDir));
 });
 
 /*
@@ -107,7 +142,7 @@ gulp.task('validate', gulp.parallel('styles:validate', 'js:validate'));
  * populated by the scripts/install.sh.
  *
  */
-gulp.task('build', gulp.parallel('validate'));
+gulp.task('build', gulp.parallel('validate', 'styles:ckeditor'));
 
 /*
  *

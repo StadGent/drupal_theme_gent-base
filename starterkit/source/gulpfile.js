@@ -38,6 +38,11 @@ const SASS_LOAD_PATHS = [
   '../../../custom/', // Make 'my_custom_theme/...' available for @use.
 ];
 
+// Optional CKEditor overrides:
+// If `sass/ckeditor5.project.scss` exists, this gulpfile compiles it automatically.
+// If you do not need CKEditor project overrides, you can remove that file.
+// See gent_base README section: "CKEditor CSS build flow".
+
 /**
  * Styles build task.
  *

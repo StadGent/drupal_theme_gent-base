@@ -1,0 +1,9 @@
+// Aggregate CKEditor content styles in one Sass module context.
+// This prevents repeated reset CSS output from separate meta.load-css calls.
+@use 'styleguide/sass/21-atoms/heading/heading';
+@use 'styleguide/sass/21-atoms/paragraph/paragraph';
+@use 'styleguide/sass/21-atoms/list/list';
+@use 'styleguide/sass/21-atoms/status/status';
+@use 'styleguide/sass/31-molecules/status-message/status-message';
+@use '../31-molecules/status-message/status-message' as gent_status_message;
+@use 'styleguide/sass/31-molecules/important-note/important-note';

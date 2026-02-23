@@ -1,63 +1,32 @@
-// @use this file in a ckeditor5.scss file in your sub theme.
-// Then include the compiled css file in your theme's info file.
-// See starterkit in this theme as example.
+// Base CKEditor stylesheet source, compiled by gent_base/source/gulpfile.js.
+// For the full setup and extension model, see gent_base README:
+// "CKEditor CSS build flow".
 @use 'sass:meta';
+@use 'styleguide/sass/00-settings/settings' with (
+  $styleguide-dir: '/themes/contrib/gent_base/build/styleguide'
+);
 @use 'gent_base/source/sass/00-settings/settings' as *;
 
-// Status messages. We need to copy the style to make it apply to CKeditor in the admin theme.
-// Some imports don't suffice because the selectors are not specific enough.
-.ck-content {
-  // Heading styling.
-  @include meta.load-css('styleguide/sass/21-atoms/heading/heading');
-  @include meta.load-css('styleguide/sass/21-atoms/heading/css/heading-1');
-  @include meta.load-css('styleguide/sass/21-atoms/heading/css/heading-2');
-  @include meta.load-css('styleguide/sass/21-atoms/heading/css/heading-3');
-  @include meta.load-css('styleguide/sass/21-atoms/heading/css/heading-4');
-  // Text paragraph styling.
-  @include meta.load-css('styleguide/sass/21-atoms/paragraph/paragraph');
-  // Status messages styling.
-  @include meta.load-css('styleguide/sass/21-atoms/status/status');
-  @include meta.load-css('styleguide/sass/31-molecules/status-message/status-message');
-  @include meta.load-css('../31-molecules/status-message/status-message');
-  // Important notes styling.
-  @include meta.load-css('styleguide/sass/31-molecules/important-note/important-note');
+// CKEditor content styles are loaded from the shared ckeditor-content aggregate.
+.ck-content,
+.ck.ck-content {
+  @include meta.load-css('gent_base/source/sass/ckeditor/ckeditor-content');
 
-  font: $default-font-weight $default-font-size $default-font-family;
+  font: #{$default-font-weight} #{$default-font-size}/#{$default-line-height} #{$default-font-family};
 
-  // Explicit status message styling to make it specific enough to come through.
-  // The styleguide css uses .messages--status{} while admin theme uses .messages.messages--status{}.
-  .messages {
+  // CKEditor wraps simple list item text in `span.ck-list-bogus-paragraph`.
+  // Normalize it to behave as block list text and inherit list rhythm.
+  li > [class~='ck-list-bogus-paragraph'] {
+    display: block;
+    line-height: inherit;
+  }
+
+  // Prevent admin-theme `.messages` border-radius from leaking into editor content.
+  .messages,
+  .messages--status,
+  .messages--warning,
+  .messages--error {
     border-radius: 0;
-
-    &.messages--status {
-      border-color: coloring('green');
-      background-color: coloring('green-light');
-      color: coloring('gray');
-
-      &::before {
-        color: coloring('green');
-      }
-    }
-
-    &.messages--warning {
-      border-color: coloring('orange');
-      background-color: coloring('orange-light');
-      color: coloring('gray');
-
-      &::before {
-        color: coloring('orange');
-      }
-    }
-
-    &.messages--error {
-      border-color: coloring('red');
-      background-color: coloring('red-light');
-      color: coloring('gray');
-
-      &::before {
-        color: coloring('red');
-      }
-    }
   }
 
   // Minimal table styling so at least the colors are distinguishable.
@@ -73,6 +42,21 @@
     }
 
     &.error {
+      background-color: #fee7eb;
+    }
+  }
+
+  // Add colors to the style selector for table cell styles.
+  &[class~='ck-style-grid__button__preview'] {
+    div[class~='success'] {
+      background-color: #ebf7ea;
+    }
+
+    div[class~='warning'] {
+      background-color: #feeee6;
+    }
+
+    div[class~='error'] {
       background-color: #fee7eb;
     }
   }

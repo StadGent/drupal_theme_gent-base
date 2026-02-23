@@ -220,7 +220,13 @@ Button mixins (all, or use the specific files who are needed):
 
 ```scss
 -@use 'gent_styleguide/button-mixins' as *;
-+@use 'styleguide/sass/21-atoms/button/button' as *;
++@use 'styleguide/sass/21-atoms/button/button-styling' as *;
+// If needed, also the following:
++@use 'styleguide/sass/21-atoms/button/css/button-alert';
++@use 'styleguide/sass/21-atoms/button/css/button-primary';
++@use 'styleguide/sass/21-atoms/button/css/button-secondary';
++@use 'styleguide/sass/21-atoms/button/css/button-secondary-alert';
++@use 'styleguide/sass/21-atoms/button/css/button-success';
 ```
 
 ### 10) Commit changes

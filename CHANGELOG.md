@@ -2,6 +2,22 @@
 
 All Notable changes to `StadGent/drupal_theme_gent-base`.
 
+## [7.3.0] Unreleased
+
+Gent Base now provides its own ckeditor5.css file which can be
+included in the extending theme's info file. See starterkit for
+more info.
+Remove any empty ckeditor sass form your extending theme and add
+the following to the info yml:
+```
+ckeditor5-stylesheets:
+- /themes/contrib/gent_base/build/css/ckeditor5.css
+```
+
+### Added
+
+- SGD8-3083: Add CKeditor5 styling.
+
 ## [7.2.0]
 
 Update gent_styleguide to 7.2.x. See [UPDATE.md](./UPDATE.md) for update

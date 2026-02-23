@@ -6,7 +6,7 @@ https://stijlgids.stad.gent/
 [![Maintainability](https://api.codeclimate.com/v1/badges/090c45ffd08a2370cd0d/maintainability)](https://codeclimate.com/repos/5a5c70e7f5f0e502a80009f1/maintainability)
 
 It is included in the root of this theme inside the `styleguide` directory.
-This is also the place where the style guide code gets maintained to be 
+This is also the place where the style guide code gets maintained to be
 published as an NPM package.
 
 ## Dependencies
@@ -17,7 +17,7 @@ published as an NPM package.
 
   Copy the typography_defaults.yml from the gent_base theme root to your custom
   theme root and adjust if needed.
-  
+
   See [typography settings](https://github.com/mundschenk-at/php-typography/blob/main/src/class-settings.php)
   for all possible 'set' options.
 
@@ -75,8 +75,7 @@ Done!
 
 ### CKEditor in-editor styling support
 
-In combination with the ckeditor5.scss in your subtheme source/sass dir,
-also add the following hook to a custom module in order to make the in-editor
+Also add the following hook to a custom module in order to make the in-editor
 styling work correctly:
 
 ```
@@ -92,12 +91,48 @@ function MYMODULE_preprocess_html(array &$variables) {
 }
 ```
 
-Don't forget to add the following to your subtheme info yml file:
+In your subtheme info yml file, load the base CKEditor stylesheet:
 
 ```
 ckeditor5-stylesheets:
-  - build/css/ckeditor5.css
+  - /themes/contrib/gent_base/build/css/ckeditor5.css
 ```
+
+Optional: add project-specific overrides:
+
+```
+ckeditor5-stylesheets:
+  - /themes/contrib/gent_base/build/css/ckeditor5.css
+  - build/css/ckeditor5.project.css
+```
+
+### CKEditor CSS build flow
+
+This section documents the CKEditor setup used by `gent_base` and subthemes.
+
+1. Source of base CKEditor styles:
+`/themes/contrib/gent_base/source/sass/ckeditor/_ckeditor5.scss`
+and
+`/themes/contrib/gent_base/source/sass/ckeditor/_ckeditor-content.scss`.
+2. Entry file compiled by gulp:
+`/themes/contrib/gent_base/source/sass/ckeditor5.scss`.
+3. Build task:
+`styles:ckeditor` in
+`/themes/contrib/gent_base/source/gulpfile.js`.
+4. CK-specific post-processing (selector rewrite + rem scaling):
+`normalizeCkeditorCss()` in
+`/themes/contrib/gent_base/source/gulp/ckeditor-css.js`.
+5. Output CSS used by subthemes:
+`/themes/contrib/gent_base/build/css/ckeditor5.css`.
+6. Optional subtheme overrides:
+Create `source/sass/ckeditor5.project.scss` in your subtheme and include
+`build/css/ckeditor5.project.css` after the base file in
+`ckeditor5-stylesheets`.
+
+Notes:
+- The base file should contain the reusable default behavior.
+- Keep subtheme overrides small and project-specific.
+- If no overrides are needed, omit `ckeditor5.project.scss` entirely.
 
 ## Theming considerations
 
