@@ -146,14 +146,14 @@
       {% if not in_fieldset %}
     </div>
     {% endif %}
-    <div class="form-item-column">
-      {% if errors %}
-        <div class="field-message error" role="alert">
-          {{ errors }}
-          <div class="accolade"></div>
-        </div>
-      {% endif %}
-    </div>
+    {% if errors %}
+      <div class="form-item-column">
+          <div class="field-message error" role="alert">
+            {{ errors }}
+            <div class="accolade"></div>
+          </div>
+      </div>
+    {% endif %}
 
     {% if not in_fieldset %}
   </div>
