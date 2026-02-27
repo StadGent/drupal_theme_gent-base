@@ -2,7 +2,7 @@
 
 All Notable changes to `StadGent/drupal_theme_gent-base`.
 
-## [7.3.0] Unreleased
+## [7.3.0]
 
 Gent Base now provides its own ckeditor5.css file which can be
 included in the extending theme's info file. See starterkit for
@@ -17,6 +17,10 @@ ckeditor5-stylesheets:
 ### Added
 
 - SGD8-3083: Add CKeditor5 styling.
+
+### Fixed
+
+- SGD8-3071: Fix yellow tags spacing on vesta pages.
 
 ## [7.2.0]
 
@@ -955,6 +959,7 @@ See Github releases for more information.
 
 * **Updated to gent_styleguide version 2.6.13**
 
+[7.3.0]: https://github.com/StadGent/drupal_theme_gent-base/compare/7.2.0...7.3.0
 [7.2.0]: https://github.com/StadGent/drupal_theme_gent-base/compare/7.1.1...7.2.0
 [7.1.1]: https://github.com/StadGent/drupal_theme_gent-base/compare/7.1.0...7.1.1
 [7.1.0]: https://github.com/StadGent/drupal_theme_gent-base/compare/7.0.6...7.1.0
