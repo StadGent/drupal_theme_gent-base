@@ -1,0 +1,49 @@
+{#
+/**
+ * @file vesta.html.twig
+ * Default theme implementation to present Vesta data.
+ *
+ * This template is used when viewing Vesta pages.
+ *
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ * - attributes: HTML attributes for the container element.
+ *
+ * @see template_preprocess_vesta()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% set classes = [
+  'teaser-content'
+] %}
+
+<article{{ attributes.addClass(classes) }}>
+  <div class="content__second">
+    <h3 id="{{ id }}">{{ name }}</h3>
+
+    {{ content.field_opening_hours }}
+
+    <p>
+      {% if address|render %}
+        {{ address.street }} {{ address.houseNumber }}{{ address.box ? '/' ~ address.box }},
+        {{ address.postalCode }} {{ address.city }}
+      {% endif %}
+    </p>
+
+    {% if contactnumbers.landlines|length > 0 %}
+      {% set phone = contactnumbers.landlines|first.value %}
+      <ul class="teaser-links">
+        <li><a href="tel:{{ phone|replace({' ': ''}) }}"
+               class="no-icon">{{ phone }}</a></li>
+      </ul>
+    {% endif %}
+
+    <a href="{{ url }}" class="read-more standalone-link"
+       aria-labelledby="{{ id }}">{{ 'More info and opening hours'|t }}</a>
+  </div>
+</article>
+<a href="{{ url }}" class="teaser-overlay-link" tabindex="-1"
+   aria-hidden="true">{{ name }}</a>

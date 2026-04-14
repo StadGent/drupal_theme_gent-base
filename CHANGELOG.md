@@ -2,6 +2,11 @@
 
 All Notable changes to `StadGent/drupal_theme_gent-base`.
 
+## [Unreleased]
+
+### Updated
+- SGD8-3068: Update vesta contact teaser.
+
 ## [7.3.0]
 
 Gent Base now provides its own ckeditor5.css file which can be
