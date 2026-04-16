@@ -2,7 +2,7 @@
 
 All Notable changes to `StadGent/drupal_theme_gent-base`.
 
-## [Unreleased]
+## [7.3.1]
 
 ### Updated
 - SGD8-3068: Update vesta contact teaser.
@@ -964,6 +964,7 @@ See Github releases for more information.
 
 * **Updated to gent_styleguide version 2.6.13**
 
+[7.3.1]: https://github.com/StadGent/drupal_theme_gent-base/compare/7.3.0...7.3.1
 [7.3.0]: https://github.com/StadGent/drupal_theme_gent-base/compare/7.2.0...7.3.0
 [7.2.0]: https://github.com/StadGent/drupal_theme_gent-base/compare/7.1.1...7.2.0
 [7.1.1]: https://github.com/StadGent/drupal_theme_gent-base/compare/7.1.0...7.1.1
