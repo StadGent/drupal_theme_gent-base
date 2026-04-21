@@ -1,0 +1,28 @@
+@use '../../00-settings/settings' as *;
+@use '../../00-mixins/mixins' as *;
+
+button.standalone-link {
+  @include semi-bold-text;
+  @include theme('color', 'color-tertiary', 'link-color');
+
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: 400;
+  margin-left: 0;
+  padding-left: 0;
+  border: 0;
+  position: relative;
+  text-decoration: none;
+  word-wrap: break-word;
+  word-break: break-word;
+  border-bottom: 2px solid;
+  background: none;
+  background-size: 0 100%;
+  transition: background-image 1s, color 1s;
+
+  &:focus,
+  &:hover {
+    @include link-background('color-primary', 'color-primary-light', 'link-underline-color', 'link-hover-background');
+    background-size: 100% 100%;
+  }
+}
