@@ -26,6 +26,38 @@
         return node;
       };
 
+      // SGD8-3103: Build a normalized grid that respects colspan
+      const buildGrid = (rows) => {
+        const grid = [];
+
+        rows.forEach((row, rowIndex) => {
+          if (!grid[rowIndex]) grid[rowIndex] = [];
+
+          let colIndex = 0;
+
+          row.querySelectorAll('th, td').forEach((cell) => {
+            // Skip already filled slots
+            while (grid[rowIndex][colIndex]) {
+              colIndex++;
+            }
+
+            const colspan = parseInt(cell.getAttribute('colspan')) || 1;
+
+            for (let i = 0; i < colspan; i++) {
+              grid[rowIndex][colIndex + i] = {
+                el: i === 0 ? cell.cloneNode(true) : null,
+                rowIndex,
+                isPlaceholder: i !== 0
+              };
+            }
+
+            colIndex += colspan;
+          });
+        });
+
+        return grid;
+      };
+
       tables.forEach((table) => {
         const rows = Array.from(table.querySelectorAll('tr'));
         if (rows.length === 0 || rows[0].children.length < 2) {
@@ -43,14 +75,16 @@
         wrapper.appendChild(tableWrapper);
         tableWrapper.appendChild(table);
 
-        // Group cells per column.
+        // SGD8-3103: Build columns via normalized grid
+        const grid = buildGrid(rows);
         const columns = [];
-        rows.forEach((row, rowIndex) => {
-          row.querySelectorAll('th, td').forEach((cell, colIndex) => {
+
+        grid.forEach((row) => {
+          row.forEach((cell, colIndex) => {
             if (!columns[colIndex]) {
               columns[colIndex] = [];
             }
-            columns[colIndex].push({el: cell.cloneNode(true), rowIndex});
+            columns[colIndex].push(cell);
           });
         });
 
@@ -64,9 +98,18 @@
         const fixedColumn = document.createElement('div');
         fixedColumn.classList.add('table-swiper__fixed-column');
         const fixedDl = document.createElement('dl');
-        columns[0].forEach(({el, rowIndex}) => {
-          fixedDl.appendChild(createCellRow(el, rowIndex));
+
+        columns[0].forEach(({el, rowIndex, isPlaceholder}) => {
+          if (isPlaceholder) {
+            const empty = document.createElement('dd');
+            empty.classList.add('cell-row', 'is-empty');
+            empty.dataset.rowIndex = rowIndex;
+            fixedDl.appendChild(empty);
+          } else {
+            fixedDl.appendChild(createCellRow(el, rowIndex));
+          }
         });
+
         fixedColumn.appendChild(fixedDl);
         swiperContainer.appendChild(fixedColumn);
 
@@ -80,9 +123,18 @@
           const slide = document.createElement('div');
           slide.classList.add('swiper-slide');
           const dl = document.createElement('dl');
-          column.forEach(({el, rowIndex}) => {
-            dl.appendChild(createCellRow(el, rowIndex));
+
+          column.forEach(({el, rowIndex, isPlaceholder}) => {
+            if (isPlaceholder) {
+              const empty = document.createElement('dd');
+              empty.classList.add('cell-row', 'is-empty');
+              empty.dataset.rowIndex = rowIndex;
+              dl.appendChild(empty);
+            } else {
+              dl.appendChild(createCellRow(el, rowIndex));
+            }
           });
+
           slide.appendChild(dl);
           swiperInner.appendChild(slide);
         });
