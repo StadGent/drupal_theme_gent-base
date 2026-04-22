@@ -1,7 +1,7 @@
 {
   "type": "module",
   "name": "gent_base",
-  "version": "7.3.3",
+  "version": "7.3.4",
   "description": "Gent Base contrib theme for Drupal 11.",
   "authors": [
     "Gert-Jan Meire <gertjan.meire@digipolis.gent>",

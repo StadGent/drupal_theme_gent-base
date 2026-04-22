@@ -2,11 +2,18 @@
 
 All Notable changes to `StadGent/drupal_theme_gent-base`.
 
+
 ## [Unreleased]
 
 ### Fixed
 
 - SGD8-3103: Fix table Swiper when table rows has colspan.
+
+## [7.3.4]
+
+### Fixed
+
+- SGD8-3097: Fix order of properties.
 
 ## [7.3.3]
 
@@ -23,6 +30,7 @@ All Notable changes to `StadGent/drupal_theme_gent-base`.
 ## [7.3.1]
 
 ### Updated
+  
 - SGD8-3068: Update vesta contact teaser.
 
 ## [7.3.0]
@@ -982,6 +990,7 @@ See Github releases for more information.
 
 * **Updated to gent_styleguide version 2.6.13**
 
+[7.3.4]: https://github.com/StadGent/drupal_theme_gent-base/compare/7.3.3...7.3.4
 [7.3.3]: https://github.com/StadGent/drupal_theme_gent-base/compare/7.3.2...7.3.3
 [7.3.2]: https://github.com/StadGent/drupal_theme_gent-base/compare/7.3.1...7.3.2
 [7.3.1]: https://github.com/StadGent/drupal_theme_gent-base/compare/7.3.0...7.3.1
