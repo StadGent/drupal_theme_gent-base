@@ -2,6 +2,13 @@
 
 All Notable changes to `StadGent/drupal_theme_gent-base`.
 
+
+## [Unreleased]
+
+### Fixed
+
+- SGD8-3103: Fix table Swiper when table rows has colspan.
+
 ## [7.3.4]
 
 ### Fixed
@@ -10,19 +17,20 @@ All Notable changes to `StadGent/drupal_theme_gent-base`.
 
 ## [7.3.3]
 
-### Fixed
+### Updated
 
 - SGD8-3097: Change renew link from <a> tag to <button> tag.
 
 ## [7.3.2]
 
-### Fixed
+### Updated
 
 - SGD8-3068: Update the style guide version
 
 ## [7.3.1]
 
 ### Updated
+  
 - SGD8-3068: Update vesta contact teaser.
 
 ## [7.3.0]
