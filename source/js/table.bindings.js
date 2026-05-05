@@ -31,7 +31,9 @@
         const grid = [];
 
         rows.forEach((row, rowIndex) => {
-          if (!grid[rowIndex]) grid[rowIndex] = [];
+          if (!grid[rowIndex]) {
+            grid[rowIndex] = [];
+          }
 
           let colIndex = 0;
 
@@ -105,7 +107,8 @@
             empty.classList.add('cell-row', 'is-empty');
             empty.dataset.rowIndex = rowIndex;
             fixedDl.appendChild(empty);
-          } else {
+          }
+          else {
             fixedDl.appendChild(createCellRow(el, rowIndex));
           }
         });
@@ -130,7 +133,8 @@
               empty.classList.add('cell-row', 'is-empty');
               empty.dataset.rowIndex = rowIndex;
               dl.appendChild(empty);
-            } else {
+            }
+            else {
               dl.appendChild(createCellRow(el, rowIndex));
             }
           });
