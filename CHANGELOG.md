@@ -3,11 +3,12 @@
 All Notable changes to `StadGent/drupal_theme_gent-base`.
 
 
-## [Unreleased]
+## [7.3.6]
 
 ### Fixed
 
 - SGD8-3103: Fix table Swiper when table rows has colspan.
+- SGD8-3103: Add has-empty-sibling class to none empty dd in dl.
 
 ## [7.3.4]
 
@@ -30,7 +31,7 @@ All Notable changes to `StadGent/drupal_theme_gent-base`.
 ## [7.3.1]
 
 ### Updated
-  
+
 - SGD8-3068: Update vesta contact teaser.
 
 ## [7.3.0]
@@ -990,6 +991,8 @@ See Github releases for more information.
 
 * **Updated to gent_styleguide version 2.6.13**
 
+[7.3.6]: https://github.com/StadGent/drupal_theme_gent-base/compare/7.3.5...7.3.6
+[7.3.5]: https://github.com/StadGent/drupal_theme_gent-base/compare/7.3.4...7.3.5
 [7.3.4]: https://github.com/StadGent/drupal_theme_gent-base/compare/7.3.3...7.3.4
 [7.3.3]: https://github.com/StadGent/drupal_theme_gent-base/compare/7.3.2...7.3.3
 [7.3.2]: https://github.com/StadGent/drupal_theme_gent-base/compare/7.3.1...7.3.2
