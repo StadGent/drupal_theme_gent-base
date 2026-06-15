@@ -114,3 +114,10 @@ breadcrumbs:
   dependencies:
     - core/jquery
     - core/once
+
+form-scale:
+  js:
+    source/js/form-scale-radios.js: { }
+  dependencies:
+    - core/jquery
+    - core/once

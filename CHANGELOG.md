@@ -2,6 +2,11 @@
 
 All Notable changes to `StadGent/drupal_theme_gent-base`.
 
+## [unreleased]
+
+## Updated
+
+- SGD8-2750: Update theme for form scale element.
 
 ## [7.3.6]
 
