@@ -2,6 +2,12 @@
 
 All Notable changes to `StadGent/drupal_theme_gent-base`.
 
+## [7.3.8]
+
+## Updated
+
+- SGD8-3177:Fix corrupt font files in style guide.
+
 ## [7.3.7]
 
 ## Updated
