@@ -29,6 +29,16 @@
     border-radius: 0;
   }
 
+  // Wide table.
+  figure.table table {
+    @include desktop {
+      &.wide {
+        width: 140%;
+        margin-left: -130px
+      }
+    }
+  }
+
   // Minimal table styling so at least the colors are distinguishable.
   th,
   tr,
