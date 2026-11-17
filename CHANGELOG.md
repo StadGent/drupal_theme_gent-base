@@ -3,6 +3,25 @@
 All Notable changes to `StadGent/drupal_theme_gent-base`.
 
 
+## [Unreleased]
+
+### Added
+
+- TTWEBTAKEN-537: Add Drupal 12 support.
+
+### Updated
+
+- TTWEBTAKEN-537: Replace removed `Request::get()` calls (Symfony 8).
+- TTWEBTAKEN-537: Register the `form_element_bare` initial preprocess in
+  `hook_theme()` instead of calling `template_preprocess_form_element()`.
+- TTWEBTAKEN-537: Replace deprecated `theme_get_setting()`, `hide()` and
+  `show()` calls.
+
+### Removed
+
+- TTWEBTAKEN-537: Drop support for Drupal 10 and Drupal 11 below 11.3.
+- TTWEBTAKEN-537: Drop support for PHP versions below 8.5.
+
 ## [7.3.9]
 
 ## Added

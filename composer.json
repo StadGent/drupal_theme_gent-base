@@ -10,12 +10,12 @@
     ],
     "homepage": "https://bitbucket.org/digipolisgent/drupal_theme_gent-base",
     "require": {
-        "php": "^8.3",
+        "php": "^8.5",
         "drupal/twig_typography": "^2.1"
     },
     "require-dev": {
         "digipolisgent/qa-drupal": "^4.0",
-        "drupal/core": "^10.4 || ^11.1",
+        "drupal/core": "^11.3 || ^12",
         "drupal/paragraphs": "^1.5",
         "gent-drupal/dg_vesta": "^4.0"
     },
@@ -43,7 +43,9 @@
         "allow-plugins": {
             "dealerdirect/phpcodesniffer-composer-installer": true,
             "ergebnis/composer-normalize": true,
-            "phpro/grumphp-shim": true
+            "phpro/grumphp-shim": true,
+            "symfony/runtime": true,
+            "drupal/core-composer-scaffold": false
         },
         "sort-packages": true
     },

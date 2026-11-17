@@ -8,6 +8,8 @@
 use Drupal\Component\Utility\Html;
 use Drupal\Core\Cache\CacheableMetadata;
 use Drupal\Core\Entity\ContentEntityInterface;
+use Drupal\Core\Extension\ThemeSettingsProvider;
+use Drupal\Core\Form\FormPreprocess;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Link;
 use Drupal\Core\Render\Element;
@@ -42,6 +44,7 @@ function gent_base_theme() {
     ],
     'form_element_bare' => [
       'render element' => 'element',
+      'initial preprocess' => FormPreprocess::class . ':preprocessFormElement',
     ],
   ];
 }
@@ -106,7 +109,7 @@ function gent_base_preprocess(&$variables, $hook) {
  * Implements hook_preprocess_page().
  */
 function gent_base_preprocess_page(&$variables) {
-  $route = \Drupal::request()->get('_route');
+  $route = \Drupal::request()->attributes->get('_route');
   if ($route !== 'entity.node.canonical') {
     $variables['attributes']['class'][] = 'overview-page';
     _gent_base_preprocess_page_content_region($variables);
@@ -121,7 +124,7 @@ function gent_base_preprocess_page(&$variables) {
  * Helper to add the hero display of the current node to the page header.
  */
 function gent_base_preprocess_page_hero_image(&$variables) {
-  $entity = \Drupal::request()->get('node');
+  $entity = \Drupal::request()->attributes->get('node');
   if (!$entity->access('view')) {
     return;
   }
@@ -185,12 +188,11 @@ function gent_base_preprocess_block__dg_newsletter(&$variables) {
  */
 function gent_base_preprocess_html(&$variables) {
   // Set theme color class. In gent_base v6, we only have a blue theme.
-  $color = (theme_get_setting('color_scheme')) ?
-    theme_get_setting('color_scheme') : 'blue';
+  $theme_settings = \Drupal::service(ThemeSettingsProvider::class);
+  $color = $theme_settings->getSetting('color_scheme') ?: 'blue';
   $variables['cs']['color'] = $color;
 
-  $hex = (theme_get_setting('color_scheme_hex')) ?
-    theme_get_setting('color_scheme_hex') : '005ba9';
+  $hex = $theme_settings->getSetting('color_scheme_hex') ?: '005ba9';
   $variables['cs']['hex'] = '#' . $hex;
 
   // Add unpublished body class.
@@ -432,7 +434,7 @@ function gent_base_preprocess_fieldset(&$variables) {
     $element['#information'] = reset($matches[1]);
     $element['#information'] = Markup::create($element['#information']);
   }
-  /** @phpstan-ignore-next-line */
+  // @phpstan-ignore-next-line
   if (isset($element['#information'])) {
     $variables['prefix'] = str_replace(reset($matches[0]), '', (string) $variables['prefix']);
   }
@@ -715,7 +717,7 @@ function gent_base_preprocess_file_widget_multiple(array &$variables) {
     $operations_elements = [];
     foreach (Element::children($widget) as $sub_key) {
       if (isset($widget[$sub_key]['#type']) && $widget[$sub_key]['#type'] == 'submit') {
-        hide($widget[$sub_key]);
+        $widget[$sub_key]['#printed'] = TRUE;
         $operations_elements[] = &$widget[$sub_key];
       }
     }
@@ -723,17 +725,17 @@ function gent_base_preprocess_file_widget_multiple(array &$variables) {
     // Delay rendering of the "Display" option and the weight selector, so that
     // each can be rendered later in its own column.
     if ($element['#display_field']) {
-      hide($widget['display']);
+      $widget['display']['#printed'] = TRUE;
     }
-    hide($widget['_weight']);
+    $widget['_weight']['#printed'] = TRUE;
 
     // Render everything else together in a column, without the normal wrappers.
     $widget['#theme_wrappers'] = [];
 
     // Show the buttons that had previously been marked as hidden in this
-    // preprocess function. We use show() to undo the earlier hide().
+    // preprocess function, undoing the earlier '#printed' flag.
     foreach (Element::children($operations_elements) as $sub_key) {
-      show($operations_elements[1]);
+      $operations_elements[1]['#printed'] = FALSE;
     }
 
     $row = [
@@ -953,7 +955,7 @@ function _gent_base_preprocess_content_header_classes(&$variables) {
   // Add secondary color class.
   if (in_array($node->getType(), ['event', 'news'])) {
     $classes[] = 'secondary';
-    /** @phpstan-ignore-next-line */
+    // @phpstan-ignore-next-line
     if (($key = array_search('primary', $classes)) !== FALSE) {
       unset($classes[$key]);
     }
@@ -1500,13 +1502,6 @@ function gent_base_preprocess_dg_maps_map(&$variables) {
     'img_base' => $pathResolver->getPath('gent_base') . '/source/img/',
     'legend_title' => t('View on the map'),
   ];
-}
-
-/**
- * Implements hook_preprocess_HOOK().
- */
-function gent_base_preprocess_form_element_bare(&$variables) {
-  template_preprocess_form_element($variables);
 }
 
 /**
