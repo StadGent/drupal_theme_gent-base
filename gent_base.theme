@@ -34,12 +34,6 @@ function gent_base_theme() {
     'gent_base_webform' => [
       'render element' => 'form',
     ],
-    'gent_base_file_upload' => [
-      'variables' => [
-        'picture_element' => NULL,
-        'picture_button' => NULL,
-      ],
-    ],
     'form_element_bare' => [
       'render element' => 'element',
     ],
@@ -432,7 +426,7 @@ function gent_base_preprocess_fieldset(&$variables) {
     $element['#information'] = reset($matches[1]);
     $element['#information'] = Markup::create($element['#information']);
   }
-  /** @phpstan-ignore-next-line */
+  // @phpstan-ignore-next-line
   if (isset($element['#information'])) {
     $variables['prefix'] = str_replace(reset($matches[0]), '', (string) $variables['prefix']);
   }
@@ -684,6 +678,9 @@ function gent_base_preprocess_media__document(&$variables) {
 /**
  * Prepares variables for multi file form widget templates.
  *
+ * Renders the previously uploaded files as a draggable table, so editors can
+ * reorder them with tabledrag.
+ *
  * Default template: file-widget-multiple.html.twig.
  *
  * @param array $variables
@@ -692,6 +689,25 @@ function gent_base_preprocess_media__document(&$variables) {
  */
 function gent_base_preprocess_file_widget_multiple(array &$variables) {
   $element = $variables['element'];
+
+  // Special ID and classes for draggable tables.
+  $weight_class = $element['#id'] . '-weight';
+  $table_id = $element['#id'] . '-table';
+
+  // Build up the table headers.
+  $headers = [];
+  $headers[] = t('File information');
+  if ($element['#display_field']) {
+    $headers[] = [
+      'data' => t('Display'),
+      'class' => ['checkbox'],
+    ];
+  }
+  $headers[] = t('Weight');
+  $headers[] = [
+    'data' => t('Operations'),
+    'class' => ['file-operations'],
+  ];
 
   // Get our list of widgets in order (needed when the form comes back after
   // preview or failed validation).
@@ -702,7 +718,7 @@ function gent_base_preprocess_file_widget_multiple(array &$variables) {
   usort($widgets, '_field_multiple_value_form_sort_helper');
 
   $rows = [];
-  foreach ($widgets as $key => &$widget) {
+  foreach ($widgets as &$widget) {
     // Save the uploading row for last.
     if (empty($widget['#files'])) {
       $widget['#title'] = $element['#file_upload_title'];
@@ -710,54 +726,100 @@ function gent_base_preprocess_file_widget_multiple(array &$variables) {
       continue;
     }
 
-    // Delay rendering of the buttons, so that they can be rendered later in the
-    // "operations" column.
-    $operations_elements = [];
-    foreach (Element::children($widget) as $sub_key) {
-      if (isset($widget[$sub_key]['#type']) && $widget[$sub_key]['#type'] == 'submit') {
-        hide($widget[$sub_key]);
-        $operations_elements[] = &$widget[$sub_key];
+    // Core's preprocess already rendered (or hid) the widget, which marks it
+    // as printed. Work on a copy that can be rendered again inside the table,
+    // while the original stays printed so it is not output twice.
+    $row_widget = $widget;
+    _gent_base_reset_printed($row_widget);
+    $widget['#printed'] = TRUE;
+
+    // Split off the buttons, the "Display" option and the weight selector so
+    // each can be rendered in its own column.
+    $operations = [];
+    foreach (Element::children($row_widget) as $sub_key) {
+      if (isset($row_widget[$sub_key]['#type']) && $row_widget[$sub_key]['#type'] == 'submit') {
+        $operations[$sub_key] = $row_widget[$sub_key];
+        unset($row_widget[$sub_key]);
       }
     }
 
-    // Delay rendering of the "Display" option and the weight selector, so that
-    // each can be rendered later in its own column.
+    $display = NULL;
+    if ($element['#display_field'] && isset($row_widget['display'])) {
+      $display = $row_widget['display'];
+      unset($display['#title'], $row_widget['display']);
+    }
+
+    $weight = $row_widget['_weight'];
+    $weight['#attributes']['class'] = [$weight_class];
+    unset($row_widget['_weight']);
+
+    // Render everything else together in a column, without the normal
+    // wrappers.
+    $row_widget['#theme_wrappers'] = [];
+
+    $row = [];
+    $row[] = [
+      'data' => $row_widget,
+      'class' => ['file-information'],
+    ];
     if ($element['#display_field']) {
-      hide($widget['display']);
+      $row[] = [
+        'data' => $display ?? '',
+        'class' => ['checkbox'],
+      ];
     }
-    hide($widget['_weight']);
-
-    // Render everything else together in a column, without the normal wrappers.
-    $widget['#theme_wrappers'] = [];
-
-    // Show the buttons that had previously been marked as hidden in this
-    // preprocess function. We use show() to undo the earlier hide().
-    foreach (Element::children($operations_elements) as $sub_key) {
-      show($operations_elements[1]);
-    }
-
-    $row = [
-      '#theme' => 'gent_base_file_upload',
-      '#picture_element' => $widget,
-      '#picture_button' => $operations_elements,
+    $row[] = [
+      'data' => $weight,
+    ];
+    $row[] = [
+      'data' => $operations,
+      'class' => ['file-operations'],
     ];
 
     $rows[] = [
-      $row,
+      'data' => $row,
+      'class' => isset($widget['#attributes']['class']) ? array_merge($widget['#attributes']['class'], ['draggable']) : ['draggable'],
     ];
   }
+  unset($widget);
 
   $variables['table'] = [
-    '#theme' => 'item_list',
-    '#list_type' => 'ul',
-    '#title' => NULL,
-    '#items' => $rows,
+    '#type' => 'table',
+    '#header' => $headers,
+    '#rows' => $rows,
     '#attributes' => [
+      'id' => $table_id,
       'class' => [
-        'inline',
+        'field-multiple-table',
+        'table-file-multiple',
       ],
     ],
+    '#tabledrag' => [
+      [
+        'action' => 'order',
+        'relationship' => 'sibling',
+        'group' => $weight_class,
+      ],
+    ],
+    '#access' => !empty($rows),
   ];
+
+  $variables['element'] = $element;
+}
+
+/**
+ * Recursively clears the '#printed' flag on a render array.
+ *
+ * @param array $element
+ *   The render array to reset.
+ */
+function _gent_base_reset_printed(array &$element) {
+  unset($element['#printed']);
+  foreach (Element::children($element) as $key) {
+    if (is_array($element[$key])) {
+      _gent_base_reset_printed($element[$key]);
+    }
+  }
 }
 
 /**
@@ -953,7 +1015,7 @@ function _gent_base_preprocess_content_header_classes(&$variables) {
   // Add secondary color class.
   if (in_array($node->getType(), ['event', 'news'])) {
     $classes[] = 'secondary';
-    /** @phpstan-ignore-next-line */
+    // @phpstan-ignore-next-line
     if (($key = array_search('primary', $classes)) !== FALSE) {
       unset($classes[$key]);
     }

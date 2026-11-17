@@ -1,5 +1,6 @@
 @use 'gent_base/source/sass/00-settings/settings' as *;
 @use 'gent_base/source/sass/00-mixins/mixins' as *;
+@use 'styleguide/sass/11-base/fonts/icons' as *;
 
 .form-managed-file {
   .image-widget-data {
@@ -10,7 +11,7 @@
 }
 
 .field--type-image {
-  .tag.filter input.button {
+  .table-file-multiple .file-operations input.button {
     [class*='cs--'] & {
       $image-icon-svg: svg-icon('cross', coloring('gray'), 16, 16);
 
@@ -28,12 +29,145 @@
     }
   }
 
-  .item-list {
-    width: 50%;
+  .table-file-multiple {
+    width: 100%;
     margin-bottom: $gutter-width;
 
-    li {
-      margin-bottom: .4rem;
+    .draggable td {
+      padding: .5rem 0;
+      vertical-align: middle;
+    }
+
+    .file-information {
+      width: 100%;
+    }
+
+    .file-operations {
+      width: 1%;
+      padding-left: 1rem;
+      text-align: right;
+      white-space: nowrap;
+      hyphens: none;
+    }
+
+    // Drag handle: inline next to the file preview, without link styling.
+    [class*='cs--'] & a.tabledrag-handle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2rem;
+      height: 2.5rem;
+      margin: 0 .5rem 0 0;
+      float: none;
+      border: 0;
+      background-image: none;
+      vertical-align: middle;
+
+      .handle {
+        width: 1rem;
+        height: 1rem;
+        margin: 0;
+        padding: 0;
+        background-position: center;
+        background-size: contain;
+      }
+    }
+
+    .image-widget {
+      display: inline-block;
+      width: calc(100% - 2.5rem);
+      vertical-align: middle;
+    }
+
+    .image-widget-data {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: .5rem 1rem;
+
+      figure {
+        display: flex;
+        flex: 0 0 auto;
+        align-items: center;
+        justify-content: center;
+        order: -2;
+        width: 100px;
+        height: 100px;
+        margin: 0;
+
+        img {
+          width: auto;
+          max-width: 100%;
+          height: auto;
+          max-height: 100%;
+          margin: 0;
+        }
+      }
+
+      // Keep the rotate button (simple_image_rotate) right after the preview:
+      // it is output before or after the file link, depending on the item.
+      > [id$='-rotate-button'] {
+        order: -1;
+      }
+
+      > div {
+        min-width: 0;
+        overflow-wrap: anywhere;
+      }
+    }
+
+    // Icon-only rotate button (simple_image_rotate).
+    [class*='cs--'] & button.rotate-icon {
+      @include icon(refresh, 'before');
+
+      display: block;
+      position: relative;
+      top: auto;
+      left: auto;
+      width: 2.5rem;
+      height: 2.5rem;
+      min-height: 0;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      transform: none;
+      border: 0;
+      background: none;
+      box-shadow: none;
+      font-size: 1rem;
+      text-indent: -10000px;
+      white-space: nowrap;
+
+      &::before {
+        display: flex;
+        position: absolute;
+        inset: 0;
+        align-items: center;
+        justify-content: center;
+        border: 0;
+        font-size: 1.5rem;
+        text-indent: 0;
+      }
+
+      &:hover,
+      &:focus {
+        border: 0;
+        background: none;
+      }
+
+      &:hover::before {
+        color: coloring('blue');
+      }
+
+      &:focus {
+        outline: none;
+      }
+
+      &:focus::before {
+        outline: 2px solid coloring('gray');
+        outline-offset: -2px;
+        color: coloring('blue');
+      }
     }
   }
 }

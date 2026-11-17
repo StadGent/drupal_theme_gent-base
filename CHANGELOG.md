@@ -3,6 +3,13 @@
 All Notable changes to `StadGent/drupal_theme_gent-base`.
 
 
+## [Unreleased]
+
+## Updated
+
+- DTGB-929: Render the multiple file widget as a draggable table so files
+  can be sorted.
+
 ## [7.3.9]
 
 ## Added
