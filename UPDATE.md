@@ -3,6 +3,23 @@
 This guide describes how to upgrade your project to a newer version of the
 `gent_base` theme.
 
+## Upgrade from `7.x` to `8.x`
+
+`8.x` adds Drupal 12 support. It requires Drupal `^11.3 || ^12` and PHP
+`^8.5`, so update your project's PHP version and Drupal core first.
+
+```shell
+composer require gent-drupal/gent_base:^8.0
+```
+
+If your subtheme calls `template_preprocess_form_element()`, replace it: it
+is removed in Drupal 12. Register the initial preprocess in `hook_theme()`
+instead:
+
+```php
+'initial preprocess' => FormPreprocess::class . ':preprocessFormElement',
+```
+
 ## Upgrade from `7.x` to `7.2.x`
 
 From `7.2.x` onwards, the styleguide no longer uses the deprecated `sass-lint`

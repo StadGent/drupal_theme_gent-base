@@ -5,6 +5,7 @@
  * Theme settings of the Gent Base theme.
  */
 
+use Drupal\Core\Extension\ThemeSettingsProvider;
 use Drupal\Core\Form\FormStateInterface;
 
 /**
@@ -26,7 +27,7 @@ function gent_base_form_system_theme_settings_alter(&$form, FormStateInterface $
   $form['gent_base']['color_scheme'] = [
     '#type' => 'textfield',
     '#title' => t("Style guide color scheme class"),
-    '#default_value' => theme_get_setting('color_scheme'),
+    '#default_value' => \Drupal::service(ThemeSettingsProvider::class)->getSetting('color_scheme'),
     '#field_prefix' => 'cs--',
     '#description' => t("Fill in the color scheme class to be used in your project, leave empty for the default color scheme."),
   ];
@@ -34,7 +35,7 @@ function gent_base_form_system_theme_settings_alter(&$form, FormStateInterface $
   $form['gent_base']['color_scheme_hex'] = [
     '#type' => 'textfield',
     '#title' => t("Style guide color scheme primary HEX color"),
-    '#default_value' => theme_get_setting('color_scheme_hex'),
+    '#default_value' => \Drupal::service(ThemeSettingsProvider::class)->getSetting('color_scheme_hex'),
     '#field_prefix' => '#',
     '#description' => t("Fill in the color scheme primary HEX color to be used in your project, leave empty for the default color scheme. This setting is only used for displaying the favicon correctly on Android + Windows phones and Apple's Touch Bar enabled computers."),
   ];

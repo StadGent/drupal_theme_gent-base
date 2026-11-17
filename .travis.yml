@@ -2,15 +2,15 @@ dist: jammy
 language: php
 
 php:
-  - 8.3
+  - 8.5
 
 node_js:
   - "22"
 
 env:
   matrix:
-    - DRUPAL=10.4 PHPUNIT=9
-    - DRUPAL=11 PHPUNIT=10
+    - DRUPAL=11 PHPUNIT=11
+    - DRUPAL=12 PHPUNIT=11
 
 jobs:
   fast_finish: true
